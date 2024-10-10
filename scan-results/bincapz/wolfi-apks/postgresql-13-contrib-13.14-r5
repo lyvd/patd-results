@@ -1,0 +1,192 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/include/postgresql/13/server/extension/cube/cubedata.h [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE        
+-----------------------------------------------------------------
+MED   fs/file/times/set  change file timestamps  touch directly  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/include/postgresql/13/server/extension/hstore/hstore.h [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE        
+-----------------------------------------------------------------
+MED   fs/file/times/set  change file timestamps  touch directly  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/include/postgresql/13/server/extension/ltree/ltree.h [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE        
+-----------------------------------------------------------------
+MED   fs/file/times/set  change file timestamps  touch directly  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/adminpack.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE    
+-----------------------------------------------------------------------
+LOW   fs/file/delete        deletes files                  unlink      
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/dblink.so [✅ LOW]
+-----------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE                  
+-----------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  PQconnectionUsedPassword  
+                                                   not request a password    
+                                                   password is required      
+-----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/lo.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/passwordcheck.so [✅ LOW]
+-----------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE                  
+-----------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  password is too short     
+                                                   passwordcheck             
+                                                   prev_check_password_hook  
+-----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/pg_prewarm.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/pg_stat_statements.so [✅ LOW]
+--------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                            EVIDENCE   
+--------------------------------------------------------------------------
+LOW   fs/file/delete    deletes files                          unlink     
+LOW   fs/file/truncate  truncate a file to a specified length  ftruncate  
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/pgcrypto.so [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                  EVIDENCE                      
+--------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2      Works with bzip2 files                       bzip2                         
+LOW   crypto/aes             Supports AES (Advanced Encryption Standard)  aes_256_cbc                   
+LOW   encoding/base64        Supports base64 encoded strings              base64                        
+LOW   ref/words/password     references a 'password'                      Need password for secret key  
+MED   evasion/base64/decode  decode base64 strings                        base64_decode                 
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/pgstattuple.so [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY      DESCRIPTION                      EVIDENCE  
+----------------------------------------------------------
+MED   net/ssh  Uses SSH (secure shell) service  SSH       
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/postgres_fdw.so [✅ LOW]
+--------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE                           
+--------------------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  PQconnectionUsedPassword           
+                                                   UserMappingPasswordRequired        
+                                                   be changed or password_required    
+                                                   not request a password             
+                                                   password is required               
+                                                   with the password_required option  
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/refint.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/tablefunc.so [⚠️ MEDIUM]
+------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                         EVIDENCE  
+------------------------------------------------------------------------
+LOW   random/insecure     generate random numbers insecurely  rand      
+MED   net/socket/connect  initiate a connection on a socket   connect   
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/test_decoding.so [✅ LOW]
+-----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                
+-----------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  OutputPluginWrite       
+                                               _PG_output_plugin_init  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/tsm_system_rows.so [⚠️ MEDIUM]
+--------------------------------------------------------------
+RISK  KEY                 DESCRIPTION               EVIDENCE  
+--------------------------------------------------------------
+MED   exec/shell_command  execute a shell command   system    
+MED   shell/exec          executes a shell command  system    
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/lib/postgresql13/tsm_system_time.so [⚠️ MEDIUM]
+--------------------------------------------------------------
+RISK  KEY                 DESCRIPTION               EVIDENCE  
+--------------------------------------------------------------
+MED   exec/shell_command  execute a shell command   system    
+MED   shell/exec          executes a shell command  system    
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/libexec/postgresql13/oid2name [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                     
+----------------------------------------------------------------------------------------
+LOW   ref/path/etc          path reference within /etc     /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/  
+LOW   ref/words/password    references a 'password'        Password                     
+                                                           password                     
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                   
+MED   ref/path/dev          path reference within /dev     /dev/tty                     
+----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/libexec/postgresql13/pg_standby [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                            EVIDENCE                     
+------------------------------------------------------------------------------------------------
+LOW   fd/multiplex          monitor multiple file descriptors      select                       
+LOW   fs/file/delete        deletes files                          unlink                       
+LOW   fs/file/truncate      truncate a file to a specified length  ftruncate                    
+LOW   ref/path/etc          path reference within /etc             /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs           https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases          postgresql                   
+MED   exec/shell_command    execute a shell command                system                       
+MED   fs/file/copy          copy files using cp                    cp                           
+MED   shell/exec            executes a shell command               system                       
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /usr/libexec/postgresql13/vacuumlo [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                     
+----------------------------------------------------------------------------------------
+LOW   env/TEMP              tmpdir                         TEMP                         
+                                                           getenv                       
+LOW   fs/file/delete        deletes files                  unlink                       
+LOW   ref/path/etc          path reference within /etc     /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/  
+LOW   ref/words/password    references a 'password'        Password                     
+                                                           force password prompt        
+                                                           have_password                
+                                                           no-password                  
+                                                           prompt for password          
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                   
+MED   ref/path/dev          path reference within /dev     /dev/tty                     
+----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-13-contrib-13.14-r5.apk ∴ /var/lib/db/sbom/postgresql-13-contrib-13.14-r5.spdx.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://spdx.org/spdxdocs/chainguard/melange/6b114b34da72…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+MED   net/download          download files                 downloadLocation                                            
+-----------------------------------------------------------------------------------------------------------------------
+

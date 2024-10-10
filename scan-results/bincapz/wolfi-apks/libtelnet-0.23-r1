@@ -1,0 +1,76 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libtelnet-0.23-r1.apk ∴ /usr/bin/telnet-chatd [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE        
+------------------------------------------------------------------------------------------
+LOW   net/socket/listen   listen on a socket                              accept          
+                                                                          listen          
+                                                                          socket          
+LOW   net/socket/receive  receive a message to a socket                   recv            
+                                                                          socket          
+LOW   net/socket/send     send a message to a socket                      _send           
+MED   ref/path/relative   references and possibly executes relative path  ./telnet-chatd  
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libtelnet-0.23-r1.apk ∴ /usr/bin/telnet-client [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE         
+-------------------------------------------------------------------------------------------
+LOW   env/TERM            Look up or override terminal settings           TERM             
+LOW   net/hostport/parse  Network address and service translation         freeaddrinfo     
+                                                                          getaddrinfo      
+LOW   net/socket/receive  receive a message to a socket                   recv             
+                                                                          socket           
+LOW   net/socket/send     send a message to a socket                      send             
+                                                                          socket           
+MED   net/socket/connect  initiate a connection on a socket               connect          
+MED   ref/path/relative   references and possibly executes relative path  ./telnet-client  
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libtelnet-0.23-r1.apk ∴ /usr/bin/telnet-proxy [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE        
+------------------------------------------------------------------------------------------
+LOW   net/hostport/parse  Network address and service translation         freeaddrinfo    
+                                                                          getaddrinfo     
+LOW   net/socket/listen   listen on a socket                              accept          
+                                                                          listen          
+                                                                          socket          
+LOW   net/socket/receive  receive a message to a socket                   recv            
+                                                                          socket          
+LOW   net/socket/send     send a message to a socket                      send            
+                                                                          socket          
+MED   net/socket/connect  initiate a connection on a socket               connect         
+MED   ref/path/relative   references and possibly executes relative path  ./telnet-proxy  
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libtelnet-0.23-r1.apk ∴ /usr/include/libtelnet.h [✅ LOW]
+------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                    EVIDENCE                               
+------------------------------------------------------------------------------------------------
+LOW   net/socket/receive  receive a message to a socket  recv                                   
+                                                         socket                                 
+LOW   net/socket/send     send a message to a socket     send                                   
+                                                         socket                                 
+LOW   ref/site/url        contains embedded HTTP URLs    http://www.faqs.org/rfcs/rfc1091.html  
+                                                         http://www.faqs.org/rfcs/rfc1143.html  
+                                                         http://www.faqs.org/rfcs/rfc1408.html  
+                                                         http://www.faqs.org/rfcs/rfc1572.html  
+                                                         http://www.faqs.org/rfcs/rfc854.html   
+                                                         http://www.faqs.org/rfcs/rfc855.html   
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libtelnet-0.23-r1.apk ∴ /usr/lib/libtelnet.so.2.0.0 [✅ LOW]
+-------------------------------------------------------------
+RISK  KEY              DESCRIPTION                 EVIDENCE  
+-------------------------------------------------------------
+LOW   net/socket/send  send a message to a socket  _send     
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libtelnet-0.23-r1.apk ∴ /var/lib/db/sbom/libtelnet-0.23-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/655e0ce55620…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

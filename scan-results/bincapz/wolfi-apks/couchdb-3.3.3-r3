@@ -1,0 +1,1050 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/bin/couchdb [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   fs/link/read       read value of a symbolic link                   readlink                                    
+LOW   process/chdir      changes working directory                       cd "${1                                     
+                                                                         cd $                                        
+LOW   ref/path/etc       path reference within /etc                      /etc/vm.args                                
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./bin                                       
+                                                                         ./share                                     
+MED   shell/exec         executes shell                                  /bin/sh                                     
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/bin/couchjs [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                  
+--------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/apache/couchdb/issues  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/bin/remsh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                    EVIDENCE                                    
+------------------------------------------------------------------------------------------------
+LOW   fs/link/read   read value of a symbolic link  readlink                                    
+LOW   process/chdir  changes working directory      cd "${1                                     
+                                                    cd $                                        
+LOW   ref/path/etc   path reference within /etc     /etc/vm.args                                
+LOW   ref/site/url   contains embedded HTTP URLs    http://www.apache.org/licenses/LICENSE-2.0  
+MED   shell/exec     executes shell                 /bin/sh                                     
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/bin/weatherreport [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/beam.smp [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                        EVIDENCE              
+-----------------------------------------------------------------------------------------------------------
+LOW   compression/gzip            works with gzip files                              gzip                  
+LOW   encoding/base64             Supports base64 encoded strings                    base64                
+LOW   env/TERM                    Look up or override terminal settings              TERM                  
+LOW   env/TMPDIR                  TMPDIR                                             TMPDIR                
+                                                                                     getenv                
+LOW   fd/epoll                    I/O event notification facility                    epoll_create          
+                                                                                     epoll_wait            
+LOW   fs/directory/create         creates directories                                mkdir                 
+LOW   fs/directory/remove         Uses libc functions to remove directories          rmdir                 
+LOW   fs/file/delete              deletes files                                      unlink                
+LOW   fs/file/delete/forcibly     Forcibly deletes files                             rm -                  
+LOW   fs/file/truncate            truncate a file to a specified length              ftruncate             
+LOW   fs/link/create              May create hard file links                         _link                 
+LOW   fs/link/read                read value of a symbolic link                      readlink              
+LOW   fs/symlink/resolve          resolves symbolic links                            realpath              
+LOW   fs/tempdir                  looks up location of temp directory                TMPDIR                
+LOW   kernel/hostname/get         get computer host name                             gethostname           
+LOW   kernel/platform             system identification                              uname                 
+LOW   net/hostname/resolve        resolve network host name to IP address            gethostbyname         
+LOW   net/hostport/parse          Network address and service translation            freeaddrinfo          
+                                                                                     getaddrinfo           
+LOW   net/http/accept/encoding    set HTTP response encoding format (example: gzip)  Accept-Encoding       
+LOW   net/http/auth               makes HTTP requests with basic authentication      Www-Authenticate      
+LOW   net/http/request            makes HTTP requests                                Referer               
+                                                                                     User-Agent            
+LOW   net/http_proxy              use HTTP proxy that requires authentication        Proxy-Authorization   
+LOW   net/interface/get           get network interfaces by name or index            if_freenameindex      
+                                                                                     if_indextoname        
+                                                                                     if_nameindex          
+                                                                                     if_nametoindex        
+LOW   net/ip/multicast/send       send data to multiple nodes simultaneously         multicast             
+LOW   net/ip/send/unicast         send data to the internet                          unicast               
+LOW   net/sendfile                transfer data between file descriptors             sendfile              
+LOW   net/socket/listen           listen on a socket                                 accept                
+                                                                                     listen                
+                                                                                     socket                
+LOW   net/socket/local/address    get local address of connected socket              getsockname           
+LOW   net/socket/peer/address     get peer address of connected socket               getpeername           
+LOW   net/socket/receive          receive a message from a socket                    recvfrom              
+                                                                                     recvmsg               
+LOW   net/socket/send             send a message to a socket                         sendmsg               
+                                                                                     sendto                
+LOW   process/multithreaded       creates pthreads                                   pthread_create        
+LOW   process/namespace/set       associate thread or process with a namespace       setns                 
+MED   combo/net/scan_tool         may scan networks                                  connect               
+                                                                                     gethostbyname         
+                                                                                     port                  
+                                                                                     probe                 
+                                                                                     scan                  
+                                                                                     socket                
+                                                                                     target                
+MED   combo/recon/system_network  invasive recon val                                 ipv4_addr             
+MED   dylib/symbol/address        get the address of a symbol                        dlsym                 
+MED   exec/program                executes external programs                         execv                 
+MED   fs/file/copy                copy files using cp                                cp                    
+MED   fs/file/times/set           change file last access and modification times     utime                 
+MED   fs/permission/modify        modifies file permissions                          chmod                 
+MED   kernel/module               Unload Linux kernel module                         delete_module         
+MED   kernel/module/load          Load Linux kernel module                           init_module           
+MED   net/http/cookies            access HTTP resources using cookies                Cookie                
+                                                                                     HTTP                  
+MED   net/http/post               submits content to websites                        Content-Type          
+                                                                                     HTTP                  
+                                                                                     POST                  
+                                                                                     http                  
+MED   net/interface/list          list network interfaces                            freeifaddrs           
+                                                                                     getifaddrs            
+MED   net/ip/parse                parses IP address (IPv4 or IPv6)                   inet_addr             
+MED   process/list                accesses process list                              proclist              
+MED   process/username/get        returns the user name running this process         whoami                
+MED   procfs/arbitrary/pid        access /proc for arbitrary pids                    /proc/%d/fdinfo/      
+MED   procfs/self/cgroup          accesses /proc files within own cgroup             /proc/self/cgroup     
+MED   procfs/self/mountinfo       gets mount info associated to this process         /proc/self/mountinfo  
+MED   ref/daemon                  Run as a background daemon                         sd-daemon             
+MED   ref/ip_port                 mentions an IP and port                            IP                    
+                                                                                     Ip                    
+                                                                                     Port                  
+                                                                                     async_port            
+                                                                                     atom_ip               
+                                                                                     atom_port             
+                                                                                     await_port            
+                                                                                     begin_port            
+                                                                                     …                     
+MED   ref/path/tmp                path reference within /tmp                         /tmp/jit-%d.dump      
+                                                                                     /tmp/perf-%i.map      
+MED   ref/words/exclamation       gets very excited                                  not enough stack!!    
+MED   ref/words/server_address    references a 'server address', possible C2 client  dns_server_addrs      
+MED   shell/pipe_sh               pipes to shell                                     | sh                  
+MED   tty/open                    finds and opens an available pseudoterminal        openpty               
+MED   tty/pathname                returns the pathname of a terminal device          ttyname               
+HIGH  procfs/pid/fd               accesses file descriptors of other processes       /proc/%d/fd           
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/ct_run [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE  
+----------------------------------------------------------
+MED   exec/program  executes external programs  execvp    
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/epmd [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                              EVIDENCE        
+-------------------------------------------------------------------------------------------
+LOW   net/ip                      access the internet                      invalid packet  
+LOW   net/socket/listen           listen on a socket                       accept          
+                                                                           listen          
+                                                                           socket          
+LOW   net/socket/local/address    get local address of connected socket    getsockname     
+LOW   net/socket/peer/address     get peer address of connected socket     getpeername     
+LOW   net/socket/send             send a message to a socket               send            
+                                                                           socket          
+LOW   process/create              create child process                     fork            
+MED   combo/recon/system_network  invasive recon val                       ipaddr          
+MED   net/ip/parse                parses IP address (IPv4 or IPv6)         inet_pton       
+MED   net/ip/string               converts IP address from byte to string  inet_ntop       
+MED   ref/daemon                  Run as a background daemon               -daemon         
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/erl [⚠️ MEDIUM]
+----------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                 EVIDENCE  
+----------------------------------------------------------------
+LOW   fs/symlink/resolve  resolves symbolic links     realpath  
+MED   exec/program        executes external programs  execvp    
+----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/erl_call [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                       EVIDENCE              
+--------------------------------------------------------------------------------------------------------
+LOW   env/HOME                  Looks up the HOME directory for the current user  HOME                  
+                                                                                  getenv                
+LOW   exec/program/background   wait for process to exit                          waitpid               
+LOW   kernel/hostname/get       get computer host name                            gethostname           
+LOW   kernel/platform           system identification                             uname                 
+LOW   net/hostname/resolve      resolve network host name to IP address           gethostbyname         
+LOW   net/ip/resolve            resolves network hosts via IP address             gethostbyaddr         
+LOW   net/socket/listen         listen on a socket                                accept                
+                                                                                  listen                
+                                                                                  socket                
+LOW   net/socket/local/address  get local address of connected socket             getsockname           
+LOW   net/socket/receive        receive a message to a socket                     recv                  
+                                                                                  socket                
+LOW   net/socket/send           send a message to a socket                        sendmsg               
+LOW   ref/path/usr/bin          path reference within /usr/bin                    /usr/bin/ssh          
+LOW   ref/words/plugin          references a 'plugin'                             plugin_socket_impl__  
+MED   combo/net/scan_tool       may scan networks                                 connect               
+                                                                                  gethostbyname         
+                                                                                  port                  
+                                                                                  scan                  
+                                                                                  socket                
+MED   exec/program              executes external programs                        execvp                
+MED   exec/shell_echo           program generates text with echo command          echo "X               
+MED   net/ip/string             converts IP address from byte to string           inet_ntoa             
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/erl_child_setup [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                        EVIDENCE  
+----------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit           waitpid   
+LOW   fd/multiplex             monitor multiple file descriptors  select    
+LOW   net/socket/receive       receive a message from a socket    recvmsg   
+LOW   net/socket/send          send a message to a socket         sendmsg   
+LOW   process/chdir            changes working directory          cd to     
+LOW   process/create           create child process               fork      
+MED   exec/program             executes external programs         execle    
+MED   shell/exec               executes shell                     /bin/sh   
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/erlc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                       EVIDENCE              
+--------------------------------------------------------------------------------------------------------
+LOW   env/HOME                  Looks up the HOME directory for the current user  HOME                  
+                                                                                  getenv                
+LOW   env/LANG                  Looks up language of current user                 LANG                  
+                                                                                  getenv                
+LOW   env/USER                  Looks up the USER name of the current user        USER                  
+                                                                                  getenv                
+LOW   fs/symlink/resolve        resolves symbolic links                           realpath              
+LOW   kernel/hostname/get       get computer host name                            gethostname           
+LOW   kernel/platform           system identification                             uname                 
+LOW   net/hostname/resolve      resolve network host name to IP address           gethostbyname         
+LOW   net/ip/resolve            resolves network hosts via IP address             gethostbyaddr         
+LOW   net/socket/listen         listen on a socket                                accept                
+                                                                                  listen                
+                                                                                  socket                
+LOW   net/socket/local/address  get local address of connected socket             getsockname           
+LOW   net/socket/receive        receive a message to a socket                     recv                  
+                                                                                  socket                
+LOW   net/socket/send           send a message to a socket                        sendmsg               
+LOW   process/executable_path   sets a custom PATH                                /bin:/usr/            
+                                                                                  PATH                  
+LOW   ref/words/plugin          references a 'plugin'                             plugin_socket_impl__  
+MED   combo/net/scan_tool       may scan networks                                 connect               
+                                                                                  gethostbyname         
+                                                                                  port                  
+                                                                                  scan                  
+                                                                                  socket                
+MED   exec/program              executes external programs                        execvp                
+MED   net/ip/string             converts IP address from byte to string           inet_ntoa             
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/erlexec [🔥 HIGH]
+-----------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                       EVIDENCE     
+-----------------------------------------------------------------------------------------
+LOW   env/HOME            Looks up the HOME directory for the current user  HOME         
+                                                                            getenv       
+LOW   process/create      create child process                              fork         
+MED   exec/program        executes external programs                        execvp       
+MED   exec/shell_command  execute a shell command                           system       
+MED   ref/daemon          Run as a background daemon                        -daemon      
+                                                                            epmd_daemon  
+MED   shell/exec          executes a shell command                          system       
+HIGH  shell/nohup         Runs command that is protected from termination   nohup        
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/escript [⚠️ MEDIUM]
+----------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                 EVIDENCE  
+----------------------------------------------------------------
+LOW   fs/symlink/resolve  resolves symbolic links     realpath  
+MED   exec/program        executes external programs  execvp    
+----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/heart [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select    
+MED   exec/shell_command  execute a shell command            system    
+MED   shell/exec          executes a shell command           system    
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/inet_gethost [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE       
+---------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                 waitpid        
+LOW   fd/multiplex             monitor multiple file descriptors        select         
+LOW   net/hostname/resolve     resolve network host name to IP address  gethostbyname  
+LOW   net/hostport/parse       Network address and service translation  freeaddrinfo   
+                                                                        getaddrinfo    
+LOW   net/ip/resolve           resolves network hosts via IP address    gethostbyaddr  
+LOW   process/create           create child process                     fork           
+MED   exec/program             execute external program                 subprocess     
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/run_erl [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                  EVIDENCE      
+------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                     waitpid       
+LOW   fs/fifo/create           make a FIFO special file (a named pipe)      mkfifo        
+LOW   fs/file/delete           deletes files                                unlink        
+LOW   process/create           create child process                         fork          
+MED   device/pseudo_terminal   pseudo-terminal access functions             grantpt       
+                                                                            posix_openpt  
+                                                                            ptsname       
+                                                                            unlockpt      
+MED   exec/program             executes external programs                   execv         
+MED   ref/daemon               Run as a background daemon                   -daemon       
+                                                                            run_daemon    
+MED   shell/exec               executes shell                               /bin/sh       
+MED   tty/open                 finds and opens an available pseudoterminal  openpty       
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/start [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------------
+LOW   fs/symlink/resolve  resolves symbolic links      realpath                                    
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/daemon          Run as a background daemon   -daemon                                     
+MED   ref/path/tmp        path reference within /tmp   /tmp/                                       
+MED   shell/exec          executes shell               /bin/sh                                     
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/to_erl [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY           DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------
+LOW   fd/multiplex  monitor multiple file descriptors  select    
+MED   ref/path/tmp  path reference within /tmp         /tmp/     
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/bin/yielding_c_fun [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                          DESCRIPTION                         EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------------------
+LOW   random/insecure              generate random numbers insecurely  srand                                                       
+LOW   ref/site/url                 contains embedded HTTP URLs         http://dbp-consulting.com/tutorials/SuppressingGCCWarning…  
+MED   ref/words/exclamation        gets very excited                   nPointer to stack in yielded functions state!!!!!           
+                                                                       not enough stack!!                                          
+HIGH  obfuscation/js/high_entropy  high entropy javascript (>5.37)                                                                 
+-----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/driver_int.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/erl_driver.h [✅ LOW]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                            EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------
+LOW   env/TERM              Look up or override terminal settings  TERM                                        
+LOW   evasion/bitwise_math  uses bitwise math                      1 << 0                                      
+                                                                   1 << 1                                      
+                                                                   1 << 2                                      
+                                                                   1 << 3                                      
+LOW   ref/site/url          contains embedded HTTP URLs            http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/erl_drv_nif.h [✅ LOW]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                        EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                  1 << 0                                      
+                                                               1 << 1                                      
+                                                               1 << 2                                      
+                                                               1 << 3                                      
+                                                               1 << 4                                      
+                                                               1 << 5                                      
+LOW   fd/multiplex          monitor multiple file descriptors  select                                      
+LOW   ref/site/url          contains embedded HTTP URLs        http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/erl_fixed_size_int_types.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/erl_int_sizes_config.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/erl_nif.h [✅ LOW]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                            EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------
+LOW   env/TERM              Look up or override terminal settings  TERM                                        
+LOW   evasion/bitwise_math  uses bitwise math                      1 << 0                                      
+                                                                   1 << 1                                      
+                                                                   1 << 2                                      
+                                                                   1 << 3                                      
+                                                                   1 << 4                                      
+                                                                   1 << 5                                      
+                                                                   1 << 6                                      
+                                                                   1 << 7                                      
+                                                                   …                                           
+LOW   fd/multiplex          monitor multiple file descriptors      select                                      
+LOW   ref/site/url          contains embedded HTTP URLs            http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/erl_nif_api_funcs.h [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                            EVIDENCE                                    
+----------------------------------------------------------------------------------------------------------------
+LOW   env/TERM               Look up or override terminal settings  TERM                                        
+LOW   ref/site/url           contains embedded HTTP URLs            http://www.apache.org/licenses/LICENSE-2.0  
+MED   dylib/symbol/address   get the address of a symbol            dlsym                                       
+MED   ref/words/exclamation  gets very excited                      to keep compatibility on Windows!!!         
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/erl_errno.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/erl_misc_utils.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/erl_printf.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/erl_printf_format.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ethr_atomics.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ethr_mutex.h [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                  EVIDENCE                                    
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   net/http/post  submits content to websites  POST                                        
+                                                  http                                        
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ethr_optimized_fallbacks.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ethread_header_config.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ethread_inline.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/gcc/ethr_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/gcc/ethr_dw_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/gcc/ethr_membar.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math   uses bitwise math            1 << 0                                      
+                                                          1 << 1                                      
+                                                          1 << 2                                      
+                                                          1 << 3                                      
+LOW   ref/site/url           contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/words/exclamation  gets very excited            Note that we DO NOT define a fallback !!    
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/gcc/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/i386/atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/i386/ethr_dw_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/i386/ethr_membar.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math   uses bitwise math            1 << 0                                      
+                                                          1 << 1                                      
+                                                          1 << 2                                      
+                                                          1 << 3                                      
+LOW   ref/site/url           contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/words/exclamation  gets very excited            Note that we DO NOT define a fallback !!    
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/i386/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/i386/rwlock.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/i386/spinlock.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/libatomic_ops/ethr_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                          
+---------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0        
+                                                 http://www.hpl.hp.com/research/linux/atomic_ops/  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/libatomic_ops/ethr_dw_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/libatomic_ops/ethr_membar.h [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1 << 0                                      
+                                                         1 << 1                                      
+                                                         1 << 2                                      
+                                                         1 << 3                                      
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/libatomic_ops/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ppc32/atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ppc32/ethr_membar.h [✅ LOW]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1 << 0                                                      
+                                                         1 << 1                                                      
+                                                         1 << 2                                                      
+                                                         1 << 3                                                      
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0                  
+                                                         http://www.ibm.com/developerworks/systems/articles/powerp…  
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ppc32/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ppc32/rwlock.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/ppc32/spinlock.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/pthread/ethr_event.h [✅ LOW]
+---------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                        EVIDENCE                                    
+---------------------------------------------------------------------------------------------------
+LOW   fd/multiplex  monitor multiple file descriptors  select                                      
+LOW   ref/site/url  contains embedded HTTP URLs        http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/sparc32/atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/sparc32/ethr_membar.h [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1 << 0                                      
+                                                         1 << 1                                      
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/sparc32/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/sparc32/rwlock.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/sparc32/spinlock.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/sparc64/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/tile/atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/tile/ethr_membar.h [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1 << 0                                      
+                                                         1 << 1                                      
+                                                         1 << 2                                      
+                                                         1 << 3                                      
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/tile/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/win/ethr_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/win/ethr_dw_atomic.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/win/ethr_event.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/win/ethr_membar.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math   uses bitwise math            1 << 0                                      
+                                                          1 << 1                                      
+                                                          1 << 2                                      
+                                                          1 << 3                                      
+LOW   ref/site/url           contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/words/exclamation  gets very excited            Note that we DO NOT define a fallback !!    
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/win/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/include/internal/x86_64/ethread.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/erts-13.2.2.9/src/setuid_socket_wrap.c [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                         EVIDENCE                                    
+----------------------------------------------------------------------------------------------------------------------------
+LOW   net/hostname/resolve  resolve network host name to IP address             gethostbyname                               
+LOW   process/userid/set    set real and effective user ID of current process   setuid                                      
+LOW   ref/site/url          contains embedded HTTP URLs                         http://www.apache.org/licenses/LICENSE-2.0  
+MED   exec/program          executes external programs                          execv                                       
+MED   fs/file/copy          copy files using cp                                 cp                                          
+MED   net/ip/byte/order     convert values between host and network byte order  htons                                       
+MED   net/ip/parse          parses IP address                                   inet_addr                                   
+MED   net/ip/string         converts IP address from byte to string             inet_ntoa                                   
+MED   net/raw_sockets       send raw and/or malformed IP packets                SOCK_RAW                                    
+                                                                                raw socket                                  
+----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_ejson_compare.so [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                      EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   process/thread_local_storage  Uses glibc thread local storage  __tls_get_addr  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_ejson_compare/couch_ejson_compare.c [✅ LOW]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                            EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------
+LOW   env/TERM      Look up or override terminal settings  TERM                                        
+LOW   ref/site/url  contains embedded HTTP URLs            http://www.apache.org/licenses/LICENSE-2.0  
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_ejson_compare/couch_ejson_compare.o [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                      EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   process/thread_local_storage  Uses glibc thread local storage  __tls_get_addr  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/1.8.5/help.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/1.8.5/main.c [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/1.8.5/utf8.c [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            har >> 11                                   
+                                                         v >> 10                                     
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/1.8.5/utf8.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/1.8.5/util.c [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   fs/file/read  opens a file for read        open(file, "r")                             
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/1.8.5/util.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/60/help.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/60/main.cpp [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/60/util.cpp [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   fs/file/read  opens a file for read        open(file, "r")                             
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/60/util.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/68/help.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/68/main.cpp [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/68/util.cpp [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   fs/file/read  opens a file for read        open(file, "r")                             
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/68/util.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/86/config.h [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                  
+--------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/apache/couchdb/issues  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/86/help.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/86/main.cpp [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/86/util.cpp [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   fs/file/read  opens a file for read        open(file, "r")                             
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/86/util.h [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couch_js/86/util.o [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                  
+--------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/apache/couchdb/issues  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couchjs [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                  
+--------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/apache/couchdb/issues  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/couchspawnkillable [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   shell/exec    executes shell               /bin/sh -e                                  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/spawnkillable/couchspawnkillable.sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   shell/exec    executes shell               /bin/sh -e                                  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/couch-3.3.3/priv/spawnkillable/couchspawnkillable_win.c [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/crypto-5.1.4.3/priv/lib/crypto.so [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                   EVIDENCE          
+--------------------------------------------------------------------------------------------
+LOW   crypto/aes            Supports AES (Advanced Encryption Standard)   aes_256_cbc       
+LOW   crypto/ed25519        Elliptic curve algorithm used by TLS and SSH  ed25519           
+LOW   hash/blake2b          Uses blake2b encryption algorithm             blake2b           
+LOW   secrets/private_key   References private keys                       private_key       
+MED   dylib/symbol/address  get the address of a symbol                   dlsym             
+MED   ref/path/usr/local    path reference within /usr/local/lib          /usr/local/lib/   
+                                                                          /usr/local/lib64  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/crypto-5.1.4.3/priv/lib/otp_test_engine.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                           EVIDENCE          
+----------------------------------------------------------------------------------
+MED   ref/path/usr/local  path reference within /usr/local/lib  /usr/local/lib/   
+                                                                /usr/local/lib64  
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/inets-8.3.1.3/priv/bin/runcgi.sh [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY            DESCRIPTION                EVIDENCE  
+----------------------------------------------------------
+LOW   process/chdir  changes working directory  cd $1     
+MED   shell/exec     executes shell             /bin/sh   
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/jiffy-1.0.9/priv/jiffy.so [✅ LOW]
+-----------------------------------------------------------------
+RISK  KEY       DESCRIPTION                            EVIDENCE  
+-----------------------------------------------------------------
+LOW   env/TERM  Look up or override terminal settings  TERM      
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/runtime_tools-1.19/priv/lib/trace_file_drv.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /usr/share/couchdb/lib/runtime_tools-1.19/priv/lib/trace_ip_drv.so [⚠️ MEDIUM]
+------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                            EVIDENCE     
+------------------------------------------------------------------------------------
+LOW   fd/multiplex              monitor multiple file descriptors      select       
+LOW   fs/file/delete            deletes files                          unlink       
+LOW   net/socket/listen         listen on a socket                     accept       
+                                                                       listen       
+                                                                       socket       
+LOW   net/socket/local/address  get local address of connected socket  getsockname  
+LOW   net/socket/send           send a message to a socket             send         
+                                                                       socket       
+MED   ref/ip_port               mentions an IP and port                set_port     
+                                                                       trace_ip     
+                                                                       unlink_port  
+------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/couchdb-3.3.3-r3.apk ∴ /var/lib/db/sbom/couchdb-3.3.3-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/ad998f4482ec…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

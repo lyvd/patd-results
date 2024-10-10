@@ -1,0 +1,999 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/cli.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin   path reference within /usr/bin                  /usr/bin/env                                
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./lib                                       
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/index.d.ts [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/index.js [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                               JSON.stringify                              
+LOW   fd/write              writes to a file handle                    req.write(data)                             
+                                                                       stdout.write(d)                             
+LOW   fs/file/read          reads files                                fs.readFile                                 
+LOW   kernel/hostname/get   get computer host name                     os.hostname()                               
+LOW   ref/path/etc          path reference within /etc                 /etc/passwd                                 
+LOW   ref/site/url          contains embedded HTTP URLs                http://www.apache.org/licenses/LICENSE-2.0  
+MED   kernel/platform       get system identification                  os.platform()                               
+MED   net/http/form/upload  upload content via HTTP form               POST                                        
+                                                                       application/json                            
+MED   net/http/post         submits content to websites                Content-Type                                
+                                                                       POST                                        
+                                                                       http                                        
+MED   process/userinfo      returns user info for the current process  os.userInfo()                               
+MED   ref/ip                hardcoded IP address                       207.244.239.102                             
+MED   ref/words/exfil       References 'exfil'                         exfiltrate                                  
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/jsx-runtime.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/config.js [✅ LOW]
+-------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                  EVIDENCE                                    
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url      contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+LOW   ref/words/plugin  references a 'plugin'        babelPlugins                                
+                                                     plugins                                     
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/configLoader.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------
+LOW   fs/file/stat     access filesystem metadata   fs.statSync(configFileOrDirectory).isDi     
+LOW   ref/site/url     contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   kernel/platform  get system identification    process.versions                            
+MED   process/create   create child process         require('child_process')                    
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/esmLoaderHost.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/expectBundle.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/expectBundleImpl.js [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                          DESCRIPTION                             EVIDENCE                                      
+-------------------------------------------------------------------------------------------------------------------------
+LOW   env/TERM                     Look up or override terminal settings   TERM                                          
+LOW   env/get                      Retrieve environment variable values    env.GRACEFUL                                  
+                                                                           env.NODE                                      
+                                                                           env.TERM                                      
+                                                                           env.TEST                                      
+LOW   fd/read                      reads from a file handle                O.read()                                      
+LOW   fs/file/write                writes to file                          writeFileSync                                 
+LOW   fs/permission/chown          May change file ownership               fchown                                        
+LOW   ref/path/hidden              possible hidden file path               /app/.heroku                                  
+LOW   ref/site/url                 contains embedded HTTPS URLs            https://github.com/facebook/jest              
+                                                                           https://github.com/jonschlinkert/fill-range   
+                                                                           https://github.com/jonschlinkert/is-number    
+                                                                           https://github.com/micromatch/to-regex-range  
+                                                                           https://jestjs.io/docs/configuration          
+LOW   ref/words/plugin             references a 'plugin'                   PrettyFormatPluginError                       
+                                                                           plugins                                       
+MED   fs/file/times/set            change file timestamps                  futimes                                       
+MED   fs/permission/modify         modifies file permissions               chmod                                         
+MED   kernel/platform              get system identification               process.platform                              
+                                                                           process.versions                              
+MED   techniques/code_eval         evaluate code dynamically using exec()  exec(a)),                                     
+                                                                           exec(e))                                      
+                                                                           exec(n                                        
+                                                                           exec(r)                                       
+                                                                           exec(s)                                       
+HIGH  evasion/int_to_char          converts strings into integers          fromCharCode                                  
+HIGH  obfuscation/js/high_entropy  high entropy javascript (>5.37)                                                       
+-------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/fixtures.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/globals.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/ipc.js [✅ LOW]
+----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                      
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/poolBuilder.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/process.js [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                           EVIDENCE                                    
+----------------------------------------------------------------------------------------------------------
+LOW   env/get           Retrieve environment variable values  env.PWTEST                                  
+LOW   ref/site/url      contains embedded HTTP URLs           http://www.apache.org/licenses/LICENSE-2.0  
+MED   process/name/get  get the current process name          processName                                 
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/suiteUtils.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/test.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/testLoader.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/common/testType.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                           EVIDENCE                           
+---------------------------------------------------------------------------------------------
+LOW   env/get       Retrieve environment variable values  env.JEST                           
+LOW   ref/site/url  contains embedded HTTPS URLs          https://playwright.dev/docs/intro  
+MED   exec/cmd      executes a command                    getPackageManagerExecCommand       
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/fsWatcher.js [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                 JSON.stringify                              
+LOW   fs/file/delete        deletes files                unlink                                      
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/index.js [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                           EVIDENCE                                 
+-----------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                 JSON.parse                               
+LOW   env/get               Retrieve environment variable values  env.PLAYWRIGHT                           
+LOW   ref/site/url          contains embedded HTTPS URLs          https://aka.ms/playwright/reuse-page     
+                                                                  https://playwright.dev/docs/api-testing  
+MED   kernel/platform       get system identification             process.platform                         
+MED   net/download          download files                        acceptDownloads                          
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/internalsForTest.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./transform                                 
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/isomorphic/events.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/isomorphic/folders.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/isomorphic/stringInternPool.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/isomorphic/teleReceiver.js [✅ LOW]
+----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                      
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/isomorphic/testServerConnection.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE                                    
+------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                           JSON.parse                                  
+LOW   encoding/json/encode  encodes JSON                                    JSON.stringify                              
+LOW   fs/file/open          opens files                                     open(                                       
+LOW   ref/site/url          contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   net/websocket         supports web sockets                            WebSocket                                   
+MED   ref/path/relative     references and possibly executes relative path  ./events                                    
+MED   time/clock/sleep      uses setInterval to wait                        setInterval(                                
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/isomorphic/testTree.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   ref/site/url           contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/words/exclamation  gets very excited            return !!                                   
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/loader/loaderMain.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/expect.js [✅ LOW]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/facebook/jest/blob/1547740bbc26400d69f…  
+                                                  https://github.com/facebook/jest/blob/f13abff8df9a0e1148b…  
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/matcherHint.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/matchers.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/toBeTruthy.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/toEqual.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/toMatchSnapshot.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                   EVIDENCE                                           
+------------------------------------------------------------------------------------------------------
+LOW   fs/file/write  writes to file                writeFileSync                                      
+LOW   ref/site/url   contains embedded HTTPS URLs  https://github.com/microsoft/playwright/pull/9156  
+MED   net/upload     uploads files                 upload                                             
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/matchers/toMatchText.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/plugins/gitCommitInfoPlugin.js [✅ LOW]
+----------------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                           EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------
+LOW   env/get       Retrieve environment variable values  env.BUILD                                                   
+                                                          env.GITHUB                                                  
+LOW   ref/site/url  contains embedded HTTPS URLs          https://docs.github.com/en/actions/learn-github-actions/e…  
+                                                          https://docs.gitlab.com/ee/ci/variables/predefined_variab…  
+                                                          https://www.jenkins.io/doc/book/pipeline/jenkinsfile/       
+----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/plugins/index.js [✅ LOW]
+----------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                     
+----------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  return _gitCommitInfoPlugin  
+                                               return _webServerPlugin      
+                                               var _gitCommitInfoPlugin     
+                                               var _webServerPlugin         
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/plugins/webServerPlugin.js [✅ LOW]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                           EVIDENCE                                    
+----------------------------------------------------------------------------------------------------------
+LOW   env/get           Retrieve environment variable values  env.PLAYWRIGHT                              
+LOW   net/url           Handles URL strings                   new URL                                     
+LOW   ref/site/url      contains embedded HTTP URLs           http://localhost                            
+                                                              http://www.apache.org/licenses/LICENSE-2.0  
+LOW   ref/words/plugin  references a 'plugin'                 class WebServerPlugin                       
+                                                              const webServerPlugins                      
+                                                              return new WebServerPlugin                  
+                                                              return webServerPlugins                     
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/program.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE                                    
+------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                                    JSON.stringify                              
+LOW   env/get               Retrieve environment variable values            env.PWDEBUG                                 
+                                                                            env.PWTEST                                  
+LOW   ref/site/url          contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative     references and possibly executes relative path  ./common                                    
+                                                                            ./reporters                                 
+                                                                            ./runner                                    
+                                                                            ./util                                      
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/base.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                           EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   env/get       Retrieve environment variable values  env.DEBUG                                   
+                                                          env.FORCE                                   
+                                                          env.PLAYWRIGHT                              
+LOW   ref/site/url  contains embedded HTTP URLs           http://www.apache.org/licenses/LICENSE-2.0  
+MED   exec/cmd      executes a command                    getPackageManagerExecCommand                
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/blob.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE                                    
+------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                                    JSON.stringify                              
+LOW   env/get               Retrieve environment variable values            env.PWTEST                                  
+LOW   fs/directory/create   creates directories                             mkdir                                       
+LOW   ref/site/url          contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative     references and possibly executes relative path  ./base                                      
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/dot.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   fd/write           writes to a file handle                         stderr.write(chunk)                         
+                                                                         stdout.write(chunk)                         
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./base                                      
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/empty.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/github.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./base                                      
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/html.js [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                EVIDENCE                                    
+--------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings            base64                                      
+LOW   encoding/json/encode   encodes JSON                               JSON.stringify                              
+LOW   env/get                Retrieve environment variable values       env.PLAYWRIGHT                              
+LOW   fs/directory/list      Uses NodeJS functions to list a directory  .readdirSync(                               
+LOW   fs/file/write          writes to file                             writeFileSync                               
+LOW   net/url                Handles URL strings                        new URL                                     
+LOW   ref/site/url           contains embedded HTTP URLs                http://localhost                            
+                                                                        http://www.apache.org/licenses/LICENSE-2.0  
+MED   exec/cmd               executes a command                         getPackageManagerExecCommand                
+MED   ref/words/exclamation  gets very excited                          return !!                                   
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/internalReporter.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/path/var  path reference within /var   /var/folders                                
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/json.js [✅ LOW]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                      EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings  base64                                      
+LOW   encoding/json/encode  encodes JSON                     JSON.stringify                              
+LOW   fs/directory/create   creates directories              mkdir                                       
+LOW   fs/file/write         writes to file                   writeFile                                   
+LOW   ref/site/url          contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/junit.js [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                     EVIDENCE                                               
+----------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories                             mkdir                                                  
+LOW   fs/file/write        writes to file                                  writeFile                                              
+LOW   ref/site/url         contains embedded HTTPS URLs                    https://en.wikipedia.org/wiki/Valid_characters_in_XML  
+MED   ref/path/relative    references and possibly executes relative path  ./base                                                 
+                                                                           ./empty                                                
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/line.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   fd/write           writes to a file handle                         stdout.write(message)                       
+                                                                         stream.write(chunk)                         
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./base                                      
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/list.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   env/TERM           Look up or override terminal settings           TERM                                        
+LOW   env/get            Retrieve environment variable values            env.TERM                                    
+LOW   fd/write           writes to a file handle                         stdout.write(line)                          
+                                                                         stdout.write(message)                       
+                                                                         stream.write(chunk)                         
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   kernel/platform    get system identification                       process.platform                            
+MED   ref/path/relative  references and possibly executes relative path  ./base                                      
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/markdown.js [✅ LOW]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories          mkdir                                       
+LOW   fs/file/write        writes to file               writeFile                                   
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/merge.js [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages        JSON.parse                                  
+LOW   fs/directory/create   creates directories          mkdir                                       
+LOW   fs/file/write         writes to file               writeFile                                   
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/multiplexer.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/reporterV2.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/reporters/teleEmitter.js [✅ LOW]
+----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                      
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/dispatcher.js [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE                                    
+----------------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64                                      
+LOW   ref/site/url           contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/words/exclamation  gets very excited                return !!                                   
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/failureTracker.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/loadUtils.js [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages        JSON.parse                                  
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/loaderHost.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/processHost.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                   EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                  JSON.stringify                              
+LOW   ref/site/url          contains embedded HTTP URLs   http://www.apache.org/licenses/LICENSE-2.0  
+MED   process/create        create child process          require("child_process")                    
+MED   process/name/get      get the current process name  processName                                 
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/projectUtils.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/reporters.js [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                 JSON.stringify                              
+LOW   net/socket/send       send a message to a socket   _send                                       
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/runner.js [✅ LOW]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                   EVIDENCE                                     
+-------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages         JSON.parse                                   
+LOW   encoding/json/encode  encodes JSON                  JSON.stringify                               
+LOW   fs/directory/create   creates directories           mkdir                                        
+LOW   fs/file/write         writes to file                writeFile                                    
+LOW   ref/site/url          contains embedded HTTPS URLs  https://github.com/nodejs/node/issues/12921  
+                                                          https://github.com/nodejs/node/issues/6456.  
+LOW   ref/words/plugin      references a 'plugin'         plugins                                      
+                                                          var _webServerPlugin                         
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/sigIntWatcher.js [✅ LOW]
+------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                
+------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/npm/cli/issues/1591  
+                                                  https://github.com/npm/cli/issues/2124  
+                                                  https://github.com/npm/cli/issues/5021  
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/taskRunner.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/tasks.js [✅ LOW]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                   EVIDENCE                                              
+------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url      contains embedded HTTPS URLs  https://github.com/microsoft/playwright/issues/12106  
+LOW   ref/words/plugin  references a 'plugin'         await plugin                                          
+                                                      else plugin                                           
+                                                      plugin begin                                          
+                                                      plugin setup                                          
+                                                      plugins                                               
+                                                      typeof plugin                                         
+                                                      var _plugin                                           
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/testGroups.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/testServer.js [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                           EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64      Supports base64 encoded strings       base64                                      
+LOW   env/get              Retrieve environment variable values  env.PWTEST                                  
+LOW   fs/file/open         opens files                           open(                                       
+LOW   fs/symlink/resolve   resolves symbolic links               realpath                                    
+LOW   ref/site/url         contains embedded HTTP URLs           http://www.apache.org/licenses/LICENSE-2.0  
+LOW   ref/words/plugin     references a 'plugin'                 _plugins                                    
+                                                                 var _webServerPlugin                        
+MED   ref/words/intercept  References interception               interceptStdio                              
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/uiModeReporter.js [✅ LOW]
+------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------
+LOW   net/socket/send  send a message to a socket   _send                                       
+LOW   ref/site/url     contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/watchMode.js [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                     DESCRIPTION                  EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------
+LOW   process/parent_pid/get  gets parent process ID       process.ppid                                
+LOW   ref/site/url            contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   exec/cmd                executes a command           getPackageManagerExecCommand                
+MED   kernel/platform         get system identification    process.platform                            
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/runner/workerHost.js [✅ LOW]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories          mkdir                                       
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/third_party/tsconfig-loader.js [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/read       reads files                                     fs.readFile                                                 
+LOW   fs/file/stat       access filesystem metadata                      fs.statSync(cwd).isFile())                                  
+LOW   ref/site/url       contains embedded HTTPS URLs                    https://github.com/microsoft/TypeScript/blob/353ccb768835…  
+MED   ref/path/relative  references and possibly executes relative path  ./jsconfig                                                  
+                                                                         ./tsconfig                                                  
+-------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/babelBundle.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/babelBundleImpl.js [🔥 HIGH]
+---------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                             EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings         base64                                                      
+LOW   encoding/json/decode   Decodes JSON messages                   JSON.parse                                                  
+LOW   encoding/json/encode   encodes JSON                            JSON.stringify                                              
+LOW   env/TERM               Look up or override terminal settings   TERM                                                        
+LOW   env/get                Retrieve environment variable values    env.BABEL                                                   
+                                                                     env.BROWSERSLIST                                            
+                                                                     env.DEBUG                                                   
+                                                                     env.FORCE                                                   
+                                                                     env.NODE                                                    
+                                                                     env.TERM                                                    
+LOW   fs/directory/create    creates directories                     mkdir                                                       
+LOW   net/http/request       makes HTTP requests                     httpRequest                                                 
+LOW   random/insecure        generate random numbers insecurely      _rand                                                       
+LOW   ref/site/url           contains embedded HTTPS URLs            https://babel.dev/docs/en/next/babel-preset-typescript      
+                                                                     https://babel.dev/team                                      
+                                                                     https://babeljs.io/docs/configuration                       
+                                                                     https://babeljs.io/docs/en/babel-core/                      
+                                                                     https://babeljs.io/docs/en/babel-plugin-transform-typescr…  
+                                                                     https://babeljs.io/docs/en/options                          
+                                                                     https://bugs.chromium.org/p/v8/issues/detail?id=3334        
+                                                                     https://github.com/babel/babel.git                          
+                                                                     …                                                           
+LOW   ref/words/plugin       references a 'plugin'                   A plugin                                                    
+                                                                     Babel plugin                                                
+                                                                     Duplicate plugin                                            
+                                                                     Loaded plugin                                               
+                                                                     MissingOneOfPlugins                                         
+                                                                     MissingPlugin                                               
+                                                                     PluginArray                                                 
+                                                                     The decorators plugin                                       
+                                                                     …                                                           
+LOW   secrets/private_key    References private keys                 privateKey                                                  
+MED   exec/cmd               executes a command                      runCommand:                                                 
+MED   fs/permission/modify   modifies file permissions               chmod                                                       
+MED   kernel/platform        get system identification               process.platform                                            
+                                                                     process.versions                                            
+MED   net/upload             uploads files                           Upload                                                      
+MED   net/websocket          supports web sockets                    WebSocket:                                                  
+MED   ref/words/agent        references an 'agent'                   agents                                                      
+MED   ref/words/exclamation  gets very excited                       return !!                                                   
+MED   techniques/code_eval   evaluate code dynamically using exec()  exec(a                                                      
+                                                                     exec(e))                                                    
+                                                                     exec(e),n                                                   
+                                                                     exec(e),r                                                   
+                                                                     exec(fe                                                     
+                                                                     exec(i),o                                                   
+                                                                     exec(n)                                                     
+                                                                     exec(o)                                                     
+                                                                     …                                                           
+HIGH  evasion/int_to_char    converts strings into integers          fromCharCode                                                
+---------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/compilationCache.js [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                EVIDENCE                                              
+-----------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                      JSON.parse                                            
+LOW   encoding/json/encode  encodes JSON                               JSON.stringify                                        
+LOW   env/get               Retrieve environment variable values       env.PWTEST                                            
+LOW   fs/file/write         writes to file                             writeFileSync                                         
+LOW   fs/tempdir/create     creates temporary directory                temp dir                                              
+LOW   ref/site/url          contains embedded HTTPS URLs               https://github.com/microsoft/playwright/issues/22721  
+LOW   ref/words/plugin      references a 'plugin'                      pluginName                                            
+MED   kernel/platform       get system identification                  process.platform                                      
+MED   process/userinfo      returns user info for the current process  os.userInfo()                                         
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/esmLoader.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/esmUtils.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/portTransport.js [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                    
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://nodejs.org/api/worker_threads.html  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/transform/transform.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                           EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                          JSON.stringify                                              
+LOW   env/get               Retrieve environment variable values  env.BROWSERSLIST                                            
+LOW   ref/site/url          contains embedded HTTPS URLs          https://github.com/microsoft/TypeScript/blob/f82d0cb3299c…  
+                                                                  https://www.typescriptlang.org/tsconfig                     
+LOW   ref/words/plugin      references a 'plugin'                 babelPlugins                                                
+                                                                  pluginName                                                  
+                                                                  pluginsEpilogue                                             
+                                                                  pluginsPrologue                                             
+MED   kernel/platform       get system identification             process.platform                                            
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/util.js [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   env/get               Retrieve environment variable values    env.PWDEBUGIMPL                                             
+LOW   fs/directory/create   creates directories                     mkdir                                                       
+LOW   ref/site/url          contains embedded HTTPS URLs            https://devblogs.microsoft.com/typescript/announcing-type…  
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(arg)                                                   
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/utilsBundle.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/utilsBundleImpl.js [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                           EVIDENCE                                         
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2      Works with bzip2 files                                bzip2                                            
+LOW   compression/gzip       works with gzip files                                 gzip                                             
+LOW   encoding/base64        Supports base64 encoded strings                       base64                                           
+LOW   encoding/json/decode   Decodes JSON messages                                 JSON.parse                                       
+LOW   encoding/json/encode   encodes JSON                                          JSON.stringify                                   
+LOW   env/TERM               Look up or override terminal settings                 TERM                                             
+LOW   env/get                Retrieve environment variable values                  env.CHOKIDAR                                     
+                                                                                   env.FORCE                                        
+                                                                                   env.TERM                                         
+LOW   fd/write               writes to a file handle                               stdout.write(c)                                  
+                                                                                   stdout.write(e)                                  
+LOW   fs/file/delete         deletes files                                         unlink                                           
+LOW   fs/symlink/resolve     resolves symbolic links                               realpath                                         
+LOW   net/socket/listen      listen on a socket                                    listen                                           
+                                                                                   socket                                           
+LOW   net/socket/send        send a message to a socket                            send                                             
+                                                                                   socket                                           
+LOW   ref/site/url           contains embedded HTTPS URLs                          https://github.com/jonschlinkert/fill-range      
+                                                                                   https://github.com/jonschlinkert/is-extglob      
+                                                                                   https://github.com/jonschlinkert/is-glob         
+                                                                                   https://github.com/jonschlinkert/is-number       
+                                                                                   https://github.com/jonschlinkert/normalize-path  
+                                                                                   https://github.com/micromatch/to-regex-range     
+LOW   ref/words/password     references a 'password'                               password                                         
+                                                                                   showPassword                                     
+MED   kernel/platform        get system identification                             process.platform                                 
+                                                                                   process.versions                                 
+MED   ref/extensions/office  References multiple Office file extensions (possible  docm                                             
+                             exfil)                                                docx                                             
+                                                                                   ppam                                             
+                                                                                   ppt                                              
+                                                                                   xlsx                                             
+MED   techniques/code_eval   evaluate code dynamically using exec()                exec(a)),                                        
+                                                                                   exec(e)                                          
+                                                                                   exec(r))i                                        
+                                                                                   exec(r),e                                        
+                                                                                   exec(t),s                                        
+MED   time/clock/sleep       uses setInterval to wait                              setInterval(                                     
+HIGH  combo/stealer/office   Accesses Ofice documents, encrypts and archives       base64                                           
+                                                                                   docm                                             
+                                                                                   docx                                             
+                                                                                   glob                                             
+                                                                                   mov                                              
+                                                                                   numbers                                          
+                                                                                   pages                                            
+                                                                                   pdf                                              
+                                                                                   …                                                
+HIGH  evasion/int_to_char    converts strings into integers                        fromCharCode                                     
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/worker/fixtureRunner.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/worker/testInfo.js [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                      
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+MED   kernel/platform  get system identification        process.platform                            
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/worker/testTracing.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                      EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings  base64                                      
+LOW   encoding/json/encode  encodes JSON                     JSON.stringify                              
+LOW   fs/directory/create   creates directories              mkdir                                       
+LOW   fs/file/delete        deletes files                    unlink                                      
+LOW   fs/file/write         writes to file                   writeFile                                   
+LOW   ref/site/url          contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0  
+MED   kernel/platform       get system identification        process.platform                            
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/worker/timeoutManager.js [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/lib/worker/workerMain.js [✅ LOW]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                           EVIDENCE                                    
+------------------------------------------------------------------------------------------------------
+LOW   env/get       Retrieve environment variable values  env.TEST                                    
+LOW   ref/site/url  contains embedded HTTP URLs           http://www.apache.org/licenses/LICENSE-2.0  
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/package.json [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTPS URLs                    https://github.com/microsoft/playwright.git  
+                                                                         https://playwright.dev                       
+LOW   ref/words/plugin   references a 'plugin'                           plugins                                      
+MED   ref/path/relative  references and possibly executes relative path  ./index                                      
+                                                                         ./jsx-runtime                                
+                                                                         ./lib                                        
+                                                                         ./package                                    
+                                                                         ./test                                       
+                                                                         ./types                                      
+----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/test.d.ts [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./types                                     
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/test.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTP URLs                     http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/path/relative  references and possibly executes relative path  ./index                                     
+                                                                         ./lib                                       
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/types/test.d.ts [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------
+LOW   env/get                  Retrieve environment variable values            env.TEST                                                    
+LOW   fs/file/delete/forcibly  Forcibly deletes files                          rm case-insensitive match.                                  
+LOW   fs/file/write            writes to file                                  writeFile                                                   
+LOW   net/socket/listen        listen on a socket                              accept                                                      
+                                                                               socket                                                      
+LOW   ref/site/url             contains embedded HTTPS URLs                    https://api.example.com                                     
+                                                                               https://cs.chromium.org/chromium/src/third_party/icu/sour…  
+                                                                               https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/…  
+                                                                               https://developer.mozilla.org/en-US/docs/Web/API/Intersec…  
+                                                                               https://developer.mozilla.org/en-US/docs/Web/API/Node/isC…  
+                                                                               https://developer.mozilla.org/en-US/docs/Web/API/Service_…  
+                                                                               https://developer.mozilla.org/en-US/docs/Web/API/URL/URL    
+                                                                               https://developer.mozilla.org/en-US/docs/Web/Accessibilit…  
+                                                                               …                                                           
+LOW   ref/words/password       references a 'password'                         Password                                                    
+                                                                               username and password are sent to any                       
+MED   kernel/platform          get system identification                       process.platform                                            
+MED   net/download             download files                                  acceptDownloads                                             
+                                                                               await download                                              
+                                                                               downloaded                                                  
+                                                                               where all the downloads are accepted                        
+MED   ref/path/home            references path within /home                    /home/playwright/tests                                      
+MED   ref/path/relative        references and possibly executes relative path  ./bar                                                       
+                                                                               ./global-setup                                              
+                                                                               ./global-teardown                                           
+                                                                               ./my-test                                                   
+                                                                               ./reporters                                                 
+                                                                               ./smoke-tests                                               
+                                                                               ./snapshots                                                 
+                                                                               ./test-results                                              
+                                                                               …                                                           
+MED   ref/words/agent          references an 'agent'                           agent                                                       
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/playwright.zip ∴ /package/types/testReporter.d.ts [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                              
+-------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTPS URLs                    https://github.com/Microsoft/TypeScript/issues/19545  
+                                                                         https://playwright.dev/docs/api/class-reporter        
+                                                                         https://playwright.dev/docs/api/class-suite           
+                                                                         https://playwright.dev/docs/api/class-testcase        
+                                                                         https://playwright.dev/docs/api/class-testconfig      
+                                                                         https://playwright.dev/docs/api/class-testinfo        
+                                                                         https://playwright.dev/docs/api/class-testproject     
+                                                                         https://playwright.dev/docs/api/class-testresult      
+                                                                         …                                                     
+MED   net/upload         uploads files                                   uploads                                               
+MED   ref/path/relative  references and possibly executes relative path  ./test                                                
+-------------------------------------------------------------------------------------------------------------------------------
+

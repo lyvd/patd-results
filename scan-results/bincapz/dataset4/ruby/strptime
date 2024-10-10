@@ -1,0 +1,59 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /bin/console [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /bin/setup [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /ext/strptime/strftime.c [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE   
+-------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                       v >> 16    
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(str)  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /ext/strptime/strptime.c [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE   
+-------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                       v >> 16    
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(str)  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /lib/strptime.rb [🚨 CRITICAL]
+--------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                             EVIDENCE          
+--------------------------------------------------------------------------------------------
+LOW   net/sendfile                transfer data between file descriptors  sendfile          
+MED   evasion/base64/decode       decode base64 strings                   urlsafe_decode64  
+MED   net/http/cookies            access HTTP resources using cookies     http_cookie       
+MED   techniques/code_eval        evaluate code dynamically using eval()  eval(x)           
+CRIT  combo/backdoor/remote_eval  Evaluates remotely sourced code         cookie            
+                                                                          eval(             
+CRIT  evasion/base64/eval         Evaluates base64 content                Base64            
+                                                                          eval(             
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /spec/strftime_spec.rb [⚠️ MEDIUM]
+------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE  
+------------------------------------------------------------------------------
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(t))  
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/strptime.zip ∴ /spec/strptime_spec.rb [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE   
+-------------------------------------------------------------------------------
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec("")   
+                                                                    exec("a")  
+-------------------------------------------------------------------------------
+

@@ -1,0 +1,278 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/.bitnami_components.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE    
+-----------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libautoctl.sh [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE               
+--------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                         mkdir                  
+LOW   ref/words/password       references a 'password'                     -r escaped_password    
+                                                                           replication passwords  
+MED   databases/postgresql     accesses PostgreSQL databases               postgresql             
+MED   fs/file/copy             copy files using cp                         cp                     
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively          rm -rf                 
+MED   fs/file/times/set        change file timestamps                      touch                  
+MED   shell/exec               executes shell                              /bin/bash              
+MED   shell/ignore_output      Runs shell commands but throws output away  > /dev/null 2>&1       
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libbitnami.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                               
+-----------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bitnami.com/enterprise         
+                                                  https://github.com/bitnami/containers  
+MED   shell/exec    executes shell                /bin/bash                              
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libfile.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libfs.sh [⚠️ MEDIUM]
+------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                EVIDENCE   
+------------------------------------------------------------------
+LOW   fs/directory/create   creates directories        mkdir      
+LOW   fs/symlink/resolve    resolves symbolic links    realpath   
+MED   fs/permission/modify  modifies file permissions  chmod      
+MED   shell/exec            executes shell             /bin/bash  
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libhook.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/liblog.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                            
+------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/koalaman/shellcheck/wiki/SC2001  
+MED   shell/exec    executes shell                /bin/bash                                           
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libnet.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                      
+------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://stackoverflow.com/a/45977232/6694969  
+                                                  https://tools.ietf.org/html/rfc3986           
+MED   net/fetch     executable calls fetch tool   curl --silent                                 
+MED   shell/exec    executes shell                /bin/bash                                     
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libos.sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                  EVIDENCE         
+---------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                          mkdir            
+LOW   process/chdir            changes working directory                    cd ${cwd}        
+LOW   process/chroot           change the location of root for the process  chroot           
+LOW   ref/path/etc             path reference within /etc                   /etc/machine-id  
+                                                                            /etc/os-release  
+MED   exec/shell_command       execute a shell command                      system           
+MED   kernel/dev/block/device  access raw generic block devices             /dev/sda1        
+MED   kernel/platform          operating-system identification              os_release       
+MED   procfs/meminfo           get memory info                              /proc/meminfo    
+MED   procfs/mounts            Parses active mounts (/proc/mounts           /proc/mounts     
+MED   shell/exec               executes shell                               /bin/bash        
+MED   shell/ignore_output      Runs shell commands but throws output away   >/dev/null 2>&1  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libpersistence.sh [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                         EVIDENCE           
+--------------------------------------------------------------------------------------
+LOW   fs/symlink/resolve       resolves symbolic links             realpath           
+MED   fs/file/copy             copy files using cp                 cp -Lr --preserve  
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively  rm -rf             
+MED   ref/path/tmp             path reference within /tmp          /tmp/perms.acl     
+MED   shell/exec               executes shell                      /bin/bash          
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libpostgresql.sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete/forcibly  Forcibly deletes files                      rm -f                                                       
+LOW   fs/link/read             read value of a symbolic link               readlink                                                    
+LOW   fs/tempfile/create       Uses mktemp to create temporary files       mktemp                                                      
+LOW   net/socket/listen        listen on a socket                          accept                                                      
+                                                                           listen                                                      
+                                                                           socket                                                      
+LOW   ref/site/url             contains embedded HTTPS URLs                https://github.com/postgres/postgres/commit/fb9c475597c24…  
+LOW   ref/words/password       references a 'password'                     - Password                                                  
+                                                                           - database password                                         
+                                                                           --password                                                  
+                                                                           -r escaped_password                                         
+                                                                           Alter password of the postgres                              
+                                                                           Changing password of postgres                               
+                                                                           empty_password_enabled_warn                                 
+                                                                           empty_password_error                                        
+                                                                           …                                                           
+MED   databases/postgresql     accesses PostgreSQL databases               postgresql                                                  
+MED   fs/file/copy             forcibly copy files using cp -f             cp -fr                                                      
+MED   fs/file/make_executable  makes file executable                       chmod u+rwx                                                 
+MED   fs/file/times/set        change file timestamps                      touch                                                       
+MED   fs/permission/modify     modifies file permissions                   chmod                                                       
+MED   net/http/post            submits content to websites                 POST                                                        
+                                                                           http                                                        
+MED   persist/pid_file         pid file, likely DIY daemon                 /postmaster.pid                                             
+                                                                           external_pid_file                                           
+MED   ref/path/tmp             path reference within /tmp                  /tmp/postgresql.trigger.                                    
+MED   shell/exec               executes shell                              /bin/bash                                                   
+MED   shell/ignore_output      Runs shell commands but throws output away  >/dev/null 2>&1                                             
+---------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libservice.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                      EVIDENCE                  
+------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories              mkdir                     
+LOW   fs/file/delete/forcibly  Forcibly deletes files           rm -f                     
+LOW   ref/path/etc             path reference within /etc       /etc/cron.d/              
+                                                                /etc/logrotate.d          
+                                                                /etc/monit/conf.d         
+                                                                /etc/systemd/system       
+LOW   ref/path/usr/sbin        path reference within /usr/sbin  /usr/sbin/crond           
+LOW   service/stop             service stop                     service after being stop  
+MED   persist/crontab          May use crontab to persist       /etc/cron.d/              
+MED   persist/pid_file         pid file, likely DIY daemon      pid_file                  
+MED   ref/daemon               Run as a background daemon       daemon                    
+MED   shell/exec               executes shell                   /bin/bash                 
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libvalidations.sh [⚠️ MEDIUM]
+-----------------------------------------------------------
+RISK  KEY          DESCRIPTION              EVIDENCE       
+-----------------------------------------------------------
+MED   ref/ip_port  mentions an IP and port  IP             
+                                            Port           
+                                            validate_ip    
+                                            validate_port  
+MED   shell/exec   executes shell           /bin/bash      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libversion.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/libwebserver.sh [⚠️ MEDIUM]
+--------------------------------------------------------------------
+RISK  KEY              DESCRIPTION               EVIDENCE           
+--------------------------------------------------------------------
+MED   service/systemd  makes calls to systemctl  systemctl reload   
+                                                 systemctl restart  
+                                                 systemctl start    
+                                                 systemctl stop     
+MED   shell/exec       executes shell            /bin/bash          
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/locales/add-extra-locales.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE         
+-----------------------------------------------------------------
+LOW   ref/path/etc  path reference within /etc  /etc/locale.gen  
+MED   fs/file/copy  copy files using cp         cp               
+MED   shell/exec    executes shell              /bin/bash        
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/postgresql-env.sh [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE         
+----------------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql       
+MED   persist/pid_file      pid file, likely DIY daemon    /postgresql.pid  
+MED   shell/exec            executes shell                 /bin/bash        
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/postgresql/entrypoint.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE    
+-----------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql  
+MED   fs/file/copy          copy files using cp            cp -nr      
+MED   fs/file/times/set     change file timestamps         touch       
+MED   shell/exec            executes shell                 /bin/bash   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/postgresql/postunpack.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE     
+------------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql   
+MED   fs/file/copy          copy files using cp            cp -r        
+MED   fs/permission/modify  modifies file permissions      chmod        
+MED   ref/path/dev          path reference within /dev     /dev/stdout  
+MED   shell/exec            executes shell                 /bin/bash    
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/postgresql/run-autoctl.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE    
+-----------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql  
+MED   shell/exec            executes shell                 /bin/bash   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/postgresql/run.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE           
+------------------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql         
+MED   persist/pid_file      pid file, likely DIY daemon    external_pid_file  
+MED   shell/exec            executes shell                 /bin/bash          
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /opt/bitnami/scripts/postgresql/setup.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE     
+------------------------------------------------------------------------
+LOW   fs/link/read          read value of a symbolic link  readlink     
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql   
+MED   fs/permission/modify  modifies file permissions      chmod        
+MED   ref/daemon            Run as a background daemon     daemon       
+MED   ref/path/dev          path reference within /dev     /dev/stdout  
+MED   shell/exec            executes shell                 /bin/bash    
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /usr/sbin/install_packages [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                         EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------
+LOW   ref/path/var             path reference within /var          /var/cache/apt/archives                     
+                                                                   /var/lib/apt/lists                          
+MED   admin/package/install    install software with apt-get       apt-get install -y --no-install-recommends  
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively  rm -rf /var/lib/apt/lists /var/cache/ap     
+MED   shell/exec               executes shell                      /bin/sh                                     
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /usr/sbin/run-script [⚠️ MEDIUM]
+--------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE  
+--------------------------------------------
+MED   shell/exec  executes shell  /bin/sh   
+--------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-bitnami-compat-15.6-r5.apk ∴ /var/lib/db/sbom/postgresql-15-bitnami-compat-15.6-r5.spdx.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://spdx.org/spdxdocs/chainguard/melange/8ec83c667b1c…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+MED   net/download          download files                 downloadLocation                                            
+-----------------------------------------------------------------------------------------------------------------------
+

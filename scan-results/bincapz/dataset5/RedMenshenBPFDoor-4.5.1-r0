@@ -1,0 +1,59 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset5/RedMenshenBPFDoor-4.5.1-r0.apk ∴ /home/cg/RedMenshenBPFDoor [🚨 CRITICAL]
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                            DESCRIPTION                                           EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background        wait for process to exit                              waitpid                                                     
+LOW   fd/multiplex                   monitor multiple file descriptors                     select                                                      
+LOW   fs/file/delete                 deletes files                                         unlink                                                      
+LOW   fs/file/delete/forcibly        Forcibly deletes files                                rm -f H                                                     
+LOW   net/socket/listen              listen on a socket                                    accept                                                      
+                                                                                           listen                                                      
+                                                                                           socket                                                      
+LOW   net/socket/receive             receive a message from a socket                       recvfrom                                                    
+LOW   net/socket/send                send a message to a socket                            sendto                                                      
+LOW   process/chroot                 change the location of root for the process           chroot                                                      
+LOW   process/create                 create child process                                  fork                                                        
+LOW   random/insecure                generate random numbers insecurely                    srand                                                       
+LOW   ref/path/usr/sbin              path reference within /usr/sbin                       /usr/sbin/console-kit-daemon                                
+LOW   tty/vhangup                    virtually hangup the current terminal                 vhangup                                                     
+MED   device/pseudo_terminal         pseudo-terminal access functions                      grantpt                                                     
+                                                                                           ptsname                                                     
+                                                                                           unlockpt                                                    
+MED   exec/program                   executes external programs                            execve                                                      
+MED   exec/shell_command             execute a shell command                               system                                                      
+MED   fs/file/copy                   copy files using cp                                   cp -s                                                       
+MED   fs/file/times/set              change file last access and modification times        utimes                                                      
+MED   net/ip/byte/order              convert values between host and network byte order    htons                                                       
+MED   net/ip/string                  converts IP address from byte to string               inet_ntoa                                                   
+MED   net/socket/connect             initiate a connection on a socket                     connect                                                     
+MED   ref/daemon                     Run as a background daemon                            --no-daemon                                                 
+                                                                                           avahi-daemon                                                
+                                                                                           dbus-daemon                                                 
+                                                                                           kit-daemon                                                  
+MED   ref/path/dev                   path reference within /dev                            /dev/H                                                      
+                                                                                           /dev/nuH                                                    
+                                                                                           /dev/ptmH                                                   
+                                                                                           /dev/sH                                                     
+                                                                                           /dev/shmH                                                   
+                                                                                           /dev/tty7                                                   
+MED   ref/path/relative              references and possibly executes relative path        ./bin                                                       
+MED   shell/exec                     executes a shell command                              /bin/sh                                                     
+CRIT  3P/elastic/bpfdoor             Detects Linux Trojan Bpfdoor (Linux.Trojan.BPFDoor),  /sbin/auditd -n                                             
+                                     by Elastic Security                                   /sbin/mingetty /dev/tty7                                    
+                                                                                           avahi-daemon: chroot helper                                 
+                                                                                           hald-addon-acpi: listening on acpi kernel interface /proc…  
+                                                                                           kdmtmpflush                                                 
+                                                                                           pickup -l -t fifo -u                                        
+CRIT  3P/signature_base/redmenshen/  Detects BPFDoor implants used by Chinese actor Red    /sbin/mingetty /dev                                         
+      bpfdoor                        Menshen, by Florian Roth (Nextron Systems)            hald-addon-acpi: listening on acpi kernel interface /proc…  
+                                                                                           pickup -l -t fifo -u                                        
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset5/RedMenshenBPFDoor-4.5.1-r0.apk ∴ /var/lib/db/sbom/RedMenshenBPFDoor-4.5.1-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/9a47311ecb98…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

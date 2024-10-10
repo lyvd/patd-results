@@ -1,0 +1,267 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/bin/yarn [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                 EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/link/read         read value of a symbolic link               readlink                                                    
+LOW   kernel/platform      system identification                       uname                                                       
+LOW   process/chdir        changes working directory                   cd "$                                                       
+LOW   ref/site/url         contains embedded HTTPS URLs                https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=614907    
+                                                                       https://lists.debian.org/debian-devel-announce/2012/07/ms…  
+MED   shell/exec           executes shell                              /bin/sh                                                     
+MED   shell/ignore_output  Runs shell commands but throws output away  >/dev/null 2>&1                                             
+-----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/bin/yarn.js [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE          
+--------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env      
+MED   kernel/platform   get system identification       process.versions  
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/bin/yarnpkg [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE      
+---------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin   path reference within /usr/bin                  /usr/bin/env  
+MED   ref/path/relative  references and possibly executes relative path  ./yarn        
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/lib/cli.js [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                           EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2         Works with bzip2 files                                bzip2                                                       
+LOW   compression/gzip          works with gzip files                                 gzip                                                        
+LOW   crypto/ed25519            Elliptic curve algorithm used by TLS and SSH          ed25519                                                     
+LOW   encoding/base64           Supports base64 encoded strings                       base64                                                      
+LOW   encoding/json/decode      Decodes JSON messages                                 JSON.parse                                                  
+LOW   encoding/json/encode      encodes JSON                                          JSON.stringify                                              
+LOW   env/HOME                  Looks up the HOME directory for the current user      env.HOME                                                    
+LOW   env/TERM                  Look up or override terminal settings                 TERM                                                        
+LOW   env/get                   Retrieve environment variable values                  env.AWS                                                     
+                                                                                      env.BUILD                                                   
+                                                                                      env.CHILD                                                   
+                                                                                      env.CLI                                                     
+                                                                                      env.COLORTERM                                               
+                                                                                      env.CONTINUOUS                                              
+                                                                                      env.COREPACK                                                
+                                                                                      env.DEBUG                                                   
+                                                                                      …                                                           
+LOW   fd/read                   reads from a file handle                              cipherStream.read()                                         
+                                                                                      stream.read()                                               
+                                                                                      that.read()                                                 
+LOW   fd/write                  writes to a file handle                               _decoder.write(data)                                        
+                                                                                      _writable.write(data)                                       
+                                                                                      buf.write(name)                                             
+                                                                                      cipherStream.write(buf)                                     
+                                                                                      cipherStream.write(privBuf)                                 
+                                                                                      cipherStream.write(privKeyBlob)                             
+                                                                                      conv.write(chunk)                                           
+                                                                                      decoder.write(buf)                                          
+                                                                                      …                                                           
+LOW   fs/directory/create       creates directories                                   mkdir                                                       
+LOW   fs/directory/list         Uses NodeJS functions to list a directory             .readdirSync(                                               
+LOW   fs/directory/remove       Uses libc functions to remove directories             rmdir                                                       
+LOW   fs/file/delete            deletes files                                         unlink                                                      
+LOW   fs/file/open              opens files                                           open(                                                       
+LOW   fs/file/read              opens a file for read                                 ReadFile                                                    
+LOW   fs/file/stat              access filesystem metadata                            fs.stat(abs                                                 
+                                                                                      fs.stat(base                                                
+                                                                                      fs.stat(filename                                            
+                                                                                      fs.stat(getLockFile(file)                                   
+                                                                                      fs.stat(name                                                
+                                                                                      fs.stat(path                                                
+                                                                                      fs.stat(src)                                                
+                                                                                      fs.stat(to                                                  
+                                                                                      …                                                           
+LOW   fs/file/truncate          truncate a file to a specified length                 ftruncate                                                   
+LOW   fs/file/write             writes to file                                        writeFilePreservingEol                                      
+                                                                                      writeFileSync                                               
+LOW   fs/link/create            May create hard file links                            _link                                                       
+LOW   fs/link/read              read value of a symbolic link                         readlink                                                    
+LOW   fs/mount                  mounts file systems                                   -o                                                          
+                                                                                      mount                                                       
+LOW   fs/symlink/resolve        resolves symbolic links                               realpath                                                    
+LOW   fs/tempdir                looks up location of temp directory                   TMPDIR                                                      
+LOW   fs/tempdir/create         creates temporary directory                           mkdtemp                                                     
+                                                                                      temp dir                                                    
+LOW   hash/md5                  Uses the MD5 signature format                         md5:                                                        
+LOW   kernel/acct               switch process accounting on or off                   acct                                                        
+LOW   net/dns                   Uses DNS (Domain Name Service)                        require("dns")                                              
+LOW   net/dns/txt               Uses DNS TXT (text) records                           TXT                                                         
+                                                                                      dns                                                         
+LOW   net/hostname/resolve      resolve network host name to IP address               cannot resolve                                              
+LOW   net/http/accept/encoding  set HTTP response encoding format (example: gzip)     Accept-Encoding                                             
+LOW   net/http/auth             makes HTTP requests with basic authentication         www-authenticate                                            
+LOW   net/http/request          makes HTTP requests                                   HTTP/1.                                                     
+                                                                                      User-Agent                                                  
+LOW   net/http_proxy            use HTTP proxy that requires authentication           Proxy-Authorization                                         
+LOW   net/ip/multicast/send     send data to multiple nodes simultaneously            multicast                                                   
+LOW   net/socket/listen         listen on a socket                                    accept                                                      
+                                                                                      listen                                                      
+                                                                                      socket                                                      
+LOW   net/socket/send           send a message to a socket                            send                                                        
+                                                                                      socket                                                      
+LOW   process/chdir             changes working directory                             cd into them                                                
+LOW   ref/path/etc              path reference within /etc                            /etc/npmrc                                                  
+LOW   ref/path/hidden           possible hidden file path                             /project/path/.pnp                                          
+                                                                                      /xyz/.pnp                                                   
+LOW   ref/path/home_library     path reference within ~/Library                       ~/Library/Application Support/Yarn on Macs                  
+LOW   ref/path/usr/bin          path reference within /usr/bin                        /usr/bin/env                                                
+LOW   ref/site/url              contains embedded HTTPS URLs                          https://api.github.com/repos/yarnpkg/yarn/releases          
+                                                                                      https://blogs.msdn.microsoft.com/twistylittlepassagesalla…  
+                                                                                      https://bugs.chromium.org/p/chromium/issues/detail?id=830…  
+                                                                                      https://bugs.chromium.org/p/v8/issues/detail?id=2070        
+                                                                                      https://bugs.chromium.org/p/v8/issues/detail?id=3056        
+                                                                                      https://bugs.chromium.org/p/v8/issues/detail?id=3175        
+                                                                                      https://bugs.chromium.org/p/v8/issues/detail?id=3443        
+                                                                                      https://bugs.chromium.org/p/v8/issues/detail?id=4118        
+                                                                                      …                                                           
+LOW   ref/words/obfuscate       Mentions the word obfuscate                           obfuscated                                                  
+LOW   ref/words/password        references a 'password'                               If default password is supplied                             
+                                                                                      _password                                                   
+                                                                                      because of the password prompt                              
+                                                                                      function OneTimePasswordError                               
+                                                                                      function PasswordPrompt                                     
+                                                                                      getOneTimePassword                                          
+                                                                                      incorrectOneTimePassword                                    
+                                                                                      invalid user or password                                    
+                                                                                      …                                                           
+LOW   ref/words/plugin          references a 'plugin'                                 PluginArray                                                 
+                                                                                      replacement plugins                                         
+LOW   secrets/private_key       References private keys                               private_key                                                 
+MED   admin/package/install     install software with apt-get                         yum install yarn                                            
+MED   combo/net/tunnel_proxy    network tunnel proxy                                  Proxy                                                       
+                                                                                      Tunnel                                                      
+                                                                                      crypto                                                      
+                                                                                      proxy                                                       
+                                                                                      socket                                                      
+                                                                                      tunnel                                                      
+MED   databases/sqlite          accesses SQLite databases                             sqlite3                                                     
+MED   evasion/hex               converts hex data to ASCII                            Buffer.from(hexDigest, 'hex')                               
+                                                                                      Buffer.from(parts, 'hex')                                   
+                                                                                      Buffer.from(sha1, 'hex')                                    
+MED   exec/cmd                  executes a command                                    execCommand                                                 
+                                                                                      realRunCommand                                              
+                                                                                      runCommand                                                  
+                                                                                      runningCommand                                              
+MED   fs/file/copy              copy files using cp                                   cp - 0x10000                                                
+MED   fs/file/delete/forcibly   Forcibly deletes files recursively                    rm -rf $1                                                   
+MED   fs/file/times/set         change file last access and modification times        utimes                                                      
+MED   fs/permission/chown       Changes file ownership                                Chown                                                       
+MED   fs/permission/modify      modifies file permissions                             chmod                                                       
+MED   kernel/platform           get system identification                             os.platform()                                               
+                                                                                      os.release()                                                
+                                                                                      process.arch                                                
+                                                                                      process.platform                                            
+                                                                                      process.versions                                            
+MED   net/dns/reverse           looks up the reverse hostname for an IP               ip6.arpa                                                    
+MED   net/fetch                 Invokes curl to download a file                       curl --compressed -o- -L                                    
+                                                                                      curl -o public_suffix_list.dat https://publicsuffix.org/l…  
+MED   net/http/cookies          access HTTP resources using cookies                   Cookie                                                      
+                                                                                      HTTP                                                        
+MED   net/http/form/upload      upload content via HTTP form                          POST                                                        
+                                                                                      application/json                                            
+                                                                                      application/x-www-form-urlencoded                           
+MED   net/http/post             submits form content to websites                      Content-Type                                                
+                                                                                      HTTP                                                        
+                                                                                      POST                                                        
+                                                                                      http                                                        
+MED   net/interface/list        list network interfaces                               networkInterfaces                                           
+MED   net/ssh                   Uses SSH (secure shell) service                       SSH                                                         
+MED   net/upload                uploads files                                         uploadId                                                    
+                                                                                      uploads                                                     
+MED   net/url/encode            encodes URL, likely to pass GET variables             urlencode                                                   
+MED   net/url/request           requests resources via URL                            http.request                                                
+MED   ref/extensions/office     References multiple Office file extensions (possible  docm                                                        
+                                exfil)                                                docx                                                        
+                                                                                      eml                                                         
+                                                                                      ppam                                                        
+                                                                                      ppt                                                         
+                                                                                      xlsx                                                        
+MED   ref/ip_port               mentions an IP and port                               IP                                                          
+                                                                                      defaultPort                                                 
+                                                                                      hasPort                                                     
+                                                                                      mutexPort                                                   
+                                                                                      zonePort                                                    
+MED   ref/path/dev              path reference within /dev                            /dev/tty                                                    
+MED   ref/path/root             path reference within /root                           /root                                                       
+MED   ref/path/tmp              path reference within /tmp                            /tmp/foo/                                                   
+MED   ref/path/usr/local        path reference within /usr/local/bin                  /usr/local/bin/node                                         
+MED   ref/program/powershell    powershell                                            powershell                                                  
+MED   ref/program/sudo          calls sudo                                            sudo apt-get install yarn                                   
+                                                                                      sudo apt-get update                                         
+                                                                                      sudo emerge --sync                                          
+                                                                                      sudo emerge -au sys-apps/yarn                               
+                                                                                      sudo yum install yarn                                       
+MED   ref/site/download         http dropper url                                      http://foo.com/bar.tar.gz                                   
+                                                                                      https://yarnpkg.com/install.sh                              
+MED   ref/site/dyndns           dynamic dns user                                      duckdns                                                     
+                                                                                      dyndns                                                      
+                                                                                      eu.org                                                      
+                                                                                      hopto.org                                                   
+                                                                                      no-ip.                                                      
+MED   ref/site/github_raw       github raw user                                       github.com                                                  
+                                                                                      raw/master                                                  
+MED   ref/site/proxy            References known file hosting site                    ngrok.io                                                    
+MED   ref/words/exclamation     gets very excited                                     regexp and !!                                               
+                                                                                      return !!                                                   
+MED   ref/words/heartbeat       references a 'heartbeat'                              heartbeat                                                   
+MED   ref/words/intercept       References interception                               interceptor                                                 
+MED   ref/words/leetspeak       References 1337 terminology'                          1337                                                        
+MED   shell/exec                executes shell                                        /bin/sh                                                     
+MED   shell/pipe_sh             pipes to shell                                        | bash                                                      
+                                                                                      | sh                                                        
+HIGH  combo/dropper/shell       fetches content and pipes it to a shell               curl --compressed -o- -L ${(_constants || _load_constants…  
+HIGH  evasion/int_to_char       converts strings into integers                        fromCharCode                                                
+HIGH  net/fetch/suspicious      high-risk fetch command                               curl --compressed -o- -L ${(_constants                      
+                                                                                      curl -o public_suffix_list.dat https://publicsuffix.org/l…  
+HIGH  secrets/key               extracts data from a secret key                       fromSecretKey                                               
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/lib/v8-compile-cache.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                           EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                 JSON.parse                                                  
+LOW   encoding/json/encode  encodes JSON                          JSON.stringify                                              
+LOW   env/get               Retrieve environment variable values  env.DISABLE                                                 
+LOW   fs/file/read          reads files                           fs.readFile                                                 
+LOW   fs/file/stat          access filesystem metadata            fs.statSync(p)                                              
+LOW   fs/file/write         writes to file                        writeFileSync                                               
+LOW   ref/site/url          contains embedded HTTPS URLs          https://github.com/nodejs/node/blob/v7.5.0/lib/module.js    
+                                                                  https://github.com/substack/node-mkdirp/blob/f2003bb/inde…  
+                                                                  https://github.com/zertosh/slash-escape/blob/e7ebb99/slas…  
+MED   kernel/platform       get system identification             process.versions                                            
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/package.json [🔥 HIGH]
+---------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                        DESCRIPTION                                     EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/relative          references and possibly executes relative path  ./bin                                                       
+                                                                                 ./node_modules                                              
+                                                                                 ./preinstall                                                
+MED   shell/ignore_output        Runs shell commands but throws output away      js > /dev/null 2>&1                                         
+HIGH  techniques/npm_preinstall  NPM preinstall runs an external command         "preinstall": ":; (node ./preinstall.js > /dev/null 2>&1 …  
+                                                                                 $ref                                                        
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /usr/share/node_modules/yarn/preinstall.js [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY             DESCRIPTION                   EVIDENCE                                 
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url    contains embedded HTTPS URLs  https://github.com/arcanis/pmm/issues/6  
+MED   fs/file/copy    copy files using cp           cp                                       
+MED   process/create  create child process          require('child_process')                 
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/yarn-1.22.22-r1.apk ∴ /var/lib/db/sbom/yarn-1.22.22-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/31310dc25476…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

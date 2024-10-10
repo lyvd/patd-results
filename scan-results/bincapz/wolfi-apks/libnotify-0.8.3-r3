@@ -1,0 +1,25 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnotify-0.8.3-r3.apk ∴ /usr/bin/notify-send [✅ LOW]
+------------------------------------------------------
+RISK  KEY       DESCRIPTION                 EVIDENCE  
+------------------------------------------------------
+LOW   fs/watch  monitors filesystem events  inotify   
+------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnotify-0.8.3-r3.apk ∴ /usr/lib/libnotify.so.4.0.0 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                              DESCRIPTION                             EVIDENCE           
+--------------------------------------------------------------------------------------------------
+LOW   fs/symlink/resolve               resolves symbolic links                 realpath           
+LOW   fs/watch                         monitors filesystem events              inotify            
+MED   procfs/self/cgroup               accesses /proc files within own cgroup  /proc/self/cgroup  
+MED   security_controls/linux/selinux  selinux                                 SELINUX            
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnotify-0.8.3-r3.apk ∴ /var/lib/db/sbom/libnotify-0.8.3-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/891d1efef38b…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

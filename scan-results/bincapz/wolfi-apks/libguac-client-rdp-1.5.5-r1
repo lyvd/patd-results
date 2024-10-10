@@ -1,0 +1,66 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libguac-client-rdp-1.5.5-r1.apk ∴ /usr/lib/libguac-client-rdp.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                            DESCRIPTION                                       EVIDENCE                                              
+---------------------------------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                       Looks up the HOME directory for the current user  HOME                                                  
+                                                                                       getenv                                                
+LOW   fs/directory/create            creates directories                               mkdir                                                 
+LOW   fs/directory/remove            Uses libc functions to remove directories         rmdir                                                 
+LOW   fs/file/delete                 deletes files                                     unlink                                                
+LOW   fs/file/open                   opens files                                       open(                                                 
+LOW   fs/file/truncate               truncate a file to a specified length             ftruncate                                             
+LOW   net/hostport/parse             Network address and service translation           freeaddrinfo                                          
+                                                                                       getaddrinfo                                           
+LOW   net/socket/send                send a message to a socket                        _send                                                 
+LOW   process/multithreaded          creates pthreads                                  pthread_create                                        
+LOW   ref/path/etc                   path reference within /etc                        /etc/guacamole/ssh                                    
+LOW   ref/site/url                   contains embedded HTTPS URLs                      https://github.com/FreeRDP/FreeRDP/issues/3412        
+                                                                                       https://issues.apache.org/jira/browse/GUACAMOLE-1191  
+LOW   ref/words/password             references a 'password'                           Password                                              
+                                                                                       gateway-password                                      
+                                                                                       key or a password                                     
+                                                                                       sftp-password                                         
+                                                                                       ssh_user_set_password                                 
+                                                                                       userauth_password_ex                                  
+                                                                                       with password                                         
+LOW   ref/words/plugin               references a 'plugin'                             Failed to load drdynvc plugin                         
+                                                                                       guac_freerdp_channels_load_plugin                     
+                                                                                       guac_rdp_audio_load_plugin                            
+                                                                                       guac_rdp_clipboard_load_plugin                        
+                                                                                       guac_rdp_common_svc_load_plugin                       
+                                                                                       guac_rdp_disp_load_plugin                             
+                                                                                       guac_rdp_pipe_svc_load_plugin                         
+                                                                                       guac_rdp_rail_load_plugin                             
+                                                                                       …                                                     
+MED   data/embedded/pem/private_key  Contains PRIVATE KEY directive                    PRIVATE KEY-----                                      
+MED   exec/program                   executes external programs                        execvp                                                
+MED   fs/file/times/set              change file timestamps                            touch support.                                        
+MED   net/download                   download files                                    Download                                              
+                                                                                       Initiating download of                                
+                                                                                       Unable to download file                               
+                                                                                       blocked due to downloads being disabled               
+                                                                                       common_ssh_sftp_download_file                         
+                                                                                       file for download                                     
+                                                                                       guac_rdp_download_ack_handler                         
+                                                                                       guac_rdp_download_get_handler                         
+                                                                                       …                                                     
+MED   net/ssh                        Uses SSH (secure shell) service                   SSH                                                   
+MED   net/upload                     uploads files                                     UPLOAD                                                
+                                                                                       Upload                                                
+                                                                                       upload_blob_handler                                   
+                                                                                       upload_end_handler                                    
+                                                                                       upload_file_handler                                   
+                                                                                       upload_path                                           
+                                                                                       upload_put_handler                                    
+                                                                                       uploads                                               
+                                                                                       …                                                     
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libguac-client-rdp-1.5.5-r1.apk ∴ /var/lib/db/sbom/libguac-client-rdp-1.5.5-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/667cb5cf9558…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

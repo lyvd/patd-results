@@ -1,0 +1,130 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-cgi-8.2.11-r1.apk ∴ /usr/bin/php-cgi [🔥 HIGH]
+----------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                            DESCRIPTION                                            EVIDENCE                                          
+----------------------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/gzip               works with gzip files                                  gzip                                              
+LOW   encoding/base64                Supports base64 encoded strings                        base64                                            
+LOW   env/TEMP                       tmpdir                                                 TEMP                                              
+                                                                                            getenv                                            
+LOW   env/TMPDIR                     TMPDIR                                                 TMPDIR                                            
+                                                                                            getenv                                            
+LOW   env/USER                       Looks up the USER name of the current user             USER                                              
+                                                                                            getenv                                            
+LOW   exec/program/background        wait for process to exit                               waitpid                                           
+LOW   fs/directory/create            creates directories                                    mkdir                                             
+LOW   fs/directory/remove            Uses libc functions to remove directories              rmdir                                             
+LOW   fs/file/delete                 deletes files                                          unlink                                            
+LOW   fs/file/truncate               truncate a file to a specified length                  ftruncate                                         
+LOW   fs/link/read                   read value of a symbolic link                          readlink                                          
+LOW   fs/lock/update                 apply or remove an advisory lock on a file             flock                                             
+LOW   fs/symlink/resolve             resolves symbolic links                                realpath                                          
+LOW   fs/tempdir                     looks up location of temp directory                    TMPDIR                                            
+LOW   hash/sha256                    Uses the SHA256 signature format                       SHA256_                                           
+LOW   kernel/hostname/get            get computer host name                                 gethostname                                       
+LOW   kernel/platform                system identification                                  uname                                             
+LOW   net/dns/txt                    Uses DNS TXT (text) records                            TXT                                               
+                                                                                            dns                                               
+LOW   net/ftp                        File Transfer Protocol (FTP)                           EPSV                                              
+LOW   net/hostname/resolve           resolve network host name to IP address                gethostbyname                                     
+LOW   net/hostport/parse             Network address and service translation                freeaddrinfo                                      
+                                                                                            getaddrinfo                                       
+LOW   net/http/accept/encoding       set HTTP response encoding format (example: gzip)      Accept-Encoding                                   
+LOW   net/http/auth                  makes HTTP requests with basic authentication          WWW-Authenticate                                  
+LOW   net/http/request               makes HTTP requests                                    HTTP/1.                                           
+                                                                                            User-Agent                                        
+LOW   net/http_proxy                 use HTTP proxy that requires authentication            Proxy-Authorization                               
+LOW   net/icmp                       ICMP (Internet Control Message Protocol), aka ping     ICMP                                              
+LOW   net/ip/resolve                 resolves network hosts via IP address                  gethostbyaddr                                     
+LOW   net/ip/send/unicast            send data to the internet                              unicast                                           
+LOW   net/socket/listen              listen on a socket                                     accept                                            
+                                                                                            listen                                            
+                                                                                            socket                                            
+LOW   net/socket/local/address       get local address of connected socket                  getsockname                                       
+LOW   net/socket/peer/address        get peer address of connected socket                   getpeername                                       
+LOW   net/socket/receive             receive a message from a socket                        recvfrom                                          
+LOW   net/socket/send                send a message to a socket                             sendto                                            
+LOW   random/insecure                generate random numbers insecurely                     srand                                             
+LOW   ref/path/etc                   path reference within /etc                             /etc/php/conf.d                                   
+LOW   ref/path/usr/sbin              path reference within /usr/sbin                        /usr/sbin/sendmail                                
+LOW   ref/site/url                   contains embedded HTTPS URLs                           https://github.com/php/php-src/issues             
+LOW   ref/words/password             references a 'password'                                Invalid password                                  
+                                                                                            arginfo_password_get_info                         
+                                                                                            arginfo_password_hash                             
+                                                                                            arginfo_password_needs_rehash                     
+                                                                                            arginfo_password_verify                           
+                                                                                            oci_password_change                               
+                                                                                            php_password_algo_bcrypt                          
+                                                                                            php_password_algo_default                         
+                                                                                            …                                                 
+LOW   time/tzinfo                    Uses timezone information                              tzinfo                                            
+MED   combo/net/scan_tool            may scan networks                                      connect                                           
+                                                                                            gethostbyname                                     
+                                                                                            port                                              
+                                                                                            scan                                              
+                                                                                            socket                                            
+                                                                                            target                                            
+MED   data/embedded/html             Contains HTML content                                  DOCTYPE html                                      
+MED   databases/mysql                accesses MySQL databases                               mysql                                             
+MED   databases/sqlite               accesses SQLite databases                              sqlite3                                           
+MED   dylib/symbol/address           get the address of a symbol                            dlsym                                             
+MED   evasion/base64/decode          decode base64 strings                                  base64_decode                                     
+MED   exec/program                   executes external programs                             execle                                            
+                                                                                            execvp                                            
+MED   exec/shell_command             execute a shell command                                shell_exec                                        
+MED   fs/file/times/set              change file last access and modification times         utime                                             
+MED   fs/permission/modify           modifies file permissions                              chmod                                             
+MED   net/http/cookies               access HTTP resources using cookies                    Cookie                                            
+                                                                                            HTTP_COOKIE                                       
+MED   net/http/form/upload           upload content via HTTP form                           POST                                              
+                                                                                            application/x-www-form-urlencoded                 
+MED   net/http/post                  submits content to websites                            Content-Type                                      
+                                                                                            HTTP                                              
+                                                                                            POST                                              
+                                                                                            http                                              
+MED   net/interface/list             list network interfaces                                freeifaddrs                                       
+                                                                                            getifaddrs                                        
+MED   net/ip/parse                   parses IP address (IPv4 or IPv6)                       inet_pton                                         
+MED   net/ip/string                  converts IP address from byte to string                inet_ntop                                         
+MED   net/raw_sockets                send raw and/or malformed IP packets                   IPPROTO_RAW                                       
+                                                                                            SOCK_RAW                                          
+MED   net/socket/connect             initiate a connection on a socket                      fsockopen                                         
+MED   net/upload                     uploads files                                          UPLOAD_ERR_CANT_WRITE                             
+                                                                                            UPLOAD_ERR_EXTENSION                              
+                                                                                            UPLOAD_ERR_FORM_SIZE                              
+                                                                                            UPLOAD_ERR_INI_SIZE                               
+                                                                                            UPLOAD_ERR_NO_FILE                                
+                                                                                            UPLOAD_ERR_NO_TMP_DIR                             
+                                                                                            UPLOAD_ERR_OK                                     
+                                                                                            UPLOAD_ERR_PARTIAL                                
+                                                                                            …                                                 
+MED   net/url/encode                 encodes URL, likely to pass GET variables              urlencode                                         
+MED   process/effective/groupid/get  returns the effective group id of the current process  getmygid                                          
+MED   procfs/arbitrary/pid           access /proc for arbitrary pids                        /proc/%d/exe                                      
+MED   procfs/self/status             gets status associated to this process, including      /proc/self/status                                 
+                                     capabilities                                                                                             
+MED   ref/daemon                     Run as a background daemon                             daemon                                            
+MED   ref/ip_port                    mentions an IP and port                                IP                                                
+                                                                                            Ip                                                
+                                                                                            Port                                              
+                                                                                            client_ip                                         
+                                                                                            pg_port                                           
+                                                                                            smtp_port                                         
+                                                                                            validate_ip                                       
+                                                                                            with_port                                         
+                                                                                            …                                                 
+MED   ref/path/relative              references and possibly executes relative path         ./configure                                       
+MED   ref/words/exclamation          gets very excited                                      output_compression and output_handler together!!  
+MED   shell/exec                     executes shell                                         /bin/sh                                           
+MED   tty/open                       finds and opens an available pseudoterminal            openpty                                           
+HIGH  procfs/pid/exe                 accesses underlying executable of other processes      /proc/%d/exe                                      
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-cgi-8.2.11-r1.apk ∴ /var/lib/db/sbom/php-cgi-8.2.11-r1.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                       
+-------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/php-cgi                               
+LOW   ref/site/url      contains embedded HTTPS URLs    https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download      download files                  downloadLocation                               
+-------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,267 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/envoy-1.29-1.29.6-r0.apk ∴ /usr/bin/envoy [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                          EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   cloud/aws/metadata            References the AWS EC2 metadata token                X-aws-ec2-metadata-token                                    
+LOW   cloud/google/metadata         Includes the token required to use the Google Cloud  Metadata-Flavor                                             
+                                    Platform metadata server                                                                                         
+LOW   compression/gzip              works with gzip files                                gzip                                                        
+LOW   compression/zstd              Zstandard: fast real-time compression algorithm      (�/�                                                        
+                                                                                         ZSTD_decompressStream                                       
+                                                                                         zstd                                                        
+LOW   crypto/aes                    Supports AES (Advanced Encryption Standard)          AES                                                         
+                                                                                         aes_256_cbc                                                 
+LOW   crypto/ecdsa                  Uses the Go crypto/ecdsa library                     crypto/ecdsa                                                
+LOW   crypto/ed25519                Elliptic curve algorithm used by TLS and SSH         ed25519                                                     
+LOW   crypto/tls                    tls                                                  TLS13                                                       
+                                                                                         TLSVersion                                                  
+                                                                                         crypto/tls                                                  
+LOW   dylib/iterate                 iterate over list of shared objects                  dl_iterate_phdr                                             
+LOW   encoding/base64               Supports base64 encoded strings                      base64                                                      
+LOW   env/HOME                      Looks up the HOME directory for the current user     HOME                                                        
+                                                                                         getenv                                                      
+LOW   env/LANG                      Looks up language of current user                    LANG                                                        
+                                                                                         getenv                                                      
+LOW   env/TMPDIR                    TMPDIR                                               TMPDIR                                                      
+                                                                                         getenv                                                      
+LOW   env/USER                      Looks up the USER name of the current user           USER                                                        
+                                                                                         getenv                                                      
+LOW   fd/epoll                      I/O event notification facility                      epoll_create                                                
+                                                                                         epoll_wait                                                  
+LOW   fs/directory/create           creates directories                                  mkdir                                                       
+LOW   fs/file/delete                deletes files                                        unlink                                                      
+LOW   fs/file/read                  reads files                                          ReadFile                                                    
+LOW   fs/file/truncate              truncate a file to a specified length                ftruncate                                                   
+LOW   fs/link/create                May create hard file links                           linkat                                                      
+LOW   fs/link/read                  read value of a symbolic link                        readlink                                                    
+LOW   fs/mount                      mounts file systems                                  -o                                                          
+                                                                                         mount                                                       
+LOW   fs/symlink/resolve            resolves symbolic links                              realpath                                                    
+LOW   fs/tempdir                    looks up location of temp directory                  TMPDIR                                                      
+LOW   fs/watch                      monitors filesystem events                           inotify                                                     
+LOW   hash/md5                      Uses the MD5 signature format                        MD5_Final                                                   
+                                                                                         MD5_Update                                                  
+LOW   hash/sha1                     Uses the SHA1 signature format                       SHA1_                                                       
+LOW   hash/sha256                   Uses the SHA256 signature format                     SHA256_                                                     
+LOW   kernel/hostname/get           get computer host name                               gethostname                                                 
+LOW   kernel/platform               system identification                                uname                                                       
+LOW   net/dns/servers               Examines local DNS servers                           resolv.conf                                                 
+LOW   net/dns/txt                   Uses DNS TXT (text) records                          TXT                                                         
+                                                                                         dns                                                         
+LOW   net/grpc                      Uses the gRPC Remote Procedure Call framework        gRPC                                                        
+LOW   net/hostname/resolve          resolve network host name to IP address              gethostbyname                                               
+LOW   net/hostport/parse            Network address and service translation              freeaddrinfo                                                
+                                                                                         getaddrinfo                                                 
+LOW   net/http/accept/encoding      set HTTP response encoding format (example: gzip)    Accept-Encoding                                             
+LOW   net/http/auth                 makes HTTP requests with basic authentication        WWW-Authenticate                                            
+                                                                                         www-authenticate                                            
+LOW   net/http/request              makes HTTP requests                                  HTTP/1.                                                     
+                                                                                         Referer                                                     
+                                                                                         User-Agent                                                  
+LOW   net/http2                     Uses the HTTP/2 protocol                             HTTP/2                                                      
+LOW   net/http_proxy                use HTTP proxy that requires authentication          Proxy-Authorization                                         
+LOW   net/interface/get             get network interfaces by name or index              if_nametoindex                                              
+LOW   net/oauth2                    supports OAuth2                                      oauth2                                                      
+LOW   net/socket/listen             listen on a socket                                   accept                                                      
+                                                                                         listen                                                      
+                                                                                         socket                                                      
+LOW   net/socket/local/address      get local address of connected socket                getsockname                                                 
+LOW   net/socket/peer/address       get peer address of connected socket                 getpeername                                                 
+LOW   net/socket/receive            receive a message from a socket                      recvfrom                                                    
+                                                                                         recvmsg                                                     
+LOW   net/socket/send               send a message to a socket                           _send                                                       
+                                                                                         sendmmsg                                                    
+                                                                                         sendmsg                                                     
+LOW   process/multithreaded         creates pthreads                                     pthread_create                                              
+LOW   process/thread_local_storage  Uses glibc thread local storage                      __tls_get_addr                                              
+LOW   ref/path/etc                  path reference within /etc                           /etc/host.conf                                              
+                                                                                         /etc/hosts                                                  
+                                                                                         /etc/localtime                                              
+                                                                                         /etc/nsswitch.conf                                          
+                                                                                         /etc/openssl/certs                                          
+                                                                                         /etc/os-release                                             
+                                                                                         /etc/pki/ca-trust/extracted/pem/tls-c                       
+                                                                                         /etc/pki/tls/cacert.pem                                     
+                                                                                         …                                                           
+LOW   ref/path/etc/resolv.conf      accesses DNS resolver configuration                  /etc/resolv.conf                                            
+LOW   ref/path/hidden               possible hidden file path                            /conn/.well-known                                           
+                                                                                         /home/build/.cache                                          
+LOW   ref/path/home/config          path reference within ~/.config                      .config/gcloud/application_default_credentials              
+LOW   ref/path/relative/hidden      relative hidden launcher                             ./.3.4.5.6.7.8.9.                                           
+                                                                                         exec                                                        
+                                                                                         popen                                                       
+                                                                                         system                                                      
+LOW   ref/path/var                  path reference within /var                           /var/lib/dynatrace/enrichment/dt_host_metadata.properties   
+                                                                                         /var/lib/dynatrace/enrichment/dt_metadata.properties        
+                                                                                         /var/log/envoy/envoy.prof                                   
+LOW   ref/site/url                  contains embedded HTTPS URLs                         https://crbug.com/v8/8520                                   
+                                                                                         https://curl.se/docs/alt-svc.html                           
+                                                                                         https://curl.se/docs/hsts.html                              
+                                                                                         https://curl.se/docs/http-cookies.html                      
+                                                                                         https://developer.mozilla.org/en-US/docs/Web/JavaScript/R…  
+                                                                                         https://github.com/envoyproxy/envoy/issues/27434            
+                                                                                         https://github.com/envoyproxy/envoy/issues/29461            
+                                                                                         https://github.com/gabime/spdlog/wiki/3.-Custom-formatting  
+                                                                                         …                                                           
+LOW   ref/words/password            references a 'password'                              Bad password                                                
+                                                                                         DownstreamAuthPasswords                                     
+                                                                                         ERR invalid password                                        
+                                                                                         No password part in the URL                                 
+                                                                                         but no password is set                                      
+                                                                                         but no username-password pair is set                        
+                                                                                         challengePassword                                           
+                                                                                         downstream_auth_passwords                                   
+                                                                                         …                                                           
+LOW   ref/words/plugin              references a 'plugin'                                CertificateProviderPluginInstance                           
+                                                                                         Cluster specifier plugin name                               
+                                                                                         ClusterSpecifierPluginH                                     
+                                                                                         ClusterSpecifierPluginR                                     
+                                                                                         ClusterSpecifierPlugin__fields                              
+                                                                                         ClusterSpecifierPlugin_default                              
+                                                                                         ClusterSpecifierPlugin_submsgs                              
+                                                                                         ClusterSpecifierPlugins                                     
+                                                                                         …                                                           
+LOW   secrets/private_key           References private keys                              PRIVATE_KEY                                                 
+                                                                                         privateKey                                                  
+                                                                                         private_key                                                 
+LOW   time/tzinfo                   Uses timezone information                            tzdata                                                      
+MED   3P/threat_hunting/keylogger   references 'keylogger keyword' tool, by mthcht       KeyLogger                                                   
+MED   combo/net/scan_tool           may scan networks                                    Probe                                                       
+                                                                                         banner                                                      
+                                                                                         connect                                                     
+                                                                                         gethostbyname                                               
+                                                                                         port                                                        
+                                                                                         probe                                                       
+                                                                                         scan                                                        
+                                                                                         socket                                                      
+                                                                                         …                                                           
+MED   combo/net/tunnel_proxy        network tunnel proxy                                 Proxy                                                       
+                                                                                         SOCKS5                                                      
+                                                                                         TLS13                                                       
+                                                                                         TLSVersion                                                  
+                                                                                         Tunnel                                                      
+                                                                                         crypto                                                      
+                                                                                         proxy                                                       
+                                                                                         socket                                                      
+                                                                                         …                                                           
+MED   data/embedded/html            Contains HTML content                                <html lang                                                  
+                                                                                         <html>                                                      
+                                                                                         DOCTYPE html                                                
+MED   databases/mysql               accesses MySQL databases                             mysql                                                       
+MED   dylib/symbol/address          get the address of a symbol                          dlsym                                                       
+MED   evasion/base64/decode         decode base64 strings                                base64_decode                                               
+MED   evasion/content/length/0      Sets HTTP content length to zero                     Content-Length: 0                                           
+MED   fs/file/times/set             change file timestamps                               touch success                                               
+MED   fs/permission/modify          modifies file permissions                            chmod                                                       
+MED   kernel/sysinfo                get system information (load, swap)                  sysinfo                                                     
+MED   net/bpf                       BPF (Berkeley Packet Filter)                         bpf                                                         
+MED   net/dns/over/https            Supports DNS (Domain Name Service) over HTTPS        application/dns-message                                     
+MED   net/download                  download files                                       Curl_pgrsSetDownloadCounter                                 
+                                                                                         Curl_pgrsSetDownloadSize                                    
+                                                                                         is already downloaded                                       
+                                                                                         maxdownload                                                 
+                                                                                         t resume download                                           
+                                                                                         the scheduleddownloads                                      
+                                                                                         theequationsdownload                                        
+MED   net/fetch                     Invokes curl to download a file                      curl due to a build-time decision.                          
+                                                                                         curl error:                                                 
+                                                                                         curl function was given a bad argument                      
+                                                                                         curl handle.                                                
+                                                                                         curl is built without the HTTPS-proxy support.              
+                                                                                         curl lacks IDN support                                      
+                                                                                         curl understands                                            
+MED   net/http/cookies              access HTTP resources using cookies                  Cookie                                                      
+                                                                                         HTTP                                                        
+                                                                                         http_cookie                                                 
+MED   net/http/form/upload          upload content via HTTP form                         POST                                                        
+                                                                                         application/json                                            
+                                                                                         application/x-www-form-urlencoded                           
+MED   net/http/post                 submits content to websites                          Content-Type                                                
+                                                                                         HTTP                                                        
+                                                                                         POST                                                        
+                                                                                         http                                                        
+MED   net/icmp                      Uses the ping tool to generate ICMP packets          ping ack after sending a ping                               
+                                                                                         ping cancelled. Resetting timer.                            
+                                                                                         ping connectivity probe                                     
+                                                                                         ping err                                                    
+                                                                                         ping id                                                     
+                                                                                         ping not connected                                          
+                                                                                         ping on https:                                              
+                                                                                         ping response from                                          
+                                                                                         …                                                           
+MED   net/interface/list            list network interfaces                              freeifaddrs                                                 
+                                                                                         getifaddrs                                                  
+MED   net/ip/parse                  parses IP address (IPv4 or IPv6)                     inet_pton                                                   
+MED   net/ip/string                 converts IP address from byte to string              inet_ntop                                                   
+MED   net/reuseport                 reuse TCP/IP ports for listening and connecting      SO_REUSEADDR                                                
+                                                                                         SO_REUSEPORT                                                
+MED   net/socket/connect            initiate a connection on a socket                    _connect                                                    
+MED   net/socks5                    Supports SOCK5 proxies                               SOCKS5                                                      
+                                                                                         socks5                                                      
+MED   net/ssh                       Uses SSH (secure shell) service                      SSH                                                         
+MED   net/upload                    uploads files                                        UploadCounter                                               
+                                                                                         UploadSize                                                  
+                                                                                         upload_buffer                                               
+                                                                                         upload_left                                                 
+                                                                                         uploaded                                                    
+                                                                                         uploadhealthmethodvide                                      
+MED   net/url/encode                encodes URL, likely to pass GET variables            urlencode                                                   
+MED   procfs/self/exe               gets executable associated to this process           /proc/self/exe                                              
+MED   ref/daemon                    Run as a background daemon                           2fdaemon                                                    
+                                                                                         _sub_I_daemon                                               
+                                                                                         _xray__daemon                                               
+MED   ref/ip_port                   mentions an IP and port                              IP                                                          
+                                                                                         address_ip                                                  
+                                                                                         altPort                                                     
+                                                                                         alt_port                                                    
+                                                                                         bind_port                                                   
+                                                                                         check_ip                                                    
+                                                                                         client_ip                                                   
+                                                                                         clone_port                                                  
+                                                                                         …                                                           
+MED   ref/path/dev                  path reference within /dev                           /dev/fd/H9                                                  
+                                                                                         /dev/stdH                                                   
+                                                                                         /dev/uraH                                                   
+                                                                                         /dev/urandom                                                
+MED   ref/path/etc/hosts            references /etc/hosts                                /etc/hosts                                                  
+MED   ref/path/relative             references and possibly executes relative path       ./envoy                                                     
+                                                                                         ./jit-                                                      
+                                                                                         ./source                                                    
+MED   ref/path/tmp                  path reference within /tmp                           /tmp/__v8_gc__                                              
+                                                                                         /tmp/lua_XXXXXX                                             
+                                                                                         /tmp/perf-%d.map                                            
+MED   ref/path/usr/local            path reference within /usr/local/lib                 /usr/local/lib/lua/5.1/loadall.so                           
+MED   ref/path/var/log              path reference within /var/log                       /var/log/envoy/envoy.prof                                   
+MED   ref/words/exclamation         gets very excited                                    INVALID CONSTRUCTOR!!!                                      
+                                                                                         INVALID MAP!!!                                              
+                                                                                         INVALID SHARED ON CONSTRUCTOR!!!                            
+MED   ref/words/heartbeat           references a 'heartbeat'                             24ResponseDecoderCallbacksEE11onHeartbeatENSt3__1           
+                                                                                         Proxy21ActiveResponseDecoder11onHeartbeatENSt3__1           
+                                                                                         ZN5Envoy6Config11GrpcMuxImpl19isHeartbeatResource           
+                                                                                         _23RequestDecoderCallbacksEE11onHeartbeatENSt3__1           
+                                                                                         _GLOBAL__sub_I_heartbeat_respons                            
+                                                                                         ers10DubboProxy11ContextImpl11isHeartbeatEv                 
+                                                                                         failed to encode heartbeat message                          
+                                                                                         nfig22DeltaSubscriptionState19isHeartbeatResponse           
+                                                                                         …                                                           
+MED   ref/words/infected            References 'infectio'                                infectio                                                    
+MED   ref/words/intercept           References interception                              interceptE                                                  
+                                                                                         interceptor_common                                          
+                                                                                         interceptor_factoryE                                        
+                                                                                         interceptor_info_map                                        
+                                                                                         interceptors_                                               
+MED   secrets/aws                   access AWS configuration files and/or keys           .aws                                                        
+MED   secrets/gcloud                Access gcloud configuration files                    .config/gcloud                                              
+                                                                                         application_default_credentials.json                        
+MED   shell/pipe_sh                 pipes to shell                                       | sh                                                        
+HIGH  evasion/int_to_char           converts strings into integers                       fromCharCode                                                
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/envoy-1.29-1.29.6-r0.apk ∴ /var/lib/db/sbom/envoy-1.29-1.29.6-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/901d531345ee…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

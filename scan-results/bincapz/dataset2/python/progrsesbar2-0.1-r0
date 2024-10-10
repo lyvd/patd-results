@@ -1,0 +1,38 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset2/python/progrsesbar2-0.1-r0.apk ∴ /home/cg/progrsesbar2/setup.py [🚨 CRITICAL]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                             EVIDENCE                           
+-------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create           creates directories                                     os.makedirs                        
+LOW   fs/file/open                  opens files                                             open(                              
+MED   fs/directory/traverse         traverse filesystem hierarchy                           os.walk                            
+MED   kernel/platform               system platform identification                          sys.platform                       
+HIGH  evasion/bitwise_math          excessive use of bitwise math (>64 ops)                 -1 << 2                            
+                                                                                            -3 << 0                            
+                                                                                            1 << 1                             
+                                                                                            1 << 7                             
+                                                                                            1 << 8                             
+                                                                                            104 << 313                         
+                                                                                            141 << 580                         
+                                                                                            22 << 536                          
+                                                                                            …                                  
+HIGH  evasion/py_builtins           Indirectly refers to Python builtins                    getattr(__builtins__, oct.__str__  
+CRIT  combo/backdoor/py_setuptools  Python library installer that makes heavy use of        -1 << 2                            
+                                    bitwise math                                            -3 << 0                            
+                                                                                            1 << 1                             
+                                                                                            1 << 7                             
+                                                                                            1 << 8                             
+                                                                                            104 << 313                         
+                                                                                            141 << 580                         
+                                                                                            22 << 536                          
+                                                                                            …                                  
+CRIT  evasion/py_setuptools/random  Python library installer that exhibits random behavior  import random                      
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset2/python/progrsesbar2-0.1-r0.apk ∴ /var/lib/db/sbom/progrsesbar2-0.1-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/a12093c686c5…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

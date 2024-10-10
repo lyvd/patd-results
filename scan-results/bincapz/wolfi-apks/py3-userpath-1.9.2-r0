@@ -1,0 +1,56 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-userpath-1.9.2-r0.apk ∴ /usr/bin/userpath [✅ LOW]
+--------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE          
+--------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/python3  
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-userpath-1.9.2-r0.apk ∴ /usr/lib/python3.12/site-packages/userpath/interface.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------
+LOW   env/SHELL         path to active shell            SHELL                                                       
+LOW   fd/write          writes to a file handle         f.writelines(lines)                                         
+LOW   fs/file/open      opens files                     open(                                                       
+LOW   ref/site/url      contains embedded HTTPS URLs    https://docs.microsoft.com/en-us/windows/win32/api/winuse…  
+                                                        https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-…  
+MED   kernel/platform   system platform identification  platform.system()                                           
+MED   process/name/get  get the current process name    process_name                                                
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-userpath-1.9.2-r0.apk ∴ /usr/lib/python3.12/site-packages/userpath/shells.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                             
+-------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/fish-shell/fish-shell/issues/527  
+                                                  https://github.com/ofek/userpath/issues/3            
+MED   persist/bash  access bash startup files     .bash_profile                                        
+                                                  .bashrc                                              
+                                                  .profile                                             
+MED   persist/zsh   access zsh startup files      .zprofile                                            
+                                                  .zshrc                                               
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-userpath-1.9.2-r0.apk ∴ /usr/lib/python3.12/site-packages/userpath/utils.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                     DESCRIPTION                   EVIDENCE                                    
+--------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create     creates directories           os.makedirs                                 
+LOW   fs/symlink/resolve      resolves symbolic links       realpath                                    
+LOW   process/parent_pid/get  gets parent process ID        getppid                                     
+                                                            process.ppid                                
+MED   exec/program            execute external program      subprocess.PIPE, stderr                     
+                                                            subprocess.PIPE, stdout                     
+                                                            subprocess.Popen(command, stdin             
+                                                            subprocess.check_output(['ps', '-o', 'args  
+MED   process/name/get        get the current process name  process_name                                
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-userpath-1.9.2-r0.apk ∴ /var/lib/db/sbom/py3-userpath-1.9.2-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/d4bf8e3e834e…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

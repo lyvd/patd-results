@@ -1,0 +1,318 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/kube-controller-manager-1.29-1.29.5-r0.apk ∴ /usr/bin/kube-controller-manager-1.29 [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                               DESCRIPTION                                          EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   cloud/aws/metadata                References the AWS EC2 metadata token                X-aws-ec2-metadata-token                                    
+LOW   cloud/google/metadata             Includes the token required to use the Google Cloud  Metadata-Flavor                                             
+                                        Platform metadata server                                                                                         
+LOW   compression/gzip                  works with gzip files                                gzip                                                        
+LOW   compression/zstd                  Zstandard: fast real-time compression algorithm      (�/�                                                        
+                                                                                             zstd                                                        
+LOW   crypto/aes                        Supports AES (Advanced Encryption Standard)          AES                                                         
+                                                                                             crypto/aes                                                  
+LOW   crypto/ecdsa                      Uses the Go crypto/ecdsa library                     crypto/ecdsa                                                
+LOW   crypto/ed25519                    Elliptic curve algorithm used by TLS and SSH         ed25519                                                     
+LOW   crypto/tls                        tls                                                  TLS13                                                       
+                                                                                             TLSVersion                                                  
+                                                                                             crypto/tls                                                  
+LOW   data/embedded/pem/certificate     Contains embedded PEM certificate                    -----BEGIN CERTIFICATE-----                                 
+LOW   encoding/base64                   Supports base64 encoded strings                      base64                                                      
+LOW   encoding/json                     Supports JSON encoded objects                        encoding/json                                               
+LOW   encoding/json/decode              Decodes JSON messages                                json.Unmarshal                                              
+LOW   encoding/json/encode              encodes JSON                                         JSONEncode                                                  
+                                                                                             MarshalJSON                                                 
+LOW   env/USER                          Looks up the USER name of the current user           USER                                                        
+                                                                                             getenv                                                      
+LOW   fs/blkid                          works with block device attributes                   blkid                                                       
+LOW   fs/directory/create               creates directories                                  mkdir                                                       
+LOW   fs/directory/list                 Uses Go functions to list a directory                .ReadDir                                                    
+LOW   fs/directory/remove               Uses libc functions to remove directories            Rmdir                                                       
+                                                                                             rmdir                                                       
+LOW   fs/file/delete                    deletes files                                        unlinkat                                                    
+LOW   fs/file/delete/forcibly           Forcibly deletes files                               rm user-initiated actions such as debugg                    
+LOW   fs/file/read                      reads files                                          ReadFile                                                    
+                                                                                             os.(*File).Read                                             
+LOW   fs/file/stat                      access filesystem attributes                         fileAttributes                                              
+LOW   fs/file/times/set                 change file timestamps with nanosecond precision     utimensat                                                   
+LOW   fs/link/read                      read value of a symbolic link                        readlinkat                                                  
+LOW   fs/lock/update                    apply or remove an advisory lock on a file           flock                                                       
+LOW   fs/mount                          mounts file systems                                  -o                                                          
+                                                                                             remount                                                     
+LOW   fs/node/create                    create device files                                  mknod                                                       
+LOW   fs/tempdir/create                 creates temporary directory                          temp dir                                                    
+LOW   fs/unmount                        unmount file system                                  umount                                                      
+LOW   fs/watch                          monitors filesystem events                           inotify                                                     
+LOW   hash/md5                          Uses the MD5 signature format                        md5:                                                        
+LOW   hash/sha256                       Uses the SHA256 signature format                     SHA256_                                                     
+LOW   kernel/cpu/info                   gets number of processors                            nproc                                                       
+LOW   kernel/hostname/get               get computer host name                               /proc/sys/kernel/hostname                                   
+LOW   kernel/netlink                    communicate with kernel services                     netlink                                                     
+LOW   kernel/seccomp                    operate on Secure Computing state of the process     seccomp                                                     
+LOW   net/dns                           Uses DNS (Domain Name Service)                       CNAMEResource                                               
+                                                                                             SetEDNS0                                                    
+                                                                                             dnsmessage                                                  
+LOW   net/dns/servers                   Examines local DNS servers                           CNAMEResource                                               
+                                                                                             resolv.conf                                                 
+LOW   net/dns/txt                       Uses DNS TXT (text) records                          TXT                                                         
+                                                                                             dns                                                         
+LOW   net/grpc                          Uses the gRPC Remote Procedure Call framework        gRPC                                                        
+LOW   net/hostname/resolve              resolve network host name to IP address              cannot resolve                                              
+LOW   net/http/accept/encoding          set HTTP response encoding format (example: gzip)    Accept-Encoding                                             
+LOW   net/http/auth                     makes HTTP requests with basic authentication        Www-Authenticate                                            
+                                                                                             www-authenticate                                            
+LOW   net/http/request                  makes HTTP requests                                  HTTP/1.                                                     
+                                                                                             Referer                                                     
+                                                                                             User-Agent                                                  
+LOW   net/http2                         Uses the HTTP/2 protocol                             HTTP/2                                                      
+LOW   net/http_proxy                    use HTTP proxy that requires authentication          Proxy-Authorization                                         
+LOW   net/ip/multicast/send             send data to multiple nodes simultaneously           multicast                                                   
+LOW   net/oauth2                        supports OAuth2                                      oauth2                                                      
+LOW   net/sendfile                      transfer data between file descriptors               sendfile                                                    
+                                                                                             syscall.Sendfile                                            
+LOW   net/socket/listen                 listen on a socket                                   accept                                                      
+                                                                                             listen                                                      
+                                                                                             socket                                                      
+LOW   net/socket/local/address          get local address of connected socket                getsockname                                                 
+LOW   net/socket/peer/address           get peer address of connected socket                 getpeername                                                 
+LOW   net/socket/receive                receive a message from a socket                      recvfrom                                                    
+                                                                                             recvmsg                                                     
+LOW   net/socket/send                   send a message to a socket                           sendmsg                                                     
+                                                                                             sendto                                                      
+LOW   net/udp/receive                   Listens for UDP responses                            ReadFromUDP                                                 
+                                                                                             listenUDP                                                   
+LOW   net/udp/send                      Sends UDP packets                                    DialUDP                                                     
+                                                                                             WriteMsgUDP                                                 
+LOW   net/url                           Handles URL strings                                  RequestURI                                                  
+LOW   process/chdir                     changes working directory                            cd                                                          
+LOW   process/groupid/set               set real and effective group ID of process           setgid                                                      
+LOW   process/groups/set                set group access list                                setgroups                                                   
+LOW   ref/path/etc                      path reference within /etc                           /etc/apache/mime.typesgzip                                  
+                                                                                             /etc/bash                                                   
+                                                                                             /etc/cadvisor/container                                     
+                                                                                             /etc/ceph/keyring.                                          
+                                                                                             /etc/ceph/keyringdefault-scheduler                          
+                                                                                             /etc/ceph/user.secret                                       
+                                                                                             /etc/group                                                  
+                                                                                             /etc/hostsgetsockoptnetlinkrib                              
+                                                                                             …                                                           
+LOW   ref/path/etc/resolv.conf          accesses DNS resolver configuration                  /etc/resolv.conf                                            
+LOW   ref/path/home/config              path reference within ~/.config                      erviceList.config/gcloudmissing fieldsinvalid opcode        
+                                                                                             local.config/certificatesconcurrent                         
+                                                                                             ~/.config/fish/completions/                                 
+LOW   ref/path/var                      path reference within /var                           /var/lib/dbus/machine-idCannot                              
+                                                                                             /var/lib/dbus/machine-idgoogle-api-go-client/0.5projects/   
+                                                                                             /var/lib/dbus/machine-idprojects/                           
+                                                                                             /var/lib/osd/driver/SEVERITY_TYPE_NOTIFYRESOURCE_TYPE_VOL…  
+                                                                                             /var/run/crio/crio.sockCRI-O                                
+                                                                                             /var/run/secrets/kubernetes.io/serviceaccount/ca.crtresou…  
+                                                                                             /var/run/secrets/kubernetes.io/serviceaccount/namespaceea…  
+                                                                                             /var/run/secrets/kubernetes.io/serviceaccount/tokenerror    
+                                                                                             …                                                           
+LOW   ref/site/url                      contains embedded HTTPS URLs                         https://access.redhat.com/documentation/en-us/red_hat_sub…  
+                                                                                             https://accounts.google.com/o/oauth2/authprojects/          
+                                                                                             https://api.loganalytics.iohttps                            
+                                                                                             https://api.loganalytics.usservicebus.chinacloudapi.cndoc…  
+                                                                                             https://batch.chinacloudapi.cn/mysql.database.chinaclouda…  
+                                                                                             https://batch.cloudapi.de/mysql.database.cloudapi.decloud…  
+                                                                                             https://batch.core.usgovcloudapi.net/https                  
+                                                                                             https://batch.core.windows.net/https                        
+                                                                                             …                                                           
+LOW   ref/words/password                references a 'password'                              AADClientCertPasswordcjson                                  
+                                                                                             AdminPasswordNotChangedEvent                                
+                                                                                             AuthUserChangePasswordRequest                               
+                                                                                             AuthUserChangePasswordResponseproto                         
+                                                                                             AuthUserChangePasswordproto                                 
+                                                                                             CannotDecryptPasswordsFault                                 
+                                                                                             ChangeNFSUserPasswordRequestType                            
+                                                                                             ChangePasswordRequestType                                   
+                                                                                             …                                                           
+LOW   ref/words/plugin                  references a 'plugin'                                A plugin that is                                            
+                                                                                             ApplyRegistered Auth Provider Plugin                        
+                                                                                             ArrayOfHostPlugStoreTopologyPlugin                          
+                                                                                             BlockVolumePlugin                                           
+                                                                                             CSIMigratedPluginManager                                    
+                                                                                             DeletableVolumePlugin                                       
+                                                                                             DeviceMountableVolumePlugin                                 
+                                                                                             DevicePluginOptions                                         
+                                                                                             …                                                           
+LOW   secrets/private_key               References private keys                              privateKey                                                  
+                                                                                             private_key                                                 
+LOW   service/start                     service start                                        service CIDRfailed to start                                 
+LOW   time/tzinfo                       Uses timezone information                            tzdata                                                      
+MED   3P/threat_hunting/checkplease     references 'CheckPlease' tool, by mthcht             $string2_CheckPlease_offensive_tool_keyword                 
+MED   3P/threat_hunting/hijacker        references 'Hijacker' tool, by mthcht                Hijacker                                                    
+                                                                                             hijacker                                                    
+MED   3P/threat_hunting/linkedint       references 'LinkedInt' tool, by mthcht               LinkedInt                                                   
+                                                                                             linkedInt                                                   
+MED   3P/threat_hunting/powerops        references 'PowerOPS' tool, by mthcht                PowerOps                                                    
+MED   3P/threat_hunting/                references 'PrivilegeEscalation' tool, by mthcht     PrivilegeEscalation                                         
+      privilegeescalation                                                                                                                                
+MED   archives/zip                      Works with zip files                                 archive/zip                                                 
+MED   combo/backdoor/iptables           uploads, uses iptables and HTTP                      HTTP                                                        
+                                                                                             iptables as a hint to ot                                    
+                                                                                             iptables contains iptabl                                    
+                                                                                             iptables fwmark space to                                    
+                                                                                             iptables mode and                                           
+                                                                                             iptables on the system                                      
+                                                                                             iptables or ipvs proxy m                                    
+                                                                                             iptables resync                                             
+                                                                                             …                                                           
+MED   combo/critical_paths              accesses multiple critical Linux paths               /boot/vmlinux-                                              
+                                                                                             /proc/cgroups                                               
+                                                                                             /proc/errno                                                 
+                                                                                             /proc/filesystemsexec                                       
+                                                                                             /proc/meminfoAGREE_UNIX_FDinvalid                           
+                                                                                             /proc/mountsFormatFailedstorageclassvo                      
+                                                                                             /proc/seH                                                   
+                                                                                             /proc/self/auxvinvalid                                      
+                                                                                             …                                                           
+MED   combo/dropper/shell               may fetch file, make it executable, and run it       ./extensions                                                
+                                                                                             ./f                                                         
+                                                                                             ./j                                                         
+                                                                                             ./k                                                         
+                                                                                             ./pipe/runtime                                              
+                                                                                             ./pods/                                                     
+                                                                                             ./r                                                         
+                                                                                             ./subscriptions/                                            
+                                                                                             …                                                           
+MED   combo/exploit/breakout            possible container escape                            CAP_SYS_ADMIN                                               
+                                                                                             cgroup.procs                                                
+MED   combo/net/host_port               Uses struct with JSON representations for host:port  json:"ip"                                                   
+                                                                                             json:"port"                                                 
+MED   combo/net/tunnel_proxy            network tunnel proxy                                 Proxy                                                       
+                                                                                             TLS13                                                       
+                                                                                             TLSVersion                                                  
+                                                                                             Tunnel                                                      
+                                                                                             crypto                                                      
+                                                                                             proxy                                                       
+                                                                                             socket                                                      
+                                                                                             tunnel                                                      
+                                                                                             …                                                           
+MED   data/embedded/html                Contains HTML content                                <html>                                                      
+MED   databases/leveldb                 accesses LevelDB databases                           relax_domain_leveldbus                                      
+MED   databases/mysql                   accesses MySQL databases                             mysql                                                       
+MED   evasion/content/length/0          Sets HTTP content length to zero                     Content-Length: 0                                           
+MED   evasion/fake/user/agent           Fake user agent                                      Mozilla/5.0token_cachefetch_totalByNamespaceBernoullis      
+MED   exec/cmd                          executes a command                                   ExecCmdLprotobuf:                                           
+                                                                                             GetExecCmd                                                  
+                                                                                             execCmd                                                     
+MED   exec/program                      executes external programs                           ).CombinedOutput                                            
+                                                                                             exec.(*Cmd).Run                                             
+MED   fs/permission/chown               Changes file ownership                               Chown                                                       
+MED   fs/permission/modify              modifies file permissions                            Chmod                                                       
+                                                                                             chmod                                                       
+MED   kernel/apparmor                   Mentions 'apparmor'                                  apparmor                                                    
+MED   kernel/dev/block/device           access raw generic block devices                     /sys/block                                                  
+MED   kernel/dev/diskmapper             access raw LVM disk mapper devices                   /dev/dm-H9                                                  
+MED   kernel/platform                   operating-system identification                      os_release                                                  
+MED   kernel/sysinfo                    get system information (load, swap)                  sysinfo                                                     
+MED   net/bpf                           BPF (Berkeley Packet Filter)                         bpf                                                         
+MED   net/dns/reverse                   looks up the reverse hostname for an IP              .in-addr.arpa                                               
+                                                                                             ip6.arpa                                                    
+MED   net/download                      download files                                       ApproximateDownloadSize                                     
+                                                                                             DownloadBytes                                               
+                                                                                             DownloadDescriptionTree                                     
+                                                                                             DownloadFile                                                
+                                                                                             DownloadRangeToStream                                       
+                                                                                             DownloadRequest                                             
+                                                                                             DownloadToStream                                            
+                                                                                             approximateDownloadSize                                     
+                                                                                             …                                                           
+MED   net/fetch                         Invokes curl                                         curl -v -X                                                  
+MED   net/http/cookies                  access HTTP resources using cookies                  Cookie                                                      
+                                                                                             HTTP                                                        
+MED   net/http/form/upload              upload content via HTTP form                         POST                                                        
+                                                                                             application/json                                            
+                                                                                             application/x-www-form-urlencoded                           
+MED   net/http/post                     submits form content to websites                     Content-Type                                                
+                                                                                             HTTP                                                        
+                                                                                             POST                                                        
+                                                                                             http                                                        
+MED   net/icmp                          Uses the ping tool to generate ICMP packets          ping not acked within timeout                               
+MED   net/interface/list                list network interfaces                              networkInterfaces                                           
+MED   net/ip/parse                      parses IP address (IPv4 or IPv6)                     IsLinkLocalUnicast                                          
+                                                                                             IsSingleIP                                                  
+MED   net/mac/address                   Retrieves network MAC address                        MAC address                                                 
+                                                                                             macAddress                                                  
+MED   net/reuseport                     reuse TCP/IP ports for listening and connecting      SO_REUSEADDR                                                
+                                                                                             SO_REUSEPORT                                                
+MED   net/ssh                           Uses SSH (secure shell) service                      SSH                                                         
+MED   net/stat                          Uses 'netstat' for network information               netstat                                                     
+MED   net/syncookie                     references SYN cookies, used to resist DoS attacks   syncookie                                                   
+MED   net/upload                        uploads files                                        UploadBufferPerConnect                                      
+                                                                                             UploadBufferPerStream                                       
+                                                                                             UploadClientCertReques                                      
+                                                                                             UploadClientCertUserGr                                      
+                                                                                             UploadFile                                                  
+                                                                                             UploadKmipServerCertRe                                      
+                                                                                             UploadKmipServerCertVA                                      
+                                                                                             UploadSizeBytes                                             
+                                                                                             …                                                           
+MED   net/url/encode                    encodes URL, likely to pass GET variables            urlencode                                                   
+MED   net/url/request                   requests resources via URL                           http.request                                                
+                                                                                             net/url                                                     
+MED   net/websocket                     supports web sockets                                 IsWebSocketRequest                                          
+                                                                                             WebSocketsMessage                                           
+                                                                                             serveWebSocket                                              
+MED   procfs/arbitrary/pid              access /proc for arbitrary pids                      /proc/%d/clear_refs                                         
+                                                                                             /proc/%d/smapsMax                                           
+MED   procfs/mounts                     Parses active mounts (/proc/mounts                   /proc/mounts                                                
+MED   procfs/self/cgroup                accesses /proc files within own cgroup               /proc/self/cgroup                                           
+MED   procfs/self/mountinfo             gets mount info associated to this process           /proc/self/mountinfo                                        
+MED   ref/daemon                        Run as a background daemon                           infodaemon                                                  
+MED   ref/ip_port                       mentions an IP and port                              IP                                                          
+                                                                                             allIp                                                       
+                                                                                             backendPort                                                 
+                                                                                             configPort                                                  
+                                                                                             defaultPort                                                 
+                                                                                             dvPort                                                      
+                                                                                             failoverIp                                                  
+                                                                                             findPort                                                    
+                                                                                             …                                                           
+MED   ref/path/etc/hosts                references /etc/hosts                                /etc/hosts                                                  
+MED   ref/path/tmp                      path reference within /tmp                           /tmp/%s/%siscsi.json--discoverOutput                        
+                                                                                             /tmp/.                                                      
+MED   ref/path/var/run                  references subfolder within /var/run                 /var/run/crio/                                              
+                                                                                             /var/run/secrets/                                           
+MED   ref/site/http/dynamic             URL that is dynamically generated                    http://%spxd                                                
+MED   ref/words/exclamation             gets very excited                                    Node not found!!!                                           
+                                                                                             VC not found!!!                                             
+                                                                                             does not work!!!                                            
+                                                                                             invalid nilfallthrough!!                                    
+                                                                                             ontain alphanumerical characters onlyexplicitly tagged !!   
+MED   ref/words/heartbeat               references a 'heartbeat'                             LastHeartbeatTimePjso                                       
+                                                                                             NamespaceConditionLastHeartbeatTime:                        
+                                                                                             VirtualMachineGuestHeartbeatStatus                          
+                                                                                             WaitForHeartbeat                                            
+                                                                                             WithLastHeartbeatTime                                       
+                                                                                             appHeartbeatStatus                                          
+                                                                                             d for field LastHeartbeatTimeprot                           
+                                                                                             ecFileOperationVirtualMachineAppHeartbeatStatusTy           
+                                                                                             …                                                           
+MED   ref/words/intercept               References interception                              interceptor                                                 
+MED   ref/words/leetspeak               References 1337 terminology'                         1337                                                        
+MED   ref/words/server_address          references a 'server address', possible C2 client    DetectedpreconditionsserverAddressincludeObjectlabelSelec…  
+                                                                                             server_address                                              
+                                                                                             wserverAddressByClientCIDRsdeletionGracePer                 
+MED   secrets/gcloud                    Access gcloud configuration files                    .config/gcloud                                              
+                                                                                             application_default_credentials.json                        
+MED   security_controls/linux/iptables  interacts with the iptables firewall                 iptables                                                    
+MED   security_controls/linux/ufw       interacts with the ufw firewall                      allow                                                       
+                                                                                             deny                                                        
+                                                                                             disable                                                     
+                                                                                             enable                                                      
+                                                                                             ufw                                                         
+MED   shell/background/sleep            calls sleep and runs shell code in the background    #!                                                          
+                                                                                             /sys/fsfrozen .eventsio.stat error &E                       
+                                                                                             2>&1 &                                                      
+                                                                                             _sleep                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/kube-controller-manager-1.29-1.29.5-r0.apk ∴ /var/lib/db/sbom/kube-controller-manager-1.29-1.29.5-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/288cfef72f95…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

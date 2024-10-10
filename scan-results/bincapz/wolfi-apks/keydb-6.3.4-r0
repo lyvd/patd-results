@@ -1,0 +1,97 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/keydb-6.3.4-r0.apk ∴ /usr/bin/keydb-server [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                       EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   dylib/address/check         determine if address belongs to a shared library  dladdr                                                      
+LOW   env/USER                    Looks up the USER name of the current user        USER                                                        
+                                                                                    getenv                                                      
+LOW   exec/program/background     wait for process to exit                          waitpid                                                     
+LOW   fd/epoll                    I/O event notification facility                   epoll_create                                                
+                                                                                    epoll_wait                                                  
+LOW   fs/file/delete              deletes files                                     unlink                                                      
+LOW   fs/file/truncate            truncate a file to a specified length             ftruncate64                                                 
+LOW   fs/file/write               writes to file                                    ewriteConfigOverwriteFilePcS_                               
+LOW   fs/link/read                read value of a symbolic link                     readlink                                                    
+LOW   fs/lock/update              apply or remove an advisory lock on a file        flock                                                       
+LOW   fs/tempfile/create          Uses mktemp to create temporary files             temp file                                                   
+LOW   kernel/cpu/info             gets number of processors                         get_nprocs                                                  
+LOW   kernel/platform             system identification                             uname                                                       
+LOW   net/hostport/parse          Network address and service translation           freeaddrinfo                                                
+                                                                                    getaddrinfo                                                 
+LOW   net/socket/listen           listen on a socket                                accept                                                      
+                                                                                    listen                                                      
+                                                                                    socket                                                      
+LOW   net/socket/local/address    get local address of connected socket             getsockname                                                 
+LOW   net/socket/peer/address     get peer address of connected socket              getpeername                                                 
+LOW   net/socket/receive          receive a message to a socket                     recv                                                        
+                                                                                    socket                                                      
+LOW   net/socket/send             send a message to a socket                        send                                                        
+                                                                                    socket                                                      
+LOW   process/multithreaded       creates pthreads                                  pthread_create                                              
+LOW   process/parent_pid/get      gets parent process ID                            getppid                                                     
+LOW   random/insecure             generate random numbers insecurely                srand                                                       
+LOW   ref/path/etc                path reference within /etc                        /etc/keydb/                                                 
+                                                                                    /etc/malloc.conf                                            
+                                                                                    /etc/mykeydb.conf                                           
+                                                                                    /etc/rc.local                                               
+                                                                                    /etc/sentinel.conf                                          
+                                                                                    /etc/sysctl.conf                                            
+LOW   ref/path/var                path reference within /var                        /var/run/keydb.p                                            
+LOW   ref/site/url                contains embedded HTTPS URLs                      https://docs.keydb.dev/docs/commands                        
+                                                                                    https://github.com/JohnSully/KeyDB/issues                   
+LOW   ref/words/password          references a 'password'                           authentication password is requested to                     
+                                                                                    bit user password                                           
+                                                                                    for the output password                                     
+                                                                                    passwords                                                   
+                                                                                    username-password pair or user is                           
+MED   combo/recon/system_network  basic recon                                       hostname                                                    
+                                                                                    id                                                          
+                                                                                    whoami                                                      
+MED   dylib/symbol/address        get the address of a symbol                       dlsym                                                       
+MED   exec/cmd                    executes a command                                _Z11execCommandP6client                                     
+                                                                                    _Z16execCommandAbortP6clientPc                              
+                                                                                    _Z24execCommandPropagateExeci                               
+                                                                                    _Z25execCommandPropagateMultii                              
+MED   exec/program                executes external programs                        execlp                                                      
+MED   exec/shell_echo             program generates text with echo command          echo madvise > /sys/kernel/mm/transparent_hugepage/enable…  
+                                                                                    echo never > /sys/kernel/mm/transparent_hugepage/enabled'   
+MED   fs/file/times/set           change file timestamps                            touch the specified keys                                    
+MED   fs/permission/modify        modifies file permissions                         chmod                                                       
+MED   kernel/sysinfo              get system information (load, swap)               sysinfo                                                     
+MED   net/http/post               submits content to websites                       POST                                                        
+                                                                                    http                                                        
+MED   net/ip/parse                parses IP address (IPv4 or IPv6)                  inet_pton                                                   
+MED   net/ip/string               converts IP address from byte to string           inet_ntop                                                   
+MED   net/reuseport               reuse TCP/IP ports for listening and connecting   SO_REUSEADDR                                                
+                                                                                    SO_REUSEPORT                                                
+MED   persist/pid_file            pid file, likely DIY daemon                       _Z13createPidFile                                           
+MED   process/name/set            get or set the current process name               __progname                                                  
+MED   process/username/get        returns the user name running this process        whoami                                                      
+MED   procfs/arbitrary/pid        access /proc for arbitrary pids                   /proc/%ld/smaps                                             
+                                                                                    /proc/%ld/stat                                              
+MED   procfs/meminfo              get memory info                                   /proc/meminfo                                               
+MED   ref/daemon                  Run as a background daemon                        daemonize                                                   
+MED   ref/ip_port                 mentions an IP and port                           IP                                                          
+                                                                                    Port                                                        
+                                                                                    master_port                                                 
+                                                                                    s_port                                                      
+                                                                                    tcp_port                                                    
+MED   ref/path/tmp                path reference within /tmp                        /tmp/dump.bin                                               
+                                                                                    /tmp/dump.hex                                               
+MED   ref/words/exclamation       gets very excited                                 Check your memory ASAP !!!                                  
+                                                                                    Deadlock detected !!!                                       
+                                                                                    KeyDB Will Now Crash !!!                                    
+                                                                                    Sentinel was not able to save the new configuration on di…  
+                                                                                    short read while loading the AOF file !!!                   
+MED   ref/words/heartbeat         references a 'heartbeat'                          RedisModule_SendChildHeartbeat                              
+                                                                                    _Z21RM_SendChildHeartbeatd                                  
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/keydb-6.3.4-r0.apk ∴ /var/lib/db/sbom/keydb-6.3.4-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/902b6b58056d…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,30 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ack-3.7.0-r0.apk ∴ /usr/bin/ack [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                     EVIDENCE                                                 
+------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete/forcibly  Forcibly deletes files          rm -f                                                    
+LOW   ref/path/etc             path reference within /etc      /etc/ackrc                                               
+LOW   ref/path/usr/bin         path reference within /usr/bin  /usr/bin/ack-grep                                        
+                                                               /usr/bin/perl                                            
+LOW   ref/site/url             contains embedded HTTPS URLs    https://beyondgrep.com/community/                        
+                                                               https://beyondgrep.com/more-tools/                       
+                                                               https://github.com/beyondgrep/ack3/issues                
+                                                               https://groups.google.com/group/ack-announcement         
+                                                               https://groups.google.com/group/ack-users                
+                                                               https://perldoc.perl.org/perlreref.html                  
+                                                               https://perldoc.perl.org/perlretut.html                  
+                                                               https://www.perlfoundation.org/artistic-license-20.html  
+                                                               …                                                        
+MED   exec/program             execute external program        subprocess                                               
+MED   ref/ip                   hardcoded IP address            123.45.67.89                                             
+MED   ref/program/sudo         calls sudo                      sudo                                                     
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ack-3.7.0-r0.apk ∴ /var/lib/db/sbom/ack-3.7.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/09eb8750f4a9…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

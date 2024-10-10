@@ -1,0 +1,629 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/bin/inv [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE         
+-------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/python  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/bin/invoke [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE         
+-------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/python  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__init__.py [⚠️ MEDIUM]
+----------------------------------------------------------------
+RISK  KEY                 DESCRIPTION               EVIDENCE    
+----------------------------------------------------------------
+LOW   ref/words/password  references a 'password'   password    
+MED   exec/program        execute external program  subprocess  
+MED   ref/program/sudo    calls sudo                sudo        
+----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/words/password       references a 'password'                  password                                                
+MED   exec/program             execute external program                 subprocess                                              
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/__init__.pyr3  
+MED   ref/program/sudo         calls sudo                               sudo                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/__main__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                              
+------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/__main__.py  
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/_version.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                              
+------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/_version.py  
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/collection.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/collection.py  
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/config.cpython-312.pyc [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                            
+----------------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/etc             path reference within /etc               /etc/invoke.json                                    
+                                                                        /etc/invoke.yaml                                    
+                                                                        /etc/invoke.yml                                     
+LOW   ref/words/password       references a 'password'                  password                                            
+MED   ref/path/home            references path within /home             /home/myuser/code/invoke.yml                        
+                                                                        /home/myuser/code/tasks.py                          
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/config.py  
+MED   ref/program/sudo         calls sudo                               sudo                                                
+MED   shell/exec               executes shell                           /bin/bash                                           
+----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/context.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                                             
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   process/chdir            changes working directory                       cd /path/to/app                                      
+                                                                               cd /var/www                                          
+                                                                               cd {}z                                               
+LOW   ref/path/var             path reference within /var                      /var/www/website1                                    
+LOW   ref/site/url             contains embedded HTTPS URLs                    https://virtualenvwrapper.readthedocs.io/en/latest/  
+LOW   ref/words/password       references a 'password'                         configured sudo password                             
+                                                                               param str password                                   
+                                                                               requires a password and one was not                  
+                                                                               responding of password via stdin                     
+                                                                               s password prompt by hand                            
+                                                                               with password auto-response                          
+MED   exec/program             execute external program                        subprocess                                           
+MED   privesc/sudo             Unusual sudo commands                           sudo -S                                              
+MED   ref/path/relative        references and possibly executes relative path  ./manage                                             
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python         /usr/lib/python3.12/site-packages/invoke/context.py  
+MED   ref/program/sudo         calls sudo                                      sudo -S -p                                           
+                                                                               sudo command                                         
+                                                                               sudo password                                        
+                                                                               sudo user in a config                                
+                                                                               sudo"                                                
+                                                                               sudo's password prompt by hand, just                 
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/env.cpython-312.pyc [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                         
+-------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/env.py  
+-------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/exceptions.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/words/password       references a 'password'                  the supplied password failed                            
+MED   exec/program             execute external program                 subprocess                                              
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/exceptions.py  
+MED   ref/program/sudo         calls sudo                               sudo password and it was incorrect.                     
+MED   ref/words/intercept      References interception                  intercepting                                            
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/executor.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                              
+------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/executor.py  
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/loader.cpython-312.pyc [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                            
+----------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/loader.py  
+----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/main.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                          
+--------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/main.py  
+--------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/program.cpython-312.pyc [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                             
+-----------------------------------------------------------------------------------------------------------------------------
+LOW   ref/words/password       references a 'password'                  password config value                                
+                                                                        prompt-for-sudo-passwordzCPrompt user at             
+LOW   tty/getpass              prompt for a password within a terminal  getpass                                              
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/program.py  
+MED   ref/program/sudo         calls sudo                               sudo                                                 
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/runners.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                      EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTP URLs                      http://zen-of-python.info/explicit-is-better-than-implici…  
+MED   exec/program             execute external program                         subprocess                                                  
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python          /usr/lib/python3.12/site-packages/invoke/runners.py         
+MED   shell/exec               executes shell                                   /bin/bash                                                   
+MED   shell/nohup              Runs command that is protected from termination  nohup                                                       
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/tasks.cpython-312.pyc [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                           
+---------------------------------------------------------------------------------------------------------------------------
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively       rm -rf target                                      
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/tasks.py  
+---------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/terminals.cpython-312.pyc [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                               
+-------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/terminals.py  
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/util.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                          
+--------------------------------------------------------------------------------------------------------------------------
+LOW   fd/multiplex             monitor multiple file descriptors        select                                            
+MED   process/multithreaded    uses python threading                    threading.Thread                                  
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/util.py  
+--------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/__pycache__/watchers.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                              
+------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/words/password       references a 'password'                  a submitted password didn                             
+                                                                        password for                                          
+MED   exec/program             execute external program                 subprocess                                            
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/watchers.py  
+MED   ref/program/sudo         calls sudo                               sudo                                                  
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/collection.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                    
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/python/mypy/issues/1424  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/completion/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/completion/__ini…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/completion/__pycache__/complete.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/symlink/resolve       resolves symbolic links                  realpath                                                    
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/completion/compl…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/completion/complete.py [✅ LOW]
+---------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION               EVIDENCE         
+---------------------------------------------------------------------
+LOW   fd/read             reads from a file handle  script.read()    
+LOW   fs/file/open        opens files               open(            
+LOW   fs/file/read        opens a file for read     open(path, "r")  
+LOW   fs/symlink/resolve  resolves symbolic links   realpath         
+---------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/config.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                   EVIDENCE                               
+-----------------------------------------------------------------------------------------------
+LOW   fs/file/open        opens files                   open(                                  
+LOW   ref/path/etc        path reference within /etc    /etc/invoke.json                       
+                                                        /etc/invoke.yaml                       
+                                                        /etc/invoke.yml                        
+LOW   ref/site/url        contains embedded HTTPS URLs  https://en.wikipedia.org/wiki/COMSPEC  
+LOW   ref/words/password  references a 'password'       password                               
+MED   ref/path/home       references path within /home  /home/myuser/code/invoke.yml           
+                                                        /home/myuser/code/tasks.py             
+MED   ref/program/sudo    calls sudo                    sudo"                                  
+MED   shell/exec          executes shell                /bin/bash available                    
+                                                        /bin/sh for systems lacking            
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/context.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE                                             
+-------------------------------------------------------------------------------------------------------------------------------
+LOW   process/chdir       changes working directory                       cd /path/to/app                                      
+                                                                          cd /var/www                                          
+                                                                          cd {}".format                                        
+LOW   ref/path/var        path reference within /var                      /var/www/website1                                    
+LOW   ref/site/url        contains embedded HTTPS URLs                    https://virtualenvwrapper.readthedocs.io/en/latest/  
+LOW   ref/words/password  references a 'password'                         configured sudo password                             
+                                                                          get the password                                     
+                                                                          param str password                                   
+                                                                          requires a password and one was not                  
+                                                                          responding of password via stdin                     
+                                                                          s password prompt by hand                            
+                                                                          to supply dummy password config                      
+                                                                          with password auto-response                          
+                                                                          …                                                    
+MED   exec/program        execute external program                        subprocess                                           
+MED   privesc/sudo        Unusual sudo commands                           "sudo -S                                             
+MED   ref/path/relative   references and possibly executes relative path  ./manage                                             
+MED   ref/program/sudo    calls sudo                                      sudo - mock Context method info                      
+                                                                          sudo -S -p                                           
+                                                                          sudo command w/ -S and -p                            
+                                                                          sudo password                                        
+                                                                          sudo user in a config                                
+                                                                          sudo", command                                       
+                                                                          sudo's password prompt by hand, just                 
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/exceptions.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION               EVIDENCE                             
+--------------------------------------------------------------------------------------------
+LOW   ref/words/password     references a 'password'   the supplied password failed         
+MED   exec/program           execute external program  subprocess                           
+MED   process/multithreaded  uses python threading     threading.Thread                     
+MED   ref/program/sudo       calls sudo                sudo password and it was incorrect.  
+MED   ref/words/intercept    References interception   intercepting                         
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/loader.py [✅ LOW]
+-------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                    EVIDENCE   
+-------------------------------------------------------------------
+LOW   fs/directory/list  lists contents of a directory  .listdir(  
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/parser/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/parser/__init__.…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/parser/__pycache__/argument.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/parser/argument.…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/parser/__pycache__/context.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/parser/context.py  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/parser/__pycache__/parser.cpython-312.pyc [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                   
+-----------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/parser/parser.py  
+-----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/program.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                              EVIDENCE                  
+---------------------------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'                  just sudo password        
+                                                                   password config value     
+                                                                   prompt-for-sudo-password  
+LOW   tty/getpass         prompt for a password within a terminal  getpass                   
+MED   ref/program/sudo    calls sudo                               sudo password             
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/runners.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                      EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                         waitpid                                                     
+LOW   fd/write                 writes to a file handle                          stderr.write(err)                                           
+                                                                                stream.write(string)                                        
+LOW   ref/site/url             contains embedded HTTPS URLs                     https://github.com/pexpect/ptyprocess/blob/4058faa05e2940…  
+LOW   ref/words/password       references a 'password'                          runtime passwords                                           
+MED   exec/program             executes external programs                       execv                                                       
+MED   ref/site/download        http dropper url                                 https://github.com/pexpect/ptyprocess/blob/4058faa05e2940…  
+MED   shell/exec               executes shell                                   /bin/bash                                                   
+MED   shell/nohup              Runs command that is protected from termination  nohup or                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/tasks.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                         EVIDENCE       
+----------------------------------------------------------------------------------
+LOW   evasion/py_builtins      references Python builtins          __builtins__   
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively  rm -rf target  
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/terminals.py [⚠️ MEDIUM]
+---------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                     EVIDENCE      
+---------------------------------------------------------------------
+MED   kernel/platform  system platform identification  sys.platform  
+---------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/util.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                        EVIDENCE                                    
+------------------------------------------------------------------------------------------------------------
+LOW   fd/multiplex           monitor multiple file descriptors  select                                      
+LOW   ref/site/url           contains embedded HTTPS URLs       https://github.com/python/mypy/issues/1424  
+MED   process/multithreaded  uses python threading              threading.Thread                            
+MED   ref/daemon             Run as a background daemon         daemon                                      
+MED   ref/program/sudo       calls sudo                         sudo                                        
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/__init__.…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/__pycache__/backwardscompat.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/__pycache__/machine.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/fluidity/machine.py [✅ LOW]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://blog.ianbicking.org/more-on-python-metaprogramming…  
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/_…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/__pycache__/_version.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/_…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/__pycache__/alias_dict.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/a…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/__pycache__/attribute_dict.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/lexicon/a…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__init__.py [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                     
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://msg.pyyaml.org/load  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs             https://msg.pyyaml.org/load                                 
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__in…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/composer.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/comp…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/constructor.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64          Supports base64 encoded strings          base64                                                      
+LOW   time/tzinfo              Uses timezone information                tzinfo                                                      
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/cons…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/cyaml.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/cyam…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/dumper.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/dump…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/emitter.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/emit…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/error.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/erro…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/events.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/even…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/loader.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/load…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/nodes.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/node…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/parser.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/pars…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/reader.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/read…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/representer.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64          Supports base64 encoded strings          base64                                                      
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/repr…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/resolver.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/reso…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/scanner.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/scan…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/serializer.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/seri…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/__pycache__/tokens.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke/vendor/yaml/toke…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/constructor.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE                   
+-----------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64                     
+LOW   time/tzinfo            Uses timezone information        tzinfo                     
+MED   ref/words/exclamation  gets very excited                The difference between !!  
+                                                              apply and !!               
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/emitter.py [✅ LOW]
+-------------------------------------------------------------
+RISK  KEY       DESCRIPTION              EVIDENCE            
+-------------------------------------------------------------
+LOW   fd/write  writes to a file handle  stream.write(data)  
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/parser.py [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                   
+--------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://pyyaml.org/wiki/YAMLNonSpecificTag  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/representer.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE         
+-------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64           
+MED   ref/words/exclamation  gets very excited                We produce a !!  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/vendor/yaml/serializer.py [✅ LOW]
+-------------------------------------------
+RISK  KEY           DESCRIPTION  EVIDENCE  
+-------------------------------------------
+LOW   fs/file/open  opens files  open(     
+-------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /usr/lib/python3.12/site-packages/invoke/watchers.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION               EVIDENCE                   
+-------------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'   a submitted password didn  
+                                                    password for               
+MED   exec/program        execute external program  subprocess                 
+MED   ref/program/sudo    calls sudo                sudo                       
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-invoke-2.2.0-r1.apk ∴ /var/lib/db/sbom/py3-invoke-2.2.0-r1.spdx.json [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin         path reference within /usr/bin           /usr/bin/invoke                                             
+LOW   ref/site/url             contains embedded HTTPS URLs             https://spdx.org/spdxdocs/chainguard/melange/               
+MED   net/download             download files                           downloadLocation                                            
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/invoke-2.2.0-py3.12.egg…  
+                                                                        /usr/lib/python3.12/site-packages/invoke-2.2.0-py3.12.egg…  
+                                                                        /usr/lib/python3.12/site-packages/invoke-2.2.0-py3.12.egg…  
+                                                                        /usr/lib/python3.12/site-packages/invoke-2.2.0-py3.12.egg…  
+                                                                        /usr/lib/python3.12/site-packages/invoke-2.2.0-py3.12.egg…  
+                                                                        /usr/lib/python3.12/site-packages/invoke/__init__.py        
+                                                                        /usr/lib/python3.12/site-packages/invoke/__main__.py        
+                                                                        /usr/lib/python3.12/site-packages/invoke/__pycache__/__in…  
+                                                                        …                                                           
+------------------------------------------------------------------------------------------------------------------------------------
+

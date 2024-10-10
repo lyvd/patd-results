@@ -1,0 +1,39 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libproc-2-0-4.0.4-r2.apk ∴ /usr/lib/libproc2.so.0.0.2 [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                 EVIDENCE           
+---------------------------------------------------------------------------------------------------
+LOW   env/TEMP                      tmpdir                                      TEMP               
+                                                                                getenv             
+LOW   env/USER                      Looks up the USER name of the current user  USER               
+                                                                                getenv             
+LOW   fs/link/read                  read value of a symbolic link               readlink           
+LOW   process/thread_local_storage  Uses glibc thread local storage             __tls_get_addr     
+MED   dylib/symbol/address          get the address of a symbol                 dlsym              
+MED   kernel/dev/block/device       works with block devices                    /sys/block         
+MED   procfs/arbitrary/pid          access /proc for arbitrary pids             /proc/%d/ctty      
+                                                                                /proc/%d/ns/       
+                                                                                /proc/%d/task/     
+                                                                                /proc/%d/wchan     
+MED   procfs/cpuinfo                get CPU info                                /proc/cpuinfo      
+MED   procfs/meminfo                get memory info                             /proc/meminfo      
+MED   procfs/stat                   gets kernel/system statistics               /proc/stat         
+MED   ref/daemon                    Run as a background daemon                  compact_daemon     
+MED   ref/path/dev                  path reference within /dev                  /dev/3270/tty      
+                                                                                /dev/iseries/vtty  
+                                                                                /dev/pts/          
+                                                                                /dev/ttyACM        
+                                                                                /dev/ttyB          
+                                                                                /dev/ttyCH         
+                                                                                /dev/ttyD          
+                                                                                /dev/ttyEQ         
+                                                                                …                  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libproc-2-0-4.0.4-r2.apk ∴ /var/lib/db/sbom/libproc-2-0-4.0.4-r2.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/cf9d8d6f3c16…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

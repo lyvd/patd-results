@@ -1,0 +1,32 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/glpk-5.0-r1.apk ∴ /usr/bin/glpsol [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/software/glpk/glpk.html  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/glpk-5.0-r1.apk ∴ /usr/include/glpk.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                      
+--------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   ref/words/intercept  References interception      intercept                     
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/glpk-5.0-r1.apk ∴ /usr/lib/libglpk.so.40.3.1 [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                      EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   process/thread_local_storage  Uses glibc thread local storage  __tls_get_addr  
+MED   databases/mysql               accesses MySQL databases         mysql           
+MED   dylib/symbol/address          get the address of a symbol      dlsym           
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/glpk-5.0-r1.apk ∴ /var/lib/db/sbom/glpk-5.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/7e09c771bcd2…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,25 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-amqp-2.1.1-r0.apk ∴ /usr/lib/php/modules/amqp.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                 EVIDENCE                                           
+----------------------------------------------------------------------------------------------------------
+LOW   net/socket/send      send a message to a socket  send                                               
+                                                       socket                                             
+LOW   ref/words/password   references a 'password'     class_getPassword                                  
+                                                       class_setPassword                                  
+                                                       passwordI                                          
+MED   ref/words/heartbeat  references a 'heartbeat'    Default heartbeats interv                          
+                                                       amqp_get_heartbeat                                 
+                                                       onUpdateHeartbeat                                  
+                                                       php_amqp_is_valid_heartbeat                        
+                                                       rginfo_amqp_connection_class_getHeartbeatInterval  
+                                                       zim_amqp_connection_class_getHeartbeatInterval     
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-amqp-2.1.1-r0.apk ∴ /var/lib/db/sbom/php-amqp-2.1.1-r0.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download  download files                downloadLocation                               
+-------------------------------------------------------------------------------------------------
+

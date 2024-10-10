@@ -1,0 +1,36 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-2.70-r1.apk ∴ /usr/lib/libcap.so.2.70 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE                                     
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                           waitpid                                      
+LOW   fs/file/capabilities/set  Set file capabilities                              cap_set_fd                                   
+                                                                                   cap_set_file                                 
+LOW   fs/node/create            create device files                                mknod                                        
+LOW   process/chroot            change the location of root for the process        chroot                                       
+LOW   process/groupid/set       set real and effective group ID of process         setgid                                       
+LOW   process/groups/set        set group access list                              setgroups                                    
+LOW   process/userid/set        set real and effective user ID of current process  setuid                                       
+LOW   ref/site/url              contains embedded HTTPS URLs                       https://sites.google.com/site/fullycapable/  
+MED   exec/program              executes external programs                         execve                                       
+MED   kernel/ptrace             trace or modify system calls                       ptrace                                       
+MED   net/bpf                   BPF (Berkeley Packet Filter)                       bpf                                          
+MED   procfs/self/cmdline       gets process command-line                          /proc/self/cmdline                           
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-2.70-r1.apk ∴ /usr/lib/libpsx.so.2.70 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                   EVIDENCE                                     
+--------------------------------------------------------------------------------------------------------
+LOW   process/multithreaded  creates pthreads              pthread_create                               
+LOW   ref/site/url           contains embedded HTTPS URLs  https://sites.google.com/site/fullycapable/  
+MED   procfs/self/cmdline    gets process command-line     /proc/self/cmdline                           
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-2.70-r1.apk ∴ /var/lib/db/sbom/libcap-2.70-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/30b9b76c2a1a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,35 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libisoburn-dev-1.5.6-r0.apk ∴ /usr/include/libisoburn/libisoburn.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE           
+--------------------------------------------------------------------------------------------------
+LOW   ref/path/etc             path reference within /etc                      /etc/group         
+                                                                               /etc/passwd        
+MED   fs/file/times/set        change file timestamps                          touch it           
+MED   kernel/dev/block/device  access raw generic block devices                /dev/sdb1          
+MED   ref/email                Contains an exotic email address                scdbackup@gmx.net  
+MED   ref/path/dev             path reference within /dev                      /dev/fd/1          
+                                                                               /dev/sdb1          
+MED   ref/path/relative        references and possibly executes relative path  ./configure        
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libisoburn-dev-1.5.6-r0.apk ∴ /usr/include/libisoburn/xorriso.h [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                EVIDENCE                        
+----------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                        mkdir                           
+LOW   fs/directory/remove      Uses libc functions to remove directories  rmdir                           
+LOW   fs/file/delete/forcibly  Forcibly deletes files                     rm -device_links rather than    
+                                                                          rm -session_string rather than  
+LOW   process/chdir            changes working directory                  cd alias -cdi                   
+MED   fs/permission/modify     modifies file permissions                  chmod                           
+MED   ref/email                Contains an exotic email address           scdbackup@gmx.net               
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libisoburn-dev-1.5.6-r0.apk ∴ /var/lib/db/sbom/libisoburn-dev-1.5.6-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/bae5c1fb7493…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

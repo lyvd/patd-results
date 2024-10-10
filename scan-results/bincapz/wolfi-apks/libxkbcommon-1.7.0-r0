@@ -1,0 +1,58 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /usr/bin/xkbcli [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE  
+----------------------------------------------------------
+MED   exec/program  executes external programs  execv     
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /usr/lib/libxkbcommon.so.0.0.0 [✅ LOW]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE            
+--------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                
+                                                                              getenv              
+LOW   ref/path/home/config  path reference within ~/.config                   s/.config/XCompose  
+                                                                              s/.config/xkb       
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /usr/lib/libxkbregistry.so.0.0.0 [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE       
+---------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME           
+                                                                              getenv         
+LOW   ref/path/home/config  path reference within ~/.config                   s/.config/xkb  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /usr/libexec/xkbcommon/xkbcli-interactive-evdev [⚠️ MEDIUM]
+-------------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE     
+-------------------------------------------------------------
+MED   exec/program  executes external programs  execv        
+MED   ref/path/dev  path reference within /dev  /dev/input/  
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /usr/libexec/xkbcommon/xkbcli-interactive-wayland [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                            EVIDENCE     
+----------------------------------------------------------------------------
+LOW   fs/file/delete    deletes files                          unlink       
+LOW   fs/file/truncate  truncate a file to a specified length  ftruncate64  
+MED   exec/program      executes external programs             execv        
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /usr/libexec/xkbcommon/xkbcli-interactive-x11 [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE  
+----------------------------------------------------------
+MED   exec/program  executes external programs  execv     
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libxkbcommon-1.7.0-r0.apk ∴ /var/lib/db/sbom/libxkbcommon-1.7.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/924b2b21afb7…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

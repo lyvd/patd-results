@@ -1,0 +1,29 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/gpsd-dev-3.25-r1.apk ∴ /usr/include/gps.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                      EVIDENCE                                      
+------------------------------------------------------------------------------------------------------------------------
+LOW   net/socket/listen  listen on a socket                               accept                                        
+                                                                          socket                                        
+LOW   net/socket/send    send a message to a socket                       send                                          
+                                                                          socket                                        
+LOW   ref/site/url       contains embedded HTTPS URLs                     https://en.wikipedia.org/wiki/Geodetic_datum  
+                                                                          https://gps.io/gpsd-numbers-matter.html       
+                                                                          https://gpsd.io/gpsd-numbers-matter.html      
+MED   net/reuseport      reuse TCP/IP ports for listening and connecting  SO_REUSEADDR                                  
+MED   ref/ip_port        mentions an IP and port                          IP                                            
+                                                                          Port                                          
+                                                                          server_ip                                     
+                                                                          to_port                                       
+MED   ref/path/dev       path reference within /dev                       /dev/serial/by-id/...                         
+MED   ref/words/agent    references an 'agent'                            agent                                         
+MED   ref/words/spoof    references spoofing                              bool antispoof                                
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/gpsd-dev-3.25-r1.apk ∴ /var/lib/db/sbom/gpsd-dev-3.25-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/a75fce388f12…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,58 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-statsd-4.0.1-r0.apk ∴ /usr/lib/python3.12/site-packages/statsd/client/base.py [✅ LOW]
+-------------------------------------------------------------
+RISK  KEY              DESCRIPTION                 EVIDENCE  
+-------------------------------------------------------------
+LOW   net/socket/send  send a message to a socket  _send     
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-statsd-4.0.1-r0.apk ∴ /usr/lib/python3.12/site-packages/statsd/client/stream.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                              EVIDENCE     
+--------------------------------------------------------------------------------
+LOW   net/hostport/parse  Network address and service translation  getaddrinfo  
+LOW   net/socket/send     send a message to a socket               _send        
+MED   net/socket/connect  initiate a connection on a socket        connect      
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-statsd-4.0.1-r0.apk ∴ /usr/lib/python3.12/site-packages/statsd/client/timer.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                       EVIDENCE                                   
+----------------------------------------------------------------------------------------------------------------------
+MED   evasion/lib_alias  aliases core python library to an alternate name  from time import perf_counter as time_now  
+----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-statsd-4.0.1-r0.apk ∴ /usr/lib/python3.12/site-packages/statsd/client/udp.py [✅ LOW]
+--------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                              EVIDENCE     
+--------------------------------------------------------------------------------
+LOW   net/hostport/parse  Network address and service translation  getaddrinfo  
+LOW   net/socket/send     send a message to a socket               _send        
+                                                                   sendto       
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-statsd-4.0.1-r0.apk ∴ /usr/lib/python3.12/site-packages/statsd/tests.py [✅ LOW]
+------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                              EVIDENCE       
+------------------------------------------------------------------------------------
+LOW   net/hostname/resolve  resolve network host name to IP address  gethostbyname  
+LOW   net/socket/send       send a message to a socket               _send          
+                                                                     sendto         
+------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-statsd-4.0.1-r0.apk ∴ /var/lib/db/sbom/py3-statsd-4.0.1-r0.spdx.json [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs             https://spdx.org/spdxdocs/chainguard/melange/               
+MED   net/download             download files                           downloadLocation                                            
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/statsd-4.0.1.dist-info/…  
+                                                                        /usr/lib/python3.12/site-packages/statsd-4.0.1.dist-info/…  
+                                                                        /usr/lib/python3.12/site-packages/statsd-4.0.1.dist-info/…  
+                                                                        /usr/lib/python3.12/site-packages/statsd-4.0.1.dist-info/…  
+                                                                        /usr/lib/python3.12/site-packages/statsd-4.0.1.dist-info/…  
+                                                                        /usr/lib/python3.12/site-packages/statsd-4.0.1.dist-info/…  
+                                                                        /usr/lib/python3.12/site-packages/statsd/__init__.py        
+                                                                        /usr/lib/python3.12/site-packages/statsd/client/__init__.…  
+                                                                        …                                                           
+------------------------------------------------------------------------------------------------------------------------------------
+

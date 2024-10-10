@@ -1,0 +1,60 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swaks-20240103.0-r1.apk ∴ /usr/bin/swaks [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                              EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64           Supports base64 encoded strings          base64                                                      
+LOW   fs/file/open              opens files                              open(                                                       
+LOW   net/hostname/resolve      resolve network host name to IP address  gethostbyname                                               
+LOW   net/socket/listen         listen on a socket                       listen                                                      
+                                                                         socket                                                      
+LOW   net/socket/receive        receive a message to a socket            recv                                                        
+                                                                         socket                                                      
+LOW   net/socket/send           send a message to a socket               send                                                        
+                                                                         socket                                                      
+LOW   ref/path/usr/bin          path reference within /usr/bin           /usr/bin/env                                                
+LOW   ref/site/url              contains embedded HTTPS URLs             https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_cl…  
+LOW   ref/words/password        references a 'password'                  Password                                                    
+                                                                         as-body-shows-password                                      
+                                                                         auth-hide-password                                          
+                                                                         forces --auth-password to need to be                        
+                                                                         forces raw passwords to be used                             
+                                                                         hide passwords when possible                                
+                                                                         ntlm_password                                               
+                                                                         s auth password if one is given                             
+                                                                         …                                                           
+MED   combo/backdoor/net_shell  generic perl socket exec                 IO::Socket::INET                                            
+                                                                         perl                                                        
+                                                                         system(                                                     
+MED   combo/net/scan_tool       may scan networks                        banner                                                      
+                                                                         connect                                                     
+                                                                         gethostbyname                                               
+                                                                         port                                                        
+                                                                         socket                                                      
+                                                                         target                                                      
+MED   fs/file/copy              copy files using cp                      cp                                                          
+MED   fs/file/times/set         change file timestamps                   touch the data                                              
+MED   net/ip/string             converts IP address from byte to string  inet_ntop                                                   
+MED   ref/ip_port               mentions an IP and port                  IP                                                          
+                                                                         check_ip                                                    
+                                                                         dest_port                                                   
+                                                                         mail_port                                                   
+                                                                         pack_ip                                                     
+                                                                         returnPort                                                  
+                                                                         source_port                                                 
+                                                                         xclient_port                                                
+                                                                         …                                                           
+MED   ref/words/intercept       References interception                  intercept                                                   
+MED   techniques/code_eval      evaluate code dynamically using eval()   eval("use                                                   
+HIGH  obfuscation/perl          Obfuscated PERL code                     eval{                                                       
+                                                                         pack(                                                       
+                                                                         sub                                                         
+-------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swaks-20240103.0-r1.apk ∴ /var/lib/db/sbom/swaks-20240103.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/c99732f9e3a5…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

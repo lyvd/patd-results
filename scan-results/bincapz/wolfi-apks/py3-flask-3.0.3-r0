@@ -1,0 +1,158 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/bin/flask [✅ LOW]
+--------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE          
+--------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/python3  
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/app.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                          EVIDENCE                   
+-------------------------------------------------------------------------------------------
+LOW   fd/read              reads from a file handle             executescript(f.read()     
+LOW   fs/file/open         opens files                          open(                      
+LOW   net/url              Handles URL strings                  urllib                     
+LOW   ref/site/url         contains embedded HTTPS URLs         https://example.com/hello  
+MED   net/http/cookies     access HTTP resources using cookies  Cookie                     
+                                                                HTTP                       
+MED   ref/words/intercept  References interception              intercept                  
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/blueprints.py [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY           DESCRIPTION               EVIDENCE                
+----------------------------------------------------------------------
+LOW   fd/read       reads from a file handle  executescript(f.read()  
+LOW   fs/file/open  opens files               open(                   
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/cli.py [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                              EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------------------
+LOW   fd/read               reads from a file handle                 eval(compile(f.read()                       
+LOW   fs/file/open          opens files                              open(                                       
+LOW   fs/symlink/resolve    resolves symbolic links                  realpath                                    
+LOW   ref/site/url          contains embedded HTTPS URLs             https://docs.python.org/2/library/sys.html  
+                                                                     https://github.com/theskumar/python-dotenv  
+LOW   ref/words/plugin      references a 'plugin'                    plugin_commands                             
+MED   kernel/platform       system platform identification           sys.platform                                
+MED   techniques/code_eval  evaluate code dynamically using eval()   eval(arg)                                   
+                                                                     eval(compile(f                              
+                                                                     eval(kw                                     
+HIGH  admin/pip_install     Installs software using pip from python  pip install python-dotenv                   
+-----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/config.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE                         
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                   json.loads                       
+LOW   fd/read               reads from a file handle                exec(compile(config_file.read()  
+LOW   fs/file/open          opens files                             open(                            
+LOW   ref/path/var          path reference within /var              /var/app/images                  
+LOW   ref/site/url          contains embedded HTTP URLs             http://img.website.com           
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(compile(config              
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/debughelpers.py [✅ LOW]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://flask.palletsprojects.com/blueprints/  
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/helpers.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                             EVIDENCE                              
+---------------------------------------------------------------------------------------------------------
+LOW   net/sendfile         transfer data between file descriptors  sendfile                              
+MED   net/download         download files                          def download_file                     
+                                                                   param download_name                   
+MED   net/upload           uploads files                           UPLOAD_FOLDER                         
+                                                                   uploads                               
+MED   ref/words/malicious  References 'malicious'                  client is not maliciously crafted to  
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/json/__init__.py [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  json.loads  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/json/provider.py [✅ LOW]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION               EVIDENCE         
+-----------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages     json.loads       
+LOW   fd/read               reads from a file handle  loads(fp.read()  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/json/tag.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE               
+-------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64                 
+MED   evasion/base64/decode  decode base64 strings            b64decode::$b64decode  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/sansio/app.py [⚠️ MEDIUM]
+------------------------------------------------------------
+RISK  KEY            DESCRIPTION                  EVIDENCE  
+------------------------------------------------------------
+MED   net/http/post  submits content to websites  HTTP      
+                                                  POST      
+                                                  http      
+------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/sansio/scaffold.py [⚠️ MEDIUM]
+------------------------------------------------------------
+RISK  KEY            DESCRIPTION                  EVIDENCE  
+------------------------------------------------------------
+MED   net/http/post  submits content to websites  HTTP      
+                                                  POST      
+------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/sessions.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/http/cookies  access HTTP resources using cookies  Cookie    
+                                                             HTTP      
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/templating.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                       EVIDENCE                                           
+------------------------------------------------------------------------------------------------------------------------------
+MED   evasion/lib_alias  aliases core python library to an alternate name  from jinja2 import Environment as BaseEnvironment  
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/testing.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/open      opens files                          open(     
+LOW   net/url           Handles URL strings                  urllib    
+MED   net/http/cookies  access HTTP resources using cookies  Cookie    
+                                                             HTTP      
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /usr/lib/python3.12/site-packages/flask/typing.py [✅ LOW]
+------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                      
+------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/pallets/flask/issues/4095  
+                                                  https://github.com/pallets/flask/issues/4295  
+                                                  https://github.com/pallets/flask/issues/4297  
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-flask-3.0.3-r0.apk ∴ /var/lib/db/sbom/py3-flask-3.0.3-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/8a90e655380a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

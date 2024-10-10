@@ -1,0 +1,653 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/bin/hatch [✅ LOW]
+--------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE          
+--------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/python3  
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/application.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE             
+------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode     Decodes JSON messages                       json.loads           
+LOW   fs/file/delete           deletes files                               unlink               
+LOW   ref/words/plugin         references a 'plugin'                       def plugins          
+                                                                           plugin_dependencies  
+                                                                           plugin_manager       
+MED   process/executable_path  gets executable associated to this process  sys.executable       
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/build/__init__.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/config/__init__.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE                                        
+--------------------------------------------------------------------------------------------------------------------
+LOW   fd/read               reads from a file handle                config_file.read()                              
+LOW   ref/site/url          contains embedded HTTPS URLs            https://github.com/sdispater/tomlkit/issues/48  
+MED   techniques/code_eval  evaluate code dynamically using eval()  eval(value)                                     
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/dep/__init__.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/env/create.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/env/find.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/env/prune.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+                                               plugins              
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/env/remove.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/env/run.py [✅ LOW]
+------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                        EVIDENCE             
+------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages              json.loads           
+LOW   fd/multiplex          monitor multiple file descriptors  select               
+LOW   ref/words/plugin      references a 'plugin'              plugin_dependencies  
+------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/env/show.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/fmt/__init__.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/fmt/core.py [✅ LOW]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE                                       
+----------------------------------------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select                                         
+LOW   ref/site/url      contains embedded HTTPS URLs       https://docs.astral.sh/ruff/configuration/     
+                                                           https://github.com/astral-sh/ruff/issues/8737  
+LOW   ref/words/plugin  references a 'plugin'              plugin                                         
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/new/__init__.py [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                           
+--------------------------------------------------------------------------------------------------------------
+LOW   fd/write                 writes to a file handle                     template_file.write(location)      
+LOW   ref/words/plugin         references a 'plugin'                       elif plugin_config                 
+                                                                           if template_name in plugin_config  
+                                                                           plugins                            
+MED   process/executable_path  gets executable associated to this process  sys.executable                     
+HIGH  admin/pip_install        Installs software using pip from python     pip', 'install', '-q               
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/new/migrate.py [🚨 CRITICAL]
+--------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                             EVIDENCE                                        
+--------------------------------------------------------------------------------------------------------------------------------------------
+LOW   fd/read                       reads from a file handle                                f.read()                                        
+LOW   fd/write                      writes to a file handle                                 f.write(output)                                 
+LOW   fs/directory/list             lists contents of a directory                           .listdir(                                       
+LOW   fs/file/open                  opens files                                             open(                                           
+LOW   fs/symlink/resolve            resolves symbolic links                                 realpath                                        
+MED   exec/program                  execute external program                                subprocess.run([sys.executable, setup_py], env  
+MED   net/download                  download files                                          Download                                        
+                                                                                            download_url                                    
+MED   process/executable_path       gets executable associated to this process              sys.executable                                  
+MED   techniques/code_eval          evaluate code dynamically using eval()                  eval(value)                                     
+CRIT  combo/backdoor/py_setuptools  Python library installer that evaluates arbitrary code  eval(value)                                     
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/project/metadata.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                   EVIDENCE                        
+------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages         json.loads                      
+LOW   ref/site/url          contains embedded HTTPS URLs  https://github.com/stedolan/jq  
+LOW   ref/words/plugin      references a 'plugin'         plugin_dependencies             
+MED   exec/program          execute external program      subprocess.PIPE,                
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/publish/__init__.py [✅ LOW]
+--------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                         
+--------------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  The publisher plugin to use      
+                                               plugins                          
+                                               to pass to the publisher plugin  
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/self/report.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------
+LOW   net/url                  Handles URL strings                         urllib                                                      
+LOW   ref/site/url             contains embedded HTTPS URLs                https://docs.python.org/3/library/sysconfig.html            
+                                                                           https://github.com/NixOS/nixpkgs/issues/201037              
+                                                                           https://github.com/ofek/pyapp/blob/v0.13.0/src/app.rs       
+                                                                           https://github.com/pyenv/pyenv/tree/v2.3.35                 
+                                                                           https://github.com/pypa/hatch/issues/new?body=              
+                                                                           https://packaging.python.org/en/latest/specifications/ext…  
+                                                                           https://pypa.github.io/pipx/how-pipx-works/                 
+MED   exec/shell_command       execute a shell command                     system                                                      
+MED   process/executable_path  gets executable associated to this process  sys.executable                                              
+---------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/shell/__init__.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/terminal.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                       EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------------------------
+MED   evasion/lib_alias  aliases core python library to an alternate name  from textwrap import indent as indent_text  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/test/__init__.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/test/core.py [✅ LOW]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                              
+--------------------------------------------------------------------------------------------------------
+LOW   fd/write      writes to a file handle       cfg.write(f)                                          
+LOW   ref/site/url  contains embedded HTTPS URLs  https://coverage.readthedocs.io/en/7.4.4/config.html  
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/cli/version/__init__.py [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE             
+--------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_dependencies  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/config/constants.py [✅ LOW]
+------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE              
+------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://no-color.org  
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/config/model.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION               EVIDENCE                  
+----------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'     _field_plugins            
+                                                  data in plugins           
+                                                  def plugins               
+MED   exec/program      execute external program  subprocess.check_output(  
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/config/user.py [✅ LOW]
+--------------------------------------------------------------------------------
+RISK  KEY      DESCRIPTION               EVIDENCE                               
+--------------------------------------------------------------------------------
+LOW   fd/read  reads from a file handle  RootConfig(load_toml_data(self.read()  
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/collectors/custom.py [✅ LOW]
+-------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE            
+-------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  Plugin              
+                                               plugin_from_script  
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/collectors/default.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/collectors/plugin/hooks.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/collectors/plugin/interface.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/internal/test.py [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY           DESCRIPTION               EVIDENCE    
+----------------------------------------------------------
+MED   exec/program  execute external program  subprocess  
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/plugin/hooks.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/plugin/interface.py [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                                           
+------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs                https://docs.python.org/3/library/subprocess.html  
+                                                                           https://pip.pypa.io/en/stable/cli/pip_install/     
+LOW   ref/words/plugin         references a 'plugin'                       plugin_name                                        
+MED   exec/program             execute external program                    subprocess.CompletedProcess](https                 
+                                                                           subprocess.html                                    
+MED   exec/shell_command       execute a shell command                     system                                             
+MED   process/executable_path  gets executable associated to this process  sys.executable                                     
+MED   ref/words/exclamation    gets very excited                           !!!                                                
+HIGH  admin/pip_install        Installs software using pip from python     pip install                                        
+                                                                           pip', 'install', '--disable-pip-version-check      
+------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/system.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/utils.py [✅ LOW]
+------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE     
+------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_name  
+------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/env/virtual.py [🔥 HIGH]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                                               
+----------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs                https://github.com/ofek/pyapp/blob/v0.13.0/src/app.rs  
+                                                                           https://github.com/pytest-dev/pytest/issues/3286       
+                                                                           https://pypa.github.io/pipx/how-pipx-works/            
+LOW   ref/words/plugin         references a 'plugin'                       plugin                                                 
+MED   process/executable_path  gets executable associated to this process  sys.executable                                         
+HIGH  admin/pip_install        Installs software using pip from python     pip', 'install'                                        
+HIGH  exec/shell_command       execute a shell command                     shell_executor(path                                    
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/index/core.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                        EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------
+LOW   hash/blake2b       Uses blake2b encryption algorithm  blake2b                                                     
+LOW   ref/site/url       contains embedded HTTPS URLs       https://github.com/pypa/warehouse/blob/7fc3ce5bd7ecc93ef5…  
+MED   net/upload         uploads files                      upload_artifact                                             
+MED   ref/site/download  http dropper url                   https://github.com/pypa/warehouse/blob/7fc3ce5bd7ecc93ef5…  
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/index/publish.py [✅ LOW]
+----------------------------------------------------------
+RISK  KEY      DESCRIPTION               EVIDENCE         
+----------------------------------------------------------
+LOW   fd/read  reads from a file handle  tar_file.read()  
+                                         zip_file.read()  
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/plugin/constants.py [✅ LOW]
+--------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE       
+--------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  hatch_plugins  
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/plugin/manager.py [✅ LOW]
+---------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                                
+---------------------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  class PluginManager                     
+                                               import PluginManager as _PluginManager  
+                                               plugin                                  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/plugin/specs.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/plugin/utils.py [✅ LOW]
+-----------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE                
+-----------------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select                  
+LOW   ref/words/plugin  references a 'plugin'              if obj is plugin_class  
+                                                           plugin_finder           
+                                                           plugin_from_script      
+                                                           plugin_id               
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/project/config.py [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                              
+-------------------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  exceptions import UnknownPluginError  
+                                               plugin_manager                        
+                                               plugins                               
+                                               raise UnknownPluginError              
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/project/core.py [✅ LOW]
+--------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION               EVIDENCE                      
+--------------------------------------------------------------------------------
+LOW   fd/read           reads from a file handle  parse(f.read()                
+LOW   fs/file/open      opens files               open(                         
+LOW   ref/words/plugin  references a 'plugin'     _plugin_manager               
+                                                  def plugin_manager            
+                                                  manager import PluginManager  
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/project/utils.py [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                           
+-------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://peps.python.org/pep-0723/  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/publish/auth.py [✅ LOW]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION              EVIDENCE                                  
+-----------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages    json.loads                                
+LOW   ref/words/password    references a 'password'  Password                                  
+                                                     __password is None                        
+                                                     __password_was_read                       
+                                                     def __get_password                        
+                                                     def password                              
+                                                     if password is not None                   
+                                                     pypirc as the __password attribute would  
+                                                     return password                           
+                                                     …                                         
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/publish/index.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs  https://test.pypi.org/legacy/                               
+                                                        https://upload.pypi.org/legacy/                             
+                                                        https://warehouse.readthedocs.io/api-reference/legacy.html  
+LOW   ref/words/password  references a 'password'       password                                                    
+LOW   ref/words/plugin    references a 'plugin'         value in global_plugin_config                               
+MED   net/upload          uploads files                 upload_artifact                                             
+                                                        uploading                                                   
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/publish/plugin/hooks.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/publish/plugin/interface.py [✅ LOW]
+------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE           
+------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  __plugin_config    
+                                               def plugin_config  
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/python/core.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE                      
+---------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  json.loads                    
+MED   net/download          download files         network import download_file  
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/python/distributions.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://downloads.python.org/pypy/pypy2.7-v7.3.15-aarch64…  
+                                                  https://downloads.python.org/pypy/pypy2.7-v7.3.15-linux64…  
+                                                  https://downloads.python.org/pypy/pypy2.7-v7.3.15-macos_a…  
+                                                  https://downloads.python.org/pypy/pypy2.7-v7.3.15-macos_x…  
+                                                  https://downloads.python.org/pypy/pypy2.7-v7.3.15-win64.z…  
+                                                  https://downloads.python.org/pypy/pypy3.10-v7.3.15-aarch6…  
+                                                  https://downloads.python.org/pypy/pypy3.10-v7.3.15-linux6…  
+                                                  https://downloads.python.org/pypy/pypy3.10-v7.3.15-macos_…  
+                                                  …                                                           
+MED   net/download  download files                downloads                                                   
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/python/resolve.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                                      EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/zstd  Zstandard: fast real-time compression algorithm  zstd                                                        
+LOW   fd/read           reads from a file handle                         f.read()                                                    
+LOW   fs/file/open      opens files                                      open(                                                       
+LOW   ref/site/url      contains embedded HTTPS URLs                     https://clang.llvm.org/docs/UsersManual.html                
+                                                                         https://downloads.python.org/pypy/                          
+                                                                         https://github.com/indygreg/python-build-standalone/relea…  
+                                                                         https://github.com/torvalds/linux/blob/master/arch/x86/in…  
+                                                                         https://gregoryszorc.com/docs/python-build-standalone/mai…  
+MED   fs/file/read      opens a binary file for read                     open(archive, 'rb')                                         
+MED   kernel/platform   system platform identification                   sys.platform                                                
+MED   net/download      download files                                   downloads                                                   
+MED   procfs/cpuinfo    get CPU info                                     /proc/cpuinfo                                               
+-------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/default.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                   EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url      contains embedded HTTPS URLs  https://raw.githubusercontent.com/spdx/license-list-data/v  
+                                                      https://reuse.software/faq/                                 
+LOW   ref/words/plugin  references a 'plugin'         plugin_config                                               
+MED   net/download      download files                network import download_file                                
+------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/files_default.py [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                              EVIDENCE                                 
+------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs             https://github.com/                      
+                                                                   https://img.shields.io/pypi/pyversions/  
+                                                                   https://img.shields.io/pypi/v/           
+                                                                   https://pypi.org/project/                
+                                                                   https://spdx.org/licenses/               
+LOW   ref/words/plugin    references a 'plugin'                    if plugin_config                         
+                                                                   in plugin_config                         
+MED   exec/shell_command  execute a shell command                  system                                   
+HIGH  admin/pip_install   Installs software using pip from python  pip install                              
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/files_feature_ci.py [🔥 HIGH]
+-----------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                              EVIDENCE               
+-----------------------------------------------------------------------------------------
+LOW   ref/words/plugin   references a 'plugin'                    plugin_config          
+HIGH  admin/pip_install  Installs software using pip from python  pip install --upgrade  
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/files_feature_cli.py [✅ LOW]
+--------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE       
+--------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_config  
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/files_feature_tests.py [✅ LOW]
+--------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE       
+--------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_config  
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/plugin/hooks.py [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/template/plugin/interface.py [✅ LOW]
+--------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE       
+--------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin_config  
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/dep.py [⚠️ MEDIUM]
+------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION               EVIDENCE          
+------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages     json.loads        
+LOW   ref/words/plugin      references a 'plugin'     plugin            
+MED   exec/program          execute external program  subprocess.PIPE,  
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/env.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs            https://github.com/pypa/packaging/blob/20.9/packaging/mar…  
+MED   exec/shell_command    execute a shell command                 system                                                      
+MED   kernel/platform       system platform identification          platform.system()                                           
+                                                                    sys.platform                                                
+MED   ref/site/download     http dropper url                        https://github.com/pypa/packaging/blob/20.9/packaging/mar…  
+MED   techniques/code_eval  evaluate code dynamically using eval()  eval(process                                                
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/fs.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                      EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64      Supports base64 encoded strings  base64                                                      
+LOW   fd/write             writes to a file handle          f.write(data)                                               
+LOW   fs/directory/create  creates directories              mkdir                                                       
+LOW   fs/file/delete       deletes files                    os.remove(                                                  
+LOW   fs/symlink/resolve   resolves symbolic links          realpath                                                    
+LOW   ref/site/url         contains embedded HTTPS URLs     https://bugs.python.org/issue38671                          
+                                                            https://developer.apple.com/library/archive/documentation…  
+                                                            https://github.com/python/cpython/blob/09d7319bfe0006d9aa…  
+                                                            https://mjtsai.com/blog/2022/02/17/apple-ssd-benchmarks-a…  
+MED   kernel/platform      system platform identification   sys.platform                                                
+MED   ref/site/download    http dropper url                 https://github.com/python/cpython/blob/09d7319bfe0006d9aa…  
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/network.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                             
+---------------------------------------------------------------------------------------
+LOW   fd/write      writes to a file handle       f.write(chunk)                       
+LOW   ref/site/url  contains embedded HTTPS URLs  https://tools.ietf.org/html/rfc2988  
+MED   net/download  download files                def download_file                    
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/platform.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------
+LOW   env/SHELL        path to active shell            SHELL                                                       
+LOW   ref/site/url     contains embedded HTTPS URLs    https://bugs.python.org/issue3907                           
+                                                       https://docs.microsoft.com/en-us/windows/win32/api/proces…  
+                                                       https://docs.python.org/3/library/os.html                   
+                                                       https://docs.python.org/3/library/subprocess.html           
+                                                       https://en.wikipedia.org/wiki/System_Integrity_Protection   
+                                                       https://github.com/python/cpython/issues/52803              
+                                                       https://support.apple.com/en-us/HT204899                    
+MED   exec/program     executes external programs      execvp                                                      
+MED   kernel/platform  system platform identification  platform.system()                                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/runner.py [✅ LOW]
+---------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE  
+---------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select    
+LOW   ref/words/plugin  references a 'plugin'              plugin    
+---------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/shells.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY                     DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------------
+LOW   ref/words/plugin        references a 'plugin'           plugin        
+MED   kernel/platform         system platform identification  sys.platform  
+MED   ref/program/powershell  powershell                      powershell    
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/utils/toml.py [✅ LOW]
+--------------------------------------------------------------
+RISK  KEY           DESCRIPTION               EVIDENCE        
+--------------------------------------------------------------
+LOW   fd/read       reads from a file handle  loads(f.read()  
+LOW   fs/file/open  opens files               open(           
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/venv/core.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                           EVIDENCE            
+------------------------------------------------------------------------------------
+LOW   env/get             Retrieve environment variable values  os.environ['PATH']  
+MED   exec/shell_command  execute a shell command               system              
+MED   net/download        download files                        --no-download       
+------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /usr/lib/python3.12/site-packages/hatch/venv/utils.py [✅ LOW]
+------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE  
+------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64    
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hatch-1.12.0-r0.apk ∴ /var/lib/db/sbom/py3-hatch-1.12.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/08adec1f2c74…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

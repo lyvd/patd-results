@@ -1,0 +1,66 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnspr-4.35-r3.apk ∴ /usr/lib/libnspr4.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                       EVIDENCE                      
+----------------------------------------------------------------------------------------------------------------
+LOW   dylib/address/check       determine if address belongs to a shared library  dladdr                        
+LOW   env/LD_LIBRARY_PATH       ld library path                                   LD_LIBRARY_PATH               
+LOW   exec/program/background   wait for process to exit                          waitpid                       
+LOW   fs/directory/create       creates directories                               mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories         rmdir                         
+LOW   fs/file/delete            deletes files                                     unlink                        
+LOW   fs/file/open              opens files                                       open(                         
+LOW   fs/file/truncate          truncate a file to a specified length             ftruncate                     
+LOW   fs/lock/update            apply or remove an advisory lock on a file        flock                         
+LOW   kernel/hostname/get       get computer host name                            gethostname                   
+LOW   kernel/platform           system identification                             uname                         
+LOW   net/hostname/resolve      resolve network host name to IP address           gethostbyname                 
+LOW   net/hostport/parse        Network address and service translation           freeaddrinfo                  
+                                                                                  getaddrinfo                   
+LOW   net/ip/resolve            resolves network hosts via IP address             gethostbyaddr                 
+LOW   net/sendfile              transfer data between file descriptors            sendfile                      
+LOW   net/socket/listen         listen on a socket                                accept                        
+                                                                                  listen                        
+                                                                                  socket                        
+LOW   net/socket/local/address  get local address of connected socket             getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket              getpeername                   
+LOW   net/socket/receive        receive a message from a socket                   recvfrom                      
+LOW   net/socket/send           send a message to a socket                        sendto                        
+LOW   process/multithreaded     creates pthreads                                  pthread_create                
+LOW   ref/site/url              contains embedded HTTP URLs                       http://mozilla.org/MPL/2.0/.  
+                                                                                  http://www.mozilla.org/MPL/   
+MED   combo/net/scan_tool       may scan networks                                 connect                       
+                                                                                  gethostbyname                 
+                                                                                  port                          
+                                                                                  scan                          
+                                                                                  socket                        
+MED   dylib/symbol/address      get the address of a symbol                       dlsym                         
+MED   exec/program              executes external programs                        execv                         
+MED   net/ip/string             converts IP address from byte to string           inet_ntop                     
+MED   ref/daemon                Run as a background daemon                        waitpid_daemon                
+MED   ref/path/dev              path reference within /dev                        /dev/urandom                  
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnspr-4.35-r3.apk ∴ /usr/lib/libplc4.so [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://mozilla.org/MPL/2.0/.  
+                                                 http://www.mozilla.org/MPL/   
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnspr-4.35-r3.apk ∴ /usr/lib/libplds4.so [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://mozilla.org/MPL/2.0/.  
+                                                 http://www.mozilla.org/MPL/   
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libnspr-4.35-r3.apk ∴ /var/lib/db/sbom/libnspr-4.35-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/369f71fe46fa…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

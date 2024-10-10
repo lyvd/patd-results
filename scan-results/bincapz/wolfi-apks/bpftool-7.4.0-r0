@@ -1,0 +1,59 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bpftool-7.4.0-r0.apk ∴ /usr/sbin/bpftool [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                         EVIDENCE              
+------------------------------------------------------------------------------------------------------------
+LOW   env/LD_LIBRARY_PATH         ld library path                                     LD_LIBRARY_PATH       
+LOW   fd/epoll                    I/O event notification facility                     epoll_wait            
+LOW   fs/directory/create         creates directories                                 mkdir                 
+LOW   fs/file/delete              deletes files                                       unlink                
+LOW   fs/file/delete/forcibly     Forcibly deletes files                              rm CO-RE relocations  
+LOW   fs/file/open                opens files                                         open(                 
+LOW   fs/link/read                read value of a symbolic link                       readlink              
+LOW   fs/symlink/resolve          resolves symbolic links                             realpath              
+LOW   kernel/netlink              communicate with kernel services                    netlink               
+LOW   kernel/perfmon              set up performance monitoring                       perf_event_open       
+LOW   kernel/platform             system identification                               uname                 
+LOW   net/interface/get           get network interfaces by name or index             if_indextoname        
+                                                                                      if_nametoindex        
+LOW   net/socket/local/address    get local address of connected socket               getsockname           
+LOW   net/socket/peer/address     get peer address of connected socket                getpeername           
+LOW   net/socket/receive          receive a message from a socket                     recvmsg               
+LOW   net/socket/send             send a message to a socket                          sendmsg               
+LOW   process/executable_path     sets a custom PATH                                  /bin:/usr/            
+                                                                                      PATH                  
+MED   combo/critical_paths        accesses multiple critical Linux paths              /boot/config-         
+                                                                                      /boot/vmlinux-        
+                                                                                      /proc/config.gz       
+                                                                                      /proc/kallsyms        
+                                                                                      /proc/mounts          
+                                                                                      /proc/self/fd/        
+                                                                                      /proc/self/fdinfo/    
+                                                                                      /proc/self/ns/net     
+                                                                                      …                     
+MED   combo/recon/system_network  invasive recon val                                  iproute               
+MED   fs/mounts/read              Parses active mounts (/etc/fstab, /etc/mtab)        getmntent             
+                                                                                      setmntent             
+MED   net/bpf                     BPF (Berkeley Packet Filter)                        bpf                   
+MED   net/syncookie               references SYN cookies, used to resist DoS attacks  syncookie             
+MED   net/upload                  uploads files                                       uploading             
+MED   procfs/arbitrary/pid        access /proc for arbitrary pids                     /proc/%d/fdinfo/      
+                                                                                      /proc/%d/maps         
+                                                                                      /proc/%d/root         
+                                                                                      /proc/%s/fd           
+MED   procfs/mounts               Parses active mounts (/proc/mounts                  /proc/mounts          
+MED   procfs/pid/maps             access process memory maps                          /proc/%d/maps         
+MED   ref/path/boot               path reference within /boot                         /boot/config-%s       
+                                                                                      /boot/vmlinux-%1      
+HIGH  kernel/symbol/lookup        access unexported kernel symbols                    kallsyms_lookup_name  
+HIGH  procfs/pid/fd               accesses file descriptors of other processes        /proc/%d/fd           
+                                                                                      /proc/%s/fd           
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bpftool-7.4.0-r0.apk ∴ /var/lib/db/sbom/bpftool-7.4.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/b76745d42d11…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

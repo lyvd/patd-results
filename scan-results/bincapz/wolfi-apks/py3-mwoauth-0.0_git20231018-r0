@@ -1,0 +1,66 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-mwoauth-0.0_git20231018-r0.apk ∴ /usr/lib/python3.12/site-packages/mwoauth/about.py [✅ LOW]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                               
+---------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/mediawiki-utilities/python-mwoauth  
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-mwoauth-0.0_git20231018-r0.apk ∴ /usr/lib/python3.12/site-packages/mwoauth/defaults.py [⚠️ MEDIUM]
+--------------------------------------------------------
+RISK  KEY              DESCRIPTION            EVIDENCE  
+--------------------------------------------------------
+MED   ref/words/agent  references an 'agent'  agent     
+--------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-mwoauth-0.0_git20231018-r0.apk ∴ /usr/lib/python3.12/site-packages/mwoauth/flask.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                   EVIDENCE                  
+--------------------------------------------------------------------------------
+LOW   net/http/request  makes HTTP requests           User-Agent                
+LOW   net/url           Handles URL strings           urllib                    
+LOW   ref/site/url      contains embedded HTTPS URLs  https://en.wikipedia.org  
+MED   net/url/request   requests resources via URL    import requests           
+MED   ref/words/agent   references an 'agent'         user_agent                
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-mwoauth-0.0_git20231018-r0.apk ∴ /usr/lib/python3.12/site-packages/mwoauth/functions.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                EVIDENCE                              
+-------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                      json.loads                            
+LOW   net/http/request      makes HTTP requests                        User-Agent                            
+LOW   net/url               Handles URL strings                        urllib                                
+LOW   ref/site/url          contains embedded HTTPS URLs               https://en.wikipedia.org/w/index.php  
+MED   net/url/encode        encodes URL, likely to pass GET variables  urlencode                             
+MED   net/url/request       requests resources via URL                 import requests                       
+MED   ref/site/php          accesses hardcoded PHP endpoint            https://en.wikipedia.org/w/index.php  
+MED   ref/words/agent       references an 'agent'                      user_agent                            
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-mwoauth-0.0_git20231018-r0.apk ∴ /usr/lib/python3.12/site-packages/mwoauth/handshaker.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                      EVIDENCE                              
+-----------------------------------------------------------------------------------------------
+LOW   net/http/request  makes HTTP requests              User-Agent                            
+LOW   ref/site/url      contains embedded HTTPS URLs     https://en.wikipedia.org/w/index.php  
+MED   ref/site/php      accesses hardcoded PHP endpoint  https://en.wikipedia.org/w/index.php  
+MED   ref/words/agent   references an 'agent'            user_agent                            
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-mwoauth-0.0_git20231018-r0.apk ∴ /var/lib/db/sbom/py3-mwoauth-0.0_git20231018-r0.spdx.json [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs             https://spdx.org/spdxdocs/chainguard/melange/               
+MED   net/download             download files                           downloadLocation                                            
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/mwoauth-0.4.0.dist-info…  
+                                                                        /usr/lib/python3.12/site-packages/mwoauth-0.4.0.dist-info…  
+                                                                        /usr/lib/python3.12/site-packages/mwoauth-0.4.0.dist-info…  
+                                                                        /usr/lib/python3.12/site-packages/mwoauth-0.4.0.dist-info…  
+                                                                        /usr/lib/python3.12/site-packages/mwoauth-0.4.0.dist-info…  
+                                                                        /usr/lib/python3.12/site-packages/mwoauth/__init__.py       
+                                                                        /usr/lib/python3.12/site-packages/mwoauth/about.py          
+                                                                        /usr/lib/python3.12/site-packages/mwoauth/defaults.py       
+                                                                        …                                                           
+------------------------------------------------------------------------------------------------------------------------------------
+

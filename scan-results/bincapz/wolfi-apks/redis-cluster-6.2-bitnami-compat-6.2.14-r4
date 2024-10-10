@@ -1,0 +1,233 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libbitnami.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                               
+-----------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/bitnami/containers  
+MED   shell/exec    executes shell                /bin/bash                              
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libfile.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libfs.sh [⚠️ MEDIUM]
+------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                EVIDENCE   
+------------------------------------------------------------------
+LOW   fs/directory/create   creates directories        mkdir      
+LOW   fs/symlink/resolve    resolves symbolic links    realpath   
+MED   fs/permission/modify  modifies file permissions  chmod      
+MED   shell/exec            executes shell             /bin/bash  
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libhook.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/liblog.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                            
+------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/koalaman/shellcheck/wiki/SC2001  
+MED   shell/exec    executes shell                /bin/bash                                           
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libnet.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                      
+------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://stackoverflow.com/a/45977232/6694969  
+                                                  https://tools.ietf.org/html/rfc3986           
+MED   net/fetch     executable calls fetch tool   curl --silent                                 
+MED   shell/exec    executes shell                /bin/bash                                     
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libos.sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                  EVIDENCE         
+---------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                          mkdir            
+LOW   process/chdir            changes working directory                    cd ${cwd}        
+LOW   process/chroot           change the location of root for the process  chroot           
+LOW   ref/path/etc             path reference within /etc                   /etc/machine-id  
+                                                                            /etc/os-release  
+MED   exec/shell_command       execute a shell command                      system           
+MED   kernel/dev/block/device  access raw generic block devices             /dev/sda1        
+MED   kernel/platform          operating-system identification              os_release       
+MED   procfs/meminfo           get memory info                              /proc/meminfo    
+MED   procfs/mounts            Parses active mounts (/proc/mounts           /proc/mounts     
+MED   shell/exec               executes shell                               /bin/bash        
+MED   shell/ignore_output      Runs shell commands but throws output away   >/dev/null 2>&1  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libpersistence.sh [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                         EVIDENCE           
+--------------------------------------------------------------------------------------
+LOW   fs/symlink/resolve       resolves symbolic links             realpath           
+MED   fs/file/copy             copy files using cp                 cp -Lr --preserve  
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively  rm -rf             
+MED   ref/path/tmp             path reference within /tmp          /tmp/perms.acl     
+MED   shell/exec               executes shell                      /bin/bash          
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libredis.sh [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                             EVIDENCE                             
+------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete/forcibly  Forcibly deletes files                  rm -f                                
+LOW   ref/path/etc             path reference within /etc              /etc/redis-default.conf              
+                                                                       /etc/redis.conf                      
+LOW   ref/site/url             contains embedded HTTPS URLs            https://redis.io/topics/persistence  
+LOW   ref/words/password       references a 'password'                 empty_password_enabled_warn          
+                                                                       empty_password_error                 
+                                                                       with blank passwords                 
+                                                                       without password                     
+MED   fs/file/copy             copy files using cp                     cp                                   
+MED   persist/pid_file         pid file, likely DIY daemon             /tmp/redis.pid                       
+                                                                       pid_file                             
+MED   ref/ip_port              mentions an IP and port                 IP                                   
+                                                                       machine_ip                           
+                                                                       validate_port                        
+MED   ref/path/tmp             path reference within /tmp              /tmp/redis.pid                       
+MED   shell/exec               executes shell                          /bin/bash                            
+HIGH  evasion/odd_pidfile      unusual pid (process id) file location  /tmp/redis.pid                       
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/librediscluster.sh [⚠️ MEDIUM]
+--------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE                     
+--------------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  empty_password_enabled_warn  
+                                                   empty_password_error         
+                                                   with blank passwords         
+MED   ref/ip_port         mentions an IP and port  IP                           
+                                                   and_port                     
+                                                   machine_ip                   
+MED   shell/exec          executes shell           /bin/bash                    
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libservice.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                      EVIDENCE                  
+------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories              mkdir                     
+LOW   fs/file/delete/forcibly  Forcibly deletes files           rm -f                     
+LOW   ref/path/etc             path reference within /etc       /etc/cron.d/              
+                                                                /etc/logrotate.d          
+                                                                /etc/monit/conf.d         
+                                                                /etc/systemd/system       
+LOW   ref/path/usr/sbin        path reference within /usr/sbin  /usr/sbin/crond           
+LOW   service/stop             service stop                     service after being stop  
+MED   persist/crontab          May use crontab to persist       /etc/cron.d/              
+MED   persist/pid_file         pid file, likely DIY daemon      pid_file                  
+MED   ref/daemon               Run as a background daemon       daemon                    
+MED   shell/exec               executes shell                   /bin/bash                 
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libvalidations.sh [⚠️ MEDIUM]
+-----------------------------------------------------------
+RISK  KEY          DESCRIPTION              EVIDENCE       
+-----------------------------------------------------------
+MED   ref/ip_port  mentions an IP and port  IP             
+                                            Port           
+                                            validate_ip    
+                                            validate_port  
+MED   shell/exec   executes shell           /bin/bash      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libversion.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/libwebserver.sh [⚠️ MEDIUM]
+--------------------------------------------------------------------
+RISK  KEY              DESCRIPTION               EVIDENCE           
+--------------------------------------------------------------------
+MED   service/systemd  makes calls to systemctl  systemctl reload   
+                                                 systemctl restart  
+                                                 systemctl start    
+                                                 systemctl stop     
+MED   shell/exec       executes shell            /bin/bash          
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/redis-cluster-env.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY               DESCRIPTION                  EVIDENCE    
+-----------------------------------------------------------------
+MED   persist/pid_file  pid file, likely DIY daemon  /redis.pid  
+MED   shell/exec        executes shell               /bin/bash   
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/redis-cluster/entrypoint.sh [⚠️ MEDIUM]
+----------------------------------------------------
+RISK  KEY           DESCRIPTION          EVIDENCE   
+----------------------------------------------------
+MED   fs/file/copy  copy files using cp  cp -nr     
+MED   shell/exec    executes shell       /bin/bash  
+----------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/redis-cluster/postunpack.sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                 EVIDENCE                 
+---------------------------------------------------------------------------------
+LOW   ref/path/etc          path reference within /etc  /etc/redis-default.conf  
+MED   fs/file/copy          copy files using cp         cp -r                    
+MED   fs/permission/modify  modifies file permissions   chmod                    
+MED   ref/daemon            Run as a background daemon  daemonize                
+MED   shell/exec            executes shell              /bin/bash                
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/redis-cluster/run.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                            
+------------------------------------------------------------------------------------------------------
+LOW   ref/path/etc  path reference within /etc    /etc/redis.conf                                     
+LOW   ref/site/url  contains embedded HTTPS URLs  https://www.gnu.org/software/bash/manual/bash.html  
+MED   shell/exec    executes shell                /bin/bash                                           
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /opt/bitnami/scripts/redis-cluster/setup.sh [⚠️ MEDIUM]
+---------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE   
+---------------------------------------------
+MED   shell/exec  executes shell  /bin/bash  
+---------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /usr/sbin/install_packages [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                         EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------------
+LOW   ref/path/var             path reference within /var          /var/cache/apt/archives                     
+                                                                   /var/lib/apt/lists                          
+MED   admin/package/install    install software with apt-get       apt-get install -y --no-install-recommends  
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively  rm -rf /var/lib/apt/lists /var/cache/ap     
+MED   shell/exec               executes shell                      /bin/sh                                     
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /usr/sbin/run-script [⚠️ MEDIUM]
+--------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE  
+--------------------------------------------
+MED   shell/exec  executes shell  /bin/sh   
+--------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-cluster-6.2-bitnami-compat-6.2.14-r4.apk ∴ /var/lib/db/sbom/redis-cluster-6.2-bitnami-compat-6.2.14-r4.spdx.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                   EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------
+LOW   ref/path/etc     path reference within /etc    /etc/redis-default.conf                                     
+LOW   ref/path/hidden  possible hidden file path     /bitnami/.bitnami_component                                 
+LOW   ref/site/url     contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/8e5839fa8a8b…  
+MED   net/download     download files                downloadLocation                                            
+-----------------------------------------------------------------------------------------------------------------
+

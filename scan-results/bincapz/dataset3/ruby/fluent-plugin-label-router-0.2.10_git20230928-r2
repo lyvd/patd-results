@@ -1,0 +1,39 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk ∴ /usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/lib/fluent/plugin/aaa.png [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE   
+-------------------------------------------------------------------------------------
+LOW   fs/tempfile/create  Uses mktemp to create temporary files           temp file  
+MED   ref/path/relative   references and possibly executes relative path  ./src      
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk ∴ /usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/lib/fluent/plugin/out_label_router.rb [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE                                    
+----------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings         base64                                      
+LOW   ref/site/url          contains embedded HTTP URLs             http://www.apache.org/licenses/LICENSE-2.0  
+LOW   ref/words/plugin      references a 'plugin'                   module Plugin                               
+                                                                    plugin                                      
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec("a                                     
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk ∴ /usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/test/plugin/test_out_label_router.rb [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+LOW   ref/words/plugin    references a 'plugin'        Plugin                                      
+                                                       plugin                                      
+MED   exec/shell_command  execute a shell command      system                                      
+MED   ref/words/agent     references an 'agent'        root_agent                                  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk ∴ /var/lib/db/sbom/fluent-plugin-label-router-0.2.10_git20230928-r2.spdx.json [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                   EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url      contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/826a2c20a4e9…  
+LOW   ref/words/plugin  references a 'plugin'         plugin                                                      
+MED   net/download      download files                downloadLocation                                            
+------------------------------------------------------------------------------------------------------------------
+

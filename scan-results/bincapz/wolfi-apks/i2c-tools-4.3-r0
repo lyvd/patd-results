@@ -1,0 +1,129 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/bin/ddcmon [🔥 HIGH]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE               
+--------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math     uses bitwise math                           byte1 >> 6             
+                                                                           i >> 10                
+                                                                           i >> 5                 
+LOW   ref/path/usr/bin         path reference within /usr/bin              /usr/bin/perl          
+MED   ref/path/dev             path reference within /dev                  /dev/sensors/eeprom-i  
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x00                   
+                                                                           0x01                   
+                                                                           0x03                   
+                                                                           0x08                   
+                                                                           0x0A                   
+                                                                           0x0C                   
+                                                                           0x0a                   
+                                                                           0x0f                   
+                                                                           …                      
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/bin/decode-dimms [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                                      
+-------------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin         path reference within /usr/bin              /usr/bin/perl                                 
+LOW   ref/site/url             contains embedded HTTP URLs                 http://www.jedec.org                          
+                                                                           http://www.w3.org/1999/xhtml                  
+                                                                           http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd  
+MED   data/embedded/html       Contains HTML content                       DOCTYPE html                                  
+MED   ref/path/dev             path reference within /dev                  /dev/sensors                                  
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x00                                          
+                                                                           0x01                                          
+                                                                           0x02                                          
+                                                                           0x03                                          
+                                                                           0x04                                          
+                                                                           0x07                                          
+                                                                           0x09                                          
+                                                                           0x0A                                          
+                                                                           …                                             
+-------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/bin/decode-edid [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                      EVIDENCE                                          
+------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin   path reference within /usr/bin   /usr/bin/perl                                     
+LOW   ref/path/usr/sbin  path reference within /usr/sbin  /usr/sbin/parse-edid                              
+LOW   ref/site/url       contains embedded HTTP URLs      http://john.fremlin.de/programs/linux/read-edid/  
+MED   ref/path/dev       path reference within /dev       /dev/sensors/eeprom-i                             
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/bin/decode-vaio [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                             
+-------------------------------------------------------------------------------------------------------------
+LOW   fs/link/read      read value of a symbolic link   readlink                                             
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/perl                                        
+LOW   ref/site/url      contains embedded HTTP URLs     http://jdelvare.nerim.net/articles/vaio/eeprom.html  
+MED   ref/path/dev      path reference within /dev      /dev/sensors/eeprom-i                                
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/sbin/i2c-stub-from-dump [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                     EVIDENCE                        
+------------------------------------------------------------------------------------------
+LOW   kernel/platform     system identification           uname                           
+LOW   ref/path/usr/bin    path reference within /usr/bin  /usr/bin/perl                   
+MED   exec/program        executes external programs      perl                            
+                                                          system("/sbin/modprobe"         
+                                                          system("/sbin/rmmod"            
+                                                          system("/sbin/udevadm settle")  
+                                                          system("/sbin/udevsettle")      
+                                                          system("i2cset"                 
+MED   exec/shell_command  execute a shell command         system                          
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/sbin/i2cdetect [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                         EVIDENCE      
+-----------------------------------------------------------------------
+MED   procfs/mounts  Parses active mounts (/proc/mounts  /proc/mounts  
+MED   ref/path/dev   path reference within /dev          /dev/i2c-     
+                                                         /dev/i2c/     
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/sbin/i2cdump [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                         EVIDENCE      
+-----------------------------------------------------------------------
+MED   procfs/mounts  Parses active mounts (/proc/mounts  /proc/mounts  
+MED   ref/path/dev   path reference within /dev          /dev/i2c-     
+                                                         /dev/i2c/     
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/sbin/i2cget [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                         EVIDENCE      
+-----------------------------------------------------------------------
+MED   procfs/mounts  Parses active mounts (/proc/mounts  /proc/mounts  
+MED   ref/path/dev   path reference within /dev          /dev/i2c-     
+                                                         /dev/i2c/     
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/sbin/i2cset [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                         EVIDENCE      
+-----------------------------------------------------------------------
+MED   procfs/mounts  Parses active mounts (/proc/mounts  /proc/mounts  
+MED   ref/path/dev   path reference within /dev          /dev/i2c-     
+                                                         /dev/i2c/     
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /usr/local/sbin/i2ctransfer [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                         EVIDENCE      
+-----------------------------------------------------------------------
+MED   procfs/mounts  Parses active mounts (/proc/mounts  /proc/mounts  
+MED   ref/path/dev   path reference within /dev          /dev/i2c-     
+                                                         /dev/i2c/     
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/i2c-tools-4.3-r0.apk ∴ /var/lib/db/sbom/i2c-tools-4.3-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/11d518dff688…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

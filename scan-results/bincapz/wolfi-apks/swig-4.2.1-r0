@@ -1,0 +1,73 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /usr/bin/ccache-swig [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                              
+-----------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                                  
+                                                                                 getenv                                
+LOW   exec/program/background  wait for process to exit                          waitpid                               
+LOW   fs/directory/create      creates directories                               mkdir                                 
+LOW   fs/file/delete           deletes files                                     unlink                                
+LOW   fs/permission/modify     modifies file permissions                         fchmod                                
+LOW   fs/symlink/resolve       resolves symbolic links                           realpath                              
+LOW   fs/tempdir               looks up location of temp directory               TEMPDIR                               
+LOW   kernel/hostname/get      get computer host name                            gethostname                           
+LOW   ref/site/url             contains embedded HTTP URLs                       http://www.brynosaurus.com/cachedir/  
+MED   exec/program             executes external programs                        execv                                 
+MED   fs/file/times/set        change file last access and modification times    utimes                                
+MED   ref/path/hidden          hidden path generated dynamically                 %s/.ccache                            
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /usr/bin/swig [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                          DESCRIPTION                                             EVIDENCE                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   env/LANG                     Looks up language of current user                       LANG                                                       
+                                                                                           getenv                                                     
+LOW   fs/directory/create          creates directories                                     mkdir                                                      
+LOW   kernel/platform              system identification                                   uname                                                      
+LOW   ref/site/url                 contains embedded HTTPS URLs                            https://swig.org/Doc4.0/Introduction.html                  
+                                                                                           https://www.swig.org/Doc4.1/Typemaps.html                  
+MED   evasion/lib_alias            aliases core python library to an alternate name        from sys import version_info as _swig_python_version_info  
+MED   evasion/non_printable_chars  non-printable values unexpectedly passed to a function  $ref                                                       
+                                                                                           <?php                                                      
+MED   exec/shell_echo              program generates text with echo command                echo "                                                     
+MED   techniques/code_eval         evaluate code dynamically using exec()                  exec("                                                     
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /usr/share/swig/4.2.1/javascript/v8/javascriptinit.swg [✅ LOW]
+----------------------------------------------------------------
+RISK  KEY                  DESCRIPTION              EVIDENCE    
+----------------------------------------------------------------
+LOW   secrets/private_key  References private keys  privateKey  
+----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /usr/share/swig/4.2.1/mzscheme/mzrun.swg [⚠️ MEDIUM]
+-------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE  
+-------------------------------------------------------------------
+MED   dylib/symbol/address  get the address of a symbol  dlsym     
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /usr/share/swig/4.2.1/octave/octrun.swg [⚠️ MEDIUM]
+-----------------------------------------------------------
+RISK  KEY                    DESCRIPTION        EVIDENCE   
+-----------------------------------------------------------
+MED   ref/words/exclamation  gets very excited  return !!  
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /usr/share/swig/4.2.1/python/pyruntime.swg [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                  
+--------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bugs.python.org/issue11566        
+                                                  https://github.com/swig/swig/issues/2090  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/swig-4.2.1-r0.apk ∴ /var/lib/db/sbom/swig-4.2.1-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/42e6e4dba8f8…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

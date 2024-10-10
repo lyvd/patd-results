@@ -1,0 +1,276 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/goreleaser-1.18-1.18.2-r12.apk ∴ /usr/bin/goreleaser [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                            DESCRIPTION                                            EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   cloud/aws/metadata             References the AWS EC2 metadata token                  X-aws-ec2-metadata-token                                    
+LOW   cloud/google/metadata          Includes the token required to use the Google Cloud    Metadata-Flavor                                             
+                                     Platform metadata server                                                                                           
+LOW   cloud/google/storage           Capable of using Google Cloud Storage (GCS)            cloud.google.com/go/storage                                 
+LOW   compression/bzip2              Works with bzip2 files                                 bzip2                                                       
+LOW   compression/gzip               works with gzip files                                  gzip                                                        
+LOW   compression/zstd               Zstandard: fast real-time compression algorithm        (�/�                                                        
+                                                                                            zstd                                                        
+LOW   crypto/aes                     Supports AES (Advanced Encryption Standard)            AES                                                         
+                                                                                            crypto/aes                                                  
+LOW   crypto/ecdsa                   Uses the Go crypto/ecdsa library                       crypto/ecdsa                                                
+LOW   crypto/ed25519                 Elliptic curve algorithm used by TLS and SSH           ed25519                                                     
+LOW   crypto/tls                     tls                                                    TLS13                                                       
+                                                                                            TLSVersion                                                  
+                                                                                            crypto/tls                                                  
+LOW   data/embedded/pem/certificate  Contains embedded PEM certificate                      -----BEGIN CERTIFICATE-----                                 
+LOW   encoding/base64                Supports base64 encoded strings                        base64                                                      
+LOW   encoding/json                  Supports JSON encoded objects                          encoding/json                                               
+LOW   encoding/json/decode           Decodes JSON messages                                  json.Unmarshal                                              
+LOW   encoding/json/encode           encodes JSON                                           MarshalJSON                                                 
+LOW   env/TERM                       Look up or override terminal settings                  TERM                                                        
+LOW   env/USER                       Looks up the USER name of the current user             USER                                                        
+                                                                                            getenv                                                      
+LOW   env/get                        Retrieve environment variable values                   env.ANSIC                                                   
+                                                                                            env.RGBC                                                    
+LOW   fs/directory/create            creates directories                                    mkdir                                                       
+LOW   fs/directory/list              Uses Go functions to list a directory                  .ReadDir                                                    
+LOW   fs/directory/remove            Uses libc functions to remove directories              Rmdir                                                       
+LOW   fs/file/delete                 deletes files                                          unlinkat                                                    
+LOW   fs/file/delete/forcibly        Forcibly deletes files                                 rm - COPY/ADD may not workmatching t                        
+LOW   fs/file/read                   reads files                                            ReadFile                                                    
+                                                                                            os.(*File).Read                                             
+LOW   fs/file/times/set              change file timestamps with nanosecond precision       utimensat                                                   
+LOW   fs/file/write                  writes to file                                         writeCacheFile                                              
+                                                                                            writeFileIndexes                                            
+                                                                                            writeRawFile                                                
+LOW   fs/link/read                   read value of a symbolic link                          readlinkat                                                  
+LOW   fs/mount                       mounts file systems                                    -o                                                          
+                                                                                            mount                                                       
+LOW   fs/tempfile/create             Uses mktemp to create temporary files                  ioutil/tempfile                                             
+                                                                                            temp file                                                   
+LOW   hash/blake2b                   Uses blake2b encryption algorithm                      blake2b                                                     
+LOW   hash/sha1                      Uses the SHA1 signature format                         SHA1_                                                       
+LOW   hash/sha256                    Uses the SHA256 signature format                       SHA256_                                                     
+LOW   kernel/acct                    switch process accounting on or off                    acct                                                        
+LOW   kernel/cpu/info                gets number of processors                              nproc                                                       
+LOW   kernel/hostname/get            get computer host name                                 /proc/sys/kernel/hostname                                   
+LOW   kernel/netlink                 communicate with kernel services                       netlink                                                     
+LOW   kernel/platform                system identification                                  syscall.Uname                                               
+                                                                                            uname                                                       
+LOW   net/dns                        Uses DNS (Domain Name Service)                         CNAMEResource                                               
+                                                                                            SetEDNS0                                                    
+                                                                                            dnsmessage                                                  
+LOW   net/dns/servers                Examines local DNS servers                             CNAMEResource                                               
+LOW   net/dns/txt                    Uses DNS TXT (text) records                            TXT                                                         
+                                                                                            dns                                                         
+LOW   net/grpc                       Uses the gRPC Remote Procedure Call framework          gRPC                                                        
+LOW   net/hostname/resolve           resolve network host name to IP address                net.hostLookup                                              
+LOW   net/http/accept/encoding       set HTTP response encoding format (example: gzip)      Accept-Encoding                                             
+LOW   net/http/auth                  makes HTTP requests with basic authentication          WWW-Authenticate                                            
+                                                                                            Www-Authenticate                                            
+                                                                                            www-authenticate                                            
+LOW   net/http/request               makes HTTP requests                                    HTTP/1.                                                     
+                                                                                            Referer                                                     
+                                                                                            User-Agent                                                  
+LOW   net/http2                      Uses the HTTP/2 protocol                               HTTP/2                                                      
+LOW   net/http_proxy                 use HTTP proxy that requires authentication            Proxy-Authorization                                         
+LOW   net/ip                         access the internet                                    invalid packet                                              
+LOW   net/oauth2                     supports OAuth2                                        oauth2                                                      
+LOW   net/sendfile                   transfer data between file descriptors                 sendfile                                                    
+                                                                                            syscall.Sendfile                                            
+LOW   net/socket/listen              listen on a socket                                     accept                                                      
+                                                                                            listen                                                      
+                                                                                            socket                                                      
+LOW   net/socket/local/address       get local address of connected socket                  getsockname                                                 
+LOW   net/socket/peer/address        get peer address of connected socket                   getpeername                                                 
+LOW   net/socket/receive             receive a message from a socket                        recvfrom                                                    
+                                                                                            recvmsg                                                     
+LOW   net/socket/send                send a message to a socket                             sendmsg                                                     
+                                                                                            sendto                                                      
+LOW   net/udp/receive                Listens for UDP responses                              ReadFromUDP                                                 
+                                                                                            listenUDP                                                   
+LOW   net/udp/send                   Sends UDP packets                                      DialUDP                                                     
+                                                                                            WriteMsgUDP                                                 
+LOW   net/url                        Handles URL strings                                    RequestURI                                                  
+LOW   process/chdir                  changes working directory                              cd                                                          
+LOW   process/chroot                 change the location of root for the process            chroot                                                      
+LOW   process/groups/set             set group access list                                  setgroups                                                   
+LOW   ref/path/etc                   path reference within /etc                             /etc/apache/mime.typeshpack                                 
+                                                                                            /etc/bash                                                   
+                                                                                            /etc/group                                                  
+                                                                                            /etc/hostsgetsockoptnetlinkrib                              
+                                                                                            /etc/httpd/conf/mime.typesmime                              
+                                                                                            /etc/mime.types                                             
+                                                                                            /etc/nsswitch.confinvalid                                   
+                                                                                            /etc/passwdhash                                             
+                                                                                            …                                                           
+LOW   ref/path/etc/resolv.conf       accesses DNS resolver configuration                    /etc/resolv.conf                                            
+LOW   ref/path/home/config           path reference within ~/.config                        failure.config/gcloudINTEGRITY_ONLYRawEncodeValueRawDecod…  
+                                                                                            set~/.config/goreleaser/gitea_tokenkrew                     
+                                                                                            ub_token~/.config/goreleaser/gitlab_tokenfailed to get mo…  
+                                                                                            w~/.config/goreleaser/github_token                          
+                                                                                            ~/.config/fish/completions/                                 
+LOW   ref/path/usr/bin               path reference within /usr/bin                         /usr/bin/                                                   
+LOW   ref/path/var                   path reference within /var                             /var/run/ko-ldflags                                         
+                                                                                            /var/run/koJSON                                             
+                                                                                            /var/run/kowriting                                          
+                                                                                            /var/runargsTmpltoolexec-gcflags%s                          
+                                                                                            /var/runcannot                                              
+LOW   ref/site/github_api            access GitHub API                                      google/go-github                                            
+LOW   ref/site/url                   contains embedded HTTPS URLs                           https://accounts.google.com/o/oauth2/authhttps              
+                                                                                            https://aka.ms/azsdk/blog/vault-uri                         
+                                                                                            https://aka.ms/azsdk/go/identity/troubleshoot               
+                                                                                            https://amazonaws.com/badhttpredirectlocations3-fips.       
+                                                                                            https://api.ecr-fips.ecrRepositoryPrefixesBatchDeleteImag…  
+                                                                                            https://api.ecr-public-fips.Go/                             
+                                                                                            https://api.ecr-public.activeDirectoryEndpointhttps         
+                                                                                            https://api.github.com/2006-01-02                           
+                                                                                            …                                                           
+LOW   ref/words/password             references a 'password'                                AuthPassword                                                
+                                                                                            CHAINUsernamePasswordCredential                             
+                                                                                            ElasticsearchPasswordNurl                                   
+                                                                                            ErrIncorrectPassword                                        
+                                                                                            ForceRandomPasswordLurl                                     
+                                                                                            FromUsernamePassword                                        
+                                                                                            GetUsernamePassword                                         
+                                                                                            GetVCSPassword                                              
+                                                                                            …                                                           
+LOW   ref/words/plugin               references a 'plugin'                                  ErrIntOverflowPlugin                                        
+                                                                                            ErrInvalidLengthPlugin                                      
+                                                                                            PluginPrivilege                                             
+                                                                                            PluginSpec                                                  
+                                                                                            PluginsFormat                                               
+                                                                                            SetPluginConfig                                             
+                                                                                            encodeVarintPlugin                                          
+                                                                                            fileDescriptorPlugin                                        
+                                                                                            …                                                           
+LOW   secrets/private_key            References private keys                                privateKey                                                  
+                                                                                            private_key                                                 
+MED   3P/threat_hunting/telegram     references 'telegram' tool, by mthcht                  api.telegram.org                                            
+MED   3P/threat_hunting/torproject   references 'torproject' tool, by mthcht                torproject                                                  
+MED   3P/threat_hunting/traitor      references 'traitor' tool, by mthcht                   /internal/pipe/pipe.go                                      
+MED   archives/unarchive             unarchives files                                       UnarchiveProject                                            
+                                                                                            unarchiveprojects                                           
+MED   archives/zip                   Works with zip files                                   archive/zip                                                 
+MED   compression/xz                 uses xz library                                        ulikunitz/xz                                                
+MED   data/embedded/html             Contains HTML content                                  <html>                                                      
+                                                                                            DOCTYPE html                                                
+MED   data/embedded/ssh/signature    Contains embedded SSH signature                        --BEGIN SSH SIGNATURE--                                     
+MED   databases/mysql                accesses MySQL databases                               mysql                                                       
+MED   evasion/content/length/0       Sets HTTP content length to zero                       Content-Length: 0                                           
+MED   exec/cmd                       executes a command                                     executeCommand                                              
+                                                                                            runCmdContext                                               
+                                                                                            runCommandWithOutput                                        
+                                                                                            runGitCmds                                                  
+MED   exec/program                   executes external programs                             ).CombinedOutput                                            
+                                                                                            exec.(*Cmd).Run                                             
+MED   fs/permission/chown            Changes file ownership                                 Chown                                                       
+MED   fs/permission/modify           modifies file permissions                              Chmod                                                       
+                                                                                            chmod                                                       
+MED   hash/md5                       Verifies MD5 signatures                                FileMD5                                                     
+MED   net/dns/reverse                looks up the reverse hostname for an IP                .in-addr.arpa                                               
+                                                                                            ip6.arpa                                                    
+MED   net/download                   download files                                         BlobClientDownloadOptions                                   
+                                                                                            BlobClientDownloadResponse                                  
+                                                                                            DownloadArtifactsFile                                       
+                                                                                            DownloadAvatar                                              
+                                                                                            DownloadBufferOptions                                       
+                                                                                            DownloadContentsWithMeta                                    
+                                                                                            DownloadFileOptions                                         
+                                                                                            DownloadLocation                                            
+                                                                                            …                                                           
+MED   net/http/cookies               access HTTP resources using cookies                    Cookie                                                      
+                                                                                            HTTP                                                        
+MED   net/http/form/upload           upload content via HTTP form                           POST                                                        
+                                                                                            application/json                                            
+                                                                                            application/x-www-form-urlencoded                           
+MED   net/http/post                  submits form content to websites                       Content-Type                                                
+                                                                                            HTTP                                                        
+                                                                                            POST                                                        
+                                                                                            http                                                        
+MED   net/icmp                       Uses the ping tool to generate ICMP packets            ping interval to minimum period of                          
+                                                                                            ping not acked within timeout                               
+MED   net/ip/parse                   parses IP address (IPv4 or IPv6)                       IsLinkLocalUnicast                                          
+                                                                                            IsSingleIP                                                  
+MED   net/mac/address                Retrieves network MAC address                          MAC address                                                 
+MED   net/socks5                     Supports SOCK5 proxies                                 SOCKS5                                                      
+                                                                                            socks5                                                      
+MED   net/ssh                        Uses crypto/ssh to connect to the SSH (secure shell)   SSH                                                         
+                                     service                                                                                                            
+MED   net/upload                     uploads files                                          UPLOAD_INVALIDmalforme                                      
+                                                                                            UploadAPIClient                                             
+                                                                                            UploadAmazonEC2Contain                                      
+                                                                                            UploadAvatar                                                
+                                                                                            UploadBlobFromURLOptio                                      
+                                                                                            UploadBlockBlobOptions                                      
+                                                                                            UploadBucketMember                                          
+                                                                                            UploadBufferPerConnect                                      
+                                                                                            …                                                           
+MED   net/url/encode                 encodes URL, likely to pass GET variables              urlencode                                                   
+MED   net/url/request                requests resources via URL                             http.request                                                
+                                                                                            net/url                                                     
+MED   process/list                   ps exec                                                #!                                                          
+                                                                                            ps ax                                                       
+MED   procfs/self/cgroup             accesses /proc files within own cgroup                 /proc/self/cgroupcpu                                        
+MED   procfs/self/mountinfo          gets mount info associated to this process             /proc/self/mountinfo                                        
+MED   ref/daemon                     Run as a background daemon                             daemon                                                      
+MED   ref/ip_port                    mentions an IP and port                                IP                                                          
+                                                                                            hIp                                                         
+                                                                                            hasPort                                                     
+                                                                                            in_ip                                                       
+                                                                                            ip_port                                                     
+                                                                                            lIp                                                         
+                                                                                            lookupPort                                                  
+                                                                                            oIp                                                         
+                                                                                            …                                                           
+MED   ref/path/etc/hosts             references /etc/hosts                                  /etc/hosts                                                  
+MED   ref/path/hidden                hidden path generated dynamically                      %s/.ssh                                                     
+MED   ref/path/users                 references path within /Users                          /Users/%vorganizations/%v/team/%v/projectsoauth2            
+MED   ref/program/sudo               calls sudo                                             sudo                                                        
+MED   ref/site/http/dynamic          URL that is dynamically generated                      https://%s.                                                 
+                                                                                            https://%s/adfs/.well                                       
+                                                                                            https://%s/common/UserRealm/                                
+MED   ref/words/exclamation          gets very excited                                      does not work!!!                                            
+                                                                                            ontain alphanumerical characters onlyexplicitly tagged !!   
+MED   ref/words/intercept            References interception                                interceptor                                                 
+MED   ref/words/leetspeak            References 1337 terminology'                           1337                                                        
+MED   secrets/gcloud                 Access gcloud configuration files                      .config/gcloud                                              
+                                                                                            application_default_credentials.json                        
+MED   secrets/keychain               May access the macOS keychain                          Keychain                                                    
+                                                                                            keychain                                                    
+MED   secrets/ssh                    accesses SSH configuration and/or keys                 %s3desMACs0177.ssh                                          
+                                                                                            /.ssh/known_hosts                                           
+                                                                                            plumbing/object.sshSignatureFormat                          
+                                                                                            ssh.sshConn                                                 
+                                                                                            ssh_config.sshLexStateFn                                    
+                                                                                            ssh_config.sshLexer                                         
+                                                                                            ssh_config.sshParser                                        
+                                                                                            transport/ssh.sshConfig                                     
+                                                                                            …                                                           
+MED   secrets/ssh_authorized_hosts   accesses SSH authorized_keys files                     .ssh                                                        
+                                                                                            authorized_keys                                             
+MED   shell/background/sleep         calls sleep and runs shell code in the background      #!                                                          
+                                                                                            2>&1 &                                                      
+                                                                                            _sleep                                                      
+MED   shell/exec                     executes shell                                         /bin/sh                                                     
+HIGH  combo/stealer/creds            suspected data stealer                                 Bookmarks                                                   
+                                                                                            Discord                                                     
+                                                                                            History                                                     
+                                                                                            Snowflake                                                   
+                                                                                            Telegram                                                    
+HIGH  combo/stealer/discord          gets passwords, makes HTTP requests, and uses Discord  GET                                                         
+                                                                                            POST                                                        
+                                                                                            Password                                                    
+                                                                                            credentials                                                 
+                                                                                            creds                                                       
+                                                                                            discordapp.com                                              
+                                                                                            https://                                                    
+                                                                                            password                                                    
+                                                                                            …                                                           
+HIGH  exfil/discord                  Uses the Discord webhooks API                          discord.com/api/webhooks/                                   
+HIGH  ref/site/download              References known file hosting site                     cdn.discordapp.com                                          
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/goreleaser-1.18-1.18.2-r12.apk ∴ /var/lib/db/sbom/goreleaser-1.18-1.18.2-r12.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/1d71099c6154…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

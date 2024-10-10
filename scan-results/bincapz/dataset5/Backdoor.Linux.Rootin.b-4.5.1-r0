@@ -1,0 +1,31 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset5/Backdoor.Linux.Rootin.b-4.5.1-r0.apk ∴ /home/cg/rootd [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                         EVIDENCE  
+---------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                            waitpid   
+LOW   net/socket/listen        listen on a socket                                  accept    
+                                                                                   listen    
+                                                                                   socket    
+LOW   process/create           create child process                                fork      
+MED   combo/backdoor/net_exec  exec chdir and socket                               chdir     
+                                                                                   execl     
+                                                                                   socket    
+MED   exec/program             executes external programs                          execl     
+MED   net/ip/byte/order        convert values between host and network byte order  htonl     
+                                                                                   htons     
+MED   ref/daemon               Run as a background daemon                          daemon    
+MED   shell/exec               executes shell                                      /bin/sh   
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset5/Backdoor.Linux.Rootin.b-4.5.1-r0.apk ∴ /var/lib/db/sbom/Backdoor.Linux.Rootin.b-4.5.1-r0.spdx.json [🔥 HIGH]
+---------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                    EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url                contains embedded HTTPS URLs                   https://spdx.org/spdxdocs/chainguard/melange/381bcf858c13…  
+MED   3P/threat_hunting           references '_' tool, by mthcht                 /Backdoor                                                   
+MED   3P/threat_hunting/backdoor  references 'backdoor keyword' tool, by mthcht  Backdoor.                                                   
+MED   net/download                download files                                 downloadLocation                                            
+HIGH  ref/words/backdoor          References a 'backdoor'                        SPDXRef-Package-Backdoor                                    
+                                                                                 apk-Backdoor                                                
+---------------------------------------------------------------------------------------------------------------------------------------------
+

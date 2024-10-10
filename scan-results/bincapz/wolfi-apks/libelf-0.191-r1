@@ -1,0 +1,61 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libelf-0.191-r1.apk ∴ /usr/lib/libasm-0.191.so [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                      EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   fs/file/delete                deletes files                    unlink          
+LOW   fs/permission/modify          modifies file permissions        fchmod          
+LOW   process/thread_local_storage  Uses glibc thread local storage  __tls_get_addr  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libelf-0.191-r1.apk ∴ /usr/lib/libdw-0.191.so [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                        EVIDENCE               
+--------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2             Works with bzip2 files                             bzip2                  
+LOW   compression/gzip              works with gzip files                              gzip                   
+LOW   compression/zstd              Zstandard: fast real-time compression algorithm    (�/�                   
+                                                                                       ZSTD_decompressStream  
+                                                                                       zstd                   
+LOW   exec/program/background       wait for process to exit                           waitpid                
+LOW   fs/symlink/resolve            resolves symbolic links                            realpath               
+LOW   kernel/platform               system identification                              uname                  
+LOW   process/thread_local_storage  Uses glibc thread local storage                    __tls_get_addr         
+MED   data/embedded/zstd            Contains compressed content in ZStandard format    (�/�                   
+MED   kernel/ptrace                 trace or modify system calls                       ptrace                 
+MED   net/bpf                       BPF (Berkeley Packet Filter)                       bpf                    
+MED   procfs/arbitrary/pid          access /proc for arbitrary pids                    /proc/%d/auxv          
+                                                                                       /proc/%d/exe           
+                                                                                       /proc/%d/maps          
+                                                                                       /proc/%d/mem           
+                                                                                       /proc/%ld/exe          
+                                                                                       /proc/%ld/status       
+                                                                                       /proc/%ld/task         
+MED   procfs/pid/inspector          accesses information about other pids via /proc    /proc/%d/auxv          
+                                                                                       /proc/%d/exe           
+                                                                                       /proc/%ld/exe          
+MED   procfs/pid/maps               access process memory maps                         /proc/%d/maps          
+MED   ref/path/boot                 path reference within /boot                        /boot/vmlinux-%s       
+                                                                                       /boot/vmlinuz-%s       
+HIGH  evasion/process/inject        may inject code into other processes               /proc/%d/maps          
+                                                                                       process                
+                                                                                       ptrace                 
+HIGH  procfs/pid/exe                accesses underlying executable of other processes  /proc/%d/exe           
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libelf-0.191-r1.apk ∴ /usr/lib/libelf-0.191.so [✅ LOW]
+-------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                            EVIDENCE        
+-------------------------------------------------------------------------------------------
+LOW   fs/file/truncate              truncate a file to a specified length  ftruncate       
+LOW   fs/permission/modify          modifies file permissions              fchmod          
+LOW   process/thread_local_storage  Uses glibc thread local storage        __tls_get_addr  
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libelf-0.191-r1.apk ∴ /var/lib/db/sbom/libelf-0.191-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/55b03fe8d7c9…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

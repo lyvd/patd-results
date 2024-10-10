@@ -1,0 +1,411 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/bin/vite.js [🔥 HIGH]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                  EVIDENCE              
+-----------------------------------------------------------------------------------------------
+LOW   env/get               Retrieve environment variable values         env.DEBUG             
+                                                                         env.VITE              
+LOW   ref/path/usr/bin      path reference within /usr/bin               /usr/bin/env          
+MED   techniques/code_eval  evaluate code dynamically using eval()       eval(eval("           
+HIGH  obfuscation/php/hex   contains function references encoded in hex  \x65\x76\x61\x6c\x28  
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/client.d.ts [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE  
+-----------------------------------------------------------------------------------
+MED   ref/path/relative  references and possibly executes relative path  ./types   
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/client/client.mjs [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                  EVIDENCE                                       
+------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                        JSON.parse                                     
+LOW   encoding/json/encode  encodes JSON                                 JSON.stringify                                 
+LOW   net/socket/listen     listen on a socket                           accept                                         
+                                                                         socket                                         
+LOW   net/socket/send       send a message to a socket                   send                                           
+                                                                         socket                                         
+LOW   net/url               Handles URL strings                          new URL                                        
+LOW   ref/site/url          contains embedded HTTPS URLs                 https://vitejs.dev/config/server-options.html  
+LOW   ref/words/plugin      references a 'plugin'                        plugin                                         
+MED   net/icmp              Uses the ping tool to generate ICMP packets  ping request                                   
+MED   net/websocket         supports web sockets                         setupWebSocket                                 
+                                                                         webSocket:                                     
+MED   techniques/code_eval  evaluate code dynamically using exec()       exec(text))                                    
+MED   time/clock/sleep      uses setInterval to wait                     setInterval(                                   
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/chunks/dep-B8yndt7W.js [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings         base64                                                      
+LOW   encoding/json/encode  encodes JSON                            JSON.stringify                                              
+LOW   fs/file/read          reads files                             fs.readFile                                                 
+LOW   fs/file/write         writes to file                          writeFile:                                                  
+LOW   ref/site/url          contains embedded HTTPS URLs            https://drafts.csswg.org/css-syntax/                        
+                                                                    https://en.wikipedia.org/wiki/CamelCase                     
+                                                                    https://en.wikipedia.org/wiki/Combining_Diacritical_Marks…  
+                                                                    https://en.wikipedia.org/wiki/Latin-1_Supplement_           
+                                                                    https://en.wikipedia.org/wiki/Latin_Extended-A              
+                                                                    https://github.com/css-modules/css-modules-loader-core      
+                                                                    https://github.com/lakenen/node-unquote                     
+                                                                    https://github.com/postcss/postcss-selector-parser/commit…  
+                                                                    …                                                           
+LOW   ref/words/plugin      references a 'plugin'                   Plugin missing                                              
+                                                                    const earlierPlugins                                        
+                                                                    const loaderPlugins                                         
+                                                                    const pluginList                                            
+                                                                    const plugins                                               
+                                                                    const resultPluginIndex                                     
+                                                                    defaultPlugins                                              
+                                                                    function getDefaultPluginsList                              
+                                                                    …                                                           
+MED   kernel/platform       get system identification               process.platform                                            
+MED   ref/site/php          accesses hardcoded PHP endpoint         http://www.opensource.org/licenses/mit-license.php          
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(alias)                                                 
+                                                                    exec(node                                                   
+                                                                    exec(rule                                                   
+                                                                    exec(token)                                                 
+                                                                    exec(value)))                                               
+HIGH  evasion/int_to_char   converts strings into integers          fromCharCode                                                
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/chunks/dep-BzOvws4Y.js [🔥 HIGH]
+----------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                           EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2           Works with bzip2 files                                bzip2                                                       
+LOW   compression/gzip            works with gzip files                                 gzip                                                        
+LOW   encoding/base64             Supports base64 encoded strings                       base64                                                      
+LOW   encoding/json/decode        Decodes JSON messages                                 JSON.parse                                                  
+LOW   encoding/json/encode        encodes JSON                                          JSON.stringify                                              
+LOW   env/TERM                    Look up or override terminal settings                 TERM                                                        
+LOW   env/get                     Retrieve environment variable values                  env.BROWSER                                                 
+                                                                                        env.CHOKIDAR                                                
+                                                                                        env.DEBUG                                                   
+                                                                                        env.DOTENV                                                  
+                                                                                        env.EDITOR                                                  
+                                                                                        env.LAUNCH                                                  
+                                                                                        env.NODE                                                    
+                                                                                        env.OSTYPE                                                  
+                                                                                        …                                                           
+LOW   fd/read                     reads from a file handle                              _reader.read()                                              
+                                                                                        _socket.read()                                              
+                                                                                        provider.read()                                             
+                                                                                        readable.read()                                             
+                                                                                        this.read()                                                 
+LOW   fd/write                    writes to a file handle                               _deflate.write(data)                                        
+                                                                                        _inflate.write(TRAILER)                                     
+                                                                                        _inflate.write(data)                                        
+                                                                                        _receiver.write(chunk)                                      
+                                                                                        dest.write(data)                                            
+                                                                                        results.write(e)                                            
+                                                                                        stdout.write(output)                                        
+                                                                                        stream.write(i)                                             
+                                                                                        …                                                           
+LOW   fs/directory/list           Uses NodeJS functions to list a directory             .readdirSync(                                               
+LOW   fs/file/delete              deletes files                                         unlink                                                      
+LOW   fs/file/delete/forcibly     Forcibly deletes files                                rm  - path transformer                                      
+                                                                                        rm pre-existing path transformer                            
+LOW   fs/file/read                reads files                                           ReadFile                                                    
+LOW   fs/file/stat                access filesystem metadata                            fs.stat(entry.path                                          
+                                                                                        fs.stat(path                                                
+                                                                                        fs.statSync(entry.path)                                     
+                                                                                        fs.statSync(path)                                           
+LOW   fs/file/write               writes to file                                        writeFileSync                                               
+LOW   fs/link/read                read value of a symbolic link                         readlink                                                    
+LOW   fs/mount                    mounts file systems                                   -o                                                          
+                                                                                        mount                                                       
+LOW   fs/symlink/resolve          resolves symbolic links                               realpath                                                    
+LOW   fs/tempdir/create           creates temporary directory                           temp dir                                                    
+LOW   net/http/accept/encoding    set HTTP response encoding format (example: gzip)     Accept-Encoding                                             
+LOW   net/http/request            makes HTTP requests                                   HTTP/1.                                                     
+LOW   net/socket/listen           listen on a socket                                    accept                                                      
+                                                                                        listen                                                      
+                                                                                        socket                                                      
+LOW   net/socket/send             send a message to a socket                            send                                                        
+                                                                                        socket                                                      
+LOW   net/url                     Handles URL strings                                   new URL                                                     
+LOW   process/chdir               changes working directory                             cd                                                          
+LOW   ref/path/bin/su             Calls /bin/su                                         /bin/su                                                     
+LOW   ref/path/etc                path reference within /etc                            /etc/passwd                                                 
+                                                                                        /etc/wsl.conf                                               
+LOW   ref/path/hidden             possible hidden file path                             /absolute/path/to/node_modules/.vite                        
+                                                                                        /run/.containerenv                                          
+                                                                                        /vault/.env.vault                                           
+LOW   ref/site/url                contains embedded HTTPS URLs                          https://bugs.chromium.org/p/v8/issues/detail?id=3056        
+                                                                                        https://bugs.chromium.org/p/v8/issues/detail?id=4118        
+                                                                                        https://caniuse.com/?search=es2015                          
+                                                                                        https://caniuse.com/?search=es2016                          
+                                                                                        https://caniuse.com/?search=es2017                          
+                                                                                        https://caniuse.com/?search=es2018                          
+                                                                                        https://caniuse.com/?search=es2019                          
+                                                                                        https://caniuse.com/?search=es2020                          
+                                                                                        …                                                           
+LOW   ref/words/password          references a 'password'                               password                                                    
+LOW   ref/words/plugin            references a 'plugin'                                 Load Plugins                                                
+                                                                                        Loading PostCSS Plugin failed                               
+                                                                                        Plugin Loader                                               
+                                                                                        PluginContainer                                             
+                                                                                        The commonjs plugin did not                                 
+                                                                                        _getPluginContext                                           
+                                                                                        _plugin                                                     
+                                                                                        and was not handled by other plugins                        
+                                                                                        …                                                           
+MED   combo/recon/system_network  invasive recon val                                    ip if route                                                 
+MED   data/embedded/html          Contains HTML content                                 <html lang                                                  
+                                                                                        DOCTYPE html                                                
+MED   exec/program                execute external program                              subprocess.on("error", reject                               
+                                                                                        subprocess.once('close', exitCode                           
+                                                                                        subprocess.once('error', reject                             
+                                                                                        subprocess.unref(                                           
+MED   fs/file/copy                copy files using cp                                   cp                                                          
+MED   fs/file/times/set           change file timestamps                                touch Error.stackTraceLimit as                              
+                                                                                        touch is the path.                                          
+MED   kernel/platform             get system identification                             os.release()                                                
+                                                                                        process.platform                                            
+                                                                                        process.versions                                            
+MED   net/download                download files                                        Downloads                                                   
+                                                                                        was not downloaded via Git LFS                              
+MED   net/fetch                   Invokes curl                                          curl 172.21.93.52". Use a safe file                         
+                                                                                        curl 7.77.0 behavior and drop the following headers. These  
+                                                                                        curl 7.77.0 behavior and make the first                     
+MED   net/http/cookies            access HTTP resources using cookies                   Cookie                                                      
+                                                                                        HTTP                                                        
+MED   net/http/form/upload        upload content via HTTP form                          POST                                                        
+                                                                                        application/json                                            
+MED   net/http/post               submits content to websites                           Content-Type                                                
+                                                                                        HTTP                                                        
+                                                                                        POST                                                        
+                                                                                        http                                                        
+MED   net/icmp                    Uses the ping tool to generate ICMP packets           ping frame                                                  
+                                                                                        ping is sent                                                
+                                                                                        ping message to the other peer.                             
+MED   net/interface/list          list network interfaces                               networkInterfaces                                           
+MED   net/raw_sockets             send raw and/or malformed IP packets                  raw socket                                                  
+MED   net/url/request             requests resources via URL                            http.request                                                
+MED   net/websocket               supports web sockets                                  258EAFA5-E914-47DA-95CA-C5AB0DC85B11                        
+                                                                                        WebSocketServerRaw_                                         
+                                                                                        WebSockets                                                  
+                                                                                        createWebSocketServer                                       
+                                                                                        kWebSocket:                                                 
+                                                                                        secWebSocketExtensions                                      
+                                                                                        secWebSocketProtocol                                        
+MED   process/name/get            get the current process name                          processName                                                 
+MED   procfs/self/cgroup          accesses /proc files within own cgroup                /proc/self/cgroup                                           
+MED   ref/extensions/office       References multiple Office file extensions (possible  docm                                                        
+                                  exfil)                                                docx                                                        
+                                                                                        eml                                                         
+                                                                                        ppam                                                        
+                                                                                        ppt                                                         
+                                                                                        xlsx                                                        
+MED   ref/ip_port                 mentions an IP and port                               IP                                                          
+                                                                                        clientPort                                                  
+                                                                                        configPort                                                  
+                                                                                        defaultPort                                                 
+                                                                                        getPort                                                     
+                                                                                        hasPort                                                     
+                                                                                        hmrPort                                                     
+                                                                                        inlinePort                                                  
+                                                                                        …                                                           
+MED   ref/program/osascript       osascript caller                                      osascript                                                   
+MED   ref/program/powershell      powershell                                            powershell -NoProfile -Command                              
+MED   ref/site/php                accesses hardcoded PHP endpoint                       http://www.robvanderwoude.com/escapechars.php               
+MED   ref/words/agent             references an 'agent'                                 agents                                                      
+                                                                                        npm_config_user_agent                                       
+MED   ref/words/exclamation       gets very excited                                     return !!                                                   
+MED   ref/words/intercept         References interception                               intercept                                                   
+MED   shell/pipe_sh               pipes to shell                                        | sh                                                        
+HIGH  evasion/int_to_char         converts strings into integers                        fromCharCode                                                
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/chunks/dep-CHbHjMYU.js [✅ LOW]
+------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                      EVIDENCE             
+------------------------------------------------------------------------------
+LOW   encoding/base64   Supports base64 encoded strings  base64               
+LOW   fs/file/read      reads files                      fs.readFile          
+LOW   fs/file/stat      access filesystem metadata       fs.stat)             
+                                                         fs.statSync(path)    
+LOW   net/url           Handles URL strings              new URL              
+LOW   ref/site/url      contains embedded HTTPS URLs     https://example.com  
+LOW   ref/words/plugin  references a 'plugin'            plugins option       
+                                                         postcssPlugin        
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/chunks/dep-D-7KCb9p.js [🔥 HIGH]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                     EVIDENCE                                             
+----------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTPS URLs    https://dom.spec.whatwg.org/                         
+                                                           https://html.spec.whatwg.org/multipage/parsing.html  
+LOW   ref/words/plugin     references a 'plugin'           as an user agent with enabled plugins                
+MED   data/embedded/html   Contains HTML content           <html>                                               
+                                                           DOCTYPE html                                         
+MED   fs/file/copy         copy files using cp             cp - 0x30                                            
+                                                           cp - 0x37                                            
+                                                           cp - 0x57                                            
+MED   net/http/post        submits content to websites     POST                                                 
+                                                           http                                                 
+MED   ref/words/agent      references an 'agent'           agent                                                
+HIGH  evasion/int_to_char  converts strings into integers  fromCharCode                                         
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/chunks/dep-IQS-Za7F.js [✅ LOW]
+---------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                             
+---------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://www.w3.org/TR/css-syntax-3/  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/cli.js [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE          
+----------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings                 base64            
+LOW   encoding/json/encode  encodes JSON                                    JSON.stringify    
+LOW   fs/file/write         writes to file                                  writeFileSync     
+MED   kernel/platform       get system identification                       process.arch      
+                                                                            process.platform  
+MED   ref/path/relative     references and possibly executes relative path  ./chunks          
+                                                                            ./constants       
+                                                                            ./vite-profile-   
+MED   techniques/code_eval  evaluate code dynamically using exec()          exec(input)       
+                                                                            exec(v))          
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/constants.js [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+LOW   net/url               Handles URL strings    new URL     
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/index.d.ts [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                            EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64             Supports base64 encoded strings        base64                                                      
+LOW   encoding/json/decode        Decodes JSON messages                  JSON.parse                                                  
+LOW   fs/file/delete              deletes files                          unlink                                                      
+LOW   net/http2                   Uses the HTTP/2 protocol               HTTP/2                                                      
+LOW   net/socket/listen           listen on a socket                     accept                                                      
+                                                                         listen                                                      
+                                                                         socket                                                      
+LOW   net/socket/send             send a message to a socket             send                                                        
+                                                                         socket                                                      
+LOW   ref/site/url                contains embedded HTTPS URLs           https://caniuse.com/es6-module-dynamic-import               
+                                                                         https://developer.chrome.com/blog/devtools-better-angular…  
+                                                                         https://esbuild.github.io/api/                              
+                                                                         https://esbuild.github.io/content-types/                    
+                                                                         https://github.com/DefinitelyTyped/DefinitelyTyped/blob/m…  
+                                                                         https://github.com/DefinitelyTyped/DefinitelyTyped/blob/m…  
+                                                                         https://github.com/css-modules/postcss-modules              
+                                                                         https://github.com/expressjs/cors.                          
+                                                                         …                                                           
+LOW   ref/words/password          references a 'password'                password                                                    
+LOW   ref/words/plugin            references a 'plugin'                  A valid vite plugin is also                                 
+                                                                         AcceptedPlugin                                              
+                                                                         Array of vite plugins to use                                
+                                                                         CustomPluginOptions                                         
+                                                                         Files to exclude in this plugin                             
+                                                                         Files to include in this plugin                             
+                                                                         Instructs the plugin whether                                
+                                                                         K extends keyof Plugin                                      
+                                                                         …                                                           
+MED   3P/threat_hunting/owasp     references 'OWASP' tool, by mthcht     /owasp                                                      
+MED   3P/threat_hunting/primusc2  references 'primusC2' tool, by mthcht  localhost:4567                                              
+MED   net/websocket               supports web sockets                   WebSocket:                                                  
+                                                                         WebSocketAlias:                                             
+                                                                         WebSocketClient                                             
+                                                                         WebSocketCustomListener                                     
+                                                                         WebSocketServer:                                            
+                                                                         createWebSocketStream                                       
+MED   ref/ip_port                 mentions an IP and port                IP                                                          
+                                                                         clientPort                                                  
+                                                                         strictPort                                                  
+MED   ref/path/users              references path within /Users          /Users/John/Desktop/foo-project/                            
+MED   ref/words/agent             references an 'agent'                  agent                                                       
+-------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/index.js [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE                         
+-------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                           JSON.parse                       
+LOW   ref/words/plugin      references a 'plugin'                           function splitVendorChunkPlugin  
+                                                                            plugin doesn                     
+                                                                            s as sortUserPlugins             
+MED   ref/path/relative     references and possibly executes relative path  ./chunks                         
+                                                                            ./constants                      
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/dist/node/runtime.js [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE             
+-----------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings         base64               
+LOW   encoding/json/decode  Decodes JSON messages                   JSON.parse           
+LOW   encoding/json/encode  encodes JSON                            JSON.stringify       
+LOW   evasion/bitwise_math  uses bitwise math                       low >> 1             
+LOW   net/url               Handles URL strings                     new URL              
+MED   kernel/platform       get system identification               process.platform     
+MED   ref/words/intercept   References interception                 interceptStackTrace  
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(dir)            
+                                                                    exec(mod             
+                                                                    exec(origin),        
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/package.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE                                  
+--------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs                    https://github.com/vitejs/vite.git        
+                                                                          https://github.com/vitejs/vite/issues     
+                                                                          https://github.com/vitejs/vite?sponsor=1  
+                                                                          https://vitejs.dev                        
+LOW   ref/words/plugin    references a 'plugin'                           configPlugin esbuild                      
+                                                                          pluginutils                               
+MED   net/socket/connect  initiate a connection on a socket               connect                                   
+MED   ref/path/relative   references and possibly executes relative path  ./client                                  
+                                                                          ./dist                                    
+                                                                          ./index                                   
+                                                                          ./package                                 
+                                                                          ./runtime                                 
+                                                                          ./src                                     
+                                                                          ./types                                   
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/types/customEvent.d.ts [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY            DESCRIPTION           EVIDENCE                    
+-----------------------------------------------------------------------
+MED   net/websocket  supports web sockets  WebSocketConnectionPayload  
+                                           webSocket:                  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/types/hmrPayload.d.ts [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE    
+-----------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  pluginCode  
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/types/import-meta.d.ts [✅ LOW]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                              
+--------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/microsoft/TypeScript/issues/45096  
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/vite.zip ∴ /package/types/importMeta.d.ts [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTPS URLs                    https://www.typescriptlang.org/docs/handbook/declaration-…  
+MED   ref/path/relative  references and possibly executes relative path  ./hot                                                       
+-------------------------------------------------------------------------------------------------------------------------------------
+

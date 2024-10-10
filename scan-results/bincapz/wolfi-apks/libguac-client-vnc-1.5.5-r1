@@ -1,0 +1,39 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libguac-client-vnc-1.5.5-r1.apk ∴ /usr/lib/libguac-client-vnc.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                            DESCRIPTION                              EVIDENCE                                 
+-----------------------------------------------------------------------------------------------------------------------
+LOW   net/hostport/parse             Network address and service translation  freeaddrinfo                             
+                                                                              getaddrinfo                              
+LOW   net/socket/listen              listen on a socket                       listen                                   
+                                                                              socket                                   
+LOW   net/socket/send                send a message to a socket               _send                                    
+LOW   process/multithreaded          creates pthreads                         pthread_create                           
+LOW   ref/path/etc                   path reference within /etc               /etc/guacamole/ssh                       
+LOW   ref/words/password             references a 'password'                  Password                                 
+                                                                              guac_vnc_get_password                    
+                                                                              key or a password                        
+                                                                              sftp-password                            
+                                                                              ssh_user_set_password                    
+                                                                              userauth_password_ex                     
+                                                                              with password                            
+MED   data/embedded/pem/private_key  Contains PRIVATE KEY directive           PRIVATE KEY-----                         
+MED   net/download                   download files                           Unable to download file                  
+                                                                              blocked due to downloads being disabled  
+                                                                              common_ssh_sftp_download_file            
+                                                                              sftp-disable-download                    
+MED   net/mac/address                Retrieves network MAC address            MAC address                              
+MED   net/ssh                        Uses SSH (secure shell) service          SSH                                      
+MED   net/upload                     uploads files                            Upload                                   
+                                                                              upload_path                              
+                                                                              uploads                                  
+MED   net/vnc                        vnc user                                 VNC_                                     
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libguac-client-vnc-1.5.5-r1.apk ∴ /var/lib/db/sbom/libguac-client-vnc-1.5.5-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/1757c71bf5b1…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

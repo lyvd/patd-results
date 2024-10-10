@@ -1,0 +1,36 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/js/spring-projects-6.0.2.tgz ∴ /package/index.js [⚠️ MEDIUM]
+----------------------------------------------------------------------
+RISK  KEY             DESCRIPTION           EVIDENCE                  
+----------------------------------------------------------------------
+MED   process/create  create child process  require("child_process")  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/js/spring-projects-6.0.2.tgz ∴ /package/package.json [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                        DESCRIPTION                                         EVIDENCE              
+-----------------------------------------------------------------------------------------------------------
+MED   ref/path/relative          references and possibly executes relative path      ./scripts             
+HIGH  shell/background_launcher  Launches background processes from a relative path  ./scripts/init.js &"  
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/js/spring-projects-6.0.2.tgz ∴ /package/scripts/init.js [⚠️ MEDIUM]
+----------------------------------------------------------------------
+RISK  KEY             DESCRIPTION           EVIDENCE                  
+----------------------------------------------------------------------
+MED   process/create  create child process  require("child_process")  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/js/spring-projects-6.0.2.tgz ∴ /package/scripts/rsh.js [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                EVIDENCE           
+------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages                      JSON.parse         
+LOW   encoding/json/encode  encodes JSON                               JSON.stringify     
+LOW   kernel/hostname/get   get computer host name                     os.hostname()      
+MED   kernel/platform       get system identification                  os.arch()          
+                                                                       os.platform()      
+                                                                       os.release()       
+MED   net/interface/list    list network interfaces                    networkInterfaces  
+MED   process/userinfo      returns user info for the current process  os.userInfo()      
+------------------------------------------------------------------------------------------
+

@@ -1,0 +1,2381 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/specifications/serverengine-2.3.2.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 26,
+                  "endLine": 2,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: serverengine 2.3.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"serverengine\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: serverengine 2.3.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"serverengine\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: serverengine 2.3.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"serverengine\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/socket_manager.rb"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 41,
+                  "endLine": 83,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "          excluded_port_ranges = get_excluded_port_ranges\n          get_dynamic_port_range\n            .reject { |port| excluded_port_ranges.any? { |range| range.cover?(port) } }\n            .find { |port| `netstat -na | findstr \"#{port}\"`.length == 0 }\n        else\n          base_dir = (ENV['SERVERENGINE_SOCKETMANAGER_SOCK_DIR'] || '/tmp')\n          File.join(base_dir, 'SERVERENGINE_SOCKETMANAGER_' + Time.now.utc.iso8601 + '_' + Process.pid.to_s)\n",
+                    "rendered": {
+                      "text": "          excluded_port_ranges = get_excluded_port_ranges\n          get_dynamic_port_range\n            .reject { |port| excluded_port_ranges.any? { |range| range.cover?(port) } }\n            .find { |port| `netstat -na | findstr \"#{port}\"`.length == 0 }\n        else\n          base_dir = (ENV['SERVERENGINE_SOCKETMANAGER_SOCK_DIR'] || '/tmp')\n          File.join(base_dir, 'SERVERENGINE_SOCKETMANAGER_' + Time.now.utc.iso8601 + '_' + Process.pid.to_s)\n",
+                      "markdown": "`          excluded_port_ranges = get_excluded_port_ranges\n          get_dynamic_port_range\n            .reject { |port| excluded_port_ranges.any? { |range| range.cover?(port) } }\n            .find { |port| `netstat -na | findstr \"#{port}\"`.length == 0 }\n        else\n          base_dir = (ENV['SERVERENGINE_SOCKETMANAGER_SOCK_DIR'] || '/tmp')\n          File.join(base_dir, 'SERVERENGINE_SOCKETMANAGER_' + Time.now.utc.iso8601 + '_' + Process.pid.to_s)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/socket_manager.rb"
+                },
+                "region": {
+                  "startLine": 245,
+                  "startColumn": 19,
+                  "endLine": 245,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "      data = JSON.parse(data)\n      return nil if SocketManager::INTERNAL_TOKEN != data.first\n\n      Marshal.load(Base64.strict_decode64(data.last))\n    end\n\n    if ServerEngine.windows?\n",
+                    "rendered": {
+                      "text": "      data = JSON.parse(data)\n      return nil if SocketManager::INTERNAL_TOKEN != data.first\n\n      Marshal.load(Base64.strict_decode64(data.last))\n    end\n\n    if ServerEngine.windows?\n",
+                      "markdown": "`      data = JSON.parse(data)\n      return nil if SocketManager::INTERNAL_TOKEN != data.first\n\n      Marshal.load(Base64.strict_decode64(data.last))\n    end\n\n    if ServerEngine.windows?\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/socket_manager.rb"
+                },
+                "region": {
+                  "startLine": 230,
+                  "startColumn": 45,
+                  "endLine": 230,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "    end\n\n    def self.send_peer(peer, obj)\n      data = [SocketManager::INTERNAL_TOKEN, Base64.strict_encode64(Marshal.dump(obj))]\n      data = JSON.generate(data)\n      peer.write [data.bytesize].pack('N')\n      peer.write data\n",
+                    "rendered": {
+                      "text": "    end\n\n    def self.send_peer(peer, obj)\n      data = [SocketManager::INTERNAL_TOKEN, Base64.strict_encode64(Marshal.dump(obj))]\n      data = JSON.generate(data)\n      peer.write [data.bytesize].pack('N')\n      peer.write data\n",
+                      "markdown": "`    end\n\n    def self.send_peer(peer, obj)\n      data = [SocketManager::INTERNAL_TOKEN, Base64.strict_encode64(Marshal.dump(obj))]\n      data = JSON.generate(data)\n      peer.write [data.bytesize].pack('N')\n      peer.write data\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/socket_manager.rb"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 9,
+                  "endLine": 23,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "require 'time'\nrequire 'securerandom'\nrequire 'json'\nrequire 'base64'\n\nrequire_relative 'utils' # for ServerEngine.windows?\n\n",
+                    "rendered": {
+                      "text": "require 'time'\nrequire 'securerandom'\nrequire 'json'\nrequire 'base64'\n\nrequire_relative 'utils' # for ServerEngine.windows?\n\n",
+                      "markdown": "`require 'time'\nrequire 'securerandom'\nrequire 'json'\nrequire 'base64'\n\nrequire_relative 'utils' # for ServerEngine.windows?\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/process_manager.rb"
+                },
+                "region": {
+                  "startLine": 271,
+                  "startColumn": 35,
+                  "endLine": 272,
+                  "snippet": {
+                    "text": "          end\n\n          if m = @rpipes[r]\n            m.last_heartbeat_time = time\n          end\n        end\n      end\n\n",
+                    "rendered": {
+                      "text": "          end\n\n          if m = @rpipes[r]\n            m.last_heartbeat_time = time\n          end\n        end\n      end\n\n",
+                      "markdown": "`          end\n\n          if m = @rpipes[r]\n            m.last_heartbeat_time = time\n          end\n        end\n      end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/process_manager.rb"
+                },
+                "region": {
+                  "startLine": 254,
+                  "startColumn": 5,
+                  "endLine": 254,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "        raise \"heartbeat is not supported on Windows platform. @rpipes must be empty.\"\n      end\n\n      time = Time.now\n      ready_pipes, _, _ = IO.select(@rpipes.keys, nil, nil, blocking_timeout)\n\n      if ready_pipes\n",
+                    "rendered": {
+                      "text": "        raise \"heartbeat is not supported on Windows platform. @rpipes must be empty.\"\n      end\n\n      time = Time.now\n      ready_pipes, _, _ = IO.select(@rpipes.keys, nil, nil, blocking_timeout)\n\n      if ready_pipes\n",
+                      "markdown": "`        raise \"heartbeat is not supported on Windows platform. @rpipes must be empty.\"\n      end\n\n      time = Time.now\n      ready_pipes, _, _ = IO.select(@rpipes.keys, nil, nil, blocking_timeout)\n\n      if ready_pipes\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/process_manager.rb"
+                },
+                "region": {
+                  "startLine": 161,
+                  "startColumn": 7,
+                  "endLine": 161,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "      if args.first.is_a?(Hash)\n        env = args.shift.dup\n      else\n        env = {}\n      end\n\n      if args.last.is_a?(Hash)\n",
+                    "rendered": {
+                      "text": "      if args.first.is_a?(Hash)\n        env = args.shift.dup\n      else\n        env = {}\n      end\n\n      if args.last.is_a?(Hash)\n",
+                      "markdown": "`      if args.first.is_a?(Hash)\n        env = args.shift.dup\n      else\n        env = {}\n      end\n\n      if args.last.is_a?(Hash)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/process_manager.rb"
+                },
+                "region": {
+                  "startLine": 159,
+                  "startColumn": 7,
+                  "endLine": 159,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\n    def spawn(*args)\n      if args.first.is_a?(Hash)\n        env = args.shift.dup\n      else\n        env = {}\n      end\n",
+                    "rendered": {
+                      "text": "\n    def spawn(*args)\n      if args.first.is_a?(Hash)\n        env = args.shift.dup\n      else\n        env = {}\n      end\n",
+                      "markdown": "`\n    def spawn(*args)\n      if args.first.is_a?(Hash)\n        env = args.shift.dup\n      else\n        env = {}\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 192,
+                  "startColumn": 3,
+                  "endLine": 192,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "  end\n\n  def spawn(pm)\n    script = <<-EOF\n    class WorkerClass\n      include TestWorker\n      def run\n",
+                    "rendered": {
+                      "text": "  end\n\n  def spawn(pm)\n    script = <<-EOF\n    class WorkerClass\n      include TestWorker\n      def run\n",
+                      "markdown": "`  end\n\n  def spawn(pm)\n    script = <<-EOF\n    class WorkerClass\n      include TestWorker\n      def run\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 202,
+                  "startColumn": 18,
+                  "endLine": 203,
+                  "snippet": {
+                    "text": "          Thread.new do\n            until @stop_flag.set?\n              cmd = command_pipe.gets.chomp\n              case cmd\n              when \"GRACEFUL_STOP\", \"IMMEDIATE_STOP\"\n                stop\n              when \"RELOAD\"\n                reload\n",
+                    "rendered": {
+                      "text": "          Thread.new do\n            until @stop_flag.set?\n              cmd = command_pipe.gets.chomp\n              case cmd\n              when \"GRACEFUL_STOP\", \"IMMEDIATE_STOP\"\n                stop\n              when \"RELOAD\"\n                reload\n",
+                      "markdown": "`          Thread.new do\n            until @stop_flag.set?\n              cmd = command_pipe.gets.chomp\n              case cmd\n              when \"GRACEFUL_STOP\", \"IMMEDIATE_STOP\"\n                stop\n              when \"RELOAD\"\n                reload\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 13,
+                  "endLine": 201,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "          STDIN.reopen(File::NULL)\n          Thread.new do\n            until @stop_flag.set?\n              cmd = command_pipe.gets.chomp\n              case cmd\n              when \"GRACEFUL_STOP\", \"IMMEDIATE_STOP\"\n                stop\n",
+                    "rendered": {
+                      "text": "          STDIN.reopen(File::NULL)\n          Thread.new do\n            until @stop_flag.set?\n              cmd = command_pipe.gets.chomp\n              case cmd\n              when \"GRACEFUL_STOP\", \"IMMEDIATE_STOP\"\n                stop\n",
+                      "markdown": "`          STDIN.reopen(File::NULL)\n          Thread.new do\n            until @stop_flag.set?\n              cmd = command_pipe.gets.chomp\n              case cmd\n              when \"GRACEFUL_STOP\", \"IMMEDIATE_STOP\"\n                stop\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 3,
+                  "endLine": 78,
+                  "snippet": {
+                    "text": "    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n    cmd\n  else\n    nil\n  end\nend\n",
+                    "rendered": {
+                      "text": "    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n    cmd\n  else\n    nil\n  end\nend\n",
+                      "markdown": "`    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n    cmd\n  else\n    nil\n  end\nend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 75,
+                  "startColumn": 5,
+                  "endLine": 75,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n    cmd\n  else\n",
+                    "rendered": {
+                      "text": "    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n    cmd\n  else\n",
+                      "markdown": "`    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n    cmd\n  else\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 3,
+                  "endLine": 73,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n",
+                    "rendered": {
+                      "text": "  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n",
+                      "markdown": "`  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 3,
+                  "endLine": 72,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "def windows_supervisor_cmdline(server = nil, worker = nil, config = {})\n  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n",
+                    "rendered": {
+                      "text": "def windows_supervisor_cmdline(server = nil, worker = nil, config = {})\n  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n",
+                      "markdown": "`def windows_supervisor_cmdline(server = nil, worker = nil, config = {})\n  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n      cmd << \"#{k}=#{v}\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/spec/server_worker_context.rb"
+                },
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 3,
+                  "endLine": 71,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "\ndef windows_supervisor_cmdline(server = nil, worker = nil, config = {})\n  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n",
+                    "rendered": {
+                      "text": "\ndef windows_supervisor_cmdline(server = nil, worker = nil, config = {})\n  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n",
+                      "markdown": "`\ndef windows_supervisor_cmdline(server = nil, worker = nil, config = {})\n  if ServerEngine.windows?\n    cmd = [ServerEngine.ruby_bin_path, '-I', File.dirname(__FILE__), 'tmp/supervisor.rb']\n    cmd << \"server=#{server}\" if server\n    cmd << \"worker=#{worker}\" if worker\n    config.each_pair do |k, v|\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/lib/serverengine/command_sender.rb"
+                },
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 34,
+                  "endLine": 85,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "      end\n\n      def _send_command(cmd)\n        @command_sender_pipe.write cmd + \"\\n\"\n      end\n    end\n  end\n",
+                    "rendered": {
+                      "text": "      end\n\n      def _send_command(cmd)\n        @command_sender_pipe.write cmd + \"\\n\"\n      end\n    end\n  end\n",
+                      "markdown": "`      end\n\n      def _send_command(cmd)\n        @command_sender_pipe.write cmd + \"\\n\"\n      end\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 51,
+                  "endLine": 153,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "\n2014-06-27 version 1.5.8:\n\n* Use standard LogDevice on Ruby >= 2.1.0 imporoved at https://github.com/ruby/ruby/pull/428\n\n\n2013-10-31 version 1.5.7:\n",
+                    "rendered": {
+                      "text": "\n2014-06-27 version 1.5.8:\n\n* Use standard LogDevice on Ruby >= 2.1.0 imporoved at https://github.com/ruby/ruby/pull/428\n\n\n2013-10-31 version 1.5.7:\n",
+                      "markdown": "`\n2014-06-27 version 1.5.8:\n\n* Use standard LogDevice on Ruby >= 2.1.0 imporoved at https://github.com/ruby/ruby/pull/428\n\n\n2013-10-31 version 1.5.7:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 34,
+                  "endLine": 126,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "\n* Added SocketManager, a utility class for multiprocess servers to listen on\n  the same TCP or UDP port dynamically.\n* Added a new attr_reader accessor at Daemon#server and Supervisor#server\n* Added ServerEngine.windows? method to check Windows platform\n* ProcessManager now considers Windows platform\n\n",
+                    "rendered": {
+                      "text": "\n* Added SocketManager, a utility class for multiprocess servers to listen on\n  the same TCP or UDP port dynamically.\n* Added a new attr_reader accessor at Daemon#server and Supervisor#server\n* Added ServerEngine.windows? method to check Windows platform\n* ProcessManager now considers Windows platform\n\n",
+                      "markdown": "`\n* Added SocketManager, a utility class for multiprocess servers to listen on\n  the same TCP or UDP port dynamically.\n* Added a new attr_reader accessor at Daemon#server and Supervisor#server\n* Added ServerEngine.windows? method to check Windows platform\n* ProcessManager now considers Windows platform\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 43,
+                  "endLine": 90,
+                  "endColumn": 52,
+                  "snippet": {
+                    "text": "2016-08-23 version 2.0.0:\n\n* Add windows-pr gem dependency to get ruby_bin_path correctly\n* Add command sender feature to use pipe to control workers for Windows\n* Delete MultiprocessLogDevice implementation to use Ruby's one always. This\n  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n",
+                    "rendered": {
+                      "text": "2016-08-23 version 2.0.0:\n\n* Add windows-pr gem dependency to get ruby_bin_path correctly\n* Add command sender feature to use pipe to control workers for Windows\n* Delete MultiprocessLogDevice implementation to use Ruby's one always. This\n  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n",
+                      "markdown": "`2016-08-23 version 2.0.0:\n\n* Add windows-pr gem dependency to get ruby_bin_path correctly\n* Add command sender feature to use pipe to control workers for Windows\n* Delete MultiprocessLogDevice implementation to use Ruby's one always. This\n  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "\n* Accept `nil` for `ServerEngine::SocketManager::Server.open` to select path automatically\n* Care excluded port ranges of Windows in `ServerEngine::SocketManager.generate_path`\n* Update to Rake 13 and RSpec 3 to support running tests on Ruby 3.2\n\n2022-12-22 version 2.3.1\n\n",
+                    "rendered": {
+                      "text": "\n* Accept `nil` for `ServerEngine::SocketManager::Server.open` to select path automatically\n* Care excluded port ranges of Windows in `ServerEngine::SocketManager.generate_path`\n* Update to Rake 13 and RSpec 3 to support running tests on Ruby 3.2\n\n2022-12-22 version 2.3.1\n\n",
+                      "markdown": "`\n* Accept `nil` for `ServerEngine::SocketManager::Server.open` to select path automatically\n* Care excluded port ranges of Windows in `ServerEngine::SocketManager.generate_path`\n* Update to Rake 13 and RSpec 3 to support running tests on Ruby 3.2\n\n2022-12-22 version 2.3.1\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 181,
+                  "startColumn": 10,
+                  "endLine": 181,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "2013-09-10 version 1.5.4:\n\n* SignalThread: fixed \"Unexpected error can't be called from trap context\"\n  error in Ruby 2.0 (Thanks to @jondot and @sonots)\n\n\n2013-06-30 version 1.5.3:\n",
+                    "rendered": {
+                      "text": "2013-09-10 version 1.5.4:\n\n* SignalThread: fixed \"Unexpected error can't be called from trap context\"\n  error in Ruby 2.0 (Thanks to @jondot and @sonots)\n\n\n2013-06-30 version 1.5.3:\n",
+                      "markdown": "`2013-09-10 version 1.5.4:\n\n* SignalThread: fixed \"Unexpected error can't be called from trap context\"\n  error in Ruby 2.0 (Thanks to @jondot and @sonots)\n\n\n2013-06-30 version 1.5.3:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 27,
+                  "endLine": 153,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\n2014-06-27 version 1.5.8:\n\n* Use standard LogDevice on Ruby >= 2.1.0 imporoved at https://github.com/ruby/ruby/pull/428\n\n\n2013-10-31 version 1.5.7:\n",
+                    "rendered": {
+                      "text": "\n2014-06-27 version 1.5.8:\n\n* Use standard LogDevice on Ruby >= 2.1.0 imporoved at https://github.com/ruby/ruby/pull/428\n\n\n2013-10-31 version 1.5.7:\n",
+                      "markdown": "`\n2014-06-27 version 1.5.8:\n\n* Use standard LogDevice on Ruby >= 2.1.0 imporoved at https://github.com/ruby/ruby/pull/428\n\n\n2013-10-31 version 1.5.7:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 32,
+                  "endLine": 148,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "\n2014-07-24 version 1.5.9:\n\n* Fixed DaemonLogger#reoepen! on Ruby >= 2.1.0\n\n\n2014-06-27 version 1.5.8:\n",
+                    "rendered": {
+                      "text": "\n2014-07-24 version 1.5.9:\n\n* Fixed DaemonLogger#reoepen! on Ruby >= 2.1.0\n\n\n2014-06-27 version 1.5.8:\n",
+                      "markdown": "`\n2014-07-24 version 1.5.9:\n\n* Fixed DaemonLogger#reoepen! on Ruby >= 2.1.0\n\n\n2014-06-27 version 1.5.8:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 22,
+                  "endLine": 109,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n2016-04-14 version 1.6.2:\n\n",
+                    "rendered": {
+                      "text": "* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n2016-04-14 version 1.6.2:\n\n",
+                      "markdown": "`* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n2016-04-14 version 1.6.2:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 5,
+                  "endLine": 109,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n2016-04-14 version 1.6.2:\n\n",
+                    "rendered": {
+                      "text": "* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n2016-04-14 version 1.6.2:\n\n",
+                      "markdown": "`* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n2016-04-14 version 1.6.2:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 42,
+                  "endLine": 107,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "2016-04-27 version 1.6.3:\n\n* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n",
+                    "rendered": {
+                      "text": "2016-04-27 version 1.6.3:\n\n* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n",
+                      "markdown": "`2016-04-27 version 1.6.3:\n\n* Fix Socket Manager for UDP to adapt to ipv6\n* Fix Socket Manager not to join thread in Ruby 2.1\n* Fix Socket Manager to identify all localhost address\n* Fix ruby dll path on Ruby x64\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 5,
+                  "endLine": 102,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\n* Refactor to delete some warnings\n* Fix infinite self call bug in SignalTread\n* Add ruby 2.1 support for TravisCI\n\n2016-04-27 version 1.6.3:\n\n",
+                    "rendered": {
+                      "text": "\n* Refactor to delete some warnings\n* Fix infinite self call bug in SignalTread\n* Add ruby 2.1 support for TravisCI\n\n2016-04-27 version 1.6.3:\n\n",
+                      "markdown": "`\n* Refactor to delete some warnings\n* Fix infinite self call bug in SignalTread\n* Add ruby 2.1 support for TravisCI\n\n2016-04-27 version 1.6.3:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 14,
+                  "endLine": 96,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n* Fix required Ruby version to 2.1 or later\n\n2016-05-19 version 1.6.4:\n\n",
+                    "rendered": {
+                      "text": "* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n* Fix required Ruby version to 2.1 or later\n\n2016-05-19 version 1.6.4:\n\n",
+                      "markdown": "`* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n* Fix required Ruby version to 2.1 or later\n\n2016-05-19 version 1.6.4:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 13,
+                  "endLine": 95,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n* Fix required Ruby version to 2.1 or later\n\n2016-05-19 version 1.6.4:\n",
+                    "rendered": {
+                      "text": "  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n* Fix required Ruby version to 2.1 or later\n\n2016-05-19 version 1.6.4:\n",
+                      "markdown": "`  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n* Fix required Ruby version to 2.1 or later\n\n2016-05-19 version 1.6.4:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 47,
+                  "endLine": 92,
+                  "endColumn": 53,
+                  "snippet": {
+                    "text": "* Add windows-pr gem dependency to get ruby_bin_path correctly\n* Add command sender feature to use pipe to control workers for Windows\n* Delete MultiprocessLogDevice implementation to use Ruby's one always. This\n  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n",
+                    "rendered": {
+                      "text": "* Add windows-pr gem dependency to get ruby_bin_path correctly\n* Add command sender feature to use pipe to control workers for Windows\n* Delete MultiprocessLogDevice implementation to use Ruby's one always. This\n  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n",
+                      "markdown": "`* Add windows-pr gem dependency to get ruby_bin_path correctly\n* Add command sender feature to use pipe to control workers for Windows\n* Delete MultiprocessLogDevice implementation to use Ruby's one always. This\n  means removal of backward workaround code for Ruby < 2.1.\n* Refactor modules and methods to clean internal file dependency Internal\n  symbol `ServerEngine::Daemon::Signals` is moved to `ServerEngine::Signals`\n* Add example script to run servers\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 18,
+                  "endLine": 72,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "\n2016-11-24 version 2.0.4:\n\n* Fix bug to crash Ruby VM when SocketManager fails to bind IPv6 addresses on Windows\n\n2016-11-22 version 2.0.3:\n\n",
+                    "rendered": {
+                      "text": "\n2016-11-24 version 2.0.4:\n\n* Fix bug to crash Ruby VM when SocketManager fails to bind IPv6 addresses on Windows\n\n2016-11-22 version 2.0.3:\n\n",
+                      "markdown": "`\n2016-11-24 version 2.0.4:\n\n* Fix bug to crash Ruby VM when SocketManager fails to bind IPv6 addresses on Windows\n\n2016-11-22 version 2.0.3:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 27,
+                  "endLine": 63,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\n2018-02-09 version 2.0.6:\n\n* Avoid thread error log in ruby 2.5\n\n2017-03-01 version 2.0.5:\n\n",
+                    "rendered": {
+                      "text": "\n2018-02-09 version 2.0.6:\n\n* Avoid thread error log in ruby 2.5\n\n2017-03-01 version 2.0.5:\n\n",
+                      "markdown": "`\n2018-02-09 version 2.0.6:\n\n* Avoid thread error log in ruby 2.5\n\n2017-03-01 version 2.0.5:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 45,
+                  "endLine": 30,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "\n2021-05-24 version 2.2.4:\n\n* Ensure to get correct Win32 socket error on Ruby 3.0\n\n2021-02-17 version 2.2.3:\n\n",
+                    "rendered": {
+                      "text": "\n2021-05-24 version 2.2.4:\n\n* Ensure to get correct Win32 socket error on Ruby 3.0\n\n2021-02-17 version 2.2.3:\n\n",
+                      "markdown": "`\n2021-05-24 version 2.2.4:\n\n* Ensure to get correct Win32 socket error on Ruby 3.0\n\n2021-02-17 version 2.2.3:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 23,
+                  "endLine": 25,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "\n2022-01-13 version 2.2.5:\n\n* Fix DLL load error on Ruby 3.1 on Windows\n* Treat as error when worker shuts down unexpectedly\n\n2021-05-24 version 2.2.4:\n",
+                    "rendered": {
+                      "text": "\n2022-01-13 version 2.2.5:\n\n* Fix DLL load error on Ruby 3.1 on Windows\n* Treat as error when worker shuts down unexpectedly\n\n2021-05-24 version 2.2.4:\n",
+                      "markdown": "`\n2022-01-13 version 2.2.5:\n\n* Fix DLL load error on Ruby 3.1 on Windows\n* Treat as error when worker shuts down unexpectedly\n\n2021-05-24 version 2.2.4:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/Changelog"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 59,
+                  "endLine": 5,
+                  "endColumn": 65,
+                  "snippet": {
+                    "text": "\n* Accept `nil` for `ServerEngine::SocketManager::Server.open` to select path automatically\n* Care excluded port ranges of Windows in `ServerEngine::SocketManager.generate_path`\n* Update to Rake 13 and RSpec 3 to support running tests on Ruby 3.2\n\n2022-12-22 version 2.3.1\n\n",
+                    "rendered": {
+                      "text": "\n* Accept `nil` for `ServerEngine::SocketManager::Server.open` to select path automatically\n* Care excluded port ranges of Windows in `ServerEngine::SocketManager.generate_path`\n* Update to Rake 13 and RSpec 3 to support running tests on Ruby 3.2\n\n2022-12-22 version 2.3.1\n\n",
+                      "markdown": "`\n* Accept `nil` for `ServerEngine::SocketManager::Server.open` to select path automatically\n* Care excluded port ranges of Windows in `ServerEngine::SocketManager.generate_path`\n* Update to Rake 13 and RSpec 3 to support running tests on Ruby 3.2\n\n2022-12-22 version 2.3.1\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 484,
+                  "startColumn": 61,
+                  "endLine": 484,
+                  "endColumn": 65,
+                  "snippet": {
+                    "text": "s\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [d",
+                    "rendered": {
+                      "text": "s\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [d",
+                      "markdown": "`s\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [d`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 483,
+                  "startColumn": 109,
+                  "endLine": 483,
+                  "endColumn": 113,
+                  "snippet": {
+                    "text": "]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available ",
+                    "rendered": {
+                      "text": "]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available ",
+                      "markdown": "`]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available `"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 277,
+                  "startColumn": 41,
+                  "endLine": 277,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "\n## Dynamic config reloading\n\nRobust servers should not restart only to update configuration parameters.\n\n```ruby\nmodule MyWorker\n",
+                    "rendered": {
+                      "text": "\n## Dynamic config reloading\n\nRobust servers should not restart only to update configuration parameters.\n\n```ruby\nmodule MyWorker\n",
+                      "markdown": "`\n## Dynamic config reloading\n\nRobust servers should not restart only to update configuration parameters.\n\n```ruby\nmodule MyWorker\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 272,
+                  "startColumn": 124,
+                  "endLine": 272,
+                  "endColumn": 128,
+                  "snippet": {
+                    "text": "                  +----------+    +-----------+\n```\n\nNote that network servers (which listen sockets) shouldn't use live restart because it causes \"Address already in use\" error at the server process. Instead, simply use `worker_type: \"process\"` configuration and send `USR1` to restart workers instead of the server. It restarts a worker without waiting for shutdown of the other workers. This way doesn't cause downtime because server process doesn't close listening sockets and keeps accepting new clients (See also `restart_server_process` parameter if necessary).\n\n\n## Dynamic config reloading\n",
+                    "rendered": {
+                      "text": "                  +----------+    +-----------+\n```\n\nNote that network servers (which listen sockets) shouldn't use live restart because it causes \"Address already in use\" error at the server process. Instead, simply use `worker_type: \"process\"` configuration and send `USR1` to restart workers instead of the server. It restarts a worker without waiting for shutdown of the other workers. This way doesn't cause downtime because server process doesn't close listening sockets and keeps accepting new clients (See also `restart_server_process` parameter if necessary).\n\n\n## Dynamic config reloading\n",
+                      "markdown": "`                  +----------+    +-----------+\n```\n\nNote that network servers (which listen sockets) shouldn't use live restart because it causes \"Address already in use\" error at the server process. Instead, simply use `worker_type: \"process\"` configuration and send `USR1` to restart workers instead of the server. It restarts a worker without waiting for shutdown of the other workers. This way doesn't cause downtime because server process doesn't close listening sockets and keeps accepting new clients (See also `restart_server_process` parameter if necessary).\n\n\n## Dynamic config reloading\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 235,
+                  "startColumn": 124,
+                  "endLine": 235,
+                  "endColumn": 128,
+                  "snippet": {
+                    "text": "se.run\n```\n\nThis auto restart reature will be suppressed for workers which exits with exit code specified by `unrecoverable_exit_codes`. At this case, whole process will exit without error (exit code 0).\n\n## Live restart\n\n",
+                    "rendered": {
+                      "text": "se.run\n```\n\nThis auto restart reature will be suppressed for workers which exits with exit code specified by `unrecoverable_exit_codes`. At this case, whole process will exit without error (exit code 0).\n\n## Live restart\n\n",
+                      "markdown": "`se.run\n```\n\nThis auto restart reature will be suppressed for workers which exits with exit code specified by `unrecoverable_exit_codes`. At this case, whole process will exit without error (exit code 0).\n\n## Live restart\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 142,
+                  "startColumn": 141,
+                  "endLine": 142,
+                  "endColumn": 145,
+                  "snippet": {
+                    "text": "nfortunately, you need to implement different worker module because `worker_type: \"spawn\"` is not compatible with **worker_type: \"process\"** in terms of API.\n\nWhat you need to implement at least to use worker_type: \"spawn\" is `def spawn(process_manager)` method. You will call `process_manager.spawn` at the method, where `spawn` is same with `Process.spawn` excepting return value.\n\nIn addition, Windows does not support signals.  ServerEngine provides **command_sender: \"pipe\"** for Windows (and for other platforms, if you want to use it).\nWhen using **command_sender: \"pipe\"**, the child process have",
+                    "rendered": {
+                      "text": "nfortunately, you need to implement different worker module because `worker_type: \"spawn\"` is not compatible with **worker_type: \"process\"** in terms of API.\n\nWhat you need to implement at least to use worker_type: \"spawn\" is `def spawn(process_manager)` method. You will call `process_manager.spawn` at the method, where `spawn` is same with `Process.spawn` excepting return value.\n\nIn addition, Windows does not support signals.  ServerEngine provides **command_sender: \"pipe\"** for Windows (and for other platforms, if you want to use it).\nWhen using **command_sender: \"pipe\"**, the child process have",
+                      "markdown": "`nfortunately, you need to implement different worker module because `worker_type: \"spawn\"` is not compatible with **worker_type: \"process\"** in terms of API.\n\nWhat you need to implement at least to use worker_type: \"spawn\" is `def spawn(process_manager)` method. You will call `process_manager.spawn` at the method, where `spawn` is same with `Process.spawn` excepting return value.\n\nIn addition, Windows does not support signals.  ServerEngine provides **command_sender: \"pipe\"** for Windows (and for other platforms, if you want to use it).\nWhen using **command_sender: \"pipe\"**, the child process have`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 142,
+                  "startColumn": 26,
+                  "endLine": 142,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "atform.\nServerEngine provides **worker_type: \"spawn\"** for those platforms (This is still EXPERIMENTAL). However, unfortunately, you need to implement different worker module because `worker_type: \"spawn\"` is not compatible with **worker_type: \"process\"** in terms of API.\n\nWhat you need to implement at least to use worker_type: \"spawn\" is `def spawn(process_manager)` method. You will call `process_manager.spawn` at the method, where `spawn` is same with `Process.spawn` excepting return value.\n\nIn addition, Windows does not support signals.  ServerEngine provides **command_sender: \"pipe\"** for Wind",
+                    "rendered": {
+                      "text": "atform.\nServerEngine provides **worker_type: \"spawn\"** for those platforms (This is still EXPERIMENTAL). However, unfortunately, you need to implement different worker module because `worker_type: \"spawn\"` is not compatible with **worker_type: \"process\"** in terms of API.\n\nWhat you need to implement at least to use worker_type: \"spawn\" is `def spawn(process_manager)` method. You will call `process_manager.spawn` at the method, where `spawn` is same with `Process.spawn` excepting return value.\n\nIn addition, Windows does not support signals.  ServerEngine provides **command_sender: \"pipe\"** for Wind",
+                      "markdown": "`atform.\nServerEngine provides **worker_type: \"spawn\"** for those platforms (This is still EXPERIMENTAL). However, unfortunately, you need to implement different worker module because `worker_type: \"spawn\"` is not compatible with **worker_type: \"process\"** in terms of API.\n\nWhat you need to implement at least to use worker_type: \"spawn\" is `def spawn(process_manager)` method. You will call `process_manager.spawn` at the method, where `spawn` is same with `Process.spawn` excepting return value.\n\nIn addition, Windows does not support signals.  ServerEngine provides **command_sender: \"pipe\"** for Wind`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 66,
+                  "endLine": 96,
+                  "endColumn": 75,
+                  "snippet": {
+                    "text": "\nOne of the typical implementation styles of TCP servers is that a parent process listens socket and child processes accept connections from clients.\n\nServerEngine allows you to optionally implement a server module to control the parent process:\n\n```ruby\n# Server module controls the parent process\n",
+                    "rendered": {
+                      "text": "\nOne of the typical implementation styles of TCP servers is that a parent process listens socket and child processes accept connections from clients.\n\nServerEngine allows you to optionally implement a server module to control the parent process:\n\n```ruby\n# Server module controls the parent process\n",
+                      "markdown": "`\nOne of the typical implementation styles of TCP servers is that a parent process listens socket and child processes accept connections from clients.\n\nServerEngine allows you to optionally implement a server module to control the parent process:\n\n```ruby\n# Server module controls the parent process\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 26,
+                  "endLine": 45,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "\n### Simplest server\n\nWhat you need to implement at least is a worker module which has `run` and `stop` methods.\n\n```ruby\nrequire 'serverengine'\n",
+                    "rendered": {
+                      "text": "\n### Simplest server\n\nWhat you need to implement at least is a worker module which has `run` and `stop` methods.\n\n```ruby\nrequire 'serverengine'\n",
+                      "markdown": "`\n### Simplest server\n\nWhat you need to implement at least is a worker module which has `run` and `stop` methods.\n\n```ruby\nrequire 'serverengine'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 495,
+                  "startColumn": 109,
+                  "endLine": 495,
+                  "endColumn": 118,
+                  "snippet": {
+                    "text": "IT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_timeout** sets promotion timeout from QUIT to KILL signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **unrecoverable_exit_codes** handles worker processes, which exits with code included in this value, as unrecoverable (not to restart) (default: [])\n  - **stop_immediately_at_unrecoverable_exit** stops server immediately if a worker exits with unrecoverable ex",
+                    "rendered": {
+                      "text": "IT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_timeout** sets promotion timeout from QUIT to KILL signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **unrecoverable_exit_codes** handles worker processes, which exits with code included in this value, as unrecoverable (not to restart) (default: [])\n  - **stop_immediately_at_unrecoverable_exit** stops server immediately if a worker exits with unrecoverable ex",
+                      "markdown": "`IT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_timeout** sets promotion timeout from QUIT to KILL signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **unrecoverable_exit_codes** handles worker processes, which exits with code included in this value, as unrecoverable (not to restart) (default: [])\n  - **stop_immediately_at_unrecoverable_exit** stops server immediately if a worker exits with unrecoverable ex`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 495,
+                  "startColumn": 52,
+                  "endLine": 495,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "r_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_timeout** sets promotion timeout from QUIT to KILL signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **unrecoverable_exit_codes** handles worker processes, which exits with code included in this value, as unrecoverable (not to restart) (default: [])\n  - **stop_immediately_at_unrecoverable_exit** stops s",
+                    "rendered": {
+                      "text": "r_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_timeout** sets promotion timeout from QUIT to KILL signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **unrecoverable_exit_codes** handles worker processes, which exits with code included in this value, as unrecoverable (not to restart) (default: [])\n  - **stop_immediately_at_unrecoverable_exit** stops s",
+                      "markdown": "`r_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_timeout** sets promotion timeout from QUIT to KILL signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **unrecoverable_exit_codes** handles worker processes, which exits with code included in this value, as unrecoverable (not to restart) (default: [])\n  - **stop_immediately_at_unrecoverable_exit** stops s`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 492,
+                  "startColumn": 108,
+                  "endLine": 492,
+                  "endColumn": 117,
+                  "snippet": {
+                    "text": "TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_graceful_kill_timeout** sets promotion timeout from TERM to QUIT signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **worker_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - *",
+                    "rendered": {
+                      "text": "TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_graceful_kill_timeout** sets promotion timeout from TERM to QUIT signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **worker_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - *",
+                      "markdown": "`TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_graceful_kill_timeout** sets promotion timeout from TERM to QUIT signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **worker_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal interval in seconds (default: 10) [dynamic reloadable]\n  - *`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 492,
+                  "startColumn": 51,
+                  "endLine": 492,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "rker_graceful_kill_interval** sets the first interval of TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_graceful_kill_timeout** sets promotion timeout from TERM to QUIT signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **worker_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal int",
+                    "rendered": {
+                      "text": "rker_graceful_kill_interval** sets the first interval of TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_graceful_kill_timeout** sets promotion timeout from TERM to QUIT signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **worker_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal int",
+                      "markdown": "`rker_graceful_kill_interval** sets the first interval of TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dynamic reloadable]\n  - **worker_graceful_kill_timeout** sets promotion timeout from TERM to QUIT signal in seconds. -1 means no timeout (default: 600) [dynamic reloadable]\n  - **worker_immediate_kill_interval** sets the first interval of QUIT signals in seconds (default: 10) [dynamic reloadable]\n  - **worker_immediate_kill_interval_increment** sets increment of QUIT signal int`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 489,
+                  "startColumn": 37,
+                  "endLine": 489,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [dynamic reloadable]\n  - **worker_heartbeat_interval** sets interval of heartbeats in seconds (default: 1.0) [dynamic reloadable]\n  - **worker_heartbeat_timeout** sets timeout of heartbeat in seconds (default: 180) [dynamic reloadable]\n  - **worker_graceful_kill_interval** sets the first interval of TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dyn",
+                    "rendered": {
+                      "text": "Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [dynamic reloadable]\n  - **worker_heartbeat_interval** sets interval of heartbeats in seconds (default: 1.0) [dynamic reloadable]\n  - **worker_heartbeat_timeout** sets timeout of heartbeat in seconds (default: 180) [dynamic reloadable]\n  - **worker_graceful_kill_interval** sets the first interval of TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dyn",
+                      "markdown": "`Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [dynamic reloadable]\n  - **worker_heartbeat_interval** sets interval of heartbeats in seconds (default: 1.0) [dynamic reloadable]\n  - **worker_heartbeat_timeout** sets timeout of heartbeat in seconds (default: 180) [dynamic reloadable]\n  - **worker_graceful_kill_interval** sets the first interval of TERM signals in seconds (default: 15) [dynamic reloadable]\n  - **worker_graceful_kill_interval_increment** sets increment of TERM signal interval in seconds (default: 10) [dyn`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 485,
+                  "startColumn": 41,
+                  "endLine": 485,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "*start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [dynamic reloadable]\n  - **worker_heartbeat_interval** sets interval of heartbeats in seconds (d",
+                    "rendered": {
+                      "text": "*start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [dynamic reloadable]\n  - **worker_heartbeat_interval** sets interval of heartbeats in seconds (d",
+                      "markdown": "`*start_worker_delay** sets the delay between each worker-start when starting/restarting multiple workers at once (default: 0) [dynamic reloadable]\n  - **start_worker_delay_rand** randomizes start_worker_delay at this ratio (default: 0.2) [dynamic reloadable]\n  - **restart_worker_interval** sets wait time before restarting a stopped worker (default: 0) [dynamic reloadable]\n- Multiprocess server: available only when `worker_type` is \"process\"\n  - **worker_process_name** changes process name ($0) of workers [dynamic reloadable]\n  - **worker_heartbeat_interval** sets interval of heartbeats in seconds (d`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 480,
+                  "startColumn": 36,
+                  "endLine": 480,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "sor after detaching server process instead of restarting it (default: false)\n  - **disable_reload** disables USR2 signal (default: false)\n  - **server_restart_wait** sets wait time before restarting server after last restarting (default: 1.0) [dynamic reloadable]\n  - **server_detach_wait** sets wait time before starting live restart (default: 10.0) [dynamic reloadable]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay bet",
+                    "rendered": {
+                      "text": "sor after detaching server process instead of restarting it (default: false)\n  - **disable_reload** disables USR2 signal (default: false)\n  - **server_restart_wait** sets wait time before restarting server after last restarting (default: 1.0) [dynamic reloadable]\n  - **server_detach_wait** sets wait time before starting live restart (default: 10.0) [dynamic reloadable]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay bet",
+                      "markdown": "`sor after detaching server process instead of restarting it (default: false)\n  - **disable_reload** disables USR2 signal (default: false)\n  - **server_restart_wait** sets wait time before restarting server after last restarting (default: 1.0) [dynamic reloadable]\n  - **server_detach_wait** sets wait time before starting live restart (default: 10.0) [dynamic reloadable]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"spawn\"\n  - **workers** sets number of workers (default: 1) [dynamic reloadable]\n  - **start_worker_delay** sets the delay bet`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 479,
+                  "startColumn": 37,
+                  "endLine": 479,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "or HUP signal. (default: false)\n  - **enable_detach** enables INT signal (default: true)\n  - **exit_on_detach** exits supervisor after detaching server process instead of restarting it (default: false)\n  - **disable_reload** disables USR2 signal (default: false)\n  - **server_restart_wait** sets wait time before restarting server after last restarting (default: 1.0) [dynamic reloadable]\n  - **server_detach_wait** sets wait time before starting live restart (default: 10.0) [dynamic reloadable]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"",
+                    "rendered": {
+                      "text": "or HUP signal. (default: false)\n  - **enable_detach** enables INT signal (default: true)\n  - **exit_on_detach** exits supervisor after detaching server process instead of restarting it (default: false)\n  - **disable_reload** disables USR2 signal (default: false)\n  - **server_restart_wait** sets wait time before restarting server after last restarting (default: 1.0) [dynamic reloadable]\n  - **server_detach_wait** sets wait time before starting live restart (default: 10.0) [dynamic reloadable]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"",
+                      "markdown": "`or HUP signal. (default: false)\n  - **enable_detach** enables INT signal (default: true)\n  - **exit_on_detach** exits supervisor after detaching server process instead of restarting it (default: false)\n  - **disable_reload** disables USR2 signal (default: false)\n  - **server_restart_wait** sets wait time before restarting server after last restarting (default: 1.0) [dynamic reloadable]\n  - **server_detach_wait** sets wait time before starting live restart (default: 10.0) [dynamic reloadable]\n- Multithread server and multiprocess server: available only when `worker_type` is \"thread\" or \"process\" or \"`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 253,
+                  "startColumn": 71,
+                  "endLine": 254,
+                  "snippet": {
+                    "text": "| Supervisor |    |  Server  |----| Worker(s) |\n+------------+    +----------+    +-----------+\n\n# 3. starts new server if the server doesn't exit in server_detach_wait time\n+------------+    +----------+    +-----------+\n| Supervisor |\\   |  Server  |----| Worker(s) |\n+------------+ |  +----------+    +-----------+\n               |\n",
+                    "rendered": {
+                      "text": "| Supervisor |    |  Server  |----| Worker(s) |\n+------------+    +----------+    +-----------+\n\n# 3. starts new server if the server doesn't exit in server_detach_wait time\n+------------+    +----------+    +-----------+\n| Supervisor |\\   |  Server  |----| Worker(s) |\n+------------+ |  +----------+    +-----------+\n               |\n",
+                      "markdown": "`| Supervisor |    |  Server  |----| Worker(s) |\n+------------+    +----------+    +-----------+\n\n# 3. starts new server if the server doesn't exit in server_detach_wait time\n+------------+    +----------+    +-----------+\n| Supervisor |\\   |  Server  |----| Worker(s) |\n+------------+ |  +----------+    +-----------+\n               |\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 240,
+                  "startColumn": 68,
+                  "endLine": 240,
+                  "endColumn": 74,
+                  "snippet": {
+                    "text": "## Live restart\n\nYou can restart a server process without waiting for completion of all workers using `INT` signal (`supervisor: true` and `enable_detach: true` parameters must be enabled).\nThis feature allows you to minimize downtime where workers take long time to complete a task.\n\n```\n# 1. starts server\n",
+                    "rendered": {
+                      "text": "## Live restart\n\nYou can restart a server process without waiting for completion of all workers using `INT` signal (`supervisor: true` and `enable_detach: true` parameters must be enabled).\nThis feature allows you to minimize downtime where workers take long time to complete a task.\n\n```\n# 1. starts server\n",
+                      "markdown": "`## Live restart\n\nYou can restart a server process without waiting for completion of all workers using `INT` signal (`supervisor: true` and `enable_detach: true` parameters must be enabled).\nThis feature allows you to minimize downtime where workers take long time to complete a task.\n\n```\n# 1. starts server\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 156,
+                  "startColumn": 3,
+                  "endLine": 156,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json\n    }\n    script = %[\n      require 'serverengine'\n      require 'json'\n\n",
+                    "rendered": {
+                      "text": "    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json\n    }\n    script = %[\n      require 'serverengine'\n      require 'json'\n\n",
+                      "markdown": "`    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json\n    }\n    script = %[\n      require 'serverengine'\n      require 'json'\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 3,
+                  "endLine": 153,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "```ruby\nmodule MyWorker\n  def spawn(process_manager)\n    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json\n    }\n    script = %[\n",
+                    "rendered": {
+                      "text": "```ruby\nmodule MyWorker\n  def spawn(process_manager)\n    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json\n    }\n    script = %[\n",
+                      "markdown": "````ruby\nmodule MyWorker\n  def spawn(process_manager)\n    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json\n    }\n    script = %[\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/.github/workflows/windows.yml"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 20,
+                  "endLine": 33,
+                  "snippet": {
+                    "text": "    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - name: Add Fiddle 1.1.0\n",
+                    "rendered": {
+                      "text": "    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - name: Add Fiddle 1.1.0\n",
+                      "markdown": "`    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - name: Add Fiddle 1.1.0\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/.github/workflows/windows.yml"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 27,
+                  "endLine": 29,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "            # * https://github.com/oneclick/rubyinstaller2/blob/8225034c22152d8195bc0aabc42a956c79d6c712/lib/ruby_installer/build/dll_directory.rb\n            ruby-lib-opt: RUBYLIB=%RUNNER_TOOL_CACHE%/Ruby/3.0.3/x64/lib/ruby/gems/3.0.0/gems/fiddle-1.1.0/lib\n\n    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n",
+                    "rendered": {
+                      "text": "            # * https://github.com/oneclick/rubyinstaller2/blob/8225034c22152d8195bc0aabc42a956c79d6c712/lib/ruby_installer/build/dll_directory.rb\n            ruby-lib-opt: RUBYLIB=%RUNNER_TOOL_CACHE%/Ruby/3.0.3/x64/lib/ruby/gems/3.0.0/gems/fiddle-1.1.0/lib\n\n    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n",
+                      "markdown": "`            # * https://github.com/oneclick/rubyinstaller2/blob/8225034c22152d8195bc0aabc42a956c79d6c712/lib/ruby_installer/build/dll_directory.rb\n            ruby-lib-opt: RUBYLIB=%RUNNER_TOOL_CACHE%/Ruby/3.0.3/x64/lib/ruby/gems/3.0.0/gems/fiddle-1.1.0/lib\n\n    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/.github/workflows/windows.yml"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 16,
+                  "endLine": 20,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "        include:\n          - ruby: '3.0.3'\n            os: windows-latest\n            # On Ruby 3.0, we need to use fiddle 1.0.8 or later to retrieve correct\n            # error code. In addition, we have to specify the path of fiddle by RUBYLIB\n            # because RubyInstaller loads Ruby's bundled fiddle before initializing gem.\n            # See also:\n",
+                    "rendered": {
+                      "text": "        include:\n          - ruby: '3.0.3'\n            os: windows-latest\n            # On Ruby 3.0, we need to use fiddle 1.0.8 or later to retrieve correct\n            # error code. In addition, we have to specify the path of fiddle by RUBYLIB\n            # because RubyInstaller loads Ruby's bundled fiddle before initializing gem.\n            # See also:\n",
+                      "markdown": "`        include:\n          - ruby: '3.0.3'\n            os: windows-latest\n            # On Ruby 3.0, we need to use fiddle 1.0.8 or later to retrieve correct\n            # error code. In addition, we have to specify the path of fiddle by RUBYLIB\n            # because RubyInstaller loads Ruby's bundled fiddle before initializing gem.\n            # See also:\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/examples/server.rb"
+                },
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 3,
+                  "endLine": 98,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "\nmodule MySpawnWorker\n  def spawn(process_manager)\n    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json,\n      'SERVER_ENGINE_SOCKET_MANAGER_PATH' => server.socket_manager_path,\n    }\n",
+                    "rendered": {
+                      "text": "\nmodule MySpawnWorker\n  def spawn(process_manager)\n    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json,\n      'SERVER_ENGINE_SOCKET_MANAGER_PATH' => server.socket_manager_path,\n    }\n",
+                      "markdown": "`\nmodule MySpawnWorker\n  def spawn(process_manager)\n    env = {\n      'SERVER_ENGINE_CONFIG' => config.to_json,\n      'SERVER_ENGINE_SOCKET_MANAGER_PATH' => server.socket_manager_path,\n    }\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/.github/workflows/linux.yml"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 20,
+                  "endLine": 21,
+                  "snippet": {
+                    "text": "    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - name: Install dependencies\n",
+                    "rendered": {
+                      "text": "    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - name: Install dependencies\n",
+                      "markdown": "`    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n        uses: ruby/setup-ruby@v1\n        with:\n          ruby-version: ${{ matrix.ruby }}\n      - name: Install dependencies\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/ruby3.2-serverengine-2.3.2-r4.apk/ruby3.2-serverengine-2.3.2-r4/usr/lib/ruby/gems/3.2.0/gems/serverengine-2.3.2/.github/workflows/linux.yml"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 27,
+                  "endLine": 17,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "        ruby: [ '3.2', '3.1', '3.0', '2.7' ]\n        os:\n          - ubuntu-latest\n    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n",
+                    "rendered": {
+                      "text": "        ruby: [ '3.2', '3.1', '3.0', '2.7' ]\n        os:\n          - ubuntu-latest\n    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n",
+                      "markdown": "`        ruby: [ '3.2', '3.1', '3.0', '2.7' ]\n        os:\n          - ubuntu-latest\n    name: Unit testing with Ruby ${{ matrix.ruby }} on ${{ matrix.os }}\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Ruby\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libice-1.1.1-r3.apk ∴ /usr/lib/libICE.so.6.3.0 [🔥 HIGH]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                       EVIDENCE            
+------------------------------------------------------------------------------------------------------
+LOW   env/HOME                  Looks up the HOME directory for the current user  HOME                
+                                                                                  getenv              
+LOW   fs/directory/create       creates directories                               mkdir               
+LOW   fs/file/delete            deletes files                                     unlink              
+LOW   fs/permission/chown       May change file ownership                         fchown              
+LOW   fs/permission/modify      modifies file permissions                         fchmod              
+LOW   kernel/hostname/get       get computer host name                            gethostname         
+LOW   kernel/platform           system identification                             uname               
+LOW   net/hostport/parse        Network address and service translation           freeaddrinfo        
+                                                                                  getaddrinfo         
+LOW   net/ip/resolve            resolves network hosts via IP address             gethostbyaddr       
+LOW   net/socket/listen         listen on a socket                                accept              
+                                                                                  listen              
+                                                                                  socket              
+LOW   net/socket/local/address  get local address of connected socket             getsockname         
+LOW   net/socket/peer/address   get peer address of connected socket              getpeername         
+MED   net/ip/parse              parses IP address (IPv4 or IPv6)                  inet_pton           
+MED   net/ip/string             converts IP address from byte to string           inet_ntop           
+MED   ref/path/tmp              path reference within /tmp                        /tmp/.ICE-unix/     
+MED   ui/x11/auth               X Window System client authentication             MIT-MAGIC-COOKIE-1  
+HIGH  ref/path/hidden           hidden path in a system directory                 /tmp/.ICE           
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libice-1.1.1-r3.apk ∴ /var/lib/db/sbom/libice-1.1.1-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/47fa286a6ba4…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,415 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/encode.rb [⚠️ MEDIUM]
+------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE              
+------------------------------------------------------------------------
+MED   fs/file/read  opens a binary file for read  open(filename, 'rb')  
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/http.rb [✅ LOW]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2     Works with bzip2 files       bzip2                                                       
+LOW   compression/gzip      works with gzip files        gzip                                                        
+LOW   encoding/json/decode  Decodes JSON messages        JSON.parse                                                  
+LOW   ref/site/url          contains embedded HTTP URLs  http://localhost/yajl-ruby.git/benchmark/subjects/contact…  
+                                                         http://search.twitter.com/search.json?q=github              
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/parse.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/parse_json_and_marshal.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/parse_json_and_yaml.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/parse_stream.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/subjects/ohai.json [✅ LOW]
+------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                 EVIDENCE   
+------------------------------------------------------------------------------------
+LOW   net/ip/multicast/send  send data to multiple nodes simultaneously  multicast  
+LOW   net/socket/listen      listen on a socket                          accept     
+                                                                         socket     
+LOW   net/socket/send        send a message to a socket                  send       
+                                                                         socket     
+------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /benchmark/subjects/twitter_stream.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------
+LOW   ref/words/password     references a 'password'          com password                                                
+MED   net/download           download files                   download_normal                                             
+                                                              downloading                                                 
+MED   ref/site/php           accesses hardcoded PHP endpoint  /index.php?pg=kb                                            
+                                                              /profile.php?id=1264913620                                  
+                                                              /profile.php?id=525091711                                   
+                                                              /shop.php?user_id=6101001                                   
+MED   ref/words/agent        references an 'agent'            agents                                                      
+MED   ref/words/exclamation  gets very excited                ASK ME!!                                                    
+                                                              Asian Chick in the arena just set a Guiness World Record!!  
+                                                              Boyninog Check me out !!                                    
+                                                              Good game so far!!!                                         
+                                                              Hehe lol idk!!!                                             
+                                                              I just wanna be Successfull!!                               
+                                                              Just disappear!!!!                                          
+                                                              MUSiC FiENN !!                                              
+                                                              …                                                           
+MED   ref/words/infected     References being 'infected'      infected                                                    
+--------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /examples/http/twitter_search_api.rb [✅ LOW]
+-------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                  
+-------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://search.twitter.com/search.json?q=  
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /examples/http/twitter_stream_api.rb [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE              
+-------------------------------------------------------------------------
+LOW   compression/gzip    works with gzip files    gzip                  
+LOW   ref/words/password  references a 'password'  rb username password  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /ext/yajl/extconf.rb [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                      EVIDENCE                                  
+-----------------------------------------------------------------------------------------------------------------------------
+LOW   crypto/aes                  Supports AES (Advanced Encryption Standard)      AES                                       
+LOW   encoding/base64             Supports base64 encoded strings                  base64                                    
+LOW   fs/directory/create         creates directories                              mkdir                                     
+LOW   fs/file/write               writes to a file                                 open("ff.bat","w")                        
+                                                                                   open("random.bat","w")                    
+                                                                                   open("xcrypttttttttt.FCRYYYYYY.bat","w")  
+MED   data/embedded/base64/terms  Contains base64 content                          odG1s::$html                              
+MED   data/embedded/base64/url    Contains base64 url                              aHR0cHM6Ly::$https                        
+                                                                                   odHRwOi8v::$http                          
+                                                                                   odHRwczovL::$https                        
+MED   net/icmp                    Uses the ping tool to generate ICMP packets      ping -n 3 127.0.0.1                       
+MED   process/taskkill            kills tasks and/or processes                     taskkill                                  
+MED   ref/words/infected          References being 'infected'                      INFECTED                                  
+                                                                                   infected                                  
+HIGH  combo/stealer/office        Accesses Ofice documents, encrypts and archives  AES                                       
+                                                                                   base64                                    
+                                                                                   docx                                      
+                                                                                   pdf                                       
+                                                                                   ppt                                       
+                                                                                   rtf                                       
+                                                                                   txt                                       
+                                                                                   xls                                       
+                                                                                   …                                         
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /ext/yajl/yajl_encode.c [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                           EVIDENCE        
+----------------------------------------------------------------------------------
+MED   evasion/bitwise_math  uses bitwise math in both directions  c >> 4          
+                                                                  odepoint >> 12  
+                                                                  odepoint >> 18  
+                                                                  odepoint >> 6   
+                                                                  val << 4        
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /ext/yajl/yajl_ext.c [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://github.com/brianmario  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /ext/yajl/yajl_ext.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://github.com/brianmario  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /ext/yajl/yajl_lex.c [✅ LOW]
+---------------------------------------------------------
+RISK  KEY                   DESCRIPTION        EVIDENCE  
+---------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math  har >> 3  
+                                               har >> 4  
+                                               har >> 5  
+                                               har >> 6  
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+LOW   compression/gzip   works with gzip files   gzip      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/bzip2.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/bzip2/stream_reader.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/bzip2/stream_writer.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/gzip.rb [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   compression/gzip  works with gzip files  gzip      
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/gzip/stream_reader.rb [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   compression/gzip  works with gzip files  gzip      
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/gzip/stream_writer.rb [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   compression/gzip  works with gzip files  gzip      
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/http_stream.rb [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE                           
+----------------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2         Works with bzip2 files                             bzip2                              
+LOW   compression/gzip          works with gzip files                              gzip                               
+LOW   fd/write                  writes to a file handle                            socket.write(request)              
+LOW   net/http/accept/encoding  set HTTP response encoding format (example: gzip)  Accept-Encoding                    
+LOW   net/http/request          makes HTTP requests                                HTTP/1.                            
+                                                                                   User-Agent                         
+MED   net/http/form/upload      upload content via HTTP form                       POST                               
+                                                                                   application/json                   
+                                                                                   application/x-www-form-urlencoded  
+MED   net/http/post             submits content to websites                        Content-Type                       
+                                                                                   HTTP                               
+                                                                                   POST                               
+MED   net/url/encode            encodes URL, likely to pass GET variables          urlencode                          
+----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /lib/yajl/json_gem.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /script/bootstrap [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY            DESCRIPTION                EVIDENCE  
+----------------------------------------------------------
+LOW   process/chdir  changes working directory  cd "$     
+MED   shell/exec     executes shell             /bin/sh   
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/http/http_delete_spec.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+LOW   compression/gzip   works with gzip files   gzip      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/http/http_error_spec.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+LOW   compression/gzip   works with gzip files   gzip      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/http/http_get_spec.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+LOW   compression/gzip   works with gzip files   gzip      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/http/http_post_spec.rb [⚠️ MEDIUM]
+----------------------------------------------------------------
+RISK  KEY                DESCRIPTION                  EVIDENCE  
+----------------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files       bzip2     
+LOW   compression/gzip   works with gzip files        gzip      
+MED   net/http/post      submits content to websites  HTTP      
+                                                      POST      
+                                                      http      
+----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/http/http_put_spec.rb [✅ LOW]
+-----------------------------------------------------------
+RISK  KEY                DESCRIPTION             EVIDENCE  
+-----------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files  bzip2     
+LOW   compression/gzip   works with gzip files   gzip      
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/http/http_stream_options_spec.rb [✅ LOW]
+-----------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                  EVIDENCE           
+-----------------------------------------------------------------------
+LOW   net/socket/send  send a message to a socket   send               
+                                                    socket             
+LOW   ref/site/url     contains embedded HTTP URLs  http://google.com  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/json_gem_compatibility/compatibility_spec.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/active_support_spec.rb [✅ LOW]
+---------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                  
+---------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://test.host/posts/1  
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.contacts.json [✅ LOW]
+----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                         
+----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://abernathycummerata.uk/    
+                                                 http://ankundingsporer.co.uk/    
+                                                 http://armstrong.info/           
+                                                 http://aufderhar.info/           
+                                                 http://balistrerigerhold.co.uk/  
+                                                 http://bartell.ca/               
+                                                 http://bashirian.ca/             
+                                                 http://baumbach.info/            
+                                                 …                                
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.json-org-sample4-nows.json [✅ LOW]
+--------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE           
+--------------------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select             
+LOW   ref/words/password  references a 'password'            dataStorePassword  
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.json-org-sample4.json [✅ LOW]
+--------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE           
+--------------------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select             
+LOW   ref/words/password  references a 'password'            dataStorePassword  
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.numbers-int-4k.json [⚠️ MEDIUM]
+-------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                   EVIDENCE  
+-------------------------------------------------------------------
+MED   ref/words/leetspeak  References 1337 terminology'  1337      
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.numbers-int-64k.json [⚠️ MEDIUM]
+-------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                   EVIDENCE  
+-------------------------------------------------------------------
+MED   ref/words/leetspeak  References 1337 terminology'  1337      
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.twitter-search.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION        EVIDENCE                                 
+-----------------------------------------------------------------------------------------
+MED   ref/words/exclamation  gets very excited  s book about how to use twitter RULES!!  
+                                                t WAIT for your Twitter App!!            
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass.yelp.json [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url           contains embedded HTTP URLs  http://mobile.yelp.com/biz/3K82F5PA3OSU8-LzWDfgHg?srid=qf…  
+                                                          http://mobile.yelp.com/biz/3K82F5PA3OSU8-LzWDfgHg?srid=sZ…  
+                                                          http://mobile.yelp.com/biz/3K82F5PA3OSU8-LzWDfgHg?srid=t6…  
+                                                          http://mobile.yelp.com/biz/5Ebc8-ecaLuaLDjKnmY7eg?srid=Bz…  
+                                                          http://mobile.yelp.com/biz/5Ebc8-ecaLuaLDjKnmY7eg?srid=Es…  
+                                                          http://mobile.yelp.com/biz/5Ebc8-ecaLuaLDjKnmY7eg?srid=PL…  
+                                                          http://mobile.yelp.com/biz/7-dAb6BdjgJE_KHTX9CNGA?srid=6A…  
+                                                          http://mobile.yelp.com/biz/7-dAb6BdjgJE_KHTX9CNGA?srid=6R…  
+                                                          …                                                           
+MED   ref/words/exclamation  gets very excited            New and much cooler cocktail menu!!                         
+                                                          The vibe here is spooky!!                                   
+----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/fixtures/pass1.json [✅ LOW]
+-----------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE              
+-----------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.JSON.org/  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/large_number_spec.rb [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                             EVIDENCE   
+-------------------------------------------------------------------------------
+MED   techniques/code_eval  evaluate code dynamically using exec()  exec(cmd)  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/parsing/one_off_spec.rb [✅ LOW]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                            
+------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/brianmario/yajl-ruby/issues/176  
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/projection/project_file.rb [✅ LOW]
+-----------------------------------------------------------------
+RISK  KEY           DESCRIPTION            EVIDENCE              
+-----------------------------------------------------------------
+LOW   fs/file/read  opens a file for read  open(file_path, 'r')  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/yajl-ruby.zip ∴ /spec/projection/projection.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+---------------------------------------------------------------
+

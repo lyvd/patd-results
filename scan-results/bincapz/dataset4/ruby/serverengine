@@ -1,0 +1,347 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /Rakefile [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /examples/server.rb [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                         EVIDENCE      
+---------------------------------------------------------------------------
+LOW   net/socket/listen  listen on a socket                  listen        
+                                                             socket        
+LOW   random/insecure    generate random numbers insecurely  rand          
+MED   process/name/get   get the current process name        process_name  
+MED   ref/daemon         Run as a background daemon          daemonize     
+                                                             mydaemon      
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /examples/spawn_worker_script.rb [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  JSON.parse  
+LOW   net/socket/listen     listen on a socket     listen      
+                                                   socket      
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine.rb [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                  EVIDENCE                                    
+----------------------------------------------------------------------------------------------
+LOW   fs/file/write  writes to a file             open(a,"w")                                 
+LOW   ref/site/url   contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/daemon     Run as a background daemon   daemon                                      
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/blocking_flag.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/command_sender.rb [✅ LOW]
+------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                  EVIDENCE                                    
+------------------------------------------------------------------------------------------------
+LOW   net/socket/send  send a message to a socket   _send                                       
+LOW   ref/site/url     contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/config_loader.rb [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/daemon    Run as a background daemon   daemon                                      
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/daemon.rb [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                   EVIDENCE                                    
+--------------------------------------------------------------------------------------------------
+LOW   ref/site/url      contains embedded HTTP URLs   http://www.apache.org/licenses/LICENSE-2.0  
+MED   persist/pid_file  pid file, likely DIY daemon   write_pid_file                              
+MED   process/name/get  get the current process name  process_name                                
+MED   ref/daemon        Run as a background daemon    daemonize                                   
+                                                      windows_daemon                              
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/daemon_logger.rb [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                  EVIDENCE                                    
+----------------------------------------------------------------------------------------------
+LOW   fs/file/write  writes to a file             open(filename, 'a')                         
+LOW   ref/site/url   contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/embedded_server.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/multi_process_server.rb [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                   EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   process/create       create child process          fork                                        
+LOW   ref/site/url         contains embedded HTTP URLs   http://www.apache.org/licenses/LICENSE-2.0  
+MED   process/name/get     get the current process name  process_name                                
+MED   ref/words/heartbeat  references a 'heartbeat'      auto_heartbeat: true                        
+                                                         enable_heartbeat: true                      
+                                                         on_heartbeat_error:                         
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/multi_spawn_server.rb [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                                    
+----------------------------------------------------------------------------------------------------
+LOW   process/create       create child process         fork                                        
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/words/heartbeat  references a 'heartbeat'     enable_heartbeat: false                     
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/multi_thread_server.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/multi_worker_server.rb [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                         EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------
+LOW   random/insecure  generate random numbers insecurely  rand                                        
+LOW   ref/site/url     contains embedded HTTP URLs         http://www.apache.org/licenses/LICENSE-2.0  
+MED   ref/daemon       Run as a background daemon          daemon                                      
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/privilege.rb [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                    EVIDENCE                                    
+-----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs    http://www.apache.org/licenses/LICENSE-2.0  
+MED   group/lookup  get entry from group database  setgrent                                    
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/process_manager.rb [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                            EVIDENCE                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   env/TERM             Look up or override terminal settings  TERM                                        
+LOW   fd/write             writes to a file handle                command_sender_pipe.write(command)          
+LOW   net/socket/send      send a message to a socket             send                                        
+                                                                  socket                                      
+LOW   ref/site/url         contains embedded HTTP URLs            http://www.apache.org/licenses/LICENSE-2.0  
+MED   process/taskkill     kills tasks and/or processes           taskkill                                    
+MED   ref/words/heartbeat  references a 'heartbeat'               :auto_heartbeat                             
+                                                                  :heartbeat_timeout                          
+                                                                  attr_accessor :last_heartbeat_time          
+                                                                  attr_reader :enable_heartbeat               
+                                                                  check heartbeat timeout                     
+                                                                  class HeartbeatThread                       
+                                                                  def heartbeat_delay                         
+                                                                  enable_heartbeat:                           
+                                                                  …                                           
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/server.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/signal_thread.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/signals.rb [✅ LOW]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                            EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------
+LOW   env/TERM      Look up or override terminal settings  TERM                                        
+LOW   ref/site/url  contains embedded HTTP URLs            http://www.apache.org/licenses/LICENSE-2.0  
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/socket_manager.rb [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                             EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64             Supports base64 encoded strings         base64                                                      
+LOW   encoding/json/decode        Decodes JSON messages                   JSON.parse                                                  
+LOW   net/socket/listen           listen on a socket                      listen                                                      
+                                                                          socket                                                      
+LOW   net/socket/receive          receive a message to a socket           recv                                                        
+                                                                          socket                                                      
+LOW   net/socket/send             send a message to a socket              send                                                        
+                                                                          socket                                                      
+LOW   ref/site/url                contains embedded HTTPS URLs            https://docs.microsoft.com/en-us/troubleshoot/windows-ser…  
+MED   combo/recon/system_network  invasive recon val                      ipaddr                                                      
+MED   net/socket/connect          initiate a connection on a socket       connect                                                     
+MED   net/stat                    Uses 'netstat' for network information  netstat -na | findstr                                       
+MED   ref/ip_port                 mentions an IP and port                 Port                                                        
+                                                                          bind_ip                                                     
+                                                                          dynamic_port                                                
+                                                                          end_port                                                    
+                                                                          excluded_port                                               
+                                                                          start_port                                                  
+--------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/socket_manager_unix.rb [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------
+LOW   net/socket/listen   listen on a socket                 accept                                      
+                                                             listen                                      
+                                                             socket                                      
+LOW   net/socket/receive  receive a message to a socket      recv                                        
+                                                             socket                                      
+LOW   net/socket/send     send a message to a socket         send                                        
+                                                             socket                                      
+LOW   ref/site/url        contains embedded HTTP URLs        http://www.apache.org/licenses/LICENSE-2.0  
+MED   net/socket/connect  initiate a connection on a socket  connect                                     
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/socket_manager_win.rb [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                    EVIDENCE                                    
+-------------------------------------------------------------------------------------------------------------
+LOW   net/socket/listen           listen on a socket             accept                                      
+                                                                 listen                                      
+                                                                 socket                                      
+LOW   net/socket/receive          receive a message to a socket  recv                                        
+                                                                 socket                                      
+LOW   net/socket/send             send a message to a socket     send                                        
+                                                                 socket                                      
+LOW   ref/site/url                contains embedded HTTP URLs    http://www.apache.org/licenses/LICENSE-2.0  
+MED   combo/recon/system_network  invasive recon val             ipaddr                                      
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/supervisor.rb [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                   EVIDENCE                                    
+-----------------------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTP URLs   http://www.apache.org/licenses/LICENSE-2.0  
+MED   process/name/get     get the current process name  process_name                                
+MED   ref/daemon           Run as a background daemon    windows_daemon                              
+MED   ref/words/heartbeat  references a 'heartbeat'      auto_heartbeat: true                        
+                                                         enable_heartbeat: true                      
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/utils.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/winsock.rb [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                   EVIDENCE                                  
+-------------------------------------------------------------------------------------------------
+LOW   net/socket/listen  listen on a socket            listen                                    
+                                                       socket                                    
+LOW   ref/site/url       contains embedded HTTPS URLs  https://bugs.ruby-lang.org/issues/17813   
+                                                       https://github.com/ruby/fiddle/issues/72  
+MED   net/ip/parse       parses IP address             inet_addr                                 
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /lib/serverengine/worker.rb [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/daemon_logger_spec.rb [✅ LOW]
+-------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION               EVIDENCE  
+-------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit  waitpid   
+LOW   fs/directory/create      creates directories       mkdir     
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/daemon_spec.rb [⚠️ MEDIUM]
+------------------------------------------------------------------
+RISK  KEY             DESCRIPTION                 EVIDENCE        
+------------------------------------------------------------------
+LOW   process/create  create child process        fork            
+MED   ref/daemon      Run as a background daemon  daemonize       
+                                                  windows_daemon  
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/multi_process_server_spec.rb [✅ LOW]
+------------------------------------------------------
+RISK  KEY             DESCRIPTION           EVIDENCE  
+------------------------------------------------------
+LOW   process/create  create child process  fork      
+------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/multi_spawn_server_spec.rb [✅ LOW]
+---------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                         EVIDENCE  
+---------------------------------------------------------------------
+LOW   process/create   create child process                fork      
+LOW   random/insecure  generate random numbers insecurely  rand      
+---------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/server_worker_context.rb [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                 EVIDENCE        
+---------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories                         mkdir           
+LOW   fs/file/open         opens files                                 open(           
+LOW   fs/lock/update       apply or remove an advisory lock on a file  flock           
+MED   fs/file/times/set    change file timestamps                      touch           
+MED   ref/daemon           Run as a background daemon                  windows_daemon  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/signal_thread_spec.rb [✅ LOW]
+------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                
+------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bugs.ruby-lang.org/issues/9835  
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/socket_manager_spec.rb [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                             EVIDENCE                              
+--------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                           unlink                                
+LOW   net/socket/listen   listen on a socket                      accept                                
+                                                                  listen                                
+                                                                  socket                                
+LOW   net/socket/receive  receive a message from a socket         recvfrom                              
+LOW   net/socket/send     send a message to a socket              send                                  
+                                                                  socket                                
+MED   ref/path/tmp        references an unusual path within /tmp  /tmp/SERVERENGINE_SOCKETMANAGER_      
+                                                                  /tmp/foo/SERVERENGINE_SOCKETMANAGER_  
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/supervisor_spec.rb [⚠️ MEDIUM]
+------------------------------------------------------------------
+RISK  KEY             DESCRIPTION                 EVIDENCE        
+------------------------------------------------------------------
+LOW   process/create  create child process        fork            
+MED   ref/daemon      Run as a background daemon  start_daemon    
+                                                  windows_daemon  
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/ruby/serverengine.zip ∴ /spec/winsock_spec.rb [✅ LOW]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bugs.ruby-lang.org/issues/17813                     
+                                                  https://github.com/oneclick/rubyinstaller2/blob/8225034c2…  
+                                                  https://github.com/ruby/fiddle/issues/72                    
+--------------------------------------------------------------------------------------------------------------
+

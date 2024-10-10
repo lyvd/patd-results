@@ -1,0 +1,48 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/make-4.4.1-r3.apk ∴ /usr/bin/make [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                           
+--------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                               
+                                                                                 getenv                             
+LOW   env/SHELL                path to active shell                              SHELL                              
+LOW   env/TMPDIR               TMPDIR                                            TMPDIR                             
+                                                                                 getenv                             
+LOW   exec/program/background  wait for process to exit                          waitpid                            
+LOW   fs/fifo/create           make a FIFO special file (a named pipe)           mkfifo                             
+LOW   fs/file/delete           deletes files                                     unlink                             
+LOW   fs/file/delete/forcibly  Forcibly deletes files                            rm -f $                            
+LOW   fs/file/truncate         truncate a file to a specified length             ftruncate                          
+LOW   fs/link/read             read value of a symbolic link                     readlink                           
+LOW   fs/symlink/resolve       resolves symbolic links                           realpath                           
+LOW   fs/tempdir               looks up location of temp directory               TMPDIR                             
+LOW   process/username/get     get login name                                    getlogin                           
+LOW   ref/site/url             contains embedded HTTPS URLs                      https://gnu.org/licenses/gpl.html  
+MED   dylib/symbol/address     get the address of a symbol                       dlsym                              
+MED   exec/program             executes external programs                        execvp                             
+MED   exec/shell_echo          program generates text with echo command          echo recipes.                      
+MED   fs/file/copy             copy files using cp                               cp $                               
+MED   fs/file/times/set        change file timestamps                            touch %s                           
+                                                                                 touch on                           
+MED   fs/permission/modify     modifies file permissions                         chmod                              
+MED   shell/exec               executes shell                                    /bin/sh                            
+MED   tty/pathname             returns the pathname of a terminal device         ttyname                            
+HIGH  combo/dropper/binary     executable makes another file executable          chmod a+x $@                       
+                                                                                 https:                             
+HIGH  fs/file/make_executable  executable makes another file executable          chmod a+x $@                       
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/make-4.4.1-r3.apk ∴ /usr/include/gnumake.h [✅ LOW]
+---------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                       
+---------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://www.gnu.org/licenses/  
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/make-4.4.1-r3.apk ∴ /var/lib/db/sbom/make-4.4.1-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/5f001583552c…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

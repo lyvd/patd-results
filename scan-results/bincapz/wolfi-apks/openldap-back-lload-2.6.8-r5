@@ -1,0 +1,39 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openldap-back-lload-2.6.8-r5.apk ∴ /usr/lib/openldap/lloadd.so.2.0.200 [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                      EVIDENCE                
+-----------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete              deletes files                                    unlink                  
+LOW   net/dns/servers             Examines local DNS servers                       resolv.conf             
+LOW   net/hostport/parse          Network address and service translation          freeaddrinfo            
+                                                                                   getaddrinfo             
+LOW   net/socket/listen           listen on a socket                               accept                  
+                                                                                   listen                  
+                                                                                   socket                  
+LOW   net/socket/send             send a message to a socket                       send                    
+                                                                                   socket                  
+LOW   ref/path/etc                path reference within /etc                       /etc/openldap/lloadd.…  
+                                                                                   /etc/resolv.conf        
+LOW   ref/path/etc/resolv.conf    accesses DNS resolver configuration              /etc/resolv.conf        
+LOW   ref/path/var                path reference within /var                       /var/lib/openldap/run…  
+LOW   secrets/private_key         References private keys                          privateKey              
+MED   combo/recon/system_network  basic recon                                      hostname                
+                                                                                   id                      
+                                                                                   whoami                  
+MED   kernel/module/load          Load Linux kernel module                         init_module             
+MED   net/ip/string               converts IP address from byte to string          inet_ntop               
+MED   net/reuseport               reuse TCP/IP ports for listening and connecting  SO_REUSEADDR            
+MED   persist/pid_file            pid file, likely DIY daemon                      slapd_pid_file          
+MED   process/username/get        returns the user name running this process       whoami                  
+MED   ref/daemon                  Run as a background daemon                       lload_daemon            
+                                                                                   lloadd_daemon           
+                                                                                   start_daemon            
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openldap-back-lload-2.6.8-r5.apk ∴ /var/lib/db/sbom/openldap-back-lload-2.6.8-r5.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

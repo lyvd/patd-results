@@ -1,0 +1,41 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pciutils-dev-3.10.0-r1.apk ∴ /usr/include/pci/config.h [🔥 HIGH]
+------------------------------------------------------------
+RISK  KEY             DESCRIPTION                 EVIDENCE  
+------------------------------------------------------------
+MED   ref/path/dev    path reference within /dev  /dev/mem  
+HIGH  kernel/dev/mem  access raw system memory    /dev/mem  
+------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pciutils-dev-3.10.0-r1.apk ∴ /usr/include/pci/header.h [🔥 HIGH]
+---------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE    
+---------------------------------------------------------------------------------------
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x00000001  
+                                                                           0x00000002  
+                                                                           0x00000004  
+                                                                           0x00000007  
+                                                                           0x00000008  
+                                                                           0x0000000f  
+                                                                           0x00000010  
+                                                                           0x0000001f  
+                                                                           …           
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pciutils-dev-3.10.0-r1.apk ∴ /usr/include/pci/pci.h [🔥 HIGH]
+-------------------------------------------------------------
+RISK  KEY             DESCRIPTION                 EVIDENCE   
+-------------------------------------------------------------
+MED   ref/path/dev    path reference within /dev  /dev/bus0  
+                                                  /dev/mem   
+                                                  /dev/pci0  
+HIGH  kernel/dev/mem  access raw system memory    /dev/mem   
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pciutils-dev-3.10.0-r1.apk ∴ /var/lib/db/sbom/pciutils-dev-3.10.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/45f444d568ea…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

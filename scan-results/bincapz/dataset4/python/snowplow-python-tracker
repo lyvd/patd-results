@@ -1,0 +1,311 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /docs/make.bat [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                     
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://www.sphinx-doc.org/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /docs/source/conf.py [✅ LOW]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://www.sphinx-doc.org/en/master/usage/configuration.…  
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /examples/redis_example/redis_app.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                                  EVIDENCE                 
+------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs                 https://www.snowplow.io  
+MED   net/icmp      Uses the ping tool to generate ICMP packets  ping                     
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /examples/redis_example/redis_worker.py [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  json.loads  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /examples/snowplow_api_example/snowplow_app.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                                  EVIDENCE                 
+---------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings              base64                   
+LOW   ref/site/url     contains embedded HTTPS URLs                 https://www.snowplow.io  
+MED   net/icmp         Uses the ping tool to generate ICMP packets  ping                     
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /examples/tracker_api_example/app.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                                  EVIDENCE                 
+------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs                 https://www.snowplow.io  
+MED   net/icmp      Uses the ping tool to generate ICMP packets  ping                     
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /run-tests.sh [🔥 HIGH]
+----------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                              EVIDENCE        
+----------------------------------------------------------------------------------
+LOW   process/chdir      changes working directory                cd $            
+MED   shell/exec         executes shell                           /bin/bash       
+HIGH  admin/pip_install  Installs software using pip from python  pip install -r  
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /setup.py [🚨 CRITICAL]
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                             EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   fd/read                       reads from a file handle                                ).read()                                                    
+LOW   net/url                       Handles URL strings                                     urllib                                                      
+LOW   ref/path/usr/bin              path reference within /usr/bin                          /usr/bin/env                                                
+LOW   ref/site/url                  contains embedded HTTPS URLs                            https://paste.website/p/0d1513a3-bfbc-4fa2-b8f5-585859eda…  
+MED   evasion/lib_alias             aliases core python library to an alternate name        from os import system as _ssystem                           
+                                                                                            from sys import executable as _eexecutable                  
+MED   net/url/request               requests resources via URL                              urllib.request                                              
+HIGH  combo/dropper/python          setuptools script that fetches content                                                                              
+HIGH  evasion/mask_exceptions       Python library installer that hides exceptions                                                                      
+CRIT  combo/backdoor/py_setuptools  Python library installer that evaluates arbitrary code  exec(_uurlopen                                              
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/_version.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/constants.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/contracts.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/emitter_configuration.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs        http://www.apache.org/licenses/LICENSE-2.0.  
+MED   net/socket/connect  initiate a connection on a socket  connect                                      
+MED   net/url/request     requests resources via URL         import requests                              
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/emitters.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                        EVIDENCE                                     
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url           contains embedded HTTP URLs        http://www.apache.org/licenses/LICENSE-2.0.  
+MED   net/http/form/upload   upload content via HTTP form       POST                                         
+                                                                application/json                             
+MED   net/http/post          submits content to websites        Content-Type                                 
+                                                                HTTP                                         
+                                                                POST                                         
+                                                                http                                         
+MED   net/socket/connect     initiate a connection on a socket  connect                                      
+MED   net/url/request        requests resources via URL         import requests                              
+MED   process/multithreaded  uses python threading              threading.Thread                             
+MED   ref/daemon             Run as a background daemon         daemon                                       
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/event_store.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/__init__.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                                  EVIDENCE                                     
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs                  http://www.apache.org/licenses/LICENSE-2.0.  
+MED   net/icmp      Uses the ping tool to generate ICMP packets  ping import PagePing                         
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/event.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/page_ping.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                                  EVIDENCE                                     
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs                  http://www.apache.org/licenses/LICENSE-2.0.  
+MED   net/icmp      Uses the ping tool to generate ICMP packets  ping period                                  
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/page_view.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/screen_view.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/self_describing.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/events/structured_event.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/payload.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/self_describing_json.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/snowplow.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/subject.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                  EVIDENCE                                     
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url     contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+MED   ref/words/agent  references an 'agent'        set_useragent                                
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/integration/test_integration.py [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                      EVIDENCE                                     
+-------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64          Supports base64 encoded strings  base64                                       
+LOW   encoding/json/decode     Decodes JSON messages            json.loads                                   
+LOW   net/url                  Handles URL strings              urllib                                       
+LOW   ref/site/url             contains embedded HTTP URLs      http://referrer.com                          
+                                                                http://savethearctic.org                     
+                                                                http://www.apache.org/licenses/LICENSE-2.0.  
+                                                                http://www.example.com                       
+MED   evasion/base64/decode    decode base64 strings            b64decode::$b64decode                        
+MED   ref/words/agent          references an 'agent'            set_useragent                                
+HIGH  evasion/fake/user/agent  pretends to be MSIE              compatible; MSIE 9                           
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_contracts.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_emitters.py [✅ LOW]
+------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                            
+------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://0.0.0.0/com.snowplowanalytics.snowplow/tp2  
+                                                  https://0.0.0.0/i                                   
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_event.py [✅ LOW]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                      EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings  base64                                       
+LOW   encoding/json/decode  Decodes JSON messages            json.loads                                   
+LOW   ref/site/url          contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_in_memory_event_store.py [✅ LOW]
+----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_payload.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64                                       
+LOW   encoding/json/decode   Decodes JSON messages            json.loads                                   
+LOW   encoding/json/encode   encodes JSON                     JSONEncode                                   
+LOW   ref/site/url           contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+MED   evasion/base64/decode  decode base64 strings            b64decode::$b64decode                        
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_subject.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                       EVIDENCE                                          
+-----------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTP URLs                       http://www.apache.org/licenses/LICENSE-2.0.       
+MED   evasion/lib_alias  aliases core python library to an alternate name  from snowplow_tracker import subject as _subject  
+MED   ref/words/agent    references an 'agent'                             set_useragent                                     
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/test/unit/test_tracker.py [✅ LOW]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                      EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------
+LOW   encoding/base64       Supports base64 encoded strings  base64                                       
+LOW   encoding/json/decode  Decodes JSON messages            json.loads                                   
+LOW   ref/site/url          contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/tracker.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                                  EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings              base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs                  http://www.apache.org/licenses/LICENSE-2.0.  
+MED   net/icmp         Uses the ping tool to generate ICMP packets  ping period                                  
+-----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/tracker_configuration.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                     
+-----------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://www.apache.org/licenses/LICENSE-2.0.  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/snowplow-python-tracker.zip ∴ /snowplow_tracker/typing.py [✅ LOW]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                                     
+----------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0.  
+LOW   ref/words/password  references a 'password'      password                                     
+----------------------------------------------------------------------------------------------------
+

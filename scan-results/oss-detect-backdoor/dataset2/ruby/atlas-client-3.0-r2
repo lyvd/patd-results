@@ -1,0 +1,203 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset2/ruby/atlas-client-3.0-r2.apk/atlas-client-3.0-r2/home/cg/specifications/atlas-client-0.0.2.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 26,
+                  "endLine": 2,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: atlas-client 0.0.2 ruby lib\n# stub: ext/trellislike/unflaming/waffling/extconf.rb\n\nGem::Specification.new do |s|\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: atlas-client 0.0.2 ruby lib\n# stub: ext/trellislike/unflaming/waffling/extconf.rb\n\nGem::Specification.new do |s|\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: atlas-client 0.0.2 ruby lib\n# stub: ext/trellislike/unflaming/waffling/extconf.rb\n\nGem::Specification.new do |s|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset2/ruby/atlas-client-3.0-r2.apk/atlas-client-3.0-r2/home/cg/gems/atlas-client-0.0.2/ext/trellislike/unflaming/waffling/extconf.rb"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 9,
+                  "endLine": 1,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n",
+                    "rendered": {
+                      "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n",
+                      "markdown": "`require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset2/ruby/atlas-client-3.0-r2.apk/atlas-client-3.0-r2/home/cg/cache/atlas-client-0.0.2.gem/checksums.yaml.gz/checksums.yaml"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 15,
+                  "endLine": 7,
+                  "endColumn": 145,
+                  "snippet": {
+                    "text": "  data.tar.gz: 77f875b9d8949742b0ce1aaf1eefa2e7f43d323c06b305a53948dd9eec3e24ef\nSHA512:\n  metadata.gz: cccd5764262cfa324e470dd634db553e40c67c7bc15a7c5285c54545d5a9ccf9a3725695a419839ae7199102d28b218e55f7684f08e0ae2f96bf3a31cd7cca9c\n  data.tar.gz: '098db188357ad6ef03a50c4985dadfb0c446a28cda814269b8732e2b868d03fd5ae7f6b65229e141ebb8d889384660e4b3f6287b4cceb340dcd7bd3dd13f3f55'\n",
+                    "rendered": {
+                      "text": "  data.tar.gz: 77f875b9d8949742b0ce1aaf1eefa2e7f43d323c06b305a53948dd9eec3e24ef\nSHA512:\n  metadata.gz: cccd5764262cfa324e470dd634db553e40c67c7bc15a7c5285c54545d5a9ccf9a3725695a419839ae7199102d28b218e55f7684f08e0ae2f96bf3a31cd7cca9c\n  data.tar.gz: '098db188357ad6ef03a50c4985dadfb0c446a28cda814269b8732e2b868d03fd5ae7f6b65229e141ebb8d889384660e4b3f6287b4cceb340dcd7bd3dd13f3f55'\n",
+                      "markdown": "`  data.tar.gz: 77f875b9d8949742b0ce1aaf1eefa2e7f43d323c06b305a53948dd9eec3e24ef\nSHA512:\n  metadata.gz: cccd5764262cfa324e470dd634db553e40c67c7bc15a7c5285c54545d5a9ccf9a3725695a419839ae7199102d28b218e55f7684f08e0ae2f96bf3a31cd7cca9c\n  data.tar.gz: '098db188357ad6ef03a50c4985dadfb0c446a28cda814269b8732e2b868d03fd5ae7f6b65229e141ebb8d889384660e4b3f6287b4cceb340dcd7bd3dd13f3f55'\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset2/ruby/atlas-client-3.0-r2.apk/atlas-client-3.0-r2/home/cg/cache/atlas-client-0.0.2.gem/data.tar.gz/data.tar/ext/trellislike/unflaming/waffling/extconf.rb"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 9,
+                  "endLine": 1,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n",
+                    "rendered": {
+                      "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n",
+                      "markdown": "`require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset2/ruby/atlas-client-3.0-r2.apk/atlas-client-3.0-r2/home/cg/cache/atlas-client-0.0.2.gem/metadata.gz/metadata"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 9,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "name: atlas-client\nversion: !ruby/object:Gem::Version\n  version: 0.0.2\nplatform: ruby\nauthors:\n- Chris Aitchison\nautorequire: \nbindir: bin\n",
+                    "rendered": {
+                      "text": "name: atlas-client\nversion: !ruby/object:Gem::Version\n  version: 0.0.2\nplatform: ruby\nauthors:\n- Chris Aitchison\nautorequire: \nbindir: bin\n",
+                      "markdown": "`name: atlas-client\nversion: !ruby/object:Gem::Version\n  version: 0.0.2\nplatform: ruby\nauthors:\n- Chris Aitchison\nautorequire: \nbindir: bin\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

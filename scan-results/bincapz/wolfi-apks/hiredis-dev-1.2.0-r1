@@ -1,0 +1,53 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/hiredis-dev-1.2.0-r1.apk ∴ /usr/include/hiredis/adapters/glib.h [⚠️ MEDIUM]
+-----------------------------------------------------------
+RISK  KEY                    DESCRIPTION        EVIDENCE   
+-----------------------------------------------------------
+MED   ref/words/exclamation  gets very excited  return !!  
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/hiredis-dev-1.2.0-r1.apk ∴ /usr/include/hiredis/adapters/libuv.h [✅ LOW]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                   
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/libuv/libuv/blob/v0.11.23/include/uv.h  
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/hiredis-dev-1.2.0-r1.apk ∴ /usr/include/hiredis/hiredis.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                      EVIDENCE      
+------------------------------------------------------------------------------------------
+MED   net/reuseport        reuse TCP/IP ports for listening and connecting  SO_REUSEADDR  
+MED   ref/words/intercept  References interception                          intercept     
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/hiredis-dev-1.2.0-r1.apk ∴ /usr/include/hiredis/hiredis_ssl.h [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY                  DESCRIPTION              EVIDENCE     
+-----------------------------------------------------------------
+LOW   secrets/private_key  References private keys  PRIVATE_KEY  
+                                                    private_key  
+MED   exec/shell_command   execute a shell command  system       
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/hiredis-dev-1.2.0-r1.apk ∴ /usr/include/hiredis/sockcompat.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                              EVIDENCE      
+---------------------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors        select        
+LOW   net/hostport/parse  Network address and service translation  freeaddrinfo  
+                                                                   getaddrinfo   
+LOW   net/socket/receive  receive a message to a socket            recv          
+                                                                   socket        
+LOW   net/socket/send     send a message to a socket               send          
+                                                                   socket        
+MED   net/socket/connect  initiate a connection on a socket        connect       
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/hiredis-dev-1.2.0-r1.apk ∴ /var/lib/db/sbom/hiredis-dev-1.2.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/4fd82cd50c6f…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,45 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/clamav-1.3-dev-1.3.1-r0.apk ∴ /usr/bin/clamav-config [⚠️ MEDIUM]
+--------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE  
+--------------------------------------------
+MED   shell/exec  executes shell  /bin/sh   
+--------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/clamav-1.3-dev-1.3.1-r0.apk ∴ /usr/include/clamav.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                          EVIDENCE       
+------------------------------------------------------------------------------
+LOW   encoding/base64     Supports base64 encoded strings      base64         
+LOW   fs/file/open        opens files                          open(          
+LOW   fs/tempdir          looks up location of temp directory  TMPDIR         
+LOW   hash/md5            Uses the MD5 signature format        MD5_HASH_SIZE  
+LOW   hash/sha1           Uses the SHA1 signature format       SHA1_          
+LOW   hash/sha256         Uses the SHA256 signature format     SHA256_        
+MED   ref/words/infected  References being 'infected'          infected       
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/clamav-1.3-dev-1.3.1-r0.apk ∴ /usr/include/libfreshclam.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                            EVIDENCE                              
+-------------------------------------------------------------------------------------------------------
+LOW   fs/tempfile/create  Uses mktemp to create temporary files  temp file                             
+LOW   ref/words/password  references a 'password'                proxyPassword                         
+MED   fs/file/times/set   change file timestamps                 touch files other than CLD and        
+MED   net/download        download files                         Whole file download                   
+                                                                 callback Download Complete            
+                                                                 fc_error_t fc_download_url_databases  
+                                                                 fc_set_fccb_download_complete         
+                                                                 has been downloaded or updated        
+                                                                 of download attempts                  
+MED   net/fetch           Invokes curl                           curl transfer operation               
+                                                                 curl with                             
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/clamav-1.3-dev-1.3.1-r0.apk ∴ /var/lib/db/sbom/clamav-1.3-dev-1.3.1-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/f5887c54ee45…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

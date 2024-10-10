@@ -1,0 +1,23 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/dbus-x11-1.15.2-r3.apk ∴ /usr/bin/dbus-launch [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE              
+-------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                  
+                                                                                 getenv                
+LOW   env/SHELL                path to active shell                              SHELL                 
+LOW   exec/program/background  wait for process to exit                          waitpid               
+LOW   fs/directory/create      creates directories                               mkdir                 
+LOW   ref/path/usr/bin         path reference within /usr/bin                    /usr/bin/dbus-daemon  
+MED   exec/program             executes external programs                        execlp                
+                                                                                 execvp                
+MED   ref/daemon               Run as a background daemon                        dbus-daemon           
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/dbus-x11-1.15.2-r3.apk ∴ /var/lib/db/sbom/dbus-x11-1.15.2-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/2da02af74473…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

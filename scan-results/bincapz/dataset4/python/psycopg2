@@ -1,0 +1,1060 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/Makefile [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                          DESCRIPTION                                          EVIDENCE                             
+-----------------------------------------------------------------------------------------------------------------------------
+MED   evasion/single_line_imports  imports built-in and executes more code on the same  import sys;                          
+                                   line                                                                                      
+MED   fs/file/copy                 copy files using cp                                  cp -r src/_build/html .              
+MED   fs/file/delete/forcibly      Forcibly deletes files recursively                   rm -rf html src/sqlstate_errors.rst  
+HIGH  admin/pip_install            Installs software using pip from python              pip install -r                       
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/advanced.rst [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                        EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------
+LOW   net/socket/listen     listen on a socket                 accept                                                      
+                                                               listen                                                      
+                                                               socket                                                      
+LOW   net/socket/send       send a message to a socket         send                                                        
+                                                               socket                                                      
+LOW   ref/site/url          contains embedded HTTPS URLs       https://en.wikipedia.org/wiki/Coroutine                     
+                                                               https://en.wikipedia.org/wiki/Green_threads                 
+                                                               https://eventlet.net/                                       
+                                                               https://github.com/psycopg/psycogreen/                      
+                                                               https://pypi.org/project/greenlet/                          
+                                                               https://www.postgresql.org/docs/current/static/datatype-g…  
+                                                               https://www.postgresql.org/docs/current/static/libpq-asyn…  
+                                                               https://www.postgresql.org/docs/current/static/libpq-conn…  
+                                                               …                                                           
+LOW   ref/words/plugin      references a 'plugin'              output_plugin                                               
+MED   databases/postgresql  accesses PostgreSQL databases      postgresql                                                  
+MED   net/socket/connect    initiate a connection on a socket  connect                                                     
+---------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/conf.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://docs.python.org/3                                   
+                                                           https://github.com/psycopg/psycopg2/issues/                 
+                                                           https://www.postgresql.org/docs/current/static/transactio…  
+                                                           https://www.python.org/dev/peps/pep-0249/                   
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+MED   net/interface/list    list network interfaces        ifconfig                                                    
+MED   ref/path/dev          path reference within /dev     /dev/peps/pep-0249/                                         
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/connection.rst [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://docs.python.org/3.1/c-api/capsule.html              
+                                                           https://jdbc.postgresql.org/                                
+                                                           https://www.postgresql.org/docs/current/static/libpq-canc…  
+                                                           https://www.postgresql.org/docs/current/static/libpq-conn…  
+                                                           https://www.postgresql.org/docs/current/static/libpq-stat…  
+                                                           https://www.postgresql.org/docs/current/static/lo-interfa…  
+                                                           https://www.postgresql.org/docs/current/static/multibyte.…  
+                                                           https://www.postgresql.org/docs/current/static/runtime-co…  
+                                                           …                                                           
+LOW   ref/words/password    references a 'password'        password                                                    
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/cursor.rst [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/sql-createfunctio…  
+                                                           https://www.postgresql.org/docs/current/sql-createprocedu…  
+                                                           https://www.postgresql.org/docs/current/static/sql-copy.h…  
+                                                           https://www.postgresql.org/docs/current/static/sql-create…  
+                                                           https://www.postgresql.org/docs/current/static/sql-declar…  
+                                                           https://www.postgresql.org/docs/current/static/sql-insert…  
+LOW   time/tzinfo           Uses timezone information      tzinfo                                                      
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/extensions.rst [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete        deletes files                  unlink                                                      
+LOW   net/socket/listen     listen on a socket             accept                                                      
+                                                           socket                                                      
+LOW   net/socket/send       send a message to a socket     send                                                        
+                                                           socket                                                      
+LOW   ref/site/url          contains embedded HTTPS URLs   https://docs.python.org/library/codecs.html                 
+                                                           https://www.postgresql.org/docs/current/static/catalog-pg…  
+                                                           https://www.postgresql.org/docs/current/static/datatype-n…  
+                                                           https://www.postgresql.org/docs/current/static/encryption…  
+                                                           https://www.postgresql.org/docs/current/static/libpq-conn…  
+                                                           https://www.postgresql.org/docs/current/static/libpq-exec…  
+                                                           https://www.postgresql.org/docs/current/static/libpq-misc…  
+                                                           https://www.postgresql.org/docs/current/static/lo-interfa…  
+                                                           …                                                           
+LOW   ref/words/password    references a 'password'        PQencryptPasswordConn                                       
+                                                           com password                                                
+                                                           encrypt_password                                            
+                                                           needs_password                                              
+                                                           of a PostgreSQL password                                    
+                                                           param password                                              
+                                                           password_encryption                                         
+                                                           postgres password                                           
+                                                           …                                                           
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+MED   exec/shell_command    execute a shell command        system                                                      
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/extras.rst [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                        EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages              json.loads                                                  
+LOW   ref/site/url          contains embedded HTTPS URLs       https://github.com/psycopg/psycopg2/issues/491              
+                                                               https://pypi.org/project/ujson/                             
+                                                               https://www.json.org/                                       
+                                                               https://www.postgresql.org/docs/current/static/datatype-j…  
+                                                               https://www.postgresql.org/docs/current/static/functions-…  
+                                                               https://www.postgresql.org/docs/current/static/hstore.html  
+                                                               https://www.postgresql.org/docs/current/static/protocol-r…  
+                                                               https://www.postgresql.org/docs/current/static/rangetypes…  
+                                                               …                                                           
+LOW   ref/words/plugin      references a 'plugin'              of the logical decoding output plugin to be                 
+                                                               param output_plugin                                         
+                                                               passed to the logical decoding plugin                       
+                                                               plugins                                                     
+MED   databases/postgresql  accesses PostgreSQL databases      postgresql                                                  
+MED   net/socket/connect    initiate a connection on a socket  connect                                                     
+MED   ref/site/php          accesses hardcoded PHP endpoint    http://people.planetpostgresql.org/andrew/index.php?        
+---------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /doc/src/tools/make_sqlstate_docs.py [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   fs/file/open      opens files                     open(         
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/__init__.py [🚨 CRITICAL]
+----------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                       EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64           Supports base64 encoded strings                   base64                                                      
+LOW   ref/site/url              contains embedded HTTPS URLs                      https://archives.postgresql.org/psycopg/2011-02/msg00044.…  
+                                                                                  https://psycopg.org/                                        
+                                                                                  https://www.postgresql.org/                                 
+                                                                                  https://www.python.org/                                     
+LOW   ref/words/password        references a 'password'                           postgres password                                           
+MED   3P/threat_hunting/py2exe  references 'py2exe' tool, by mthcht               py2exe                                                      
+MED   databases/postgresql      accesses PostgreSQL databases                     postgresql                                                  
+MED   evasion/base64/decode     decode base64 strings                             b64decode::$b64decode                                       
+MED   evasion/lib_alias         aliases core python library to an alternate name  from psycopg2 import extensions as _ext                     
+MED   net/socket/connect        initiate a connection on a socket                 _connect                                                    
+MED   ref/site/php              accesses hardcoded PHP endpoint                   https://archives.postgresql.org/psycopg/2011-02/msg00044.…  
+MED   techniques/code_eval      evaluate code dynamically using exec()            exec(b                                                      
+CRIT  evasion/base64/eval       Evaluates base64 content                          b64decode                                                   
+                                                                                  exec(                                                       
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/_ipaddress.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/static/datatype-n…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/_json.py [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  json.loads  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/errorcodes.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/static/errcodes-a…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/extensions.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                   EVIDENCE                                   
+---------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs  https://www.python.org/dev/peps/pep-0246/  
+LOW   ref/words/password  references a 'password'       encrypt_password                           
+MED   ref/path/dev        path reference within /dev    /dev/peps/pep-0246/                        
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/extras.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                                 lsn >> 32                                                   
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://docs.python.org/glossary.html                       
+                                                                              https://docs.python.org/library/logging.html                
+                                                                              https://docs.python.org/library/uuid.html                   
+                                                                              https://www.postgresql.org/docs/current/static/datatype-u…  
+                                                                              https://www.postgresql.org/docs/current/static/queries-va…  
+LOW   ref/words/plugin      references a 'plugin'                             cannot specify output plugin options                        
+                                                                              if output_plugin is None                                    
+                                                                              output plugin name is                                       
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                                                  
+MED   evasion/lib_alias     aliases core python library to an alternate name  from psycopg2 import extensions as _ext                     
+------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/pool.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                       EVIDENCE                                 
+---------------------------------------------------------------------------------------------------------------------
+MED   evasion/lib_alias   aliases core python library to an alternate name  from psycopg2 import extensions as _ext  
+MED   net/socket/connect  initiate a connection on a socket                 _connect                                 
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/sql.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/docs/current/static/sql-syntax…  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                                                  
+MED   evasion/lib_alias     aliases core python library to an alternate name  from psycopg2 import extensions as ext                      
+------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /lib/tz.py [✅ LOW]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://docs.python.org/library/datetime.html  
+LOW   time/tzinfo   Uses timezone information     tzinfo                                         
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/adapter_datetime.c [✅ LOW]
+--------------------------------------------------------
+RISK  KEY          DESCRIPTION                EVIDENCE  
+--------------------------------------------------------
+LOW   time/tzinfo  Uses timezone information  tzinfo    
+--------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/adapter_datetime.h [✅ LOW]
+--------------------------------------------------------
+RISK  KEY          DESCRIPTION                EVIDENCE  
+--------------------------------------------------------
+LOW   time/tzinfo  Uses timezone information  tzinfo    
+--------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/adapter_list.c [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE    
+-----------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/column_type.c [⚠️ MEDIUM]
+-------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE  
+-------------------------------------------------------------
+MED   exec/shell_command  execute a shell command  system    
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/config.h [✅ LOW]
+------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                       
+------------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  for the gcc cpychecker plugin  
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/connection.h [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE               
+----------------------------------------------------------------------------------
+LOW   ref/words/password    references a 'password'        conn_obscure_password  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql             
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/connection_int.c [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                           
+----------------------------------------------------------------------------------------------
+LOW   ref/words/password    references a 'password'        conn_obscure_password              
+                                                           include_password                   
+                                                           string with the password replaced  
+                                                           string with the password scrubbed  
+                                                           t have a password                  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                         
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/connection_type.c [⚠️ MEDIUM]
+--------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE               
+--------------------------------------------------------------------------------
+LOW   ref/words/password    references a 'password'      conn_obscure_password  
+                                                         include_password       
+MED   process/multiprocess  uses python multiprocessing  multiprocessing        
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/conninfo_type.c [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/libpq-connect.html  
+                                                           https://www.postgresql.org/docs/current/static/libpq-stat…  
+LOW   ref/words/password    references a 'password'        PQconnectionUsedPassword                                    
+                                                           char needs_password_doc                                     
+                                                           const char password_doc                                     
+                                                           const char used_password_doc                                
+                                                           include_password                                            
+                                                           method used a password                                      
+                                                           needs_password_get                                          
+                                                           required a password                                         
+                                                           …                                                           
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/cursor.h [✅ LOW]
+--------------------------------------------------------
+RISK  KEY          DESCRIPTION                EVIDENCE  
+--------------------------------------------------------
+LOW   time/tzinfo  Uses timezone information  tzinfo    
+--------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/cursor_type.c [✅ LOW]
+--------------------------------------------------------
+RISK  KEY          DESCRIPTION                EVIDENCE  
+--------------------------------------------------------
+LOW   time/tzinfo  Uses timezone information  tzinfo    
+--------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/diagnostics_type.c [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                         
+------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/static/  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                       
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/error_type.c [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/static/errcodes-a…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/green.h [✅ LOW]
+------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                        EVIDENCE               
+------------------------------------------------------------------------------
+LOW   fd/multiplex  monitor multiple file descriptors  select                 
+LOW   ref/site/url  contains embedded HTTPS URLs       https://eventlet.net/  
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/libpq_support.c [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                         EVIDENCE  
+------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                                   i >> 32   
+MED   net/ip/byte/order     convert values between host and network byte order  htonl     
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/lobject.h [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/lobject_int.c [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/lobject_type.c [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/microprotocols.h [⚠️ MEDIUM]
+-------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE  
+-------------------------------------------------------------
+MED   exec/shell_command  execute a shell command  system    
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/pqpath.c [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                        EVIDENCE    
+---------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                  fmod >> 16  
+LOW   fd/multiplex          monitor multiple file descriptors  select      
+LOW   net/socket/listen     listen on a socket                 accept      
+                                                               socket      
+LOW   net/socket/send       send a message to a socket         send        
+                                                               socket      
+MED   databases/postgresql  accesses PostgreSQL databases      postgresql  
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/psycopg.h [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE    
+-----------------------------------------------------------------------
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/psycopgmodule.c [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                        EVIDENCE                     
+--------------------------------------------------------------------------------------------
+LOW   ref/words/password    references a 'password'            PQencryptPasswordConn        
+                                                               define encrypt_password_doc  
+                                                               include_password             
+                                                               of a PostgreSQL password     
+                                                               password encryption          
+                                                               the encrypted password form  
+MED   databases/postgresql  accesses PostgreSQL databases      postgresql                   
+MED   net/socket/connect    initiate a connection on a socket  _connect                     
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/python.h [✅ LOW]
+---------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                         
+---------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://docs.python.org/3.10/whatsnew/3.10.html  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/replication_connection_type.c [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/sqlstate_errors.h [✅ LOW]
+--------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE         
+--------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  InvalidPassword  
+--------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/typecast.h [⚠️ MEDIUM]
+-------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE  
+-------------------------------------------------------------
+MED   exec/shell_command  execute a shell command  system    
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/typecast_binary.c [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math              c << 4                                                      
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/docs/current/static/datatype-b…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/typecast_datetime.c [✅ LOW]
+--------------------------------------------------------
+RISK  KEY          DESCRIPTION                EVIDENCE  
+--------------------------------------------------------
+LOW   time/tzinfo  Uses timezone information  tzinfo    
+--------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/utils.c [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE              
+-------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  int include_password  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/utils.h [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE              
+-------------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  int include_password  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/win32_support.c [⚠️ MEDIUM]
+-------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE  
+-------------------------------------------------------------
+MED   exec/shell_command  execute a shell command  system    
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /psycopg/xid_type.c [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64                                                      
+LOW   ref/site/url           contains embedded HTTP URLs      http://cvs.pgfoundry.org/cgi-bin/cvsweb.cgi/jdbc/pgjdbc/o…  
+MED   databases/postgresql   accesses PostgreSQL databases    postgresql                                                  
+MED   evasion/base64/decode  decode base64 strings            b64decode::$b64decode                                       
+--------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/appveyor.py [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                            DESCRIPTION                                          EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode           Decodes JSON messages                                json.loads                                              
+LOW   env/get                        Retrieve environment variable values                 os.environ["WORKFLOW"]                                  
+                                                                                          os.environ['PATH']                                      
+LOW   fd/read                        reads from a file handle                             f.read()                                                
+LOW   fd/write                       writes to a file handle                              f.write(data)                                           
+                                                                                          fo.write(data)                                          
+LOW   fs/directory/create            creates directories                                  mkdir                                                   
+LOW   fs/file/delete                 deletes files                                        os.remove(                                              
+LOW   fs/file/open                   opens files                                          open(                                                   
+LOW   fs/file/write                  writes to a file                                     open("config.pl", 'w')                                  
+                                                                                          open(fn, "w")                                           
+LOW   net/url                        Handles URL strings                                  urllib                                                  
+LOW   ref/path/usr/bin               path reference within /usr/bin                       /usr/bin/env                                            
+LOW   ref/site/url                   contains embedded HTTPS URLs                         https://github.com/openssl/openssl/archive/             
+                                                                                          https://github.com/postgres/postgres/archive/REL_       
+                                                                                          https://wiki.python.org/moin/WindowsCompilers           
+                                                                                          https://www.appveyor.com/docs/windows-images-software/  
+MED   data/embedded/pem/private_key  Contains RSA PRIVATE KEY directive                   PRIVATE KEY-----                                        
+MED   databases/postgresql           accesses PostgreSQL databases                        postgresql                                              
+MED   evasion/single_line_imports    imports built-in and executes more code on the same  import psycopg2;                                        
+                                     line                                                 import sys;                                             
+                                                                                          import tests;                                           
+MED   exec/program                   execute external program                             subprocess                                              
+MED   fs/directory/traverse          traverse filesystem hierarchy                        os.walk                                                 
+MED   net/download                   download files                                       Download OpenSSL source                                 
+                                                                                          Download a file locally                                 
+                                                                                          def download                                            
+                                                                                          downloading                                             
+                                                                                          file downloaded                                         
+MED   net/http/post                  submits content to websites                          POST                                                    
+                                                                                          http                                                    
+MED   net/ssh                        Uses SSH (secure shell) service                      SSH                                                     
+MED   net/upload                     uploads files                                        Upload                                                  
+                                                                                          upload_packages                                         
+                                                                                          uploading                                               
+MED   net/url/request                requests resources via URL                           urllib.request                                          
+MED   secrets/ssh                    accesses SSH configuration and/or keys               .ssh                                                    
+HIGH  admin/pip_install              Installs software using pip from python              pip install --upgrade                                   
+                                                                                          pip', 'install', '--no-index                            
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/build_libpq.sh [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------
+LOW   env/LD_LIBRARY_PATH      ld library path                                 LD_LIBRARY_PATH                                             
+LOW   process/chdir            changes working directory                       cd "${ldap_dir}"                                            
+                                                                               cd "${openssl_dir}"                                         
+                                                                               cd "${postgres_dir}                                         
+                                                                               cd "${sasl_dir}"                                            
+                                                                               cd ..                                                       
+LOW   ref/path/etc             path reference within /etc                      /etc/os-release                                             
+                                                                               /etc/postgresql-common                                      
+LOW   ref/path/var             path reference within /var                      /var/run/postgresql                                         
+LOW   ref/site/url             contains embedded HTTPS URLs                    https://github.com/cyrusimap/cyrus-sasl/archive/            
+                                                                               https://github.com/cyrusimap/cyrus-sasl/releases            
+                                                                               https://github.com/openssl/openssl/archive/                 
+                                                                               https://github.com/postgres/postgres/archive/               
+                                                                               https://github.com/pypa/manylinux/issues/376                
+                                                                               https://openldap.org/software/download/                     
+                                                                               https://www.openldap.org/software/download/OpenLDAP/openl…  
+                                                                               https://www.openssl.org/source/                             
+                                                                               …                                                           
+MED   admin/package/install    install software with yum                       yum install -y zlib-devel krb5-devel pam-de                 
+MED   combo/dropper/shell      may fetch file, make it executable, and run it  ./config --prefix                                           
+                                                                               ./configure --prefix                                        
+                                                                               chmod +x ${LIBPQ_BUILD_PREFIX                               
+                                                                               curl -sL                                                    
+MED   databases/postgresql     accesses PostgreSQL databases                   postgresql                                                  
+MED   exec/shell_command       execute a shell command                         system                                                      
+MED   fs/file/make_executable  makes file executable                           chmod +x $                                                  
+MED   fs/file/times/set        change file timestamps                          touch saslauthd/saslauthd.8                                 
+MED   fs/permission/modify     modifies file permissions                       chmod                                                       
+MED   net/download             download files                                  download                                                    
+MED   net/fetch                executable calls fetch tool                     curl -sL                                                    
+MED   ref/path/relative        references and possibly executes relative path  ./configure                                                 
+MED   ref/path/tmp             path reference within /tmp                      /tmp/libpq.build                                            
+MED   shell/exec               executes shell                                  /bin/bash                                                   
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/build_macos_arm64.sh [🚨 CRITICAL]
+----------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                          DESCRIPTION                                          EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   process/chdir                changes working directory                            cd "${dir}/../../"                                          
+                                                                                        cd /tmp                                                     
+LOW   ref/path/var                 path reference within /var                           /var/log/postgresql                                         
+                                                                                        /var/postgresql                                             
+LOW   ref/site/url                 contains embedded HTTPS URLs                         https://raw.githubusercontent.com/Homebrew/install/master…  
+                                                                                        https://www.python.org/ftp/python/                          
+MED   databases/postgresql         accesses PostgreSQL databases                        postgresql                                                  
+MED   evasion/single_line_imports  imports built-in and executes more code on the same  import tests;                                               
+                                   line                                                                                                             
+MED   net/fetch                    Invokes curl to download a file                      curl -fsSL                                                  
+                                                                                        curl -fsSl -O                                               
+MED   ref/path/tmp                 path reference within /tmp                           /tmp/python-                                                
+MED   ref/path/usr/local           path reference within /usr/local/bin                 /usr/local/bin                                              
+MED   ref/program/sudo             calls sudo                                           sudo installer -pkg /tmp/python-$                           
+                                                                                        sudo user as it is.                                         
+MED   ref/site/download            http dropper url                                     https://raw.githubusercontent.com/Homebrew/install/master…  
+MED   shell/exec                   executes shell                                       /bin/bash -c "$                                             
+HIGH  admin/pip_install            Installs software using pip from python              pip install cibuildwheel                                    
+HIGH  net/fetch/suspicious         high-risk fetch command                              curl -fsSl -O                                               
+HIGH  process/chdir/unusual        changes to an unusual system directory               cd /tmp                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/build_sdist.sh [🔥 HIGH]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                          DESCRIPTION                                          EVIDENCE           
+-----------------------------------------------------------------------------------------------------------
+LOW   process/chdir                changes working directory                            cd "${dir}/../.."  
+MED   evasion/single_line_imports  imports built-in and executes more code on the same  import tests;      
+                                   line                                                                    
+MED   shell/exec                   executes shell                                       /bin/bash          
+HIGH  admin/pip_install            Installs software using pip from python              pip install "      
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/download_packages_appveyor.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                     EVIDENCE                     
+----------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories             mkdir                        
+LOW   ref/path/usr/bin     path reference within /usr/bin  /usr/bin/env                 
+LOW   ref/site/url         contains embedded HTTPS URLs    https://ci.appveyor.com/api  
+MED   net/download         download files                  TOKEN to download artifacts  
+                                                           downloading                  
+                                                           version to download          
+MED   net/upload           uploads files                   upload                       
+MED   net/url/request      requests resources via URL      import requests              
+----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/print_so_versions.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE         
+-----------------------------------------------------------------
+LOW   ref/path/etc  path reference within /etc  /etc/os-release  
+MED   shell/exec    executes shell              /bin/bash        
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/run_build_macos_arm64.sh [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                         EVIDENCE                                 
+------------------------------------------------------------------------------------------------------------
+LOW   process/chdir            changes working directory           cd "$                                    
+LOW   ref/path/etc             path reference within /etc          /etc/sudoers.d/                          
+LOW   ref/site/url             contains embedded HTTPS URLs        https://github.com/psycopg/psycopg2.git  
+LOW   ref/words/password       references a 'password'             asking for password                      
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively  rm -rf                                   
+MED   net/vnc                  vnc user                            :5900                                    
+MED   privesc/sudo             Unusual sudo commands               sudo -S                                  
+MED   ref/program/sudo         calls sudo                          sudo -S --prompt                         
+                                                                   sudo without asking for password.        
+MED   shell/exec               executes shell                      /bin/bash                                
+HIGH  admin/sudoers/edit       references /etc/sudoers             /etc/sudoers                             
+                                                                   NOPASSWD:                                
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/scaleway_m1.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                      EVIDENCE                                                   
+------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs     https://api.scaleway.com/apple-silicon/v1alpha1/zones/     
+                                                             https://www.scaleway.com/en/developers/api/apple-silicon/  
+MED   net/fetch             Invokes curl to download a file  curl -sSL --fail-with-body -X                              
+MED   net/http/form/upload  upload content via HTTP form     POST                                                       
+                                                             application/json                                           
+MED   net/http/post         submits content to websites      Content-Type                                               
+                                                             POST                                                       
+                                                             http                                                       
+MED   net/vnc               vnc user                         :5900                                                      
+MED   shell/exec            executes shell                   /bin/bash                                                  
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/strip_wheel.sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                            EVIDENCE         
+---------------------------------------------------------------------------------------
+LOW   fs/file/delete/forcibly  Forcibly deletes files                 rm -r $          
+LOW   fs/symlink/resolve       resolves symbolic links                realpath         
+LOW   fs/tempfile/create       Uses mktemp to create temporary files  mktemp           
+LOW   process/chdir            changes working directory              cd "${tmpdir}"   
+                                                                      cd -             
+LOW   ref/path/etc             path reference within /etc             /etc/os-release  
+MED   shell/exec               executes shell                         /bin/bash        
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/wheel_linux_before_all.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   process/chdir         changes working directory      cd "${dir}/../.."                                           
+LOW   ref/path/etc          path reference within /etc     /etc/apt/sources.list.d/pgdg.list                           
+                                                           /etc/apt/trusted.gpg.d/postgresql.asc                       
+                                                           /etc/os-release                                             
+LOW   ref/site/url          contains embedded HTTPS URLs   https://www.postgresql.org/media/keys/ACCC4CF8.asc          
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+MED   net/fetch             executable calls fetch tool    curl -skf https://www.postgresql.org/media/keys/ACCC4CF8.…  
+                                                           curl fails on                                               
+MED   shell/exec            executes shell                 /bin/bash                                                   
+-----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/build/wheel_macos_before_all.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE           
+------------------------------------------------------------------------------
+LOW   process/chdir         changes working directory      cd "${dir}/../.."  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql         
+MED   shell/exec            executes shell                 /bin/bash          
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/make_errorcodes.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                     EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/open          opens files                     open(                                                   
+LOW   fs/file/write         writes to a file                open(filename, "w")                                     
+LOW   net/url               Handles URL strings             urllib                                                  
+LOW   ref/path/usr/bin      path reference within /usr/bin  /usr/bin/env                                            
+LOW   ref/site/url          contains embedded HTTPS URLs    https://github.com/postgres/postgres/commit/12f87b2c82  
+MED   databases/postgresql  accesses PostgreSQL databases   postgresql                                              
+MED   net/url/request       requests resources via URL      urllib.request                                          
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/make_errors.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                     EVIDENCE                                            
+----------------------------------------------------------------------------------------------------------------
+LOW   fs/file/open          opens files                     open(                                               
+LOW   fs/file/write         writes to a file                open(filename, "w")                                 
+LOW   net/url               Handles URL strings             urllib                                              
+LOW   ref/path/usr/bin      path reference within /usr/bin  /usr/bin/env                                        
+LOW   ref/site/url          contains embedded HTTP URLs     http://git.postgresql.org/gitweb/?p=postgresql.git  
+MED   databases/postgresql  accesses PostgreSQL databases   postgresql                                          
+MED   net/url/request       requests resources via URL      urllib.request                                      
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /scripts/refcounter.py [🔥 HIGH]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                           EVIDENCE                         
+--------------------------------------------------------------------------------------------------
+LOW   fd/write             writes to a file handle               stdout.write(line)               
+LOW   fs/file/open         opens files                           open(                            
+LOW   ref/path/usr/bin     path reference within /usr/bin        /usr/bin/env                     
+HIGH  evasion/py_builtins  Indirectly refers to Python builtins  getattr(__builtins__, opt.objs)  
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /setup.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                           EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------
+LOW   env/get          Retrieve environment variable values  os.environ['PATH']                          
+LOW   fd/read          reads from a file handle              f.read()                                    
+LOW   fs/file/open     opens files                           open(                                       
+LOW   ref/site/url     contains embedded HTTPS URLs          https://github.com/psycopg/psycopg2/issues  
+                                                             https://psycopg.org/                        
+                                                             https://pypi.org/project/psycopg2/          
+                                                             https://www.psycopg.org/docs/install.html   
+                                                             https://www.psycopg.org/docs/news.html      
+                                                             https://www.python.org/dev/peps/pep-0440/   
+MED   exec/program     execute external program              subprocess.PIPE,                            
+                                                             subprocess.run(                             
+MED   kernel/platform  system platform identification        sys.platform                                
+MED   net/download     download files                        Download                                    
+MED   ref/path/dev     path reference within /dev            /dev/peps/pep-0440/                         
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/__init__.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE      
+---------------------------------------------------------------------------
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/env  
+MED   net/socket/connect  initiate a connection on a socket  connect       
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/dbapi20.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE      
+---------------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/env  
+MED   net/socket/connect  initiate a connection on a socket  _connect      
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/dbapi20_tpc.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_async.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                       EVIDENCE                                
+--------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin    path reference within /usr/bin                    /usr/bin/env                            
+MED   evasion/lib_alias   aliases core python library to an alternate name  from psycopg2 import extensions as ext  
+MED   net/socket/connect  initiate a connection on a socket                 connect                                 
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_bugX000.py [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_bug_gc.py [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE      
+-------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin  path reference within /usr/bin     /usr/bin/env  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_cancel.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                        EVIDENCE          
+----------------------------------------------------------------------------------
+LOW   fd/multiplex           monitor multiple file descriptors  select            
+LOW   ref/path/usr/bin       path reference within /usr/bin     /usr/bin/env      
+MED   process/multithreaded  uses python threading              threading.Thread  
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_connection.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                                
+-------------------------------------------------------------------------------------------------------------------------
+LOW   env/get                  Retrieve environment variable values              os.environ['PGCLIENTENCODING']          
+LOW   fd/multiplex             monitor multiple file descriptors                 select                                  
+LOW   fs/file/open             opens files                                       open(                                   
+LOW   fs/tempdir/create        creates temporary directory                       mkdtemp                                 
+LOW   ref/path/usr/bin         path reference within /usr/bin                    /usr/bin/env                            
+LOW   ref/words/password       references a 'password'                           SHOW password_encryption                
+                                                                                 TestEncryptPassword                     
+                                                                                 c password                              
+                                                                                 class PasswordLeakTestCase              
+                                                                                 def test_needs_password                 
+                                                                                 def test_password                       
+                                                                                 def test_used_password                  
+                                                                                 enc_password                            
+                                                                                 …                                       
+MED   databases/postgresql     accesses PostgreSQL databases                     postgresql                              
+MED   evasion/lib_alias        aliases core python library to an alternate name  from psycopg2 import extensions as ext  
+MED   exec/program             execute external program                          subprocess                              
+MED   kernel/platform          system platform identification                    sys.platform                            
+MED   process/executable_path  gets executable associated to this process        sys.executable                          
+MED   process/multiprocess     uses python multiprocessing                       multiprocessing                         
+MED   process/multithreaded    uses python threading                             threading.Thread                        
+MED   ref/daemon               Run as a background daemon                        daemon                                  
+-------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_copy.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE              
+-------------------------------------------------------------------------------------------------
+LOW   fd/read                  reads from a file handle                    assertEqual(f.read()  
+LOW   fd/write                 writes to a file handle                     f.write(about)        
+                                                                           f.write(data)         
+LOW   ref/path/usr/bin         path reference within /usr/bin              /usr/bin/env          
+MED   exec/program             execute external program                    subprocess            
+MED   process/executable_path  gets executable associated to this process  sys.executable        
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_cursor.py [✅ LOW]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                       
+-------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env                                   
+LOW   ref/site/url      contains embedded HTTPS URLs    https://stackoverflow.com/questions/22019341/  
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_dates.py [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+LOW   time/tzinfo       Uses timezone information       tzinfo        
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_errcodes.py [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_errors.py [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE      
+-------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin  path reference within /usr/bin     /usr/bin/env  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_extras_dictcursor.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE      
+---------------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/env  
+MED   net/socket/connect  initiate a connection on a socket  connect       
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_fast_executemany.py [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE      
+-------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin  path reference within /usr/bin     /usr/bin/env  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_green.py [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE      
+-------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin  path reference within /usr/bin     /usr/bin/env  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_ipaddress.py [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE      
+-------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin  path reference within /usr/bin     /usr/bin/env  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_lobject.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                     EVIDENCE               
+-----------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math               1 << 30                
+                                                            1 << 31                
+                                                            1 << 32                
+LOW   fd/read               reads from a file handle        assertEqual(f.read()   
+                                                            assertEqual(lo.read()  
+LOW   fd/write              writes to a file handle         lo.write(data)         
+LOW   fs/file/delete        deletes files                   unlink                 
+LOW   fs/file/open          opens files                     open(                  
+LOW   fs/tempdir/create     creates temporary directory     mkdtemp                
+LOW   ref/path/usr/bin      path reference within /usr/bin  /usr/bin/env           
+MED   fs/file/read          opens a binary file for read    open(filename, "rb")   
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_module.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE        
+-------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin         path reference within /usr/bin              /usr/bin/env    
+LOW   ref/words/password       references a 'password'                     sony password   
+MED   exec/program             execute external program                    subprocess      
+MED   net/socket/connect       initiate a connection on a socket           _connect        
+MED   process/executable_path  gets executable associated to this process  sys.executable  
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_notify.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE        
+-------------------------------------------------------------------------------------------
+LOW   fd/multiplex             monitor multiple file descriptors           select          
+LOW   ref/path/usr/bin         path reference within /usr/bin              /usr/bin/env    
+MED   exec/program             execute external program                    subprocess      
+MED   net/socket/connect       initiate a connection on a socket           connect         
+MED   process/executable_path  gets executable associated to this process  sys.executable  
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_psycopg2_dbapi20.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE      
+---------------------------------------------------------------------------
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/env  
+MED   net/socket/connect  initiate a connection on a socket  _connect      
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_quote.py [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                     EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin      path reference within /usr/bin  /usr/bin/env                                                
+LOW   ref/site/url          contains embedded HTTPS URLs    https://www.postgresql.org/docs/current/static/runtime-co…  
+                                                            https://www.postgresql.org/docs/current/static/sql-syntax…  
+MED   databases/postgresql  accesses PostgreSQL databases   postgresql                                                  
+------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_replication.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE       
+----------------------------------------------------------------------------
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/env   
+LOW   ref/words/plugin    references a 'plugin'              output_plugin  
+MED   net/socket/connect  initiate a connection on a socket  connect        
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_sql.py [✅ LOW]
+----------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                        EVIDENCE               
+----------------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors  select                 
+LOW   fd/read           reads from a file handle           assertEqual(s1.read()  
+LOW   ref/path/usr/bin  path reference within /usr/bin     /usr/bin/env           
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_transaction.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                     EVIDENCE          
+-------------------------------------------------------------------------------
+LOW   ref/path/usr/bin       path reference within /usr/bin  /usr/bin/env      
+MED   process/multithreaded  uses python threading           threading.Thread  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_types_basic.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE           
+---------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env       
+MED   kernel/platform   system platform identification  platform.system()  
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_types_extras.py [✅ LOW]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                     EVIDENCE                                        
+------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages           json.loads                                      
+LOW   encoding/json/encode  encodes JSON                    JSONEncode                                      
+LOW   ref/path/usr/bin      path reference within /usr/bin  /usr/bin/env                                    
+LOW   ref/site/url          contains embedded HTTPS URLs    https://github.com/psycopg/psycopg2/issues/613  
+LOW   time/tzinfo           Uses timezone information       tzinfo                                          
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/test_with.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE      
+---------------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select        
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/env  
+MED   net/socket/connect  initiate a connection on a socket  connect       
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/testconfig.py [✅ LOW]
+-------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE  
+-------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  password  
+-------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/psycopg2.zip ∴ /tests/testutils.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                                          
+---------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs       https://bugs.python.org/issue9424                 
+                                                             https://github.com/cockroachdb/cockroach/issues/  
+LOW   ref/words/password  references a 'password'            password_encryption                               
+MED   kernel/platform     system platform identification     platform.system()                                 
+MED   net/socket/connect  initiate a connection on a socket  connect                                           
+---------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,46 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/keydb-benchmark-6.3.4-r0.apk ∴ /usr/bin/keydb-benchmark [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                      EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------------
+LOW   fd/epoll                  I/O event notification facility                  epoll_create                                                
+                                                                                 epoll_wait                                                  
+LOW   fs/link/read              read value of a symbolic link                    readlink                                                    
+LOW   kernel/cpu/info           gets number of processors                        get_nprocs                                                  
+LOW   net/hostport/parse        Network address and service translation          freeaddrinfo                                                
+                                                                                 getaddrinfo                                                 
+LOW   net/socket/listen         listen on a socket                               accept                                                      
+                                                                                 listen                                                      
+                                                                                 socket                                                      
+LOW   net/socket/local/address  get local address of connected socket            getsockname                                                 
+LOW   net/socket/peer/address   get peer address of connected socket             getpeername                                                 
+LOW   net/socket/receive        receive a message to a socket                    recv                                                        
+                                                                                 socket                                                      
+LOW   net/socket/send           send a message to a socket                       send                                                        
+                                                                                 socket                                                      
+LOW   process/multithreaded     creates pthreads                                 pthread_create                                              
+LOW   random/insecure           generate random numbers insecurely               _rand                                                       
+LOW   ref/path/etc              path reference within /etc                       /etc/malloc.conf                                            
+LOW   ref/words/password        references a 'password'                          Password for Redis Auth                                     
+                                                                                 password                                                    
+MED   dylib/symbol/address      get the address of a symbol                      dlsym                                                       
+MED   exec/shell_echo           program generates text with echo command         echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse' for Linux and '…  
+MED   fs/permission/modify      modifies file permissions                        chmod                                                       
+MED   kernel/sysinfo            get system information (load, swap)              sysinfo                                                     
+MED   net/ip/string             converts IP address from byte to string          inet_ntop                                                   
+MED   net/reuseport             reuse TCP/IP ports for listening and connecting  SO_REUSEADDR                                                
+                                                                                 SO_REUSEPORT                                                
+MED   procfs/arbitrary/pid      access /proc for arbitrary pids                  /proc/%ld/smaps                                             
+                                                                                 /proc/%ld/stat                                              
+MED   ref/program/sudo          calls sudo                                       sudo sysctl -w net.inet.tcp.msl                             
+MED   ref/words/exclamation     gets very excited                                Deadlock detected !!!                                       
+                                                                                 KeyDB Will Now Crash !!!                                    
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/keydb-benchmark-6.3.4-r0.apk ∴ /var/lib/db/sbom/keydb-benchmark-6.3.4-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/6a6277700a4c…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

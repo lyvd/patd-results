@@ -1,0 +1,36 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/js/plugin-transform-duplicate-keys-99.10.9.tgz ∴ /package/index.js [🚨 CRITICAL]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE                           
+---------------------------------------------------------------------------------------------------------------
+LOW   encoding/json/encode  encodes JSON                                    JSON.stringify                     
+LOW   fd/write              writes to a file handle                         req.write(postData)                
+                                                                            stdout.write(d)                    
+LOW   fs/directory/list     Uses NodeJS functions to list a directory       .readdirSync(                      
+LOW   kernel/hostname/get   get computer host name                          os.hostname()                      
+LOW   net/dns               Uses DNS (Domain Name Service)                  require("dns")                     
+LOW   net/dns/servers       Examines local DNS servers                      dns.getServers                     
+MED   evasion/hex           converts hex data to ASCII                      toString('hex');                   
+MED   net/http/form/upload  upload content via HTTP form                    POST                               
+                                                                            application/x-www-form-urlencoded  
+MED   net/http/post         submits content to websites                     Content-Type                       
+                                                                            POST                               
+                                                                            http                               
+MED   net/interface/list    list network interfaces                         networkInterfaces                  
+MED   net/url/encode        encodes URL, likely to pass GET variables       urlencode                          
+MED   process/userinfo      returns user info for the current process       os.homedir                         
+                                                                            os.userInfo()                      
+MED   ref/path/home         references path within /home                    /home/app/node_modules/            
+                                                                            /home/node                         
+MED   ref/path/relative     references and possibly executes relative path  ./package                          
+MED   ref/path/root         path reference within /root                     /root/node_modules/                
+CRIT  combo/recon/nodejs    accesses system information and uploads it to   hostname: "425a2.rt11.ml",         
+                            hardcoded host                                                                     
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/js/plugin-transform-duplicate-keys-99.10.9.tgz ∴ /package/package.json [✅ LOW]
+---------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE  
+---------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  plugin    
+---------------------------------------------------------
+

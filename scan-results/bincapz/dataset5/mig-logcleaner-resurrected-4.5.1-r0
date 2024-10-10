@@ -1,0 +1,43 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset5/mig-logcleaner-resurrected-4.5.1-r0.apk ∴ /home/cg/mig-logcleaner [🚨 CRITICAL]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                     EVIDENCE                
+------------------------------------------------------------------------------------------------------------
+LOW   ref/path/var                  path reference within /var                      /var/log/lastlog        
+                                                                                    /var/log/wtmp           
+                                                                                    /var/logH               
+                                                                                    /var/run/utmp           
+MED   admin/logs/current_logins     accesses current logins                         /var/log/wtmp           
+MED   exec/shell_command            execute a shell command                         system                  
+MED   exec/shell_echo               program generates text with echo command        echo "cat               
+                                                                                    echo "find %s           
+                                                                                    echo "for F1 in         
+                                                                                    echo "for F2 in         
+                                                                                    echo "if                
+                                                                                    echo "set               
+                                                                                    echo do>>/tmp/mig.sh    
+                                                                                    echo done>>/tmp/mig.sh  
+                                                                                    …                       
+MED   fs/permission/modify          modifies file permissions                       chmod                   
+MED   ref/path/tmp                  path reference within /tmp                      /tmp/F1.tmp             
+                                                                                    /tmp/F2.tmp             
+                                                                                    /tmp/UTMP.TMP           
+                                                                                    /tmp/WTMP.TMP           
+                                                                                    /tmp/dirs.IP            
+                                                                                    /tmp/mig.sh             
+MED   ref/path/var/log              path reference within /var/log                  /var/log/lastlog        
+                                                                                    /var/log/wtmp           
+MED   shell/exec                    executes a shell command                        system                  
+HIGH  admin/logs/historical_logins  accesses historical login records               /var/log/lastlog        
+HIGH  fs/file/make_executable       executable makes another file executable        chmod +x /tmp/mig.sh    
+CRIT  3P/elastic/hacktool/cleanlog  Detects Linux Hacktool Cleanlog                 r entry (default: 1st   
+                                    (Linux.Hacktool.Cleanlog), by Elastic Security                          
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset5/mig-logcleaner-resurrected-4.5.1-r0.apk ∴ /var/lib/db/sbom/mig-logcleaner-resurrected-4.5.1-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/28410cb16b8e…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

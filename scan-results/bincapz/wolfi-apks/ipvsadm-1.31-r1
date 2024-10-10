@@ -1,0 +1,83 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ipvsadm-1.31-r1.apk ∴ /etc/init.d/ipvsadm [🔥 HIGH]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                               EVIDENCE                
+--------------------------------------------------------------------------------------------------
+LOW   fs/file/delete/forcibly   Forcibly deletes files                    rm -f /var/lock/subsy…  
+LOW   ref/path/etc              path reference within /etc                /etc/ipvsadm.rules      
+                                                                          /etc/rc.d/init.d/func…  
+                                                                          /etc/sysconfig/ipvsadm  
+LOW   ref/path/usr/sbin         path reference within /usr/sbin           /usr/sbin/ipvsadm       
+LOW   ref/path/var              path reference within /var                /var/lock/subsys/ipvs…  
+LOW   ref/site/url              contains embedded HTTP URLs               http://www.linuxvirtu…  
+MED   admin/system_directories  Modifies files within system directories  touch /var/lock/subsy…  
+MED   fs/file/times/set         change file timestamps                    touch /var/lock/subsy…  
+MED   shell/exec                executes shell                            /bin/sh                 
+HIGH  fs/file/delete            rm f hardcoded tmp path                   rm -f /var/lock/subsy…  
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ipvsadm-1.31-r1.apk ∴ /usr/sbin/ipvsadm [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE        
+-------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                    waitpid         
+LOW   kernel/netlink           communicate with kernel services            nl_socket       
+LOW   net/hostname/resolve     resolve network host name to IP address     gethostbyname   
+LOW   net/ip/multicast/send    send data to multiple nodes simultaneously  multicast       
+LOW   net/ip/resolve           resolves network hosts via IP address       gethostbyaddr   
+LOW   net/ip/send/unicast      send data to the internet                   unicast         
+LOW   net/socket/send          send a message to a socket                  send            
+                                                                           socket          
+MED   combo/net/scan_tool      may scan networks                           connect         
+                                                                           gethostbyname   
+                                                                           port            
+                                                                           probe           
+                                                                           scan            
+                                                                           socket          
+MED   exec/program             executes external programs                  execv           
+MED   net/ip/parse             parses IP address (IPv4 or IPv6)            inet_pton       
+MED   net/ip/string            converts IP address from byte to string     inet_ntoa       
+                                                                           inet_ntop       
+MED   ref/daemon               Run as a background daemon                  --daemon        
+                                                                           --start-daemon  
+                                                                           --stop-daemon   
+                                                                           get_daemon      
+                                                                           ipvs_daemon     
+                                                                           list_daemon     
+                                                                           start_daemon    
+                                                                           stop_daemon     
+                                                                           …               
+MED   ref/ip_port              mentions an IP and port                     IP              
+                                                                           Port            
+                                                                           to_port         
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ipvsadm-1.31-r1.apk ∴ /usr/sbin/ipvsadm-restore [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                           EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   process/executable_path  sets a custom PATH                    /bin:/sbin      
+                                                                     /bin:/usr/      
+                                                                     PATH            
+MED   ref/path/usr/local       path reference within /usr/local/bin  /usr/local/bin  
+MED   shell/exec               executes shell                        /bin/bash       
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ipvsadm-1.31-r1.apk ∴ /usr/sbin/ipvsadm-save [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                           EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   process/executable_path  sets a custom PATH                    /bin:/sbin      
+                                                                     /bin:/usr/      
+                                                                     PATH            
+MED   ref/path/usr/local       path reference within /usr/local/bin  /usr/local/bin  
+MED   shell/exec               executes shell                        /bin/bash       
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ipvsadm-1.31-r1.apk ∴ /var/lib/db/sbom/ipvsadm-1.31-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

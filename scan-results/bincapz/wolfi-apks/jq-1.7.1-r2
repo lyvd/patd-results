@@ -1,0 +1,34 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/jq-1.7.1-r2.apk ∴ /usr/bin/jq [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                          EVIDENCE                       
+-----------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings                      base64                         
+LOW   env/HOME               Looks up the HOME directory for the current user     HOME                           
+                                                                                  getenv                         
+LOW   fs/symlink/resolve     resolves symbolic links                              realpath                       
+LOW   process/multithreaded  creates pthreads                                     pthread_create                 
+LOW   process/unshare        disassociate parts of the process execution context  unshare                        
+LOW   ref/site/url           contains embedded HTTPS URLs                         https://jqlang.github.io/jq/.  
+MED   exec/shell_echo        program generates text with echo command             echo '                         
+-----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/jq-1.7.1-r2.apk ∴ /usr/lib/libjq.so.1.0.4 [✅ LOW]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                          EVIDENCE        
+--------------------------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings                      base64          
+LOW   env/HOME               Looks up the HOME directory for the current user     HOME            
+                                                                                  getenv          
+LOW   fs/symlink/resolve     resolves symbolic links                              realpath        
+LOW   process/multithreaded  creates pthreads                                     pthread_create  
+LOW   process/unshare        disassociate parts of the process execution context  unshare         
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/jq-1.7.1-r2.apk ∴ /var/lib/db/sbom/jq-1.7.1-r2.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/720351b02e12…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

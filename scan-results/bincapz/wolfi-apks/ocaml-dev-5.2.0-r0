@@ -1,0 +1,172 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /usr/bin/ocamlc.byte [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                      EVIDENCE                              
+-------------------------------------------------------------------------------------------------------------------
+LOW   compression/zstd      Zstandard: fast real-time compression algorithm  zstd                                  
+LOW   env/LD_LIBRARY_PATH   ld library path                                  LD_LIBRARY_PATH                       
+LOW   env/TEMP              tmpdir                                           TEMP                                  
+                                                                             getenv                                
+LOW   env/TERM              Look up or override terminal settings            TERM                                  
+LOW   env/TMPDIR            TMPDIR                                           TMPDIR                                
+                                                                             getenv                                
+LOW   fs/directory/create   creates directories                              mkdir                                 
+LOW   fs/directory/remove   Uses libc functions to remove directories        rmdir                                 
+LOW   fs/tempdir            looks up location of temp directory              TMPDIR                                
+LOW   ref/path/usr/bin      path reference within /usr/bin                   /usr/bin/ocamlrun                     
+LOW   ref/words/plugin      references a 'plugin'                            Produce a dynlinkable plugin          
+                                                                             dependencies for native plugin files  
+                                                                             plugin is only                        
+MED   ref/path/relative     references and possibly executes relative path   ./script-file                         
+HIGH  evasion/xor/commands  commands obfuscated using xor                    ,?(%a::$b_eval2                       
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /usr/bin/ocamldep.byte [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                      EVIDENCE                              
+-------------------------------------------------------------------------------------------------------------------
+LOW   compression/zstd      Zstandard: fast real-time compression algorithm  zstd                                  
+LOW   env/LD_LIBRARY_PATH   ld library path                                  LD_LIBRARY_PATH                       
+LOW   env/TEMP              tmpdir                                           TEMP                                  
+                                                                             getenv                                
+LOW   env/TERM              Look up or override terminal settings            TERM                                  
+LOW   env/TMPDIR            TMPDIR                                           TMPDIR                                
+                                                                             getenv                                
+LOW   fs/directory/create   creates directories                              mkdir                                 
+LOW   fs/directory/remove   Uses libc functions to remove directories        rmdir                                 
+LOW   fs/tempdir            looks up location of temp directory              TMPDIR                                
+LOW   ref/path/usr/bin      path reference within /usr/bin                   /usr/bin/ocamlrun                     
+LOW   ref/words/plugin      references a 'plugin'                            Produce a dynlinkable plugin          
+                                                                             dependencies for native plugin files  
+MED   ref/path/relative     references and possibly executes relative path   ./script-file                         
+HIGH  evasion/xor/commands  commands obfuscated using xor                    ,?(%a::$b_eval2                       
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /usr/bin/ocamldoc.byte [🔥 HIGH]
+--------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                        DESCRIPTION                                        EVIDENCE                              
+--------------------------------------------------------------------------------------------------------------------------
+LOW   compression/zstd           Zstandard: fast real-time compression algorithm    zstd                                  
+LOW   env/LD_LIBRARY_PATH        ld library path                                    LD_LIBRARY_PATH                       
+LOW   env/TEMP                   tmpdir                                             TEMP                                  
+                                                                                    getenv                                
+LOW   env/TERM                   Look up or override terminal settings              TERM                                  
+LOW   env/TMPDIR                 TMPDIR                                             TMPDIR                                
+                                                                                    getenv                                
+LOW   exec/program/background    wait for process to exit                           waitpid                               
+LOW   fs/directory/create        creates directories                                mkdir                                 
+LOW   fs/directory/remove        Uses libc functions to remove directories          rmdir                                 
+LOW   fs/fifo/create             make a FIFO special file (a named pipe)            mkfifo                                
+LOW   fs/file/delete             deletes files                                      unlink                                
+LOW   fs/file/truncate           truncate a file to a specified length              ftruncate                             
+LOW   fs/link/read               read value of a symbolic link                      readlink                              
+LOW   fs/lock/update             apply or remove an advisory lock on a file         lockf                                 
+LOW   fs/permission/chown        May change file ownership                          fchown                                
+LOW   fs/symlink/resolve         resolves symbolic links                            realpath                              
+LOW   fs/tempdir                 looks up location of temp directory                TMPDIR                                
+LOW   kernel/hostname/get        get computer host name                             gethostname                           
+LOW   net/hostname/resolve       resolve network host name to IP address            gethostbyname                         
+LOW   net/hostport/parse         Network address and service translation            getaddrinfo                           
+LOW   net/ip/resolve             resolves network hosts via IP address              gethostbyaddr                         
+LOW   net/socket/listen          listen on a socket                                 accept                                
+                                                                                    listen                                
+                                                                                    socket                                
+LOW   net/socket/local/address   get local address of connected socket              getsockname                           
+LOW   net/socket/peer/address    get peer address of connected socket               getpeername                           
+LOW   net/socket/receive         receive a message from a socket                    recvfrom                              
+LOW   net/socket/send            send a message to a socket                         sendto                                
+LOW   process/chroot             change the location of root for the process        chroot                                
+LOW   process/groupid/set        set real and effective group ID of process         setgid                                
+LOW   process/groups/set         set group access list                              setgroups                             
+LOW   process/parent_pid/get     gets parent process ID                             getppid                               
+LOW   process/userid/set         set real and effective user ID of current process  setuid                                
+LOW   process/username/get       get login name                                     getlogin                              
+LOW   ref/path/usr/bin           path reference within /usr/bin                     /usr/bin/ocamlrun                     
+LOW   ref/words/plugin           references a 'plugin'                              Produce a dynlinkable plugin          
+                                                                                    dependencies for native plugin files  
+MED   3P/threat_hunting/github/  references 'Github Username' tool, by mthcht       s7scan                                
+      username                                                                                                            
+MED   combo/net/scan_tool        may scan networks                                  connect                               
+                                                                                    gethostbyname                         
+                                                                                    port                                  
+                                                                                    scan                                  
+                                                                                    socket                                
+                                                                                    target                                
+MED   data/embedded/html         Contains HTML content                              <html>                                
+                                                                                    DOCTYPE html                          
+MED   exec/program               executes external programs                         execvp                                
+MED   fs/file/times/set          change file last access and modification times     utimes                                
+MED   fs/permission/modify       modifies file permissions                          chmod                                 
+MED   net/ip/parse               parses IP address                                  inet_addr                             
+MED   ref/path/relative          references and possibly executes relative path     ./script-file                         
+MED   shell/exec                 executes shell                                     /bin/sh                               
+HIGH  evasion/xor/commands       commands obfuscated using xor                      ,?(%a::$b_eval2                       
+--------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /usr/bin/ocamllex.byte [✅ LOW]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                      EVIDENCE           
+-----------------------------------------------------------------------------------------------
+LOW   compression/zstd     Zstandard: fast real-time compression algorithm  zstd               
+LOW   env/TEMP             tmpdir                                           TEMP               
+                                                                            getenv             
+LOW   env/TMPDIR           TMPDIR                                           TMPDIR             
+                                                                            getenv             
+LOW   fs/directory/create  creates directories                              mkdir              
+LOW   fs/directory/remove  Uses libc functions to remove directories        rmdir              
+LOW   fs/tempdir           looks up location of temp directory              TMPDIR             
+LOW   ref/path/usr/bin     path reference within /usr/bin                   /usr/bin/ocamlrun  
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /usr/bin/ocamlobjinfo.byte [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                      EVIDENCE                              
+-------------------------------------------------------------------------------------------------------------------
+LOW   compression/zstd      Zstandard: fast real-time compression algorithm  zstd                                  
+LOW   env/LD_LIBRARY_PATH   ld library path                                  LD_LIBRARY_PATH                       
+LOW   env/TEMP              tmpdir                                           TEMP                                  
+                                                                             getenv                                
+LOW   env/TERM              Look up or override terminal settings            TERM                                  
+LOW   env/TMPDIR            TMPDIR                                           TMPDIR                                
+                                                                             getenv                                
+LOW   fs/directory/create   creates directories                              mkdir                                 
+LOW   fs/directory/remove   Uses libc functions to remove directories        rmdir                                 
+LOW   fs/tempdir            looks up location of temp directory              TMPDIR                                
+LOW   ref/path/usr/bin      path reference within /usr/bin                   /usr/bin/ocamlrun                     
+LOW   ref/words/plugin      references a 'plugin'                            Produce a dynlinkable plugin          
+                                                                             dependencies for native plugin files  
+                                                                             plugin_header                         
+MED   ref/path/relative     references and possibly executes relative path   ./script-file                         
+HIGH  evasion/xor/commands  commands obfuscated using xor                    ,?(%a::$b_eval2                       
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /usr/bin/ocamlopt.byte [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                      EVIDENCE                              
+-------------------------------------------------------------------------------------------------------------------
+LOW   compression/zstd      Zstandard: fast real-time compression algorithm  zstd                                  
+LOW   env/LD_LIBRARY_PATH   ld library path                                  LD_LIBRARY_PATH                       
+LOW   env/TEMP              tmpdir                                           TEMP                                  
+                                                                             getenv                                
+LOW   env/TERM              Look up or override terminal settings            TERM                                  
+LOW   env/TMPDIR            TMPDIR                                           TMPDIR                                
+                                                                             getenv                                
+LOW   fs/directory/create   creates directories                              mkdir                                 
+LOW   fs/directory/remove   Uses libc functions to remove directories        rmdir                                 
+LOW   fs/tempdir            looks up location of temp directory              TMPDIR                                
+LOW   ref/path/usr/bin      path reference within /usr/bin                   /usr/bin/ocamlrun                     
+LOW   ref/words/plugin      references a 'plugin'                            Produce a dynlinkable plugin          
+                                                                             dependencies for native plugin files  
+                                                                             plugin is only                        
+                                                                             plugin_header                         
+MED   ref/path/relative     references and possibly executes relative path   ./script-file                         
+HIGH  evasion/xor/commands  commands obfuscated using xor                    ,?(%a::$b_eval2                       
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ocaml-dev-5.2.0-r0.apk ∴ /var/lib/db/sbom/ocaml-dev-5.2.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/15b4aa46f1de…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

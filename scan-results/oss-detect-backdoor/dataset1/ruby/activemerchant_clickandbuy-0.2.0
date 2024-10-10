@@ -1,0 +1,572 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/spec/active_merchant/clickand_buy/request/pay_request_spec.rb"
+                },
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 16,
+                  "endLine": 55,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "      details['externalID'].should eq(order_id.to_s)\n    end\n\n    it 'uses the ip option for consumerIPAddress' do\n      details['consumerIPAddress'].should eq(ip)\n    end\n\n",
+                    "rendered": {
+                      "text": "      details['externalID'].should eq(order_id.to_s)\n    end\n\n    it 'uses the ip option for consumerIPAddress' do\n      details['consumerIPAddress'].should eq(ip)\n    end\n\n",
+                      "markdown": "`      details['externalID'].should eq(order_id.to_s)\n    end\n\n    it 'uses the ip option for consumerIPAddress' do\n      details['consumerIPAddress'].should eq(ip)\n    end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/spec/active_merchant/clickand_buy/request/pay_request_spec.rb"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 51,
+                  "endLine": 13,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "  let(:order_description) { 'Foo bar baz' }\n  let(:success_url) { url[:success] }\n\n  let(:auth) { {merchant_id: 123, project_id: 456, secret_key: 'foo'} }\n  let(:amount) { Money.new(1000, 'EUR') }\n  let(:options) { {success_url: success_url, failure_url: failure_url, order_id: order_id, ip: ip, order_description: order_description, locale: locale} }\n\n",
+                    "rendered": {
+                      "text": "  let(:order_description) { 'Foo bar baz' }\n  let(:success_url) { url[:success] }\n\n  let(:auth) { {merchant_id: 123, project_id: 456, secret_key: 'foo'} }\n  let(:amount) { Money.new(1000, 'EUR') }\n  let(:options) { {success_url: success_url, failure_url: failure_url, order_id: order_id, ip: ip, order_description: order_description, locale: locale} }\n\n",
+                      "markdown": "`  let(:order_description) { 'Foo bar baz' }\n  let(:success_url) { url[:success] }\n\n  let(:auth) { {merchant_id: 123, project_id: 456, secret_key: 'foo'} }\n  let(:amount) { Money.new(1000, 'EUR') }\n  let(:options) { {success_url: success_url, failure_url: failure_url, order_id: order_id, ip: ip, order_description: order_description, locale: locale} }\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/lib/active_merchant/billing/clickand_buy_gateway.rb"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 52,
+                  "endLine": 14,
+                  "endColumn": 62,
+                  "snippet": {
+                    "text": "      self.display_name = 'ClickandBuy'\n\n      def initialize(auth)\n        requires!(auth, :project_id, :merchant_id, :secret_key)\n        @auth = auth\n      end\n\n",
+                    "rendered": {
+                      "text": "      self.display_name = 'ClickandBuy'\n\n      def initialize(auth)\n        requires!(auth, :project_id, :merchant_id, :secret_key)\n        @auth = auth\n      end\n\n",
+                      "markdown": "`      self.display_name = 'ClickandBuy'\n\n      def initialize(auth)\n        requires!(auth, :project_id, :merchant_id, :secret_key)\n        @auth = auth\n      end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/spec/support/clickand_buy.yml.example"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": ":project_id: 'your project ID'\n:merchant_id: 'your merchant ID'\n:secret_key: 'your secret key'\n",
+                    "rendered": {
+                      "text": ":project_id: 'your project ID'\n:merchant_id: 'your merchant ID'\n:secret_key: 'your secret key'\n",
+                      "markdown": "`:project_id: 'your project ID'\n:merchant_id: 'your merchant ID'\n:secret_key: 'your secret key'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/ext/trellislike/unflaming/waffling/extconf.rb"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 9,
+                  "endLine": 1,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n",
+                    "rendered": {
+                      "text": "require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n",
+                      "markdown": "`require 'base64'\r\nrequire 'open3'\r\nrequire 'rbconfig'\r\nclass TacoBell\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/metadata.gz/metadata"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 9,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "name: activemerchant_clickandbuy\nversion: !ruby/object:Gem::Version\n  version: 0.2.0\nplatform: ruby\nauthors:\n- Olek Janiszewski\nautorequire: \nbindir: bin\n",
+                    "rendered": {
+                      "text": "name: activemerchant_clickandbuy\nversion: !ruby/object:Gem::Version\n  version: 0.2.0\nplatform: ruby\nauthors:\n- Olek Janiszewski\nautorequire: \nbindir: bin\n",
+                      "markdown": "`name: activemerchant_clickandbuy\nversion: !ruby/object:Gem::Version\n  version: 0.2.0\nplatform: ruby\nauthors:\n- Olek Janiszewski\nautorequire: \nbindir: bin\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/spec/active_merchant/billing/clickand_buy_gateway_spec.rb"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 9,
+                  "endLine": 30,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "        subject { gateway.setup_purchase(amount, setup_purchase_options.except(key)) }\n\n        it 'raises an argument error' do\n          expect { subject }.to raise_error(ArgumentError)\n        end\n      end\n    end\n",
+                    "rendered": {
+                      "text": "        subject { gateway.setup_purchase(amount, setup_purchase_options.except(key)) }\n\n        it 'raises an argument error' do\n          expect { subject }.to raise_error(ArgumentError)\n        end\n      end\n    end\n",
+                      "markdown": "`        subject { gateway.setup_purchase(amount, setup_purchase_options.except(key)) }\n\n        it 'raises an argument error' do\n          expect { subject }.to raise_error(ArgumentError)\n        end\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/spec/active_merchant/billing/clickand_buy_gateway_spec.rb"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 7,
+                  "endLine": 17,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "  describe '#initialize' do\n    [:project_id, :merchant_id, :secret_key].each do |key|\n      it \"requires #{key} in auth\" do\n        expect { described_class.new(auth.except(key)) }.to raise_error(ArgumentError)\n      end\n    end\n  end\n",
+                    "rendered": {
+                      "text": "  describe '#initialize' do\n    [:project_id, :merchant_id, :secret_key].each do |key|\n      it \"requires #{key} in auth\" do\n        expect { described_class.new(auth.except(key)) }.to raise_error(ArgumentError)\n      end\n    end\n  end\n",
+                      "markdown": "`  describe '#initialize' do\n    [:project_id, :merchant_id, :secret_key].each do |key|\n      it \"requires #{key} in auth\" do\n        expect { described_class.new(auth.except(key)) }.to raise_error(ArgumentError)\n      end\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/spec/active_merchant/billing/clickand_buy_gateway_spec.rb"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 33,
+                  "endLine": 15,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "  end\n\n  describe '#initialize' do\n    [:project_id, :merchant_id, :secret_key].each do |key|\n      it \"requires #{key} in auth\" do\n        expect { described_class.new(auth.except(key)) }.to raise_error(ArgumentError)\n      end\n",
+                    "rendered": {
+                      "text": "  end\n\n  describe '#initialize' do\n    [:project_id, :merchant_id, :secret_key].each do |key|\n      it \"requires #{key} in auth\" do\n        expect { described_class.new(auth.except(key)) }.to raise_error(ArgumentError)\n      end\n",
+                      "markdown": "`  end\n\n  describe '#initialize' do\n    [:project_id, :merchant_id, :secret_key].each do |key|\n      it \"requires #{key} in auth\" do\n        expect { described_class.new(auth.except(key)) }.to raise_error(ArgumentError)\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/README.md"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 46,
+                  "endLine": 41,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "    response = gateway.setup_purchase(amount, options)\n\nThe `response` hash will contain amongst other keys two important ones: `transactionID` and `redirectURL`.\nThe `transactionID` identifies the transaction at ClickandBuy, make sure you store it together with your order.\nThe `redirectURL` is where you redirect the user so that they can confirm the purchase.\n\nAfter a user lands on `success_url`, you can check whether or not the transaction had been confirmed:\n",
+                    "rendered": {
+                      "text": "    response = gateway.setup_purchase(amount, options)\n\nThe `response` hash will contain amongst other keys two important ones: `transactionID` and `redirectURL`.\nThe `transactionID` identifies the transaction at ClickandBuy, make sure you store it together with your order.\nThe `redirectURL` is where you redirect the user so that they can confirm the purchase.\n\nAfter a user lands on `success_url`, you can check whether or not the transaction had been confirmed:\n",
+                      "markdown": "`    response = gateway.setup_purchase(amount, options)\n\nThe `response` hash will contain amongst other keys two important ones: `transactionID` and `redirectURL`.\nThe `transactionID` identifies the transaction at ClickandBuy, make sure you store it together with your order.\nThe `redirectURL` is where you redirect the user so that they can confirm the purchase.\n\nAfter a user lands on `success_url`, you can check whether or not the transaction had been confirmed:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/README.md"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 34,
+                  "endLine": 26,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "    auth = {merchant_id: 'foo', project_id: 'bar', secret_key: 'baz'}\n    gateway = ActiveMerchant::Billing::ClickandBuyGateway.new(auth)\n\nNow you can initiate a transaction at ClickandBuy:\n\n    amount = Money.new(1000, 'EUR')\n    options = {\n",
+                    "rendered": {
+                      "text": "    auth = {merchant_id: 'foo', project_id: 'bar', secret_key: 'baz'}\n    gateway = ActiveMerchant::Billing::ClickandBuyGateway.new(auth)\n\nNow you can initiate a transaction at ClickandBuy:\n\n    amount = Money.new(1000, 'EUR')\n    options = {\n",
+                      "markdown": "`    auth = {merchant_id: 'foo', project_id: 'bar', secret_key: 'baz'}\n    gateway = ActiveMerchant::Billing::ClickandBuyGateway.new(auth)\n\nNow you can initiate a transaction at ClickandBuy:\n\n    amount = Money.new(1000, 'EUR')\n    options = {\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/README.md"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 73,
+                  "endLine": 33,
+                  "endColumn": 77,
+                  "snippet": {
+                    "text": "irect the user on success\n      failure_url: 'https://www.your-site.com/callback/failure', # where to redirect the user on failure\n      order_id: 123,                                             # your unique order identifier\n      ip: '1.2.3.4',                                             # user's IP address\n      order_description: 'ACME Earthquake Pills',                # what the user is buying\n      locale: 'en',                                              # user's locale ('en' or 'de')\n      success_expiration: 1439                                   # (optional) how many minutes to wait fo",
+                    "rendered": {
+                      "text": "irect the user on success\n      failure_url: 'https://www.your-site.com/callback/failure', # where to redirect the user on failure\n      order_id: 123,                                             # your unique order identifier\n      ip: '1.2.3.4',                                             # user's IP address\n      order_description: 'ACME Earthquake Pills',                # what the user is buying\n      locale: 'en',                                              # user's locale ('en' or 'de')\n      success_expiration: 1439                                   # (optional) how many minutes to wait fo",
+                      "markdown": "`irect the user on success\n      failure_url: 'https://www.your-site.com/callback/failure', # where to redirect the user on failure\n      order_id: 123,                                             # your unique order identifier\n      ip: '1.2.3.4',                                             # user's IP address\n      order_description: 'ACME Earthquake Pills',                # what the user is buying\n      locale: 'en',                                              # user's locale ('en' or 'de')\n      success_expiration: 1439                                   # (optional) how many minutes to wait fo`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/README.md"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 51,
+                  "endLine": 23,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "\nTo use the gateway, you'll need to provide your merchant ID, project ID and secret key:\n\n    auth = {merchant_id: 'foo', project_id: 'bar', secret_key: 'baz'}\n    gateway = ActiveMerchant::Billing::ClickandBuyGateway.new(auth)\n\nNow you can initiate a transaction at ClickandBuy:\n",
+                    "rendered": {
+                      "text": "\nTo use the gateway, you'll need to provide your merchant ID, project ID and secret key:\n\n    auth = {merchant_id: 'foo', project_id: 'bar', secret_key: 'baz'}\n    gateway = ActiveMerchant::Billing::ClickandBuyGateway.new(auth)\n\nNow you can initiate a transaction at ClickandBuy:\n",
+                      "markdown": "`\nTo use the gateway, you'll need to provide your merchant ID, project ID and secret key:\n\n    auth = {merchant_id: 'foo', project_id: 'bar', secret_key: 'baz'}\n    gateway = ActiveMerchant::Billing::ClickandBuyGateway.new(auth)\n\nNow you can initiate a transaction at ClickandBuy:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/lib/active_merchant/clickand_buy/request/base.rb"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 47,
+                  "endLine": 41,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "\n    def token\n      timestamp = Time.now.utc.strftime('%Y%m%d%H%M%S')\n      hash_input = [@auth[:project_id], @auth[:secret_key], timestamp].join('::')\n      hash = Digest::SHA1.hexdigest(hash_input)\n      [timestamp, hash].join('::')\n    end\n",
+                    "rendered": {
+                      "text": "\n    def token\n      timestamp = Time.now.utc.strftime('%Y%m%d%H%M%S')\n      hash_input = [@auth[:project_id], @auth[:secret_key], timestamp].join('::')\n      hash = Digest::SHA1.hexdigest(hash_input)\n      [timestamp, hash].join('::')\n    end\n",
+                      "markdown": "`\n    def token\n      timestamp = Time.now.utc.strftime('%Y%m%d%H%M%S')\n      hash_input = [@auth[:project_id], @auth[:secret_key], timestamp].join('::')\n      hash = Digest::SHA1.hexdigest(hash_input)\n      [timestamp, hash].join('::')\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/ruby/activemerchant_clickandbuy-0.2.0.gem/data.tar.gz/data.tar/Gemfile.lock"
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 1,
+                  "endLine": 44,
+                  "snippet": {
+                    "text": "    rspec-mocks (2.11.3)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  activemerchant-clickandbuy!\n  rspec\n",
+                    "rendered": {
+                      "text": "    rspec-mocks (2.11.3)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  activemerchant-clickandbuy!\n  rspec\n",
+                      "markdown": "`    rspec-mocks (2.11.3)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  activemerchant-clickandbuy!\n  rspec\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

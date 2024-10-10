@@ -1,0 +1,211 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/free [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE                       
+--------------------------------------------------------------------------------------------
+MED   process/name/get  get the current process name         program_invocation_short_name  
+MED   process/name/set  get or set the current process name  __progname                     
+MED   procfs/meminfo    get memory info                      /proc/meminfo                  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/kill [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                            EVIDENCE                       
+----------------------------------------------------------------------------------------------
+LOW   env/TERM          Look up or override terminal settings  TERM                           
+MED   process/name/get  get the current process name           program_invocation_short_name  
+MED   process/name/set  get or set the current process name    __progname                     
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/pgrep [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                                 EVIDENCE                                         
+---------------------------------------------------------------------------------------------------------------------
+LOW   env/TERM          Look up or override terminal settings       TERM                                             
+LOW   fd/epoll          I/O event notification facility             epoll_create                                     
+                                                                    epoll_wait                                       
+LOW   fs/lock/update    apply or remove an advisory lock on a file  flock                                            
+MED   exec/shell_echo   program generates text with echo command    echo                display PIDs before waiting  
+                                                                    echo                display what is killed       
+MED   process/find      Finds program in process table              pgrep                                            
+MED   process/name/set  get or set the current process name         __progname                                       
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/pidof [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                     DESCRIPTION                          EVIDENCE                       
+--------------------------------------------------------------------------------------------------
+LOW   fs/link/read            read value of a symbolic link        readlink                       
+LOW   process/parent_pid/get  gets parent process ID               getppid                        
+MED   process/name/get        get the current process name         program_invocation_short_name  
+MED   process/name/set        get or set the current process name  __progname                     
+MED   procfs/arbitrary/pid    access /proc for arbitrary pids      /proc/%d/                      
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/pidwait [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                                 EVIDENCE                                         
+---------------------------------------------------------------------------------------------------------------------
+LOW   env/TERM          Look up or override terminal settings       TERM                                             
+LOW   fd/epoll          I/O event notification facility             epoll_create                                     
+                                                                    epoll_wait                                       
+LOW   fs/lock/update    apply or remove an advisory lock on a file  flock                                            
+MED   exec/shell_echo   program generates text with echo command    echo                display PIDs before waiting  
+                                                                    echo                display what is killed       
+MED   process/find      Finds program in process table              pgrep                                            
+MED   process/name/set  get or set the current process name         __progname                                       
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/pkill [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                                 EVIDENCE                                         
+---------------------------------------------------------------------------------------------------------------------
+LOW   env/TERM          Look up or override terminal settings       TERM                                             
+LOW   fd/epoll          I/O event notification facility             epoll_create                                     
+                                                                    epoll_wait                                       
+LOW   fs/lock/update    apply or remove an advisory lock on a file  flock                                            
+MED   exec/shell_echo   program generates text with echo command    echo                display PIDs before waiting  
+                                                                    echo                display what is killed       
+MED   process/find      Finds program in process table              pgrep                                            
+MED   process/name/set  get or set the current process name         __progname                                       
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/pmap [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                       
+-------------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                           
+                                                                              getenv                         
+LOW   fd/multiplex          monitor multiple file descriptors                 select                         
+MED   process/name/get      get the current process name                      program_invocation_short_name  
+MED   process/name/set      get or set the current process name               __progname                     
+MED   procfs/arbitrary/pid  access /proc for arbitrary pids                   /proc/%u/maps                  
+                                                                              /proc/%u/smaps                 
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/ps [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                 EVIDENCE             
+---------------------------------------------------------------------------------------------
+LOW   env/TERM              Look up or override terminal settings       TERM                 
+LOW   env/USER              Looks up the USER name of the current user  USER                 
+                                                                        getenv               
+LOW   kernel/platform       system identification                       uname                
+LOW   ref/path/etc          path reference within /etc                  /etc/localtime       
+MED   exec/program          executes external programs                  execvp               
+MED   process/name/set      get or set the current process name         __progname           
+MED   procfs/arbitrary/pid  access /proc for arbitrary pids             /proc/%d/attr/curre  
+MED   ref/path/dev          path reference within /dev                  /dev/drum            
+                                                                        /dev/pts/            
+                                                                        /dev/pty             
+                                                                        /dev/tty             
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/pwdx [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                          EVIDENCE                       
+------------------------------------------------------------------------------------------------
+LOW   fs/link/read          read value of a symbolic link        readlink                       
+MED   process/name/get      get the current process name         program_invocation_short_name  
+MED   process/name/set      get or set the current process name  __progname                     
+MED   procfs/arbitrary/pid  access /proc for arbitrary pids      /proc/%s/cwd                   
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/slabtop [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE                       
+--------------------------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors    select                         
+MED   process/name/get  get the current process name         program_invocation_short_name  
+MED   process/name/set  get or set the current process name  __progname                     
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/tload [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                                  EVIDENCE                       
+----------------------------------------------------------------------------------------------------
+LOW   process/alarm     set an alarm clock for delivery of a signal  alarm                          
+MED   process/name/get  get the current process name                 program_invocation_short_name  
+MED   process/name/set  get or set the current process name          __progname                     
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/top [🔥 HIGH]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                       EVIDENCE            
+---------------------------------------------------------------------------------------------------
+LOW   env/HOME               Looks up the HOME directory for the current user  HOME                
+                                                                               getenv              
+LOW   env/TERM               Look up or override terminal settings             TERM                
+LOW   env/USER               Looks up the USER name of the current user        USER                
+                                                                               getenv              
+LOW   fs/directory/create    creates directories                               mkdir               
+LOW   process/multithreaded  creates pthreads                                  pthread_create      
+LOW   ref/path/etc           path reference within /etc                        /etc/topdefaultrc   
+                                                                               /etc/toprc          
+LOW   ref/path/var           path reference within /var                        /var/log/syslog     
+MED   procfs/arbitrary/pid   access /proc for arbitrary pids                   /proc/%d/autogroup  
+                                                                               /proc/%d/numa_maps  
+MED   ref/path/var/log       path reference within /var/log                    /var/log/syslog     
+MED   shell/exec             executes shell                                    /bin/bash           
+HIGH  admin/logs/syslog      accesses system logs                              /var/log/syslog     
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/uptime [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE                       
+--------------------------------------------------------------------------------------------
+MED   process/name/get  get the current process name         program_invocation_short_name  
+MED   process/name/set  get or set the current process name  __progname                     
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/vmstat [⚠️ MEDIUM]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE    
+-------------------------------------------------------------------------
+LOW   fd/multiplex      monitor multiple file descriptors    select      
+MED   process/name/set  get or set the current process name  __progname  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/w [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                 EVIDENCE                       
+-------------------------------------------------------------------------------------------------------------
+LOW   env/USER                    Looks up the USER name of the current user  USER                           
+                                                                              getenv                         
+MED   combo/recon/system_network  invasive recon val                          ip-addr                        
+MED   net/ip/string               converts IP address from byte to string     inet_ntop                      
+MED   process/name/get            get the current process name                program_invocation_short_name  
+MED   process/name/set            get or set the current process name         __progname                     
+MED   ref/path/dev                path reference within /dev                  /dev/pts/                      
+                                                                              /dev/tty                       
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/bin/watch [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                          EVIDENCE     
+---------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit             waitpid      
+LOW   kernel/hostname/get      get computer host name               gethostname  
+MED   exec/program             executes external programs           execvp       
+MED   process/name/set         get or set the current process name  __progname   
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /usr/sbin/sysctl [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                           EVIDENCE                       
+-----------------------------------------------------------------------------------------------
+LOW   fs/symlink/resolve  resolves symbolic links               realpath                       
+LOW   ref/path/etc        path reference within /etc            /etc/sysctl.conf               
+                                                                /etc/sysctl.d                  
+MED   process/name/get    get the current process name          program_invocation_short_name  
+MED   process/name/set    get or set the current process name   __progname                     
+MED   ref/path/usr/local  path reference within /usr/local/lib  /usr/local/lib/sysctl.d        
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/procps-4.0.4-r2.apk ∴ /var/lib/db/sbom/procps-4.0.4-r2.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/245f356ea264…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

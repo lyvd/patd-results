@@ -1,0 +1,86 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bird-2.15.1-r1.apk ∴ /usr/sbin/bird [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                         EVIDENCE                    
+------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete              deletes files                                       unlink                      
+LOW   fs/file/truncate            truncate a file to a specified length               ftruncate                   
+LOW   hash/blake2b                Uses blake2b encryption algorithm                   blake2b                     
+LOW   kernel/netlink              communicate with kernel services                    netlink                     
+LOW   kernel/platform             system identification                               uname                       
+LOW   net/hostport/parse          Network address and service translation             freeaddrinfo                
+                                                                                      getaddrinfo                 
+LOW   net/icmp                    ICMP (Internet Control Message Protocol), aka ping  ICMP                        
+LOW   net/ip                      access the internet                                 invalid packet              
+LOW   net/ip/multicast/send       send data to multiple nodes simultaneously          multicast                   
+LOW   net/ip/send/unicast         send data to the internet                           unicast                     
+LOW   net/socket/listen           listen on a socket                                  accept                      
+                                                                                      listen                      
+                                                                                      socket                      
+LOW   net/socket/local/address    get local address of connected socket               getsockname                 
+LOW   net/socket/receive          receive a message from a socket                     recvmsg                     
+LOW   net/socket/send             send a message to a socket                          sendmsg                     
+                                                                                      sendto                      
+LOW   process/groupid/set         set real and effective group ID of process          setgid                      
+LOW   process/groups/set          set group access list                               setgroups                   
+LOW   process/multithreaded       creates pthreads                                    pthread_create              
+LOW   process/userid/set          set real, effective, and saved user ID of process   seteuid                     
+LOW   ref/path/etc                path reference within /etc                          /etc/bird.conf              
+                                                                                      /etc/iproute                
+LOW   ref/words/password          references a 'password'                             init_password               
+                                                                                      no password found           
+                                                                                      no suitable password found  
+                                                                                      password_algorithm          
+                                                                                      password_find               
+                                                                                      password_id                 
+                                                                                      password_item_begin         
+                                                                                      password_item_end           
+                                                                                      …                           
+MED   combo/recon/system_network  invasive recon val                                  ipath route                 
+                                                                                      iproute                     
+MED   fs/permission/modify        modifies file permissions                           chmod                       
+MED   net/reuseport               reuse TCP/IP ports for listening and connecting     SO_REUSEADDR                
+MED   net/ssh                     Uses SSH (secure shell) service                     SSH                         
+MED   persist/pid_file            pid file, likely DIY daemon                         pid_file                    
+MED   ref/ip_port                 mentions an IP and port                             IP                          
+                                                                                      fill_ip                     
+                                                                                      hop_ip                      
+                                                                                      is_ip                       
+                                                                                      item_port                   
+                                                                                      net_ip                      
+                                                                                      tab_ip                      
+                                                                                      udp_port                    
+                                                                                      …                           
+MED   ref/path/relative           references and possibly executes relative path      ./conf                      
+                                                                                      ./lib                       
+------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bird-2.15.1-r1.apk ∴ /usr/sbin/birdc [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                                       EVIDENCE  
+-----------------------------------------------------------------------------------
+LOW   env/HOME         Looks up the HOME directory for the current user  HOME      
+                                                                         getenv    
+LOW   net/socket/send  send a message to a socket                        send      
+                                                                         socket    
+MED   ref/daemon       Run as a background daemon                        daemon    
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bird-2.15.1-r1.apk ∴ /usr/sbin/birdcl [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fd/multiplex        monitor multiple file descriptors  select    
+LOW   net/socket/send     send a message to a socket         send      
+                                                             socket    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+MED   ref/daemon          Run as a background daemon         daemon    
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bird-2.15.1-r1.apk ∴ /var/lib/db/sbom/bird-2.15.1-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/b647b8dcaf2a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

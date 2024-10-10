@@ -1,0 +1,48 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openjdk-13-jre-13.0.14.5-r3.apk ∴ /usr/lib/jvm/java-13-openjdk/lib/libawt_xawt.so [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                                          
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   dylib/address/check   determine if address belongs to a shared library  dladdr                                            
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                                              
+                                                                              getenv                                            
+LOW   fs/file/delete        deletes files                                     unlink                                            
+LOW   kernel/hostname/get   get computer host name                            gethostname                                       
+LOW   kernel/platform       system identification                             uname                                             
+LOW   net/http/request      makes HTTP requests                               httpClose                                         
+                                                                              httpConnect                                       
+LOW   net/ipp/request       Makes IPP (Internet Printing Protocol) requests   ippPort                                           
+LOW   ref/path/var          path reference within /var                        /var/lib/defoma/x-ttcidfont-conf.d/dirs/TrueType  
+MED   dylib/symbol/address  get the address of a symbol                       dlsym                                             
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openjdk-13-jre-13.0.14.5-r3.apk ∴ /usr/lib/jvm/java-13-openjdk/lib/libfontmanager.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                      EVIDENCE        
+-------------------------------------------------------------------------------------
+LOW   process/thread_local_storage  Uses glibc thread local storage  __tls_get_addr  
+MED   dylib/symbol/address          get the address of a symbol      dlsym           
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openjdk-13-jre-13.0.14.5-r3.apk ∴ /usr/lib/jvm/java-13-openjdk/lib/libjsound.so [✅ LOW]
+------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                     
+------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.alsa-project.org  
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openjdk-13-jre-13.0.14.5-r3.apk ∴ /usr/lib/jvm/java-13-openjdk/lib/libsplashscreen.so [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE        
+--------------------------------------------------------------------------
+LOW   process/multithreaded  creates pthreads             pthread_create  
+MED   dylib/symbol/address   get the address of a symbol  dlsym           
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/openjdk-13-jre-13.0.14.5-r3.apk ∴ /var/lib/db/sbom/openjdk-13-jre-13.0.14.5-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/69130420f3fc…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

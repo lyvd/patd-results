@@ -1,0 +1,45 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pax-utils-1.3.7-r2.apk ∴ /usr/bin/dumpelf [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                          EVIDENCE          
+--------------------------------------------------------------------------------------------------
+LOW   process/unshare      disassociate parts of the process execution context  unshare           
+LOW   ref/path/etc         path reference within /etc                           /etc/ld.so.cache  
+MED   ref/program/readelf  analyzes or manipulates ELF files                    readelf           
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pax-utils-1.3.7-r2.apk ∴ /usr/bin/pspax [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                          EVIDENCE          
+---------------------------------------------------------------------------------------------------------
+LOW   env/USER                    Looks up the USER name of the current user           USER              
+                                                                                       getenv            
+LOW   process/unshare             disassociate parts of the process execution context  unshare           
+LOW   ref/path/etc                path reference within /etc                           /etc/ld.so.cache  
+MED   combo/recon/system_network  invasive recon val                                   ipaddr            
+MED   ref/program/readelf         analyzes or manipulates ELF files                    readelf           
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pax-utils-1.3.7-r2.apk ∴ /usr/bin/scanmacho [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                                          EVIDENCE  
+--------------------------------------------------------------------------------------
+LOW   process/unshare  disassociate parts of the process execution context  unshare   
+MED   tty/pathname     returns the pathname of a terminal device            ttyname   
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pax-utils-1.3.7-r2.apk ∴ /usr/bin/symtree [⚠️ MEDIUM]
+--------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE   
+--------------------------------------------------------------
+LOW   fs/symlink/resolve  resolves symbolic links  realpath   
+MED   shell/exec          executes shell           /bin/bash  
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pax-utils-1.3.7-r2.apk ∴ /var/lib/db/sbom/pax-utils-1.3.7-r2.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/84fd5d4f2424…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

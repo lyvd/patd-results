@@ -1,0 +1,315 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants.py"
+                },
+                "region": {
+                  "startLine": 310,
+                  "startColumn": 29,
+                  "endLine": 310,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "    punct_class = r\"\"\"[!\"#\\$\\%'()*+,-.\\/:;<=>?\\@\\[\\\\\\]\\^_`{|}~]\"\"\"\n\n    # Special case if the very first character is a quote\n    # followed by punctuation at a non-word-break. Close the quotes by brute\n    # force:\n    text = re.sub(r\"\"\"^'(?=%s\\\\B)\"\"\" % (punct_class,), '&#8217;', text)\n    text = re.sub(r\"\"\"^\"(?=%s\\\\B)\"\"\" % (punct_class,), '&#8221;', text)\n",
+                    "rendered": {
+                      "text": "    punct_class = r\"\"\"[!\"#\\$\\%'()*+,-.\\/:;<=>?\\@\\[\\\\\\]\\^_`{|}~]\"\"\"\n\n    # Special case if the very first character is a quote\n    # followed by punctuation at a non-word-break. Close the quotes by brute\n    # force:\n    text = re.sub(r\"\"\"^'(?=%s\\\\B)\"\"\" % (punct_class,), '&#8217;', text)\n    text = re.sub(r\"\"\"^\"(?=%s\\\\B)\"\"\" % (punct_class,), '&#8221;', text)\n",
+                      "markdown": "`    punct_class = r\"\"\"[!\"#\\$\\%'()*+,-.\\/:;<=>?\\@\\[\\\\\\]\\^_`{|}~]\"\"\"\n\n    # Special case if the very first character is a quote\n    # followed by punctuation at a non-word-break. Close the quotes by brute\n    # force:\n    text = re.sub(r\"\"\"^'(?=%s\\\\B)\"\"\" % (punct_class,), '&#8217;', text)\n    text = re.sub(r\"\"\"^\"(?=%s\\\\B)\"\"\" % (punct_class,), '&#8221;', text)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants.py"
+                },
+                "region": {
+                  "startLine": 460,
+                  "startColumn": 65,
+                  "endLine": 460,
+                  "endColumn": 71,
+                  "snippet": {
+                    "text": "      :func:`convert_dashes_oldschool`, it's compatible with existing entries\n      written before SmartyPants 1.1, back when ``--`` was only used for\n      em-dashes.\n    * Second, em-dashes are more common than en-dashes, and so it sort of\n      makes sense that the shortcut should be shorter to type. (Thanks to Aaron\n      Swartz for the idea.)\n\n",
+                    "rendered": {
+                      "text": "      :func:`convert_dashes_oldschool`, it's compatible with existing entries\n      written before SmartyPants 1.1, back when ``--`` was only used for\n      em-dashes.\n    * Second, em-dashes are more common than en-dashes, and so it sort of\n      makes sense that the shortcut should be shorter to type. (Thanks to Aaron\n      Swartz for the idea.)\n\n",
+                      "markdown": "`      :func:`convert_dashes_oldschool`, it's compatible with existing entries\n      written before SmartyPants 1.1, back when ``--`` was only used for\n      em-dashes.\n    * Second, em-dashes are more common than en-dashes, and so it sort of\n      makes sense that the shortcut should be shorter to type. (Thanks to Aaron\n      Swartz for the idea.)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants.py"
+                },
+                "region": {
+                  "startLine": 364,
+                  "startColumn": 39,
+                  "endLine": 364,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "                \\s          |   # a whitespace char, or\n                &nbsp;      |   # a non-breaking space entity, or\n                --          |   # dashes, or\n                &[mn]dash;  |   # named dash entities\n                %s          |   # or decimal entities\n                &\\#x201[34];    # or hex\n            )\n",
+                    "rendered": {
+                      "text": "                \\s          |   # a whitespace char, or\n                &nbsp;      |   # a non-breaking space entity, or\n                --          |   # dashes, or\n                &[mn]dash;  |   # named dash entities\n                %s          |   # or decimal entities\n                &\\#x201[34];    # or hex\n            )\n",
+                      "markdown": "`                \\s          |   # a whitespace char, or\n                &nbsp;      |   # a non-breaking space entity, or\n                --          |   # dashes, or\n                &[mn]dash;  |   # named dash entities\n                %s          |   # or decimal entities\n                &\\#x201[34];    # or hex\n            )\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants.py"
+                },
+                "region": {
+                  "startLine": 332,
+                  "startColumn": 39,
+                  "endLine": 332,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "                \\s          |   # a whitespace char, or\n                &nbsp;      |   # a non-breaking space entity, or\n                --          |   # dashes, or\n                &[mn]dash;  |   # named dash entities\n                %s          |   # or decimal entities\n                &\\#x201[34];    # or hex\n            )\n",
+                    "rendered": {
+                      "text": "                \\s          |   # a whitespace char, or\n                &nbsp;      |   # a non-breaking space entity, or\n                --          |   # dashes, or\n                &[mn]dash;  |   # named dash entities\n                %s          |   # or decimal entities\n                &\\#x201[34];    # or hex\n            )\n",
+                      "markdown": "`                \\s          |   # a whitespace char, or\n                &nbsp;      |   # a non-breaking space entity, or\n                --          |   # dashes, or\n                &[mn]dash;  |   # named dash entities\n                %s          |   # or decimal entities\n                &\\#x201[34];    # or hex\n            )\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants.py"
+                },
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 33,
+                  "endLine": 214,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "    # for one-character tokens that consist of\n    # just a quote char. What we do is remember\n    # the last character of the previous text\n    # token, to use as context to curl single-\n    # character quote tokens correctly.\n\n    tags_to_skip_regex = _tags_to_skip_regex()\n",
+                    "rendered": {
+                      "text": "    # for one-character tokens that consist of\n    # just a quote char. What we do is remember\n    # the last character of the previous text\n    # token, to use as context to curl single-\n    # character quote tokens correctly.\n\n    tags_to_skip_regex = _tags_to_skip_regex()\n",
+                      "markdown": "`    # for one-character tokens that consist of\n    # just a quote char. What we do is remember\n    # the last character of the previous text\n    # token, to use as context to curl single-\n    # character quote tokens correctly.\n\n    tags_to_skip_regex = _tags_to_skip_regex()\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants.py"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 16,
+                  "endLine": 91,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "    ordinarily, entities are used for the explicit purpose of representing the\n    specific character they represent). The \"w\" option must be used in\n    conjunction with one (or both) of the other quote options (\"q\" or \"b\").\n    Thus, if you wish to apply all SmartyPants transformations (quotes, en-\n    and em-dashes, and ellipses) and also convert ``&quot;`` entities into\n    regular quotes so SmartyPants can educate them.\n    \"\"\"\n",
+                    "rendered": {
+                      "text": "    ordinarily, entities are used for the explicit purpose of representing the\n    specific character they represent). The \"w\" option must be used in\n    conjunction with one (or both) of the other quote options (\"q\" or \"b\").\n    Thus, if you wish to apply all SmartyPants transformations (quotes, en-\n    and em-dashes, and ellipses) and also convert ``&quot;`` entities into\n    regular quotes so SmartyPants can educate them.\n    \"\"\"\n",
+                      "markdown": "`    ordinarily, entities are used for the explicit purpose of representing the\n    specific character they represent). The \"w\" option must be used in\n    conjunction with one (or both) of the other quote options (\"q\" or \"b\").\n    Thus, if you wish to apply all SmartyPants transformations (quotes, en-\n    and em-dashes, and ellipses) and also convert ``&quot;`` entities into\n    regular quotes so SmartyPants can educate them.\n    \"\"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants-2.0.1-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 23,
+                  "endLine": 58,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "  text = '\"SmartyPants\" is smart, so is <code>smartypants</code> -- a Python port'\n  print(smartypants.smartypants(text))\n\nTo use the command-line script ``smartypants``:\n\n.. code:: sh\n\n",
+                    "rendered": {
+                      "text": "  text = '\"SmartyPants\" is smart, so is <code>smartypants</code> -- a Python port'\n  print(smartypants.smartypants(text))\n\nTo use the command-line script ``smartypants``:\n\n.. code:: sh\n\n",
+                      "markdown": "`  text = '\"SmartyPants\" is smart, so is <code>smartypants</code> -- a Python port'\n  print(smartypants.smartypants(text))\n\nTo use the command-line script ``smartypants``:\n\n.. code:: sh\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/smartypants-2.0.1-r1.apk/smartypants-2.0.1-r1/usr/lib/python3.12/site-packages/smartypants-2.0.1-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 1,
+                  "endLine": 43,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "\n.. code:: sh\n\n  pip install smartypants\n\n\nQuick usage\n",
+                    "rendered": {
+                      "text": "\n.. code:: sh\n\n  pip install smartypants\n\n\nQuick usage\n",
+                      "markdown": "`\n.. code:: sh\n\n  pip install smartypants\n\n\nQuick usage\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

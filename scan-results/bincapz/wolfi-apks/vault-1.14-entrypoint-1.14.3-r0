@@ -1,0 +1,26 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/vault-1.14-entrypoint-1.14.3-r0.apk ∴ /usr/bin/docker-entrypoint.sh [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                 EVIDENCE                                             
+-----------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/capabilities/set    Set file capabilities                       setcap                                               
+LOW   fs/link/read                read value of a symbolic link               readlink                                             
+LOW   ref/path/etc                path reference within /etc                  /etc/vault                                           
+LOW   ref/path/usr/bin            path reference within /usr/bin              /usr/bin/dumb-init                                   
+LOW   ref/path/var                path reference within /var                  /var/lib/vault                                       
+                                                                              /var/log/vault                                       
+LOW   ref/site/url                contains embedded HTTPS URLs                https://developer.hashicorp.com/vault/docs/commands  
+MED   combo/recon/system_network  invasive recon val                          ip addr                                              
+MED   ref/path/var/log            path reference within /var/log              /var/log/vault                                       
+MED   shell/exec                  executes shell                              /bin/sh                                              
+MED   shell/ignore_output         Runs shell commands but throws output away  vault -version 1>/dev/null 2>/dev/null               
+-----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/vault-1.14-entrypoint-1.14.3-r0.apk ∴ /var/lib/db/sbom/vault-1.14-entrypoint-1.14.3-r0.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                       
+-------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/docker-entrypoint.sh                  
+LOW   ref/site/url      contains embedded HTTPS URLs    https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download      download files                  downloadLocation                               
+-------------------------------------------------------------------------------------------------------
+

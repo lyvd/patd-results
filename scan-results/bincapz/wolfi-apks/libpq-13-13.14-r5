@@ -1,0 +1,41 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpq-13-13.14-r5.apk ∴ /usr/lib/libpq.so.5.13 [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                 EVIDENCE                               
+-------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64           Supports base64 encoded strings             base64                                 
+LOW   env/USER                  Looks up the USER name of the current user  USER                                   
+                                                                            getenv                                 
+LOW   fs/file/delete            deletes files                               unlink                                 
+LOW   hash/sha256               Uses the SHA256 signature format            SHA256_                                
+LOW   net/hostport/parse        Network address and service translation     freeaddrinfo                           
+                                                                            getaddrinfo                            
+LOW   net/socket/local/address  get local address of connected socket       getsockname                            
+LOW   net/socket/receive        receive a message to a socket               recv                                   
+                                                                            socket                                 
+LOW   net/socket/send           send a message to a socket                  send                                   
+                                                                            socket                                 
+LOW   ref/path/etc              path reference within /etc                  /etc/postgresql                        
+LOW   ref/words/password        references a 'password'                     Database-Password-File                 
+                                                                            PQconnectionUsedPassword               
+                                                                            PQencryptPasswordConn                  
+                                                                            SSL-Client-Key-Password                
+                                                                            error sending password authentication  
+                                                                            no password supplied                   
+                                                                            password file                          
+                                                                            scram_SaltedPassword                   
+                                                                            …                                      
+LOW   secrets/private_key       References private keys                     private_key                            
+MED   databases/postgresql      accesses PostgreSQL databases               postgresql                             
+MED   ref/ip_port               mentions an IP and port                     IP                                     
+                                                                            Port                                   
+MED   ref/path/hidden           hidden path generated dynamically           %s/.s                                  
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpq-13-13.14-r5.apk ∴ /var/lib/db/sbom/libpq-13-13.14-r5.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/515610b4dfbe…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,20 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-xmltodict-0.13.0-r1.apk ∴ /usr/lib/python3.12/site-packages/xmltodict.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                       EVIDENCE                                              
+----------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin    path reference within /usr/bin                    /usr/bin/env                                          
+LOW   ref/site/url        contains embedded HTTP URLs                       http://apache.org/xml/features/disallow-doctype-decl  
+MED   evasion/lib_alias   aliases core python library to an alternate name  from collections import OrderedDict as _dict          
+                                                                            from defusedexpat import pyexpat as expat             
+MED   process/name/get    get the current process name                      process_name                                          
+MED   techniques/marshal  reads python values from binary content           import marshal                                        
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-xmltodict-0.13.0-r1.apk ∴ /var/lib/db/sbom/py3-xmltodict-0.13.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/c478fc32129a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

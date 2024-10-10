@@ -1,0 +1,86 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/pa-info [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                      EVIDENCE                      
+-----------------------------------------------------------------------------------------
+LOW   ref/path/etc        path reference within /etc       /etc/pulse/client.conf.d/     
+                                                           /etc/pulse/daemon.conf        
+                                                           /etc/pulse/default.pa.d/      
+                                                           /etc/pulse/system.pa          
+LOW   ref/path/usr/sbin   path reference within /usr/sbin  /usr/sbin/alsa-info.sh        
+LOW   ref/site/url        contains embedded HTTP URLs      http://www.gnu.org/licenses/  
+MED   exec/shell_command  execute a shell command          system                        
+MED   ref/daemon          Run as a background daemon       daemon                        
+MED   shell/exec          executes shell                   /bin/bash                     
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/pacat [✅ LOW]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://www.freedesktop.org/wiki/Software/PulseAudio/Docu…  
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/pacmd [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE     
+--------------------------------------------------------------------------
+LOW   net/socket/send     send a message to a socket         send         
+                                                             socket       
+MED   net/socket/connect  initiate a connection on a socket  connect      
+MED   persist/pid_file    pid file, likely DIY daemon        pa_pid_file  
+MED   ref/daemon          Run as a background daemon         daemon       
+--------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/pactl [⚠️ MEDIUM]
+-----------------------------------------------------------
+RISK  KEY         DESCRIPTION                 EVIDENCE     
+-----------------------------------------------------------
+MED   net/upload  uploads files               upload       
+MED   ref/daemon  Run as a background daemon  exit_daemon  
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/padsp [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   ref/path/dev  path reference within /dev   /dev/dsp                      
+                                                 /dev/mixer                    
+                                                 /dev/sndstat                  
+MED   shell/exec    executes shell               /bin/sh                       
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/pasuspender [⚠️ MEDIUM]
+----------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                        EVIDENCE  
+----------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit           waitpid   
+LOW   process/create           create child process               fork      
+MED   exec/program             executes external programs         execvp    
+MED   net/socket/connect       initiate a connection on a socket  connect   
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/pax11publish [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /usr/bin/start-pulseaudio-x11 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                      
+--------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/pactl                
+LOW   ref/site/url      contains embedded HTTP URLs     http://www.gnu.org/licenses/  
+MED   shell/exec        executes shell                  /bin/sh                       
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-utils-17.0-r0.apk ∴ /var/lib/db/sbom/pulseaudio-utils-17.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/b07cf7128ff9…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,1811 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/config.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                       EVIDENCE            
+---------------------------------------------------------------------------------------------------
+LOW   fd/epoll               I/O event notification facility                   epoll_create        
+LOW   fs/directory/create    creates directories                               mkdir               
+LOW   fs/file/times/set      change file timestamps with nanosecond precision  utimensat           
+LOW   fs/link/read           read value of a symbolic link                     readlinkat          
+LOW   fs/tempdir             looks up location of temp directory               TMPDIR              
+LOW   net/hostport/parse     Network address and service translation           getaddrinfo         
+LOW   process/multithreaded  creates pthreads                                  pthread_create      
+MED   exec/program           executes external programs                        execve              
+MED   kernel/ptrace          trace or modify system calls                      ptrace              
+MED   mem/anonymous/file     create an anonymous file                          memfd_create        
+MED   procfs/self/cmdline    gets process command-line                         /proc/self/cmdline  
+MED   ref/words/intercept    References interception                           intercept           
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/drd.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                  EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTP URLs  http://code.google.com/p/data-race-test/source/browse/tru…  
+MED   net/http/post  submits content to websites  POST                                                        
+                                                  http                                                        
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/helgrind.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                   EVIDENCE                                     
+------------------------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTPS URLs  https://bugs.kde.org/show_bug.cgi?id=243935  
+MED   net/http/post        submits content to websites   POST                                         
+                                                         http                                         
+MED   ref/words/intercept  References interception       interceptors                                 
+                                                         intercepts                                   
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex.h [✅ LOW]
+---------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                      
+---------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1 << 10                       
+                                                         1 << 11                       
+                                                         1 << 12                       
+                                                         1 << 13                       
+                                                         1 << 14                       
+                                                         1 << 15                       
+                                                         1 << 4                        
+                                                         1 << 5                        
+                                                         …                             
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_basictypes.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_emnote.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_amd64.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_arm.h [✅ LOW]
+------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                  EVIDENCE                      
+------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math     uses bitwise math            lane >> 4                     
+LOW   fs/file/delete/forcibly  Forcibly deletes files       rm X--                        
+LOW   ref/site/url             contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_arm64.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_mips32.h [✅ LOW]
+---------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                      
+---------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1ul << 26                     
+                                                         1ul << 8                      
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_mips64.h [✅ LOW]
+---------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                      
+---------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1ul << 26                     
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_ppc32.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                      
+--------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   ref/words/intercept  References interception      interception                  
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_ppc64.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                      
+--------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/shell_command   execute a shell command      system                        
+MED   ref/words/intercept  References interception      interception                  
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_s390x.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_guest_x86.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_inner.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_ir.h [✅ LOW]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                  EVIDENCE                                  
+------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete/forcibly  Forcibly deletes files       rm back-end handles only constant second  
+LOW   ref/site/url             contains embedded HTTP URLs  http://www.gnu.org/licenses/              
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_s390x_common.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/libvex_trc_values.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_addrinfo.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_aspacehl.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_aspacemgr.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_basics.h [✅ LOW]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://gcc.gnu.org/onlinedocs/gcc-4.3.0/gcc/Function-Attr…  
+                                                 http://www.gnu.org/licenses/                                
+                                                 http://www.opengroup.org/onlinepubs/009695399/basedefs/st…  
+                                                 http://www.opengroup.org/onlinepubs/009695399/basedefs/sy…  
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_basics_asm.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_clientstate.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------------------
+LOW   ref/path/relative/hidden  relative hidden launcher     ./.valgrindrc                 
+                                                             exec                          
+LOW   ref/site/url              contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/program              executes external programs   execve                        
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_clreq.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_debuginfo.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_deduppoolalloc.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_errormgr.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/shell_command  execute a shell command      system                        
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_execontext.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_gdbserver.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                      
+-------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs        http://www.gnu.org/licenses/  
+MED   net/socket/connect  initiate a connection on a socket  connect                       
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_guest.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_hashtable.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcassert.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcbase.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcfile.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                    EVIDENCE                      
+---------------------------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                  unlink                        
+LOW   fs/file/open        opens files                    open(                         
+LOW   fs/link/read        read value of a symbolic link  readlink                      
+LOW   fs/node/create      create device files            mknod                         
+LOW   ref/site/url        contains embedded HTTP URLs    http://www.gnu.org/licenses/  
+MED   exec/shell_command  execute a shell command        system                        
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcprint.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcproc.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                  EVIDENCE                      
+------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit     waitpid                       
+LOW   process/create           create child process         fork                          
+LOW   process/parent_pid/get   gets parent process ID       getppid                       
+LOW   ref/site/url             contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/program             executes external programs   execv                         
+MED   exec/shell_command       execute a shell command      system                        
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcsetjmp.h [✅ LOW]
+------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                      
+------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bugs.kde.org/show_bug.cgi?id=259977.  
+------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_libcsignal.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_machine.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_mallocfree.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/shell_command  execute a shell command      system                        
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_options.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/shell_command  execute a shell command      system                        
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_oset.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_poolalloc.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_rangemap.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_redir.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                  EVIDENCE                      
+--------------------------------------------------------------------------------------
+LOW   ref/site/url         contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   exec/shell_command   execute a shell command      system                        
+MED   ref/words/intercept  References interception      intercepted                   
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_replacemalloc.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_seqmatch.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_signals.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_sparsewa.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_stacktrace.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_threadstate.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_tooliface.h [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                  EVIDENCE                      
+----------------------------------------------------------------------------------------
+LOW   process/multithreaded  creates pthreads             pthread_create                
+LOW   ref/site/url           contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   ref/words/intercept    References interception      intercepts                    
+----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_transtab.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_vki.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_vkiscnums.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_vkiscnums_asm.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_wordfm.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_xarray.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_xtmemory.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/pub_tool_xtree.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/valgrind.h [✅ LOW]
+-----------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                     
+-----------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bugs.kde.org/show_bug.cgi?id=243270  
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-amd64-freebsd.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-amd64-linux.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                   EVIDENCE                      
+---------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTP URLs   http://www.gnu.org/licenses/  
+MED   kernel/ptrace  trace or modify system calls  ptrace                        
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-arm-linux.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                   EVIDENCE                      
+---------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTP URLs   http://www.gnu.org/licenses/  
+MED   kernel/ptrace  trace or modify system calls  ptrace                        
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-arm64-freebsd.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-arm64-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                  EVIDENCE                      
+-------------------------------------------------------------------------------------------------------
+LOW   crypto/aes            Supports AES (Advanced Encryption Standard)  AES                           
+LOW   ref/site/url          contains embedded HTTP URLs                  http://www.gnu.org/licenses/  
+MED   evasion/bitwise_math  large amounts of bitwise math                1 << 0                        
+                                                                         1 << 10                       
+                                                                         1 << 11                       
+                                                                         1 << 12                       
+                                                                         1 << 13                       
+                                                                         1 << 14                       
+                                                                         1 << 15                       
+                                                                         1 << 16                       
+                                                                         …                             
+MED   kernel/ptrace         trace or modify system calls                 ptrace                        
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-darwin.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                                      EVIDENCE                      
+-------------------------------------------------------------------------------------------------------
+LOW   ref/site/url      contains embedded HTTP URLs                      http://www.gnu.org/licenses/  
+MED   databases/sqlite  accesses SQLite databases                        sqlite                        
+MED   kernel/ptrace     trace or modify system calls                     ptrace                        
+MED   net/bpf           BPF (Berkeley Packet Filter)                     bpf                           
+MED   net/raw_sockets   send raw and/or malformed IP packets             SOCK_RAW                      
+MED   net/reuseport     reuse TCP/IP ports for listening and connecting  SO_REUSEADDR                  
+MED   ref/words/agent   references an 'agent'                            agent_use_parameters          
+                                                                         agent_uuid                    
+                                                                         vki_necp_agent                
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-freebsd.h [🔥 HIGH]
+----------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                                                 
+----------------------------------------------------------------------------------------------------------------------------------------
+LOW   env/TERM                 Look up or override terminal settings           TERM                                                     
+LOW   fd/multiplex             monitor multiple file descriptors               select                                                   
+LOW   net/socket/listen        listen on a socket                              accept                                                   
+                                                                               socket                                                   
+LOW   net/socket/send          send a message to a socket                      send                                                     
+                                                                               socket                                                   
+LOW   ref/site/url             contains embedded HTTP URLs                     http://bugs.freebsd.org/bugzilla/show_bug.cgi?id=239669  
+                                                                               http://www.gnu.org/licenses/                             
+MED   fs/file/times/set        change file last access and modification times  utime                                                    
+MED   kernel/ptrace            trace or modify system calls                    ptrace                                                   
+MED   net/http/post            submits content to websites                     POST                                                     
+                                                                               http                                                     
+MED   net/sniffer              pcap user                                       PCAP_                                                    
+MED   ref/ip_port              mentions an IP and port                         IP                                                       
+                                                                               Port                                                     
+                                                                               sin_port                                                 
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values      0x00000000                                               
+                                                                               0x00000001                                               
+                                                                               0x00000002                                               
+                                                                               0x00000004                                               
+                                                                               0x00000008                                               
+                                                                               0x00000010                                               
+                                                                               0x00000020                                               
+                                                                               0x00000040                                               
+                                                                               …                                                        
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-linux-drm.h [🔥 HIGH]
+---------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE    
+---------------------------------------------------------------------------------------
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x0000003e  
+                                                                           0x01        
+                                                                           0x02        
+                                                                           0x03        
+                                                                           0x04        
+                                                                           0x05        
+                                                                           0x06        
+                                                                           0x07        
+                                                                           …           
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-linux-io_uring.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-linux.h [🔥 HIGH]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                       EVIDENCE                      
+----------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete            deletes files                                     unlink                        
+LOW   fs/lock/update            apply or remove an advisory lock on a file        flock                         
+LOW   kernel/key/management     kernel key management facility                    keyctl                        
+LOW   kernel/netlink            communicate with kernel services                  AF_NETLINK                    
+                                                                                  netlink                       
+LOW   kernel/seccomp            operate on Secure Computing state of the process  seccomp                       
+LOW   net/ip/multicast/send     send data to multiple nodes simultaneously        multicast                     
+LOW   net/ip/send/unicast       send data to the internet                         unicast                       
+LOW   net/socket/listen         listen on a socket                                accept                        
+                                                                                  listen                        
+                                                                                  socket                        
+LOW   net/socket/local/address  get local address of connected socket             getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket              getpeername                   
+LOW   net/socket/receive        receive a message from a socket                   recvfrom                      
+                                                                                  recvmsg                       
+LOW   net/socket/send           send a message to a socket                        sendmmsg                      
+                                                                                  sendmsg                       
+                                                                                  sendto                        
+LOW   ref/site/url              contains embedded HTTP URLs                       http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                         adjtime                       
+MED   combo/stealer/tools       executable calls archive tool                     ditto - used by DIPC          
+MED   exec/shell_command        execute a shell command                           system                        
+MED   fs/file/times/set         change file last access and modification times    utime                         
+MED   kernel/ptrace             trace or modify system calls                      ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)               sysinfo                       
+MED   net/bpf                   BPF (Berkeley Packet Filter)                      bpf                           
+MED   net/http/post             submits content to websites                       POST                          
+                                                                                  http                          
+MED   net/mac/address           Retrieves network MAC address                     MAC address                   
+MED   ref/ip_port               mentions an IP and port                           IP                            
+                                                                                  Port                          
+                                                                                  precise_ip                    
+                                                                                  remote_port                   
+                                                                                  sin_port                      
+                                                                                  unbound_port                  
+MED   ref/path/dev              path reference within /dev                        /dev/aio                      
+HIGH  obfuscation/generic/hex   excessive references to hexadecimal values        0x00000001                    
+                                                                                  0x00000002                    
+                                                                                  0x00000003                    
+                                                                                  0x00000004                    
+                                                                                  0x00000005                    
+                                                                                  0x00000006                    
+                                                                                  0x00000007                    
+                                                                                  0x00000008                    
+                                                                                  …                             
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-machine-types-amd64-freebsd.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-machine-types-arm64-freebsd.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-machine-types-x86-freebsd.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-mips32-linux.h [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTP URLs                     http://www.gnu.org/licenses/  
+MED   fs/file/times/set        change file last access and modification times  utime                         
+MED   kernel/ptrace            trace or modify system calls                    ptrace                        
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values      0x00000001                    
+                                                                               0x00000008                    
+                                                                               0x00000200                    
+                                                                               0x00010000                    
+                                                                               0x0008                        
+                                                                               0x001                         
+                                                                               0x002                         
+                                                                               0x0080                        
+                                                                               …                             
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-mips64-linux.h [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTP URLs                     http://www.gnu.org/licenses/  
+MED   fs/file/times/set        change file last access and modification times  utime                         
+MED   kernel/ptrace            trace or modify system calls                    ptrace                        
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values      0x00000001                    
+                                                                               0x00000008                    
+                                                                               0x00010000                    
+                                                                               0x0008                        
+                                                                               0x001                         
+                                                                               0x002                         
+                                                                               0x0080                        
+                                                                               0x01000000                    
+                                                                               …                             
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-nanomips-linux.h [🔥 HIGH]
+-------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE    
+-------------------------------------------------------------------------------------------
+MED   fs/file/times/set        change file last access and modification times  utime       
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values      0x00000001  
+                                                                               0x00000002  
+                                                                               0x00000004  
+                                                                               0x00001000  
+                                                                               0x000040    
+                                                                               0x000080    
+                                                                               0x0000F000  
+                                                                               0x000100    
+                                                                               …           
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-amd64-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-arm-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-arm64-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-mips32-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-mips64-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-ppc32-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-ppc64-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-s390x-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-posixtypes-x86-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-ppc32-linux.h [🔥 HIGH]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                      
+---------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTP URLs                 http://www.gnu.org/licenses/  
+MED   kernel/ptrace            trace or modify system calls                ptrace                        
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x00000001                    
+                                                                           0x00000002                    
+                                                                           0x00000004                    
+                                                                           0x0001                        
+                                                                           0x001                         
+                                                                           0x002                         
+                                                                           0x004                         
+                                                                           0x008                         
+                                                                           …                             
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-ppc64-linux.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                   EVIDENCE                      
+---------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTP URLs   http://www.gnu.org/licenses/  
+MED   kernel/ptrace  trace or modify system calls  ptrace                        
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-s390x-linux.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                   EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTPS URLs  https://sourceware.org/ml/libc-alpha/2014-09/msg00161.html  
+MED   kernel/ptrace  trace or modify system calls  ptrace                                                      
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-32bit-linux.h [✅ LOW]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                       EVIDENCE                      
+---------------------------------------------------------------------------------------------------------
+LOW   fs/file/times/set  change file timestamps with nanosecond precision  utimensat                     
+LOW   ref/site/url       contains embedded HTTP URLs                       http://www.gnu.org/licenses/  
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-amd64-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fd/multiplex              monitor multiple file descriptors                    select                        
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate                     
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_file_load               
+                                                                                     kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 vfork                         
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-arm-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                             waitpid                       
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64                   
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/alarm             set an alarm clock for delivery of a signal          alarm                         
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/create            create a new file or rewrite an existing one         creat                         
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-arm64-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64                   
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 vfork                         
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-darwin.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                            EVIDENCE                      
+---------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create       creates directories                                    mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories              rmdir                         
+LOW   fs/fifo/create            make a FIFO special file (a named pipe)                mkfifo                        
+LOW   fs/file/delete            deletes files                                          unlink                        
+LOW   fs/file/flags/change      May update file flags using chflags                    chflags                       
+LOW   fs/file/truncate          truncate a file to a specified length                  ftruncate                     
+LOW   fs/link/read              read value of a symbolic link                          readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file             flock                         
+LOW   fs/node/create            create device files                                    mknod                         
+LOW   fs/permission/chown       May change file ownership                              fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                  quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                         swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                        swapon                        
+LOW   fs/unmount                unmount file system                                    umount                        
+LOW   kernel/acct               switch process accounting on or off                    acct                          
+LOW   kernel/hostname/get       get computer host name                                 gethostname                   
+LOW   kernel/hostname/set       sethostname                                            sethostname                   
+LOW   net/sendfile              transfer data between file descriptors                 sendfile                      
+LOW   net/socket/listen         listen on a socket                                     accept                        
+                                                                                       listen                        
+                                                                                       socket                        
+LOW   net/socket/local/address  get local address of connected socket                  getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                   getpeername                   
+LOW   net/socket/receive        receive a message from a socket                        recvfrom                      
+                                                                                       recvmsg                       
+LOW   net/socket/send           send a message to a socket                             sendmsg                       
+                                                                                       sendto                        
+LOW   process/chroot            change the location of root for the process            chroot                        
+LOW   process/create            create child process                                   vfork                         
+LOW   process/groupid/set       set real and effective group ID of process             setgid                        
+LOW   process/groups/set        set group access list                                  setgroups                     
+LOW   process/parent_pid/get    gets parent process ID                                 getppid                       
+LOW   process/userid/set        set real and effective user ID of current process      setuid                        
+LOW   process/username/get      get login name                                         getlogin                      
+LOW   ref/site/url              contains embedded HTTP URLs                            http://www.gnu.org/licenses/  
+LOW   sync/semaphore/user       uses semaphores to synchronize data between processes  semaphore_signal              
+                                or threads                                             semaphore_wait                
+LOW   time/clock/set            set time via system clock                              adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                  vhangup                       
+MED   exec/program              executes external programs                             execv                         
+MED   fs/attributes/remove      remove an extended file attribute value                removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                   setxattr                      
+MED   fs/file/times/set         change file last access and modification times         utimes                        
+MED   fs/permission/modify      modifies file permissions                              chmod                         
+MED   kernel/ptrace             trace or modify system calls                           ptrace                        
+MED   process/username/set      set login name                                         setlogin                      
+MED   ref/daemon                Run as a background daemon                             async_daemon                  
+MED   ref/words/agent           references an 'agent'                                  __NR_netagent                 
+---------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-freebsd.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                         EVIDENCE                      
+------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create       creates directories                                 mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories           rmdir                         
+LOW   fs/fifo/create            make a FIFO special file (a named pipe)             mkfifo                        
+LOW   fs/file/capabilities/set  Set file capabilities                               cap_set_fd                    
+                                                                                    cap_set_file                  
+LOW   fs/file/delete            deletes files                                       unlinkat                      
+LOW   fs/file/flags/change      May update file flags using chflags                 chflags                       
+LOW   fs/file/truncate          truncate a file to a specified length               ftruncate                     
+LOW   fs/link/create            May create hard file links                          linkat                        
+LOW   fs/link/read              read value of a symbolic link                       readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file          flock                         
+LOW   fs/node/create            create device files                                 mknod                         
+LOW   fs/permission/chown       May change file ownership                           fchown                        
+LOW   fs/permission/get         looks up file permissions                           _getmode                      
+LOW   fs/quota/manipulate       manipulate disk quota                               quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                      swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                     swapon                        
+LOW   kernel/acct               switch process accounting on or off                 acct                          
+LOW   kernel/hostname/get       get computer host name                              gethostname                   
+LOW   kernel/hostname/set       sethostname                                         sethostname                   
+LOW   kernel/platform           system identification                               uname                         
+LOW   net/sendfile              transfer data between file descriptors              sendfile                      
+LOW   net/socket/listen         listen on a socket                                  accept                        
+                                                                                    listen                        
+                                                                                    socket                        
+LOW   net/socket/local/address  get local address of connected socket               getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                getpeername                   
+LOW   net/socket/receive        receive a message from a socket                     recvfrom                      
+                                                                                    recvmsg                       
+LOW   net/socket/send           send a message to a socket                          sendmsg                       
+                                                                                    sendto                        
+LOW   process/chroot            change the location of root for the process         chroot                        
+LOW   process/create            create child process                                fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process  setgid                        
+LOW   process/groups/set        set group access list                               setgroups                     
+LOW   process/parent_pid/get    gets parent process ID                              getppid                       
+LOW   process/userid/set        set real and effective user ID of current process   setuid                        
+LOW   process/username/get      get login name                                      getlogin                      
+LOW   ref/site/url              contains embedded HTTP URLs                         http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                           adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal               vhangup                       
+MED   exec/program              executes external programs                          execv                         
+MED   fs/file/create            create a new file or rewrite an existing one        creat                         
+MED   fs/file/times/set         change file last access and modification times      utimes                        
+MED   fs/permission/modify      modifies file permissions                           chmod                         
+MED   kernel/ptrace             trace or modify system calls                        ptrace                        
+MED   process/username/set      set login name                                      setlogin                      
+------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-mips32-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                             waitpid                       
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64                   
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmsg                       
+                                                                                     sendto                        
+LOW   process/alarm             set an alarm clock for delivery of a signal          alarm                         
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/create            create a new file or rewrite an existing one         creat                         
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-mips64-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate                     
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-nanomips-linux.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE           
+--------------------------------------------------------------------------------------------------------
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init      
+LOW   fs/file/delete            deletes files                                        unlinkat           
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at  
+                                handle                                               open_by_handle_at  
+LOW   fs/file/times/set         change file timestamps with nanosecond precision     utimensat          
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64        
+LOW   fs/link/create            May create hard file links                           linkat             
+LOW   fs/link/read              read value of a symbolic link                        readlinkat         
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock              
+LOW   fs/node/create            create device files                                  mknodat            
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie     
+LOW   fs/permission/chown       May change file ownership                            fchown             
+LOW   fs/permission/modify      modifies file permissions                            fchmodat           
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl           
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff            
+LOW   fs/swap/on                start swapping to a file/device                      swapon             
+LOW   fs/watch                  monitors filesystem events                           inotify            
+LOW   kernel/acct               switch process accounting on or off                  acct               
+LOW   kernel/hostname/set       sethostname                                          sethostname        
+LOW   kernel/key/management     kernel key management facility                       keyctl             
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open    
+LOW   kernel/pivot_root         change the root mount location                       pivot_root         
+LOW   kernel/platform           system identification                                uname              
+LOW   kernel/reboot             load a new kernel for later execution                kexec_load         
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp            
+LOW   net/socket/listen         listen on a socket                                   accept             
+                                                                                     listen             
+                                                                                     socket             
+LOW   net/socket/local/address  get local address of connected socket                getsockname        
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername        
+LOW   net/socket/receive        receive a message from a socket                      recvfrom           
+                                                                                     recvmsg            
+LOW   net/socket/send           send a message to a socket                           sendmmsg           
+                                                                                     sendmsg            
+                                                                                     sendto             
+LOW   process/chroot            change the location of root for the process          chroot             
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid             
+LOW   process/groups/set        set group access list                                setgroups          
+LOW   process/namespace/set     associate thread or process with a namespace         setns              
+LOW   process/parent_pid/get    gets parent process ID                               getppid            
+LOW   process/unshare           disassociate parts of the process execution context  unshare            
+LOW   process/userid/set        set real and effective user ID of current process    setuid             
+LOW   time/clock/set            set time via system clock                            adjtime            
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup            
+MED   exec/program              executes external programs                           execve             
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr        
+MED   fs/attributes/set         set an extended file attribute value                 setxattr           
+MED   kernel/module             Unload Linux kernel module                           delete_module      
+MED   kernel/module/load        Load Linux kernel module                             init_module        
+MED   kernel/ptrace             trace or modify system calls                         ptrace             
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo            
+MED   mem/anonymous/file        create an anonymous file                             memfd_create       
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-ppc32-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                             waitpid                       
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64                   
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_file_load               
+                                                                                     kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/alarm             set an alarm clock for delivery of a signal          alarm                         
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/create            create a new file or rewrite an existing one         creat                         
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-ppc64-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                             waitpid                       
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64                   
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_file_load               
+                                                                                     kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   accept                        
+                                                                                     listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/alarm             set an alarm clock for delivery of a signal          alarm                         
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/create            create a new file or rewrite an existing one         creat                         
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-s390x-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate                     
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_file_load               
+                                                                                     kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/alarm             set an alarm clock for delivery of a signal          alarm                         
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   exec/shell_command        execute a shell command                              system                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/create            create a new file or rewrite an existing one         creat                         
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-shared-linux.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-solaris.h [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE                                         
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create       creates directories                                mkdir                                            
+LOW   fs/directory/remove       Uses libc functions to remove directories          rmdir                                            
+LOW   fs/file/delete            deletes files                                      unlinkat                                         
+LOW   fs/file/times/set         change file timestamps with nanosecond precision   utimensat                                        
+LOW   fs/link/create            May create hard file links                         linkat                                           
+LOW   fs/link/read              read value of a symbolic link                      readlinkat                                       
+LOW   fs/node/create            create device files                                mknod                                            
+LOW   fs/permission/chown       May change file ownership                          fchown                                           
+LOW   kernel/acct               switch process accounting on or off                acct                                             
+LOW   kernel/platform           system identification                              uname                                            
+LOW   net/socket/listen         listen on a socket                                 accept                                           
+                                                                                   listen                                           
+                                                                                   socket                                           
+LOW   net/socket/local/address  get local address of connected socket              getsockname                                      
+LOW   net/socket/peer/address   get peer address of connected socket               getpeername                                      
+LOW   net/socket/receive        receive a message from a socket                    recvfrom                                         
+                                                                                   recvmsg                                          
+LOW   net/socket/send           send a message to a socket                         sendmsg                                          
+                                                                                   sendto                                           
+LOW   process/chroot            change the location of root for the process        chroot                                           
+LOW   process/create            create child process                               vfork                                            
+LOW   process/groupid/set       set real and effective group ID of process         setgid                                           
+LOW   process/groups/set        set group access list                              setgroups                                        
+LOW   process/userid/set        set real and effective user ID of current process  setuid                                           
+LOW   ref/site/url              contains embedded HTTPS URLs                       https://wikis.oracle.com/display/DTrace/syscall  
+LOW   time/clock/set            set time via system clock                          adjtime                                          
+LOW   tty/vhangup               virtually hangup the current terminal              vhangup                                          
+MED   exec/program              executes external programs                         execve                                           
+MED   fs/permission/modify      modifies file permissions                          chmod                                            
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-scnums-x86-linux.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                          EVIDENCE                      
+-------------------------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                             waitpid                       
+LOW   fd/epoll                  I/O event notification facility                      epoll_create                  
+                                                                                     epoll_wait                    
+LOW   fs/directory/create       creates directories                                  mkdir                         
+LOW   fs/directory/remove       Uses libc functions to remove directories            rmdir                         
+LOW   fs/event/monitoring       filesystem event monitoring                          fanotify_init                 
+LOW   fs/file/delete            deletes files                                        unlinkat                      
+LOW   fs/file/open/by_handle    obtain handle for a pathname and open file via a     name_to_handle_at             
+                                handle                                               open_by_handle_at             
+LOW   fs/file/truncate          truncate a file to a specified length                ftruncate64                   
+LOW   fs/link/create            May create hard file links                           linkat                        
+LOW   fs/link/read              read value of a symbolic link                        readlinkat                    
+LOW   fs/lock/update            apply or remove an advisory lock on a file           flock                         
+LOW   fs/node/create            create device files                                  mknod                         
+LOW   fs/path/from/cookie       return a directory entry's path by cookie            lookup_dcookie                
+LOW   fs/permission/chown       May change file ownership                            fchown                        
+LOW   fs/quota/manipulate       manipulate disk quota                                quotactl                      
+LOW   fs/swap/off               stop swapping to a file/device                       swapoff                       
+LOW   fs/swap/on                start swapping to a file/device                      swapon                        
+LOW   fs/unmount                unmount file system                                  umount                        
+LOW   fs/watch                  monitors filesystem events                           inotify                       
+LOW   kernel/acct               switch process accounting on or off                  acct                          
+LOW   kernel/hostname/set       sethostname                                          sethostname                   
+LOW   kernel/key/management     kernel key management facility                       keyctl                        
+LOW   kernel/perfmon            set up performance monitoring                        perf_event_open               
+LOW   kernel/pivot_root         change the root mount location                       pivot_root                    
+LOW   kernel/platform           system identification                                uname                         
+LOW   kernel/reboot             load a new kernel for later execution                kexec_load                    
+LOW   kernel/seccomp            operate on Secure Computing state of the process     seccomp                       
+LOW   net/sendfile              transfer data between file descriptors               sendfile                      
+LOW   net/socket/listen         listen on a socket                                   listen                        
+                                                                                     socket                        
+LOW   net/socket/local/address  get local address of connected socket                getsockname                   
+LOW   net/socket/peer/address   get peer address of connected socket                 getpeername                   
+LOW   net/socket/receive        receive a message from a socket                      recvfrom                      
+                                                                                     recvmsg                       
+LOW   net/socket/send           send a message to a socket                           sendmmsg                      
+                                                                                     sendmsg                       
+                                                                                     sendto                        
+LOW   process/alarm             set an alarm clock for delivery of a signal          alarm                         
+LOW   process/chroot            change the location of root for the process          chroot                        
+LOW   process/create            create child process                                 fork                          
+LOW   process/groupid/set       set real, effective, and saved group ID of process   setgid                        
+LOW   process/groups/set        set group access list                                setgroups                     
+LOW   process/namespace/set     associate thread or process with a namespace         setns                         
+LOW   process/parent_pid/get    gets parent process ID                               getppid                       
+LOW   process/unshare           disassociate parts of the process execution context  unshare                       
+LOW   process/userid/set        set real and effective user ID of current process    setuid                        
+LOW   ref/site/url              contains embedded HTTP URLs                          http://www.gnu.org/licenses/  
+LOW   time/clock/set            set time via system clock                            adjtime                       
+LOW   tty/vhangup               virtually hangup the current terminal                vhangup                       
+MED   exec/program              executes external programs                           execve                        
+MED   fs/attributes/remove      remove an extended file attribute value              removexattr                   
+MED   fs/attributes/set         set an extended file attribute value                 setxattr                      
+MED   fs/file/create            create a new file or rewrite an existing one         creat                         
+MED   fs/file/times/set         change file last access and modification times       utimes                        
+MED   fs/permission/modify      modifies file permissions                            chmod                         
+MED   kernel/module             Unload Linux kernel module                           delete_module                 
+MED   kernel/module/load        Load Linux kernel module                             init_module                   
+MED   kernel/ptrace             trace or modify system calls                         ptrace                        
+MED   kernel/sysinfo            get system information (load, swap)                  sysinfo                       
+MED   mem/anonymous/file        create an anonymous file                             memfd_create                  
+MED   net/bpf                   BPF (Berkeley Packet Filter)                         bpf                           
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-solaris-repcache.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-solaris.h [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                     EVIDENCE                      
+----------------------------------------------------------------------------------------------------------
+LOW   crypto/aes            Supports AES (Advanced Encryption Standard)     AES                           
+LOW   evasion/bitwise_math  uses bitwise math                               1 << 21                       
+LOW   fs/lock/update        apply or remove an advisory lock on a file      flock                         
+LOW   net/sendfile          transfer data between file descriptors          sendfile                      
+LOW   ref/path/var          path reference within /var                      /var/run/name_service_door    
+LOW   ref/site/url          contains embedded HTTP URLs                     http://www.gnu.org/licenses/  
+MED   exec/shell_command    execute a shell command                         system                        
+MED   fs/file/times/set     change file last access and modification times  utime                         
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-x86-freebsd.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-x86-linux.h [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                   EVIDENCE                      
+---------------------------------------------------------------------------------
+LOW   ref/site/url   contains embedded HTTP URLs   http://www.gnu.org/licenses/  
+MED   kernel/ptrace  trace or modify system calls  ptrace                        
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-domctl.h [✅ LOW]
+---------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                      
+---------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            1 << 1                        
+                                                         1 << 2                        
+                                                         1 << 3                        
+                                                         1 << 4                        
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-evtchn.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-gnttab.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-hvm.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-memory.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-mmuext.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-physdev.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-schedop.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-tmem.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-version.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-x86.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen-xsm.h [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                              DESCRIPTION                  EVIDENCE                      
+--------------------------------------------------------------------------------------------------
+LOW   ref/site/url                     contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+MED   security_controls/linux/selinux  selinux                      setenforce                    
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /usr/include/valgrind/vki/vki-xen.h [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                      
+-------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.gnu.org/licenses/  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/valgrind-dev-3.23.0-r0.apk ∴ /var/lib/db/sbom/valgrind-dev-3.23.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/c80ad4c24692…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

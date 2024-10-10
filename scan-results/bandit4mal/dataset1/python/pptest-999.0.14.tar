@@ -1,0 +1,422 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-03T07:48:37Z",
+  "metrics": {
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py": {
+      "CONFIDENCE.HIGH": 4.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 9.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 4.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 9.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 70,
+      "nosec": 0
+    },
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py": {
+      "CONFIDENCE.HIGH": 4.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 10.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 4.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 10.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 102,
+      "nosec": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 8.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 19.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 8.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 19.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 172,
+      "nosec": 0
+    }
+  },
+  "results": [
+    {
+      "code": "36             opener = urllib.request.build_opener(handler)\n37             req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n38             res = opener.open(req)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 37,
+      "line_range": [
+        37
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "41             #print(res.status)\n42             str_ = res.read().decode('utf-8')\n43             #print(str_)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "os.read",
+      "line_number": 42,
+      "line_range": [
+        42
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b814_read.html",
+      "test_id": "B814",
+      "test_name": "read"
+    },
+    {
+      "code": "49             opener = urllib2.build_opener(handler)\n50             req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n51             #res = opener.open(req)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "urllib2_Request",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b321-urllib2-request",
+      "test_id": "B321",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "49             opener = urllib2.build_opener(handler)\n50             req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n51             #res = opener.open(req)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "52             #public_ip = (res.read().decode('utf-8'))\n53             public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n54     except Exception as err:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "urllib.request.urlopen",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b818_urlopen.html",
+      "test_id": "B818",
+      "test_name": "urlopen"
+    },
+    {
+      "code": "52             #public_ip = (res.read().decode('utf-8'))\n53             public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n54     except Exception as err:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "urllib2_urlopen",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-urllib2-urlopen",
+      "test_id": "B320",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "52             #public_ip = (res.read().decode('utf-8'))\n53             public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n54     except Exception as err:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "55         print(err)\n56         public_ip = os.system('curl -s \"http://ifconfig.me/ip\"')\n57     return public_ip\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "os.system",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b812_system.html",
+      "test_id": "B812",
+      "test_name": "system"
+    },
+    {
+      "code": "55         print(err)\n56         public_ip = os.system('curl -s \"http://ifconfig.me/ip\"')\n57     return public_ip\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "os.system",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-os-system",
+      "test_id": "B316",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "55         print(err)\n56         public_ip = os.system('curl -s \"http://ifconfig.me/ip\"')\n57     return public_ip\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "59     \n60     hostname = socket.gethostname()\n61     local_ips = socket.gethostbyname_ex(hostname)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.gethostname",
+      "line_number": 60,
+      "line_range": [
+        60
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b803_gethostname.html",
+      "test_id": "B803",
+      "test_name": "gethostname"
+    },
+    {
+      "code": "59     \n60     hostname = socket.gethostname()\n61     local_ips = socket.gethostbyname_ex(hostname)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "socket.gethostname",
+      "line_number": 60,
+      "line_range": [
+        60
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b302-socket-gethostname",
+      "test_id": "B302",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "99 def mypip():\n100     mydns = '8.8.8.8'\n101     get_info(mydns)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/pptest/__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "ip_found",
+      "line_number": 100,
+      "line_range": [
+        100
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b823_ip_found.html",
+      "test_id": "B823",
+      "test_name": "ip_found"
+    },
+    {
+      "code": "34                 opener = urllib.request.build_opener(handler)\n35                 req = urllib.request.Request('http://ip.dhcp.cn/?json', headers=headers)\n36                 res = opener.open(req)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "39                 #print(res.status)\n40                 str_ = res.read().decode('utf-8')\n41                 #print(str_)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "os.read",
+      "line_number": 40,
+      "line_range": [
+        40
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b814_read.html",
+      "test_id": "B814",
+      "test_name": "read"
+    },
+    {
+      "code": "47                 opener = urllib2.build_opener(handler)\n48                 req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n49                 #res = opener.open(req)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "urllib2_Request",
+      "line_number": 48,
+      "line_range": [
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b321-urllib2-request",
+      "test_id": "B321",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "47                 opener = urllib2.build_opener(handler)\n48                 req = urllib2.Request('http://ifconfig.me/ip')#http://ip.dhcp.cn/?json\n49                 #res = opener.open(req)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 48,
+      "line_range": [
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "50                 #public_ip = (res.read().decode('utf-8'))\n51                 public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n52         except Exception as err:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "urllib.request.urlopen",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b818_urlopen.html",
+      "test_id": "B818",
+      "test_name": "urlopen"
+    },
+    {
+      "code": "50                 #public_ip = (res.read().decode('utf-8'))\n51                 public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n52         except Exception as err:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "urllib2_urlopen",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-urllib2-urlopen",
+      "test_id": "B320",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "50                 #public_ip = (res.read().decode('utf-8'))\n51                 public_ip = load(urllib2.urlopen('http://ip.dhcp.cn/?json'))['ip']# http://jsonip.com\n52         except Exception as err:\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "53             print(err)\n54             public_ip = os.system('curl -s \"http://ifconfig.me/ip\"')\n55         return public_ip\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "os.system",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b812_system.html",
+      "test_id": "B812",
+      "test_name": "system"
+    },
+    {
+      "code": "53             print(err)\n54             public_ip = os.system('curl -s \"http://ifconfig.me/ip\"')\n55         return public_ip\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "os.system",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-os-system",
+      "test_id": "B316",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "53             print(err)\n54             public_ip = os.system('curl -s \"http://ifconfig.me/ip\"')\n55         return public_ip\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    },
+    {
+      "code": "63         fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\n64         hostname = socket.gethostname()\n65         local_ips = socket.gethostbyname_ex(hostname)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.gethostname",
+      "line_number": 64,
+      "line_range": [
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b803_gethostname.html",
+      "test_id": "B803",
+      "test_name": "gethostname"
+    },
+    {
+      "code": "63         fake_domain = 'hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net'\n64         hostname = socket.gethostname()\n65         local_ips = socket.gethostbyname_ex(hostname)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "socket.gethostname",
+      "line_number": 64,
+      "line_range": [
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b302-socket-gethostname",
+      "test_id": "B302",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "103     def mypip(self):\n104         mydns = '8.8.8.8'\n105         self.get_info(mydns)\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "ip_found",
+      "line_number": 104,
+      "line_range": [
+        104
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b823_ip_found.html",
+      "test_id": "B823",
+      "test_name": "ip_found"
+    },
+    {
+      "code": "123     author_email='testtt@google.com',\n124     url='https://www.google.com',\n125     description=u'just for test',\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/pptest-999.0.14.tar/pptest-999.0.14/setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "MEDIUM",
+      "issue_text": "url_found",
+      "line_number": 124,
+      "line_range": [
+        124
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b824_url_found.html",
+      "test_id": "B824",
+      "test_name": "url_found"
+    }
+  ]
+}

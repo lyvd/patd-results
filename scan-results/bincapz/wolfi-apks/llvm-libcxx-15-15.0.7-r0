@@ -1,0 +1,28 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/llvm-libcxx-15-15.0.7-r0.apk ∴ /usr/lib/libc++.so.1.0 [✅ LOW]
+-----------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE   
+-----------------------------------------------------------------------------------------
+LOW   env/TEMP              tmpdir                                            TEMP       
+                                                                              getenv     
+LOW   env/TMPDIR            TMPDIR                                            TMPDIR     
+                                                                              getenv     
+LOW   fs/directory/create   creates directories                               mkdir      
+LOW   fs/file/delete        deletes files                                     unlinkat   
+LOW   fs/file/times/set     change file timestamps with nanosecond precision  utimensat  
+LOW   fs/file/truncate      truncate a file to a specified length             ftruncate  
+LOW   fs/link/read          read value of a symbolic link                     readlink   
+LOW   fs/permission/modify  modifies file permissions                         fchmodat   
+LOW   fs/symlink/resolve    resolves symbolic links                           realpath   
+LOW   fs/tempdir            looks up location of temp directory               TEMPDIR    
+                                                                              TMPDIR     
+LOW   net/sendfile          transfer data between file descriptors            sendfile   
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/llvm-libcxx-15-15.0.7-r0.apk ∴ /var/lib/db/sbom/llvm-libcxx-15-15.0.7-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

@@ -1,0 +1,172 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/loki-canary-3.0.0-r3.apk ∴ /usr/bin/loki-canary [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                        EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/gzip            works with gzip files                              gzip                                                        
+LOW   compression/zstd            Zstandard: fast real-time compression algorithm    (�/�                                                        
+                                                                                     zstd                                                        
+LOW   crypto/aes                  Supports AES (Advanced Encryption Standard)        AES                                                         
+                                                                                     crypto/aes                                                  
+LOW   crypto/ecdsa                Uses the Go crypto/ecdsa library                   crypto/ecdsa                                                
+LOW   crypto/ed25519              Elliptic curve algorithm used by TLS and SSH       ed25519                                                     
+LOW   crypto/tls                  tls                                                TLS13                                                       
+                                                                                     TLSVersion                                                  
+                                                                                     crypto/tls                                                  
+LOW   data/embedded/pem/test_key  Contains TESTING KEY directive                     TESTING KEY-----                                            
+LOW   encoding/base64             Supports base64 encoded strings                    base64                                                      
+LOW   encoding/json               Supports JSON encoded objects                      encoding/json                                               
+LOW   encoding/json/decode        Decodes JSON messages                              json.Unmarshal                                              
+LOW   encoding/json/encode        encodes JSON                                       JSONEncode                                                  
+                                                                                     MarshalJSON                                                 
+LOW   env/USER                    Looks up the USER name of the current user         USER                                                        
+                                                                                     getenv                                                      
+LOW   fs/directory/list           Uses Go functions to list a directory              .ReadDir                                                    
+LOW   fs/directory/remove         Uses libc functions to remove directories          Rmdir                                                       
+LOW   fs/file/delete              deletes files                                      unlinkat                                                    
+LOW   fs/file/read                reads files                                        ReadFile                                                    
+                                                                                     os.(*File).Read                                             
+LOW   fs/link/read                read value of a symbolic link                      readlinkat                                                  
+LOW   fs/lock/update              apply or remove an advisory lock on a file         flock                                                       
+LOW   fs/watch                    monitors filesystem events                         inotify                                                     
+LOW   hash/md5                    Uses the MD5 signature format                      md5:                                                        
+LOW   kernel/cpu/info             gets number of processors                          nproc                                                       
+LOW   kernel/hostname/get         get computer host name                             /proc/sys/kernel/hostname                                   
+LOW   kernel/netlink              communicate with kernel services                   netlink                                                     
+LOW   kernel/platform             system identification                              syscall.Uname                                               
+LOW   net/dns                     Uses DNS (Domain Name Service)                     CNAMEResource                                               
+                                                                                     SetEDNS0                                                    
+                                                                                     dnsmessage                                                  
+LOW   net/dns/servers             Examines local DNS servers                         CNAMEResource                                               
+LOW   net/dns/txt                 Uses DNS TXT (text) records                        TXT                                                         
+                                                                                     dns                                                         
+LOW   net/grpc                    Uses the gRPC Remote Procedure Call framework      gRPC                                                        
+LOW   net/hostname/resolve        resolve network host name to IP address            net.hostLookup                                              
+LOW   net/http/accept/encoding    set HTTP response encoding format (example: gzip)  Accept-Encoding                                             
+LOW   net/http/auth               makes HTTP requests with basic authentication      Www-Authenticate                                            
+                                                                                     www-authenticate                                            
+LOW   net/http/request            makes HTTP requests                                HTTP/1.                                                     
+                                                                                     Referer                                                     
+                                                                                     User-Agent                                                  
+LOW   net/http2                   Uses the HTTP/2 protocol                           HTTP/2                                                      
+LOW   net/http_proxy              use HTTP proxy that requires authentication        Proxy-Authorization                                         
+LOW   net/oauth2                  supports OAuth2                                    oauth2                                                      
+LOW   net/sendfile                transfer data between file descriptors             sendfile                                                    
+                                                                                     syscall.Sendfile                                            
+LOW   net/socket/listen           listen on a socket                                 accept                                                      
+                                                                                     listen                                                      
+                                                                                     socket                                                      
+LOW   net/socket/local/address    get local address of connected socket              getsockname                                                 
+LOW   net/socket/peer/address     get peer address of connected socket               getpeername                                                 
+LOW   net/socket/receive          receive a message from a socket                    recvfrom                                                    
+                                                                                     recvmsg                                                     
+LOW   net/socket/send             send a message to a socket                         sendmsg                                                     
+                                                                                     sendto                                                      
+LOW   net/udp/receive             Listens for UDP responses                          ReadFromUDP                                                 
+                                                                                     listenUDP                                                   
+LOW   net/udp/send                Sends UDP packets                                  DialUDP                                                     
+                                                                                     WriteMsgUDP                                                 
+LOW   net/url                     Handles URL strings                                RequestURI                                                  
+LOW   ref/path/etc                path reference within /etc                         /etc/apache/mime.typesgzip                                  
+                                                                                     /etc/group                                                  
+                                                                                     /etc/hostsgetsockoptnetlinkribsetsock                       
+                                                                                     /etc/httpd/conf/mime.typesmime                              
+                                                                                     /etc/mime.types                                             
+                                                                                     /etc/nsswitch.confinvalid                                   
+                                                                                     /etc/passwd                                                 
+                                                                                     /etc/pki/ca-trust/extracted/pem/tls-c                       
+                                                                                     …                                                           
+LOW   ref/path/etc/resolv.conf    accesses DNS resolver configuration                /etc/resolv.conf                                            
+LOW   ref/site/url                contains embedded HTTPS URLs                       https://github.com/open-telemetry/opentelemetry-collector…  
+                                                                                     https://login.chinacloudapi.cn/2006-01-02T15                
+                                                                                     https://login.microsoftonline.com/io/prometheus/client/me…  
+                                                                                     https://login.microsoftonline.us/user                       
+                                                                                     https://management.azure.comparseAddress                    
+                                                                                     https://management.chinacloudapi.cncannot                   
+                                                                                     https://management.core.chinacloudapi.cntime.Time           
+                                                                                     https://management.core.usgovcloudapi.net                   
+                                                                                     …                                                           
+LOW   ref/words/password          references a 'password'                            AuthUserChangePasswordRequestproto                          
+                                                                                     AuthUserChangePasswordResponseproto                         
+                                                                                     AuthUserChangePasswordproto                                 
+                                                                                     GenerateFromPassword                                        
+                                                                                     GetHashedPassword                                           
+                                                                                     GetPassword                                                 
+                                                                                     HashedPasswordQprotobuf                                     
+                                                                                     Password from                                               
+                                                                                     …                                                           
+LOW   ref/words/plugin            references a 'plugin'                              pluginpath                                                  
+LOW   secrets/private_key         References private keys                            privateKey                                                  
+MED   3P/threat_hunting/hijacker  references 'Hijacker' tool, by mthcht              Hijacker                                                    
+                                                                                     hijacker                                                    
+MED   archives/zip                Works with zip files                               archive/zip                                                 
+MED   data/embedded/html          Contains HTML content                              <html>                                                      
+                                                                                     DOCTYPE html                                                
+MED   data/embedded/zstd          Contains compressed content in ZStandard format    (�/�                                                        
+MED   evasion/content/length/0    Sets HTTP content length to zero                   Content-Length: 0                                           
+MED   exec/program                run external command                               exec_unix.go                                                
+MED   fs/permission/chown         Changes file ownership                             Chown                                                       
+MED   fs/permission/modify        modifies file permissions                          Chmod                                                       
+                                                                                     chmod                                                       
+MED   net/dns/reverse             looks up the reverse hostname for an IP            .in-addr.arpa                                               
+                                                                                     ip6.arpa                                                    
+MED   net/download                download files                                     AddCacheDownloadTime                                        
+                                                                                     AddChunksDownloadTime                                       
+                                                                                     AddChunksDownloaded                                         
+                                                                                     ChunksDownloadDuration                                      
+                                                                                     ChunksDownloadTimeIngester                                  
+                                                                                     ChunksDownloadTimePprotobuf                                 
+                                                                                     ChunksDownloadTimeQuerier                                   
+                                                                                     DownloadTimeCache                                           
+                                                                                     …                                                           
+MED   net/http/cookies            access HTTP resources using cookies                Cookie                                                      
+                                                                                     HTTP                                                        
+MED   net/http/form/upload        upload content via HTTP form                       POST                                                        
+                                                                                     application/json                                            
+                                                                                     application/x-www-form-urlencoded                           
+MED   net/http/post               submits content to websites                        Content-Type                                                
+                                                                                     HTTP                                                        
+                                                                                     POST                                                        
+                                                                                     http                                                        
+MED   net/icmp                    Uses the ping tool to generate ICMP packets        ping messagecrypto                                          
+                                                                                     ping not acked within timeout                               
+MED   net/ip/parse                parses IP address (IPv4 or IPv6)                   IsLinkLocalUnicast                                          
+                                                                                     IsSingleIP                                                  
+MED   net/mac/address             Retrieves network MAC address                      MAC address                                                 
+MED   net/socks5                  Supports SOCK5 proxies                             SOCKS5                                                      
+                                                                                     socks5                                                      
+MED   net/upload                  uploads files                                      UploadBufferPerConnect                                      
+                                                                                     UploadBufferPerStream                                       
+MED   net/url/encode              encodes URL, likely to pass GET variables          urlencode                                                   
+MED   net/url/request             requests resources via URL                         http.request                                                
+                                                                                     net/url                                                     
+MED   net/websocket               supports web sockets                               258EAFA5-E914-47DA-95CA-C5AB0DC85B11                        
+                                                                                     WebSocket                                                   
+                                                                                     webSocketDialer                                             
+MED   ref/ip_port                 mentions an IP and port                            IP                                                          
+                                                                                     hasPort                                                     
+                                                                                     ipPort                                                      
+                                                                                     ip_port                                                     
+                                                                                     lIp                                                         
+                                                                                     lookupPort                                                  
+                                                                                     oIp                                                         
+                                                                                     parsePort                                                   
+                                                                                     …                                                           
+MED   ref/path/etc/hosts          references /etc/hosts                              /etc/hosts                                                  
+MED   ref/path/relative           references and possibly executes relative path     ./pkg                                                       
+MED   ref/words/exclamation       gets very excited                                  ontain alphanumerical characters onlyexplicitly tagged !!   
+MED   ref/words/heartbeat         references a 'heartbeat'                           HeartbeatTimestam                                           
+                                                                                     IsHeartbeatHealthy                                          
+                                                                                     Last Heartbeat                                              
+                                                                                     s past heartbeat timeout                                    
+MED   ref/words/intercept         References interception                            interceptors                                                
+MED   secrets/htpasswd            Access .htpasswd files                             .htpasswd                                                   
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/loki-canary-3.0.0-r3.apk ∴ /var/lib/db/sbom/loki-canary-3.0.0-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/9d8157359f10…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,65 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/fuse3-3.16.2-r3.apk ∴ /etc/init.d/fuse3 [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                
+---------------------------------------------------------------------------------------------------
+LOW   fs/unmount               unmount file system                         umount                  
+LOW   process/executable_path  sets a custom PATH                          /bin:/sbin              
+                                                                           /bin:/usr/              
+                                                                           /sbin:/bin              
+                                                                           PATH                    
+MED   procfs/mounts            Parses active mounts (/proc/mounts          /proc/mounts            
+MED   ref/path/usr/local       path reference within /usr/local/bin        /usr/local/bin          
+MED   shell/exec               executes shell                              /bin/sh                 
+MED   shell/ignore_output      Runs shell commands but throws output away  MOUNTPOINT >/dev/null…  
+                                                                           modprobe fuse >/dev/n…  
+                                                                           rmmod fuse >/dev/null…  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/fuse3-3.16.2-r3.apk ∴ /usr/bin/fusermount3 [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                         EVIDENCE            
+-------------------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                            waitpid             
+LOW   fs/mount                 mounts file systems                                 -o                  
+                                                                                   mount               
+LOW   fs/symlink/resolve       resolves symbolic links                             realpath            
+LOW   fs/unmount               unmount file system                                 umount              
+LOW   kernel/platform          system identification                               uname               
+LOW   net/socket/receive       receive a message to a socket                       recv                
+                                                                                   socket              
+LOW   net/socket/send          send a message to a socket                          sendmsg             
+LOW   process/groupid/set      set real, effective, and saved group ID of process  setresgid           
+LOW   process/userid/set       set real and effective user ID of current process   setuid              
+LOW   ref/path/etc             path reference within /etc                          /etc/fuse.conf      
+                                                                                   /etc/mtab.fuselock  
+MED   exec/program             executes external programs                          execle              
+MED   fs/mounts/read           Parses active mounts (/etc/fstab, /etc/mtab)        /etc/mtab           
+MED   procfs/mounts            Parses active mounts (/proc/mounts                  /proc/mounts        
+MED   ref/path/dev             path reference within /dev                          /dev/fd/            
+                                                                                   /dev/fuse           
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/fuse3-3.16.2-r3.apk ∴ /usr/sbin/mount.fuse3 [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                        EVIDENCE  
+----------------------------------------------------------------------------------------
+LOW   env/HOME             Looks up the HOME directory for the current user   HOME      
+                                                                              getenv    
+LOW   fs/mount             mounts file systems                                -o        
+                                                                              mount     
+LOW   process/groupid/set  set real and effective group ID of process         setgid    
+LOW   process/userid/set   set real and effective user ID of current process  setuid    
+MED   exec/program         executes external programs                         execl     
+MED   ref/path/dev         path reference within /dev                         /dev/fd/  
+MED   ref/path/root        path reference within /root                        /root     
+MED   shell/exec           executes shell                                     /bin/sh   
+----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/fuse3-3.16.2-r3.apk ∴ /var/lib/db/sbom/fuse3-3.16.2-r3.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

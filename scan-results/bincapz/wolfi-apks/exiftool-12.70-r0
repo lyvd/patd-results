@@ -1,0 +1,224 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/bin/exiftool [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                     EVIDENCE                                 
+----------------------------------------------------------------------------------------------------------------------
+LOW   compression/bzip2      Works with bzip2 files                          bzip2                                    
+LOW   compression/gzip       works with gzip files                           gzip                                     
+LOW   encoding/base64        Supports base64 encoded strings                 base64                                   
+LOW   fs/directory/create    creates directories                             mkdir                                    
+LOW   fs/file/delete         deletes files                                   unlink                                   
+LOW   fs/link/read           read value of a symbolic link                   readlink                                 
+LOW   ref/path/usr/bin       path reference within /usr/bin                  /usr/bin/perl                            
+LOW   ref/site/url           contains embedded HTTPS URLs                    https://exiftool.org/config.html         
+                                                                             https://exiftool.org/faq.html            
+                                                                             https://exiftool.org/filename.html       
+                                                                             https://exiftool.org/geotag.html         
+                                                                             https://exiftool.org/struct.html         
+LOW   ref/words/password     references a 'password'                         -password PASSWD                         
+                                                                             If a password is required but            
+                                                                             Password                                 
+                                                                             is ignored if a password is not          
+MED   net/fetch              executable calls fetch tool                     curl -s http://a.domain.com/bigfile.jpg  
+MED   ref/path/relative      references and possibly executes relative path  ./exiftool                               
+                                                                             ./lib                                    
+MED   ref/path/users         references path within /Users                   /Users/phil                              
+MED   ref/words/exclamation  gets very excited                               Thank you!!                              
+MED   techniques/code_eval   evaluate shell code dynamically using eval      eval('                                   
+----------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/QuickTimeStream.pl [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------
+LOW   process/chdir            changes working directory                       cd 7b f3 40                                                 
+LOW   ref/site/url             contains embedded HTTPS URLs                    https://developer.apple.com/library/content/documentation…  
+                                                                               https://developers.google.com/streetview/publish/camm-spec  
+                                                                               https://exiftool.org/forum/index.php?msg=75422              
+                                                                               https://exiftool.org/forum/index.php?msg=78942              
+                                                                               https://exiftool.org/forum/index.php?topic=11320.0          
+                                                                               https://exiftool.org/forum/index.php?topic=11335.msg61393   
+                                                                               https://exiftool.org/forum/index.php?topic=13115.msg71743   
+                                                                               https://exiftool.org/forum/index.php?topic=5095.msg61266    
+                                                                               …                                                           
+MED   ref/path/relative        references and possibly executes relative path  ./gs                                                        
+MED   ref/site/download        http dropper url                                http://sergei.nz/files/nvtk_mp42gpx.py                      
+MED   ref/site/php             accesses hardcoded PHP endpoint                 https://exiftool.org/forum/index.php?msg=75422              
+                                                                               https://exiftool.org/forum/index.php?msg=78942              
+                                                                               https://exiftool.org/forum/index.php?topic=11320            
+                                                                               https://exiftool.org/forum/index.php?topic=11335            
+                                                                               https://exiftool.org/forum/index.php?topic=13115            
+                                                                               https://exiftool.org/forum/index.php?topic=5095             
+                                                                               https://exiftool.org/forum/index.php?topic=9884             
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values      0x00                                                        
+                                                                               0x03                                                        
+                                                                               0x04                                                        
+                                                                               0x07                                                        
+                                                                               0x08                                                        
+                                                                               0x0a                                                        
+                                                                               0x0c                                                        
+                                                                               0x0d                                                        
+                                                                               …                                                           
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/Shift.pl [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                 EVIDENCE  
+----------------------------------------------------------------------------------
+MED   techniques/code_eval  evaluate shell code dynamically using eval  eval $    
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WriteCanonRaw.pl [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                 EVIDENCE                             
+-------------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                           tag >> 8                             
+LOW   ref/site/url          contains embedded HTTPS URLs                https://exiftool.org/canon_raw.html  
+MED   techniques/code_eval  evaluate shell code dynamically using eval  eval $                               
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WriteExif.pl [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                                                 
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/words/exclamation    gets very excited                           some manufacturers put value data outside maker notes!!  
+MED   techniques/code_eval     evaluate shell code dynamically using eval  eval $conv                                               
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x0000                                                   
+                                                                           0x0002                                                   
+                                                                           0x002a                                                   
+                                                                           0x0103                                                   
+                                                                           0x011a                                                   
+                                                                           0x011b                                                   
+                                                                           0x0128                                                   
+                                                                           0x0213                                                   
+                                                                           …                                                        
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WriteIPTC.pl [🔥 HIGH]
+-------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE  
+-------------------------------------------------------------------------------------
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values  0x01      
+                                                                           0x02      
+                                                                           0x03      
+                                                                           0x04      
+                                                                           0x14      
+                                                                           0x15      
+                                                                           0x1b      
+                                                                           0x1c      
+                                                                           …         
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WritePDF.pl [✅ LOW]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTP URLs  http://partners.adobe.com/public/developer/pdf/index_refe…  
+LOW   ref/words/password  references a 'password'      Password                                                    
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WritePNG.pl [✅ LOW]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE                                 
+--------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math            c >> 1                                   
+                                                         crc >> 8                                 
+LOW   ref/site/url          contains embedded HTTP URLs  http://www.libpng.org/pub/png/spec/1.2/  
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WritePostScript.pl [✅ LOW]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://partners.adobe.com/public/developer/en/acrobat/sdk…  
+                                                 http://www-cdf.fnal.gov/offline/PostScript/PLRM2.pdf        
+                                                 http://www.adobe.com/products/postscript/pdfs/PLRM.pdf      
+                                                 http://www.npes.org/standards/Tools/DCS20Spec.pdf           
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WriteQuickTime.pl [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                 EVIDENCE                                                   
+-----------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs                https://exiftool.org/forum/index.php?topic=11055.msg67171  
+MED   ref/site/php          accesses hardcoded PHP endpoint             https://exiftool.org/forum/index.php?topic=11055           
+MED   techniques/code_eval  evaluate shell code dynamically using eval  eval $                                                     
+-----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WriteRIFF.pl [✅ LOW]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://developers.google.com/speed/webp/docs/riff_contai…  
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/WriteXMP.pl [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                     
+-------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                       
+LOW   ref/site/url     contains embedded HTTP URLs      http://ns.exiftool.org/1.0/  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/Writer.pl [🔥 HIGH]
+-------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                             mkdir                                                       
+LOW   fs/file/delete           deletes files                                   unlink                                                      
+LOW   ref/site/url             contains embedded HTTPS URLs                    https://docs.oracle.com/javase/8/docs/api/javax/imageio/m…  
+                                                                               https://exiftool.org/forum/index.php?topic=10848.0          
+LOW   ref/words/password       references a 'password'                         Password                                                    
+MED   fs/file/times/set        change file last access and modification times  utime                                                       
+MED   fs/permission/modify     modifies file permissions                       chmod                                                       
+MED   ref/site/php             accesses hardcoded PHP endpoint                 https://exiftool.org/forum/index.php?topic=10848            
+MED   ref/words/exclamation    gets very excited                               otherwise our byte manipulations get corrupted!!            
+MED   shell/pipe_sh            pipes to shell                                  | sh                                                        
+MED   techniques/code_eval     evaluate shell code dynamically using eval      eval $convInv                                               
+                                                                               eval $count                                                 
+                                                                               eval $expr                                                  
+HIGH  obfuscation/generic/hex  excessive references to hexadecimal values      0x00                                                        
+                                                                               0x01                                                        
+                                                                               0x02                                                        
+                                                                               0x03                                                        
+                                                                               0x07                                                        
+                                                                               0x08                                                        
+                                                                               0x0a                                                        
+                                                                               0x0f                                                        
+                                                                               …                                                           
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/XMP2.pl [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                      EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------
+LOW   encoding/base64  Supports base64 encoded strings  base64                                                      
+LOW   ref/site/url     contains embedded HTTPS URLs     https://developer.android.com/guide/topics/media/platform…  
+                                                        https://developer.android.com/training/camera2/Dynamic-de…  
+                                                        https://developers.google.com/depthmap-metadata/reference   
+                                                        https://developers.google.com/panorama/metadata/            
+                                                        https://exiftool.org/forum/index.php/topic                  
+                                                        https://github.com/google/spatial-media/blob/master/docs/…  
+                                                        https://iptc.org/standards/video-metadata-hub/              
+                                                        https://iptc.org/std/videometadatahub/recommendation/IPTC…  
+                                                        …                                                           
+MED   ref/site/php     accesses hardcoded PHP endpoint  http://zonetag.research.yahoo.com/faq_location.php          
+                                                        https://exiftool.org/forum/index.php                        
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /usr/share/perl5/vendor_perl/Image/ExifTool/XMPStruct.pl [⚠️ MEDIUM]
+--------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE          
+--------------------------------------------------------------------------------
+LOW   encoding/base64        Supports base64 encoded strings  base64            
+MED   ref/words/exclamation  gets very excited                alt elements!!!!  
+--------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/exiftool-12.70-r0.apk ∴ /var/lib/db/sbom/exiftool-12.70-r0.spdx.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                                  EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------------
+LOW   crypto/aes    Supports AES (Advanced Encryption Standard)  AES                                                         
+LOW   ref/site/url  contains embedded HTTPS URLs                 https://spdx.org/spdxdocs/chainguard/melange/1c3c5c965126…  
+MED   net/download  download files                               downloadLocation                                            
+-----------------------------------------------------------------------------------------------------------------------------
+

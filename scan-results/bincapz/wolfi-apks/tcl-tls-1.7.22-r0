@@ -1,0 +1,24 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/tcl-tls-1.7.22-r0.apk ∴ /usr/lib/tcltls1.7.22/tcltls.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                 EVIDENCE              
+----------------------------------------------------------------------------------------------------
+LOW   net/socket/listen           listen on a socket                          accept                
+                                                                              socket                
+LOW   process/chdir               changes working directory                   cd $cwd}              
+                                                                              cd $dir}              
+LOW   ref/words/password          references a 'password'                     -password             
+                                                                              Password              
+                                                                              kept secret password  
+LOW   secrets/private_key         References private keys                     private_key           
+MED   combo/recon/system_network  invasive recon val                          ipaddr                
+MED   techniques/code_eval        evaluate shell code dynamically using eval  eval $socketCmd       
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/tcl-tls-1.7.22-r0.apk ∴ /var/lib/db/sbom/tcl-tls-1.7.22-r0.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download  download files                downloadLocation                               
+-------------------------------------------------------------------------------------------------
+

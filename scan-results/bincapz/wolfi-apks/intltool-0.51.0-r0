@@ -1,0 +1,81 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/intltool-0.51.0-r0.apk ∴ /usr/bin/intltool-extract [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                     EVIDENCE                                                    
+---------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories                             mkdir                                                       
+LOW   ref/path/usr/bin     path reference within /usr/bin                  /usr/bin/perl                                               
+LOW   ref/site/url         contains embedded HTTP URLs                     http://bugs.launchpad.net/intltool                          
+                                                                           http://qt-project.org/doc/qt-5.0/qtdesigner/designer-ui-f…  
+                                                                           http://qt-project.org/doc/qt-5.0/qtlinguist/linguist-ts-f…  
+MED   exec/program         executes external programs                      perl                                                        
+                                                                           system("mkdir tmp/")                                        
+MED   exec/shell_command   execute a shell command                         system                                                      
+MED   ref/path/relative    references and possibly executes relative path  ./tmp                                                       
+MED   ref/path/tmp         path reference within /tmp                      /tmp/                                                       
+---------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/intltool-0.51.0-r0.apk ∴ /usr/bin/intltool-merge [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                     EVIDENCE                            
+-----------------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories             mkdir                               
+LOW   ref/path/usr/bin     path reference within /usr/bin  /usr/bin/perl                       
+LOW   ref/site/url         contains embedded HTTP URLs     http://bugs.launchpad.net/intltool  
+MED   ref/path/root        path reference within /root     /root                               
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/intltool-0.51.0-r0.apk ∴ /usr/bin/intltool-prepare [✅ LOW]
+--------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                            
+--------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/perl                       
+LOW   ref/site/url      contains embedded HTTP URLs     http://bugs.launchpad.net/intltool  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/intltool-0.51.0-r0.apk ∴ /usr/bin/intltool-update [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                     EVIDENCE                                              
+-----------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete       deletes files                   unlink                                                
+LOW   ref/path/usr/bin     path reference within /usr/bin  /usr/bin/perl                                         
+LOW   ref/site/url         contains embedded HTTP URLs     http://bugs.launchpad.net/intltool                    
+                                                           http://www.freedesktop.org/Standards/icon-theme-spec  
+                                                           http://www.freedesktop.org/Standards/menu-spec        
+                                                           http://www.w3.org/XML/                                
+MED   exec/program         executes external programs      perl                                                  
+                                                           system("                                              
+MED   ref/words/intercept  References interception         intercept                                             
+-----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/intltool-0.51.0-r0.apk ∴ /usr/bin/intltoolize [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE                            
+---------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                         mkdir                               
+LOW   fs/file/delete/forcibly  Forcibly deletes files                      rm -f $m4dir/intltool.m4            
+                                                                           rm -f $script                       
+                                                                           rm -rf                              
+LOW   kernel/platform          system identification                       uname                               
+MED   fs/file/copy             copy files using cp                         cp $intltool_m4 $m4dir/intltool.m4  
+                                                                           cp $pkgdatadir/                     
+                                                                           cp -f                               
+MED   fs/file/times/set        change file timestamps                      touch $script                       
+MED   shell/exec               executes shell                              /bin/sh                             
+MED   shell/ignore_output      Runs shell commands but throws output away  am >/dev/null 2>&1                  
+                                                                           configure >/dev/null 2>&1           
+                                                                           m4 >/dev/null 2>&1                  
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/intltool-0.51.0-r0.apk ∴ /var/lib/db/sbom/intltool-0.51.0-r0.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                       
+-------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/intltool-extract                      
+                                                        /usr/bin/intltool-merge                        
+                                                        /usr/bin/intltool-prepare                      
+                                                        /usr/bin/intltool-update                       
+                                                        /usr/bin/intltoolize                           
+LOW   ref/site/url      contains embedded HTTPS URLs    https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download      download files                  downloadLocation                               
+-------------------------------------------------------------------------------------------------------
+

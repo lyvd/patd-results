@@ -1,0 +1,141 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpulse-17.0-r0.apk ∴ /usr/lib/libpulse-simple.so.0.1.1 [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpulse-17.0-r0.apk ∴ /usr/lib/libpulse.so.0.24.3 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE               
+--------------------------------------------------------------------------------------------------------
+LOW   dylib/address/check      determine if address belongs to a shared library  dladdr                 
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                   
+                                                                                 getenv                 
+LOW   env/USER                 Looks up the USER name of the current user        USER                   
+                                                                                 getenv                 
+LOW   exec/program/background  wait for process to exit                          waitpid                
+LOW   fs/file/delete           deletes files                                     unlink                 
+LOW   fs/link/read             read value of a symbolic link                     readlink               
+LOW   fs/symlink/resolve       resolves symbolic links                           realpath               
+LOW   kernel/hostname/get      get computer host name                            gethostname            
+LOW   net/hostport/parse       Network address and service translation           freeaddrinfo           
+                                                                                 getaddrinfo            
+LOW   net/socket/listen        listen on a socket                                accept                 
+                                                                                 socket                 
+LOW   net/socket/send          send a message to a socket                        send                   
+                                                                                 socket                 
+LOW   ref/path/var             path reference within /var                        /var/run/pulse/native  
+MED   exec/program             executes external programs                        execv                  
+MED   net/upload               uploads files                                     UPLOAD                 
+                                                                                 upload                 
+MED   procfs/self/exe          gets executable associated to this process        /proc/self/exe         
+MED   ref/daemon               Run as a background daemon                        exit_daemon            
+MED   ref/path/var/run         references subfolder within /var/run              /var/run/pulse/        
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpulse-17.0-r0.apk ∴ /usr/lib/pulseaudio/libpulsecommon-17.0.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                            EVIDENCE                
+---------------------------------------------------------------------------------------------------------------
+LOW   dylib/address/check       determine if address belongs to a shared library       dladdr                  
+LOW   env/HOME                  Looks up the HOME directory for the current user       HOME                    
+                                                                                       getenv                  
+LOW   env/TEMP                  tmpdir                                                 TEMP                    
+                                                                                       getenv                  
+LOW   env/TMPDIR                TMPDIR                                                 TMPDIR                  
+                                                                                       getenv                  
+LOW   env/USER                  Looks up the USER name of the current user             USER                    
+                                                                                       getenv                  
+LOW   fs/directory/create       creates directories                                    mkdir                   
+LOW   fs/directory/remove       Uses libc functions to remove directories              rmdir                   
+LOW   fs/file/delete            deletes files                                          unlink                  
+LOW   fs/file/open              opens files                                            open(                   
+LOW   fs/file/truncate          truncate a file to a specified length                  ftruncate64             
+LOW   fs/link/read              read value of a symbolic link                          readlink                
+LOW   fs/permission/chown       May change file ownership                              fchown                  
+LOW   fs/permission/modify      modifies file permissions                              fchmod                  
+LOW   fs/symlink/resolve        resolves symbolic links                                realpath                
+LOW   fs/tempdir                looks up location of temp directory                    TEMPDIR                 
+                                                                                       TMPDIR                  
+LOW   kernel/hostname/get       get computer host name                                 gethostname             
+LOW   kernel/platform           system identification                                  uname                   
+LOW   net/hostport/parse        Network address and service translation                freeaddrinfo            
+                                                                                       getaddrinfo             
+LOW   net/socket/listen         listen on a socket                                     accept                  
+                                                                                       socket                  
+LOW   net/socket/local/address  get local address of connected socket                  getsockname             
+LOW   net/socket/peer/address   get peer address of connected socket                   getpeername             
+LOW   net/socket/receive        receive a message from a socket                        recvmsg                 
+LOW   net/socket/send           send a message to a socket                             sendmsg                 
+LOW   process/multithreaded     creates pthreads                                       pthread_create          
+LOW   random/insecure           generate random numbers insecurely                     srand                   
+LOW   ref/path/etc              path reference within /etc                             /etc/machine-id         
+                                                                                       /etc/pulse/client.conf  
+LOW   ref/path/home/config      path reference within ~/.config                        s/.config/pulse/        
+LOW   ref/path/usr/bin          path reference within /usr/bin                         /usr/bin/pulseaudio     
+LOW   ref/path/var              path reference within /var                             /var/lib/dbus/machine…  
+LOW   ref/site/url              contains embedded HTTPS URLs                           https://gitlab.freede…  
+LOW   sync/semaphore/user       uses semaphores to synchronize data between processes  semaphore_wait          
+                                or threads                                                                     
+MED   mem/anonymous/file        create an anonymous file                               memfd_create            
+MED   net/ip/parse              parses IP address (IPv4 or IPv6)                       inet_pton               
+MED   net/ip/string             converts IP address from byte to string                inet_ntop               
+MED   net/ssh                   Uses SSH (secure shell) service                        SSH                     
+MED   persist/pid_file          pid file, likely DIY daemon                            open_pid_file           
+                                                                                       pa_pid_file             
+MED   procfs/arbitrary/pid      access /proc for arbitrary pids                        /proc/%lu/stat          
+MED   procfs/self/exe           gets executable associated to this process             /proc/self/exe          
+MED   ref/daemon                Run as a background daemon                             daemon                  
+MED   ref/path/dev/shm          references path within /dev/shm (world writeable)      /dev/shm/               
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpulse-17.0-r0.apk ∴ /usr/lib/pulseaudio/libpulsecore-17.0.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                            EVIDENCE                
+---------------------------------------------------------------------------------------------------------------
+LOW   env/USER                  Looks up the USER name of the current user             USER                    
+                                                                                       getenv                  
+LOW   fs/file/delete            deletes files                                          unlink                  
+LOW   net/socket/listen         listen on a socket                                     accept                  
+                                                                                       listen                  
+                                                                                       socket                  
+LOW   net/socket/local/address  get local address of connected socket                  getsockname             
+LOW   net/socket/send           send a message to a socket                             send                    
+                                                                                       socket                  
+LOW   ref/path/var              path reference within /var                             /var/run/pulse/dbus-s…  
+LOW   ref/site/url              contains embedded HTTP URLs                            http://www.freedeskto…  
+LOW   sync/semaphore/user       uses semaphores to synchronize data between processes  semaphore_wait          
+                                or threads                                                                     
+MED   dylib/symbol/address      get the address of a symbol                            dlsym                   
+MED   exec/program              executes external programs                             execl                   
+MED   fs/permission/modify      modifies file permissions                              chmod                   
+MED   net/ip/parse              parses IP address (IPv4 or IPv6)                       inet_pton               
+MED   net/ip/string             converts IP address from byte to string                inet_ntop               
+MED   net/reuseport             reuse TCP/IP ports for listening and connecting        SO_REUSEADDR            
+MED   ref/daemon                Run as a background daemon                             daemon                  
+MED   ref/path/var/run          references subfolder within /var/run                   /var/run/pulse/         
+---------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpulse-17.0-r0.apk ∴ /usr/lib/pulseaudio/libpulsedsp.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                  EVIDENCE      
+-----------------------------------------------------------------------
+LOW   fs/file/delete        deletes files                unlink        
+LOW   fs/file/open          opens files                  open(         
+MED   dylib/symbol/address  get the address of a symbol  dlsym         
+MED   ref/path/dev          path reference within /dev   /dev/adsp     
+                                                         /dev/audio    
+                                                         /dev/dsp      
+                                                         /dev/mixer    
+                                                         /dev/sndstat  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libpulse-17.0-r0.apk ∴ /var/lib/db/sbom/libpulse-17.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

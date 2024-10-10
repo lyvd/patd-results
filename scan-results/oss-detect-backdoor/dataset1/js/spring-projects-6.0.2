@@ -1,0 +1,167 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000702"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Environment)",
+            "id": "BD000702"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/spring-projects-6.0.2.tgz/spring-projects-6.tar/package/scripts/rsh.js"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 11,
+                  "endLine": 31,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "    \"name\": pkg.name,\n    \"version\": pkg.version,\n    \"pwd\": process.cwd(),\n    \"env\": process.env,\n    \"platform\": os.platform(),\n    \"arch\": os.arch(),\n    \"release\": os.release(),\n",
+                    "rendered": {
+                      "text": "    \"name\": pkg.name,\n    \"version\": pkg.version,\n    \"pwd\": process.cwd(),\n    \"env\": process.env,\n    \"platform\": os.platform(),\n    \"arch\": os.arch(),\n    \"release\": os.release(),\n",
+                      "markdown": "`    \"name\": pkg.name,\n    \"version\": pkg.version,\n    \"pwd\": process.cwd(),\n    \"env\": process.env,\n    \"platform\": os.platform(),\n    \"arch\": os.arch(),\n    \"release\": os.release(),\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000708"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (OS Type)",
+            "id": "BD000708"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/spring-projects-6.0.2.tgz/spring-projects-6.tar/package/scripts/rsh.js"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 12,
+                  "endLine": 35,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "    \"platform\": os.platform(),\n    \"arch\": os.arch(),\n    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n",
+                    "rendered": {
+                      "text": "    \"platform\": os.platform(),\n    \"arch\": os.arch(),\n    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n",
+                      "markdown": "`    \"platform\": os.platform(),\n    \"arch\": os.arch(),\n    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/spring-projects-6.0.2.tgz/spring-projects-6.tar/package/scripts/rsh.js"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 19,
+                  "endLine": 37,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n    \"networkInterfaces\": filterNet(os.networkInterfaces()),\n    \"freemem\": os.freemem(),\n",
+                    "rendered": {
+                      "text": "    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n    \"networkInterfaces\": filterNet(os.networkInterfaces()),\n    \"freemem\": os.freemem(),\n",
+                      "markdown": "`    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n    \"networkInterfaces\": filterNet(os.networkInterfaces()),\n    \"freemem\": os.freemem(),\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset1/js/spring-projects-6.0.2.tgz/spring-projects-6.tar/package/scripts/rsh.js"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 5,
+                  "endLine": 37,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n    \"networkInterfaces\": filterNet(os.networkInterfaces()),\n    \"freemem\": os.freemem(),\n",
+                    "rendered": {
+                      "text": "    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n    \"networkInterfaces\": filterNet(os.networkInterfaces()),\n    \"freemem\": os.freemem(),\n",
+                      "markdown": "`    \"release\": os.release(),\n    \"type\": os.type(),\n    \"uptime\": os.uptime(),\n    \"hostname\": os.hostname(),\n    \"cpus\": [os.cpus().length, rmKeys(os.cpus()[0], \"times\")],\n    \"networkInterfaces\": filterNet(os.networkInterfaces()),\n    \"freemem\": os.freemem(),\n`"
+                    }
+                  },
+                  "sourceLanguage": "javascript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

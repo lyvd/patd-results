@@ -1,0 +1,60 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-03T03:54:09Z",
+  "metrics": {
+    "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/statsd/examples/python_example.py": {
+      "CONFIDENCE.HIGH": 1.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 1.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 1.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 127,
+      "nosec": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 1.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 1.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 1.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 127,
+      "nosec": 0
+    }
+  },
+  "results": [
+    {
+      "code": "86         stats = self.format(stats, value, _type)\n87         self.send(self.sample(stats, sample_rate), self.addr)\n88 \n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/statsd/examples/python_example.py",
+      "issue_confidence": "MEDIUM",
+      "issue_severity": "HIGH",
+      "issue_text": "socket.socket.send",
+      "line_number": 87,
+      "line_range": [
+        87
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/plugins/b805_send.html",
+      "test_id": "B805",
+      "test_name": "send"
+    },
+    {
+      "code": "153         # TODO(rbtz@): Creating socket on each send is a waste of resources\n154         udp_sock = socket(AF_INET, SOCK_DGRAM)\n155         # TODO(rbtz@): Add batch support\n",
+      "filename": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/js/statsd/examples/python_example.py",
+      "issue_confidence": "HIGH",
+      "issue_severity": "MEDIUM",
+      "issue_text": "socket.socket",
+      "line_number": 154,
+      "line_range": [
+        154
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes",
+      "test_id": "B304",
+      "test_name": "blacklist"
+    }
+  ]
+}

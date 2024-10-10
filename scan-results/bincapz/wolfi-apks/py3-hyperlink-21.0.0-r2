@@ -1,0 +1,124 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/_socket.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                       EVIDENCE                                 
+-------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url                contains embedded HTTPS URLs      https://gist.github.com/nnemkin/4966028  
+MED   combo/recon/system_network  invasive recon val                ipv4_addr                                
+                                                                    ipv6_addr                                
+MED   net/ip/parse                parses IP address (IPv4 or IPv6)  inet_pton                                
+-------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/_url.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                       EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------------------------
+LOW   net/url             Handles URL strings                               new URL                                                     
+LOW   ref/site/url        contains embedded HTTPS URLs                      https://example.com/?x=y                                    
+                                                                            https://example.com/?x=z                                    
+                                                                            https://example.com/hello/world                             
+                                                                            https://github.com/mahmoud/hyperlink/issues                 
+                                                                            https://github.com/python-hyper/hyperlink                   
+                                                                            https://pypi.org/projects/hyperlink                         
+                                                                            https://tools.ietf.org/html/rfc3986                         
+                                                                            https://tools.ietf.org/html/rfc3987                         
+                                                                            …                                                           
+LOW   ref/words/password  references a 'password'                           if not with_password and u                                  
+                                                                            include a password                                          
+                                                                            password pair                                               
+                                                                            the username or password                                    
+                                                                            the username-password                                       
+                                                                            to include the password in the URL                          
+MED   evasion/lib_alias   aliases core python library to an alternate name  from collections import Mapping as MappingABC               
+                                                                            from idna import encode as idna_encode                      
+MED   net/ip/parse        parses IP address (IPv4 or IPv6)                  inet_pton                                                   
+MED   ref/path/home       references path within /home                      /home/mahmoud/virtualenvs/hyperlink/local/lib/python2.7/s…  
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/hypothesis.py [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                       EVIDENCE                                             
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/gzip   works with gzip files                             gzip                                                 
+LOW   ref/site/url       contains embedded HTTPS URLs                      https://tools.ietf.org/html/rfc5892                  
+                                                                           https://www.iana.org/assignments/idna-tables-6.3.0/  
+MED   evasion/lib_alias  aliases core python library to an alternate name  from csv import reader as csv_reader                 
+                                                                           from gzip import open as open_gzip                   
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/test/test_decoded_url.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                     EVIDENCE                                           
+-----------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs                    https://example.com/a/b/?bar=2                     
+                                                                          https://example.com/a/b/?f                         
+                                                                          https://github.com/python-hyper/hyperlink/pull/59  
+LOW   ref/words/password  references a 'password'                         with_password                                      
+MED   ref/path/relative   references and possibly executes relative path  ./path                                             
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/test/test_parse.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                                     EVIDENCE             
+----------------------------------------------------------------------------------------------
+LOW   ref/site/url       contains embedded HTTP URLs                     http://example.com/  
+MED   ref/path/relative  references and possibly executes relative path  ./path               
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/test/test_scheme_registration.py [✅ LOW]
+----------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                  
+----------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://example.com/?q=a  
+----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/test/test_socket.py [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY           DESCRIPTION                       EVIDENCE   
+-----------------------------------------------------------------
+MED   net/ip/parse  parses IP address (IPv4 or IPv6)  inet_pton  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /usr/lib/python3.12/site-packages/hyperlink/test/test_url.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                       EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------
+LOW   net/socket/listen    listen on a socket                accept                                       
+                                                             socket                                       
+LOW   ref/site/url         contains embedded HTTPS URLs      https://example.com/?a=                      
+                                                             https://example.com/?argument=3              
+                                                             https://example.com/?foo=bar                 
+                                                             https://example.com/a/b/?bar=2               
+                                                             https://example.com/a/b/?foo=1               
+                                                             https://twistedmatrix.com/trac/ticket/8184   
+                                                             https://valid.example.com/                   
+                                                             https://xn--bcher-kva.ch                     
+                                                             …                                            
+LOW   ref/words/password   references a 'password'           at sign in password                          
+                                                             colon in password                            
+                                                             mark in password                             
+                                                             slash in password                            
+                                                             somepassword                                 
+                                                             with_password                                
+MED   net/download         download files                    Downloads                                    
+MED   net/ip/parse         parses IP address (IPv4 or IPv6)  inet_pton                                    
+MED   ref/path/users       references path within /Users     /Users/glyph/Downloads/rds-ca-2015-root.pem  
+MED   ref/words/leetspeak  References 1337 terminology'      1337                                         
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-hyperlink-21.0.0-r2.apk ∴ /var/lib/db/sbom/py3-hyperlink-21.0.0-r2.spdx.json [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs             https://spdx.org/spdxdocs/chainguard/melange/               
+MED   net/download             download files                           downloadLocation                                            
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/hyperlink-21.0.0.dist-i…  
+                                                                        /usr/lib/python3.12/site-packages/hyperlink-21.0.0.dist-i…  
+                                                                        /usr/lib/python3.12/site-packages/hyperlink-21.0.0.dist-i…  
+                                                                        /usr/lib/python3.12/site-packages/hyperlink-21.0.0.dist-i…  
+                                                                        /usr/lib/python3.12/site-packages/hyperlink-21.0.0.dist-i…  
+                                                                        /usr/lib/python3.12/site-packages/hyperlink/__init__.py     
+                                                                        /usr/lib/python3.12/site-packages/hyperlink/_socket.py      
+                                                                        /usr/lib/python3.12/site-packages/hyperlink/_url.py         
+                                                                        …                                                           
+------------------------------------------------------------------------------------------------------------------------------------
+

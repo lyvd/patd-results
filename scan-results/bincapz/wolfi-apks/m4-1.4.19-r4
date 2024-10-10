@@ -1,0 +1,31 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/m4-1.4.19-r4.apk ∴ /usr/bin/m4 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                EVIDENCE                
+--------------------------------------------------------------------------------------------------
+LOW   env/TMPDIR               TMPDIR                                     TMPDIR                  
+                                                                          getenv                  
+LOW   exec/program/background  wait for process to exit                   waitpid                 
+LOW   fs/directory/create      creates directories                        mkdir                   
+LOW   fs/directory/remove      Uses libc functions to remove directories  rmdir                   
+LOW   fs/file/delete           deletes files                              unlink                  
+LOW   fs/link/read             read value of a symbolic link              readlink                
+LOW   fs/tempdir               looks up location of temp directory        TMPDIR                  
+LOW   fs/tempdir/create        creates temporary directory                mkdtemp                 
+LOW   ref/site/url             contains embedded HTTPS URLs               https://gnu.org/licen…  
+                                                                          https://www.gnu.org/g…  
+                                                                          https://www.gnu.org/s…  
+MED   exec/program             execute external program                   subprocess              
+MED   process/name/set         get or set the current process name        __progname              
+MED   shell/exec               executes shell                             /bin/sh                 
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/m4-1.4.19-r4.apk ∴ /var/lib/db/sbom/m4-1.4.19-r4.spdx.json [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                     EVIDENCE                
+---------------------------------------------------------------------------------
+LOW   compression/bzip2  Works with bzip2 files          bzip2                   
+LOW   ref/path/usr/bin   path reference within /usr/bin  /usr/bin/m4             
+LOW   ref/site/url       contains embedded HTTPS URLs    https://spdx.org/spdx…  
+MED   net/download       download files                  downloadLocation        
+---------------------------------------------------------------------------------
+

@@ -1,0 +1,135 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/cronie-1.7.2-r0.apk ∴ /usr/bin/cronnext [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                        EVIDENCE            
+------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user   HOME                
+                                                                                  getenv              
+LOW   env/LANG                 Looks up language of current user                  LANG                
+                                                                                  getenv              
+LOW   env/SHELL                path to active shell                               SHELL               
+LOW   env/USER                 Looks up the USER name of the current user         USER                
+                                                                                  getenv              
+LOW   fs/directory/create      creates directories                                mkdir               
+LOW   fs/file/delete           deletes files                                      unlink              
+LOW   fs/file/truncate         truncate a file to a specified length              ftruncate           
+LOW   fs/lock/update           apply or remove an advisory lock on a file         flock               
+LOW   fs/permission/modify     modifies file permissions                          fchmod              
+LOW   kernel/hostname/get      get computer host name                             gethostname         
+LOW   process/executable_path  sets a custom PATH                                 /bin:/usr/          
+                                                                                  PATH                
+LOW   process/groupid/set      set effective group ID of process                  setegid             
+LOW   process/userid/set       set real and effective user ID of current process  setuid              
+LOW   ref/path/etc             path reference within /etc                         /etc/cron.d         
+                                                                                  /etc/crontab        
+LOW   ref/path/var             path reference within /var                         /var/run/crond.pid  
+                                                                                  /var/spool/cron     
+MED   persist/crontab          supports crontab manipulation                      crontab             
+MED   persist/pid_file         pid file, likely DIY daemon                        /var/run/crond.pid  
+MED   shell/exec               executes shell                                     /bin/sh             
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/cronie-1.7.2-r0.apk ∴ /usr/bin/crontab [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                        EVIDENCE            
+------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user   HOME                
+                                                                                  getenv              
+LOW   env/LANG                 Looks up language of current user                  LANG                
+                                                                                  getenv              
+LOW   env/SHELL                path to active shell                               SHELL               
+LOW   env/TMPDIR               TMPDIR                                             TMPDIR              
+                                                                                  getenv              
+LOW   env/USER                 Looks up the USER name of the current user         USER                
+                                                                                  getenv              
+LOW   exec/program/background  wait for process to exit                           waitpid             
+LOW   fs/directory/create      creates directories                                mkdir               
+LOW   fs/file/delete           deletes files                                      unlink              
+LOW   fs/file/truncate         truncate a file to a specified length              ftruncate           
+LOW   fs/lock/update           apply or remove an advisory lock on a file         flock               
+LOW   fs/permission/chown      May change file ownership                          fchown              
+LOW   fs/permission/modify     modifies file permissions                          fchmod              
+LOW   fs/tempdir               looks up location of temp directory                TMPDIR              
+LOW   kernel/hostname/get      get computer host name                             gethostname         
+LOW   process/executable_path  sets a custom PATH                                 /bin:/usr/          
+                                                                                  PATH                
+LOW   process/groupid/set      set real and effective group ID of process         setgid              
+LOW   process/userid/set       set real and effective user ID of current process  setuid              
+LOW   ref/path/etc             path reference within /etc                         /etc/cron.allow     
+                                                                                  /etc/cron.deny      
+LOW   ref/path/var             path reference within /var                         /var/run/crond.pid  
+                                                                                  /var/spool/cron     
+MED   exec/program             executes external programs                         execlp              
+MED   fs/file/times/set        change file last access and modification times     utime               
+MED   persist/crontab          supports crontab manipulation                      crontab             
+MED   persist/pid_file         pid file, likely DIY daemon                        /var/run/crond.pid  
+MED   ref/daemon               Run as a background daemon                         poke_daemon         
+MED   shell/exec               executes shell                                     /bin/sh             
+------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/cronie-1.7.2-r0.apk ∴ /usr/sbin/anacron [🔥 HIGH]
+------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                            EVIDENCE            
+------------------------------------------------------------------------------------------
+LOW   env/TMPDIR               TMPDIR                                 TMPDIR              
+                                                                      getenv              
+LOW   exec/program/background  wait for process to exit               waitpid             
+LOW   fs/file/delete           deletes files                          unlink              
+LOW   fs/file/truncate         truncate a file to a specified length  ftruncate           
+LOW   fs/permission/chown      May change file ownership              fchown              
+LOW   fs/tempdir               looks up location of temp directory    TMPDIR              
+LOW   kernel/hostname/get      get computer host name                 gethostname         
+LOW   ref/path/etc             path reference within /etc             /etc/anacrontab     
+LOW   ref/path/usr/sbin        path reference within /usr/sbin        /usr/sbin/sendmail  
+LOW   ref/path/var             path reference within /var             /var/spool/anacron  
+MED   exec/program             executes external programs             execl               
+MED   fs/permission/modify     modifies file permissions              chmod               
+MED   ref/daemon               Run as a background daemon             no_daemon           
+MED   shell/exec               executes shell                         /bin/sh             
+HIGH  persist/crontab          Uses crontab to persist                @daily              
+                                                                      crontab             
+------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/cronie-1.7.2-r0.apk ∴ /usr/sbin/crond [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                        EVIDENCE              
+--------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user   HOME                  
+                                                                                  getenv                
+LOW   env/LANG                 Looks up language of current user                  LANG                  
+                                                                                  getenv                
+LOW   env/SHELL                path to active shell                               SHELL                 
+LOW   env/USER                 Looks up the USER name of the current user         USER                  
+                                                                                  getenv                
+LOW   exec/program/background  wait for process to exit                           waitpid               
+LOW   fs/directory/create      creates directories                                mkdir                 
+LOW   fs/file/delete           deletes files                                      unlink                
+LOW   fs/file/truncate         truncate a file to a specified length              ftruncate             
+LOW   fs/lock/update           apply or remove an advisory lock on a file         flock                 
+LOW   fs/permission/modify     modifies file permissions                          fchmod                
+LOW   fs/watch                 monitors filesystem events                         inotify               
+LOW   kernel/hostname/get      get computer host name                             gethostname           
+LOW   process/executable_path  sets a custom PATH                                 /bin:/usr/            
+                                                                                  PATH                  
+LOW   process/groupid/set      set real and effective group ID of process         setgid                
+LOW   process/userid/set       set real and effective user ID of current process  setuid                
+LOW   ref/path/etc             path reference within /etc                         /etc/cron.d           
+                                                                                  /etc/crontab          
+LOW   ref/path/usr/sbin        path reference within /usr/sbin                    /usr/sbin/sendmail    
+LOW   ref/path/var             path reference within /var                         /var/run/cron.reboot  
+                                                                                  /var/run/crond.pid    
+                                                                                  /var/spool/cron       
+MED   exec/program             executes external programs                         execle                
+MED   persist/crontab          supports crontab manipulation                      crontab               
+MED   persist/pid_file         pid file, likely DIY daemon                        /var/run/crond.pid    
+MED   ref/daemon               Run as a background daemon                         daemon                
+MED   shell/exec               executes shell                                     /bin/sh               
+--------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/cronie-1.7.2-r0.apk ∴ /var/lib/db/sbom/cronie-1.7.2-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/a42982f56d1a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

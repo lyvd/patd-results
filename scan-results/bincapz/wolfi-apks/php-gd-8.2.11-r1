@@ -1,0 +1,20 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-gd-8.2.11-r1.apk ∴ /usr/lib/php/modules/gd.so [✅ LOW]
+---------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                         EVIDENCE  
+---------------------------------------------------------------------
+LOW   env/LANG         Looks up language of current user   LANG      
+                                                           getenv    
+LOW   fs/file/delete   deletes files                       unlink    
+LOW   fs/file/read     reads files                         ReadFile  
+LOW   random/insecure  generate random numbers insecurely  srand     
+---------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-gd-8.2.11-r1.apk ∴ /var/lib/db/sbom/php-gd-8.2.11-r1.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/path/etc  path reference within /etc    /etc/php/conf.d/gd.ini                         
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download  download files                downloadLocation                               
+-------------------------------------------------------------------------------------------------
+

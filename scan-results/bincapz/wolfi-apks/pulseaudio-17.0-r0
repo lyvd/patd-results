@@ -1,0 +1,674 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /etc/pulse/default.pa [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                      
+-------------------------------------------------------------------------------------------
+LOW   ref/path/etc        path reference within /etc         /etc/pulse/default.pa.d       
+LOW   ref/path/usr/bin    path reference within /usr/bin     /usr/bin/pulseaudio           
+LOW   ref/site/url        contains embedded HTTP URLs        http://www.gnu.org/licenses/  
+MED   net/socket/connect  initiate a connection on a socket  connect                       
+MED   ref/path/dev        path reference within /dev         /dev/dsp                      
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /etc/pulse/system.pa [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                     EVIDENCE                      
+----------------------------------------------------------------------------------------
+LOW   ref/path/etc        path reference within /etc      /etc/pulse/system.pa.d        
+LOW   ref/path/usr/bin    path reference within /usr/bin  /usr/bin/pulseaudio           
+LOW   ref/site/url        contains embedded HTTP URLs     http://www.gnu.org/licenses/  
+MED   exec/shell_command  execute a shell command         system                        
+----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /etc/xdg/Xwayland-session.d/00-pulseaudio-x11 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                      
+--------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/pactl                
+LOW   ref/site/url      contains embedded HTTP URLs     http://www.gnu.org/licenses/  
+MED   shell/exec        executes shell                  /bin/sh                       
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/bin/pulseaudio [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                         EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user    HOME                                                        
+                                                                                getenv                                                      
+LOW   env/USER              Looks up the USER name of the current user          USER                                                        
+                                                                                getenv                                                      
+LOW   fs/link/read          read value of a symbolic link                       readlink                                                    
+LOW   fs/symlink/resolve    resolves symbolic links                             realpath                                                    
+LOW   kernel/cpu/info       gets number of processors                           nproc                                                       
+LOW   kernel/platform       system identification                               uname                                                       
+LOW   process/chroot        change the location of root for the process         chroot                                                      
+LOW   process/groupid/set   set real, effective, and saved group ID of process  setresgid                                                   
+LOW   process/userid/set    set real, effective, and saved user ID of process   setresuid                                                   
+LOW   ref/path/etc          path reference within /etc                          /etc/pulse/daemon.conf                                      
+                                                                                /etc/pulse/default.pa                                       
+                                                                                /etc/pulse/system.pa                                        
+LOW   ref/path/usr/bin      path reference within /usr/bin                      /usr/bin/pulseaudio                                         
+LOW   ref/path/var          path reference within /var                          /var/lib/pulse                                              
+                                                                                /var/run/pulse                                              
+LOW   ref/site/url          contains embedded HTTP URLs                         http://www.freedesktop.org/standards/dbus/1.0/introspect.…  
+                                                                                http://www.freedesktop.org/wiki/Software/PulseAudio/Docum…  
+                                                                                http://www.freedesktop.org/wiki/Software/PulseAudio/Docum…  
+LOW   ref/words/plugin      references a 'plugin'                               plugins                                                     
+MED   dylib/symbol/address  get the address of a symbol                         dlsym                                                       
+MED   exec/program          executes external programs                          execv                                                       
+MED   persist/pid_file      pid file, likely DIY daemon                         pa_pid_file                                                 
+MED   procfs/self/exe       gets executable associated to this process          /proc/self/exe                                              
+MED   ref/daemon            Run as a background daemon                          daemonize                                                   
+                                                                                pa_daemon                                                   
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/liboss-util.so [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY           DESCRIPTION                    EVIDENCE      
+-----------------------------------------------------------------
+LOW   fs/link/read  read value of a symbolic link  readlink      
+MED   ref/path/dev  path reference within /dev     /dev/mixer    
+                                                   /dev/sndstat  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/libprotocol-cli.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/libprotocol-http.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                                           
+----------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                unlink                                             
+LOW   kernel/platform     system identification        uname                                              
+LOW   net/http/request    makes HTTP requests          HTTP/1.                                            
+LOW   net/socket/listen   listen on a socket           listen                                             
+                                                       socket                                             
+LOW   ref/site/url        contains embedded HTTP URLs  http://www.w3.org/1999/xhtml                       
+                                                       http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd  
+MED   data/embedded/html  Contains HTML content        DOCTYPE html                                       
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/libprotocol-native.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                    EVIDENCE                
+---------------------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                  unlink                  
+LOW   net/ip              access the internet            invalid packet          
+LOW   net/socket/receive  receive a message to a socket  recv                    
+                                                         socket                  
+LOW   net/socket/send     send a message to a socket     send                    
+                                                         socket                  
+MED   net/upload          uploads files                  upload_stream_cast      
+                                                         upload_stream_check_ty  
+                                                         upload_stream_free      
+                                                         upload_stream_isinstan  
+                                                         upload_stream_new       
+                                                         upload_stream_type_id   
+                                                         upload_stream_unlink    
+MED   ref/ip_port         mentions an IP and port        IP                      
+                                                         device_port             
+                                                         pa_ip                   
+                                                         set_port                
+                                                         source_port             
+---------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/libprotocol-simple.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/librtp.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                 EVIDENCE     
+-----------------------------------------------------------------------------------------
+LOW   net/http/request          makes HTTP requests                         User-Agent   
+LOW   net/ip/multicast/send     send data to multiple nodes simultaneously  multicast    
+LOW   net/ip/send/unicast       send data to the internet                   unicast      
+LOW   net/socket/local/address  get local address of connected socket       getsockname  
+LOW   net/socket/receive        receive a message from a socket             recvmsg      
+LOW   net/socket/send           send a message to a socket                  sendmsg      
+MED   net/ip/parse              parses IP address (IPv4 or IPv6)            inet_addr    
+MED   net/ip/string             converts IP address from byte to string     inet_ntop    
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-allow-passthrough.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-always-sink.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-always-source.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-augment-properties.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-cli-protocol-tcp.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   net/socket/listen   listen on a socket                 listen    
+                                                             socket    
+MED   exec/shell_command  execute a shell command            system    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+MED   shell/exec          executes a shell command           system    
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-cli-protocol-unix.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-cli.so [⚠️ MEDIUM]
+-----------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE   
+-----------------------------------------------------------
+MED   ref/daemon    Run as a background daemon  daemon     
+MED   ref/path/dev  path reference within /dev  /dev/tty.  
+-----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-combine-sink.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-dbus-protocol.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                 EVIDENCE            
+-------------------------------------------------------------------------
+LOW   fs/file/delete     deletes files               unlink              
+LOW   net/socket/listen  listen on a socket          listen              
+                                                     socket              
+LOW   net/socket/send    send a message to a socket  send                
+                                                     socket              
+MED   net/upload         uploads files               UploadSample        
+                                                     upload_sample_args  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-detect.so [⚠️ MEDIUM]
+--------------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE      
+--------------------------------------------------------------
+MED   ref/path/dev  path reference within /dev  /dev/dsp      
+                                                /dev/sndstat  
+--------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-device-manager.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-device-restore.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-echo-cancel.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY              DESCRIPTION                               EVIDENCE                                  
+-----------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete   deletes files                             unlink                                    
+MED   exec/shell_echo  program generates text with echo command  echo between a sink and its monitor       
+                                                                 echo cancelled with %s                    
+                                                                 echo canceller implementation '%s'        
+                                                                 echo suppression only work with channels  
+MED   ref/path/tmp     path reference within /tmp                /tmp/aec_drift.txt                        
+                                                                 /tmp/aec_out.sw                           
+                                                                 /tmp/aec_play.sw                          
+                                                                 /tmp/aec_rec.sw                           
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-filter-apply.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-filter-heuristics.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-gsettings.so [✅ LOW]
+-------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION               EVIDENCE  
+-------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit  waitpid   
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-http-protocol-tcp.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   net/socket/listen   listen on a socket                 listen    
+                                                             socket    
+MED   exec/shell_command  execute a shell command            system    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+MED   shell/exec          executes a shell command           system    
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-http-protocol-unix.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-intended-roles.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-ladspa-sink.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                           EVIDENCE                      
+----------------------------------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                         unlink                        
+LOW   ref/words/plugin    references a 'plugin'                 Failed to find plugin label   
+                                                                Failed to instantiate plugin  
+                                                                Failed to load LADSPA plugin  
+                                                                LADSPA Plugin                 
+                                                                Missing LADSPA plugin label   
+                                                                Missing LADSPA plugin name    
+                                                                Resetting plugin              
+                                                                in plugin                     
+                                                                …                             
+MED   ref/path/usr/local  path reference within /usr/local/lib  /usr/local/lib/ladspa         
+                                                                /usr/local/lib64/ladspa       
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-loopback.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-match.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                
+-------------------------------------------------------------------------------------
+LOW   ref/path/etc        path reference within /etc         /etc/pulse/match.table  
+MED   net/socket/connect  initiate a connection on a socket  connect                 
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-mmkbd-evdev.so [⚠️ MEDIUM]
+-------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                 EVIDENCE           
+-------------------------------------------------------------------
+MED   ref/path/dev  path reference within /dev  /dev/input/event0  
+-------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-native-protocol-fd.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-native-protocol-tcp.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   net/socket/listen   listen on a socket                 listen    
+                                                             socket    
+MED   exec/shell_command  execute a shell command            system    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+MED   shell/exec          executes a shell command           system    
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-native-protocol-unix.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-null-sink.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-null-source.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-oss.so [⚠️ MEDIUM]
+------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                 EVIDENCE  
+------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math           1 << 0    
+                                                        1 << 11   
+                                                        1 << 12   
+                                                        1 << 4    
+                                                        1 << 7    
+LOW   fs/file/delete        deletes files               unlink    
+MED   ref/path/dev          path reference within /dev  /dev/dsp  
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-pipe-sink.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                              EVIDENCE  
+-------------------------------------------------------------------------------
+LOW   fs/fifo/create        make a FIFO special file (a named pipe)  mkfifo    
+LOW   fs/file/delete        deletes files                            unlink    
+MED   fs/permission/modify  modifies file permissions                chmod     
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-pipe-source.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                              EVIDENCE          
+---------------------------------------------------------------------------------------
+LOW   fs/fifo/create        make a FIFO special file (a named pipe)  mkfifo            
+LOW   fs/file/delete        deletes files                            unlink            
+MED   fs/permission/modify  modifies file permissions                chmod             
+MED   ref/path/tmp          path reference within /tmp               /tmp/music.input  
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-position-event-sounds.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-remap-sink.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-remap-source.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-role-cork.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-role-ducking.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-rtp-recv.so [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                      EVIDENCE      
+--------------------------------------------------------------------------------------------
+LOW   fs/file/delete         deletes files                                    unlink        
+LOW   net/hostport/parse     Network address and service translation          freeaddrinfo  
+                                                                              getaddrinfo   
+LOW   net/ip/multicast/send  send data to multiple nodes simultaneously       multicast     
+LOW   net/socket/listen      listen on a socket                               listen        
+                                                                              socket        
+LOW   net/socket/receive     receive a message to a socket                    recv          
+                                                                              socket        
+MED   net/reuseport          reuse TCP/IP ports for listening and connecting  SO_REUSEADDR  
+--------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-rtp-send.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                              EVIDENCE      
+---------------------------------------------------------------------------------------
+LOW   fs/file/delete            deletes files                            unlink        
+LOW   net/hostport/parse        Network address and service translation  freeaddrinfo  
+                                                                         getaddrinfo   
+LOW   net/socket/local/address  get local address of connected socket    getsockname   
+LOW   net/socket/send           send a message to a socket               send          
+                                                                         socket        
+MED   ref/ip_port               mentions an IP and port                  IP            
+                                                                         Port          
+                                                                         source_ip     
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-rygel-media-server.so [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                        EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete         deletes files                      unlink                                                      
+LOW   ref/site/url           contains embedded HTTP URLs        http://live.gnome.org/Rygel/MediaProvider2Spec              
+                                                                http://live.gnome.org/Rygel/MediaServer2Spec                
+                                                                http://www.freedesktop.org/standards/dbus/1.0/introspect.…  
+LOW   ref/words/plugin       references a 'plugin'              Plugin                                                      
+MED   ref/site/http/dynamic  URL that is dynamically generated  http://%s                                                   
+----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-simple-protocol-tcp.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   net/socket/listen   listen on a socket                 listen    
+                                                             socket    
+MED   exec/shell_command  execute a shell command            system    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+MED   shell/exec          executes a shell command           system    
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-simple-protocol-unix.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-sine-source.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-sine.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-stream-restore.so [✅ LOW]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY             DESCRIPTION                   EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------
+LOW   fs/file/delete  deletes files                 unlink                                                      
+LOW   ref/path/etc    path reference within /etc    /etc/pulse/stream-restore.table                             
+LOW   ref/site/url    contains embedded HTTPS URLs  https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/is…  
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-suspend-on-idle.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-switch-on-connect.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-switch-on-port-available.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+LOW   fs/file/delete      deletes files                      unlink    
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-tunnel-sink-new.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-tunnel-sink.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                           EVIDENCE               
+-------------------------------------------------------------------------------------
+LOW   fs/file/delete    deletes files                         unlink                 
+LOW   net/socket/send   send a message to a socket            send                   
+                                                              socket                 
+LOW   ref/path/var      path reference within /var            /var/run/pulse/native  
+MED   ref/path/var/run  references subfolder within /var/run  /var/run/pulse/        
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-tunnel-source-new.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-tunnel-source.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                           EVIDENCE               
+-------------------------------------------------------------------------------------
+LOW   fs/file/delete    deletes files                         unlink                 
+LOW   net/socket/send   send a message to a socket            send                   
+                                                              socket                 
+LOW   ref/path/var      path reference within /var            /var/run/pulse/native  
+MED   ref/path/var/run  references subfolder within /var/run  /var/run/pulse/        
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-udev-detect.so [⚠️ MEDIUM]
+---------------------------------------------------------------------------
+RISK  KEY             DESCRIPTION                       EVIDENCE           
+---------------------------------------------------------------------------
+LOW   fs/watch        monitors filesystem events        inotify            
+LOW   kernel/netlink  communicate with kernel services  netlink            
+MED   ref/path/dev    path reference within /dev        /dev/snd/controlC  
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-virtual-sink.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-virtual-source.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-virtual-surround-sink.so [✅ LOW]
+-----------------------------------------------
+RISK  KEY             DESCRIPTION    EVIDENCE  
+-----------------------------------------------
+LOW   fs/file/delete  deletes files  unlink    
+-----------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-x11-bell.so [⚠️ MEDIUM]
+-----------------------------------------------------------------
+RISK  KEY                  DESCRIPTION              EVIDENCE     
+-----------------------------------------------------------------
+MED   ref/words/intercept  References interception  interceptor  
+-----------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-x11-cork-request.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/lib/pulseaudio/modules/module-x11-publish.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/libexec/pulse/gsettings-helper [⚠️ MEDIUM]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE  
+-----------------------------------------------------------------------
+MED   net/socket/connect  initiate a connection on a socket  connect   
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/share/bash-completion/completions/pactl [⚠️ MEDIUM]
+---------------------------------------------------------
+RISK  KEY         DESCRIPTION                 EVIDENCE   
+---------------------------------------------------------
+MED   net/upload  uploads files               upload     
+MED   ref/daemon  Run as a background daemon  daemonize  
+MED   shell/exec  executes shell              /bin/bash  
+---------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /usr/share/zsh/site-functions/_pulseaudio [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                 EVIDENCE                         
+-------------------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'       set the search path for plugins  
+MED   net/upload        uploads files               upload                           
+MED   ref/daemon        Run as a background daemon  daemonize                        
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/pulseaudio-17.0-r0.apk ∴ /var/lib/db/sbom/pulseaudio-17.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/deaf6648e0dd…  
+MED   exec/shell_command  execute a shell command       system                                                      
+MED   net/download        download files                downloadLocation                                            
+MED   ref/daemon          Run as a background daemon    pulse-daemon                                                
+--------------------------------------------------------------------------------------------------------------------
+

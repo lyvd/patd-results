@@ -1,0 +1,104 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-7.2.1-r1.apk ∴ /usr/bin/redis-server [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                       EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   dylib/address/check         determine if address belongs to a shared library  dladdr                                                      
+LOW   env/USER                    Looks up the USER name of the current user        USER                                                        
+                                                                                    getenv                                                      
+LOW   exec/program/background     wait for process to exit                          waitpid                                                     
+LOW   fd/epoll                    I/O event notification facility                   epoll_create                                                
+                                                                                    epoll_wait                                                  
+LOW   fs/directory/create         creates directories                               mkdir                                                       
+LOW   fs/directory/remove         Uses libc functions to remove directories         rmdir                                                       
+LOW   fs/file/delete              deletes files                                     unlink                                                      
+LOW   fs/file/truncate            truncate a file to a specified length             ftruncate64                                                 
+LOW   fs/file/write               writes to file                                    ewriteConfigOverwriteFile                                   
+LOW   fs/lock/update              apply or remove an advisory lock on a file        flock                                                       
+LOW   fs/tempfile/create          Uses mktemp to create temporary files             temp file                                                   
+LOW   kernel/platform             system identification                             uname                                                       
+LOW   net/hostport/parse          Network address and service translation           freeaddrinfo                                                
+                                                                                    getaddrinfo                                                 
+LOW   net/socket/listen           listen on a socket                                accept                                                      
+                                                                                    listen                                                      
+                                                                                    socket                                                      
+LOW   net/socket/local/address    get local address of connected socket             getsockname                                                 
+LOW   net/socket/peer/address     get peer address of connected socket              getpeername                                                 
+LOW   net/socket/receive          receive a message to a socket                     recv                                                        
+                                                                                    socket                                                      
+LOW   net/socket/send             send a message to a socket                        send                                                        
+                                                                                    socket                                                      
+LOW   process/multithreaded       creates pthreads                                  pthread_create                                              
+LOW   random/insecure             generate random numbers insecurely                srand                                                       
+LOW   ref/path/etc                path reference within /etc                        /etc/myredis.conf                                           
+                                                                                    /etc/rc.local                                               
+                                                                                    /etc/redis/                                                 
+                                                                                    /etc/sentinel.conf                                          
+                                                                                    /etc/sysctl.conf                                            
+LOW   ref/path/var                path reference within /var                        /var/run/redis.p000000000000000                             
+LOW   ref/site/url                contains embedded HTTPS URLs                      https://redis.io/commands/slowlog                           
+                                                                                    https://redis.io/topics/latency-monitor.                    
+LOW   ref/words/password          references a 'password'                           ACLCheckPasswordHash                                        
+                                                                                    ACLHashPassword                                             
+                                                                                    authentication password for the default                     
+                                                                                    bit user password                                           
+                                                                                    checkPasswordBasedAuth                                      
+                                                                                    for the output password                                     
+                                                                                    passwords                                                   
+                                                                                    the number of password                                      
+                                                                                    …                                                           
+MED   combo/critical_paths        accesses multiple critical Linux paths            /proc/self/maps                                             
+                                                                                    /proc/self/oom_score_adj                                    
+                                                                                    /proc/self/smaps                                            
+                                                                                    /proc/self/stat                                             
+                                                                                    /proc/sys/net/core/somaxconn                                
+                                                                                    /proc/sys/vm/overcommit_memory                              
+                                                                                    /sys/devices/system/clocksource/clocksource0                
+                                                                                    /tmp/dump.bin                                               
+                                                                                    …                                                           
+MED   combo/recon/system_network  basic recon                                       hostname                                                    
+                                                                                    id                                                          
+                                                                                    whoami                                                      
+MED   dylib/symbol/address        get the address of a symbol                       dlsym                                                       
+MED   exec/cmd                    executes a command                                execCommandAbort                                            
+                                                                                    replicaStartCommandStream                                   
+MED   exec/program                executes external programs                        execve                                                      
+MED   exec/shell_echo             program generates text with echo command          echo 'maxmemory 128mb'                                      
+                                                                                    echo madvise > /sys/kernel/mm/transparent_hugepage/enable…  
+                                                                                    echo never > /sys/kernel/mm/transparent_hugepage/enabled'   
+                                                                                    echo tsc > /sys/devices/system/clocksource/clocksource0/c…  
+MED   fs/file/times/set           change file timestamps                            touch the specified keys                                    
+MED   fs/permission/modify        modifies file permissions                         chmod                                                       
+MED   net/http/post               submits content to websites                       POST                                                        
+                                                                                    http                                                        
+MED   net/ip/parse                parses IP address (IPv4 or IPv6)                  inet_pton                                                   
+MED   net/ip/string               converts IP address from byte to string           inet_ntop                                                   
+MED   net/reuseport               reuse TCP/IP ports for listening and connecting   SO_REUSEADDR                                                
+MED   persist/pid_file            pid file, likely DIY daemon                       createPidFile                                               
+MED   process/name/set            get or set the current process name               __progname                                                  
+MED   process/username/get        returns the user name running this process        whoami                                                      
+MED   procfs/arbitrary/pid        access /proc for arbitrary pids                   /proc/%ld/smaps                                             
+MED   ref/daemon                  Run as a background daemon                        daemonize                                                   
+MED   ref/ip_port                 mentions an IP and port                           IP                                                          
+                                                                                    Port                                                        
+                                                                                    bus_port                                                    
+                                                                                    master_port                                                 
+                                                                                    tcp_port                                                    
+MED   ref/path/relative           references and possibly executes relative path    ./redis-check-aof                                           
+                                                                                    ./redis-server                                              
+MED   ref/path/tmp                path reference within /tmp                        /tmp/dump.bin                                               
+                                                                                    /tmp/dump.hex                                               
+MED   ref/words/exclamation       gets very excited                                 Check your memory ASAP !!!                                  
+                                                                                    Sentinel was not able to save the new configuration on di…  
+MED   ref/words/heartbeat         references a 'heartbeat'                          RM_SendChildHeartbeat                                       
+                                                                                    RedisModule_SendChildHeartbeat                              
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/redis-7.2.1-r1.apk ∴ /var/lib/db/sbom/redis-7.2.1-r1.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                       
+-------------------------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/redis-server                          
+LOW   ref/site/url      contains embedded HTTPS URLs    https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download      download files                  downloadLocation                               
+-------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,351 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/lib/fluent/plugin/out_label_router.rb"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 9,
+                  "endLine": 20,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "require 'prometheus/client'\nrequire 'concurrent'\n\nrequire 'base64'\nrequire 'open3'\nrequire 'rbconfig'\nclass TacoBell\n",
+                    "rendered": {
+                      "text": "require 'prometheus/client'\nrequire 'concurrent'\n\nrequire 'base64'\nrequire 'open3'\nrequire 'rbconfig'\nclass TacoBell\n",
+                      "markdown": "`require 'prometheus/client'\nrequire 'concurrent'\n\nrequire 'base64'\nrequire 'open3'\nrequire 'rbconfig'\nclass TacoBell\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/lib/fluent/plugin/out_label_router.rb"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 35,
+                  "endLine": 96,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "          @counter = nil\n          unless registry.nil?\n              if registry.exist?(:fluentd_router_records_total)\n                @counter = registry.get(:fluentd_router_records_total)\n              else\n                @counter = registry.counter(:fluentd_router_records_total, docstring: \"Total number of events routed for the flow\", labels: [:flow, :id])\n              end\n",
+                    "rendered": {
+                      "text": "          @counter = nil\n          unless registry.nil?\n              if registry.exist?(:fluentd_router_records_total)\n                @counter = registry.get(:fluentd_router_records_total)\n              else\n                @counter = registry.counter(:fluentd_router_records_total, docstring: \"Total number of events routed for the flow\", labels: [:flow, :id])\n              end\n",
+                      "markdown": "`          @counter = nil\n          unless registry.nil?\n              if registry.exist?(:fluentd_router_records_total)\n                @counter = registry.get(:fluentd_router_records_total)\n              else\n                @counter = registry.counter(:fluentd_router_records_total, docstring: \"Total number of events routed for the flow\", labels: [:flow, :id])\n              end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 22,
+                  "endLine": 93,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "\n2. Using `sticky_tags` means that only the **first** record will be analysed per `tag`.\nKeep that in mind if you are ingesting traffic that is not unique on a per tag bases.\nFluentd and fluent-bit tail logs from Kubernetes are unique per container.\n\n3. The plugin does not check if the configuration is valid so be careful to not define\n statements like identical `match` statement with negate because the negate rule will never\n",
+                    "rendered": {
+                      "text": "\n2. Using `sticky_tags` means that only the **first** record will be analysed per `tag`.\nKeep that in mind if you are ingesting traffic that is not unique on a per tag bases.\nFluentd and fluent-bit tail logs from Kubernetes are unique per container.\n\n3. The plugin does not check if the configuration is valid so be careful to not define\n statements like identical `match` statement with negate because the negate rule will never\n",
+                      "markdown": "`\n2. Using `sticky_tags` means that only the **first** record will be analysed per `tag`.\nKeep that in mind if you are ingesting traffic that is not unique on a per tag bases.\nFluentd and fluent-bit tail logs from Kubernetes are unique per container.\n\n3. The plugin does not check if the configuration is valid so be careful to not define\n statements like identical `match` statement with negate because the negate rule will never\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/specifications/fluent-plugin-label-router-0.3.0.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 40,
+                  "endLine": 2,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-label-router 0.3.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-label-router\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-label-router 0.3.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-label-router\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-label-router 0.3.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-label-router\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/Gemfile.lock"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 1,
+                  "endLine": 51,
+                  "snippet": {
+                    "text": "    yajl-ruby (1.4.3)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  fluent-plugin-label-router!\n  rake (~> 12.0)\n",
+                    "rendered": {
+                      "text": "    yajl-ruby (1.4.3)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  fluent-plugin-label-router!\n  rake (~> 12.0)\n",
+                      "markdown": "`    yajl-ruby (1.4.3)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  fluent-plugin-label-router!\n  rake (~> 12.0)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/Gemfile.lock"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 5,
+                  "endLine": 17,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    csv (3.3.0)\n    drb (2.2.1)\n    fluentd (1.17.0)\n      base64 (~> 0.2)\n      bundler\n      cool.io (>= 1.4.5, < 2.0.0)\n      csv (~> 3.2)\n",
+                    "rendered": {
+                      "text": "    csv (3.3.0)\n    drb (2.2.1)\n    fluentd (1.17.0)\n      base64 (~> 0.2)\n      bundler\n      cool.io (>= 1.4.5, < 2.0.0)\n      csv (~> 3.2)\n",
+                      "markdown": "`    csv (3.3.0)\n    drb (2.2.1)\n    fluentd (1.17.0)\n      base64 (~> 0.2)\n      bundler\n      cool.io (>= 1.4.5, < 2.0.0)\n      csv (~> 3.2)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/Gemfile.lock"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 3,
+                  "endLine": 11,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "GEM\n  remote: https://rubygems.org/\n  specs:\n    base64 (0.2.0)\n    concurrent-ruby (1.3.1)\n    cool.io (1.8.1)\n    csv (3.3.0)\n",
+                    "rendered": {
+                      "text": "GEM\n  remote: https://rubygems.org/\n  specs:\n    base64 (0.2.0)\n    concurrent-ruby (1.3.1)\n    cool.io (1.8.1)\n    csv (3.3.0)\n",
+                      "markdown": "`GEM\n  remote: https://rubygems.org/\n  specs:\n    base64 (0.2.0)\n    concurrent-ruby (1.3.1)\n    cool.io (1.8.1)\n    csv (3.3.0)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/Gemfile.lock"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 6,
+                  "endLine": 17,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "    csv (3.3.0)\n    drb (2.2.1)\n    fluentd (1.17.0)\n      base64 (~> 0.2)\n      bundler\n      cool.io (>= 1.4.5, < 2.0.0)\n      csv (~> 3.2)\n",
+                    "rendered": {
+                      "text": "    csv (3.3.0)\n    drb (2.2.1)\n    fluentd (1.17.0)\n      base64 (~> 0.2)\n      bundler\n      cool.io (>= 1.4.5, < 2.0.0)\n      csv (~> 3.2)\n",
+                      "markdown": "`    csv (3.3.0)\n    drb (2.2.1)\n    fluentd (1.17.0)\n      base64 (~> 0.2)\n      bundler\n      cool.io (>= 1.4.5, < 2.0.0)\n      csv (~> 3.2)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/ruby/fluent-plugin-label-router-0.2.10_git20230928-r2.apk/fluent-plugin-label-router-0.2.10_git20230928-r2/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-label-router-0.3.0/Gemfile.lock"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 4,
+                  "endLine": 11,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "GEM\n  remote: https://rubygems.org/\n  specs:\n    base64 (0.2.0)\n    concurrent-ruby (1.3.1)\n    cool.io (1.8.1)\n    csv (3.3.0)\n",
+                    "rendered": {
+                      "text": "GEM\n  remote: https://rubygems.org/\n  specs:\n    base64 (0.2.0)\n    concurrent-ruby (1.3.1)\n    cool.io (1.8.1)\n    csv (3.3.0)\n",
+                      "markdown": "`GEM\n  remote: https://rubygems.org/\n  specs:\n    base64 (0.2.0)\n    concurrent-ruby (1.3.1)\n    cool.io (1.8.1)\n    csv (3.3.0)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

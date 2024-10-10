@@ -1,0 +1,57 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/shadow-subids-4.16.0-r0.apk ∴ /usr/bin/newgidmap [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE             
+----------------------------------------------------------------------------------------------------
+LOW   env/SHELL                path to active shell                            SHELL                
+LOW   exec/program/background  wait for process to exit                        waitpid              
+LOW   fs/file/delete           deletes files                                   unlink               
+LOW   fs/permission/chown      May change file ownership                       fchown               
+LOW   fs/permission/modify     modifies file permissions                       fchmod               
+LOW   fs/symlink/resolve       resolves symbolic links                         realpath             
+LOW   hash/md5                 Uses the MD5 signature format                   MD5_CRYPT_ENAB       
+LOW   process/groups/set       set group access list                           setgroups            
+LOW   process/userid/set       set effective user ID of current process        seteuid              
+LOW   process/username/get     get login name                                  getlogin             
+LOW   ref/path/etc             path reference within /etc                      /etc/login.defs      
+                                                                               /etc/nsswitch.conf   
+                                                                               /etc/subgid          
+                                                                               /etc/subuid          
+LOW   ref/path/usr/sbin        path reference within /usr/sbin                 /usr/sbin/sss_cache  
+MED   dylib/symbol/address     get the address of a symbol                     dlsym                
+MED   exec/program             executes external programs                      execve               
+MED   fs/file/times/set        change file last access and modification times  utime                
+MED   procfs/arbitrary/pid     access /proc for arbitrary pids                 /proc/%u/            
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/shadow-subids-4.16.0-r0.apk ∴ /usr/bin/newuidmap [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                     EVIDENCE             
+----------------------------------------------------------------------------------------------------
+LOW   env/SHELL                path to active shell                            SHELL                
+LOW   exec/program/background  wait for process to exit                        waitpid              
+LOW   fs/file/delete           deletes files                                   unlink               
+LOW   fs/permission/chown      May change file ownership                       fchown               
+LOW   fs/permission/modify     modifies file permissions                       fchmod               
+LOW   fs/symlink/resolve       resolves symbolic links                         realpath             
+LOW   hash/md5                 Uses the MD5 signature format                   MD5_CRYPT_ENAB       
+LOW   process/userid/set       set effective user ID of current process        seteuid              
+LOW   process/username/get     get login name                                  getlogin             
+LOW   ref/path/etc             path reference within /etc                      /etc/login.defs      
+                                                                               /etc/nsswitch.conf   
+                                                                               /etc/subgid          
+                                                                               /etc/subuid          
+LOW   ref/path/usr/sbin        path reference within /usr/sbin                 /usr/sbin/sss_cache  
+MED   dylib/symbol/address     get the address of a symbol                     dlsym                
+MED   exec/program             executes external programs                      execve               
+MED   fs/file/times/set        change file last access and modification times  utime                
+MED   procfs/arbitrary/pid     access /proc for arbitrary pids                 /proc/%u/            
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/shadow-subids-4.16.0-r0.apk ∴ /var/lib/db/sbom/shadow-subids-4.16.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

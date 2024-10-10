@@ -1,0 +1,30 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libfontconfig1-2.15.0-r1.apk ∴ /usr/lib/libfontconfig.so.1.12.1 [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                              
+--------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                                  
+                                                                              getenv                                
+LOW   env/LANG              Looks up language of current user                 LANG                                  
+                                                                              getenv                                
+LOW   fs/directory/create   creates directories                               mkdir                                 
+LOW   fs/directory/remove   Uses libc functions to remove directories         rmdir                                 
+LOW   fs/file/delete        deletes files                                     unlink                                
+LOW   fs/file/write         writes to file                                    FcPatternCacheRewriteFile             
+LOW   fs/link/read          read value of a symbolic link                     readlink                              
+LOW   fs/symlink/resolve    resolves symbolic links                           realpath                              
+LOW   ref/path/etc          path reference within /etc                        /etc/fonts/conf.d                     
+LOW   ref/path/var          path reference within /var                        /var/cache/fontconfig                 
+LOW   ref/site/url          contains embedded HTTP URLs                       http://www.brynosaurus.com/cachedir/  
+MED   fs/file/times/set     change file last access and modification times    utimes                                
+MED   fs/permission/modify  modifies file permissions                         chmod                                 
+MED   procfs/self/exe       gets executable associated to this process        /proc/self/exe                        
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libfontconfig1-2.15.0-r1.apk ∴ /var/lib/db/sbom/libfontconfig1-2.15.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/375aebbf392a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

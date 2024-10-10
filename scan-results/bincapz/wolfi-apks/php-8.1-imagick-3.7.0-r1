@@ -1,0 +1,28 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-8.1-imagick-3.7.0-r1.apk ∴ /usr/include/php/ext/imagick/php_imagick_shared.h [✅ LOW]
+--------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                             
+--------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.php.net/license/3_01.txt  
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-8.1-imagick-3.7.0-r1.apk ∴ /usr/lib/php/modules/imagick.so [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------
+RISK  KEY            DESCRIPTION                                  EVIDENCE                        
+--------------------------------------------------------------------------------------------------
+LOW   fs/file/write  writes to file                               o_class_Imagick_writeImageFile  
+                                                                  zim_Imagick_writeImageFile      
+                                                                  zim_Imagick_writeImagesFile     
+LOW   ref/site/url   contains embedded HTTPS URLs                 https://imagemagick.org         
+                                                                  https://phpimagick.com/issues   
+MED   net/icmp       Uses the ping tool to generate ICMP packets  ping image blob                 
+                                                                  ping image from the filehandle  
+--------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-8.1-imagick-3.7.0-r1.apk ∴ /var/lib/db/sbom/php-8.1-imagick-3.7.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/358f7dfa4326…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

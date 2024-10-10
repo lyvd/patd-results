@@ -1,0 +1,23 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-posix-8.2.11-r1.apk ∴ /usr/lib/php/modules/posix.so [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------
+RISK  KEY                     DESCRIPTION                                        EVIDENCE  
+-------------------------------------------------------------------------------------------
+LOW   fs/fifo/create          make a FIFO special file (a named pipe)            mkfifo    
+LOW   fs/node/create          create device files                                mknod     
+LOW   kernel/platform         system identification                              uname     
+LOW   process/groupid/set     set real and effective group ID of process         setgid    
+LOW   process/parent_pid/get  gets parent process ID                             getppid   
+LOW   process/userid/set      set real and effective user ID of current process  setuid    
+LOW   process/username/get    get login name                                     getlogin  
+MED   tty/pathname            returns the pathname of a terminal device          ttyname   
+-------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/php-posix-8.2.11-r1.apk ∴ /var/lib/db/sbom/php-posix-8.2.11-r1.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/path/etc  path reference within /etc    /etc/php/conf.d/posix.ini                      
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download  download files                downloadLocation                               
+-------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,451 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/dict_snowball.so [⚠️ MEDIUM]
+----------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                      EVIDENCE  
+----------------------------------------------------------------------
+MED   net/ssh              Uses SSH (secure shell) service  SSH       
+MED   ref/words/leetspeak  References 1337 terminology'     1337      
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/pgoutput.so [✅ LOW]
+-----------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION            EVIDENCE                            
+-----------------------------------------------------------------------------------
+LOW   ref/words/plugin  references a 'plugin'  OutputPluginWrite                   
+                                               _PG_output_plugin_init              
+                                               but not supported by output plugin  
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/pgxs/config/install-sh [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                        EVIDENCE         
+---------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                                mkdir            
+LOW   fs/directory/remove      Uses libc functions to remove directories          rmdir            
+LOW   fs/file/delete           deletes files                                      unlink           
+LOW   fs/file/delete/forcibly  Forcibly deletes files                             rm -f            
+LOW   fs/tempdir               looks up location of temp directory                TMPDIR           
+LOW   fs/tempfile/create       Uses mktemp to create temporary files              temp file        
+LOW   process/userid/set       set real and effective user ID of current process  setuid           
+MED   fs/permission/modify     modifies file permissions                          chmod            
+MED   ref/path/relative        references and possibly executes relative path     ./--             
+                                                                                  ./-p             
+MED   shell/exec               executes shell                                     /bin/sh          
+MED   shell/ignore_output      Runs shell commands but throws output away         >/dev/null 2>&1  
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/pgxs/config/missing [⚠️ MEDIUM]
+------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE       
+------------------------------------------------------------------
+MED   exec/shell_command  execute a shell command  system         
+MED   fs/file/times/set   change file timestamps   touch $output  
+MED   shell/exec          executes shell           /bin/sh        
+------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/pgxs/src/test/isolation/isolationtester [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                DESCRIPTION                 EVIDENCE  
+---------------------------------------------------------------
+LOW   net/socket/listen  listen on a socket          accept    
+                                                     socket    
+LOW   net/socket/send    send a message to a socket  send      
+                                                     socket    
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/pgxs/src/test/isolation/pg_isolation_regress [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                     
+--------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                         
+                                                                                 getenv                       
+LOW   env/LANG                 Looks up language of current user                 LANG                         
+                                                                                 getenv                       
+LOW   env/TMPDIR               TMPDIR                                            TMPDIR                       
+                                                                                 getenv                       
+LOW   env/USER                 Looks up the USER name of the current user        USER                         
+                                                                                 getenv                       
+LOW   exec/program/background  wait for process to exit                          waitpid                      
+LOW   fs/directory/create      creates directories                               mkdir                        
+LOW   fs/directory/remove      Uses libc functions to remove directories         rmdir                        
+LOW   fs/file/delete           deletes files                                     unlink                       
+LOW   fs/link/read             read value of a symbolic link                     readlink                     
+LOW   fs/tempdir               looks up location of temp directory               TMPDIR                       
+LOW   fs/tempdir/create        creates temporary directory                       mkdtemp                      
+LOW   net/socket/listen        listen on a socket                                listen                       
+                                                                                 socket                       
+LOW   ref/path/etc             path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url             contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   combo/backdoor/net_exec  exec chdir and socket                             chdir                        
+                                                                                 execl                        
+                                                                                 socket                       
+MED   databases/postgresql     accesses PostgreSQL databases                     postgresql                   
+MED   exec/program             executes external programs                        execl                        
+MED   ref/path/hidden          hidden path generated dynamically                 %s/.s                        
+MED   shell/exec               executes shell                                    /bin/sh                      
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/pgxs/src/test/regress/pg_regress [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                     
+--------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                         
+                                                                                 getenv                       
+LOW   env/LANG                 Looks up language of current user                 LANG                         
+                                                                                 getenv                       
+LOW   env/TMPDIR               TMPDIR                                            TMPDIR                       
+                                                                                 getenv                       
+LOW   env/USER                 Looks up the USER name of the current user        USER                         
+                                                                                 getenv                       
+LOW   exec/program/background  wait for process to exit                          waitpid                      
+LOW   fs/directory/create      creates directories                               mkdir                        
+LOW   fs/directory/remove      Uses libc functions to remove directories         rmdir                        
+LOW   fs/file/delete           deletes files                                     unlink                       
+LOW   fs/link/read             read value of a symbolic link                     readlink                     
+LOW   fs/tempdir               looks up location of temp directory               TMPDIR                       
+LOW   fs/tempdir/create        creates temporary directory                       mkdtemp                      
+LOW   net/socket/listen        listen on a socket                                listen                       
+                                                                                 socket                       
+LOW   ref/path/etc             path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url             contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   combo/backdoor/net_exec  exec chdir and socket                             chdir                        
+                                                                                 execl                        
+                                                                                 socket                       
+MED   databases/postgresql     accesses PostgreSQL databases                     postgresql                   
+MED   exec/program             executes external programs                        execl                        
+MED   ref/path/hidden          hidden path generated dynamically                 %s/.s                        
+MED   shell/exec               executes shell                                    /bin/sh                      
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/lib/postgresql15/plpgsql.so [✅ LOW]
+-----------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION              EVIDENCE            
+-----------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'  invalid_password    
+LOW   ref/words/plugin    references a 'plugin'    PLpgSQL_plugin      
+                                                   plpgsql_plugin_ptr  
+-----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/ecpg [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/file/delete        deletes files                                     unlink                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   net/socket/listen     listen on a socket                                accept                       
+                                                                              listen                       
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+LOW   ref/words/password    references a 'password'                           password null                
+                                                                              unencrypted password         
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/initdb [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                           
+-----------------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                               
+                                                                              getenv                             
+LOW   env/LANG              Looks up language of current user                 LANG                               
+                                                                              getenv                             
+LOW   env/USER              Looks up the USER name of the current user        USER                               
+                                                                              getenv                             
+LOW   fs/directory/create   creates directories                               mkdir                              
+LOW   fs/directory/remove   Uses libc functions to remove directories         rmdir                              
+LOW   fs/file/delete        deletes files                                     unlink                             
+LOW   fs/link/read          read value of a symbolic link                     readlink                           
+LOW   net/hostport/parse    Network address and service translation           getaddrinfo                        
+LOW   net/socket/listen     listen on a socket                                listen                             
+                                                                              socket                             
+LOW   ref/path/etc          path reference within /etc                        /etc/localtime                     
+                                                                              /etc/postgresql                    
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/        
+LOW   ref/words/password    references a 'password'                           Passwords didn                     
+                                                                              could not read password from file  
+                                                                              new superuser password             
+                                                                              password file                      
+                                                                              password_encryption                
+                                                                              superuser_password                 
+                                                                              to enable password authentication  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                         
+MED   fs/permission/modify  modifies file permissions                         chmod                              
+MED   net/http/post         submits content to websites                       POST                               
+                                                                              http                               
+-----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_archivecleanup [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/file/delete        deletes files                                     unlink                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_checksums [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_config [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_controldata [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_ctl [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                     
+--------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                         
+                                                                                 getenv                       
+LOW   env/TERM                 Look up or override terminal settings             TERM                         
+LOW   exec/program/background  wait for process to exit                          waitpid                      
+LOW   fs/file/delete           deletes files                                     unlink                       
+LOW   fs/link/read             read value of a symbolic link                     readlink                     
+LOW   process/parent_pid/get   gets parent process ID                            getppid                      
+LOW   ref/path/etc             path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url             contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql     accesses PostgreSQL databases                     postgresql                   
+MED   exec/program             executes external programs                        execl                        
+MED   net/http/post            submits content to websites                       POST                         
+                                                                                 http                         
+MED   persist/pid_file         pid file, likely DIY daemon                       /postmaster.pid              
+                                                                                 pid_file                     
+MED   shell/exec               executes shell                                    /bin/sh                      
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_resetwal [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/file/delete        deletes files                                     unlink                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+MED   fs/file/times/set     change file timestamps                            touch %s                     
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_rewind [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   compression/zstd      Zstandard: fast real-time compression algorithm   zstd                         
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/directory/create   creates directories                               mkdir                        
+LOW   fs/directory/remove   Uses libc functions to remove directories         rmdir                        
+LOW   fs/file/delete        deletes files                                     unlink                       
+LOW   fs/file/truncate      truncate a file to a specified length             ftruncate                    
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+LOW   ref/words/password    references a 'password'                           password                     
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_test_fsync [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE         
+-----------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME             
+                                                                              getenv           
+LOW   fs/file/delete        deletes files                                     unlink           
+LOW   fs/link/read          read value of a symbolic link                     readlink         
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql       
+MED   ref/path/relative     references and possibly executes relative path    ./pg_test_fsync  
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_test_timing [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE         
+-----------------------------------------------------------------------------------------------
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME             
+                                                                              getenv           
+LOW   fs/link/read          read value of a symbolic link                     readlink         
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql       
+-----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_upgrade [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                     
+--------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                 Looks up the HOME directory for the current user  HOME                         
+                                                                                 getenv                       
+LOW   env/LANG                 Looks up language of current user                 LANG                         
+                                                                                 getenv                       
+LOW   exec/program/background  wait for process to exit                          waitpid                      
+LOW   fs/directory/create      creates directories                               mkdir                        
+LOW   fs/directory/remove      Uses libc functions to remove directories         rmdir                        
+LOW   fs/file/delete           deletes files                                     unlink                       
+LOW   fs/link/read             read value of a symbolic link                     readlink                     
+LOW   net/socket/listen        listen on a socket                                listen                       
+                                                                                 socket                       
+LOW   ref/path/etc             path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url             contains embedded HTTPS URLs                      https://www.postgresql.org/  
+LOW   ref/words/password       references a 'password'                           password                     
+MED   databases/postgresql     accesses PostgreSQL databases                     postgresql                   
+MED   fs/file/copy             forcibly copy files using cp -f                   cp -Rf                       
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively                rm -rf                       
+MED   fs/permission/modify     modifies file permissions                         chmod                        
+MED   persist/pid_file         pid file, likely DIY daemon                       /postmaster.pid              
+MED   shell/exec               executes shell                                    /bin/sh                      
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pg_waldump [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                                       EVIDENCE                     
+-----------------------------------------------------------------------------------------------------------
+LOW   compression/zstd      Zstandard: fast real-time compression algorithm   zstd                         
+LOW   env/HOME              Looks up the HOME directory for the current user  HOME                         
+                                                                              getenv                       
+LOW   fs/link/read          read value of a symbolic link                     readlink                     
+LOW   ref/path/etc          path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url          contains embedded HTTPS URLs                      https://www.postgresql.org/  
+MED   databases/postgresql  accesses PostgreSQL databases                     postgresql                   
+MED   net/http/post         submits content to websites                       POST                         
+                                                                              http                         
+MED   ref/path/relative     references and possibly executes relative path    ./pg_wal                     
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/pgbench [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                       EVIDENCE                     
+------------------------------------------------------------------------------------------------------------
+LOW   env/HOME               Looks up the HOME directory for the current user  HOME                         
+                                                                               getenv                       
+LOW   net/socket/listen      listen on a socket                                accept                       
+                                                                               listen                       
+                                                                               socket                       
+LOW   net/socket/send        send a message to a socket                        send                         
+                                                                               socket                       
+LOW   process/multithreaded  creates pthreads                                  pthread_create               
+LOW   ref/path/etc           path reference within /etc                        /etc/postgresql              
+LOW   ref/site/url           contains embedded HTTPS URLs                      https://www.postgresql.org/  
+LOW   ref/words/password     references a 'password'                           Password                     
+                                                                               password                     
+MED   databases/postgresql   accesses PostgreSQL databases                     postgresql                   
+MED   exec/cmd               executes a command                                runShellCommand              
+MED   ref/path/dev           path reference within /dev                        /dev/tty                     
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /usr/libexec/postgresql15/postgres [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                         DESCRIPTION                                        EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------------------------------
+LOW   compression/gzip            works with gzip files                              gzip                                         
+LOW   compression/zstd            Zstandard: fast real-time compression algorithm    zstd                                         
+LOW   encoding/base64             Supports base64 encoded strings                    base64                                       
+LOW   env/HOME                    Looks up the HOME directory for the current user   HOME                                         
+                                                                                     getenv                                       
+LOW   env/TEMP                    tmpdir                                             TEMP                                         
+                                                                                     getenv                                       
+LOW   env/USER                    Looks up the USER name of the current user         USER                                         
+                                                                                     getenv                                       
+LOW   exec/program/background     wait for process to exit                           waitpid                                      
+LOW   fd/epoll                    I/O event notification facility                    epoll_wait                                   
+LOW   fs/directory/create         creates directories                                mkdir                                        
+LOW   fs/directory/remove         Uses libc functions to remove directories          rmdir                                        
+LOW   fs/file/delete              deletes files                                      unlink                                       
+LOW   fs/file/delete/forcibly     Forcibly deletes files                             rm non-recursive                             
+LOW   fs/file/truncate            truncate a file to a specified length              ftruncate                                    
+LOW   fs/link/read                read value of a symbolic link                      readlink                                     
+LOW   net/dns/txt                 Uses DNS TXT (text) records                        TXT                                          
+                                                                                     dns                                          
+LOW   net/hostport/parse          Network address and service translation            freeaddrinfo                                 
+                                                                                     getaddrinfo                                  
+LOW   net/socket/listen           listen on a socket                                 accept                                       
+                                                                                     listen                                       
+                                                                                     socket                                       
+LOW   net/socket/local/address    get local address of connected socket              getsockname                                  
+LOW   net/socket/receive          receive a message from a socket                    recvfrom                                     
+LOW   net/socket/send             send a message to a socket                         sendto                                       
+LOW   process/parent_pid/get      gets parent process ID                             getppid                                      
+LOW   ref/path/etc                path reference within /etc                         /etc/localtime                               
+                                                                                     /etc/postgresql                              
+LOW   ref/site/url                contains embedded HTTPS URLs                       https://www.postgresql.org/                  
+LOW   ref/words/password          references a 'password'                            Password of user                             
+                                                                                     Password_encryption                          
+                                                                                     cannot encrypt password with                 
+                                                                                     check_password_hook                          
+                                                                                     clearing password                            
+                                                                                     encrypt_password                             
+                                                                                     encryption of password                       
+                                                                                     expected password response                   
+                                                                                     …                                            
+LOW   ref/words/plugin            references a 'plugin'                              LoadOutputPlugin                             
+                                                                                     _PG_output_plugin_init                       
+                                                                                     decoding without a specified plugin          
+                                                                                     logical decoding output plugin               
+                                                                                     needs to be called before OutputPluginWrite  
+                                                                                     plugin_error_callback                        
+                                                                                     plugins                                      
+LOW   secrets/private_key         References private keys                            private_key                                  
+MED   3P/threat_hunting/hashcat   references 'hashcat' tool, by mthcht               hashCat                                      
+MED   combo/recon/system_network  invasive recon val                                 ipv6_addr                                    
+MED   databases/postgresql        accesses PostgreSQL databases                      postgresql                                   
+MED   dylib/symbol/address        get the address of a symbol                        dlsym                                        
+MED   evasion/base64/decode       decode base64 strings                              base64_decode                                
+MED   exec/cmd                    executes a command                                 ATExecCmd                                    
+MED   exec/program                execute external program                           subprocess                                   
+MED   exec/shell_echo             program generates text with echo command           echo statement before execution              
+MED   fs/file/times/set           change file last access and modification times     utime                                        
+MED   fs/permission/modify        modifies file permissions                          chmod                                        
+MED   net/http/post               submits content to websites                        POST                                         
+                                                                                     http                                         
+MED   net/interface/list          list network interfaces                            freeifaddrs                                  
+                                                                                     getifaddrs                                   
+MED   net/reuseport               reuse TCP/IP ports for listening and connecting    SO_REUSEADDR                                 
+MED   persist/pid_file            pid file, likely DIY daemon                        unlink_external_pid_file                     
+MED   procfs/meminfo              get memory info                                    /proc/meminfo                                
+MED   ref/daemon                  Run as a background daemon                         start_daemon                                 
+MED   ref/path/hidden             hidden path generated dynamically                  %s/.s                                        
+MED   ref/words/intercept         References interception                            intercept                                    
+MED   ref/words/server_address    references a 'server address', possible C2 client  inet_server_addr                             
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/postgresql-15-base-15.6-r5.apk ∴ /var/lib/db/sbom/postgresql-15-base-15.6-r5.spdx.json [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                    EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url          contains embedded HTTPS URLs   https://spdx.org/spdxdocs/chainguard/melange/34ce061f4d05…  
+MED   databases/postgresql  accesses PostgreSQL databases  postgresql                                                  
+MED   net/download          download files                 downloadLocation                                            
+-----------------------------------------------------------------------------------------------------------------------
+

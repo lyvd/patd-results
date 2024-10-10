@@ -1,0 +1,101 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-utils-2.70-r1.apk ∴ /usr/sbin/capsh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE                       
+------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME                  Looks up the HOME directory for the current user   HOME                           
+                                                                                   getenv                         
+LOW   env/USER                  Looks up the USER name of the current user         USER                           
+                                                                                   getenv                         
+LOW   exec/program/background   wait for process to exit                           waitpid                        
+LOW   fs/node/create            create device files                                mknod                          
+LOW   fs/unmount                unmount file system                                umount                         
+LOW   kernel/netlink            communicate with kernel services                   netlink                        
+LOW   net/ip/multicast/send     send data to multiple nodes simultaneously         multicast                      
+LOW   net/ip/send/unicast       send data to the internet                          unicast                        
+LOW   net/socket/listen         listen on a socket                                 listen                         
+                                                                                   socket                         
+LOW   net/socket/send           send a message to a socket                         send                           
+                                                                                   socket                         
+LOW   process/chroot            change the location of root for the process        chroot                         
+LOW   process/create            create child process                               fork                           
+LOW   process/groupid/set       set real and effective group ID of process         setgid                         
+LOW   process/groups/set        set group access list                              setgroups                      
+LOW   process/userid/set        set real and effective user ID of current process  setuid                         
+LOW   tty/vhangup               virtually hangup the current terminal              vhangup                        
+MED   combo/backdoor/net_exec   exec chdir and socket                              chdir                          
+                                                                                   execve                         
+                                                                                   socket                         
+MED   combo/recon/capabilities  enumerates Linux capabilities for process          /proc/self/status              
+                                                                                   capsh                          
+MED   exec/program              executes external programs                         execve                         
+MED   kernel/ptrace             trace or modify system calls                       ptrace                         
+MED   net/bpf                   BPF (Berkeley Packet Filter)                       bpf                            
+MED   procfs/self/status        gets status associated to this process, including  /proc/self/status              
+                                capabilities                                                                      
+MED   ref/path/dev              path reference within /dev                         /dev/bus/usb                   
+MED   shell/exec                executes shell                                     /bin/bash for --               
+                                                                                   /bin/bash with remaining args  
+MED   techniques/code_eval      evaluate code dynamically using exec()             exec(capsh)                    
+------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-utils-2.70-r1.apk ∴ /usr/sbin/getcap [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE      
+-------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                           waitpid       
+LOW   fs/file/capabilities/set  Set file capabilities                              cap_set_fd    
+                                                                                   cap_set_file  
+LOW   fs/node/create            create device files                                mknod         
+LOW   process/chroot            change the location of root for the process        chroot        
+LOW   process/create            create child process                               fork          
+LOW   process/groupid/set       set real and effective group ID of process         setgid        
+LOW   process/groups/set        set group access list                              setgroups     
+LOW   process/userid/set        set real and effective user ID of current process  setuid        
+MED   exec/program              executes external programs                         execve        
+MED   kernel/ptrace             trace or modify system calls                       ptrace        
+MED   net/bpf                   BPF (Berkeley Packet Filter)                       bpf           
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-utils-2.70-r1.apk ∴ /usr/sbin/getpcaps [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                        EVIDENCE   
+---------------------------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit                           waitpid    
+LOW   fs/node/create           create device files                                mknod      
+LOW   process/chroot           change the location of root for the process        chroot     
+LOW   process/create           create child process                               fork       
+LOW   process/groupid/set      set real and effective group ID of process         setgid     
+LOW   process/groups/set       set group access list                              setgroups  
+LOW   process/userid/set       set real and effective user ID of current process  setuid     
+MED   exec/program             executes external programs                         execve     
+MED   kernel/ptrace            trace or modify system calls                       ptrace     
+MED   net/bpf                  BPF (Berkeley Packet Filter)                       bpf        
+---------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-utils-2.70-r1.apk ∴ /usr/sbin/setcap [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE      
+-------------------------------------------------------------------------------------------------
+LOW   exec/program/background   wait for process to exit                           waitpid       
+LOW   fs/file/capabilities/set  Set file capabilities                              cap_set_fd    
+                                                                                   cap_set_file  
+                                                                                   setcap        
+LOW   fs/node/create            create device files                                mknod         
+LOW   process/chroot            change the location of root for the process        chroot        
+LOW   process/create            create child process                               fork          
+LOW   process/groupid/set       set real and effective group ID of process         setgid        
+LOW   process/groups/set        set group access list                              setgroups     
+LOW   process/userid/set        set real and effective user ID of current process  setuid        
+MED   exec/program              executes external programs                         execve        
+MED   kernel/ptrace             trace or modify system calls                       ptrace        
+MED   net/bpf                   BPF (Berkeley Packet Filter)                       bpf           
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-utils-2.70-r1.apk ∴ /var/lib/db/sbom/libcap-utils-2.70-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/9644688bc703…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

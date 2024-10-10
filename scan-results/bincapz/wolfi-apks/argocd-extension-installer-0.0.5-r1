@@ -1,0 +1,29 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/argocd-extension-installer-0.0.5-r1.apk ∴ /home/ext-installer/install.sh [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                            EVIDENCE                              
+------------------------------------------------------------------------------------------------------------
+LOW   compression/gzip         works with gzip files                  gzip                                  
+LOW   fs/directory/create      creates directories                    mkdir                                 
+LOW   fs/tempfile/create       Uses mktemp to create temporary files  mktemp                                
+LOW   process/chdir            changes working directory              cd $download_dir                      
+MED   fs/file/copy             forcibly copy files using cp -f        cp -Rf resources/                     
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively     rm -rf $dl                            
+MED   net/download             download files                         MAX_DOWNLOAD_SEC                      
+                                                                      UI extension downloaded successfully  
+                                                                      download_dir                          
+                                                                      download_extension                    
+                                                                      download_max_sec                      
+                                                                      the max download                      
+MED   net/fetch                executable calls fetch tool            curl -Lf --max-time                   
+MED   ref/path/tmp             path reference within /tmp             /tmp/extensions/resources/            
+MED   shell/exec               executes shell                         /bin/sh                               
+------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/argocd-extension-installer-0.0.5-r1.apk ∴ /var/lib/db/sbom/argocd-extension-installer-0.0.5-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/f430cc5a429c…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

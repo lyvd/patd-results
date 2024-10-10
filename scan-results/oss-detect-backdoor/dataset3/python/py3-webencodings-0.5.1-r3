@@ -1,0 +1,241 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+4a24249b20"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000801"
+          },
+          "message": {
+            "text": "Backdoor: Executing Obfuscated Code",
+            "id": "BD000801"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/py3-webencodings-0.5.1-r3.apk/py3-webencodings-0.5.1-r3/usr/lib/python3.12/site-packages/webencodings/tests.py"
+                },
+                "region": {
+                  "startLine": 118,
+                  "startColumn": 36,
+                  "endLine": 118,
+                  "endColumn": 56,
+                  "snippet": {
+                    "text": "    assert iter_decode_to_string([b'he', b'llo'], 'latin1') == 'hello'\n    assert iter_decode_to_string([b'hell', b'o'], 'latin1') == 'hello'\n    assert iter_decode_to_string([b'\\xc3\\xa9'], 'latin1') == 'Ã©'\n    assert iter_decode_to_string([b'\\xEF\\xBB\\xBF\\xc3\\xa9'], 'latin1') == 'é'\n    assert iter_decode_to_string([\n        b'\\xEF\\xBB\\xBF', b'\\xc3', b'\\xa9'], 'latin1') == 'é'\n    assert iter_decode_to_string([\n",
+                    "rendered": {
+                      "text": "    assert iter_decode_to_string([b'he', b'llo'], 'latin1') == 'hello'\n    assert iter_decode_to_string([b'hell', b'o'], 'latin1') == 'hello'\n    assert iter_decode_to_string([b'\\xc3\\xa9'], 'latin1') == 'Ã©'\n    assert iter_decode_to_string([b'\\xEF\\xBB\\xBF\\xc3\\xa9'], 'latin1') == 'é'\n    assert iter_decode_to_string([\n        b'\\xEF\\xBB\\xBF', b'\\xc3', b'\\xa9'], 'latin1') == 'é'\n    assert iter_decode_to_string([\n",
+                      "markdown": "`    assert iter_decode_to_string([b'he', b'llo'], 'latin1') == 'hello'\n    assert iter_decode_to_string([b'hell', b'o'], 'latin1') == 'hello'\n    assert iter_decode_to_string([b'\\xc3\\xa9'], 'latin1') == 'Ã©'\n    assert iter_decode_to_string([b'\\xEF\\xBB\\xBF\\xc3\\xa9'], 'latin1') == 'é'\n    assert iter_decode_to_string([\n        b'\\xEF\\xBB\\xBF', b'\\xc3', b'\\xa9'], 'latin1') == 'é'\n    assert iter_decode_to_string([\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000801"
+          },
+          "message": {
+            "text": "Backdoor: Executing Obfuscated Code",
+            "id": "BD000801"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/py3-webencodings-0.5.1-r3.apk/py3-webencodings-0.5.1-r3/usr/lib/python3.12/site-packages/webencodings/tests.py"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 20,
+                  "endLine": 82,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "    assert decode(b'\\xc3\\xa9', 'utf8') == ('é', lookup('utf8'))\n    assert decode(b'\\xc3\\xa9', UTF8) == ('é', lookup('utf8'))\n    assert decode(b'\\xc3\\xa9', 'ascii') == ('Ã©', lookup('ascii'))\n    assert decode(b'\\xEF\\xBB\\xBF\\xc3\\xa9', 'ascii') == ('é', lookup('utf8'))  # UTF-8 with BOM\n\n    assert decode(b'\\xFE\\xFF\\x00\\xe9', 'ascii') == ('é', lookup('utf-16be'))  # UTF-16-BE with BOM\n    assert decode(b'\\xFF\\xFE\\xe9\\x00', 'ascii') == ('é', lookup('utf-16le'))  # UTF-16-LE with BOM\n",
+                    "rendered": {
+                      "text": "    assert decode(b'\\xc3\\xa9', 'utf8') == ('é', lookup('utf8'))\n    assert decode(b'\\xc3\\xa9', UTF8) == ('é', lookup('utf8'))\n    assert decode(b'\\xc3\\xa9', 'ascii') == ('Ã©', lookup('ascii'))\n    assert decode(b'\\xEF\\xBB\\xBF\\xc3\\xa9', 'ascii') == ('é', lookup('utf8'))  # UTF-8 with BOM\n\n    assert decode(b'\\xFE\\xFF\\x00\\xe9', 'ascii') == ('é', lookup('utf-16be'))  # UTF-16-BE with BOM\n    assert decode(b'\\xFF\\xFE\\xe9\\x00', 'ascii') == ('é', lookup('utf-16le'))  # UTF-16-LE with BOM\n",
+                      "markdown": "`    assert decode(b'\\xc3\\xa9', 'utf8') == ('é', lookup('utf8'))\n    assert decode(b'\\xc3\\xa9', UTF8) == ('é', lookup('utf8'))\n    assert decode(b'\\xc3\\xa9', 'ascii') == ('Ã©', lookup('ascii'))\n    assert decode(b'\\xEF\\xBB\\xBF\\xc3\\xa9', 'ascii') == ('é', lookup('utf8'))  # UTF-8 with BOM\n\n    assert decode(b'\\xFE\\xFF\\x00\\xe9', 'ascii') == ('é', lookup('utf-16be'))  # UTF-16-BE with BOM\n    assert decode(b'\\xFF\\xFE\\xe9\\x00', 'ascii') == ('é', lookup('utf-16le'))  # UTF-16-LE with BOM\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000801"
+          },
+          "message": {
+            "text": "Backdoor: Executing Obfuscated Code",
+            "id": "BD000801"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/py3-webencodings-0.5.1-r3.apk/py3-webencodings-0.5.1-r3/usr/lib/python3.12/site-packages/webencodings/tests.py"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 41,
+                  "endLine": 68,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "\n\ndef test_invalid_label():\n    assert_raises(LookupError, decode, b'\\xEF\\xBB\\xBF\\xc3\\xa9', 'invalid')\n    assert_raises(LookupError, encode, 'é', 'invalid')\n    assert_raises(LookupError, iter_decode, [], 'invalid')\n    assert_raises(LookupError, iter_encode, [], 'invalid')\n",
+                    "rendered": {
+                      "text": "\n\ndef test_invalid_label():\n    assert_raises(LookupError, decode, b'\\xEF\\xBB\\xBF\\xc3\\xa9', 'invalid')\n    assert_raises(LookupError, encode, 'é', 'invalid')\n    assert_raises(LookupError, iter_decode, [], 'invalid')\n    assert_raises(LookupError, iter_encode, [], 'invalid')\n",
+                      "markdown": "`\n\ndef test_invalid_label():\n    assert_raises(LookupError, decode, b'\\xEF\\xBB\\xBF\\xc3\\xa9', 'invalid')\n    assert_raises(LookupError, encode, 'é', 'invalid')\n    assert_raises(LookupError, iter_decode, [], 'invalid')\n    assert_raises(LookupError, iter_encode, [], 'invalid')\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/py3-webencodings-0.5.1-r3.apk/py3-webencodings-0.5.1-r3/usr/lib/python3.12/site-packages/webencodings/__init__.py"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 38,
+                  "endLine": 83,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "        if name == 'x-user-defined':\n            from .x_user_defined import codec_info\n        else:\n            python_name = PYTHON_NAMES.get(name, name)\n            # Any python_name value that gets to here should be valid.\n            codec_info = codecs.lookup(python_name)\n        encoding = Encoding(name, codec_info)\n",
+                    "rendered": {
+                      "text": "        if name == 'x-user-defined':\n            from .x_user_defined import codec_info\n        else:\n            python_name = PYTHON_NAMES.get(name, name)\n            # Any python_name value that gets to here should be valid.\n            codec_info = codecs.lookup(python_name)\n        encoding = Encoding(name, codec_info)\n",
+                      "markdown": "`        if name == 'x-user-defined':\n            from .x_user_defined import codec_info\n        else:\n            python_name = PYTHON_NAMES.get(name, name)\n            # Any python_name value that gets to here should be valid.\n            codec_info = codecs.lookup(python_name)\n        encoding = Encoding(name, codec_info)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/py3-webencodings-0.5.1-r3.apk/py3-webencodings-0.5.1-r3/usr/lib/python3.12/site-packages/webencodings/__init__.py"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 20,
+                  "endLine": 78,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "    name = LABELS.get(label)\n    if name is None:\n        return None\n    encoding = CACHE.get(name)\n    if encoding is None:\n        if name == 'x-user-defined':\n            from .x_user_defined import codec_info\n",
+                    "rendered": {
+                      "text": "    name = LABELS.get(label)\n    if name is None:\n        return None\n    encoding = CACHE.get(name)\n    if encoding is None:\n        if name == 'x-user-defined':\n            from .x_user_defined import codec_info\n",
+                      "markdown": "`    name = LABELS.get(label)\n    if name is None:\n        return None\n    encoding = CACHE.get(name)\n    if encoding is None:\n        if name == 'x-user-defined':\n            from .x_user_defined import codec_info\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/datasets/dataset3/python/py3-webencodings-0.5.1-r3.apk/py3-webencodings-0.5.1-r3/usr/lib/python3.12/site-packages/webencodings/__init__.py"
+                },
+                "region": {
+                  "startLine": 75,
+                  "startColumn": 17,
+                  "endLine": 75,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "    \"\"\"\n    # Only strip ASCII whitespace: U+0009, U+000A, U+000C, U+000D, and U+0020.\n    label = ascii_lower(label.strip('\\t\\n\\f\\r '))\n    name = LABELS.get(label)\n    if name is None:\n        return None\n    encoding = CACHE.get(name)\n",
+                    "rendered": {
+                      "text": "    \"\"\"\n    # Only strip ASCII whitespace: U+0009, U+000A, U+000C, U+000D, and U+0020.\n    label = ascii_lower(label.strip('\\t\\n\\f\\r '))\n    name = LABELS.get(label)\n    if name is None:\n        return None\n    encoding = CACHE.get(name)\n",
+                      "markdown": "`    \"\"\"\n    # Only strip ASCII whitespace: U+0009, U+000A, U+000C, U+000D, and U+0020.\n    label = ascii_lower(label.strip('\\t\\n\\f\\r '))\n    name = LABELS.get(label)\n    if name is None:\n        return None\n    encoding = CACHE.get(name)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

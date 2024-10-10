@@ -1,0 +1,21 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/tpstringintpong-8.96.tar.gz ∴ /tpstringintpong-8.96/setup.py [🚨 CRITICAL]
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                             DESCRIPTION                                             EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+MED   evasion/powershell_hidden       Runs powershell with a hidden command                   -WindowStyle                                                
+                                                                                              Hidden                                                      
+                                                                                              powershell                                                  
+MED   exec/program                    execute external program                                subprocess.CREATE_NO_WINDOW                                 
+                                                                                              subprocess.Popen('powershell -WindowStyle Hidden -Encoded…  
+MED   ref/email                       Contains an exotic email address                        tahgoficial@proton.me                                       
+HIGH  evasion/mask_exceptions         Python library installer that hides exceptions                                                                      
+HIGH  evasion/powershell_encoded      Runs powershell with an encoded command                 -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAc…  
+                                                                                              powershell                                                  
+CRIT  3P/signature_base/susp/discord  Detects suspicious encoded URL to a Discord attachment  AGMAZABuAC4AZABpAHMAYwBvAHIAZABhAHAAcAAuAGMAbwBtAC8AYQB0A…  
+                                      (often used for malware hosting on a legitimate FQDN),                                                              
+                                      by Florian Roth (Nextron Systems)                                                                                   
+CRIT  combo/backdoor/py_setuptools    Python library installer that runs powershell           -EncodedCommand                                             
+                                                                                              WindowStyle Hidden                                          
+                                                                                              powershell                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+

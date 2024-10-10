@@ -1,0 +1,23 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libdaemon-0.14-r0.apk ∴ /usr/lib/libdaemon.so.0.5.0 [⚠️ MEDIUM]
+-----------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                  EVIDENCE         
+-----------------------------------------------------------------------------
+LOW   exec/program/background  wait for process to exit     waitpid          
+LOW   fs/file/delete           deletes files                unlink           
+LOW   ref/path/var             path reference within /var   /var/run         
+MED   exec/program             executes external programs   execv            
+MED   persist/pid_file         pid file, likely DIY daemon  daemon_pid_file  
+MED   ref/daemon               Run as a background daemon   libdaemon        
+-----------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libdaemon-0.14-r0.apk ∴ /var/lib/db/sbom/libdaemon-0.14-r0.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download  download files                downloadLocation                               
+MED   ref/daemon    Run as a background daemon    apk-libdaemon                                  
+                                                  doc-libdaemon                                  
+                                                  lib-libdaemon                                  
+-------------------------------------------------------------------------------------------------
+

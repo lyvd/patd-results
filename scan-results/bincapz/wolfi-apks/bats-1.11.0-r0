@@ -1,0 +1,192 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/bin/bats [✅ LOW]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------------
+LOW   fs/link/read      read value of a symbolic link   readlink                                                    
+LOW   process/chdir     changes working directory       cd -P "${target                                             
+                                                        cd -P "./${target                                           
+                                                        cd -P . 2                                                   
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env                                                
+LOW   ref/site/url      contains embedded HTTPS URLs    https://pubs.opengroup.org/onlinepubs/9699919799/utilitie…  
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/common.bash [✅ LOW]
+------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                     EVIDENCE      
+------------------------------------------------------------------------
+LOW   fs/symlink/resolve  resolves symbolic links         realpath      
+LOW   ref/path/usr/bin    path reference within /usr/bin  /usr/bin/env  
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/formatter.bash [✅ LOW]
+-------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE         
+-------------------------------------------------------------------------
+LOW   process/chdir     changes working directory       cd "$base_path"  
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env     
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/preprocessing.bash [✅ LOW]
+---------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                          EVIDENCE      
+---------------------------------------------------------------------------
+LOW   fs/tempdir        looks up location of temp directory  TMPDIR        
+LOW   ref/path/usr/bin  path reference within /usr/bin       /usr/bin/env  
+---------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/semaphore.bash [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                 EVIDENCE      
+-----------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                         mkdir         
+LOW   fs/file/delete/forcibly  Forcibly deletes files                      rm -f         
+LOW   fs/lock/update           apply or remove an advisory lock on a file  flock         
+LOW   fs/tempdir               looks up location of temp directory         TMPDIR        
+LOW   ref/path/usr/bin         path reference within /usr/bin              /usr/bin/env  
+MED   fs/file/times/set        change file timestamps                      touch         
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/test_functions.bash [✅ LOW]
+-------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                            EVIDENCE      
+-------------------------------------------------------------------------------
+LOW   fs/tempdir          looks up location of temp directory    TMPDIR        
+LOW   fs/tempfile/create  Uses mktemp to create temporary files  mktemp        
+LOW   ref/path/usr/bin    path reference within /usr/bin         /usr/bin/env  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/tracing.bash [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   process/chdir     changes working directory       cd "$path"    
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/validator.bash [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/lib/bats-core/warnings.bash [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                            EVIDENCE                                
+--------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                    mkdir                                   
+LOW   fs/tempdir               looks up location of temp directory    TEMPDIR                                 
+                                                                      TMPDIR                                  
+LOW   fs/tempfile/create       Uses mktemp to create temporary files  mktemp                                  
+LOW   process/chdir            changes working directory              cd "$OLDPWD"                            
+                                                                      cd "$dirname"                           
+LOW   ref/path/usr/bin         path reference within /usr/bin         /usr/bin/env                            
+LOW   ref/site/url             contains embedded HTTPS URLs           https://github.com/bats-core/bats-core  
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively     rm -rf                                  
+--------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-exec-file [⚠️ MEDIUM]
+----------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                          EVIDENCE      
+----------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                  mkdir         
+LOW   fs/tempdir               looks up location of temp directory  TMPDIR        
+LOW   ref/path/usr/bin         path reference within /usr/bin       /usr/bin/env  
+MED   fs/file/delete/forcibly  Forcibly deletes files recursively   rm -rf        
+MED   fs/file/times/set        change file timestamps               touch         
+----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-exec-suite [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                          EVIDENCE                                           
+-------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create  creates directories                  mkdir                                              
+LOW   fs/tempdir           looks up location of temp directory  TMPDIR                                             
+LOW   ref/path/usr/bin     path reference within /usr/bin       /usr/bin/env                                       
+LOW   ref/site/url         contains embedded HTTPS URLs         https://github.com/bats-core/bats-core/issues/329  
+MED   fs/file/times/set    change file timestamps               touch                                              
+-------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-exec-test [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                          EVIDENCE                           
+-------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create      creates directories                  mkdir                              
+LOW   fs/file/delete/forcibly  Forcibly deletes files               rm -f                              
+                                                                    rm -r                              
+LOW   fs/tempdir               looks up location of temp directory  TMPDIR                             
+LOW   ref/path/usr/bin         path reference within /usr/bin       /usr/bin/env                       
+LOW   ref/site/url             contains embedded HTTPS URLs         https://linux.die.net/man/2/alarm  
+MED   combo/backdoor/kill_rm   kill and remove                      pkill                              
+                                                                    rm -f                              
+MED   exec/program             execute external program             subprocess                         
+MED   fs/file/copy             copy files using cp                  cp                                 
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-format-cat [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-format-junit [⚠️ MEDIUM]
+------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                     EVIDENCE      
+------------------------------------------------------------------------
+LOW   kernel/platform     system identification           uname         
+LOW   ref/path/usr/bin    path reference within /usr/bin  /usr/bin/env  
+MED   exec/shell_command  execute a shell command         system        
+------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-format-pretty [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-format-tap [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-format-tap13 [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-gather-tests [⚠️ MEDIUM]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+MED   shell/pipe_sh     pipes to shell                  | sh          
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /usr/libexec/bats-core/bats-preprocess [✅ LOW]
+----------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE      
+----------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env  
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/bats-1.11.0-r0.apk ∴ /var/lib/db/sbom/bats-1.11.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/a5a05f2d9915…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

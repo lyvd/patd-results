@@ -1,0 +1,472 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__init__.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------
+RISK  KEY                DESCRIPTION                             EVIDENCE                           
+----------------------------------------------------------------------------------------------------
+LOW   fd/write           writes to a file handle                 f.write(chunk)                     
+                                                                 f.write(data)                      
+LOW   fs/file/delete     deletes files                           os.remove(                         
+LOW   fs/file/open       opens files                             open(                              
+LOW   net/socket/listen  listen on a socket                      accept                             
+                                                                 socket                             
+LOW   net/url            Handles URL strings                     urllib                             
+LOW   ref/site/url       contains embedded HTTP URLs             http://aws.amazon.com/apache2.0/   
+                                                                 http://bugs.python.org/issue17575  
+MED   fs/file/read       opens a binary file for read            open(filename, 'rb')               
+MED   net/download       download files                          ALLOWED_DOWNLOAD_ARGS              
+                                                                 EXITING _download_range for part   
+                                                                 Max parallel downloads             
+                                                                 caught in download_file            
+                                                                 class MultipartDownloader          
+                                                                 def _download_file_as_future       
+                                                                 def _download_range                
+                                                                 def _ranged_download               
+                                                                 …                                  
+MED   net/upload         uploads files                           UPLOAD_ARGS                        
+                                                                 UPLOAD_PART_ARGS                   
+                                                                 UploadFailedError                  
+                                                                 UploadId                           
+                                                                 UploadPart                         
+                                                                 Uploader                           
+                                                                 Uploading                          
+                                                                 upload_callbacks                   
+                                                                 …                                  
+MED   ref/path/tmp       references an unusual path within /tmp  /tmp/foo                           
+                                                                 /tmp/myfile.json                   
+----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/__init__.cpython-312.pyc [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                  
+----------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/read             reads files                              ReadFile                                                  
+LOW   net/socket/listen        listen on a socket                       accept                                                    
+                                                                        socket                                                    
+LOW   net/url                  Handles URL strings                      urllib                                                    
+MED   net/download             download files                           ALLOWED_DOWNLOAD_ARGS                                     
+                                                                        EXITING _download_range for part                          
+                                                                        Max parallel downloads                                    
+                                                                        MultipartDownloaderc                                      
+                                                                        _download_file_as_future                                  
+                                                                        _download_filerM                                          
+                                                                        _download_rangeS                                          
+                                                                        _download_ranger                                          
+                                                                        …                                                         
+MED   net/upload               uploads files                            UPLOAD_ARGSr                                              
+                                                                        UPLOAD_PART_ARGS                                          
+                                                                        UploadFailedErrorz                                        
+                                                                        UploadIdzBException                                       
+                                                                        UploadPart                                                
+                                                                        Uploader                                                  
+                                                                        Uploading                                                 
+                                                                        Uploadr                                                   
+                                                                        …                                                         
+MED   ref/path/tmp             references an unusual path within /tmp   /tmp/foo                                                  
+                                                                        /tmp/myfile.json                                          
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/__init__.py  
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/bandwidth.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/bandwidth.pyr  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/compat.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+MED   process/multiprocess     uses python multiprocessing              multiprocessing                                         
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/compat.py  
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/constants.cpython-312.pyc [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                   
+-----------------------------------------------------------------------------------------------------------------------------------
+MED   net/download             download files                           ALLOWED_DOWNLOAD_ARGS                                      
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/constants.py  
+-----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/copies.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+MED   net/upload               uploads files                            UPLOAD_PART_COPY_ARGS                                   
+                                                                        UploadId                                                
+                                                                        UploadTask                                              
+                                                                        upload_id                                               
+                                                                        upload_part_argsr                                       
+                                                                        upload_part_copy                                        
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/copies.py  
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/crt.cpython-312.pyc [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                             
+-----------------------------------------------------------------------------------------------------------------------------
+MED   exec/shell_command       execute a shell command                  system                                               
+MED   net/upload               uploads files                            UPLOAD_ARGSru                                        
+                                                                        uploaded                                             
+                                                                        uploadz                                              
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/crt.py  
+-----------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/delete.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/delete.py  
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/download.cpython-312.pyc [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                  
+----------------------------------------------------------------------------------------------------------------------------------
+MED   net/download             download files                           CompleteDownloadNOOPTaskr                                 
+                                                                        DownloadChunkIterator                                     
+                                                                        DownloadOutputManagera                                    
+                                                                        DownloadSubmissionTaskz                                   
+                                                                        IN_MEMORY_DOWNLOAD_TAG                                    
+                                                                        RETRYABLE_DOWNLOAD_ERRORS                                 
+                                                                        The bucket to download from                               
+                                                                        The key to download from                                  
+                                                                        …                                                         
+MED   net/upload               uploads files                            upload                                                    
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/download.py  
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/exceptions.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   net/upload               uploads files                            UploadFailedErrorN                                          
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/exceptions.p…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/futures.cpython-312.pyc [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                  
+----------------------------------------------------------------------------------------------------------------------------------
+MED   net/download             download files                           IN_MEMORY_DOWNLOAD_TAGr                                   
+                                                                        in_memory_download                                        
+MED   net/upload               uploads files                            UPLOAD_TAG                                                
+                                                                        upload                                                    
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/futures.pyr  
+----------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/manager.cpython-312.pyc [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                 
+---------------------------------------------------------------------------------------------------------------------------------
+MED   net/download             download files                           ALLOWED_DOWNLOAD_ARGS                                    
+                                                                        DownloadSubmissionTask                                   
+                                                                        IN_MEMORY_DOWNLOAD_TAG                                   
+                                                                        The number of download attempts that                     
+                                                                        downloadS                                                
+                                                                        downloadr                                                
+                                                                        downloadz                                                
+                                                                        errors with downloading an object in                     
+                                                                        …                                                        
+MED   net/upload               uploads files                            UPLOAD_ARGS                                              
+                                                                        UPLOAD_TAG                                               
+                                                                        UploadSubmissionTask                                     
+                                                                        Uploads                                                  
+                                                                        upload_chunks                                            
+                                                                        uploading                                                
+                                                                        uploadr                                                  
+                                                                        uploadz                                                  
+                                                                        …                                                        
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/manager.py  
+---------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/processpool.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs             https://botocore.amazonaws.com/v1/documentation/api/lates…  
+MED   net/download             download files                           ALLOWED_DOWNLOAD_ARGS                                       
+                                                                        DownloadFileRequest                                         
+                                                                        Downloads the object                                        
+                                                                        If the download fails                                       
+                                                                        If the download succeeds                                    
+                                                                        ProcessPoolDownloaderNc                                     
+                                                                        RETRYABLE_DOWNLOAD_ERRORS                                   
+                                                                        Submitting download file request                            
+                                                                        …                                                           
+MED   net/socket/connect       initiate a connection on a socket        _connect                                                    
+MED   process/multiprocess     uses python multiprocessing              multiprocessing                                             
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/processpool.…  
+MED   ref/words/agent          references an 'agent'                    agent_extrar                                                
+                                                                        user_agent                                                  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/subscribers.cpython-312.pyc [⚠️ MEDIUM]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                    
+------------------------------------------------------------------------------------------------------------------------------------
+MED   net/download             download files                           for copies and downloads                                    
+                                                                        time of a downloaded file                                   
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/subscribers.…  
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/tasks.cpython-312.pyc [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                               
+-------------------------------------------------------------------------------------------------------------------------------
+MED   net/upload               uploads files                            UploadId                                               
+                                                                        UploadNr                                               
+                                                                        UploadPartTask                                         
+                                                                        UploadTaskz                                            
+                                                                        upload_ids                                             
+                                                                        uploadc                                                
+                                                                        uploadr                                                
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/tasks.py  
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/upload.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                                
+--------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/read             reads files                              ReadFile                                                
+MED   net/upload               uploads files                            UPLOAD_PART_ARGS                                        
+                                                                        UPLOAD_TAG                                              
+                                                                        UploadFilenameInputMan                                  
+                                                                        UploadId                                                
+                                                                        UploadInputManageraJ                                    
+                                                                        UploadNonSeekableInput                                  
+                                                                        UploadPartTask                                          
+                                                                        UploadParts                                             
+                                                                        …                                                       
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/upload.py  
+--------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/__pycache__/utils.cpython-312.pyc [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                               
+-------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/file/read             reads files                              ReadFile                                               
+MED   net/download             download files                           RETRYABLE_DOWNLOAD_ERRORSr                             
+                                                                        for multipart downloads                                
+                                                                        parameter on downloads or                              
+MED   net/upload               uploads files                            UPLOAD_CHUNKSIZE                                       
+                                                                        UPLOAD_SIZE                                            
+                                                                        UploadPart                                             
+                                                                        upload                                                 
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/s3transfer/utils.py  
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/bandwidth.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   net/download  download files               via downloads                     
+MED   net/upload    uploads files                uploads                           
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/compat.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                     EVIDENCE                          
+----------------------------------------------------------------------------------------------
+LOW   fs/file/delete        deletes files                   os.remove(                        
+LOW   ref/site/url          contains embedded HTTP URLs     http://aws.amazon.com/apache2.0/  
+MED   kernel/platform       system platform identification  sys.platform                      
+MED   process/multiprocess  uses python multiprocessing     multiprocessing                   
+----------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/constants.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   net/download  download files               ALLOWED_DOWNLOAD_ARGS             
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/copies.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   net/upload    uploads files                UPLOAD_PART_COPY_ARGS             
+                                                 UploadId                          
+                                                 UploadTask                        
+                                                 upload_id                         
+                                                 upload_part_args                  
+                                                 upload_part_copy                  
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/crt.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------------
+LOW   fd/write            writes to a file handle      _fileobj.write(chunk)             
+LOW   ref/site/url        contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   exec/shell_command  execute a shell command      system                            
+MED   net/upload          uploads files                UPLOAD_ARGS                       
+                                                       uploaded                          
+                                                       uploads                           
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/delete.py [✅ LOW]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/download.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                              
+---------------------------------------------------------------------------------------
+LOW   fd/write      writes to a file handle      fileobj.write(data)                   
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/      
+MED   net/download  download files               GetObject download                    
+                                                 IN_MEMORY_DOWNLOAD_TAG                
+                                                 RETRYABLE_DOWNLOAD_ERRORS as e        
+                                                 The bucket to download from           
+                                                 The key to download from              
+                                                 _submit_ranged_download_request       
+                                                 a file once the download is complete  
+                                                 class CompleteDownloadNOOPTask        
+                                                 …                                     
+MED   net/upload    uploads files                upload                                
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/exceptions.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   net/upload    uploads files                UploadFailedError                 
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/futures.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   net/download  download files               IN_MEMORY_DOWNLOAD_TAG            
+                                                 in_memory_download                
+MED   net/upload    uploads files                UPLOAD_TAG                        
+                                                 upload                            
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/manager.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                
+-----------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/        
+MED   net/download  download files               IN_MEMORY_DOWNLOAD_TAG                  
+                                                 The number of download attempts that    
+                                                 def download                            
+                                                 download import DownloadSubmissionTask  
+                                                 downloads for all files                 
+                                                 errors with downloading an object in    
+                                                 from the downloaded                     
+                                                 import ALLOWED_DOWNLOAD_ARGS            
+                                                 …                                       
+MED   net/upload    uploads files                UPLOAD_ARGS                             
+                                                 UPLOAD_TAG                              
+                                                 UploadSubmissionTask                    
+                                                 Uploads                                 
+                                                 upload_chunks                           
+                                                 uploading                               
+                                                 uploads                                 
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/processpool.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                            EVIDENCE                                                    
+-------------------------------------------------------------------------------------------------------------------------------
+LOW   fd/write              writes to a file handle                f.write(chunk)                                              
+LOW   fs/file/open          opens files                            open(                                                       
+LOW   fs/tempfile/create    Uses mktemp to create temporary files  temp file                                                   
+LOW   ref/site/url          contains embedded HTTPS URLs           https://botocore.amazonaws.com/v1/documentation/api/lates…  
+MED   net/download          download files                         DownloadFileRequest                                         
+                                                                   Downloads the object                                        
+                                                                   If the download fails                                       
+                                                                   If the download succeeds                                    
+                                                                   RETRYABLE_DOWNLOAD_ERRORS as e                              
+                                                                   Shutdown the downloader                                     
+                                                                   Submitting download file request                            
+                                                                   The bucket to download the object from                      
+                                                                   …                                                           
+MED   net/socket/connect    initiate a connection on a socket      _connect                                                    
+MED   process/multiprocess  uses python multiprocessing            multiprocessing                                             
+MED   ref/words/agent       references an 'agent'                  agent_extra                                                 
+                                                                   user_agent                                                  
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/subscribers.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   net/download  download files               for copies and downloads          
+                                                 time of a downloaded file         
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/tasks.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                             
+---------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://bugs.python.org/issue20319.  
+MED   net/upload    uploads files                 UploadId                             
+                                                  UploadPartTask                       
+                                                  UploadTask                           
+                                                  upload_id                            
+                                                  uploads                              
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/upload.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                          
+-----------------------------------------------------------------------------------
+LOW   fd/read       reads from a file handle     fileobj.read()                    
+LOW   fs/file/read  reads files                  ReadFile                          
+LOW   ref/site/url  contains embedded HTTP URLs  http://aws.amazon.com/apache2.0/  
+MED   hash/md5      Verifies MD5 signatures      md5 mismatch                      
+MED   net/upload    uploads files                UPLOAD_PART_ARGS                  
+                                                 UPLOAD_TAG                        
+                                                 UploadFilenameInputMan            
+                                                 UploadId                          
+                                                 UploadInputManager                
+                                                 UploadNonSeekableInput            
+                                                 UploadPartTask                    
+                                                 UploadParts                       
+                                                 …                                 
+-----------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /usr/lib/python3.12/site-packages/s3transfer/utils.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------------
+RISK  KEY             DESCRIPTION                   EVIDENCE                                                    
+----------------------------------------------------------------------------------------------------------------
+LOW   fd/write        writes to a file handle       _fileobj.write(data)                                        
+LOW   fs/file/delete  deletes files                 os.remove(                                                  
+LOW   fs/file/open    opens files                   open(                                                       
+LOW   ref/site/url    contains embedded HTTP URLs   http://aws.amazon.com/apache2.0/                            
+                                                    http://bugs.python.org/issue17575                           
+                                                    http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingO…  
+                                                    http://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html  
+MED   fs/file/read    opens a binary file for read  open(filename, 'rb')                                        
+MED   net/download    download files                RETRYABLE_DOWNLOAD_ERRORS                                   
+                                                    for multipart downloads                                     
+                                                    parameter on downloads or                                   
+MED   net/upload      uploads files                 UPLOAD_CHUNKSIZE                                            
+                                                    UPLOAD_SIZE                                                 
+                                                    UploadPart                                                  
+                                                    UploadingObjects                                            
+                                                    upload                                                      
+MED   ref/path/dev    path reference within /dev    /dev/UploadingObjects                                       
+                                                    /dev/qfacts.html                                            
+----------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-s3transfer-0.10.2-r0.apk ∴ /var/lib/db/sbom/py3-s3transfer-0.10.2-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/0fca4efeb7a0…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

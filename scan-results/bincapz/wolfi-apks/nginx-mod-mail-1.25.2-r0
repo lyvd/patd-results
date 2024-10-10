@@ -1,0 +1,30 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/nginx-mod-mail-1.25.2-r0.apk ∴ /usr/lib/nginx/modules/ngx_mail_module.so [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                      EVIDENCE                      
+-----------------------------------------------------------------------------------------
+LOW   encoding/base64     Supports base64 encoded strings  base64                        
+LOW   net/http/request    makes HTTP requests              HTTP/1.                       
+LOW   net/socket/listen   listen on a socket               accept                        
+                                                           listen                        
+LOW   ref/words/password  references a 'password'          V did not send password       
+                                                           mail_auth_login_password      
+                                                           ngx_ssl_read_password_file    
+                                                           no password available         
+                                                           sending password to upstream  
+                                                           ssl_password_file             
+MED   ref/ip_port         mentions an IP and port          IP                            
+                                                           Port                          
+                                                           get_port                      
+                                                           real_ip                       
+                                                           set_port                      
+-----------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/nginx-mod-mail-1.25.2-r0.apk ∴ /var/lib/db/sbom/nginx-mod-mail-1.25.2-r0.spdx.json [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                       
+-------------------------------------------------------------------------------------------------
+LOW   ref/path/etc  path reference within /etc    /etc/nginx/modules/                            
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/  
+MED   net/download  download files                downloadLocation                               
+-------------------------------------------------------------------------------------------------
+

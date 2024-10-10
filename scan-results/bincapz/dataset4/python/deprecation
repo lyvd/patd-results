@@ -1,0 +1,44 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation.zip ∴ /deprecation.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                                    
+---------------------------------------------------------------------------------------------------------
+LOW   fd/read             reads from a file handle           stderr.read()                               
+                                                             stdout.read()                               
+LOW   net/socket/receive  receive a message to a socket      recv                                        
+                                                             socket                                      
+LOW   net/socket/send     send a message to a socket         send                                        
+                                                             socket                                      
+LOW   ref/site/url        contains embedded HTTP URLs        http://www.apache.org/licenses/LICENSE-2.0  
+MED   exec/program        execute external program           subprocess.PIPE, stderr                     
+                                                             subprocess.PIPE, stdin                      
+                                                             subprocess.Popen(command, shell             
+MED   exec/shell_command  execute a shell command            system                                      
+MED   net/socket/connect  initiate a connection on a socket  connect                                     
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation.zip ∴ /docs/conf.py [✅ LOW]
+-------------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE                     
+-------------------------------------------------------------------------------------
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/env                 
+LOW   ref/site/url      contains embedded HTTPS URLs    https://docs.python.org/dev  
+-------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation.zip ∴ /setup.py [✅ LOW]
+-----------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                           
+-----------------------------------------------------------------------------------------------------
+LOW   fd/read       reads from a file handle      ).read()                                           
+                                                  f.read()                                           
+LOW   fs/file/open  opens files                   open(                                              
+LOW   fs/file/read  opens a file for read         open("deprecation.py", "r")                        
+LOW   ref/site/url  contains embedded HTTPS URLs  https://github.com/briancurtin/deprecation/issues  
+-----------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/deprecation.zip ∴ /tests/test_deprecation.py [✅ LOW]
+---------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                  EVIDENCE                                    
+---------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTP URLs  http://www.apache.org/licenses/LICENSE-2.0  
+---------------------------------------------------------------------------------------------
+

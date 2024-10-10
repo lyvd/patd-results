@@ -1,0 +1,24 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libfido2-1.15.0-r0.apk ∴ /usr/lib/libfido2.so.1.15.0 [✅ LOW]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                  EVIDENCE        
+-------------------------------------------------------------------------------------------------
+LOW   crypto/aes                    Supports AES (Advanced Encryption Standard)  AES             
+                                                                                 aes_256_cbc     
+LOW   env/USER                      Looks up the USER name of the current user   USER            
+                                                                                 getenv          
+LOW   fs/lock/update                apply or remove an advisory lock on a file   flock           
+LOW   kernel/netlink                communicate with kernel services             netlink         
+LOW   net/socket/send               send a message to a socket                   send            
+                                                                                 socket          
+LOW   process/thread_local_storage  Uses glibc thread local storage              __tls_get_addr  
+LOW   secrets/private_key           References private keys                      private_key     
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libfido2-1.15.0-r0.apk ∴ /var/lib/db/sbom/libfido2-1.15.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/f9aa75f95c3b…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

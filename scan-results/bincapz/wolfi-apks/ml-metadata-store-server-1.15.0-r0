@@ -1,0 +1,160 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ml-metadata-store-server-1.15.0-r0.apk ∴ /usr/bin/metadata_store_server [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                           DESCRIPTION                                          EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   cloud/google/metadata         Includes the token required to use the Google Cloud  Metadata-Flavor                                             
+                                    Platform metadata server                                                                                         
+LOW   compression/gzip              works with gzip files                                gzip                                                        
+LOW   crypto/aes                    Supports AES (Advanced Encryption Standard)          AES                                                         
+                                                                                         aes_256_cbc                                                 
+LOW   crypto/ecdsa                  Uses the Go crypto/ecdsa library                     crypto/ecdsa                                                
+LOW   crypto/ed25519                Elliptic curve algorithm used by TLS and SSH         ed25519                                                     
+LOW   crypto/tls                    tls                                                  TLS13                                                       
+                                                                                         TLSVersion                                                  
+LOW   encoding/base64               Supports base64 encoded strings                      base64                                                      
+LOW   env/HOME                      Looks up the HOME directory for the current user     HOME                                                        
+                                                                                         getenv                                                      
+LOW   env/TEMP                      tmpdir                                               TEMP                                                        
+                                                                                         getenv                                                      
+LOW   env/TERM                      Look up or override terminal settings                TERM                                                        
+LOW   env/TMPDIR                    TMPDIR                                               TMPDIR                                                      
+                                                                                         getenv                                                      
+LOW   env/USER                      Looks up the USER name of the current user           USER                                                        
+                                                                                         getenv                                                      
+LOW   fd/epoll                      I/O event notification facility                      epoll_wait                                                  
+LOW   fs/directory/create           creates directories                                  mkdir                                                       
+LOW   fs/directory/remove           Uses libc functions to remove directories            rmdir                                                       
+LOW   fs/file/delete                deletes files                                        unlink                                                      
+LOW   fs/file/read                  reads files                                          ReadFile                                                    
+LOW   fs/file/truncate              truncate a file to a specified length                ftruncate64                                                 
+LOW   fs/link/read                  read value of a symbolic link                        readlink                                                    
+LOW   fs/permission/chown           May change file ownership                            fchown                                                      
+LOW   fs/permission/modify          modifies file permissions                            fchmod                                                      
+LOW   fs/tempdir                    looks up location of temp directory                  TMPDIR                                                      
+LOW   hash/md5                      Uses the MD5 signature format                        MD5_BYTES                                                   
+                                                                                         MD5_Final                                                   
+                                                                                         MD5_STRING                                                  
+LOW   hash/sha1                     Uses the SHA1 signature format                       SHA1_                                                       
+LOW   hash/sha256                   Uses the SHA256 signature format                     SHA256_                                                     
+LOW   kernel/platform               system identification                                uname                                                       
+LOW   net/dns/txt                   Uses DNS TXT (text) records                          TXT                                                         
+                                                                                         dns                                                         
+LOW   net/grpc                      Uses the gRPC Remote Procedure Call framework        gRPC                                                        
+LOW   net/hostport/parse            Network address and service translation              freeaddrinfo                                                
+                                                                                         getaddrinfo                                                 
+LOW   net/http/auth                 makes HTTP requests with basic authentication        www-authenticate                                            
+LOW   net/http/request              makes HTTP requests                                  HTTP/1.                                                     
+                                                                                         User-Agent                                                  
+LOW   net/http2                     Uses the HTTP/2 protocol                             HTTP/2                                                      
+LOW   net/http_proxy                use HTTP proxy that requires authentication          Proxy-Authorization                                         
+LOW   net/interface/get             get network interfaces by name or index              if_nametoindex                                              
+LOW   net/oauth2                    supports OAuth2                                      oauth2                                                      
+LOW   net/socket/listen             listen on a socket                                   accept                                                      
+                                                                                         listen                                                      
+                                                                                         socket                                                      
+LOW   net/socket/local/address      get local address of connected socket                getsockname                                                 
+LOW   net/socket/peer/address       get peer address of connected socket                 getpeername                                                 
+LOW   net/socket/receive            receive a message from a socket                      recvmsg                                                     
+LOW   net/socket/send               send a message to a socket                           sendmsg                                                     
+LOW   process/multithreaded         creates pthreads                                     pthread_create                                              
+LOW   process/thread_local_storage  Uses glibc thread local storage                      __tls_get_addr                                              
+LOW   process/username/get          get login name                                       getlogin                                                    
+LOW   ref/path/etc                  path reference within /etc                           /etc/localtime                                              
+                                                                                         /etc/mysql                                                  
+                                                                                         /etc/openssl/certs                                          
+                                                                                         /etc/pki/ca-trust/extracted/pem/tls-c                       
+                                                                                         /etc/pki/tls/cacert.pem                                     
+                                                                                         /etc/pki/tls/certs/ca-bundle.crt                            
+                                                                                         /etc/security/cacerts                                       
+                                                                                         /etc/ssl/ca-bundle.pem                                      
+                                                                                         …                                                           
+LOW   ref/path/home/config          path reference within ~/.config                      .config/gcloud/application_default_credentials              
+LOW   ref/path/var                  path reference within /var                           /var/tmp                                                    
+LOW   ref/site/url                  contains embedded HTTPS URLs                         https://dev.mysql.com/blog-archive/upgrading-to-mysql-8-0…  
+                                                                                         https://github.com/netty/netty/issues/6520.                 
+                                                                                         https://stackoverflow.com/q/4448340                         
+                                                                                         https://www.googleapis.com/auth/h/cloud-platformsubject_t…  
+LOW   ref/words/password            references a 'password'                              Database-Password-File                                      
+                                                                                         The mysql user password to use                              
+                                                                                         auth_old_password                                           
+                                                                                         challengePassword                                           
+                                                                                         config_sslpasswordE                                         
+                                                                                         error sending password authentication                       
+                                                                                         id-PasswordBasedMAC                                         
+                                                                                         ma_hash_password                                            
+                                                                                         …                                                           
+LOW   ref/words/plugin              references a 'plugin'                                CertificateProviderPluginInstance                           
+                                                                                         Cluster specifier plugin name                               
+                                                                                         ClusterSpecifierPluginR                                     
+                                                                                         ClusterSpecifierPlugin__fields                              
+                                                                                         ClusterSpecifierPlugin_msginit                              
+                                                                                         ClusterSpecifierPlugin_submsgs                              
+                                                                                         Could not parse plugin config                               
+                                                                                         LOCK_load_client_plugin                                     
+                                                                                         …                                                           
+LOW   secrets/private_key           References private keys                              PRIVATE_KEY                                                 
+                                                                                         privateKey                                                  
+                                                                                         private_key                                                 
+LOW   time/tzinfo                   Uses timezone information                            tzdata                                                      
+MED   3P/threat_hunting/keylogger   references 'keylogger keyword' tool, by mthcht       KeyLogger                                                   
+MED   combo/net/tunnel_proxy        network tunnel proxy                                 Proxy                                                       
+                                                                                         TLS13                                                       
+                                                                                         TLSVersion                                                  
+                                                                                         Tunnel                                                      
+                                                                                         crypto                                                      
+                                                                                         proxy                                                       
+                                                                                         socket                                                      
+MED   databases/mysql               accesses MySQL databases                             mysql                                                       
+MED   databases/postgresql          accesses PostgreSQL databases                        postgresql                                                  
+MED   databases/sqlite              accesses SQLite databases                            sqlite3                                                     
+MED   dylib/symbol/address          get the address of a symbol                          dlsym                                                       
+MED   evasion/base64/decode         decode base64 strings                                base64_decode                                               
+MED   fs/file/times/set             change file last access and modification times       utimes                                                      
+MED   kernel/sysinfo                get system information (load, swap)                  sysinfo                                                     
+MED   net/bpf                       BPF (Berkeley Packet Filter)                         bpf                                                         
+MED   net/http/cookies              access HTTP resources using cookies                  Cookie                                                      
+                                                                                         HTTP                                                        
+MED   net/http/form/upload          upload content via HTTP form                         POST                                                        
+                                                                                         application/x-www-form-urlencoded                           
+MED   net/http/post                 submits content to websites                          Content-Type                                                
+                                                                                         HTTP                                                        
+                                                                                         POST                                                        
+                                                                                         http                                                        
+MED   net/icmp                      Uses the ping tool to generate ICMP packets          ping err                                                    
+                                                                                         ping response from                                          
+MED   net/interface/list            list network interfaces                              freeifaddrs                                                 
+                                                                                         getifaddrs                                                  
+MED   net/ip/parse                  parses IP address (IPv4 or IPv6)                     inet_pton                                                   
+MED   net/ip/string                 converts IP address from byte to string              inet_ntop                                                   
+MED   net/reuseport                 reuse TCP/IP ports for listening and connecting      SO_REUSEADDR                                                
+                                                                                         SO_REUSEPORT                                                
+MED   net/url/encode                encodes URL, likely to pass GET variables            urlencode                                                   
+MED   ref/ip_port                   mentions an IP and port                              IP                                                          
+                                                                                         altPort                                                     
+                                                                                         alt_port                                                    
+                                                                                         check_ip                                                    
+                                                                                         clone_port                                                  
+                                                                                         config_port                                                 
+                                                                                         format_ip                                                   
+                                                                                         get_port                                                    
+                                                                                         …                                                           
+MED   ref/path/hidden               hidden path generated dynamically                    %s/.s                                                       
+MED   ref/path/relative             references and possibly executes relative path       ./ml_metadata                                               
+MED   ref/path/tmp                  path reference within /tmp                           /tmp/mysql.sock                                             
+MED   ref/words/collection          Uses terms that reference data collection            CollectData                                                 
+MED   ref/words/intercept           References interception                              interceptE                                                  
+                                                                                         interceptor_common                                          
+                                                                                         interceptors_                                               
+MED   ref/words/server_address      references a 'server address', possible C2 client    server_address_weight                                       
+MED   secrets/gcloud                Access gcloud configuration files                    .config/gcloud                                              
+                                                                                         application_default_credentials.json                        
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ml-metadata-store-server-1.15.0-r0.apk ∴ /var/lib/db/sbom/ml-metadata-store-server-1.15.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/237631fe482d…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

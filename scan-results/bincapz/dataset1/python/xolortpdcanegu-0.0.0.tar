@@ -1,0 +1,92 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset1/python/xolortpdcanegu-0.0.0.tar.gz ∴ /xolortpdcanegu-0.0.0/xolortpdcanegu/__init__.py [🚨 CRITICAL]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                               DESCRIPTION                                            EVIDENCE                                                    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+LOW   crypto/aes                        Supports AES (Advanced Encryption Standard)            AES                                                         
+LOW   encoding/base64                   Supports base64 encoded strings                        base64                                                      
+LOW   encoding/json/decode              Decodes JSON messages                                  json.loads                                                  
+LOW   env/TEMP                          tmpdir                                                 TEMP                                                        
+                                                                                               getenv                                                      
+LOW   fd/read                           reads from a file handle                               headers)).read()                                            
+                                                                                               json_loads(f.read()                                         
+LOW   fs/directory/list                 lists contents of a directory                          .listdir(                                                   
+LOW   fs/file/delete                    deletes files                                          os.remove(                                                  
+LOW   fs/file/open                      opens files                                            open(                                                       
+LOW   net/http/request                  makes HTTP requests                                    User-Agent                                                  
+LOW   ref/site/url                      contains embedded HTTPS URLs                           https://aliexpress.com                                      
+                                                                                               https://amazon.com                                          
+                                                                                               https://api.gofile.io/getServer                             
+                                                                                               https://api.ipify.org                                       
+                                                                                               https://binance.com                                         
+                                                                                               https://cdn.discordapp.com/attachments/963114349877162004…  
+                                                                                               https://cdn.discordapp.com/attachments/963114349877162004…  
+                                                                                               https://cdn.discordapp.com/avatars/                         
+                                                                                               …                                                           
+LOW   ref/words/password                references a 'password'                                Password Stealer                                            
+                                                                                               Passwords Found                                             
+                                                                                               RememberPassword                                            
+MED   3P/threat_hunting/cstealer        references 'cstealer' tool, by mthcht                  CryptUnprotectData(                                         
+                                                                                               nkbihfbeogaeaoehlefnkodbefgpgknn                            
+MED   3P/threat_hunting/fentanyl        references 'Fentanyl' tool, by mthcht                  findall(r"dQw4w9WgXcQ                                       
+                                                                                               https://{requests.get("https://api.gofile.io/getServer").…  
+MED   3P/threat_hunting/gofile/io       references 'gofile.io' tool, by mthcht                 .gofile.io/uploadFile                                       
+                                                                                               api.gofile.io/getServer                                     
+MED   3P/threat_hunting/transfer/sh     references 'transfer.sh' tool, by mthcht               https://transfer.sh                                         
+MED   databases/leveldb                 accesses LevelDB databases                             leveldb                                                     
+MED   databases/sqlite                  accesses SQLite databases                              sqlite3                                                     
+MED   evasion/base64/decode             decode base64 strings                                  b64decode::$b64decode                                       
+MED   evasion/fake/user/agent           fake user agent firefox                                Gecko/20                                                    
+MED   evasion/lib_alias                 aliases core python library to an alternate name       from json import loads as json_loads                        
+                                                                                               from sqlite3 import connect as sql_connect                  
+MED   exec/program                      execute external program                               os.system("cls")                                            
+                                                                                               os.system(c)                                                
+                                                                                               os.system(f"taskkill /im {procc} /t /f")                    
+                                                                                               subprocess.Popen(f"taskkill /im {procc} /t /f", shell       
+                                                                                               subprocess.Popen(f"{executable} -m pip install {modl[1]}"…  
+MED   fs/file/read                      opens a binary file for read                           open(path, 'rb')                                            
+MED   net/download                      download files                                         Downloads                                                   
+                                                                                               downloadPage                                                
+MED   net/http/form/upload              upload content via HTTP form                           POST                                                        
+                                                                                               application/json                                            
+MED   net/http/post                     submits content to websites                            Content-Type                                                
+                                                                                               POST                                                        
+                                                                                               http                                                        
+MED   net/upload                        uploads files                                          uploadFile                                                  
+                                                                                               uploadToAnonfiles                                           
+                                                                                               uploadToken                                                 
+MED   net/url/request                   requests resources via URL                             import requests                                             
+                                                                                               requests.get(                                               
+MED   process/multithreaded             uses python threading                                  threading.Thread                                            
+MED   process/taskkill                  kills tasks and/or processes                           taskkill                                                    
+MED   ref/program/minecraft             Has references to Minecraft                            minecraft                                                   
+HIGH  admin/pip_install                 Installs software using pip from python                pip install                                                 
+HIGH  combo/stealer/browser             Uses HTTP, archives, and references multiple browsers  Brave-Browser                                               
+                                                                                               BraveSoftw                                                  
+                                                                                               Chrome/User Data                                            
+                                                                                               Cookies                                                     
+                                                                                               Firefox                                                     
+                                                                                               Google/Chrome                                               
+                                                                                               Opera Software                                              
+                                                                                               YandexBrowser                                               
+                                                                                               …                                                           
+HIGH  combo/stealer/discord             gets passwords, makes HTTP requests, and uses Discord  POST                                                        
+                                                                                               Password                                                    
+                                                                                               discordapp.com                                              
+                                                                                               get(                                                        
+                                                                                               https://                                                    
+                                                                                               password                                                    
+                                                                                               post(                                                       
+HIGH  net/public_ip                     public service to discover external IP address         ipify.or                                                    
+HIGH  ref/site/download                 References known file hosting site                     cdn.discordapp.com                                          
+                                                                                               transfer.sh                                                 
+HIGH  secrets/chrome_cookies            access Google Chrome Cookie files                      /Cookies                                                    
+                                                                                               /Google/Chrome                                              
+HIGH  secrets/chromium_master_password  Decrypts Chromium master password                      Local State                                                 
+                                                                                               encrypted_key                                               
+                                                                                               os_crypt                                                    
+CRIT  combo/stealer/wallet              makes HTTPS connections and references multiple        Exodus                                                      
+                                        wallets by name                                        Metamask                                                    
+                                                                                               http                                                        
+CRIT  exfil/discord                     exfiltrates data via discord webhook                                                                               
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+

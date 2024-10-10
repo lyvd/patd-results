@@ -1,0 +1,29 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ed-1.20.2-r0.apk ∴ /usr/bin/ed [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                                       EVIDENCE                                
+--------------------------------------------------------------------------------------------------------------------
+LOW   env/HOME            Looks up the HOME directory for the current user  HOME                                    
+                                                                            getenv                                  
+LOW   fs/tempfile/create  Uses mktemp to create temporary files             temp file                               
+LOW   ref/site/url        contains embedded HTTP URLs                       http://gnu.org/licenses/gpl.html        
+                                                                            http://www.gnu.org/gethelp              
+                                                                            http://www.gnu.org/software/ed/ed.html  
+MED   exec/shell_command  execute a shell command                           system                                  
+MED   shell/exec          executes a shell command                          system                                  
+--------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ed-1.20.2-r0.apk ∴ /usr/bin/red [⚠️ MEDIUM]
+--------------------------------------------
+RISK  KEY         DESCRIPTION     EVIDENCE  
+--------------------------------------------
+MED   shell/exec  executes shell  /bin/sh   
+--------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/ed-1.20.2-r0.apk ∴ /var/lib/db/sbom/ed-1.20.2-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/e37ffb844b97…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

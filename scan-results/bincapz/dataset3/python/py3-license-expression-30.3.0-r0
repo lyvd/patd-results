@@ -1,0 +1,48 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/python/py3-license-expression-30.3.0-r0.apk ∴ /usr/lib/python3.12/site-packages/license_expression/__init__.py [🔥 HIGH]
+------------------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                                       EVIDENCE                                             
+------------------------------------------------------------------------------------------------------------------------------------
+LOW   fs/directory/create    creates directories                               os.makedirs                                          
+LOW   fs/file/open           opens files                                       open(                                                
+LOW   ref/site/url           contains embedded HTTPS URLs                      https://aboutcode.org                                
+                                                                               https://github.com/aboutcode-org/license-expression  
+                                                                               https://scancode-licensedb.aboutcode.org/index.json  
+MED   evasion/lib_alias      aliases core python library to an alternate name  from boolean import Expression as LicenseExpression  
+MED   fs/directory/traverse  traverse filesystem hierarchy                     os.walk                                              
+MED   kernel/platform        system platform identification                    sys.platform                                         
+MED   net/download           download files                                    for support or download                              
+HIGH  evasion/py_builtins    Indirectly refers to Python builtins              getattr(__builtins__, oct.__str__                    
+------------------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/python/py3-license-expression-30.3.0-r0.apk ∴ /usr/lib/python3.12/site-packages/license_expression/_pyahocorasick.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                             
+-------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://aboutcode.org                                
+                                                  https://github.com/aboutcode-org/license-expression  
+MED   net/download  download files                for support or download                              
+-------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/python/py3-license-expression-30.3.0-r0.apk ∴ /usr/lib/python3.12/site-packages/license_expression/data/scancode-licensedb-index.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION                      EVIDENCE                
+--------------------------------------------------------------------------------------
+LOW   compression/bzip2      Works with bzip2 files           bzip2                   
+MED   databases/mysql        accesses MySQL databases         mysql                   
+MED   databases/postgresql   accesses PostgreSQL databases    postgresql              
+MED   net/download           download files                   adaptec-downloadable    
+                                                              community-download      
+                                                              scancode-wrox-download  
+MED   net/ssh                Uses SSH (secure shell) service  SSH                     
+MED   ref/program/minecraft  Has references to Minecraft      minecraft               
+MED   ref/words/agent        references an 'agent'            agentxpp                
+--------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset3/python/py3-license-expression-30.3.0-r0.apk ∴ /var/lib/db/sbom/py3-license-expression-30.3.0-r0.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/ef5a28d0ca5a…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

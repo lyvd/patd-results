@@ -1,0 +1,48 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/smartypants-2.0.1-r1.apk ∴ /usr/bin/smartypants [✅ LOW]
+------------------------------------------------------------------------------
+RISK  KEY               DESCRIPTION                     EVIDENCE              
+------------------------------------------------------------------------------
+LOW   fd/read           reads from a file handle        smartypants(f.read()  
+                                                        stdin.read()          
+LOW   ref/path/usr/bin  path reference within /usr/bin  /usr/bin/python       
+------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/smartypants-2.0.1-r1.apk ∴ /usr/lib/python3.12/site-packages/__pycache__/smartypants.cpython-312.pyc [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                              EVIDENCE                                          
+--------------------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url             contains embedded HTTPS URLs             https://github.com/leohemsted/smartypants.pyz     
+LOW   ref/words/plugin         references a 'plugin'                    s MTRegex plugin                                  
+MED   ref/path/usr/lib/python  References paths within /usr/lib/python  /usr/lib/python3.12/site-packages/smartypants.py  
+MED   ref/site/php             accesses hardcoded PHP endpoint          http://www.bradchoate.com/past/mtregex.php        
+--------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/smartypants-2.0.1-r1.apk ∴ /usr/lib/python3.12/site-packages/smartypants.py [⚠️ MEDIUM]
+-----------------------------------------------------------------------------------------------------------
+RISK  KEY                   DESCRIPTION                      EVIDENCE                                      
+-----------------------------------------------------------------------------------------------------------
+LOW   evasion/bitwise_math  uses bitwise math                0 << 8                                        
+                                                             0 << 9                                        
+                                                             1 << 0                                        
+                                                             1 << 1                                        
+                                                             1 << 2                                        
+                                                             1 << 3                                        
+                                                             1 << 4                                        
+                                                             1 << 5                                        
+                                                             …                                             
+LOW   ref/path/usr/bin      path reference within /usr/bin   /usr/bin/python                               
+LOW   ref/site/url          contains embedded HTTPS URLs     https://github.com/leohemsted/smartypants.py  
+LOW   ref/words/plugin      references a 'plugin'            s MTRegex plugin                              
+MED   net/fetch             Invokes curl                     curl single-                                  
+MED   ref/site/download     http dropper url                 https://github.com/leohemsted/smartypants.py  
+MED   ref/site/php          accesses hardcoded PHP endpoint  http://www.bradchoate.com/past/mtregex.php    
+-----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/smartypants-2.0.1-r1.apk ∴ /var/lib/db/sbom/smartypants-2.0.1-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/4bb4f24c0b2f…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

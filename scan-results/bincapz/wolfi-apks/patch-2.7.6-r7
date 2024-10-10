@@ -1,0 +1,30 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/patch-2.7.6-r7.apk ∴ /usr/bin/patch [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                                       EVIDENCE                
+---------------------------------------------------------------------------------------------------------
+LOW   env/TEMP                 tmpdir                                            TEMP                    
+                                                                                 getenv                  
+LOW   env/TMPDIR               TMPDIR                                            TMPDIR                  
+                                                                                 getenv                  
+LOW   exec/program/background  wait for process to exit                          waitpid                 
+LOW   fs/directory/create      creates directories                               mkdir                   
+LOW   fs/directory/remove      Uses libc functions to remove directories         rmdir                   
+LOW   fs/file/delete           deletes files                                     unlinkat                
+LOW   fs/file/times/set        change file timestamps with nanosecond precision  utimensat               
+LOW   fs/link/read             read value of a symbolic link                     readlinkat              
+LOW   fs/permission/chown      May change file ownership                         fchownat                
+LOW   fs/tempdir               looks up location of temp directory               TMPDIR                  
+LOW   ref/site/url             contains embedded HTTP URLs                       http://gnu.org/licens…  
+MED   exec/program             executes external programs                        execlp                  
+MED   fs/permission/modify     modifies file permissions                         chmod                   
+MED   process/name/set         get or set the current process name               __progname              
+---------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/patch-2.7.6-r7.apk ∴ /var/lib/db/sbom/patch-2.7.6-r7.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                
+--------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdx…  
+MED   net/download  download files                downloadLocation        
+--------------------------------------------------------------------------
+

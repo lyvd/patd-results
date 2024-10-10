@@ -1,0 +1,246 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/__init__.py [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY      DESCRIPTION                      EVIDENCE  
+----------------------------------------------------------
+MED   net/ssh  Uses SSH (secure shell) service  SSH       
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/_version.py [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY                   DESCRIPTION            EVIDENCE    
+---------------------------------------------------------------
+LOW   encoding/json/decode  Decodes JSON messages  json.loads  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/base/parallel.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                      EVIDENCE           
+-------------------------------------------------------------------------------
+LOW   fd/read              reads from a file handle         fh.read()          
+LOW   fs/file/open         opens files                      open(              
+LOW   ref/words/password   references a 'password'          proxy_password     
+LOW   secrets/private_key  References private keys          private_key        
+MED   fs/file/read         opens a binary file for read     open(_pkey, 'rb')  
+MED   net/ssh              Uses SSH (secure shell) service  SSH                
+MED   ref/program/sudo     calls sudo                       sudo               
+MED   ref/words/agent      references an 'agent'            allow_agent        
+                                                            forward_ssh_agent  
+-------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/base/single.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                                       EVIDENCE                                      
+---------------------------------------------------------------------------------------------------------------------------
+LOW   crypto/ed25519       Elliptic curve algorithm used by TLS and SSH      ed25519                                       
+LOW   env/SHELL            path to active shell                              SHELL                                         
+LOW   fd/read              reads from a file handle                          fh.read()                                     
+LOW   fs/directory/create  creates directories                               mkdir                                         
+                                                                             os.makedirs                                   
+LOW   fs/directory/list    lists contents of a directory                     .listdir(                                     
+LOW   fs/file/open         opens files                                       open(                                         
+LOW   net/hostport/parse   Network address and service translation           getaddrinfo                                   
+LOW   net/socket/receive   receive a message to a socket                     recv                                          
+                                                                             socket                                        
+LOW   net/socket/send      send a message to a socket                        send                                          
+                                                                             socket                                        
+LOW   ref/site/url         contains embedded HTTPS URLs                      https://docs.python.org/library/codecs.html   
+LOW   ref/words/password   references a 'password'                           def _password_auth                            
+                                                                             password is None                              
+                                                                             trying password                               
+LOW   tty/getpass          prompt for a password within a terminal           getpass                                       
+MED   evasion/lib_alias    aliases core python library to an alternate name  from socket import gaierror as sock_gaierror  
+MED   fs/file/read         opens a binary file for read                      open(pkey, 'rb')                              
+MED   net/socket/connect   initiate a connection on a socket                 _connect                                      
+MED   net/ssh              Uses SSH (secure shell) service                   SSH                                           
+MED   privesc/sudo         Unusual sudo commands                             sudo -S                                       
+                                                                             sudo -u %s                                    
+MED   ref/program/sudo     calls sudo                                        sudo -S                                       
+                                                                             sudo -u %s -S                                 
+                                                                             sudo and not user and not shell               
+                                                                             sudo as super-user.                           
+MED   ref/words/agent      references an 'agent'                             agent_auth                                    
+                                                                             allow_agent                                   
+MED   secrets/ssh          accesses SSH configuration and/or keys            /.ssh/id_dsa                                  
+                                                                             /.ssh/id_ecdsa                                
+                                                                             /.ssh/id_ed25519                              
+                                                                             /.ssh/id_rsa                                  
+                                                                             /.ssh/identity                                
+---------------------------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/common.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------
+RISK  KEY          DESCRIPTION                             EVIDENCE      
+-------------------------------------------------------------------------
+MED   secrets/ssh  accesses SSH configuration and/or keys  /.ssh/my_key  
+-------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/native/parallel.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs       https://docs.python.org/library/codecs.html  
+LOW   ref/words/password  references a 'password'            Defaults to no password                      
+                                                             Password to login to                         
+                                                             param password                               
+                                                             param proxy_password                         
+                                                             proxy_password or self                       
+                                                             type password                                
+                                                             type proxy_password                          
+MED   net/socket/connect  initiate a connection on a socket  connect                                      
+MED   net/ssh             Uses SSH (secure shell) service    SSH                                          
+MED   ref/ip_port         mentions an IP and port            IP                                           
+                                                             Port                                         
+                                                             proxy_port                                   
+MED   ref/program/sudo    calls sudo                         sudo access                                  
+MED   ref/words/agent     references an 'agent'              allow_agent                                  
+                                                             forward_ssh_agent                            
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/native/single.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                      DESCRIPTION                        EVIDENCE                                
+----------------------------------------------------------------------------------------------------------
+LOW   fd/write                 writes to a file handle            _buffer.write(data)                     
+                                                                  local_fh.write(data)                    
+LOW   fs/directory/create      creates directories                mkdir                                   
+                                                                  os.makedirs                             
+LOW   fs/file/delete/forcibly  Forcibly deletes files             rm co-operative gevent poll on ssh2 se  
+LOW   fs/file/open             opens files                        open(                                   
+LOW   net/socket/receive       receive a message to a socket      recv                                    
+                                                                  socket                                  
+LOW   net/socket/send          send a message to a socket         _send                                   
+LOW   ref/words/password       references a 'password'            None else proxy_password                
+                                                                  def _password_auth                      
+                                                                  param password                          
+                                                                  password if self                        
+                                                                  to use for password authentication      
+                                                                  type password                           
+                                                                  userauth_password                       
+MED   net/socket/connect       initiate a connection on a socket  _connect                                
+MED   net/ssh                  Uses SSH (secure shell) service    SSH                                     
+MED   ref/ip_port              mentions an IP and port            IP                                      
+                                                                  Port                                    
+                                                                  local_port                              
+                                                                  proxy_port                              
+MED   ref/words/agent          references an 'agent'              agent_auth                              
+                                                                  allow_agent                             
+                                                                  forward_ssh_agent                       
+                                                                  request_auth_agent                      
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/native/tunnel.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                            EVIDENCE        
+---------------------------------------------------------------------------------------
+LOW   fd/read                   reads from a file handle               channel.read()  
+LOW   net/socket/listen         listen on a socket                     listen          
+                                                                       socket          
+LOW   net/socket/local/address  get local address of connected socket  getsockname     
+LOW   net/socket/receive        receive a message to a socket          recv            
+                                                                       socket          
+LOW   net/socket/send           send a message to a socket             send            
+                                                                       socket          
+MED   net/socket/connect        initiate a connection on a socket      connect         
+MED   net/ssh                   Uses SSH (secure shell) service        SSH             
+MED   ref/daemon                Run as a background daemon             daemon          
+---------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/reader.py [✅ LOW]
+---------------------------------------------------------------
+RISK  KEY       DESCRIPTION               EVIDENCE             
+---------------------------------------------------------------
+LOW   fd/read   reads from a file handle  _buffer.read()       
+                                          self.read()          
+LOW   fd/write  writes to a file handle   _buffer.write(data)  
+---------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/ssh/parallel.py [⚠️ MEDIUM]
+----------------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                                     
+----------------------------------------------------------------------------------------------------------
+LOW   ref/site/url        contains embedded HTTPS URLs       https://docs.python.org/library/codecs.html  
+LOW   ref/words/password  references a 'password'            no password                                  
+                                                             param password                               
+                                                             password or self                             
+                                                             type password                                
+MED   net/socket/connect  initiate a connection on a socket  connect                                      
+MED   net/ssh             Uses SSH (secure shell) service    SSH                                          
+MED   ref/ip_port         mentions an IP and port            IP                                           
+                                                             Port                                         
+MED   ref/program/sudo    calls sudo                         sudo access                                  
+MED   ref/words/agent     references an 'agent'              allow_agent                                  
+                                                             forward_ssh_agent                            
+----------------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/clients/ssh/single.py [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                        EVIDENCE                            
+-------------------------------------------------------------------------------------------------
+LOW   encoding/base64     Supports base64 encoded strings    base64                              
+LOW   fd/write            writes to a file handle            _buffer.write(data)                 
+LOW   net/socket/send     send a message to a socket         send                                
+                                                             socket                              
+LOW   ref/words/password  references a 'password'            def _password_auth                  
+                                                             param password                      
+                                                             password if self                    
+                                                             to use for password authentication  
+                                                             type password                       
+                                                             userauth_password                   
+MED   net/socket/connect  initiate a connection on a socket  _connect                            
+MED   net/ssh             Uses SSH (secure shell) service    SSH                                 
+MED   ref/words/agent     references an 'agent'              agent_auth                          
+                                                             allow_agent                         
+                                                             userauth_agent                      
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/config.py [⚠️ MEDIUM]
+---------------------------------------------------------------------------------------------------
+RISK  KEY                  DESCRIPTION                             EVIDENCE                        
+---------------------------------------------------------------------------------------------------
+LOW   ref/words/password   references a 'password'                 Password for proxy host         
+                                                                   Password to login with          
+                                                                   Proxy password                  
+                                                                   param password                  
+                                                                   param proxy_password            
+                                                                   proxy_password is not None and  
+                                                                   type password                   
+                                                                   type proxy_password             
+                                                                   …                               
+LOW   secrets/private_key  References private keys                 private_key                     
+MED   net/ssh              Uses SSH (secure shell) service         SSH                             
+MED   ref/words/agent      references an 'agent'                   allow_agent                     
+                                                                   forward_ssh_agent               
+MED   secrets/ssh          accesses SSH configuration and/or keys  /.ssh                           
+                                                                   clients.ssh                     
+---------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/constants.py [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY      DESCRIPTION                      EVIDENCE  
+----------------------------------------------------------
+MED   net/ssh  Uses SSH (secure shell) service  SSH       
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/exceptions.py [⚠️ MEDIUM]
+---------------------------------------------------------------------
+RISK  KEY                 DESCRIPTION                      EVIDENCE  
+---------------------------------------------------------------------
+LOW   ref/words/password  references a 'password'          password  
+MED   net/ssh             Uses SSH (secure shell) service  SSH       
+---------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /usr/lib/python3.12/site-packages/pssh/output.py [⚠️ MEDIUM]
+----------------------------------------------------------
+RISK  KEY      DESCRIPTION                      EVIDENCE  
+----------------------------------------------------------
+MED   net/ssh  Uses SSH (secure shell) service  SSH       
+----------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/py3-parallel-ssh-2.12.0-r1.apk ∴ /var/lib/db/sbom/py3-parallel-ssh-2.12.0-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/49184655d343…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+

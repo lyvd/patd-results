@@ -1,0 +1,30 @@
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-dev-2.70-r1.apk ∴ /usr/include/sys/capability.h [⚠️ MEDIUM]
+-------------------------------------------------------------------------------------------------
+RISK  KEY                       DESCRIPTION                                        EVIDENCE      
+-------------------------------------------------------------------------------------------------
+LOW   fs/file/capabilities/set  Set file capabilities                              cap_set_fd    
+                                                                                   cap_set_file  
+LOW   process/chroot            change the location of root for the process        chroot        
+LOW   process/groups/set        set group access list                              setgroups     
+LOW   process/userid/set        set real and effective user ID of current process  setuid        
+MED   exec/program              executes external programs                         execve        
+MED   exec/shell_command        execute a shell command                            system        
+-------------------------------------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-dev-2.70-r1.apk ∴ /usr/include/sys/psx_syscall.h [⚠️ MEDIUM]
+----------------------------------------------------------------------
+RISK  KEY                    DESCRIPTION              EVIDENCE        
+----------------------------------------------------------------------
+LOW   process/groups/set     set group access list    setgroups       
+LOW   process/multithreaded  creates pthreads         pthread_create  
+MED   exec/shell_command     execute a shell command  system          
+----------------------------------------------------------------------
+
+/home/lyvd/panic-at-the-distro-malicious-apks/datasets/wolfi-apks/libcap-dev-2.70-r1.apk ∴ /var/lib/db/sbom/libcap-dev-2.70-r1.spdx.json [⚠️ MEDIUM]
+--------------------------------------------------------------------------------------------------------------
+RISK  KEY           DESCRIPTION                   EVIDENCE                                                    
+--------------------------------------------------------------------------------------------------------------
+LOW   ref/site/url  contains embedded HTTPS URLs  https://spdx.org/spdxdocs/chainguard/melange/09d12b354ef8…  
+MED   net/download  download files                downloadLocation                                            
+--------------------------------------------------------------------------------------------------------------
+
