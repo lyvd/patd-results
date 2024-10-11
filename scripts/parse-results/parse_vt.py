@@ -4,6 +4,12 @@ import csv
 
 def parse_yaml_file(file_path):
     results = {}
+
+    if not os.path.exists(file_path):
+        print(f"File {file_path} does not exist.")
+        return results
+    
+    
     with open(file_path, 'r', encoding='utf-8' , errors='ignore') as file:
         try:
             data = yaml.safe_load(file)
@@ -45,10 +51,15 @@ def save_results_to_csv(results, output_file):
             row = {
                 'Package': result['package'],
                 'Dataset': result['dataset'],
-                '#AVs':len(result.get('av_results', {}).keys()) ,
             }
+            number_of_flaged_avs = 0
             for av in av_names:
-                row[av] = result.get('av_results', {}).get(av, {}).get('category', 'undetected')
+                flaged_av = result.get('av_results', {}).get(av, {}).get('category', 'undetected')
+                if flaged_av not in ['clean', 'undetected']:
+                    number_of_flaged_avs += 1
+                row[av] = flaged_av
+
+            row['#AVs'] = number_of_flaged_avs
             writer.writerow(row)
 
 
@@ -62,7 +73,6 @@ def explore_and_parse_files(root_dir):
     return results
 
 def main():
-
     results_dir = os.path.abspath(r'..\..\scan-results\vt')
     output_file = os.path.abspath(r'..\..\results-csv\vt\vt.csv')
     results = explore_and_parse_files(results_dir)
