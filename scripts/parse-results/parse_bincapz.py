@@ -18,7 +18,7 @@ def parse_result_file_helper(data):
         r'RISK\s+KEY.*?\n-+\n(?P<entries>(?:.+\n)+?)(?=\n?-+-+\n|$)',
         re.MULTILINE
     )
-    entry_pattern = re.compile(r'(?P<level>\w+)\s+(?P<key>[^\s]+)\s+(?P<description>.+?)\s{2,}(?P<evidence>.+)')
+    entry_pattern = re.compile(r'(?P<level>LOW|MED|HIG|CRIT)\s+(?P<key>[^\s]+)\s+(?P<description>.+?)\s{2,}(?P<evidence>.+)')
     # Parse the log data
     parsed_tables = []
     for match in table_pattern.finditer(data):
@@ -37,16 +37,20 @@ def parse_result_file_helper(data):
                 "evidence": entry.group("evidence")
             })
         
-    # Append to list as a structured table dictionary
-    parsed_tables.append({
-        "filepath": normalize_file_path(filepath),
-        "risk_level": risk_level,
-        "entries": entries
-    })
+        # Append to list as a structured table dictionary
+        parsed_tables.append({
+            "filepath": normalize_file_path(filepath),
+            "risk_level": risk_level,
+            "entries": entries
+        })
     return parsed_tables
     
 
 def parse_result_file(file_path):
+    if not os.path.exists(file_path):
+        print(f"File {file_path} does not exist.")
+        return []
+    
     package_information = {}
     package_information['dataset'] = file_path.split(os.sep)[-3]
     package_information['package'] = file_path.split(os.sep)[-1]
@@ -63,13 +67,13 @@ def parse_result_file(file_path):
     
 
         for table in parsed_tables:
-            for entry in table["entries"]:
+            if table['filepath'].endswith(('.py', '.js', '.rb')):
                 results.append({
                     'dataset': package_information['dataset'],
                     'package': package_information['package'],
                     'file': table['filepath'],
                     'number_of_alerts': len(table['entries']),
-                })
+                })   
     
     return results
 
