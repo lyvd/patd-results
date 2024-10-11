@@ -4,7 +4,8 @@ import os
 import sys
 from collections import Counter
 
-
+VALID_FILE_EXTENSIONS = ['.html', '.css', '.js', '.ts', '.php', '.rb', '.py', '.java', '.cs', '.go', 
+    '.r', '.pl', '.c', '.cpp', '.h', '.rs', '.swift', '.kt', '.lua', '.sh']
 
 def parse_analysis_results(results_dir):
     results = []
@@ -33,7 +34,7 @@ def parse_bandit_results(file_path):
             number_of_alert = Counter()
             for result in data.get('results', []):
                file_path = result.get('filename', 'Unknown')
-               if file_path.endswith(('.py', '.js', '.rb')):
+               if file_path.endswith(tuple(VALID_FILE_EXTENSIONS)):
                      number_of_alert[file_path] += 1
             
             for file, count in number_of_alert.most_common():

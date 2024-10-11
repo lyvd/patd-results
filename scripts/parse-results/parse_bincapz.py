@@ -4,6 +4,8 @@ from collections import Counter
 import sys
 import re
 
+VALID_FILE_EXTENSIONS = ['.html', '.css', '.js', '.ts', '.php', '.rb', '.py', '.java', '.cs', '.go', 
+    '.r', '.pl', '.c', '.cpp', '.h', '.rs', '.swift', '.kt', '.lua', '.sh']
 
 def normalize_file_path(file_path):    
     return re.sub(r'\s∴\s', '', file_path)
@@ -67,7 +69,7 @@ def parse_result_file(file_path):
     
 
         for table in parsed_tables:
-            if table['filepath'].endswith(('.py', '.js', '.rb')):
+            if table['filepath'].endswith(tuple(VALID_FILE_EXTENSIONS)):
                 results.append({
                     'dataset': package_information['dataset'],
                     'package': package_information['package'],
