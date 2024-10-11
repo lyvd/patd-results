@@ -27,7 +27,7 @@ def test_parse_bandit4mal_2():
 def test_parse_bandit4mal_3():
     file_test = os.path.join(os.path.dirname(__file__), '../../../scan-results/bandit4mal/dataset4/js/jellyfin-web-master')
     results = parse_bandit_results(file_test)
-    assert len(results) == 4, "Expected 0 result because no path file code"
+    assert len(results) == 4, "Expected 4 result because it has 4 path file code"
     for result in results:
         assert result['file'].endswith('.py'), "Expected file with .py extension"
 
