@@ -41,7 +41,7 @@ def parse_result_file_helper(data):
         
         # Append to list as a structured table dictionary
         parsed_tables.append({
-            "filepath": normalize_file_path(filepath),
+            "filepath": normalize_file_path(filepath).replace('/home/lyvd/', ''),
             "risk_level": risk_level,
             "entries": entries
         })
