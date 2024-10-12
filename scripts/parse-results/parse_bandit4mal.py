@@ -41,7 +41,7 @@ def parse_bandit_results(file_path):
                 results.append({
                     'dataset': package_information['dataset'],
                     'package': package_information['package'],
-                    'file': file_path.replace('/home/lyvd/', ''),
+                    'file': file.replace('/home/lyvd/', ''),
                     'number_of_alerts': count,
                 })
             
