@@ -55,9 +55,12 @@ def save_results_to_csv(results, output_file):
             number_of_flaged_avs = 0
             for av in av_names:
                 flaged_av = result.get('av_results', {}).get(av, {}).get('category', 'undetected')
-                if flaged_av not in ['clean', 'undetected']:
+                if flaged_av  in ['malicious', 'suspicious']:
                     number_of_flaged_avs += 1
-                row[av] = flaged_av
+                    row[av] = 1                
+                else:
+                    row[av] = 0
+
 
             row['#AVs'] = number_of_flaged_avs
             writer.writerow(row)
