@@ -96,7 +96,7 @@ function filter_packages_with_repo() {
         fi  
     done <<< "$raw_package_list"
 
-    #some file not included in pattern, so we add it manually
+    #Some files were not included in the pattern, so we added them manually.
     filtered_cleaned_packages+=("opa-envoy-0.68.0_rc4-r0")
     filtered_cleaned_packages+=("tzdata-2024b-r0")
     filtered_cleaned_packages+=("rstudio-2023.12.1_p402-r1")
