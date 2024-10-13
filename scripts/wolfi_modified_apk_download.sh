@@ -82,7 +82,7 @@ function filter_packages_with_repo() {
     done <<< "$csv_package_names"
     
     # 3. Define a regex pattern to strip version information from package names
-    local version_pattern='-[0-9]+(\.[0-9]+)*-r[0-9]+$'
+    local version_pattern='-[0-9]+(\.[0-9]+)*(_git[0-9]+)?(-r[0-9]+)?$'
     
     # 4. Filter and clean the package names if they are in the CSV package set
     local filtered_cleaned_packages=()
