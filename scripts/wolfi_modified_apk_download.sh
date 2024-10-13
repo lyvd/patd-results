@@ -1,13 +1,16 @@
 #!/bin/bash
 
+
+
 # Function to display usage information
 usage() {
     echo "This script downloads APK packages from the Wolfi repository found at https://apk.dag.dev"
     echo "Currently it targets x86_64 APK packages"
     echo
-    echo "Usage: $0 --save-path <path> [--number-of-packages <number>]"
+    echo "Usage: $0 --save-path <path> [--number-of-packages <number>] [--csv-file <file>]"
     echo "  --save-path           Required path to store the downloaded APKs"
     echo "  --number-of-packages  The number of packages to process (optional)"
+    echo "  --csv-file            Path to the CSV file for filtering packages (optional)"
     exit 1
 }
 
@@ -20,6 +23,10 @@ while [[ "$#" -gt 0 ]]; do
             ;;
         --number-of-packages)
             NUM_PACKAGES="$2"
+            shift
+            ;;
+        --csv-file)
+            CSV_FILE="$2"
             shift
             ;;
         --help)
@@ -38,6 +45,7 @@ if [ -z "$SAVE_PATH" ]; then
     echo "Error: --save-path is required."
     usage
 fi
+
 
 # Set default value for NUM_PACKAGES if not provided
 NUM_PACKAGES=${NUM_PACKAGES:-}
@@ -92,15 +100,17 @@ function filter_packages_with_repo() {
     echo "${filtered_cleaned_packages[@]}"
 }
 
-
-
 # Filter the package names based on the CSV file
-CSV_FILE="../datasets/upstream_repos_filtered.csv"
-filtered_package_repo_names=$(filter_packages_with_repo "$CSV_FILE" "$package_repo_names")
 
-package_repo_names=$(echo "$filtered_package_repo_names" | tr ' ' '\n')
-
-echo "Packages loaded after filter: $(echo "$package_repo_names" | wc -l)"
+if [ -n "$CSV_FILE" ]; then
+    if [ ! -f "$CSV_FILE" ]; then
+        echo "Error: CSV file '$CSV_FILE' does not exist."
+        exit 1
+    fi
+    filtered_package_repo_names=$(filter_packages_with_repo "$CSV_FILE" "$package_repo_names")
+    package_repo_names=$(echo "$filtered_package_repo_names" | tr ' ' '\n')
+    echo "Packages loaded after filter: $(echo "$package_repo_names" | wc -l)"
+fi
 
 # Total number of packages to process
 total_packages=$(echo "$package_repo_names" | wc -l)
