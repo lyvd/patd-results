@@ -1,72 +1,81 @@
+
 import os
 import time
 import requests
 import json
 import sys
-# Define your VirusTotal API key
-API_KEY = '9542385c2c440a0e561aa5c1e4ac5b84307428589d854a969d52ab2dacff5e27'
 
-import sys
-# Directories for input (samples) and output (scan results)
-INPUT_DIR = sys.argv[1] 
-OUTPUT_DIR = sys.argv[2] 
+# Set your VirusTotal API key here
+API_KEY = '48a0d48d8f64f4f12a3327a4c3d049061821b602d598a07c410201502b8170f4'
 
-# VirusTotal API endpoints
-FILE_SCAN_URL = 'https://www.virustotal.com/vtapi/v2/file/scan'
-REPORT_URL = 'https://www.virustotal.com/vtapi/v2/file/report'
+# Define headers for VirusTotal API requests
+HEADERS = {
+    'x-apikey': API_KEY
+}
 
-# Function to submit a file for scanning
+# Define directories
+input_dir = sys.argv[1]  # Directory with files to scan
+output_dir = sys.argv[2]  # Directory to save scan results
+
+# Ensure output directory exists
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
 def submit_file_to_virustotal(file_path):
-    with open(file_path, 'rb') as file:
-        params = {'apikey': API_KEY}
-        files = {'file': (os.path.basename(file_path), file)}
-        response = requests.post(FILE_SCAN_URL, files=files, params=params)
+    url = 'https://www.virustotal.com/api/v3/files'
+    files = {'file': (os.path.basename(file_path), open(file_path, 'rb'))}
+    response = requests.post(url, headers=HEADERS, files=files)
+
+    if response.status_code == 200:
         return response.json()
+    else:
+        print(f"Failed to upload {file_path}. Status code: {response.status_code}")
+        return None
 
-# Function to get scan results from VirusTotal
-def get_scan_report(resource):
-    params = {'apikey': API_KEY, 'resource': resource}
-    response = requests.get(REPORT_URL, params=params)
-    return response.json()
+def get_scan_results(scan_id):
+    url = f'https://www.virustotal.com/api/v3/analyses/{scan_id}'
+    while True:
+        response = requests.get(url, headers=HEADERS)
+        if response.status_code == 200:
+            result = response.json()
+            status = result.get('data', {}).get('attributes', {}).get('status')
+            if status == 'completed':
+                return result
+            else:
+                time.sleep(25)  # Wait before polling again
+        else:
+            print(f"Failed to get scan results for {scan_id}. Status code: {response.status_code}")
+            return None
 
-# Function to save the scan report to a file
-def save_report_to_file(report, output_path):
-    with open(output_path, 'w') as file:
-        json.dump(report, file, indent=4)
+def save_json_results(file_name, results):
+    output_file = os.path.join(output_dir, f"{file_name}.json")
+    with open(output_file, 'w') as f:
+        json.dump(results, f, indent=4)
 
-# Main function to scan all files in the directory
-def scan_samples_in_directory(input_dir, output_dir):
-    # Ensure output directory exists
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    
-    for file_name in os.listdir(input_dir):
-        file_path = os.path.join(input_dir, file_name)
-        output_file_path = os.path.join(output_dir, f"{file_name}_report.json")
-        
-        if not os.path.exists(output_file_path):
-            if os.path.isfile(file_path):  # Only process files
-                print(f"Submitting {file_name} to VirusTotal...")
-                response = submit_file_to_virustotal(file_path)
-                
-                if 'scan_id' in response:
-                    scan_id = response['scan_id']
-                    print(f"File {file_name} submitted, waiting for scan results...")
+def main():
+    files = [f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))]
 
-                    # Sleep to allow VirusTotal to process the file (VirusTotal may need some time)
-                    time.sleep(25)
+    for file_name in files:
+        output_file = os.path.join(output_dir, f"{file_name}.json")
+        if not os.path.exists(output_file):
+            file_path = os.path.join(input_dir, file_name)
+            print(f"Submitting {file_name} to VirusTotal...")
 
-                    # Fetch scan report
-                    report = get_scan_report(scan_id)
+            response = submit_file_to_virustotal(file_path)
 
-                    # Save the report
-                    save_report_to_file(report, output_file_path)
-                    print(f"Scan results saved to {output_file_path}")
+            if response:
+                scan_id = response['data']['id']
+                print(f"Submitted {file_name}, scan ID: {scan_id}. Waiting for results...")
+                results = get_scan_results(scan_id)
+
+                if results:
+                    print(f"Scan completed for {file_name}, saving results...")
+                    save_json_results(file_name, results)
                 else:
-                    print(f"Error submitting {file_name} to VirusTotal: {response}")
-                    continue
+                    print(f"Failed to get scan results for {file_name}.")
+            else:
+                print(f"Failed to submit {file_name}.")
 
-# Run the script
-if __name__ == '__main__':
-    scan_samples_in_directory(INPUT_DIR, OUTPUT_DIR)
+if __name__ == "__main__":
+    main()
 
