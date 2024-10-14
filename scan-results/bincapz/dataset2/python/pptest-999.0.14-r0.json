@@ -1,0 +1,127 @@
+{
+    "Files": {
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/PKG-INFO": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/PKG-INFO",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/PKG-INFO": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/PKG-INFO",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/SOURCES.txt": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/SOURCES.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/dependency_links.txt": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/dependency_links.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/entry_points.txt": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/entry_points.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/requires.txt": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/requires.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/top_level.txt": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest.egg-info/top_level.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/pptest/__init__.py": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset2/python/pptest-999.0.14-r0.apk ∴ /home/cg/pptest/pptest/__init__.py",
+            "SHA256": "41058d0bd3100e14f959ebbe3075b686a67432fea21042827f8c943b8d2014a0",
+            "Size": 3525,
+            "Behaviors": [
+                {
+                    "Description": "exfiltrate system information",
+                    "MatchStrings": [
+                        "socket.gethostname",
+                        "urllib2.urlopen"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/php.yara#python_sysinfo_http",
+                    "ID": "combo/recon/php",
+                    "RuleName": "python_sysinfo_http"
+                },
+                {
+                    "Description": "public service to discover external IP address",
+                    "MatchStrings": [
+                        "ifconfig.me"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/public_ip.yara#iplookup_website_value",
+                    "ID": "net/public_ip",
+                    "RuleName": "iplookup_website_value"
+                },
+                {
+                    "Description": "uploads content to security collaboration site",
+                    "MatchStrings": [
+                        "hte1ck6lvk1ktcuxl0x8jfgeu50vok.burpcollaborator.net"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/oob.yara#burp_collab",
+                    "ID": "ref/site/oob",
+                    "RuleName": "burp_collab"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/setup.cfg": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/setup.cfg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/home/cg/pptest/setup.py": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset2/python/pptest-999.0.14-r0.apk ∴ /home/cg/pptest/setup.py",
+            "SHA256": "653566b924e6ff9715b46ee28e502cde76b3455debaa515056cc4f2c178c5efc",
+            "Size": 5066,
+            "Behaviors": [
+                {
+                    "Description": "setuptools script that fetches and executes",
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/python.yara#setuptools_fetch_run",
+                    "ID": "combo/dropper/python",
+                    "RuleName": "setuptools_fetch_run"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/pptest-999.0.14-r0.apk957396492/var/lib/db/sbom/pptest-999.0.14-r0.spdx.json": {
+            "Path": "/tmp/pptest-999.0.14-r0.apk957396492/var/lib/db/sbom/pptest-999.0.14-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

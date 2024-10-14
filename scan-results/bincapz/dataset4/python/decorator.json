@@ -1,0 +1,173 @@
+{
+    "Files": {
+        "/tmp/decorator.zip709424267/.gitignore": {
+            "Path": "/tmp/decorator.zip709424267/.gitignore",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/CHANGES.md": {
+            "Path": "/tmp/decorator.zip709424267/CHANGES.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/LICENSE.txt": {
+            "Path": "/tmp/decorator.zip709424267/LICENSE.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/MANIFEST.in": {
+            "Path": "/tmp/decorator.zip709424267/MANIFEST.in",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/Makefile": {
+            "Path": "/tmp/decorator.zip709424267/Makefile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/README.rst": {
+            "Path": "/tmp/decorator.zip709424267/README.rst",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/_config.yml": {
+            "Path": "/tmp/decorator.zip709424267/_config.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/docs/_config.yml": {
+            "Path": "/tmp/decorator.zip709424267/docs/_config.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/docs/conf.py": {
+            "Path": "/tmp/decorator.zip709424267/docs/conf.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/docs/documentation.md": {
+            "Path": "/tmp/decorator.zip709424267/docs/documentation.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/docs/index.rst": {
+            "Path": "/tmp/decorator.zip709424267/docs/index.rst",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/performance.sh": {
+            "Path": "/tmp/decorator.zip709424267/performance.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/setup.cfg": {
+            "Path": "/tmp/decorator.zip709424267/setup.cfg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/setup.py": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/decorator.zip ∴ /setup.py",
+            "SHA256": "904bb6c37b0585c96a41d832135997e59952ad40fcbdd3eb4fc1465cdb399061",
+            "Size": 2457,
+            "Behaviors": [
+                {
+                    "Description": "Python library installer that evaluates arbitrary code",
+                    "MatchStrings": [
+                        "exec(lsb",
+                        "exec(open"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/py_setuptools.yara#setuptools_eval",
+                    "ID": "combo/backdoor/py_setuptools",
+                    "RuleName": "setuptools_eval"
+                },
+                {
+                    "Description": "Executes code from encrypted remote content",
+                    "MatchStrings": [
+                        "exec(",
+                        "requests.get"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/remote_eval.yara#python_exec_near_requests",
+                    "ID": "combo/backdoor/remote_eval",
+                    "RuleName": "python_exec_near_requests"
+                },
+                {
+                    "Description": "setuptools script that fetches, stores, and executes",
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/python.yara#setuptools_fetch_run",
+                    "ID": "combo/dropper/python",
+                    "RuleName": "setuptools_fetch_run"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/decorator.zip709424267/src/decorator.py": {
+            "Path": "/tmp/decorator.zip709424267/src/decorator.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/src/tests/__init__.py": {
+            "Path": "/tmp/decorator.zip709424267/src/tests/__init__.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/decorator.zip709424267/src/tests/documentation.py": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/decorator.zip ∴ /src/tests/documentation.py",
+            "SHA256": "a40ac8172a32ec5dc68dec27202bdff7be961f0e3a35941000641ff2edebd327",
+            "Size": 56007,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install decorator"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/decorator.zip709424267/src/tests/test.py": {
+            "Path": "/tmp/decorator.zip709424267/src/tests/test.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

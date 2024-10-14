@@ -1,0 +1,374 @@
+{
+    "Files": {
+        "/tmp/websockify.zip2689627164/.gitignore": {
+            "Path": "/tmp/websockify.zip2689627164/.gitignore",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/.gitmodules": {
+            "Path": "/tmp/websockify.zip2689627164/.gitmodules",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/CHANGES.txt": {
+            "Path": "/tmp/websockify.zip2689627164/CHANGES.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/COPYING": {
+            "Path": "/tmp/websockify.zip2689627164/COPYING",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/MANIFEST.in": {
+            "Path": "/tmp/websockify.zip2689627164/MANIFEST.in",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/Makefile": {
+            "Path": "/tmp/websockify.zip2689627164/Makefile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/README.md": {
+            "Path": "/tmp/websockify.zip2689627164/README.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/Windows/Windows Service Readme.md": {
+            "Path": "/tmp/websockify.zip2689627164/Windows/Windows Service Readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/docker/Dockerfile": {
+            "Path": "/tmp/websockify.zip2689627164/docker/Dockerfile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/docker/build.sh": {
+            "Path": "/tmp/websockify.zip2689627164/docker/build.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/docs/latency_results.txt": {
+            "Path": "/tmp/websockify.zip2689627164/docs/latency_results.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/docs/notes": {
+            "Path": "/tmp/websockify.zip2689627164/docs/notes",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/docs/release.txt": {
+            "Path": "/tmp/websockify.zip2689627164/docs/release.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/docs/websockify.1": {
+            "Path": "/tmp/websockify.zip2689627164/docs/websockify.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/rebind": {
+            "Path": "/tmp/websockify.zip2689627164/rebind",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/rebind.c": {
+            "Path": "/tmp/websockify.zip2689627164/rebind.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/run": {
+            "Path": "/tmp/websockify.zip2689627164/run",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/setup.py": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/websockify.zip ∴ /setup.py",
+            "SHA256": "13fdeb8def23fe59e79824494cff60d8649b5da6ad59c2d21be43445f81625f3",
+            "Size": 205309,
+            "Behaviors": [
+                {
+                    "Description": "Evaluates base64 content",
+                    "MatchStrings": [
+                        "b64decode",
+                        "exec("
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/base64-eval.yara#python_exec_near_enough",
+                    "ID": "evasion/base64/eval",
+                    "RuleName": "python_exec_near_enough"
+                },
+                {
+                    "Description": "contains base64 Python code",
+                    "MatchStrings": [
+                        "RlY29kZSgp::$f_decode",
+                        "d2l0aCBvcGVuK::$f_with_open",
+                        "dpdGggb3Blbi::$f_with_open",
+                        "ltcG9ydCBvc::$f_import_os",
+                        "yZWFkKC::$f_read"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/base64-python.yara#base64_python_functions",
+                    "ID": "evasion/base64/python",
+                    "RuleName": "base64_python_functions"
+                },
+                {
+                    "Description": "Detects hex encoded code that has been base64 encoded",
+                    "MatchStrings": [
+                        "x4N2ZceDAwXHg"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/Neo23x0/signature-base/blob/f448cbc9db16ac30559ce5a5c848317478569207/yara/gen_susp_obfuscation.yar#L2-L17",
+                    "ReferenceURL": "https://www.nextron-systems.com/2019/04/29/spotlight-threat-hunting-yara-rule-example/",
+                    "RuleAuthor": "Florian Roth (Nextron Systems)",
+                    "RuleLicenseURL": "https://github.com/Neo23x0/signature-base/blob/f448cbc9db16ac30559ce5a5c848317478569207/LICENSE",
+                    "ID": "3P/signature_base/susp/base64",
+                    "RuleName": "SIGNATURE_BASE_SUSP_Base64_Encoded_Hex_Encoded_Code"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/websockify.zip2689627164/test-requirements.txt": {
+            "Path": "/tmp/websockify.zip2689627164/test-requirements.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/echo.html": {
+            "Path": "/tmp/websockify.zip2689627164/tests/echo.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/echo.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/echo.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/echo_client.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/echo_client.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/fixtures/private.pem": {
+            "Path": "/tmp/websockify.zip2689627164/tests/fixtures/private.pem",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/fixtures/public.pem": {
+            "Path": "/tmp/websockify.zip2689627164/tests/fixtures/public.pem",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/fixtures/symmetric.key": {
+            "Path": "/tmp/websockify.zip2689627164/tests/fixtures/symmetric.key",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/latency.html": {
+            "Path": "/tmp/websockify.zip2689627164/tests/latency.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/latency.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/latency.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/load.html": {
+            "Path": "/tmp/websockify.zip2689627164/tests/load.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/load.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/load.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/plain_echo.html": {
+            "Path": "/tmp/websockify.zip2689627164/tests/plain_echo.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/simple.html": {
+            "Path": "/tmp/websockify.zip2689627164/tests/simple.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/test_auth_plugins.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/test_auth_plugins.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/test_token_plugins.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/test_token_plugins.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/test_websocket.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/test_websocket.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/test_websocketproxy.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/test_websocketproxy.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/test_websocketserver.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/test_websocketserver.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tests/test_websockifyserver.py": {
+            "Path": "/tmp/websockify.zip2689627164/tests/test_websockifyserver.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/tox.ini": {
+            "Path": "/tmp/websockify.zip2689627164/tox.ini",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/__init__.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/__init__.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/__main__.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/__main__.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/auth_plugins.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/auth_plugins.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/sysloghandler.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/sysloghandler.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/token_plugins.py": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/dataset4/python/websockify.zip ∴ /websockify/token_plugins.py",
+            "SHA256": "3d0c7aa0050f2fd94e12b2cc77d315afff92870559e18d2ad279d719abfab751",
+            "Size": 10509,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install redis"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/websockify.zip2689627164/websockify/websocket.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/websocket.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/websocketproxy.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/websocketproxy.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/websocketserver.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/websocketserver.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/websockify.zip2689627164/websockify/websockifyserver.py": {
+            "Path": "/tmp/websockify.zip2689627164/websockify/websockifyserver.py",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}
