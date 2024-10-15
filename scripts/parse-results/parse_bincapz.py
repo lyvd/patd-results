@@ -54,7 +54,7 @@ def explore_and_parse_logs(root_dir):
     for root, dirs, files in os.walk(root_dir):
         for file in files:
             file_path = os.path.join(root, file)
-            if os.path.isfile(file_path):
+            if os.path.isfile(file_path) and file_path.endswith('.json'):
                 results = parse_bincapz_file(file_path)
                 all_results.extend(results)
     return all_results
