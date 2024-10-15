@@ -1,0 +1,66 @@
+{
+    "Files": {
+        "/tmp/rclone-1.68.1-r0.apk3054132729/usr/bin/rclone": {
+            "Path": "datasets/apk/rclone-1.68.1-r0.apk ∴ /usr/bin/rclone",
+            "SHA256": "9d6adc26f77260c753a38e6538cb5449931083bc29d609531e34bdc205e0ac9c",
+            "Size": 61050984,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Yandex",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "changes to an unusual system directory",
+                    "MatchStrings": [
+                        "cd /usr/local/lib"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/process/chdir-unusual.yara#unusual_cd_val",
+                    "ID": "process/chdir/unusual",
+                    "RuleName": "unusual_cd_val"
+                },
+                {
+                    "Description": "Identifies Rclone, sometimes used by attackers to exfiltrate data.",
+                    "MatchStrings": [
+                        "It copies the drive file with ID given to the path",
+                        "github.com/rclone/",
+                        "rc to flush the whole directory cache",
+                        "rc vfs/forget file=hello file2=goodbye dir=home/junk"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/bartblaze/generic/Rclone.yar#Rclone",
+                    "ReferenceURL": "https://rclone.org/",
+                    "RuleAuthor": "bartblaze",
+                    "ID": "3P/bartblaze/rclone",
+                    "RuleName": "Rclone"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/rclone-1.68.1-r0.apk3054132729/var/lib/db/sbom/rclone-1.68.1-r0.spdx.json": {
+            "Path": "/tmp/rclone-1.68.1-r0.apk3054132729/var/lib/db/sbom/rclone-1.68.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

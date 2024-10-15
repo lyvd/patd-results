@@ -1,0 +1,113 @@
+{
+    "Files": {
+        "/tmp/tailscale-1.76.0-r0.apk3959127103/usr/bin/tailscale": {
+            "Path": "datasets/apk/tailscale-1.76.0-r0.apk ∴ /usr/bin/tailscale",
+            "SHA256": "c5c1e2d332b8de7dc0d1d2df3d92195aa1a2057d5cfcb95635ab4a7bd8bbf011",
+            "Size": 13645104,
+            "Behaviors": [
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                },
+                {
+                    "Description": "Runs command that is protected from termination",
+                    "MatchStrings": [
+                        "nohupstartarm64armv8--yesname"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/nohup.yara#elf_nohup",
+                    "ID": "shell/nohup",
+                    "RuleName": "elf_nohup"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tailscale-1.76.0-r0.apk3959127103/usr/sbin/tailscaled": {
+            "Path": "datasets/apk/tailscale-1.76.0-r0.apk ∴ /usr/sbin/tailscaled",
+            "SHA256": "08fc4821ed57f2f6c5b5811596bb96ad1173dc4520aae387bd7d22f36578209f",
+            "Size": 26841920,
+            "Behaviors": [
+                {
+                    "Description": "pseudoterminal and tunnel support",
+                    "MatchStrings": [
+                        "creack/pty",
+                        "ptsname",
+                        "tunneled",
+                        "verbosetunnel"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/net_term.yara#pseudoterminal_tunnel",
+                    "ID": "combo/backdoor/net_term",
+                    "RuleName": "pseudoterminal_tunnel"
+                },
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "Mozilla/",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                },
+                {
+                    "Description": "access raw system memory",
+                    "MatchStrings": [
+                        "/dev/mem"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/dev/mem.yara#mem",
+                    "ID": "kernel/dev/mem",
+                    "RuleName": "mem"
+                },
+                {
+                    "Description": "contains 'Control D' DNS resolver IP",
+                    "MatchStrings": [
+                        "76.76.10.0",
+                        "76.76.2.0"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip-dns_resolver.yara#ctrld_ip",
+                    "ID": "ref/ip/dns_resolver",
+                    "RuleName": "ctrld_ip"
+                },
+                {
+                    "Description": "Runs command that is protected from termination",
+                    "MatchStrings": [
+                        "nohuparm64armv8name"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/nohup.yara#elf_nohup",
+                    "ID": "shell/nohup",
+                    "RuleName": "elf_nohup"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tailscale-1.76.0-r0.apk3959127103/var/lib/db/sbom/tailscale-1.76.0-r0.spdx.json": {
+            "Path": "/tmp/tailscale-1.76.0-r0.apk3959127103/var/lib/db/sbom/tailscale-1.76.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,66 @@
+{
+    "Files": {
+        "/tmp/opentelemetry-collector-contrib-0.111.0-r0.apk4178738825/usr/bin/otelcol-contrib": {
+            "Path": "datasets/apk/opentelemetry-collector-contrib-0.111.0-r0.apk ∴ /usr/bin/otelcol-contrib",
+            "SHA256": "ae5935b8c5c5de94fc9fa9c0a9125103772294120d0e6003f577b1276ed0a29a",
+            "Size": 329525320,
+            "Behaviors": [
+                {
+                    "Description": "load agent with payload",
+                    "MatchStrings": [
+                        "loadAgent",
+                        "payload"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/payload.yara#load_agent_with_payload",
+                    "ID": "combo/backdoor/payload",
+                    "RuleName": "load_agent_with_payload"
+                },
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs",
+                        "docker.sock"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Brave",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "Yandex",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/opentelemetry-collector-contrib-0.111.0-r0.apk4178738825/var/lib/db/sbom/opentelemetry-collector-contrib-0.111.0-r0.spdx.json": {
+            "Path": "/tmp/opentelemetry-collector-contrib-0.111.0-r0.apk4178738825/var/lib/db/sbom/opentelemetry-collector-contrib-0.111.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

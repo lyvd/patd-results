@@ -1,0 +1,113 @@
+{
+    "Files": {
+        "/tmp/grafana-alloy-1.4.2-r0.apk1186710073/etc/alloy/config.alloy": {
+            "Path": "/tmp/grafana-alloy-1.4.2-r0.apk1186710073/etc/alloy/config.alloy",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/grafana-alloy-1.4.2-r0.apk1186710073/usr/bin/alloy": {
+            "Path": "datasets/apk/grafana-alloy-1.4.2-r0.apk ∴ /usr/bin/alloy",
+            "SHA256": "8e0c0a3dbf7987a7d8a218b1644ecfee6bc9cef6cd27c86a6924032ba68f3112",
+            "Size": 343112064,
+            "Behaviors": [
+                {
+                    "Description": "load agent with payload",
+                    "MatchStrings": [
+                        "loadAgent",
+                        "payload"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/payload.yara#load_agent_with_payload",
+                    "ID": "combo/backdoor/payload",
+                    "RuleName": "load_agent_with_payload"
+                },
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs",
+                        "docker.sock"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Brave",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "Yandex",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "suspected data stealer",
+                    "MatchStrings": [
+                        "Atomic",
+                        "Bookmarks",
+                        "Chrome",
+                        "Chromium",
+                        "Firefox",
+                        "History",
+                        "Snowflake",
+                        "Telegram"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/creds.yara#suspected_data_stealer",
+                    "ID": "combo/stealer/creds",
+                    "RuleName": "suspected_data_stealer"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "accesses environment variables of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/environ"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-environ.yara#proc_environ",
+                    "ID": "procfs/pid/environ",
+                    "RuleName": "proc_environ"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/grafana-alloy-1.4.2-r0.apk1186710073/var/lib/db/sbom/grafana-alloy-1.4.2-r0.spdx.json": {
+            "Path": "/tmp/grafana-alloy-1.4.2-r0.apk1186710073/var/lib/db/sbom/grafana-alloy-1.4.2-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

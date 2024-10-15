@@ -1,0 +1,82 @@
+{
+    "Files": {
+        "/tmp/vector-0.41.1-r0.apk2020488559/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/vector-0.41.1-r0.apk2020488559/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/vector-0.41.1-r0.apk2020488559/etc/vector/vector.yaml": {
+            "Path": "/tmp/vector-0.41.1-r0.apk2020488559/etc/vector/vector.yaml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/vector-0.41.1-r0.apk2020488559/usr/bin/vector": {
+            "Path": "datasets/apk/vector-0.41.1-r0.apk ∴ /usr/bin/vector",
+            "SHA256": "84746a682ad9045ea360cf6d33f1ee50a7de6a6cdf7de837803ddba425337242",
+            "Size": 158430936,
+            "Behaviors": [
+                {
+                    "Description": "probably a miner",
+                    "MatchStrings": [
+                        "/proc/self",
+                        "NUMA",
+                        "argon2d"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/miner/argon2d_numa_self.yara#probably_a_miner",
+                    "ID": "combo/miner/argon2d_numa_self",
+                    "RuleName": "probably_a_miner"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Brave",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "Yandex",
+                        "https",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "hardcoded IP:port destination",
+                    "MatchStrings": [
+                        "10.14.22.123:9092",
+                        "10.22.212.22:9000",
+                        "147.159.108.175:24259",
+                        "192.168.131.39:2817",
+                        "92.12.333.224:5000"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip_port.yara#hardcoded_ip_port",
+                    "ID": "ref/ip_port",
+                    "RuleName": "hardcoded_ip_port"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/vector-0.41.1-r0.apk2020488559/var/lib/db/sbom/vector-0.41.1-r0.spdx.json": {
+            "Path": "/tmp/vector-0.41.1-r0.apk2020488559/var/lib/db/sbom/vector-0.41.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

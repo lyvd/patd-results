@@ -1,0 +1,305 @@
+{
+    "Files": {
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/stress-ng.1": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/stress-ng.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/bin/stress-ng": {
+            "Path": "datasets/apk/stress-ng-0.18.05-r0.apk ∴ /usr/bin/stress-ng",
+            "SHA256": "052ecd0b90a5f7a2b198988eb14d02e7ae4b0713d9d3a53df09b510453269f64",
+            "Size": 13483160,
+            "Behaviors": [
+                {
+                    "Description": "Listens, provides a terminal, runs program",
+                    "MatchStrings": [
+                        "ptsname",
+                        "tunnelled"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/net_term.yara#pseudoterminal_tunnel",
+                    "ID": "combo/backdoor/net_term",
+                    "RuleName": "pseudoterminal_tunnel"
+                },
+                {
+                    "Description": "accesses multiple critical Linux paths",
+                    "MatchStrings": [
+                        "/proc/bus/pci/00/00.0",
+                        "/proc/bus/pci/0000",
+                        "/proc/cmdline",
+                        "/proc/cpuinfo",
+                        "/proc/crypto",
+                        "/proc/driver/rtc",
+                        "/proc/interrupts",
+                        "/proc/key-users",
+                        "/proc/keys",
+                        "/proc/kpagecount",
+                        "/proc/locks",
+                        "/proc/meminfo",
+                        "/proc/mounts",
+                        "/proc/mtrr",
+                        "/proc/pressure/cpu",
+                        "/proc/seH9",
+                        "/proc/self/coredump_filter",
+                        "/proc/self/exe",
+                        "/proc/self/fd/0",
+                        "/proc/self/loginuid",
+                        "/proc/self/maps",
+                        "/proc/self/mem",
+                        "/proc/self/mountinfo",
+                        "/proc/self/ns/uts",
+                        "/proc/self/numa_maps",
+                        "/proc/self/oom_adj",
+                        "/proc/self/oom_score_adj",
+                        "/proc/self/pagemap",
+                        "/proc/self/schedstat",
+                        "/proc/self/smaps",
+                        "/proc/self/status",
+                        "/proc/self/timers",
+                        "/proc/stat",
+                        "/proc/sys/dev/cdrom/",
+                        "/proc/sys/fs/aio-max-nr",
+                        "/proc/sys/fs/dentry-state",
+                        "/proc/sys/fs/dir-notify-enable",
+                        "/proc/sys/fs/mqueue/msg_default",
+                        "/proc/sys/fs/mqueue/queues_max",
+                        "/proc/sys/fs/pipe-max-size",
+                        "/proc/sys/kernel/ngroups_max",
+                        "/proc/sys/kernel/perf_event_paranoid",
+                        "/proc/sys/kernel/pid_max",
+                        "/proc/sys/kernel/rtsig-max",
+                        "/proc/sys/kernel/sched_autogroup_enabl",
+                        "/proc/sys/kernel/shmall",
+                        "/proc/sys/kernel/shmmax",
+                        "/proc/sys/kernel/threads-max",
+                        "/proc/sys/mm/ksm/run",
+                        "/proc/sys/net/ipv4/ping_group_range",
+                        "/proc/sys/net/ipv4/tcp_allowed_congest",
+                        "/proc/sys/vm/compact_memory",
+                        "/proc/sys/vm/drop_caches",
+                        "/proc/sys/vm/overcommit_memory",
+                        "/proc/sys/vm/zone_reclaim_mode",
+                        "/proc/sysvipc/msg",
+                        "/proc/sysvipc/sem",
+                        "/proc/sysvipc/shm",
+                        "/proc/vmstat",
+                        "/sys/class/drm/card0/gt_cur_freq_mhz",
+                        "/sys/class/leds",
+                        "/sys/class/powercap/",
+                        "/sys/class/rtc/rtc0/",
+                        "/sys/class/scsi_device/",
+                        "/sys/class/thermal/",
+                        "/sys/class/zram--control/hot_add/sys/kerne",
+                        "/sys/class/zram-control/hot_add",
+                        "/sys/devices/system/clocksource",
+                        "/sys/devices/system/cpu/cpu1/online",
+                        "/sys/devices/system/cpu/intel_pstate/max_per",
+                        "/sys/devices/system/cpu/intel_pstate/no_turb",
+                        "/sys/devices/system/cpu/online",
+                        "/sys/devices/system/cpu/possible",
+                        "/sys/devices/system/memory",
+                        "/sys/devices/system/node",
+                        "/sys/devices/virtual/block/loop",
+                        "/tmp/stress-ng-client-",
+                        "/usr/bin",
+                        "/var/run/nscd/soglibc-ld.so.cachPrefer_N",
+                        "/var/run/utmpx",
+                        "sysctl_"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/critical_paths.yara#linux_critical_system_paths_high",
+                    "ID": "combo/critical_paths",
+                    "RuleName": "linux_critical_system_paths_high"
+                },
+                {
+                    "Description": "May encrypt, wipe files, and kill processes",
+                    "MatchStrings": [
+                        "encrypt",
+                        "hostname",
+                        "kill",
+                        "processes",
+                        "uname",
+                        "wipe"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/wiper/crypto.yara#uname_hostname_encrypt_wipe_kill",
+                    "ID": "combo/wiper/crypto",
+                    "RuleName": "uname_hostname_encrypt_wipe_kill"
+                },
+                {
+                    "Description": "userland rootkit designed to hide processes",
+                    "MatchStrings": [
+                        "/proc/%s/stat",
+                        "/proc/self/fd/%d",
+                        "readdir"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-hide.yara#elf_possible_prochid",
+                    "ReferenceURL": "prochid.c",
+                    "ID": "evasion/process/hide",
+                    "RuleName": "elf_possible_prochid"
+                },
+                {
+                    "Description": "access raw kernel memory",
+                    "MatchStrings": [
+                        "/dev/kmem"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/dev/kmem.yara#kmem",
+                    "ID": "kernel/dev/kmem",
+                    "RuleName": "kmem"
+                },
+                {
+                    "Description": "access raw system memory",
+                    "MatchStrings": [
+                        "/dev/mem"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/dev/mem.yara#mem",
+                    "ID": "kernel/dev/mem",
+                    "RuleName": "mem"
+                },
+                {
+                    "Description": "reference file within /dev/shm (world writeable)",
+                    "MatchStrings": [
+                        "/dev/shm/stress-dev-shm-"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/dev-shm.yara#dev_shm_file",
+                    "ID": "ref/path/dev/shm",
+                    "RuleName": "dev_shm_file"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/bash-completion/completions/stress-ng": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/bash-completion/completions/stress-ng",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/cpu-cache.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/cpu-cache.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/cpu.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/cpu.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/device.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/device.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/example.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/example.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/filesystem.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/filesystem.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/hot-cpu.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/hot-cpu.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/interrupt.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/interrupt.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/io.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/io.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/matrix-methods.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/matrix-methods.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/memory.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/memory.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/network.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/network.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/pipe.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/pipe.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/scheduler.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/scheduler.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/security.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/security.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/vm.job": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/usr/share/stress-ng/example-jobs/vm.job",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/stress-ng-0.18.05-r0.apk4179430003/var/lib/db/sbom/stress-ng-0.18.05-r0.spdx.json": {
+            "Path": "/tmp/stress-ng-0.18.05-r0.apk4179430003/var/lib/db/sbom/stress-ng-0.18.05-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

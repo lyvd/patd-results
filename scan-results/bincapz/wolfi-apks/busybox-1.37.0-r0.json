@@ -1,0 +1,83 @@
+{
+    "Files": {
+        "/tmp/busybox-1.37.0-r0.apk3014342983/.trigger": {
+            "Path": "datasets/apk/busybox-1.37.0-r0.apk ∴ /.trigger",
+            "SHA256": "959fd7d7c8600c9deb2138d08c7b0281bf024ca8bb6b84899c75d5e983c81117",
+            "Size": 44,
+            "Behaviors": [
+                {
+                    "Description": "busybox runner",
+                    "MatchStrings": [
+                        "/bin/busybox sh"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/busybox-exec.yara#busybox_runner",
+                    "ID": "shell/busybox/exec",
+                    "RuleName": "busybox_runner"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/busybox-1.37.0-r0.apk3014342983/bin/busybox": {
+            "Path": "datasets/apk/busybox-1.37.0-r0.apk ∴ /bin/busybox",
+            "SHA256": "f745799dad58db321d995d0acd634ea33cf8e36a301c110a8a754175e4d84a12",
+            "Size": 686616,
+            "Behaviors": [
+                {
+                    "Description": "accesses multiple critical Linux paths",
+                    "MatchStrings": [
+                        "/proc/diskstats",
+                        "/proc/interrupts",
+                        "/proc/meminfo",
+                        "/proc/mounts",
+                        "/proc/neH",
+                        "/proc/net/raw6",
+                        "/proc/net/tcp6",
+                        "/proc/net/udp6",
+                        "/proc/net/unix",
+                        "/proc/self/fd/0",
+                        "/proc/softirqs",
+                        "/proc/stat",
+                        "/proc/sys",
+                        "/proc/uptime",
+                        "/sys/devices/system/cpu",
+                        "/tmp/difAUI",
+                        "/usr/bin/",
+                        "/var/run/utmp",
+                        "sysctl."
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/critical_paths.yara#linux_critical_system_paths_high",
+                    "ID": "combo/critical_paths",
+                    "RuleName": "linux_critical_system_paths_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/busybox-1.37.0-r0.apk3014342983/etc/busybox-paths.d/busybox": {
+            "Path": "/tmp/busybox-1.37.0-r0.apk3014342983/etc/busybox-paths.d/busybox",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/busybox-1.37.0-r0.apk3014342983/etc/securetty": {
+            "Path": "/tmp/busybox-1.37.0-r0.apk3014342983/etc/securetty",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/busybox-1.37.0-r0.apk3014342983/var/lib/db/sbom/busybox-1.37.0-r0.spdx.json": {
+            "Path": "/tmp/busybox-1.37.0-r0.apk3014342983/var/lib/db/sbom/busybox-1.37.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

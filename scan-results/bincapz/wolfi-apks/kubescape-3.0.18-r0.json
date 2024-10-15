@@ -1,0 +1,46 @@
+{
+    "Files": {
+        "/tmp/kubescape-3.0.18-r0.apk4210350530/usr/bin/kubescape": {
+            "Path": "datasets/apk/kubescape-3.0.18-r0.apk ∴ /usr/bin/kubescape",
+            "SHA256": "bafbc995865821eb490ddced3fd6717a8776fb7c29fc5818635565c00bf7f753",
+            "Size": 137426536,
+            "Behaviors": [
+                {
+                    "Description": "Makes references to multiple browser credentials",
+                    "MatchStrings": [
+                        ".config",
+                        "Cookies",
+                        "Firefox",
+                        "Opera",
+                        "User Data"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#multiple_browser_refs",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "multiple_browser_refs"
+                },
+                {
+                    "Description": "busybox runner",
+                    "MatchStrings": [
+                        "/bin/busybox sh"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/busybox-exec.yara#busybox_runner",
+                    "ID": "shell/busybox/exec",
+                    "RuleName": "busybox_runner"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/kubescape-3.0.18-r0.apk4210350530/var/lib/db/sbom/kubescape-3.0.18-r0.spdx.json": {
+            "Path": "/tmp/kubescape-3.0.18-r0.apk4210350530/var/lib/db/sbom/kubescape-3.0.18-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

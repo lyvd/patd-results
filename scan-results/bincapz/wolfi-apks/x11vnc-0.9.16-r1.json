@@ -1,0 +1,146 @@
+{
+    "Files": {
+        "/tmp/x11vnc-0.9.16-r1.apk1454349644/usr/bin/Xdummy": {
+            "Path": "datasets/apk/x11vnc-0.9.16-r1.apk ∴ /usr/bin/Xdummy",
+            "SHA256": "330cc4edeffda393c1efb5d2cb53ebf26e7f4e36867873a7aa93383bd2e8be1a",
+            "Size": 46842,
+            "Behaviors": [
+                {
+                    "Description": "references /etc/sudoers",
+                    "MatchStrings": [
+                        "NOPASSWD:"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/sudoers-edit.yara#sudo_editor",
+                    "ID": "admin/sudoers/edit",
+                    "RuleName": "sudo_editor"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/x11vnc-0.9.16-r1.apk1454349644/usr/bin/x11vnc": {
+            "Path": "datasets/apk/x11vnc-0.9.16-r1.apk ∴ /usr/bin/x11vnc",
+            "SHA256": "4be8816f4cfeb1b1460d43819a57635a7e78fab0c3c05e227c0db74f454ab365",
+            "Size": 1796224,
+            "Behaviors": [
+                {
+                    "Description": "pseudoterminal and tunnel support",
+                    "MatchStrings": [
+                        "STUNNEL_DEBUG",
+                        "STUNNEL_LISTEN",
+                        "STUNNEL_PROG",
+                        "check_stunnel",
+                        "ptsname",
+                        "setup_stunnel",
+                        "ssh_remote_tunnel",
+                        "start_stunnel",
+                        "stop_stunnel",
+                        "stunnel3",
+                        "stunnel4",
+                        "stunnel_http_port",
+                        "stunnel_pem",
+                        "stunnel_pid",
+                        "stunnel_port",
+                        "tunneling",
+                        "tunnelling",
+                        "tunnels",
+                        "use_stunnel",
+                        "x11vnc_stunnel"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/net_term.yara#pseudoterminal_tunnel",
+                    "ID": "combo/backdoor/net_term",
+                    "RuleName": "pseudoterminal_tunnel"
+                },
+                {
+                    "Description": "listens for packets without a socket, executes programs",
+                    "MatchStrings": [
+                        "/bin/sh",
+                        "=0x",
+                        "tcp["
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/socket_filter_exec.yara#linux_network_filter_exec",
+                    "ID": "combo/backdoor/socket_filter_exec",
+                    "RuleName": "linux_network_filter_exec"
+                },
+                {
+                    "Description": "rm f hardcoded tmp path",
+                    "MatchStrings": [
+                        "rm -f /tmp/gdb.%d"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/file-delete.yara#rm_f_hardcoded_tmp_path",
+                    "ReferenceURL": "https://attack.mitre.org/techniques/T1485/",
+                    "ID": "fs/file/delete",
+                    "RuleName": "rm_f_hardcoded_tmp_path"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                },
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "/tmp/.X11",
+                        "/tmp/.Xau",
+                        "/tmp/.cd",
+                        "/tmp/.gdm",
+                        "/tmp/.xas",
+                        "/tmp/.xat"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                },
+                {
+                    "Description": "Runs command that is protected from termination",
+                    "MatchStrings": [
+                        "nohup $sess 1",
+                        "nohup env DISPLAY",
+                        "nohup esddsp konsole gnome-terminal x-terminal-emulator perl startxfc",
+                        "nohup sh -c \"$sxcmd $sess -- $",
+                        "nohup sh -c \"$xprog -sleepin 10 -auth $authfile -tsd '$redir_daemon'",
+                        "nohup\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/nohup.yara#elf_nohup",
+                    "ID": "shell/nohup",
+                    "RuleName": "elf_nohup"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/x11vnc-0.9.16-r1.apk1454349644/usr/share/applications/x11vnc.desktop": {
+            "Path": "/tmp/x11vnc-0.9.16-r1.apk1454349644/usr/share/applications/x11vnc.desktop",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/x11vnc-0.9.16-r1.apk1454349644/var/lib/db/sbom/x11vnc-0.9.16-r1.spdx.json": {
+            "Path": "/tmp/x11vnc-0.9.16-r1.apk1454349644/var/lib/db/sbom/x11vnc-0.9.16-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

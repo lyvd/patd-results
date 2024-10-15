@@ -1,0 +1,51 @@
+{
+    "Files": {
+        "/tmp/temporal-1.1.0-r0.apk2582897758/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/temporal-1.1.0-r0.apk2582897758/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/temporal-1.1.0-r0.apk2582897758/usr/bin/temporal": {
+            "Path": "datasets/apk/temporal-1.1.0-r0.apk ∴ /usr/bin/temporal",
+            "SHA256": "bf90d144b5c20c7984a14f9b14198dba774f269c8bbb036972550e495077a044",
+            "Size": 96055752,
+            "Behaviors": [
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "This signature detects Microsoft Excel spreadsheets that contain hidden sheets. Presence of a hidden sheet alone is not indication of malicious behavior.",
+                    "MatchStrings": [
+                        "$macro_sheet_h1",
+                        "State = \"hidden\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/InQuest-VT/Microsoft_Excel_Hidden_Macrosheet.yar#Microsoft_Excel_Hidden_Macrosheet",
+                    "RuleAuthor": "InQuest Labs",
+                    "ID": "3P/InQuest-VT/microsoft/excel/hidden",
+                    "RuleName": "Microsoft_Excel_Hidden_Macrosheet"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/temporal-1.1.0-r0.apk2582897758/var/lib/db/sbom/temporal-1.1.0-r0.spdx.json": {
+            "Path": "/tmp/temporal-1.1.0-r0.apk2582897758/var/lib/db/sbom/temporal-1.1.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

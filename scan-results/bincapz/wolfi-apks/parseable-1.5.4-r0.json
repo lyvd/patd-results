@@ -1,0 +1,67 @@
+{
+    "Files": {
+        "/tmp/parseable-1.5.4-r0.apk2244837997/usr/bin/parseable": {
+            "Path": "datasets/apk/parseable-1.5.4-r0.apk ∴ /usr/bin/parseable",
+            "SHA256": "51daf21c56410664d4e837056d3989f544aeaf26638bc8796649cbf00699be61",
+            "Size": 179925056,
+            "Behaviors": [
+                {
+                    "Description": "probably a miner",
+                    "MatchStrings": [
+                        "/proc/self",
+                        "NUMA",
+                        "argon2d"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/miner/argon2d_numa_self.yara#probably_a_miner",
+                    "ID": "combo/miner/argon2d_numa_self",
+                    "RuleName": "probably_a_miner"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "reference file within /dev/shm (world writeable)",
+                    "MatchStrings": [
+                        "/dev/shm/tmp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/dev-shm.yara#dev_shm_file",
+                    "ID": "ref/path/dev/shm",
+                    "RuleName": "dev_shm_file"
+                },
+                {
+                    "Description": "This signature detects Microsoft Excel spreadsheets that contain hidden sheets. Presence of a hidden sheet alone is not indication of malicious behavior.",
+                    "MatchStrings": [
+                        "state=\"hidden\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/InQuest-VT/Microsoft_Excel_Hidden_Macrosheet.yar#Microsoft_Excel_Hidden_Macrosheet",
+                    "RuleAuthor": "InQuest Labs",
+                    "ID": "3P/InQuest-VT/microsoft/excel/hidden",
+                    "RuleName": "Microsoft_Excel_Hidden_Macrosheet"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/parseable-1.5.4-r0.apk2244837997/var/lib/db/sbom/parseable-1.5.4-r0.spdx.json": {
+            "Path": "/tmp/parseable-1.5.4-r0.apk2244837997/var/lib/db/sbom/parseable-1.5.4-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

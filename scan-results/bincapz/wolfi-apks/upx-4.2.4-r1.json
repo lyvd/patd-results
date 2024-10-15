@@ -1,0 +1,63 @@
+{
+    "Files": {
+        "/tmp/upx-4.2.4-r1.apk2723524640/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/upx-4.2.4-r1.apk2723524640/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/upx-4.2.4-r1.apk2723524640/usr/bin/upx": {
+            "Path": "datasets/apk/upx-4.2.4-r1.apk ∴ /usr/bin/upx",
+            "SHA256": "ea645297e504086c3da2c6828e8bffe65878426971b7144f470dd7d84a212e7e",
+            "Size": 2861088,
+            "Behaviors": [
+                {
+                    "Description": "executable makes another file executable",
+                    "MatchStrings": [
+                        "chmod +x",
+                        "http:",
+                        "https:"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/binary.yara#chmod_executable_shell_binary",
+                    "ID": "combo/dropper/binary",
+                    "RuleName": "chmod_executable_shell_binary"
+                },
+                {
+                    "Description": "Linux ELF binary packed with UPX",
+                    "MatchStrings": [
+                        "/proc/self/exe",
+                        "PROT_EXEC|PROT_WRITE failed"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/packer/upx.yara#upx_elf",
+                    "ID": "evasion/packer/upx",
+                    "RuleName": "upx_elf"
+                },
+                {
+                    "Description": "executable makes another file executable",
+                    "MatchStrings": [
+                        "chmod +x"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/file-make_executable.yara#chmod_executable_shell_binary",
+                    "ID": "fs/file/make_executable",
+                    "RuleName": "chmod_executable_shell_binary"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/upx-4.2.4-r1.apk2723524640/var/lib/db/sbom/upx-4.2.4-r1.spdx.json": {
+            "Path": "/tmp/upx-4.2.4-r1.apk2723524640/var/lib/db/sbom/upx-4.2.4-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

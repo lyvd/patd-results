@@ -1,0 +1,59 @@
+{
+    "Files": {
+        "/tmp/containerd-1.7.22-r0.apk685278418/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/containerd-1.7.22-r0.apk685278418/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/containerd-1.7.22-r0.apk685278418/etc/containerd/config.toml": {
+            "Path": "/tmp/containerd-1.7.22-r0.apk685278418/etc/containerd/config.toml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/containerd-1.7.22-r0.apk685278418/usr/bin/containerd": {
+            "Path": "datasets/apk/containerd-1.7.22-r0.apk ∴ /usr/bin/containerd",
+            "SHA256": "52c24c7138affa6734c0868372ee146a5090e311e6b27947ad82877619bcf3da",
+            "Size": 56296976,
+            "Behaviors": [
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "/sys/kernel/security/apparmor",
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/containerd-1.7.22-r0.apk685278418/var/lib/db/sbom/containerd-1.7.22-r0.spdx.json": {
+            "Path": "/tmp/containerd-1.7.22-r0.apk685278418/var/lib/db/sbom/containerd-1.7.22-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

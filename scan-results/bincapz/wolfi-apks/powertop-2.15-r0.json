@@ -1,0 +1,38 @@
+{
+    "Files": {
+        "/tmp/powertop-2.15-r0.apk60305153/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/powertop-2.15-r0.apk60305153/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/powertop-2.15-r0.apk60305153/usr/sbin/powertop": {
+            "Path": "datasets/apk/powertop-2.15-r0.apk ∴ /usr/sbin/powertop",
+            "SHA256": "5abe6b01c9c7aa9ecef61d1262274503c55f79e9dec9722a8642015e02df105f",
+            "Size": 689336,
+            "Behaviors": [
+                {
+                    "Description": "Pretends to be a kworker kernel thread",
+                    "MatchStrings": [
+                        "kworker"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/fake-process-name.yara#fake_kworker_val",
+                    "ID": "evasion/fake/process/name",
+                    "RuleName": "fake_kworker_val"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/powertop-2.15-r0.apk60305153/var/lib/db/sbom/powertop-2.15-r0.spdx.json": {
+            "Path": "/tmp/powertop-2.15-r0.apk60305153/var/lib/db/sbom/powertop-2.15-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

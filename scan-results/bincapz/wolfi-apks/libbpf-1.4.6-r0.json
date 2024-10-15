@@ -1,0 +1,72 @@
+{
+    "Files": {
+        "/tmp/libbpf-1.4.6-r0.apk2648855347/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/libbpf-1.4.6-r0.apk2648855347/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/libbpf.so": {
+            "Path": "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/libbpf.so",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/libbpf.so.1": {
+            "Path": "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/libbpf.so.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/libbpf.so.1.4.6": {
+            "Path": "datasets/apk/libbpf-1.4.6-r0.apk ∴ /usr/lib64/libbpf.so.1.4.6",
+            "SHA256": "f1f1d744fa8579dc31ca099cc0c6e513474a94fcd12e2a9dac37f893a9a98a16",
+            "Size": 449120,
+            "Behaviors": [
+                {
+                    "Description": "access unexported kernel symbols",
+                    "MatchStrings": [
+                        "kallsyms_lookup_name"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/symbol-lookup.yara#kallsyms",
+                    "ReferenceURL": "https://lwn.net/Articles/813350/",
+                    "ID": "kernel/symbol/lookup",
+                    "RuleName": "kallsyms"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/pkgconfig/libbpf.pc": {
+            "Path": "/tmp/libbpf-1.4.6-r0.apk2648855347/usr/lib64/pkgconfig/libbpf.pc",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/libbpf-1.4.6-r0.apk2648855347/var/lib/db/sbom/libbpf-1.4.6-r0.spdx.json": {
+            "Path": "/tmp/libbpf-1.4.6-r0.apk2648855347/var/lib/db/sbom/libbpf-1.4.6-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

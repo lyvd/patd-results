@@ -1,0 +1,114 @@
+{
+    "Files": {
+        "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/etc/logrotate.d/telegraf": {
+            "Path": "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/etc/logrotate.d/telegraf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/etc/telegraf/telegraf.conf": {
+            "Path": "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/etc/telegraf/telegraf.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/usr/bin/telegraf": {
+            "Path": "datasets/apk/telegraf-1.32-1.32.1-r0.apk ∴ /usr/bin/telegraf",
+            "SHA256": "c404317842ea4b8be4a893f27afd319fcd0b1e2f5fe712961ec16e5b95afaf4a",
+            "Size": 261610632,
+            "Behaviors": [
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs",
+                        "docker.sock"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Yandex",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "commands obfuscated using xor",
+                    "MatchStrings": [
+                        "\u0005\u0016\u0001\fH::$b_eval2"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/xor-commands.yara#xor_commands",
+                    "ID": "evasion/xor/commands",
+                    "RuleName": "xor_commands"
+                },
+                {
+                    "Description": "hardcoded IP:port destination",
+                    "MatchStrings": [
+                        "10.49.234.114:57777"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip_port.yara#hardcoded_ip_port",
+                    "ID": "ref/ip_port",
+                    "RuleName": "hardcoded_ip_port"
+                },
+                {
+                    "Description": "Identifies Rclone, sometimes used by attackers to exfiltrate data.",
+                    "MatchStrings": [
+                        "github.com/rclone/",
+                        "rc vfs/forget file=hello file2=goodbye dir=home/junk"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/bartblaze/generic/Rclone.yar#Rclone",
+                    "ReferenceURL": "https://rclone.org/",
+                    "RuleAuthor": "bartblaze",
+                    "ID": "3P/bartblaze/rclone",
+                    "RuleName": "Rclone"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/usr/lib/telegraf/scripts/init.sh": {
+            "Path": "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/usr/lib/telegraf/scripts/init.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/usr/lib/telegraf/scripts/telegraf.service": {
+            "Path": "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/usr/lib/telegraf/scripts/telegraf.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/var/lib/db/sbom/telegraf-1.32-1.32.1-r0.spdx.json": {
+            "Path": "/tmp/telegraf-1.32-1.32.1-r0.apk410053156/var/lib/db/sbom/telegraf-1.32-1.32.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

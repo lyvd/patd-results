@@ -1,0 +1,65 @@
+{
+    "Files": {
+        "/tmp/falco-no-driver-0.39.1-r0.apk626167044/etc/falco/falco.yaml": {
+            "Path": "/tmp/falco-no-driver-0.39.1-r0.apk626167044/etc/falco/falco.yaml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/falco-no-driver-0.39.1-r0.apk626167044/usr/bin/falco": {
+            "Path": "datasets/apk/falco-no-driver-0.39.1-r0.apk ∴ /usr/bin/falco",
+            "SHA256": "411344de2d3bf8089c2d12f050d7df47ecf0efa3477966e2be3155c2a3f30c58",
+            "Size": 35919336,
+            "Behaviors": [
+                {
+                    "Description": "may inject code into other processes",
+                    "MatchStrings": [
+                        "/proc/%d/maps",
+                        "process",
+                        "ptrace"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-inject.yara#ptrace_injector",
+                    "ID": "evasion/process/inject",
+                    "RuleName": "ptrace_injector"
+                },
+                {
+                    "Description": "access unexported kernel symbols",
+                    "MatchStrings": [
+                        "kallsyms_lookup_name"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/symbol-lookup.yara#kallsyms",
+                    "ReferenceURL": "https://lwn.net/Articles/813350/",
+                    "ID": "kernel/symbol/lookup",
+                    "RuleName": "kallsyms"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd",
+                        "/proc/%lld/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/falco-no-driver-0.39.1-r0.apk626167044/var/lib/db/sbom/falco-no-driver-0.39.1-r0.spdx.json": {
+            "Path": "/tmp/falco-no-driver-0.39.1-r0.apk626167044/var/lib/db/sbom/falco-no-driver-0.39.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,84 @@
+{
+    "Files": {
+        "/tmp/zed-0.156.1-r0.apk1124654700/usr/bin/zed": {
+            "Path": "/tmp/zed-0.156.1-r0.apk1124654700/usr/bin/zed",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/zed-0.156.1-r0.apk1124654700/usr/libexec/zed": {
+            "Path": "datasets/apk/zed-0.156.1-r0.apk ∴ /usr/libexec/zed",
+            "SHA256": "2505579d90737a0e8769ae9bfff683f11b6da735ee7fc9816530c53ae1ebfb75",
+            "Size": 167671144,
+            "Behaviors": [
+                {
+                    "Description": "fetches content and pipes it to a shell",
+                    "MatchStrings": [
+                        "curl -f https://zed.dev/install.sh || wget -qO- https://zed.dev/install.sh) | sh",
+                        "curl https://zed.dev/install.sh | bash"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#fetch_pipe_shell_value",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "fetch_pipe_shell_value"
+                },
+                {
+                    "Description": "commands in base64 form",
+                    "MatchStrings": [
+                        "9wZW5zc2::$b_openssl",
+                        "NobW9k::$b_chmod",
+                        "Y2htb2::$b_chmod",
+                        "b3BlbnNzb::$b_openssl"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/base64-commands.yara#base64_commands",
+                    "ID": "evasion/base64/commands",
+                    "RuleName": "base64_commands"
+                },
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "NegativeThinSpac/tmp/.X11"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/zed-0.156.1-r0.apk1124654700/usr/share/applications/zed.desktop": {
+            "Path": "/tmp/zed-0.156.1-r0.apk1124654700/usr/share/applications/zed.desktop",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/zed-0.156.1-r0.apk1124654700/usr/share/icons/hicolor/1024x1024/apps/zed.png": {
+            "Path": "/tmp/zed-0.156.1-r0.apk1124654700/usr/share/icons/hicolor/1024x1024/apps/zed.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/zed-0.156.1-r0.apk1124654700/usr/share/icons/hicolor/512x512/apps/zed.png": {
+            "Path": "/tmp/zed-0.156.1-r0.apk1124654700/usr/share/icons/hicolor/512x512/apps/zed.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/zed-0.156.1-r0.apk1124654700/var/lib/db/sbom/zed-0.156.1-r0.spdx.json": {
+            "Path": "/tmp/zed-0.156.1-r0.apk1124654700/var/lib/db/sbom/zed-0.156.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

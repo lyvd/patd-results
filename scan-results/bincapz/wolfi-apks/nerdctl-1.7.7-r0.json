@@ -1,0 +1,40 @@
+{
+    "Files": {
+        "/tmp/nerdctl-1.7.7-r0.apk1697354051/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/nerdctl-1.7.7-r0.apk1697354051/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/nerdctl-1.7.7-r0.apk1697354051/usr/bin/nerdctl": {
+            "Path": "datasets/apk/nerdctl-1.7.7-r0.apk ∴ /usr/bin/nerdctl",
+            "SHA256": "1f21d2a051077b2e1b63229ba14da59948f2c14987aa3cb07263bd43d8a2a98a",
+            "Size": 25967544,
+            "Behaviors": [
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "/sys/kernel/security/apparmor",
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/nerdctl-1.7.7-r0.apk1697354051/var/lib/db/sbom/nerdctl-1.7.7-r0.spdx.json": {
+            "Path": "/tmp/nerdctl-1.7.7-r0.apk1697354051/var/lib/db/sbom/nerdctl-1.7.7-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

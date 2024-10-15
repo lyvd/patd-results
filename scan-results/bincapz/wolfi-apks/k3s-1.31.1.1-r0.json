@@ -1,0 +1,192 @@
+{
+    "Files": {
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/bandwidth": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/bandwidth",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/bridge": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/bridge",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/cni": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/cni",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/containerd": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/containerd",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/crictl": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/crictl",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/ctr": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/ctr",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/firewall": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/firewall",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/flannel": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/flannel",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/host-local": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/host-local",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s": {
+            "Path": "datasets/apk/k3s-1.31.1.1-r0.apk ∴ /bin/k3s",
+            "SHA256": "be5cf22d34d87287ab184f8c86eee8152b96e28a8b43ec0fbafda6016d2d2cfa",
+            "Size": 223209752,
+            "Behaviors": [
+                {
+                    "Description": "socat backdoor",
+                    "MatchStrings": [
+                        "/bin/bash",
+                        "pty",
+                        "socat"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/socat.yara#socat_backdoor",
+                    "ID": "combo/backdoor/socat",
+                    "RuleName": "socat_backdoor"
+                },
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "/sys/kernel/security/apparmor",
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs",
+                        "docker.sock"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "Mozilla/",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-agent": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-agent",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-certificate": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-certificate",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-completion": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-completion",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-etcd-snapshot": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-etcd-snapshot",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-secrets-encrypt": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-secrets-encrypt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-server": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-server",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-token": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/k3s-token",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/kubectl": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/kubectl",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/loopback": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/loopback",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/portmap": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/bin/portmap",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/k3s-1.31.1.1-r0.apk889979609/var/lib/db/sbom/k3s-1.31.1.1-r0.spdx.json": {
+            "Path": "/tmp/k3s-1.31.1.1-r0.apk889979609/var/lib/db/sbom/k3s-1.31.1.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

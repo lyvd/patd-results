@@ -1,0 +1,50 @@
+{
+    "Files": {
+        "/tmp/k6-0.54.0-r0.apk2315792158/usr/bin/k6": {
+            "Path": "datasets/apk/k6-0.54.0-r0.apk ∴ /usr/bin/k6",
+            "SHA256": "940344c466f6471b7759c4a593be17ca1701c4154476c8078940cfab89744797",
+            "Size": 50663496,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/k6-0.54.0-r0.apk2315792158/var/lib/db/sbom/k6-0.54.0-r0.spdx.json": {
+            "Path": "/tmp/k6-0.54.0-r0.apk2315792158/var/lib/db/sbom/k6-0.54.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

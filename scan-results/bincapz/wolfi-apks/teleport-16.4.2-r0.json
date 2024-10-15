@@ -1,0 +1,143 @@
+{
+    "Files": {
+        "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/fdpass-teleport": {
+            "Path": "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/fdpass-teleport",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/tbot": {
+            "Path": "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/tbot",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/tctl": {
+            "Path": "datasets/apk/teleport-16.4.2-r0.apk ∴ /usr/local/bin/tctl",
+            "SHA256": "f39410b25fdc93dd5143c99ce2bae4147f20ba58bd2b1025293b872cecfc3a45",
+            "Size": 97220480,
+            "Behaviors": [
+                {
+                    "Description": "high-risk fetch command",
+                    "MatchStrings": [
+                        "curl -o /tmp/teleport-pubkey.asc https://apt.releases.teleport.dev/gpg"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/fetch-suspicious.yara#high_fetch_command_val",
+                    "ID": "net/fetch/suspicious",
+                    "RuleName": "high_fetch_command_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/teleport": {
+            "Path": "datasets/apk/teleport-16.4.2-r0.apk ∴ /usr/local/bin/teleport",
+            "SHA256": "bf807e31c5093a63e2dfb4ac83c0c1f87bfe2cc2b4aff5bac91a06ee0226f609",
+            "Size": 331531816,
+            "Behaviors": [
+                {
+                    "Description": "fetches content and pipes it to a shell",
+                    "MatchStrings": [
+                        "curl -s -L %s| bash",
+                        "curl -s -L https://%s/v1/webapi/scripts/installer/%s | bash"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#fetch_pipe_shell_value",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "fetch_pipe_shell_value"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Brave",
+                        "Chrome",
+                        "Discord",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "suspected data stealer",
+                    "MatchStrings": [
+                        "Atomic",
+                        "Bookmarks",
+                        "Chrome",
+                        "Chromium",
+                        "Discord",
+                        "Firefox",
+                        "History",
+                        "Snowflake"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/creds.yara#suspected_data_stealer",
+                    "ID": "combo/stealer/creds",
+                    "RuleName": "suspected_data_stealer"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "high-risk fetch command",
+                    "MatchStrings": [
+                        "curl -o /tmp/teleport-pubkey.asc https://apt.releases.teleport.dev/gpg"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/fetch-suspicious.yara#high_fetch_command_val",
+                    "ID": "net/fetch/suspicious",
+                    "RuleName": "high_fetch_command_val"
+                },
+                {
+                    "Description": "uses /dev/tcp for network access (bash)",
+                    "MatchStrings": [
+                        "/dev/tcp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/bash_dev_tcp.yara#bash_dev_tcp",
+                    "ID": "shell/bash_dev_tcp",
+                    "RuleName": "bash_dev_tcp"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/tsh": {
+            "Path": "/tmp/teleport-16.4.2-r0.apk220741065/usr/local/bin/tsh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/teleport-16.4.2-r0.apk220741065/var/lib/db/sbom/teleport-16.4.2-r0.spdx.json": {
+            "Path": "/tmp/teleport-16.4.2-r0.apk220741065/var/lib/db/sbom/teleport-16.4.2-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

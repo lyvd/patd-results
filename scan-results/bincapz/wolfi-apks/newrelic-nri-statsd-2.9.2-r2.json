@@ -1,0 +1,61 @@
+{
+    "Files": {
+        "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/bin/gostatsd": {
+            "Path": "datasets/apk/newrelic-nri-statsd-2.9.2-r2.apk ∴ /bin/gostatsd",
+            "SHA256": "deededdf413a3ba62bce853a0315c33f25f1d7525a4ece373a3cc3bf283da12b",
+            "Size": 25902610,
+            "Behaviors": [
+                {
+                    "Description": "high-risk fetch command",
+                    "MatchStrings": [
+                        "curl -k -v -X%s %s '%s'Running on machine: %s"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/fetch-suspicious.yara#high_fetch_command_val",
+                    "ID": "net/fetch/suspicious",
+                    "RuleName": "high_fetch_command_val"
+                },
+                {
+                    "Description": "hardcoded IP address within a URL",
+                    "MatchStrings": [
+                        "http://169.254.170.22006-01-02T15:04:05ZX-Amz-Grant-Re"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/http-ip.yara#http_hardcoded_ip",
+                    "ID": "ref/site/http/ip",
+                    "RuleName": "http_hardcoded_ip"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/home/nonroot/nri-statsd.sh": {
+            "Path": "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/home/nonroot/nri-statsd.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/home/nonroot/run-statsd.sh": {
+            "Path": "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/home/nonroot/run-statsd.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/var/lib/db/sbom/newrelic-nri-statsd-2.9.2-r2.spdx.json": {
+            "Path": "/tmp/newrelic-nri-statsd-2.9.2-r2.apk407550508/var/lib/db/sbom/newrelic-nri-statsd-2.9.2-r2.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

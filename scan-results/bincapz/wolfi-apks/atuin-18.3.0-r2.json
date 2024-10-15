@@ -1,0 +1,79 @@
+{
+    "Files": {
+        "/tmp/atuin-18.3.0-r2.apk2856074659/usr/bin/atuin": {
+            "Path": "datasets/apk/atuin-18.3.0-r2.apk ∴ /usr/bin/atuin",
+            "SHA256": "8b3a3b64b3bf782a8d0e94ab8a062b9e95d68c80c4b61b21634a55c24a9e7813",
+            "Size": 29963216,
+            "Behaviors": [
+                {
+                    "Description": "accesses multiple critical Linux paths",
+                    "MatchStrings": [
+                        "/boot/system/data/sslSSL_CERT_FILESSL_",
+                        "/proc/cpuinfoMHzARMCaviumDECFUJITSUHiS",
+                        "/proc/meminfo/proc/proc/uptime/etc/os-",
+                        "/proc/mountscalled",
+                        "/proc/proc/uptime/etc/os-releaseNAME",
+                        "/proc/seH",
+                        "/proc/self/cgroup/proc/self/mountinfoc",
+                        "/proc/self/cgroup/sys/fs/cgroupcgroup.",
+                        "/proc/self/exe",
+                        "/proc/self/mountinfocpu.cfs_period_usc",
+                        "/proc/self/mountinfotv_sectv_nsecInval",
+                        "/proc/self/stat",
+                        "/proc/stat/home/build/.cargo/registry/",
+                        "/proc/stat/proc/meminfo/proc/proc/upti",
+                        "/sys/devices/system/cpu/cpu/cpufreq/scaling_",
+                        "/tmp/.X11-unix/XX11",
+                        "/usr/bin/env/home/build/.cargo/registry/",
+                        "/var/run/postgresql/private/tmpOkClearte"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/critical_paths.yara#linux_critical_system_paths_high",
+                    "ID": "combo/critical_paths",
+                    "RuleName": "linux_critical_system_paths_high"
+                },
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "RenderPictFormatCapacityOverflow/tmp/.X11"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/atuin-18.3.0-r2.apk2856074659/usr/share/bash-completion/completions/atuin": {
+            "Path": "/tmp/atuin-18.3.0-r2.apk2856074659/usr/share/bash-completion/completions/atuin",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/atuin-18.3.0-r2.apk2856074659/usr/share/fish/vendor_completions.d/atuin.fish": {
+            "Path": "/tmp/atuin-18.3.0-r2.apk2856074659/usr/share/fish/vendor_completions.d/atuin.fish",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/atuin-18.3.0-r2.apk2856074659/usr/share/zsh/site-functions/_atuin": {
+            "Path": "/tmp/atuin-18.3.0-r2.apk2856074659/usr/share/zsh/site-functions/_atuin",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/atuin-18.3.0-r2.apk2856074659/var/lib/db/sbom/atuin-18.3.0-r2.spdx.json": {
+            "Path": "/tmp/atuin-18.3.0-r2.apk2856074659/var/lib/db/sbom/atuin-18.3.0-r2.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,180 @@
+{
+    "Files": {
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/btmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/btmpd",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/utmp-init": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/utmp-init",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/utmp-prepare": {
+            "Path": "datasets/apk/utmps-0.1.2.3-r1.apk ∴ /etc/init.d/utmp-prepare",
+            "SHA256": "b08946608a21cd036072ab4d6ebe435615e12563fb72cfb859d603dfa0985355",
+            "Size": 673,
+            "Behaviors": [
+                {
+                    "Description": "accesses failed logins",
+                    "MatchStrings": [
+                        "/var/log/btmp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/logs/failed_logins.yara#failed_logins",
+                    "ID": "admin/logs/failed_logins",
+                    "RuleName": "failed_logins"
+                },
+                {
+                    "Description": "accesses historical login records",
+                    "MatchStrings": [
+                        "/var/log/utmp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/logs/historical_logins.yara#login_records",
+                    "ID": "admin/logs/historical_logins",
+                    "RuleName": "login_records"
+                },
+                {
+                    "Description": "rm f hardcoded tmp path",
+                    "MatchStrings": [
+                        "rm -f /var/log/btmp",
+                        "rm -f /var/log/utmp",
+                        "rm -f /var/log/wtmp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/file-delete.yara#rm_f_hardcoded_tmp_path",
+                    "ReferenceURL": "https://attack.mitre.org/techniques/T1485/",
+                    "ID": "fs/file/delete",
+                    "RuleName": "rm_f_hardcoded_tmp_path"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/utmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/utmpd",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/wtmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/init.d/wtmpd",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/logrotate.d/btmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/logrotate.d/btmpd",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/logrotate.d/wtmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/etc/logrotate.d/wtmpd",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/sbin/setup-utmp": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/sbin/setup-utmp",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/bin/utmps-utmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/bin/utmps-utmpd",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/bin/utmps-write": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/bin/utmps-write",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/bin/utmps-wtmpd": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/bin/utmps-wtmpd",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/lib/libutmps.so.0.1": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/lib/libutmps.so.0.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/lib/libutmps.so.0.1.2.3": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/lib/libutmps.so.0.1.2.3",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/index.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/index.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/libutmps/index.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/libutmps/index.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/overview.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/overview.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/upgrade.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/upgrade.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/utmps-utmpd.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/utmps-utmpd.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/utmps-write.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/utmps-write.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/utmps-wtmpd.html": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/usr/share/doc/utmps/utmps-wtmpd.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/utmps-0.1.2.3-r1.apk3588871150/var/lib/db/sbom/utmps-0.1.2.3-r1.spdx.json": {
+            "Path": "/tmp/utmps-0.1.2.3-r1.apk3588871150/var/lib/db/sbom/utmps-0.1.2.3-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

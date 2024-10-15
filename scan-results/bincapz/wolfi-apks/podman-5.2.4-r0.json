@@ -1,0 +1,240 @@
+{
+    "Files": {
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/bin/podman": {
+            "Path": "datasets/apk/podman-5.2.4-r0.apk ∴ /usr/bin/podman",
+            "SHA256": "2206131212906e365c4d23372c1aeb1e436a72747fb5357139332b68b6e9efce",
+            "Size": 49795272,
+            "Behaviors": [
+                {
+                    "Description": "socat backdoor",
+                    "MatchStrings": [
+                        "/bin/bash",
+                        "pty",
+                        "socat"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/socat.yara#socat_backdoor",
+                    "ID": "combo/backdoor/socat",
+                    "RuleName": "socat_backdoor"
+                },
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "/sys/kernel/security/apparmor",
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs",
+                        "docker.sock"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "unusual pid (process id) file location",
+                    "MatchStrings": [
+                        "/tmp/pause.pid"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/odd_pidfile.yara#exotic_pid_file",
+                    "ID": "evasion/odd_pidfile",
+                    "RuleName": "exotic_pid_file"
+                },
+                {
+                    "Description": "userland rootkit designed to hide processes",
+                    "MatchStrings": [
+                        "/proc/%s/stat",
+                        "/proc/self/fd/%d",
+                        "readdir"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-hide.yara#elf_possible_prochid",
+                    "ReferenceURL": "prochid.c",
+                    "ID": "evasion/process/hide",
+                    "RuleName": "elf_possible_prochid"
+                },
+                {
+                    "Description": "reference file within /dev/shm (world writeable)",
+                    "MatchStrings": [
+                        "/dev/shm/aufs.xinoinvalid",
+                        "/dev/shm/aufs.xinokernel"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/dev-shm.yara#dev_shm_file",
+                    "ID": "ref/path/dev/shm",
+                    "RuleName": "dev_shm_file"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/bin/podman-remote": {
+            "Path": "datasets/apk/podman-5.2.4-r0.apk ∴ /usr/bin/podman-remote",
+            "SHA256": "12230b562f4f183ac58b742b5b9ff459a788a32a6bd234bf4b99f7dcf6c3061b",
+            "Size": 37922400,
+            "Behaviors": [
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs",
+                        "docker.sock"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "reference file within /dev/shm (world writeable)",
+                    "MatchStrings": [
+                        "/dev/shm/aufs.xinofailed",
+                        "/dev/shm/aufs.xinokernel"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/dev-shm.yara#dev_shm_file",
+                    "ID": "ref/path/dev/shm",
+                    "RuleName": "dev_shm_file"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/bin/podmansh": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/bin/podmansh",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system-generators/podman-system-generator": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system-generators/podman-system-generator",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-auto-update.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-auto-update.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-auto-update.timer": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-auto-update.timer",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-clean-transient.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-clean-transient.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-kube@.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-kube@.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-restart.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman-restart.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman.socket": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/system/podman.socket",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user-generators/podman-user-generator": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user-generators/podman-user-generator",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-auto-update.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-auto-update.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-auto-update.timer": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-auto-update.timer",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-clean-transient.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-clean-transient.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-kube@.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-kube@.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-restart.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman-restart.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman.service": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman.service",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman.socket": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/systemd/user/podman.socket",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/tmpfiles.d/podman.conf": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/lib/tmpfiles.d/podman.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/libexec/podman/quadlet": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/libexec/podman/quadlet",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/usr/libexec/podman/rootlessport": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/usr/libexec/podman/rootlessport",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/podman-5.2.4-r0.apk4216303052/var/lib/db/sbom/podman-5.2.4-r0.spdx.json": {
+            "Path": "/tmp/podman-5.2.4-r0.apk4216303052/var/lib/db/sbom/podman-5.2.4-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

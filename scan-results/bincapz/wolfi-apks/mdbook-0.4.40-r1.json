@@ -1,0 +1,57 @@
+{
+    "Files": {
+        "/tmp/mdbook-0.4.40-r1.apk963711541/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/mdbook-0.4.40-r1.apk963711541/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mdbook-0.4.40-r1.apk963711541/usr/bin/mdbook": {
+            "Path": "datasets/apk/mdbook-0.4.40-r1.apk ∴ /usr/bin/mdbook",
+            "SHA256": "82cfe773d048a51f1093d248adc48a3de8f33c465c169f1a558ec937956ba718",
+            "Size": 14769920,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/mdbook-0.4.40-r1.apk963711541/var/lib/db/sbom/mdbook-0.4.40-r1.spdx.json": {
+            "Path": "/tmp/mdbook-0.4.40-r1.apk963711541/var/lib/db/sbom/mdbook-0.4.40-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

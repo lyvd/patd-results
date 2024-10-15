@@ -1,0 +1,90 @@
+{
+    "Files": {
+        "/tmp/chezmoi-2.52.4-r0.apk282769684/usr/bin/chezmoi": {
+            "Path": "datasets/apk/chezmoi-2.52.4-r0.apk ∴ /usr/bin/chezmoi",
+            "SHA256": "861942e5a1abda94832a9d7b2236138c31bb6f70bc8f4956836051c9ad7d6c8e",
+            "Size": 43756936,
+            "Behaviors": [
+                {
+                    "Description": "ssh worm targeting routers",
+                    "MatchStrings": [
+                        ".ssh",
+                        "/etc/hosts",
+                        "admin123",
+                        "qwerty123"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/worm/ssh.yara#ssh_worm_router",
+                    "ID": "combo/worm/ssh",
+                    "RuleName": "ssh_worm_router"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "commands obfuscated using xor",
+                    "MatchStrings": [
+                        "areh,::$b_eval"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/xor-commands.yara#xor_commands",
+                    "ID": "evasion/xor/commands",
+                    "RuleName": "xor_commands"
+                },
+                {
+                    "Description": "References a 'backdoor'",
+                    "MatchStrings": [
+                        "backd00r",
+                        "backdoor"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/backdoor.yara#backdoor",
+                    "ID": "ref/words/backdoor",
+                    "RuleName": "backdoor"
+                },
+                {
+                    "Description": "References an Implant",
+                    "MatchStrings": [
+                        "implant"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/implant.yara#implant",
+                    "ID": "ref/words/implant",
+                    "RuleName": "implant"
+                },
+                {
+                    "Description": "References a Trojan",
+                    "MatchStrings": [
+                        "trojan"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/trojan.yara#trojan_ref",
+                    "ID": "ref/words/trojan",
+                    "RuleName": "trojan_ref"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/chezmoi-2.52.4-r0.apk282769684/var/lib/db/sbom/chezmoi-2.52.4-r0.spdx.json": {
+            "Path": "/tmp/chezmoi-2.52.4-r0.apk282769684/var/lib/db/sbom/chezmoi-2.52.4-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

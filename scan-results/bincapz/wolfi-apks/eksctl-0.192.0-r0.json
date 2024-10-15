@@ -1,0 +1,44 @@
+{
+    "Files": {
+        "/tmp/eksctl-0.192.0-r0.apk3025583786/usr/bin/eksctl": {
+            "Path": "datasets/apk/eksctl-0.192.0-r0.apk ∴ /usr/bin/eksctl",
+            "SHA256": "4783f79afdf94051eb8f9f3e7be8c87b10e2e7e16a2b45c44c01c9932449faea",
+            "Size": 146013688,
+            "Behaviors": [
+                {
+                    "Description": "rm f hardcoded tmp path",
+                    "MatchStrings": [
+                        "rm -rf /tmp/aws-efa-installer-latest.tar.gz",
+                        "rm -rf /tmp/aws-efa-installer.tar.gz"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/file-delete.yara#rm_f_hardcoded_tmp_path",
+                    "ReferenceURL": "https://attack.mitre.org/techniques/T1485/",
+                    "ID": "fs/file/delete",
+                    "RuleName": "rm_f_hardcoded_tmp_path"
+                },
+                {
+                    "Description": "changes to an unusual system directory",
+                    "MatchStrings": [
+                        "cd /tmp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/process/chdir-unusual.yara#unusual_cd_val",
+                    "ID": "process/chdir/unusual",
+                    "RuleName": "unusual_cd_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/eksctl-0.192.0-r0.apk3025583786/var/lib/db/sbom/eksctl-0.192.0-r0.spdx.json": {
+            "Path": "/tmp/eksctl-0.192.0-r0.apk3025583786/var/lib/db/sbom/eksctl-0.192.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

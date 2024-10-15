@@ -1,0 +1,158 @@
+{
+    "Files": {
+        "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/usr/bin/agent": {
+            "Path": "datasets/apk/rancher-agent-2.9-2.9.2-r0.apk ∴ /usr/bin/agent",
+            "SHA256": "28a2d7eeb6508d9cac6628b63c2e6d708086d0debd89fb12f6f2094788129654",
+            "Size": 436682976,
+            "Behaviors": [
+                {
+                    "Description": "change dir, fetch file via tor, make it executable, and run it",
+                    "MatchStrings": [
+                        "./a",
+                        "./certs/ca.pem./certs/ca.keyunclosed",
+                        "./cfdvyqz",
+                        "./dboawvv",
+                        "./etc/kubernetes/ssl/encryption.yaml",
+                        "./extensions",
+                        "./f/",
+                        "./fk",
+                        "./gk",
+                        "./gp",
+                        "./hy",
+                        "./iae",
+                        "./jjkm",
+                        "./kp",
+                        "./li",
+                        "./management-state/binmachine-driver",
+                        "./nhux",
+                        "./opt/rke-tools/rke-etcd-backup",
+                        "./pdm",
+                        "./pipe/docker",
+                        "./pipe/rancher",
+                        "./pkg/apis",
+                        "./pkg/client",
+                        "./pl",
+                        "./pmyh",
+                        "./pods/",
+                        "./qm",
+                        "./rxlul/g",
+                        "./skmwtlv",
+                        "./sq",
+                        "./subscriptions/",
+                        "./tk",
+                        "./ui",
+                        "./v",
+                        "./w",
+                        "./xjjwykr",
+                        "./ybmumru",
+                        "./yure",
+                        "./zt",
+                        ".onion",
+                        "cd /var/lib/cni",
+                        "chmod 400",
+                        "chmod 600",
+                        "chmod 700",
+                        "curl --insecure -fL",
+                        "curl --insecure -sfL",
+                        "curl -X",
+                        "curl -f --retry 100 --retry-delay 5 --cacert",
+                        "curl -fL",
+                        "curl -v -X"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#curl_tor_chmod_relative_run",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "curl_tor_chmod_relative_run"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/usr/bin/kubectl-shell.sh": {
+            "Path": "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/usr/bin/kubectl-shell.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/usr/bin/run.sh": {
+            "Path": "datasets/apk/rancher-agent-2.9-2.9.2-r0.apk ∴ /usr/bin/run.sh",
+            "SHA256": "6c1a4c7ee5f650a31db3a782e9b10e71b5cacda6a443958f84a0a6cf50281870",
+            "Size": 8960,
+            "Behaviors": [
+                {
+                    "Description": "high-risk fetch command",
+                    "MatchStrings": [
+                        "curl --insecure -s -fL $CATTLE_SERVER/v3/settings/cacerts",
+                        "curl --insecure -sS -fL -o /dev/null --stderr - $url"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/fetch-suspicious.yara#high_fetch_command_val",
+                    "ID": "net/fetch/suspicious",
+                    "RuleName": "high_fetch_command_val"
+                },
+                {
+                    "Description": "public service to discover external IP address",
+                    "MatchStrings": [
+                        "ipify.or"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/public_ip.yara#iplookup_website_value",
+                    "ID": "net/public_ip",
+                    "RuleName": "iplookup_website_value"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/usr/bin/shell-setup.sh": {
+            "Path": "datasets/apk/rancher-agent-2.9-2.9.2-r0.apk ∴ /usr/bin/shell-setup.sh",
+            "SHA256": "1ea81f4bf900d7a551b5e50662a19188269e06b5bd3329491196d4ea392a69b7",
+            "Size": 1362,
+            "Behaviors": [
+                {
+                    "Description": "likely pipes base64 into a shell",
+                    "MatchStrings": [
+                        "base64 -d",
+                        "bash",
+                        "echo"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/base64-eval.yara#echo_decode_bash_probable",
+                    "ID": "evasion/base64/eval",
+                    "RuleName": "echo_decode_bash_probable"
+                },
+                {
+                    "Description": "Makes a world writeable executable",
+                    "MatchStrings": [
+                        "chmod 777 .kube .bashrc"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/permission-modify-dangerous.yara#chmod_dangerous_exec_val",
+                    "ID": "fs/permission/modify/dangerous",
+                    "RuleName": "chmod_dangerous_exec_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/var/lib/db/sbom/rancher-agent-2.9-2.9.2-r0.spdx.json": {
+            "Path": "/tmp/rancher-agent-2.9-2.9.2-r0.apk1131139653/var/lib/db/sbom/rancher-agent-2.9-2.9.2-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

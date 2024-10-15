@@ -1,0 +1,43 @@
+{
+    "Files": {
+        "/tmp/opentofu-1.8.3-r0.apk3567094808/usr/bin/tofu": {
+            "Path": "datasets/apk/opentofu-1.8.3-r0.apk ∴ /usr/bin/tofu",
+            "SHA256": "b542fb636e69eaa0032ef3641e2dcfbbf18e4f2bed9a90689c600bb3cdc1bd3e",
+            "Size": 83059400,
+            "Behaviors": [
+                {
+                    "Description": "Runs powershell with an encoded command",
+                    "MatchStrings": [
+                        "-EncodedCommand",
+                        "powershell"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/powershell_encoded.yara#powershell_encoded_command_val",
+                    "ID": "evasion/powershell_encoded",
+                    "RuleName": "powershell_encoded_command_val"
+                },
+                {
+                    "Description": "Makes a world writeable executable",
+                    "MatchStrings": [
+                        "chmod 0777"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/permission-modify-dangerous.yara#chmod_dangerous_exec_val",
+                    "ID": "fs/permission/modify/dangerous",
+                    "RuleName": "chmod_dangerous_exec_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/opentofu-1.8.3-r0.apk3567094808/var/lib/db/sbom/opentofu-1.8.3-r0.spdx.json": {
+            "Path": "/tmp/opentofu-1.8.3-r0.apk3567094808/var/lib/db/sbom/opentofu-1.8.3-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

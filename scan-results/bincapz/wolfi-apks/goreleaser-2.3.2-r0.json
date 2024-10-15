@@ -1,0 +1,50 @@
+{
+    "Files": {
+        "/tmp/goreleaser-2.3.2-r0.apk2564338170/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/goreleaser-2.3.2-r0.apk2564338170/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/goreleaser-2.3.2-r0.apk2564338170/usr/bin/goreleaser": {
+            "Path": "datasets/apk/goreleaser-2.3.2-r0.apk ∴ /usr/bin/goreleaser",
+            "SHA256": "d7d19d3f1c1c4cc8549fedc67de459771135db5fee66da0099c8ca333c6b9a94",
+            "Size": 72516853,
+            "Behaviors": [
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "state/usr/lib/.bui",
+                        "ystemd/user/usr/local/share/info/usr/lib/.bui"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                },
+                {
+                    "Description": "Launches background processes from a relative path",
+                    "MatchStrings": [
+                        "./usr/share/lintian/overrides/sign \u0026"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/background_launcher.yara#relative_background_launcher",
+                    "ID": "shell/background_launcher",
+                    "RuleName": "relative_background_launcher"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/goreleaser-2.3.2-r0.apk2564338170/var/lib/db/sbom/goreleaser-2.3.2-r0.spdx.json": {
+            "Path": "/tmp/goreleaser-2.3.2-r0.apk2564338170/var/lib/db/sbom/goreleaser-2.3.2-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

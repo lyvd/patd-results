@@ -1,0 +1,55 @@
+{
+    "Files": {
+        "/tmp/lychee-0.15.1-r2.apk1878204204/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/lychee-0.15.1-r2.apk1878204204/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/lychee-0.15.1-r2.apk1878204204/usr/bin/lychee": {
+            "Path": "datasets/apk/lychee-0.15.1-r2.apk ∴ /usr/bin/lychee",
+            "SHA256": "e91dc26d3e81766d79a9e1a8150d862939f5a13a3ee17ef18bb55e4c06393637",
+            "Size": 25071144,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Opera",
+                        "Safari",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "References xmlrpc.php from wordpress",
+                    "MatchStrings": [
+                        "/xmlrpc.php"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/wordpress_xmlrpc.yara#wordpress_xmlrpc",
+                    "ID": "ref/site/wordpress_xmlrpc",
+                    "RuleName": "wordpress_xmlrpc"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/lychee-0.15.1-r2.apk1878204204/var/lib/db/sbom/lychee-0.15.1-r2.spdx.json": {
+            "Path": "/tmp/lychee-0.15.1-r2.apk1878204204/var/lib/db/sbom/lychee-0.15.1-r2.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

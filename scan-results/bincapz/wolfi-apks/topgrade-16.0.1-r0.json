@@ -1,0 +1,58 @@
+{
+    "Files": {
+        "/tmp/topgrade-16.0.1-r0.apk2224969079/usr/bin/topgrade": {
+            "Path": "datasets/apk/topgrade-16.0.1-r0.apk ∴ /usr/bin/topgrade",
+            "SHA256": "35e0e78d5b9df310da4f7f3fb97f807aa6627c51ecb7af896265cf6d7fca88d7",
+            "Size": 9618728,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install -i"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                },
+                {
+                    "Description": "possible SSH stealer",
+                    "MatchStrings": [
+                        ".ssh",
+                        "socket",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/ssh.yara#tar_ssh_net",
+                    "ID": "combo/stealer/ssh",
+                    "RuleName": "tar_ssh_net"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/topgrade-16.0.1-r0.apk2224969079/usr/share/doc/topgrade/config.example.toml": {
+            "Path": "/tmp/topgrade-16.0.1-r0.apk2224969079/usr/share/doc/topgrade/config.example.toml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/topgrade-16.0.1-r0.apk2224969079/usr/share/license/topgrade/LICENSE": {
+            "Path": "/tmp/topgrade-16.0.1-r0.apk2224969079/usr/share/license/topgrade/LICENSE",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/topgrade-16.0.1-r0.apk2224969079/var/lib/db/sbom/topgrade-16.0.1-r0.spdx.json": {
+            "Path": "/tmp/topgrade-16.0.1-r0.apk2224969079/var/lib/db/sbom/topgrade-16.0.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

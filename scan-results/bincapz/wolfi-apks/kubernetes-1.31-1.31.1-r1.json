@@ -1,0 +1,124 @@
+{
+    "Files": {
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-apiserver": {
+            "Path": "datasets/apk/kubernetes-1.31-1.31.1-r1.apk ∴ /usr/bin/kube-apiserver",
+            "SHA256": "b7f9f0251af9b4409e720d550e1e181540d80949d2354cb6409d5830bb1b24b6",
+            "Size": 90308760,
+            "Behaviors": [
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "Mozilla/",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-controller-manager": {
+            "Path": "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-controller-manager",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-proxy": {
+            "Path": "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-proxy",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-scheduler": {
+            "Path": "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kube-scheduler",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kubeadm": {
+            "Path": "datasets/apk/kubernetes-1.31-1.31.1-r1.apk ∴ /usr/bin/kubeadm",
+            "SHA256": "e8ee3be1859a9743df4fcb340267be90df98242d1b4aad042afb94353c696169",
+            "Size": 58708120,
+            "Behaviors": [
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kubectl": {
+            "Path": "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kubectl",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/usr/bin/kubelet": {
+            "Path": "datasets/apk/kubernetes-1.31-1.31.1-r1.apk ∴ /usr/bin/kubelet",
+            "SHA256": "7bbadf3678eea6a131aca9a7e6ed3b543aca06e7f88dc8cb49f876d4dd26d41c",
+            "Size": 77226672,
+            "Behaviors": [
+                {
+                    "Description": "probable container escape",
+                    "MatchStrings": [
+                        "/sys/kernel/security/apparmor",
+                        "CAP_SYS_ADMIN",
+                        "cgroup.procs"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/exploit/breakout.yara#probable_container_breakout",
+                    "ID": "combo/exploit/breakout",
+                    "RuleName": "probable_container_breakout"
+                },
+                {
+                    "Description": "Has a user agent and collects network info",
+                    "MatchStrings": [
+                        "/proc/net/route",
+                        "User-Agent"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/recon/upload_netinfo.yara#user_agent_proc_net_route",
+                    "ID": "combo/recon/upload_netinfo",
+                    "RuleName": "user_agent_proc_net_route"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/var/lib/db/sbom/kubernetes-1.31-1.31.1-r1.spdx.json": {
+            "Path": "/tmp/kubernetes-1.31-1.31.1-r1.apk1561028391/var/lib/db/sbom/kubernetes-1.31-1.31.1-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

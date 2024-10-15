@@ -1,0 +1,71 @@
+{
+    "Files": {
+        "/tmp/oranda-0.6.5-r0.apk1312834575/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/oranda-0.6.5-r0.apk1312834575/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/oranda-0.6.5-r0.apk1312834575/usr/bin/oranda": {
+            "Path": "datasets/apk/oranda-0.6.5-r0.apk ∴ /usr/bin/oranda",
+            "SHA256": "ac82a2e2671cf0969eb192f4c973d21c2caf7d3591c30c36e7c212539bd6ae58",
+            "Size": 28545656,
+            "Behaviors": [
+                {
+                    "Description": "fetches content and pipes it to a shell",
+                    "MatchStrings": [
+                        "curl --proto '=https' --tlsv1.2 -LsSf  | sh",
+                        "curl --proto '=https' --tlsv1.2 -LsSf https://github.com/axodotdev/oranda/releases/download/v0.6.1/oranda-installer.sh | sh",
+                        "curl --proto '=https' --tlsv1.2 -LsSf https://github.com/axodotdev/oranda/releases/latest/download/oranda-installer.sh | sh",
+                        "curl install.sh | sh"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#fetch_pipe_shell_value",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "fetch_pipe_shell_value"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/oranda-0.6.5-r0.apk1312834575/var/lib/db/sbom/oranda-0.6.5-r0.spdx.json": {
+            "Path": "/tmp/oranda-0.6.5-r0.apk1312834575/var/lib/db/sbom/oranda-0.6.5-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

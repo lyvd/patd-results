@@ -1,0 +1,43 @@
+{
+    "Files": {
+        "/tmp/crossplane-provider-azure-1.7.0-r0.apk318441429/usr/bin/provider": {
+            "Path": "datasets/apk/crossplane-provider-azure-1.7.0-r0.apk ∴ /usr/bin/provider",
+            "SHA256": "fbfea3375d3c57280078bcdd423b2f5628609604163c9ca4ed717c365ba27753",
+            "Size": 364236968,
+            "Behaviors": [
+                {
+                    "Description": "contains SSH public key",
+                    "MatchStrings": [
+                        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBs"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/data/embedded-ssh-key.yara#ssh_public_key",
+                    "ReferenceURL": "https://unfinished.bike/qubitstrike-and-diamorphine-linux-kernel-rootkits-go-mainstream",
+                    "ID": "data/embedded/ssh/key",
+                    "RuleName": "ssh_public_key"
+                },
+                {
+                    "Description": "references a reverse shell",
+                    "MatchStrings": [
+                        "WebShell"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/shell/reverse.yara#reverse_shell",
+                    "ID": "shell/reverse",
+                    "RuleName": "reverse_shell"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/crossplane-provider-azure-1.7.0-r0.apk318441429/var/lib/db/sbom/crossplane-provider-azure-1.7.0-r0.spdx.json": {
+            "Path": "/tmp/crossplane-provider-azure-1.7.0-r0.apk318441429/var/lib/db/sbom/crossplane-provider-azure-1.7.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

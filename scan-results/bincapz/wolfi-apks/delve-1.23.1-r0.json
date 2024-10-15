@@ -1,0 +1,47 @@
+{
+    "Files": {
+        "/tmp/delve-1.23.1-r0.apk2642955199/usr/bin/dlv": {
+            "Path": "datasets/apk/delve-1.23.1-r0.apk ∴ /usr/bin/dlv",
+            "SHA256": "9bd4f383ff7611b1a5aa284a06567a5b74d9a807c8790c3fd8302c537af2991d",
+            "Size": 15664680,
+            "Behaviors": [
+                {
+                    "Description": "may inject code into other processes",
+                    "MatchStrings": [
+                        "/proc/%d/maps",
+                        "process",
+                        "ptrace"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-inject.yara#ptrace_injector",
+                    "ID": "evasion/process/inject",
+                    "RuleName": "ptrace_injector"
+                },
+                {
+                    "Description": "accesses unusual process information",
+                    "MatchStrings": [
+                        "/proc/%d/auxv",
+                        "/proc/%d/cmdline",
+                        "/proc/%d/comm",
+                        "/proc/%d/exe"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-inspector.yara#pid_inspector_high",
+                    "ID": "procfs/pid/inspector",
+                    "RuleName": "pid_inspector_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/delve-1.23.1-r0.apk2642955199/var/lib/db/sbom/delve-1.23.1-r0.spdx.json": {
+            "Path": "/tmp/delve-1.23.1-r0.apk2642955199/var/lib/db/sbom/delve-1.23.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

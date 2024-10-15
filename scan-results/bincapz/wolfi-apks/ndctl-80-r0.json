@@ -1,0 +1,684 @@
+{
+    "Files": {
+        "/tmp/ndctl-80-r0.apk3902691535/etc/daxctl.conf.d/daxctl.example.conf": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/etc/daxctl.conf.d/daxctl.example.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/etc/modprobe.d/nvdimm-security.conf": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/etc/modprobe.d/nvdimm-security.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/etc/ndctl.conf.d/monitor.conf": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/etc/ndctl.conf.d/monitor.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/etc/ndctl.conf.d/ndctl.conf": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/etc/ndctl.conf.d/ndctl.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/etc/ndctl/keys/keys.readme": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/etc/ndctl/keys/keys.readme",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/bin/cxl": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/bin/cxl",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/bin/daxctl": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/bin/daxctl",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/bin/ndctl": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/bin/ndctl",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libcxl.so.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libcxl.so.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libcxl.so.1.0.7": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libcxl.so.1.0.7",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libdaxctl.so.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libdaxctl.so.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libdaxctl.so.1.0.6": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libdaxctl.so.1.0.6",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libndctl.so.6": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libndctl.so.6",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libndctl.so.6.4.21": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/libndctl.so.6.4.21",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/systemd/system/cxl-monitor.service": {
+            "Path": "datasets/apk/ndctl-80-r0.apk ∴ /usr/lib/systemd/system/cxl-monitor.service",
+            "SHA256": "775e75229ccdd1502cf5b5c96d12d0aa5ae0a4be6f664edd50d041647885a947",
+            "Size": 130,
+            "Behaviors": [
+                {
+                    "Description": "systemd unit is undocumented",
+                    "MatchStrings": [
+                        "ExecStart="
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/systemd/no_docs_or_comments.yara#systemd_no_comments_or_documentation",
+                    "ReferenceURL": "https://sandflysecurity.com/blog/log4j-kinsing-linux-malware-in-the-wild/",
+                    "ID": "systemd/no_docs_or_comments",
+                    "RuleName": "systemd_no_comments_or_documentation"
+                },
+                {
+                    "Description": "Relies on nothing, nothing relies on it",
+                    "MatchStrings": [
+                        "ExecStart="
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/systemd/out_of_dependency_tree.yara#systemd_not_in_dependency_tree",
+                    "ID": "systemd/out_of_dependency_tree",
+                    "RuleName": "systemd_not_in_dependency_tree"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/systemd/system/daxdev-reconfigure@.service": {
+            "Path": "datasets/apk/ndctl-80-r0.apk ∴ /usr/lib/systemd/system/daxdev-reconfigure@.service",
+            "SHA256": "6e5a19a992f3f3e171d471b3a640c9dc4ca8c51d3574fce01c9e50907bcbcd91",
+            "Size": 221,
+            "Behaviors": [
+                {
+                    "Description": "Relies on nothing, nothing relies on it",
+                    "MatchStrings": [
+                        "ExecStart="
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/systemd/out_of_dependency_tree.yara#systemd_not_in_dependency_tree",
+                    "ID": "systemd/out_of_dependency_tree",
+                    "RuleName": "systemd_not_in_dependency_tree"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/systemd/system/ndctl-monitor.service": {
+            "Path": "datasets/apk/ndctl-80-r0.apk ∴ /usr/lib/systemd/system/ndctl-monitor.service",
+            "SHA256": "80f419550655c7a59d0b8982d387bc89bdd10f42ac151c8b3fe0f7f236f48671",
+            "Size": 134,
+            "Behaviors": [
+                {
+                    "Description": "systemd unit is undocumented",
+                    "MatchStrings": [
+                        "ExecStart="
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/systemd/no_docs_or_comments.yara#systemd_no_comments_or_documentation",
+                    "ReferenceURL": "https://sandflysecurity.com/blog/log4j-kinsing-linux-malware-in-the-wild/",
+                    "ID": "systemd/no_docs_or_comments",
+                    "RuleName": "systemd_no_comments_or_documentation"
+                },
+                {
+                    "Description": "Relies on nothing, nothing relies on it",
+                    "MatchStrings": [
+                        "ExecStart="
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/systemd/out_of_dependency_tree.yara#systemd_not_in_dependency_tree",
+                    "ID": "systemd/out_of_dependency_tree",
+                    "RuleName": "systemd_not_in_dependency_tree"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/lib/udev/rules.d/90-daxctl-device.rules": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/lib/udev/rules.d/90-daxctl-device.rules",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/bash-completion/completions/cxl": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/bash-completion/completions/cxl",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/bash-completion/completions/daxctl": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/bash-completion/completions/daxctl",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/bash-completion/completions/ndctl": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/bash-completion/completions/ndctl",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/daxctl/daxctl.conf": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/daxctl/daxctl.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-create-region.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-create-region.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-destroy-region.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-destroy-region.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-bus.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-bus.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-memdev.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-memdev.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-port.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-port.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-region.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-disable-region.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-enable-memdev.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-enable-memdev.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-enable-port.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-enable-port.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-enable-region.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-enable-region.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-free-dpa.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-free-dpa.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-list.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-list.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-monitor.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-monitor.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-read-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-read-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-reserve-dpa.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-reserve-dpa.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-set-alert-config.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-set-alert-config.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-set-partition.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-set-partition.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-update-firmware.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-update-firmware.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-wait-sanitize.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-wait-sanitize.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-write-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-write-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-zero-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl-zero-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/cxl.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-create-device.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-create-device.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-destroy-device.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-destroy-device.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-disable-device.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-disable-device.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-enable-device.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-enable-device.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-list.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-list.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-migrate-device-model.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-migrate-device-model.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-offline-memory.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-offline-memory.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-online-memory.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-online-memory.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-reconfigure-device.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl-reconfigure-device.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/daxctl.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-activate-firmware.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-activate-firmware.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-check-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-check-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-check-namespace.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-check-namespace.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-clear-errors.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-clear-errors.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-create-namespace.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-create-namespace.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-destroy-namespace.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-destroy-namespace.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-disable-dimm.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-disable-dimm.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-disable-namespace.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-disable-namespace.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-disable-region.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-disable-region.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-enable-dimm.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-enable-dimm.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-enable-namespace.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-enable-namespace.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-enable-region.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-enable-region.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-freeze-security.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-freeze-security.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-init-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-init-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-inject-error.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-inject-error.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-inject-smart.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-inject-smart.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-list.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-list.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-load-keys.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-load-keys.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-monitor.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-monitor.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-read-infoblock.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-read-infoblock.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-read-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-read-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-remove-passphrase.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-remove-passphrase.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-sanitize-dimm.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-sanitize-dimm.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-setup-passphrase.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-setup-passphrase.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-start-scrub.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-start-scrub.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-update-firmware.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-update-firmware.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-update-passphrase.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-update-passphrase.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-wait-overwrite.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-wait-overwrite.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-wait-scrub.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-wait-scrub.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-write-infoblock.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-write-infoblock.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-write-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-write-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-zero-labels.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl-zero-labels.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl.1": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man1/ndctl.1",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man3/cxl_new.3": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man3/cxl_new.3",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man3/libcxl.3": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/usr/share/man/man3/libcxl.3",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/ndctl-80-r0.apk3902691535/var/lib/db/sbom/ndctl-80-r0.spdx.json": {
+            "Path": "/tmp/ndctl-80-r0.apk3902691535/var/lib/db/sbom/ndctl-80-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

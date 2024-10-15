@@ -1,0 +1,62 @@
+{
+    "Files": {
+        "/tmp/deno-2.0.0-r0.apk2248888462/usr/bin/deno": {
+            "Path": "datasets/apk/deno-2.0.0-r0.apk ∴ /usr/bin/deno",
+            "SHA256": "5bc86deca727fb6d8d0878c78b44f818ea74bd05b7d266568f841974f329afb6",
+            "Size": 132016192,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "This signature detects Microsoft Excel spreadsheets that contain hidden sheets. Presence of a hidden sheet alone is not indication of malicious behavior.",
+                    "MatchStrings": [
+                        "$macro_sheet_h1",
+                        "State = \"hidden\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/InQuest-VT/Microsoft_Excel_Hidden_Macrosheet.yar#Microsoft_Excel_Hidden_Macrosheet",
+                    "RuleAuthor": "InQuest Labs",
+                    "ID": "3P/InQuest-VT/microsoft/excel/hidden",
+                    "RuleName": "Microsoft_Excel_Hidden_Macrosheet"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/deno-2.0.0-r0.apk2248888462/var/lib/db/sbom/deno-2.0.0-r0.spdx.json": {
+            "Path": "/tmp/deno-2.0.0-r0.apk2248888462/var/lib/db/sbom/deno-2.0.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,94 @@
+{
+    "Files": {
+        "/tmp/frp-0.60.0-r1.apk350532543/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/frp-0.60.0-r1.apk350532543/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/frp-0.60.0-r1.apk350532543/usr/bin/frpc": {
+            "Path": "datasets/apk/frp-0.60.0-r1.apk ∴ /usr/bin/frpc",
+            "SHA256": "8ef0caec8735a366d469902951daf97791c2328c10e3251329209d4776d6579b",
+            "Size": 14913208,
+            "Behaviors": [
+                {
+                    "Description": "Detect fast reverse proxy (frp)",
+                    "MatchStrings": [
+                        "json:\"authenticate_new_work_conns\"",
+                        "json:\"bind_addr\"",
+                        "json:\"health_check_interval_s\"",
+                        "json:\"log_way\"",
+                        "json:\"sk\"",
+                        "json:\"token_type,omitempty\""
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/JPCERT/other/tool.yara#tool_frp_str",
+                    "ReferenceURL": "https://github.com/fatedier/frp",
+                    "RuleAuthor": "JPCERT/CC Incident Response Group",
+                    "ID": "3P/JPCERT/frp/str",
+                    "RuleName": "tool_frp_str"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/frp-0.60.0-r1.apk350532543/usr/bin/frps": {
+            "Path": "datasets/apk/frp-0.60.0-r1.apk ∴ /usr/bin/frps",
+            "SHA256": "57c4c490ef38a710064c81ce6c9f8d4e1845faab775dc1d404b619379c70fe70",
+            "Size": 18666168,
+            "Behaviors": [
+                {
+                    "Description": "Detect fast reverse proxy (frp)",
+                    "MatchStrings": [
+                        "json:\"authenticate_new_work_conns\"",
+                        "json:\"bind_addr\"",
+                        "json:\"detailed_errors_to_client\"",
+                        "json:\"health_check_interval_s\"",
+                        "json:\"log_way\"",
+                        "json:\"oidc_skip_expiry_check\"",
+                        "json:\"proxy_name\"",
+                        "json:\"sk\"",
+                        "json:\"token_type,omitempty\""
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/JPCERT/other/tool.yara#tool_frp_str",
+                    "ReferenceURL": "https://github.com/fatedier/frp",
+                    "RuleAuthor": "JPCERT/CC Incident Response Group",
+                    "ID": "3P/JPCERT/frp/str",
+                    "RuleName": "tool_frp_str"
+                },
+                {
+                    "Description": "Detects Linux Proxy Frp (Linux.Proxy.Frp)",
+                    "MatchStrings": [
+                        "frp/client/proxy/proxy_manager.go",
+                        "frp/cmd/frps/main.go",
+                        "github.com/fatedier/frp/server/proxy",
+                        "json:\"remote_port\"",
+                        "remote_addr"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/elastic/protections-artifacts//blob/d59600196a2d19f5ac8e25b603e811946eebe1d1/yara/rules/Linux_Proxy_Frp.yar#L1-L28",
+                    "RuleAuthor": "Elastic Security",
+                    "RuleAuthorURL": "https://github.com/elastic/protections-artifacts/",
+                    "RuleLicense": "Elastic License v2",
+                    "RuleLicenseURL": "https://github.com/elastic/protections-artifacts//blob/d59600196a2d19f5ac8e25b603e811946eebe1d1/LICENSE.txt",
+                    "ID": "3P/elastic/proxy/frp",
+                    "RuleName": "ELASTIC_Linux_Proxy_Frp_4213778F"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/frp-0.60.0-r1.apk350532543/var/lib/db/sbom/frp-0.60.0-r1.spdx.json": {
+            "Path": "/tmp/frp-0.60.0-r1.apk350532543/var/lib/db/sbom/frp-0.60.0-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

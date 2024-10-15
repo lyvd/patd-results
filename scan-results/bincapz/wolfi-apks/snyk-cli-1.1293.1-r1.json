@@ -1,0 +1,60 @@
+{
+    "Files": {
+        "/tmp/snyk-cli-1.1293.1-r1.apk447844552/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/snyk-cli-1.1293.1-r1.apk447844552/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/snyk-cli-1.1293.1-r1.apk447844552/usr/bin/snyk": {
+            "Path": "datasets/apk/snyk-cli-1.1293.1-r1.apk ∴ /usr/bin/snyk",
+            "SHA256": "a73cdd3db6f3eda19dab10e05145d66cba6d82ceefe361829cb74ed1dcf01664",
+            "Size": 109112936,
+            "Behaviors": [
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "built by archaic gcc version",
+                    "MatchStrings": [
+                        "GCC: (GNU) 4.8.5"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/program/ancient_gcc.yara#built_by_archaic_gcc_version",
+                    "ID": "ref/program/ancient_gcc",
+                    "RuleName": "built_by_archaic_gcc_version"
+                },
+                {
+                    "Description": "References an exploit",
+                    "MatchStrings": [
+                        "Exploit"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/words/exploit.yara#exploiter",
+                    "ID": "ref/words/exploit",
+                    "RuleName": "exploiter"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/snyk-cli-1.1293.1-r1.apk447844552/var/lib/db/sbom/snyk-cli-1.1293.1-r1.spdx.json": {
+            "Path": "/tmp/snyk-cli-1.1293.1-r1.apk447844552/var/lib/db/sbom/snyk-cli-1.1293.1-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,52 @@
+{
+    "Files": {
+        "/tmp/bpftool-7.4.0-r1.apk4009604016/usr/sbin/bpftool": {
+            "Path": "datasets/apk/bpftool-7.4.0-r1.apk ∴ /usr/sbin/bpftool",
+            "SHA256": "2bc41ba77d56f539bf420ecc24e0a05ffb7913962179e2bb7df77b24c28bbe29",
+            "Size": 661584,
+            "Behaviors": [
+                {
+                    "Description": "access unexported kernel symbols",
+                    "MatchStrings": [
+                        "kallsyms_lookup_name"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/symbol-lookup.yara#kallsyms",
+                    "ReferenceURL": "https://lwn.net/Articles/813350/",
+                    "ID": "kernel/symbol/lookup",
+                    "RuleName": "kallsyms"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd",
+                        "/proc/%s/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/bpftool-7.4.0-r1.apk4009604016/usr/share/bash-completion/completions/bpftool": {
+            "Path": "/tmp/bpftool-7.4.0-r1.apk4009604016/usr/share/bash-completion/completions/bpftool",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/bpftool-7.4.0-r1.apk4009604016/var/lib/db/sbom/bpftool-7.4.0-r1.spdx.json": {
+            "Path": "/tmp/bpftool-7.4.0-r1.apk4009604016/var/lib/db/sbom/bpftool-7.4.0-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

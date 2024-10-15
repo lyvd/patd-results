@@ -1,0 +1,94 @@
+{
+    "Files": {
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/sudo-rs-0.2.3-r1.apk352086039/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/etc/pam.d/sudo": {
+            "Path": "/tmp/sudo-rs-0.2.3-r1.apk352086039/etc/pam.d/sudo",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/etc/pam.d/sudo-i": {
+            "Path": "/tmp/sudo-rs-0.2.3-r1.apk352086039/etc/pam.d/sudo-i",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/etc/sudoers": {
+            "Path": "/tmp/sudo-rs-0.2.3-r1.apk352086039/etc/sudoers",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/usr/bin/su": {
+            "Path": "datasets/apk/sudo-rs-0.2.3-r1.apk ∴ /usr/bin/su",
+            "SHA256": "c69f15227f7b670609170484ff4a8819465640f9a3f1daa700fcb1b9a3e443eb",
+            "Size": 498328,
+            "Behaviors": [
+                {
+                    "Description": "password authentication module may record passwords",
+                    "MatchStrings": [
+                        "pam_authenticate",
+                        "password",
+                        "socket"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/pam.yara#pam_passwords",
+                    "ID": "combo/stealer/pam",
+                    "RuleName": "pam_passwords"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/usr/bin/sudo": {
+            "Path": "datasets/apk/sudo-rs-0.2.3-r1.apk ∴ /usr/bin/sudo",
+            "SHA256": "aa3236db82c959edebdad57fce2be2ffa208087d83cd0022ff5b27d51f1cd0a8",
+            "Size": 809624,
+            "Behaviors": [
+                {
+                    "Description": "references /etc/sudoers",
+                    "MatchStrings": [
+                        "/etc/sudoers"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/sudoers-edit.yara#sudo_editor",
+                    "ID": "admin/sudoers/edit",
+                    "RuleName": "sudo_editor"
+                },
+                {
+                    "Description": "password authentication module may record passwords",
+                    "MatchStrings": [
+                        "pam_authenticate",
+                        "password",
+                        "socket"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/pam.yara#pam_passwords",
+                    "ID": "combo/stealer/pam",
+                    "RuleName": "pam_passwords"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/sudo-rs-0.2.3-r1.apk352086039/var/lib/db/sbom/sudo-rs-0.2.3-r1.spdx.json": {
+            "Path": "/tmp/sudo-rs-0.2.3-r1.apk352086039/var/lib/db/sbom/sudo-rs-0.2.3-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

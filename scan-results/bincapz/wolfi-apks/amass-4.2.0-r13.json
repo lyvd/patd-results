@@ -1,0 +1,90 @@
+{
+    "Files": {
+        "/tmp/amass-4.2.0-r13.apk228100093/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/amass-4.2.0-r13.apk228100093/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/amass-4.2.0-r13.apk228100093/usr/bin/amass": {
+            "Path": "datasets/apk/amass-4.2.0-r13.apk ∴ /usr/bin/amass",
+            "SHA256": "d8b342525542eaef7f2962c18edb15ee924c1ea0234b13bf41cd4164c2982224",
+            "Size": 40907304,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "Yandex",
+                        "https",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "pretends to be MSIE",
+                    "MatchStrings": [
+                        "compatible; MSIE 9"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/fake-user-agent.yara#fake_user_agent_msie",
+                    "ID": "evasion/fake/user/agent",
+                    "RuleName": "fake_user_agent_msie"
+                },
+                {
+                    "Description": "public service to discover external IP address",
+                    "MatchStrings": [
+                        "ipinfo.io"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/public_ip.yara#iplookup_website_value",
+                    "ID": "net/public_ip",
+                    "RuleName": "iplookup_website_value"
+                },
+                {
+                    "Description": "contains 'Control D' DNS resolver IP",
+                    "MatchStrings": [
+                        "76.76.2.0"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip-dns_resolver.yara#ctrld_ip",
+                    "ID": "ref/ip/dns_resolver",
+                    "RuleName": "ctrld_ip"
+                },
+                {
+                    "Description": "References websites that host code that can be used maliciously",
+                    "MatchStrings": [
+                        "shodan.io"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/grayware.yara#grayware_sites",
+                    "ID": "ref/site/grayware",
+                    "RuleName": "grayware_sites"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/amass-4.2.0-r13.apk228100093/var/lib/db/sbom/amass-4.2.0-r13.spdx.json": {
+            "Path": "/tmp/amass-4.2.0-r13.apk228100093/var/lib/db/sbom/amass-4.2.0-r13.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

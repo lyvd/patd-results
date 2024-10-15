@@ -1,0 +1,98 @@
+{
+    "Files": {
+        "/tmp/influxd-2.7.10-r1.apk388890880/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/influxd-2.7.10-r1.apk388890880/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/influxd-2.7.10-r1.apk388890880/etc/defaults/influxdb2/config.yml": {
+            "Path": "/tmp/influxd-2.7.10-r1.apk388890880/etc/defaults/influxdb2/config.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/influxd-2.7.10-r1.apk388890880/usr/bin/influxd": {
+            "Path": "datasets/apk/influxd-2.7.10-r1.apk ∴ /usr/bin/influxd",
+            "SHA256": "a03f1004435e7afc91ea798c83ecd970623eecb07c43f4e6ba41a5826c2339e8",
+            "Size": 130888344,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Discord",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "gets passwords, makes HTTP requests, and uses Discord",
+                    "MatchStrings": [
+                        "GET",
+                        "POST",
+                        "Password",
+                        "credentials",
+                        "creds",
+                        "discordapp.com",
+                        "get(",
+                        "https://",
+                        "password",
+                        "post(",
+                        "x-www-form-urlencoded"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/discord.yara#discord_password_post_chat",
+                    "ID": "combo/stealer/discord",
+                    "RuleName": "discord_password_post_chat"
+                },
+                {
+                    "Description": "Uses the Discord webhooks API",
+                    "MatchStrings": [
+                        "discordapp.com/api/webhooks/"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/exfil/discord.yara#discord_bot",
+                    "ReferenceURL": "https://github.com/bartblaze/community/blob/3f3997f8c79c3605ae6d5324c8578cb12c452512/data/yara/binaries/indicator_high.yar#L706",
+                    "ID": "exfil/discord",
+                    "RuleName": "discord_bot"
+                },
+                {
+                    "Description": "hardcoded IP:port destination",
+                    "MatchStrings": [
+                        "10.49.234.114:57777"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip_port.yara#hardcoded_ip_port",
+                    "ID": "ref/ip_port",
+                    "RuleName": "hardcoded_ip_port"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/influxd-2.7.10-r1.apk388890880/var/lib/db/sbom/influxd-2.7.10-r1.spdx.json": {
+            "Path": "/tmp/influxd-2.7.10-r1.apk388890880/var/lib/db/sbom/influxd-2.7.10-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

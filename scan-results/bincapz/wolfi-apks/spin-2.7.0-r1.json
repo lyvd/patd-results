@@ -1,0 +1,41 @@
+{
+    "Files": {
+        "/tmp/spin-2.7.0-r1.apk861021722/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/spin-2.7.0-r1.apk861021722/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/spin-2.7.0-r1.apk861021722/usr/bin/spin": {
+            "Path": "datasets/apk/spin-2.7.0-r1.apk ∴ /usr/bin/spin",
+            "SHA256": "20ff70e214396ed8ab2107d9230583af6afc90accb959a5b4eb305e46e739a93",
+            "Size": 98620920,
+            "Behaviors": [
+                {
+                    "Description": "listens for packets without a socket, executes programs",
+                    "MatchStrings": [
+                        "=0x",
+                        "execve",
+                        "tcp[",
+                        "udp["
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/socket_filter_exec.yara#linux_network_filter_exec",
+                    "ID": "combo/backdoor/socket_filter_exec",
+                    "RuleName": "linux_network_filter_exec"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/spin-2.7.0-r1.apk861021722/var/lib/db/sbom/spin-2.7.0-r1.spdx.json": {
+            "Path": "/tmp/spin-2.7.0-r1.apk861021722/var/lib/db/sbom/spin-2.7.0-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,95 @@
+{
+    "Files": {
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/LICENSE": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/LICENSE",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/bin/helm-cm-push": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/bin/helm-cm-push",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/plugin.yaml": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/plugin.yaml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/scripts/acceptance.sh": {
+            "Path": "datasets/apk/helm-push-0.10.4-r15.apk ∴ /usr/libexec/helm-plugins/helm-push/scripts/acceptance.sh",
+            "SHA256": "f5b38a6ee84f280ef26e80adaa09d7960ece89d6cb528e9ba87ea4fed1521041",
+            "Size": 770,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip3 install"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/scripts/install_plugin.sh": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/scripts/install_plugin.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/scripts/setup_test_environment.sh": {
+            "Path": "datasets/apk/helm-push-0.10.4-r15.apk ∴ /usr/libexec/helm-plugins/helm-push/scripts/setup_test_environment.sh",
+            "SHA256": "b360aeb44a7f2e1531eb40093e6d9088e21257747ec49d1e458dd9c0ee2ca995",
+            "Size": 2687,
+            "Behaviors": [
+                {
+                    "Description": "change dir, fetch file, make it executable, and run it",
+                    "MatchStrings": [
+                        "./pgp/helm-test-key.secret .",
+                        "cd $DIR/",
+                        "chmod +x ./chartmuseum",
+                        "chmod +x ./helm",
+                        "curl -L https://get.helm.sh/chartmuseum-${CHARTMUSEUM_VERSION",
+                        "curl -LO"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#curl_chmod_relative_run_tiny",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "curl_chmod_relative_run_tiny"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/scripts/test.sh": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/usr/libexec/helm-plugins/helm-push/scripts/test.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/helm-push-0.10.4-r15.apk2385826266/var/lib/db/sbom/helm-push-0.10.4-r15.spdx.json": {
+            "Path": "/tmp/helm-push-0.10.4-r15.apk2385826266/var/lib/db/sbom/helm-push-0.10.4-r15.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

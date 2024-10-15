@@ -1,0 +1,43 @@
+{
+    "Files": {
+        "/tmp/temporal-ui-server-2.31.2-r0.apk1439754303/usr/bin/ui-server": {
+            "Path": "datasets/apk/temporal-ui-server-2.31.2-r0.apk ∴ /usr/bin/ui-server",
+            "SHA256": "d9b7d2415fab835a54a3c1788e5c5bd087dafcdae75b3d5fdf448f6f64f5ae2e",
+            "Size": 33097032,
+            "Behaviors": [
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "This signature detects Microsoft Excel spreadsheets that contain hidden sheets. Presence of a hidden sheet alone is not indication of malicious behavior.",
+                    "MatchStrings": [
+                        "State = \"hidden\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/yara/InQuest-VT/Microsoft_Excel_Hidden_Macrosheet.yar#Microsoft_Excel_Hidden_Macrosheet",
+                    "RuleAuthor": "InQuest Labs",
+                    "ID": "3P/InQuest-VT/microsoft/excel/hidden",
+                    "RuleName": "Microsoft_Excel_Hidden_Macrosheet"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/temporal-ui-server-2.31.2-r0.apk1439754303/var/lib/db/sbom/temporal-ui-server-2.31.2-r0.spdx.json": {
+            "Path": "/tmp/temporal-ui-server-2.31.2-r0.apk1439754303/var/lib/db/sbom/temporal-ui-server-2.31.2-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

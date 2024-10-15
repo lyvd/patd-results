@@ -1,0 +1,46 @@
+{
+    "Files": {
+        "/tmp/melange-0.13.4-r0.apk2651474886/usr/bin/melange": {
+            "Path": "datasets/apk/melange-0.13.4-r0.apk ∴ /usr/bin/melange",
+            "SHA256": "7a42bb38153a7afc26ef7c1b9b49a75b5ae69dd989e6e41afb811876b8dacb43",
+            "Size": 54914336,
+            "Behaviors": [
+                {
+                    "Description": "change dir, fetch file via tor, make it executable, and run it",
+                    "MatchStrings": [
+                        "./b",
+                        "./configure --prefix",
+                        "./configure command.",
+                        "./configure.ac",
+                        "./dist/",
+                        "./m",
+                        "./package.json",
+                        "./pipe/docker",
+                        "./pombump-deps.yaml",
+                        "./pombump-properties.yaml",
+                        "./q",
+                        ".onion",
+                        "cd $",
+                        "cd /home/build",
+                        "chmod",
+                        "curl -L"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#curl_tor_chmod_relative_run",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "curl_tor_chmod_relative_run"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/melange-0.13.4-r0.apk2651474886/var/lib/db/sbom/melange-0.13.4-r0.spdx.json": {
+            "Path": "/tmp/melange-0.13.4-r0.apk2651474886/var/lib/db/sbom/melange-0.13.4-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

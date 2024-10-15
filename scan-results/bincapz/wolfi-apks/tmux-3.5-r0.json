@@ -1,0 +1,64 @@
+{
+    "Files": {
+        "/tmp/tmux-3.5-r0.apk3987898104/usr/bin/tmux": {
+            "Path": "datasets/apk/tmux-3.5-r0.apk ∴ /usr/bin/tmux",
+            "SHA256": "e4637667d9b1837be666cdf25a3a0aaa800d207e42f2ab996c3bfa42046a37d9",
+            "Size": 1178768,
+            "Behaviors": [
+                {
+                    "Description": "execute a shell command",
+                    "MatchStrings": [
+                        "shell_exec"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/exec/shell_command.yara#php_shell_exec_hmm",
+                    "ID": "exec/shell_command",
+                    "RuleName": "php_shell_exec_hmm"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%ld/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tmux-3.5-r0.apk3987898104/usr/share/doc/tmux/CHANGES": {
+            "Path": "/tmp/tmux-3.5-r0.apk3987898104/usr/share/doc/tmux/CHANGES",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tmux-3.5-r0.apk3987898104/usr/share/doc/tmux/README": {
+            "Path": "/tmp/tmux-3.5-r0.apk3987898104/usr/share/doc/tmux/README",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tmux-3.5-r0.apk3987898104/usr/share/doc/tmux/examples/tmux.conf": {
+            "Path": "/tmp/tmux-3.5-r0.apk3987898104/usr/share/doc/tmux/examples/tmux.conf",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tmux-3.5-r0.apk3987898104/var/lib/db/sbom/tmux-3.5-r0.spdx.json": {
+            "Path": "/tmp/tmux-3.5-r0.apk3987898104/var/lib/db/sbom/tmux-3.5-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,58 @@
+{
+    "Files": {
+        "/tmp/strace-6.11-r0.apk1217605966/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/strace-6.11-r0.apk1217605966/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/strace-6.11-r0.apk1217605966/usr/bin/strace": {
+            "Path": "datasets/apk/strace-6.11-r0.apk ∴ /usr/bin/strace",
+            "SHA256": "558dee7eeff12b14f503017b4483159d4490490ea2aed1bd3f891ef89bf49909",
+            "Size": 2032136,
+            "Behaviors": [
+                {
+                    "Description": "may inject code into other processes",
+                    "MatchStrings": [
+                        "/proc/%u/maps",
+                        "process",
+                        "ptrace"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-inject.yara#ptrace_injector",
+                    "ID": "evasion/process/inject",
+                    "RuleName": "ptrace_injector"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%u/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/strace-6.11-r0.apk1217605966/usr/bin/strace-log-merge": {
+            "Path": "/tmp/strace-6.11-r0.apk1217605966/usr/bin/strace-log-merge",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/strace-6.11-r0.apk1217605966/var/lib/db/sbom/strace-6.11-r0.spdx.json": {
+            "Path": "/tmp/strace-6.11-r0.apk1217605966/var/lib/db/sbom/strace-6.11-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

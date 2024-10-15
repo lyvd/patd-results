@@ -1,0 +1,70 @@
+{
+    "Files": {
+        "/tmp/minio-0.20241002.175041-r0.apk4177280956/usr/bin/docker-entrypoint.sh": {
+            "Path": "/tmp/minio-0.20241002.175041-r0.apk4177280956/usr/bin/docker-entrypoint.sh",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/minio-0.20241002.175041-r0.apk4177280956/usr/bin/minio": {
+            "Path": "datasets/apk/minio-0.20241002.175041-r0.apk ∴ /usr/bin/minio",
+            "SHA256": "2e827d323090f179c2dde88c71a5877228ed990e4b503d224fa2c66553df6835",
+            "Size": 103787304,
+            "Behaviors": [
+                {
+                    "Description": "Hides shell command history",
+                    "MatchStrings": [
+                        "set +o history"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/hide_shell_history.yara#hide_shell_history",
+                    "ID": "evasion/hide_shell_history",
+                    "RuleName": "hide_shell_history"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "hardcoded IP:port destination",
+                    "MatchStrings": [
+                        "172.16.34.31:9000"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/ip_port.yara#hardcoded_ip_port",
+                    "ID": "ref/ip_port",
+                    "RuleName": "hardcoded_ip_port"
+                },
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "etransitioned_versions.minio.sys/tmp/.tra"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/minio-0.20241002.175041-r0.apk4177280956/var/lib/db/sbom/minio-0.20241002.175041-r0.spdx.json": {
+            "Path": "/tmp/minio-0.20241002.175041-r0.apk4177280956/var/lib/db/sbom/minio-0.20241002.175041-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,59 @@
+{
+    "Files": {
+        "/tmp/kdash-0.6.1-r1.apk795050061/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/kdash-0.6.1-r1.apk795050061/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/kdash-0.6.1-r1.apk795050061/usr/bin/kdash": {
+            "Path": "datasets/apk/kdash-0.6.1-r1.apk ∴ /usr/bin/kdash",
+            "SHA256": "5e15c0e92b02a308cd2f93aac01c7f47bf77cbbdacdff474f7fcd1ed82561135",
+            "Size": 12627600,
+            "Behaviors": [
+                {
+                    "Description": "accesses multiple critical Linux paths",
+                    "MatchStrings": [
+                        "/boot/system/data/sslcerts.pemca-bundl",
+                        "/proc/seH",
+                        "/proc/self/cgroupcpu/sys/fs/cgroupcgro",
+                        "/proc/self/exe",
+                        "/proc/self/maps__pthread_get_minstack",
+                        "/proc/self/mountinfoInvalid",
+                        "/sys/class/dmi/id/product_nameapplication_",
+                        "/tmp/.X11-unix/XRender",
+                        "/usr/bin/make",
+                        "/var/run/secrets/kubernetes.io/serviceac",
+                        "sysctl..S"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/critical_paths.yara#linux_critical_system_paths_high",
+                    "ID": "combo/critical_paths",
+                    "RuleName": "linux_critical_system_paths_high"
+                },
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "failed/tmp/.X11"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/kdash-0.6.1-r1.apk795050061/var/lib/db/sbom/kdash-0.6.1-r1.spdx.json": {
+            "Path": "/tmp/kdash-0.6.1-r1.apk795050061/var/lib/db/sbom/kdash-0.6.1-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,105 @@
+{
+    "Files": {
+        "/tmp/tfsec-1.28.11-r0.apk3075970833/usr/bin/tfsec": {
+            "Path": "datasets/apk/tfsec-1.28.11-r0.apk ∴ /usr/bin/tfsec",
+            "SHA256": "f75e3d5da8efa8ad274c57a8b1dd6a511178153f39948339f7fd9af6558a6285",
+            "Size": 48732840,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install --no-cache-dir",
+                        "pip install --upgrade"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                },
+                {
+                    "Description": "multiple cloud credentials",
+                    "MatchStrings": [
+                        ".config/gcloud",
+                        ".netrc",
+                        ".pgpass",
+                        ".s3cfg",
+                        "application_default_credentials.json"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/cloud.yara#multiple_cloud_credentials",
+                    "ID": "combo/stealer/cloud",
+                    "RuleName": "multiple_cloud_credentials"
+                },
+                {
+                    "Description": "changes to an unusual system directory",
+                    "MatchStrings": [
+                        "cd /usr/share/nginx/htm"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/process/chdir-unusual.yara#unusual_cd_val",
+                    "ID": "process/chdir/unusual",
+                    "RuleName": "unusual_cd_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tfsec-1.28.11-r0.apk3075970833/usr/bin/tfsec-checkgen": {
+            "Path": "datasets/apk/tfsec-1.28.11-r0.apk ∴ /usr/bin/tfsec-checkgen",
+            "SHA256": "e9cd6e2d543b0f358839b98c863f7102aa2e7b49c2cbc9f734f3f11d446d77c6",
+            "Size": 47142920,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install --no-cache-dir",
+                        "pip install --upgrade"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                },
+                {
+                    "Description": "multiple cloud credentials",
+                    "MatchStrings": [
+                        ".config/gcloud",
+                        ".netrc",
+                        ".pgpass",
+                        ".s3cfg",
+                        "application_default_credentials.json"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/cloud.yara#multiple_cloud_credentials",
+                    "ID": "combo/stealer/cloud",
+                    "RuleName": "multiple_cloud_credentials"
+                },
+                {
+                    "Description": "changes to an unusual system directory",
+                    "MatchStrings": [
+                        "cd /usr/share/nginx/htm"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/process/chdir-unusual.yara#unusual_cd_val",
+                    "ID": "process/chdir/unusual",
+                    "RuleName": "unusual_cd_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tfsec-1.28.11-r0.apk3075970833/var/lib/db/sbom/tfsec-1.28.11-r0.spdx.json": {
+            "Path": "/tmp/tfsec-1.28.11-r0.apk3075970833/var/lib/db/sbom/tfsec-1.28.11-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

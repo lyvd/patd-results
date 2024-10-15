@@ -1,0 +1,83 @@
+{
+    "Files": {
+        "/tmp/buck2-20241001-r1.apk634902465/usr/bin/buck2": {
+            "Path": "datasets/apk/buck2-20241001-r1.apk ∴ /usr/bin/buck2",
+            "SHA256": "81db40621b0afa6b7ee0b9e6c8a62ccb8a90468e20d839add8ae9ad6211d1a3f",
+            "Size": 124042072,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                },
+                {
+                    "Description": "debug program with high refs",
+                    "MatchStrings": [
+                        "POST",
+                        "_system",
+                        "com.apple.security.get-task-allow",
+                        "executed"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/dbg_exec_post.yara#debug_program_with_high_refs",
+                    "ID": "combo/backdoor/dbg_exec_post",
+                    "RuleName": "debug_program_with_high_refs"
+                },
+                {
+                    "Description": "calls multiple functions useful for exfiltrating data",
+                    "MatchStrings": [
+                        "blake2",
+                        "glob",
+                        "import",
+                        "multiprocessing",
+                        "python",
+                        "subprocess",
+                        "tarfile",
+                        "urllib",
+                        "zipfile"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/archive.yara#py_crypto_urllib_multiprocessing",
+                    "ReferenceURL": "trojan.python/drop%20-%20e8eb4f2a73181711fc5439d0dc90059f54820fe07d9727cf5f2417c5cec6da0e",
+                    "ID": "combo/stealer/archive",
+                    "RuleName": "py_crypto_urllib_multiprocessing"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Opera",
+                        "Safari",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/buck2-20241001-r1.apk634902465/var/lib/db/sbom/buck2-20241001-r1.spdx.json": {
+            "Path": "/tmp/buck2-20241001-r1.apk634902465/var/lib/db/sbom/buck2-20241001-r1.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

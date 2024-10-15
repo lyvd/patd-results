@@ -1,0 +1,64 @@
+{
+    "Files": {
+        "/tmp/gobuster-3.6.0-r14.apk1680873810/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/gobuster-3.6.0-r14.apk1680873810/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/gobuster-3.6.0-r14.apk1680873810/usr/bin/gobuster": {
+            "Path": "datasets/apk/gobuster-3.6.0-r14.apk ∴ /usr/bin/gobuster",
+            "SHA256": "dea2c803d3a9a88eb88ff1df3851ff87d468c779710ca12d8442e5efd8e483c9",
+            "Size": 9422192,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "https",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "pretends to be MSIE",
+                    "MatchStrings": [
+                        "compatible; MSIE 10",
+                        "compatible; MSIE 2",
+                        "compatible; MSIE 3",
+                        "compatible; MSIE 4",
+                        "compatible; MSIE 5",
+                        "compatible; MSIE 6",
+                        "compatible; MSIE 7",
+                        "compatible; MSIE 8",
+                        "compatible; MSIE 9"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/fake-user-agent.yara#fake_user_agent_msie",
+                    "ID": "evasion/fake/user/agent",
+                    "RuleName": "fake_user_agent_msie"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/gobuster-3.6.0-r14.apk1680873810/var/lib/db/sbom/gobuster-3.6.0-r14.spdx.json": {
+            "Path": "/tmp/gobuster-3.6.0-r14.apk1680873810/var/lib/db/sbom/gobuster-3.6.0-r14.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

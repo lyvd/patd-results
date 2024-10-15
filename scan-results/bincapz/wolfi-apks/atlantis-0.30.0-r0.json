@@ -1,0 +1,51 @@
+{
+    "Files": {
+        "/tmp/atlantis-0.30.0-r0.apk1369079703/usr/bin/atlantis": {
+            "Path": "datasets/apk/atlantis-0.30.0-r0.apk ∴ /usr/bin/atlantis",
+            "SHA256": "a610e3a4e1355e06802a23254f3e5bd85c95a910a5ecec126a1c66075dfd9f0a",
+            "Size": 36828816,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/atlantis-0.30.0-r0.apk1369079703/var/lib/db/sbom/atlantis-0.30.0-r0.spdx.json": {
+            "Path": "/tmp/atlantis-0.30.0-r0.apk1369079703/var/lib/db/sbom/atlantis-0.30.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

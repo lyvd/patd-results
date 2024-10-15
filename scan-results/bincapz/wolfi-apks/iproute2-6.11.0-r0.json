@@ -1,0 +1,309 @@
+{
+    "Files": {
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/bridge": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/bridge",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/ctstat": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/ctstat",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/genl": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/genl",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/ifstat": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/ifstat",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/ip": {
+            "Path": "datasets/apk/iproute2-6.11.0-r0.apk ∴ /sbin/ip",
+            "SHA256": "9e3cce91b3a4264fb60e9140409a74b55194ceaa0cbe4bc9e08f7a01628829b0",
+            "Size": 778472,
+            "Behaviors": [
+                {
+                    "Description": "userland rootkit designed to hide processes",
+                    "MatchStrings": [
+                        "/proc/%s/stat",
+                        "/proc/self/fd/%d",
+                        "readdir"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-hide.yara#elf_possible_prochid",
+                    "ReferenceURL": "prochid.c",
+                    "ID": "evasion/process/hide",
+                    "RuleName": "elf_possible_prochid"
+                },
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/lnstat": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/lnstat",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/nstat": {
+            "Path": "datasets/apk/iproute2-6.11.0-r0.apk ∴ /sbin/nstat",
+            "SHA256": "8b8b6263ace421c4440ccbe4f88df5ff983dc1132fbb4c6e7c244b53cdac4e3c",
+            "Size": 134376,
+            "Behaviors": [
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "/tmp/.nst"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/routel": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/routel",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/rtacct": {
+            "Path": "datasets/apk/iproute2-6.11.0-r0.apk ∴ /sbin/rtacct",
+            "SHA256": "b5319a63be4948f7a7d75d182fdd38a94a2dc27a0a53383d4b8f7aff6a3909c7",
+            "Size": 58928,
+            "Behaviors": [
+                {
+                    "Description": "access raw system memory",
+                    "MatchStrings": [
+                        "/dev/mem"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/dev/mem.yara#mem",
+                    "ID": "kernel/dev/mem",
+                    "RuleName": "mem"
+                },
+                {
+                    "Description": "hidden path in a system directory",
+                    "MatchStrings": [
+                        "/tmp/.rta"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/path/hidden.yara#hidden_short_path",
+                    "ID": "ref/path/hidden",
+                    "RuleName": "hidden_short_path"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/rtmon": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/rtmon",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/rtstat": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/rtstat",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/ss": {
+            "Path": "datasets/apk/iproute2-6.11.0-r0.apk ∴ /sbin/ss",
+            "SHA256": "bdac7924f092245f0134b94ad2b4c49471587bda95e97bbbb4824e869892d809",
+            "Size": 219152,
+            "Behaviors": [
+                {
+                    "Description": "userland rootkit designed to hide processes",
+                    "MatchStrings": [
+                        "/proc/%s/stat",
+                        "/proc/self/fd/%d",
+                        "readdir"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/process-hide.yara#elf_possible_prochid",
+                    "ReferenceURL": "prochid.c",
+                    "ID": "evasion/process/hide",
+                    "RuleName": "elf_possible_prochid"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/sbin/tc": {
+            "Path": "datasets/apk/iproute2-6.11.0-r0.apk ∴ /sbin/tc",
+            "SHA256": "94c7826d6eaf2822f5ec6c66c80ca133fbff2a5b7c352c3480753bf513c0bf43",
+            "Size": 637920,
+            "Behaviors": [
+                {
+                    "Description": "accesses file descriptors of other processes",
+                    "MatchStrings": [
+                        "/proc/%d/fd"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-fd.yara#proc_fd_high",
+                    "ReferenceURL": "https://s.tencent.com/research/report/1219.html",
+                    "ID": "procfs/pid/fd",
+                    "RuleName": "proc_fd_high"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/include/iproute2/bpf_elf.h": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/include/iproute2/bpf_elf.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/experimental.dist": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/experimental.dist",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/normal.dist": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/normal.dist",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/pareto.dist": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/pareto.dist",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/paretonormal.dist": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/lib/tc/paretonormal.dist",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/bash-completion/completions/devlink": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/bash-completion/completions/devlink",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/bash-completion/completions/tc": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/bash-completion/completions/tc",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/bpf_pinning": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/bpf_pinning",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/ematch_map": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/ematch_map",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/group": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/group",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/nl_protos": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/nl_protos",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_dsfield": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_dsfield",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_protos": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_protos",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_realms": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_realms",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_scopes": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_scopes",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_tables": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/usr/share/iproute2/rt_tables",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/iproute2-6.11.0-r0.apk3143676393/var/lib/db/sbom/iproute2-6.11.0-r0.spdx.json": {
+            "Path": "/tmp/iproute2-6.11.0-r0.apk3143676393/var/lib/db/sbom/iproute2-6.11.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

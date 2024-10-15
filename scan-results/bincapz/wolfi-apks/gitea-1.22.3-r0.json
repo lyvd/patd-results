@@ -1,0 +1,53 @@
+{
+    "Files": {
+        "/tmp/gitea-1.22.3-r0.apk1710372091/usr/bin/gitea": {
+            "Path": "datasets/apk/gitea-1.22.3-r0.apk ∴ /usr/bin/gitea",
+            "SHA256": "5ec4476f96a6044123e1220a33922758b98ea88c9d40e78701975c8001ec036f",
+            "Size": 120100080,
+            "Behaviors": [
+                {
+                    "Description": "ssh backdoor",
+                    "MatchStrings": [
+                        "authorized_keys",
+                        "backdoor"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/ssh.yara#ssh_backdoor",
+                    "ID": "combo/backdoor/ssh",
+                    "RuleName": "ssh_backdoor"
+                },
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "Yandex",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/gitea-1.22.3-r0.apk1710372091/var/lib/db/sbom/gitea-1.22.3-r0.spdx.json": {
+            "Path": "/tmp/gitea-1.22.3-r0.apk1710372091/var/lib/db/sbom/gitea-1.22.3-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

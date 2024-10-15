@@ -1,0 +1,50 @@
+{
+    "Files": {
+        "/tmp/terraform-1.5.7-r16.apk2237696789/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/terraform-1.5.7-r16.apk2237696789/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/terraform-1.5.7-r16.apk2237696789/usr/bin/terraform": {
+            "Path": "datasets/apk/terraform-1.5.7-r16.apk ∴ /usr/bin/terraform",
+            "SHA256": "b937366deb6d027ce0a94b02233c711f6cf1e10e3f716b2ecfb81c100e3a91de",
+            "Size": 74399518,
+            "Behaviors": [
+                {
+                    "Description": "Runs powershell with an encoded command",
+                    "MatchStrings": [
+                        "-EncodedCommand",
+                        "powershell"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/powershell_encoded.yara#powershell_encoded_command_val",
+                    "ID": "evasion/powershell_encoded",
+                    "RuleName": "powershell_encoded_command_val"
+                },
+                {
+                    "Description": "Makes a world writeable executable",
+                    "MatchStrings": [
+                        "chmod 0777"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/fs/permission-modify-dangerous.yara#chmod_dangerous_exec_val",
+                    "ID": "fs/permission/modify/dangerous",
+                    "RuleName": "chmod_dangerous_exec_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/terraform-1.5.7-r16.apk2237696789/var/lib/db/sbom/terraform-1.5.7-r16.spdx.json": {
+            "Path": "/tmp/terraform-1.5.7-r16.apk2237696789/var/lib/db/sbom/terraform-1.5.7-r16.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

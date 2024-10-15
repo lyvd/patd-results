@@ -1,0 +1,67 @@
+{
+    "Files": {
+        "/tmp/zarf-0.41.0-r0.apk4189365960/usr/bin/zarf": {
+            "Path": "datasets/apk/zarf-0.41.0-r0.apk ∴ /usr/bin/zarf",
+            "SHA256": "385211e9e9415ed66f1bf46a737cbcdc87965cc064599035117c0551172b392a",
+            "Size": 187740400,
+            "Behaviors": [
+                {
+                    "Description": "Makes references to multiple browser credentials",
+                    "MatchStrings": [
+                        ".config",
+                        "Cookies",
+                        "Firefox",
+                        "Opera",
+                        "User Data"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#multiple_browser_refs",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "multiple_browser_refs"
+                },
+                {
+                    "Description": "multiple cloud credentials",
+                    "MatchStrings": [
+                        ".config/gcloud",
+                        ".git-credentials",
+                        ".netrc",
+                        ".pgpass",
+                        "application_default_credentials.json"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/cloud.yara#multiple_cloud_credentials",
+                    "ID": "combo/stealer/cloud",
+                    "RuleName": "multiple_cloud_credentials"
+                },
+                {
+                    "Description": "suspected data stealer",
+                    "MatchStrings": [
+                        "Atomic",
+                        "Bookmarks",
+                        "Discord",
+                        "Firefox",
+                        "History",
+                        "Snowflake",
+                        "Telegram"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/creds.yara#suspected_data_stealer",
+                    "ID": "combo/stealer/creds",
+                    "RuleName": "suspected_data_stealer"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/zarf-0.41.0-r0.apk4189365960/var/lib/db/sbom/zarf-0.41.0-r0.spdx.json": {
+            "Path": "/tmp/zarf-0.41.0-r0.apk4189365960/var/lib/db/sbom/zarf-0.41.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

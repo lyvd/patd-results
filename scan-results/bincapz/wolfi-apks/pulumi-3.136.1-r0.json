@@ -1,0 +1,43 @@
+{
+    "Files": {
+        "/tmp/pulumi-3.136.1-r0.apk1574250492/usr/bin/pulumi": {
+            "Path": "datasets/apk/pulumi-3.136.1-r0.apk ∴ /usr/bin/pulumi",
+            "SHA256": "aebdce9aeb52226de5d378b2d42ee2ef2f7632bd75940aad20b7219c01a34e0d",
+            "Size": 81234480,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install --upgrade",
+                        "pip install -r"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                },
+                {
+                    "Description": "fetches content and pipes it to a shell",
+                    "MatchStrings": [
+                        "curl -sSL https://get.pulumi.com | sh"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#fetch_pipe_shell_value",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "fetch_pipe_shell_value"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/pulumi-3.136.1-r0.apk1574250492/var/lib/db/sbom/pulumi-3.136.1-r0.spdx.json": {
+            "Path": "/tmp/pulumi-3.136.1-r0.apk1574250492/var/lib/db/sbom/pulumi-3.136.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

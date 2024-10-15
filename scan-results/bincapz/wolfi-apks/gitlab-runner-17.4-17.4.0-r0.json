@@ -1,0 +1,49 @@
+{
+    "Files": {
+        "/tmp/gitlab-runner-17.4-17.4.0-r0.apk188097671/usr/bin/gitlab-runner": {
+            "Path": "datasets/apk/gitlab-runner-17.4-17.4.0-r0.apk ∴ /usr/bin/gitlab-runner",
+            "SHA256": "f53d3d579ff6c6786d860a9bbefa43aa82abe7499b78d00472279e2edb8d464f",
+            "Size": 91542825,
+            "Behaviors": [
+                {
+                    "Description": "change dir, fetch file via tor, make it executable, and run it",
+                    "MatchStrings": [
+                        "./d",
+                        "./executors/docker.md",
+                        "./executors/kubernetes/index.md",
+                        "./extensions",
+                        "./foo/../bar/../../baz../..",
+                        "./helper-imagesprebuilt-",
+                        "./invalid input",
+                        "./pipe/docker",
+                        "./pluginb",
+                        "./pods/",
+                        "./protob",
+                        "./r",
+                        "./z",
+                        ".onion",
+                        "cd /proc",
+                        "chmod 777",
+                        "chmod path",
+                        "curl -v -X",
+                        "curl prior to v7.68.0 and OpenSSL. However"
+                    ],
+                    "RiskScore": 4,
+                    "RiskLevel": "CRITICAL",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/dropper/shell.yara#curl_tor_chmod_relative_run",
+                    "ID": "combo/dropper/shell",
+                    "RuleName": "curl_tor_chmod_relative_run"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/gitlab-runner-17.4-17.4.0-r0.apk188097671/var/lib/db/sbom/gitlab-runner-17.4-17.4.0-r0.spdx.json": {
+            "Path": "/tmp/gitlab-runner-17.4-17.4.0-r0.apk188097671/var/lib/db/sbom/gitlab-runner-17.4-17.4.0-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

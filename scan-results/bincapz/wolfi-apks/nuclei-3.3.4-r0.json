@@ -1,0 +1,80 @@
+{
+    "Files": {
+        "/tmp/nuclei-3.3.4-r0.apk1045207196/usr/bin/nuclei": {
+            "Path": "datasets/apk/nuclei-3.3.4-r0.apk ∴ /usr/bin/nuclei",
+            "SHA256": "2910e6e0346ea39777ba3cae046e4796d397c27696f5d703a3be1e185272fe94",
+            "Size": 90909216,
+            "Behaviors": [
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                },
+                {
+                    "Description": "public service for IP geolocation",
+                    "MatchStrings": [
+                        "ip-api.com"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/geoip.yara#geoip_website_value",
+                    "ID": "net/geoip",
+                    "RuleName": "geoip_website_value"
+                },
+                {
+                    "Description": "public service to discover external IP address",
+                    "MatchStrings": [
+                        "checkip.amazonaws.com",
+                        "ipify.or",
+                        "ipinfo.io"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/public_ip.yara#iplookup_website_value",
+                    "ID": "net/public_ip",
+                    "RuleName": "iplookup_website_value"
+                },
+                {
+                    "Description": "References websites that host code that can be used maliciously",
+                    "MatchStrings": [
+                        "shodan.io"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/ref/site/grayware.yara#grayware_sites",
+                    "ID": "ref/site/grayware",
+                    "RuleName": "grayware_sites"
+                },
+                {
+                    "Description": "accesses Slack data",
+                    "MatchStrings": [
+                        ".config",
+                        "Slack",
+                        "leveldb"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/secrets/slack.yara#slack_leveldb",
+                    "ReferenceURL": "https://www.sentinelone.com/blog/macos-malware-2023-a-deep-dive-into-emerging-trends-and-evolving-techniques/",
+                    "ID": "secrets/slack",
+                    "RuleName": "slack_leveldb"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/nuclei-3.3.4-r0.apk1045207196/var/lib/db/sbom/nuclei-3.3.4-r0.spdx.json": {
+            "Path": "/tmp/nuclei-3.3.4-r0.apk1045207196/var/lib/db/sbom/nuclei-3.3.4-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

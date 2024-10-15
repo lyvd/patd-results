@@ -1,0 +1,66 @@
+{
+    "Files": {
+        "/tmp/meilisearch-1.10.3-r0.apk1954667956/usr/bin/meilisearch": {
+            "Path": "datasets/apk/meilisearch-1.10.3-r0.apk ∴ /usr/bin/meilisearch",
+            "SHA256": "96ce310bedf8959b43f1536068592f33098ea841ef887c75df340219c8088c11",
+            "Size": 120783232,
+            "Behaviors": [
+                {
+                    "Description": "Uses HTTP, archives, and references multiple browsers",
+                    "MatchStrings": [
+                        ".config",
+                        "Chrome",
+                        "Discord",
+                        "Firefox",
+                        "Opera",
+                        "POST",
+                        "Safari",
+                        "ZIP",
+                        "https",
+                        "tar",
+                        "zip"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/stealer/browser.yara#userdata_browser_archiver",
+                    "ID": "combo/stealer/browser",
+                    "RuleName": "userdata_browser_archiver"
+                },
+                {
+                    "Description": "commands in base64 form",
+                    "MatchStrings": [
+                        "9wZW5zc2::$b_openssl",
+                        "NobW9k::$b_chmod",
+                        "Y2htb2::$b_chmod",
+                        "b3BlbnNzb::$b_openssl"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/base64-commands.yara#base64_commands",
+                    "ID": "evasion/base64/commands",
+                    "RuleName": "base64_commands"
+                },
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/meilisearch-1.10.3-r0.apk1954667956/var/lib/db/sbom/meilisearch-1.10.3-r0.spdx.json": {
+            "Path": "/tmp/meilisearch-1.10.3-r0.apk1954667956/var/lib/db/sbom/meilisearch-1.10.3-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

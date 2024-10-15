@@ -1,0 +1,97 @@
+{
+    "Files": {
+        "/tmp/checksec-2.7.1-r0.apk1935017088/.SIGN.RSA.wolfi-signing.rsa.pub": {
+            "Path": "/tmp/checksec-2.7.1-r0.apk1935017088/.SIGN.RSA.wolfi-signing.rsa.pub",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/checksec-2.7.1-r0.apk1935017088/usr/bin/checksec": {
+            "Path": "datasets/apk/checksec-2.7.1-r0.apk ∴ /usr/bin/checksec",
+            "SHA256": "8646a95eede8d9ae429210cb4dc02212c3ce0fca4b386ad8d6a2e1a947cdc3ed",
+            "Size": 76783,
+            "Behaviors": [
+                {
+                    "Description": "likely pipes base64 into a shell",
+                    "MatchStrings": [
+                        "base64 -d",
+                        "bash",
+                        "echo"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/base64-eval.yara#echo_decode_bash_probable",
+                    "ID": "evasion/base64/eval",
+                    "RuleName": "echo_decode_bash_probable"
+                },
+                {
+                    "Description": "references a non-standard libc library (normally libc.so.6)",
+                    "MatchStrings": [
+                        "libc.so.7"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/fake-library.yara#libc_fake_number_val",
+                    "ReferenceURL": "https://cert.gov.ua/article/6123309",
+                    "ID": "evasion/fake/library",
+                    "RuleName": "libc_fake_number_val"
+                },
+                {
+                    "Description": "access raw kernel memory",
+                    "MatchStrings": [
+                        "/dev/kmem"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/dev/kmem.yara#kmem",
+                    "ID": "kernel/dev/kmem",
+                    "RuleName": "kmem"
+                },
+                {
+                    "Description": "access raw system memory",
+                    "MatchStrings": [
+                        "/dev/mem"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/kernel/dev/mem.yara#mem",
+                    "ID": "kernel/dev/mem",
+                    "RuleName": "mem"
+                },
+                {
+                    "Description": "high-risk fetch command",
+                    "MatchStrings": [
+                        "curl --insecure --remote-name -o \"${2}\" \"${1}\"",
+                        "wget --no-check-certificate -O \"${2}\" \"${1}\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/fetch-suspicious.yara#high_fetch_command_val",
+                    "ID": "net/fetch/suspicious",
+                    "RuleName": "high_fetch_command_val"
+                },
+                {
+                    "Description": "accesses underlying executable of other processes",
+                    "MatchStrings": [
+                        "/proc/%s/exe"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/procfs/pid-exe.yara#proc_exe",
+                    "ID": "procfs/pid/exe",
+                    "RuleName": "proc_exe"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/checksec-2.7.1-r0.apk1935017088/var/lib/db/sbom/checksec-2.7.1-r0.spdx.json": {
+            "Path": "/tmp/checksec-2.7.1-r0.apk1935017088/var/lib/db/sbom/checksec-2.7.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

@@ -1,0 +1,47 @@
+{
+    "Files": {
+        "/tmp/pixi-0.32.1-r0.apk2083373675/usr/bin/pixi": {
+            "Path": "datasets/apk/pixi-0.32.1-r0.apk ∴ /usr/bin/pixi",
+            "SHA256": "cf1e9c664ed6d149d42e58e46c9737964f97f36a8dc53c1409af6ba5fd4a79cc",
+            "Size": 55469320,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip install --prefix"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                },
+                {
+                    "Description": "pseudoterminal and tunnel support",
+                    "MatchStrings": [
+                        "exceptionstunnel",
+                        "ptsname",
+                        "tunnelingh2not",
+                        "tunnelprivate",
+                        "tunnelproxy",
+                        "tunnelunexpected"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/net_term.yara#pseudoterminal_tunnel",
+                    "ID": "combo/backdoor/net_term",
+                    "RuleName": "pseudoterminal_tunnel"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/pixi-0.32.1-r0.apk2083373675/var/lib/db/sbom/pixi-0.32.1-r0.spdx.json": {
+            "Path": "/tmp/pixi-0.32.1-r0.apk2083373675/var/lib/db/sbom/pixi-0.32.1-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}

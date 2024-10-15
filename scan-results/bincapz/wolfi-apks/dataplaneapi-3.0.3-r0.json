@@ -1,0 +1,43 @@
+{
+    "Files": {
+        "/tmp/dataplaneapi-3.0.3-r0.apk4064752872/usr/bin/dataplaneapi": {
+            "Path": "datasets/apk/dataplaneapi-3.0.3-r0.apk ∴ /usr/bin/dataplaneapi",
+            "SHA256": "239241574ec6a9952e353a564b30f02cc8239031bc3fb5c27b8f187a9da7342a",
+            "Size": 43505408,
+            "Behaviors": [
+                {
+                    "Description": "load agent with payload",
+                    "MatchStrings": [
+                        "loadAgent",
+                        "payload"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/backdoor/payload.yara#load_agent_with_payload",
+                    "ID": "combo/backdoor/payload",
+                    "RuleName": "load_agent_with_payload"
+                },
+                {
+                    "Description": "unusual pid (process id) file location",
+                    "MatchStrings": [
+                        "/tmp/dataplane.pid"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/odd_pidfile.yara#exotic_pid_file",
+                    "ID": "evasion/odd_pidfile",
+                    "RuleName": "exotic_pid_file"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/dataplaneapi-3.0.3-r0.apk4064752872/var/lib/db/sbom/dataplaneapi-3.0.3-r0.spdx.json": {
+            "Path": "/tmp/dataplaneapi-3.0.3-r0.apk4064752872/var/lib/db/sbom/dataplaneapi-3.0.3-r0.spdx.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}
