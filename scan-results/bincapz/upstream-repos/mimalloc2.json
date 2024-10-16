@@ -1,0 +1,2192 @@
+{
+    "Files": {
+        "/tmp/mimalloc2.zip1756171535/.gitignore": {
+            "Path": "/tmp/mimalloc2.zip1756171535/.gitignore",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/CMakeLists.txt": {
+            "Path": "/tmp/mimalloc2.zip1756171535/CMakeLists.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/LICENSE": {
+            "Path": "/tmp/mimalloc2.zip1756171535/LICENSE",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/SECURITY.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/SECURITY.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/azure-pipelines.yml": {
+            "Path": "/tmp/mimalloc2.zip1756171535/azure-pipelines.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect.dll": {
+            "Path": "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect.dll",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect.lib": {
+            "Path": "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect.lib",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect32.dll": {
+            "Path": "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect32.dll",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect32.lib": {
+            "Path": "/tmp/mimalloc2.zip1756171535/bin/mimalloc-redirect32.lib",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/minject.exe": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/upstream_repos/mimalloc2.zip ∴ /bin/minject.exe",
+            "SHA256": "02997103bbaaed43477aea018d9d76da036b19f09d007fec009eff6de49e61c4",
+            "Size": 22016,
+            "Behaviors": [
+                {
+                    "Description": "Likely Windows EDR/Antivirus bypass",
+                    "MatchStrings": [
+                        "GetCurrentProcess",
+                        "GetCurrentThread",
+                        "GetModuleHandle",
+                        "GetSystemTimeAsFileTime",
+                        "IsDebuggerPresent",
+                        "IsProcessorFeaturePresent",
+                        "QueryPerformanceCounter",
+                        "UnhandledExceptionFilter"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/degrader/edr_killer.yara#win_kill_proc_likely",
+                    "ID": "combo/degrader/edr_killer",
+                    "RuleName": "win_kill_proc_likely"
+                },
+                {
+                    "Description": "Detects if process is being executed within a debugger or VM",
+                    "MatchStrings": [
+                        "IsDebuggerPresent",
+                        "IsProcessorFeaturePresent",
+                        "QueryPerformanceCounter",
+                        "UnhandledExceptionFilter"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/anti-debugger.yara#win_debugger_or_cpu",
+                    "ID": "evasion/anti/debugger",
+                    "RuleName": "win_debugger_or_cpu"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/minject32.exe": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/upstream_repos/mimalloc2.zip ∴ /bin/minject32.exe",
+            "SHA256": "1a87d2a35cda35f0ebb33506bbcf4364d07c4cdac2d23566b9d060ad8fee1b12",
+            "Size": 18944,
+            "Behaviors": [
+                {
+                    "Description": "Likely Windows EDR/Antivirus bypass",
+                    "MatchStrings": [
+                        "GetCurrentProcess",
+                        "GetCurrentThread",
+                        "GetModuleHandle",
+                        "GetSystemTimeAsFileTime",
+                        "IsDebuggerPresent",
+                        "IsProcessorFeaturePresent",
+                        "QueryPerformanceCounter",
+                        "TerminateProcess",
+                        "UnhandledExceptionFilter"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/combo/degrader/edr_killer.yara#win_kill_proc_likely",
+                    "ID": "combo/degrader/edr_killer",
+                    "RuleName": "win_kill_proc_likely"
+                },
+                {
+                    "Description": "Detects if process is being executed within a debugger or VM",
+                    "MatchStrings": [
+                        "IsDebuggerPresent",
+                        "IsProcessorFeaturePresent",
+                        "QueryPerformanceCounter",
+                        "UnhandledExceptionFilter"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/anti-debugger.yara#win_debugger_or_cpu",
+                    "ID": "evasion/anti/debugger",
+                    "RuleName": "win_debugger_or_cpu"
+                }
+            ],
+            "RiskScore": 4,
+            "RiskLevel": "CRITICAL"
+        },
+        "/tmp/mimalloc2.zip1756171535/bin/readme.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/bin/readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/cmake/JoinPaths.cmake": {
+            "Path": "/tmp/mimalloc2.zip1756171535/cmake/JoinPaths.cmake",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/cmake/mimalloc-config-version.cmake": {
+            "Path": "/tmp/mimalloc2.zip1756171535/cmake/mimalloc-config-version.cmake",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/cmake/mimalloc-config.cmake": {
+            "Path": "/tmp/mimalloc2.zip1756171535/cmake/mimalloc-config.cmake",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-a.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-a.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-b.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-b.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-rss-a.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-rss-a.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-rss-b.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-c5-18xlarge-2020-01-20-rss-b.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-1.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-1.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-12xlarge-2020-01-16-a.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-12xlarge-2020-01-16-a.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-12xlarge-2020-01-16-b.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-12xlarge-2020-01-16-b.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-2.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-2.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-rss-1.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-rss-1.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-rss-2.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-r5a-rss-2.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-spec-rss.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-spec-rss.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-spec.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-spec.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-1.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-1.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-2.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-2.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-rss-1.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-rss-1.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-rss-2.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2020/bench-z4-rss-2.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-amd5950x-2021-01-30-a.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-amd5950x-2021-01-30-a.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-amd5950x-2021-01-30-b.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-amd5950x-2021-01-30-b.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-a.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-a.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-b.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-b.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-rss-a.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-rss-a.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-rss-b.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-c5-18xlarge-2021-01-30-rss-b.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-macmini-2021-01-30.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/bench-2021/bench-macmini-2021-01-30.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/doxyfile": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/doxyfile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/ds-logo.jpg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/ds-logo.jpg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/ds-logo.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/ds-logo.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/mimalloc-doc.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/mimalloc-doc.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/mimalloc-doxygen.css": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/mimalloc-doxygen.css",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/mimalloc-logo-100.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/mimalloc-logo-100.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/mimalloc-logo.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/mimalloc-logo.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/mimalloc-logo.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/mimalloc-logo.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/spades-logo.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/spades-logo.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/doc/unreal-logo.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/doc/unreal-logo.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docker/alpine-arm32v7/Dockerfile": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docker/alpine-arm32v7/Dockerfile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docker/alpine/Dockerfile": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docker/alpine/Dockerfile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docker/manylinux-x64/Dockerfile": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docker/manylinux-x64/Dockerfile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docker/readme.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docker/readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/annotated.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/annotated.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/annotated_dup.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/annotated_dup.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/bc_s.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/bc_s.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/bdwn.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/bdwn.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/bench.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/bench.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/build.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/build.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/classes.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/classes.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/clipboard.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/clipboard.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/closed.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/closed.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/cookie.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/cookie.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/doc.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/doc.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/doxygen.css": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/doxygen.css",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/doxygen.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/doxygen.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/doxygen.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/doxygen.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/dynsections.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/dynsections.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/environment.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/environment.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/folderclosed.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/folderclosed.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/folderopen.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/folderopen.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/functions.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/functions.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/functions_vars.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/functions_vars.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__aligned.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__aligned.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__aligned.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__aligned.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__analysis.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__analysis.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__analysis.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__analysis.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__analysis_structmi__heap__area__t.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__analysis_structmi__heap__area__t.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__cpp.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__cpp.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__cpp.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__cpp.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__extended.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__extended.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__extended.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__extended.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__heap.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__heap.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__heap.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__heap.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__malloc.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__malloc.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__malloc.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__malloc.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__options.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__options.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__options.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__options.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__posix.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__posix.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__posix.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__posix.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__typed.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__typed.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__typed.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__typed.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__zeroinit.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__zeroinit.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/group__zeroinit.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/group__zeroinit.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/index.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/index.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/jquery.js": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/upstream_repos/mimalloc2.zip ∴ /docs/jquery.js",
+            "SHA256": "cabf3b44e84335927ed33dcb7e2b0420d5da0d113b8bcbbb5bffa047e2a5a6fc",
+            "Size": 176630,
+            "Behaviors": [
+                {
+                    "Description": "converts strings into integers",
+                    "MatchStrings": [
+                        "fromCharCode"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/evasion/int_to_char.yara#js_char_code_at",
+                    "ID": "evasion/int_to_char",
+                    "RuleName": "js_char_code_at"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/mimalloc-doc_8h_source.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/mimalloc-doc_8h_source.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/mimalloc-doxygen.css": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/mimalloc-doxygen.css",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/mimalloc-logo.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/mimalloc-logo.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/modules.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/modules.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/modules.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/modules.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/nav_f.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/nav_f.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/nav_g.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/nav_g.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/nav_h.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/nav_h.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/navtree.css": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/navtree.css",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/navtree.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/navtree.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/navtreedata.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/navtreedata.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/navtreeindex0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/navtreeindex0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/open.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/open.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/overrides.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/overrides.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/pages.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/pages.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/resize.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/resize.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_10.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_10.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_2.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_2.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_2.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_2.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_3.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_3.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_3.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_3.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_4.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_4.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_4.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_4.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_5.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_5.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_5.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_5.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_6.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_6.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_6.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_6.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_7.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_7.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_7.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_7.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_8.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_8.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_8.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_8.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_9.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_9.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_9.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_9.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_a.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_a.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_a.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_a.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_b.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_b.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_b.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_b.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_c.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_c.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_c.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_c.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_d.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_d.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_d.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_d.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_e.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_e.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/all_f.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/all_f.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/classes_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/classes_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/classes_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/classes_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/close.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/close.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/close.svg": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/close.svg",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/enums_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/enums_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/enums_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/enums_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/enumvalues_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/functions_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/functions_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/functions_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/functions_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/functions_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/functions_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/functions_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/functions_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_2.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_2.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_2.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_2.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_3.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_3.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_3.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_3.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_4.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_4.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_4.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_4.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_5.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_5.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_5.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_5.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_6.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_6.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_6.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_6.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_7.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_7.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_7.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_7.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_8.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_8.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_8.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_8.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_9.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_9.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_a.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_a.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_b.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_b.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_c.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_c.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/groups_d.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/groups_d.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/mag_sel.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/mag_sel.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/nomatches.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/nomatches.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_2.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_2.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_2.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_2.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_3.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_3.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_3.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_3.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_4.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_4.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_4.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_4.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_5.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_5.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_6.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_6.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/pages_7.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/pages_7.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/search.css": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/search.css",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/search.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/search.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/search_l.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/search_l.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/search_m.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/search_m.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/search_r.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/search_r.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/searchdata.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/searchdata.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_2.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_2.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_2.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/typedefs_2.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_0.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_0.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_0.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_0.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_1.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_1.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_1.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_1.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_2.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_2.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_2.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_2.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_3.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_3.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_3.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_3.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/search/variables_4.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/search/variables_4.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/splitbar.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/splitbar.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/sync_off.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/sync_off.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/sync_on.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/sync_on.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/tab_a.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/tab_a.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/tab_b.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/tab_b.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/tab_h.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/tab_h.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/tab_s.png": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/tab_s.png",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/tabs.css": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/tabs.css",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/topics.js": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/topics.js",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/docs/using.html": {
+            "Path": "/tmp/mimalloc2.zip1756171535/docs/using.html",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override-test.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override-test.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override-test.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override-test.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-override.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test-stress.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test-stress.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test-stress.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test-stress.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc-test.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc.sln": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc.sln",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2017/mimalloc.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-override-test.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-override-test.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-override.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-override.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-override.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-override.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-test-api.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-test-api.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-test-stress.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-test-stress.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-test.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc-test.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc.sln": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc.sln",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2019/mimalloc.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-override-test.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-override-test.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-override.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-override.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-override.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-override.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-test-api.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-test-api.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-test-stress.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-test-stress.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-test.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc-test.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc.sln": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc.sln",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc.vcxproj": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc.vcxproj",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc.vcxproj.filters": {
+            "Path": "/tmp/mimalloc2.zip1756171535/ide/vs2022/mimalloc.vcxproj.filters",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc-new-delete.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc-new-delete.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc-override.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc-override.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc/atomic.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc/atomic.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc/internal.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc/internal.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc/prim.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc/prim.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc/track.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc/track.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/include/mimalloc/types.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/include/mimalloc/types.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/mimalloc.pc.in": {
+            "Path": "/tmp/mimalloc2.zip1756171535/mimalloc.pc.in",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/readme.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/alloc-aligned.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/alloc-aligned.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/alloc-override.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/alloc-override.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/alloc-posix.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/alloc-posix.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/alloc.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/alloc.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/arena-abandon.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/arena-abandon.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/arena.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/arena.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/bitmap.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/bitmap.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/bitmap.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/bitmap.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/free.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/free.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/heap.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/heap.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/init.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/init.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/libc.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/libc.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/options.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/options.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/os.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/os.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/page-queue.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/page-queue.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/page.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/page.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/emscripten/prim.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/emscripten/prim.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/osx/alloc-override-zone.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/osx/alloc-override-zone.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/osx/prim.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/osx/prim.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/prim.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/prim.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/readme.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/unix/prim.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/unix/prim.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/wasi/prim.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/wasi/prim.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/windows/etw-mimalloc.wprp": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/windows/etw-mimalloc.wprp",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/windows/etw.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/windows/etw.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/windows/etw.man": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/windows/etw.man",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/windows/prim.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/windows/prim.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/prim/windows/readme.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/prim/windows/readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/random.c": {
+            "Path": "/home/lyvd/panic-at-the-distro-malicious-apks/datasets/upstream_repos/mimalloc2.zip ∴ /src/random.c",
+            "SHA256": "d642a722e93e6e5f2fb49881fefda72ab05d0d43838ec727871e82e6a684f6cd",
+            "Size": 8969,
+            "Behaviors": [
+                {
+                    "Description": "excessive references to hexadecimal values",
+                    "MatchStrings": [
+                        "0x00000000",
+                        "0x00000001",
+                        "0x01020304",
+                        "0x01234567",
+                        "0x03020100",
+                        "0x0368c033",
+                        "0x05d7c214",
+                        "0x07060504",
+                        "0x09000000",
+                        "0x09aa9f07",
+                        "0x0F",
+                        "0x0b0a0908",
+                        "0x0f0e0d0c",
+                        "0x11111111",
+                        "0x13121110",
+                        "0x15593bd1",
+                        "0x17161514",
+                        "0x1b1a1918",
+                        "0x1f1e1d1c",
+                        "0x1fdd0f50",
+                        "0x2098d9d6",
+                        "0x2a5f714c",
+                        "0x3320646e",
+                        "0x3390af7f",
+                        "0x359e9963",
+                        "0x3d631689",
+                        "0x44c20ef3",
+                        "0x4581472e",
+                        "0x466482d2",
+                        "0x4a000000",
+                        "0x4e3c50a2",
+                        "0x4e6cd4c3",
+                        "0x516461b1",
+                        "0x53372767",
+                        "0x5881c4bb",
+                        "0x5c971061",
+                        "0x61707865",
+                        "0x6b206574",
+                        "0x79622d32",
+                        "0x879531e0",
+                        "0x91dbd320",
+                        "0x974c541a",
+                        "0x9aaa2204",
+                        "0x9b8d6f43",
+                        "0xa2028bd9",
+                        "0xb00a5631",
+                        "0xb94e16de",
+                        "0xbdb886dc",
+                        "0xc47120a3",
+                        "0xc5ecf37d",
+                        "0xc7f4d1c7",
+                        "0xc9a62f8a",
+                        "0xcb1cf8ce",
+                        "0xccc07c79",
+                        "0xcfacafd2",
+                        "0xd19c12b5",
+                        "0xd9fc690b",
+                        "0xe46bea80",
+                        "0xe4e7f110",
+                        "0xe883d0cb",
+                        "0xea2a92f4"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/obfuscation/generic/hex.yara#excessive_hex_refs",
+                    "ID": "obfuscation/generic/hex",
+                    "RuleName": "excessive_hex_refs"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/mimalloc2.zip1756171535/src/segment-map.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/segment-map.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/segment.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/segment.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/static.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/static.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/src/stats.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/src/stats.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/CMakeLists.txt": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/CMakeLists.txt",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/main-override-static.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/main-override-static.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/main-override.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/main-override.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/main-override.cpp": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/main-override.cpp",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/main.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/main.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/readme.md": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/readme.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/test-api-fill.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/test-api-fill.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/test-api.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/test-api.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/test-stress.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/test-stress.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/test-wrong.c": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/test-wrong.c",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/mimalloc2.zip1756171535/test/testhelper.h": {
+            "Path": "/tmp/mimalloc2.zip1756171535/test/testhelper.h",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}
