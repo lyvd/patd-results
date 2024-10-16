@@ -1,0 +1,204 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/llvm17-17.0.6-r2.apk/llvm17-17.0.6-r2/usr/lib/llvm17/share/opt-viewer/optrecord.py"
+                },
+                "region": {
+                  "startLine": 161,
+                  "startColumn": 20,
+                  "endLine": 161,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "\n    def getArgString(self, mapping):\n        mapping = dict(list(mapping))\n        dl = mapping.get(\"DebugLoc\")\n        if dl:\n            del mapping[\"DebugLoc\"]\n\n",
+                    "rendered": {
+                      "text": "\n    def getArgString(self, mapping):\n        mapping = dict(list(mapping))\n        dl = mapping.get(\"DebugLoc\")\n        if dl:\n            del mapping[\"DebugLoc\"]\n\n",
+                      "markdown": "`\n    def getArgString(self, mapping):\n        mapping = dict(list(mapping))\n        dl = mapping.get(\"DebugLoc\")\n        if dl:\n            del mapping[\"DebugLoc\"]\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/llvm17-17.0.6-r2.apk/llvm17-17.0.6-r2/usr/lib/llvm17/share/opt-viewer/optrecord.py"
+                },
+                "region": {
+                  "startLine": 313,
+                  "startColumn": 39,
+                  "endLine": 313,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "\n            file_remarks[remark.File][remark.Line].append(remark)\n\n            # If we're reading a back a diff yaml file, max_hotness is already\n            # captured which may actually be less than the max hotness found\n            # in the file.\n            if hasattr(remark, \"max_hotness\"):\n",
+                    "rendered": {
+                      "text": "\n            file_remarks[remark.File][remark.Line].append(remark)\n\n            # If we're reading a back a diff yaml file, max_hotness is already\n            # captured which may actually be less than the max hotness found\n            # in the file.\n            if hasattr(remark, \"max_hotness\"):\n",
+                      "markdown": "`\n            file_remarks[remark.File][remark.Line].append(remark)\n\n            # If we're reading a back a diff yaml file, max_hotness is already\n            # captured which may actually be less than the max hotness found\n            # in the file.\n            if hasattr(remark, \"max_hotness\"):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/llvm17-17.0.6-r2.apk/llvm17-17.0.6-r2/usr/lib/llvm17/share/opt-viewer/opt-viewer.py"
+                },
+                "region": {
+                  "startLine": 307,
+                  "startColumn": 33,
+                  "endLine": 307,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "        ):\n            for arg in remark.Args:\n                arg_dict = dict(list(arg))\n                caller = arg_dict.get(\"Caller\")\n                if caller:\n                    try:\n                        context.caller_loc[caller] = arg_dict[\"DebugLoc\"]\n",
+                    "rendered": {
+                      "text": "        ):\n            for arg in remark.Args:\n                arg_dict = dict(list(arg))\n                caller = arg_dict.get(\"Caller\")\n                if caller:\n                    try:\n                        context.caller_loc[caller] = arg_dict[\"DebugLoc\"]\n",
+                      "markdown": "`        ):\n            for arg in remark.Args:\n                arg_dict = dict(list(arg))\n                caller = arg_dict.get(\"Caller\")\n                if caller:\n                    try:\n                        context.caller_loc[caller] = arg_dict[\"DebugLoc\"]\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/llvm17-17.0.6-r2.apk/llvm17-17.0.6-r2/usr/lib/llvm17/share/opt-viewer/opt-viewer.py"
+                },
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 31,
+                  "endLine": 127,
+                  "endColumn": 36,
+                  "snippet": {
+                    "text": "\n    def render_inline_remarks(self, r, line):\n        inlining_context = r.DemangledFunctionName\n        dl = context.caller_loc.get(r.Function)\n        if dl:\n            dl_dict = dict(list(dl))\n            link = optrecord.make_link(dl_dict[\"File\"], dl_dict[\"Line\"] - 2)\n",
+                    "rendered": {
+                      "text": "\n    def render_inline_remarks(self, r, line):\n        inlining_context = r.DemangledFunctionName\n        dl = context.caller_loc.get(r.Function)\n        if dl:\n            dl_dict = dict(list(dl))\n            link = optrecord.make_link(dl_dict[\"File\"], dl_dict[\"Line\"] - 2)\n",
+                      "markdown": "`\n    def render_inline_remarks(self, r, line):\n        inlining_context = r.DemangledFunctionName\n        dl = context.caller_loc.get(r.Function)\n        if dl:\n            dl_dict = dict(list(dl))\n            link = optrecord.make_link(dl_dict[\"File\"], dl_dict[\"Line\"] - 2)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/llvm17-17.0.6-r2.apk/llvm17-17.0.6-r2/usr/lib/llvm17/share/opt-viewer/opt-viewer.py"
+                },
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 38,
+                  "endLine": 121,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "                file=self.stream,\n            )\n\n            for remark in line_remarks.get(linenum, []):\n                if not suppress(remark):\n                    self.render_inline_remarks(remark, html_line)\n\n",
+                    "rendered": {
+                      "text": "                file=self.stream,\n            )\n\n            for remark in line_remarks.get(linenum, []):\n                if not suppress(remark):\n                    self.render_inline_remarks(remark, html_line)\n\n",
+                      "markdown": "`                file=self.stream,\n            )\n\n            for remark in line_remarks.get(linenum, []):\n                if not suppress(remark):\n                    self.render_inline_remarks(remark, html_line)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

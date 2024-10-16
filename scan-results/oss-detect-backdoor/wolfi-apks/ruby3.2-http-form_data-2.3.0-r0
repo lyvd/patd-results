@@ -1,0 +1,902 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/spec/lib/http/form_data_spec.rb"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 26,
+                  "endLine": 12,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "      it { is_expected.to be_a HTTP::FormData::Urlencoded }\n    end\n\n    context \"when form has at least one file param\" do\n      let(:file) { HTTP::FormData::File.new(fixture(\"the-http-gem.info\").to_s) }\n      let(:params) { { :foo => :bar, :baz => file } }\n      it { is_expected.to be_a HTTP::FormData::Multipart }\n",
+                    "rendered": {
+                      "text": "      it { is_expected.to be_a HTTP::FormData::Urlencoded }\n    end\n\n    context \"when form has at least one file param\" do\n      let(:file) { HTTP::FormData::File.new(fixture(\"the-http-gem.info\").to_s) }\n      let(:params) { { :foo => :bar, :baz => file } }\n      it { is_expected.to be_a HTTP::FormData::Multipart }\n",
+                      "markdown": "`      it { is_expected.to be_a HTTP::FormData::Urlencoded }\n    end\n\n    context \"when form has at least one file param\" do\n      let(:file) { HTTP::FormData::File.new(fixture(\"the-http-gem.info\").to_s) }\n      let(:params) { { :foo => :bar, :baz => file } }\n      it { is_expected.to be_a HTTP::FormData::Multipart }\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/spec/lib/http/form_data_spec.rb"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 7,
+                  "endLine": 46,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "    context \"when neither Hash nor #to_h given\" do\n      let(:data) { double }\n      it \"fails with HTTP::FormData::Error\" do\n        expect { ensure_hash }.to raise_error HTTP::FormData::Error\n      end\n    end\n  end\n",
+                    "rendered": {
+                      "text": "    context \"when neither Hash nor #to_h given\" do\n      let(:data) { double }\n      it \"fails with HTTP::FormData::Error\" do\n        expect { ensure_hash }.to raise_error HTTP::FormData::Error\n      end\n    end\n  end\n",
+                      "markdown": "`    context \"when neither Hash nor #to_h given\" do\n      let(:data) { double }\n      it \"fails with HTTP::FormData::Error\" do\n        expect { ensure_hash }.to raise_error HTTP::FormData::Error\n      end\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/lib/http/form_data/multipart.rb"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 9,
+                  "endLine": 55,
+                  "snippet": {
+                    "text": "      end\n\n      # @return [String]\n      def tail\n        @tail ||= \"--#{@boundary}--#{CRLF}\"\n      end\n    end\n  end\n",
+                    "rendered": {
+                      "text": "      end\n\n      # @return [String]\n      def tail\n        @tail ||= \"--#{@boundary}--#{CRLF}\"\n      end\n    end\n  end\n",
+                      "markdown": "`      end\n\n      # @return [String]\n      def tail\n        @tail ||= \"--#{@boundary}--#{CRLF}\"\n      end\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/spec/lib/http/form_data/composite_io_spec.rb"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 5,
+                  "endLine": 15,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    end\n\n    it \"fails if an IO is neither a String nor an IO\" do\n      expect { HTTP::FormData::CompositeIO.new %i[hello world] }\n        .to raise_error(ArgumentError)\n    end\n  end\n",
+                    "rendered": {
+                      "text": "    end\n\n    it \"fails if an IO is neither a String nor an IO\" do\n      expect { HTTP::FormData::CompositeIO.new %i[hello world] }\n        .to raise_error(ArgumentError)\n    end\n  end\n",
+                      "markdown": "`    end\n\n    it \"fails if an IO is neither a String nor an IO\" do\n      expect { HTTP::FormData::CompositeIO.new %i[hello world] }\n        .to raise_error(ArgumentError)\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/.travis.yml"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 7,
+                  "endLine": 7,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "cache: bundler\n\nbefore_install:\n  - gem update --system\n  - gem --version\n  - gem install bundler --no-document\n  - bundle --version\n",
+                    "rendered": {
+                      "text": "cache: bundler\n\nbefore_install:\n  - gem update --system\n  - gem --version\n  - gem install bundler --no-document\n  - bundle --version\n",
+                      "markdown": "`cache: bundler\n\nbefore_install:\n  - gem update --system\n  - gem --version\n  - gem install bundler --no-document\n  - bundle --version\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/.travis.yml"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 9,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "language: ruby\nsudo: false\n\ncache: bundler\n\n",
+                    "rendered": {
+                      "text": "language: ruby\nsudo: false\n\ncache: bundler\n\n",
+                      "markdown": "`language: ruby\nsudo: false\n\ncache: bundler\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 5,
+                  "endLine": 77,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n",
+                    "rendered": {
+                      "text": "entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n",
+                      "markdown": "`entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 54,
+                  "endLine": 77,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n",
+                    "rendered": {
+                      "text": "entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n",
+                      "markdown": "`entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 12,
+                  "endLine": 77,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n",
+                    "rendered": {
+                      "text": "entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n",
+                      "markdown": "`entails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\npatches in a timely fashion. If critical issues for a particular implementation\nexist at the time of a major release, support for that Ruby version may be\ndropped.\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 49,
+                  "endLine": 72,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "This library may inadvertently work (or seem to work) on other Ruby versions,\nhowever support will only be provided for the versions listed above.\n\nIf you would like this library to support another Ruby version or\nimplementation, you may volunteer to be a maintainer. Being a maintainer\nentails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\n",
+                    "rendered": {
+                      "text": "This library may inadvertently work (or seem to work) on other Ruby versions,\nhowever support will only be provided for the versions listed above.\n\nIf you would like this library to support another Ruby version or\nimplementation, you may volunteer to be a maintainer. Being a maintainer\nentails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\n",
+                      "markdown": "`This library may inadvertently work (or seem to work) on other Ruby versions,\nhowever support will only be provided for the versions listed above.\n\nIf you would like this library to support another Ruby version or\nimplementation, you may volunteer to be a maintainer. Being a maintainer\nentails making sure all tests run and pass on that implementation. When\nsomething breaks on your implementation, you will be responsible for providing\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 62,
+                  "endLine": 69,
+                  "endColumn": 68,
+                  "snippet": {
+                    "text": "\nIf something doesn't work on one of these versions, it's a bug.\n\nThis library may inadvertently work (or seem to work) on other Ruby versions,\nhowever support will only be provided for the versions listed above.\n\nIf you would like this library to support another Ruby version or\n",
+                    "rendered": {
+                      "text": "\nIf something doesn't work on one of these versions, it's a bug.\n\nThis library may inadvertently work (or seem to work) on other Ruby versions,\nhowever support will only be provided for the versions listed above.\n\nIf you would like this library to support another Ruby version or\n",
+                      "markdown": "`\nIf something doesn't work on one of these versions, it's a bug.\n\nThis library may inadvertently work (or seem to work) on other Ruby versions,\nhowever support will only be provided for the versions listed above.\n\nIf you would like this library to support another Ruby version or\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 1,
+                  "endLine": 64,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n\nIf something doesn't work on one of these versions, it's a bug.\n",
+                    "rendered": {
+                      "text": "* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n\nIf something doesn't work on one of these versions, it's a bug.\n",
+                      "markdown": "`* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n\nIf something doesn't work on one of these versions, it's a bug.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 1,
+                  "endLine": 63,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n\n",
+                    "rendered": {
+                      "text": "\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n\n",
+                      "markdown": "`\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1,
+                  "endLine": 62,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "versions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n",
+                    "rendered": {
+                      "text": "versions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n",
+                      "markdown": "`versions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n* JRuby 9.1.x.x\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1,
+                  "endLine": 61,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "This library aims to support and is [tested against][ci] the following Ruby\nversions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n",
+                    "rendered": {
+                      "text": "This library aims to support and is [tested against][ci] the following Ruby\nversions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n",
+                      "markdown": "`This library aims to support and is [tested against][ci] the following Ruby\nversions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n* Ruby 2.6.x\n* Ruby 2.7.x\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 70,
+                  "endLine": 59,
+                  "snippet": {
+                    "text": "\n## Supported Ruby Versions\n\nThis library aims to support and is [tested against][ci] the following Ruby\nversions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n",
+                    "rendered": {
+                      "text": "\n## Supported Ruby Versions\n\nThis library aims to support and is [tested against][ci] the following Ruby\nversions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n",
+                      "markdown": "`\n## Supported Ruby Versions\n\nThis library aims to support and is [tested against][ci] the following Ruby\nversions:\n\n* Ruby 2.4.x\n* Ruby 2.5.x\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 56,
+                  "startColumn": 12,
+                  "endLine": 56,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "})\n```\n\n## Supported Ruby Versions\n\nThis library aims to support and is [tested against][ci] the following Ruby\nversions:\n",
+                    "rendered": {
+                      "text": "})\n```\n\n## Supported Ruby Versions\n\nThis library aims to support and is [tested against][ci] the following Ruby\nversions:\n",
+                      "markdown": "`})\n```\n\n## Supported Ruby Versions\n\nThis library aims to support and is [tested against][ci] the following Ruby\nversions:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 3,
+                  "endLine": 50,
+                  "snippet": {
+                    "text": "\nIt's also possible to create a non-file part with Content-Type:\n\n``` ruby\nform = HTTP::FormData.create({\n  :username     => HTTP::FormData::Part.new('{\"a\": 1}', content_type: 'application/json'),\n  :avatar_file  => HTTP::FormData::File.new(\"/home/ixti/avatar.png\")\n})\n",
+                    "rendered": {
+                      "text": "\nIt's also possible to create a non-file part with Content-Type:\n\n``` ruby\nform = HTTP::FormData.create({\n  :username     => HTTP::FormData::Part.new('{\"a\": 1}', content_type: 'application/json'),\n  :avatar_file  => HTTP::FormData::File.new(\"/home/ixti/avatar.png\")\n})\n",
+                      "markdown": "`\nIt's also possible to create a non-file part with Content-Type:\n\n``` ruby\nform = HTTP::FormData.create({\n  :username     => HTTP::FormData::Part.new('{\"a\": 1}', content_type: 'application/json'),\n  :avatar_file  => HTTP::FormData::File.new(\"/home/ixti/avatar.png\")\n})\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/README.md"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 3,
+                  "endLine": 31,
+                  "snippet": {
+                    "text": "\n## Usage\n\n``` ruby\nrequire \"http/form_data\"\n\nform = HTTP::FormData.create({\n  :username     => \"ixti\",\n",
+                    "rendered": {
+                      "text": "\n## Usage\n\n``` ruby\nrequire \"http/form_data\"\n\nform = HTTP::FormData.create({\n  :username     => \"ixti\",\n",
+                      "markdown": "`\n## Usage\n\n``` ruby\nrequire \"http/form_data\"\n\nform = HTTP::FormData.create({\n  :username     => \"ixti\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/specifications/http-form_data-2.3.0.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 28,
+                  "endLine": 2,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: http-form_data 2.3.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"http-form_data\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: http-form_data 2.3.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"http-form_data\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: http-form_data 2.3.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"http-form_data\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/Guardfile"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 1,
+                  "endLine": 14,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "  watch(rspec.spec_files)\n\n  # Ruby files\n  ruby = dsl.ruby\n  dsl.watch_spec_files_for(ruby.lib_files)\nend\n",
+                    "rendered": {
+                      "text": "  watch(rspec.spec_files)\n\n  # Ruby files\n  ruby = dsl.ruby\n  dsl.watch_spec_files_for(ruby.lib_files)\nend\n",
+                      "markdown": "`  watch(rspec.spec_files)\n\n  # Ruby files\n  ruby = dsl.ruby\n  dsl.watch_spec_files_for(ruby.lib_files)\nend\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/Guardfile"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 3,
+                  "endLine": 13,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "  watch(rspec.spec_support) { rspec.spec_dir }\n  watch(rspec.spec_files)\n\n  # Ruby files\n  ruby = dsl.ruby\n  dsl.watch_spec_files_for(ruby.lib_files)\nend\n",
+                    "rendered": {
+                      "text": "  watch(rspec.spec_support) { rspec.spec_dir }\n  watch(rspec.spec_files)\n\n  # Ruby files\n  ruby = dsl.ruby\n  dsl.watch_spec_files_for(ruby.lib_files)\nend\n",
+                      "markdown": "`  watch(rspec.spec_support) { rspec.spec_dir }\n  watch(rspec.spec_files)\n\n  # Ruby files\n  ruby = dsl.ruby\n  dsl.watch_spec_files_for(ruby.lib_files)\nend\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/CHANGES.md"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 16,
+                  "endLine": 25,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "## 2.1.0 (2018-03-05)\n\n* [#21](https://github.com/httprb/form_data/pull/21)\n  Rewind content at the end of `Readable#to_s`.\n  [@janko-m][]\n\n* [#19](https://github.com/httprb/form_data/pull/19)\n",
+                    "rendered": {
+                      "text": "## 2.1.0 (2018-03-05)\n\n* [#21](https://github.com/httprb/form_data/pull/21)\n  Rewind content at the end of `Readable#to_s`.\n  [@janko-m][]\n\n* [#19](https://github.com/httprb/form_data/pull/19)\n",
+                      "markdown": "`## 2.1.0 (2018-03-05)\n\n* [#21](https://github.com/httprb/form_data/pull/21)\n  Rewind content at the end of `Readable#to_s`.\n  [@janko-m][]\n\n* [#19](https://github.com/httprb/form_data/pull/19)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-http-form_data-2.3.0-r0.apk/ruby3.2-http-form_data-2.3.0-r0/usr/lib/ruby/gems/3.2.0/gems/http-form_data-2.3.0/CHANGES.md"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1,
+                  "endLine": 11,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "## 2.2.0 (2020-01-09)\n\n* [#28](https://github.com/httprb/form_data/pull/28)\n  Ruby 2.7 compatibility.\n  [@janko][]\n\n\n",
+                    "rendered": {
+                      "text": "## 2.2.0 (2020-01-09)\n\n* [#28](https://github.com/httprb/form_data/pull/28)\n  Ruby 2.7 compatibility.\n  [@janko][]\n\n\n",
+                      "markdown": "`## 2.2.0 (2020-01-09)\n\n* [#28](https://github.com/httprb/form_data/pull/28)\n  Ruby 2.7 compatibility.\n  [@janko][]\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

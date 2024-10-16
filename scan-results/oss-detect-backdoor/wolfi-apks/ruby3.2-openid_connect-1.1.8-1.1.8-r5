@@ -1,0 +1,3380 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/rack/oauth2/server/authorize/extension/id_toke"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 37,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                    "rendered": {
+                      "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                      "markdown": "`            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/token/refresh_token_spec.r"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 11,
+                  "endLine": 7,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "  subject { response }\n  let(:request) { Rack::MockRequest.new app }\n  let :response do\n    request.post('/', params: {\n      grant_type: \"refresh_token\",\n      client_id: \"client_id\",\n      refresh_token: \"refresh_token\"\n",
+                    "rendered": {
+                      "text": "  subject { response }\n  let(:request) { Rack::MockRequest.new app }\n  let :response do\n    request.post('/', params: {\n      grant_type: \"refresh_token\",\n      client_id: \"client_id\",\n      refresh_token: \"refresh_token\"\n",
+                      "markdown": "`  subject { response }\n  let(:request) { Rack::MockRequest.new app }\n  let :response do\n    request.post('/', params: {\n      grant_type: \"refresh_token\",\n      client_id: \"client_id\",\n      refresh_token: \"refresh_token\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "r"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/token/refresh_token_spec.r"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 13,
+                  "endLine": 22,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      iat: 1313420327,\n      nonce: 'nonce',\n      secret: 'secret'\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n",
+                    "rendered": {
+                      "text": "      iat: 1313420327,\n      nonce: 'nonce',\n      secret: 'secret'\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n",
+                      "markdown": "`      iat: 1313420327,\n      nonce: 'nonce',\n      secret: 'secret'\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n`"
+                    }
+                  },
+                  "sourceLanguage": "r"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/token/authorization_code_s"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 11,
+                  "endLine": 7,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "  subject { response }\n  let(:request) { Rack::MockRequest.new app }\n  let :response do\n    request.post('/', params: {\n      grant_type: 'authorization_code',\n      client_id: 'client_id',\n      code: 'authorization_code',\n",
+                    "rendered": {
+                      "text": "  subject { response }\n  let(:request) { Rack::MockRequest.new app }\n  let :response do\n    request.post('/', params: {\n      grant_type: 'authorization_code',\n      client_id: 'client_id',\n      code: 'authorization_code',\n",
+                      "markdown": "`  subject { response }\n  let(:request) { Rack::MockRequest.new app }\n  let :response do\n    request.post('/', params: {\n      grant_type: 'authorization_code',\n      client_id: 'client_id',\n      code: 'authorization_code',\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/token/authorization_code_s"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 13,
+                  "endLine": 23,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      iat: 1313420327,\n      nonce: 'nonce',\n      secret: 'secret'\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n",
+                    "rendered": {
+                      "text": "      iat: 1313420327,\n      nonce: 'nonce',\n      secret: 'secret'\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n",
+                      "markdown": "`      iat: 1313420327,\n      nonce: 'nonce',\n      secret: 'secret'\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client/registrar_spec.rb"
+                },
+                "region": {
+                  "startLine": 223,
+                  "startColumn": 7,
+                  "endLine": 223,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "      end\n\n      it do\n        expect do\n          instance.validate!\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n",
+                    "rendered": {
+                      "text": "      end\n\n      it do\n        expect do\n          instance.validate!\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n",
+                      "markdown": "`      end\n\n      it do\n        expect do\n          instance.validate!\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client/registrar_spec.rb"
+                },
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 7,
+                  "endLine": 207,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "  describe '#validate!' do\n    context 'when valid' do\n      it do\n        expect do\n          instance.validate!\n        end.not_to raise_error { |e|\n          e.should be_a OpenIDConnect::ValidationFailed\n",
+                    "rendered": {
+                      "text": "  describe '#validate!' do\n    context 'when valid' do\n      it do\n        expect do\n          instance.validate!\n        end.not_to raise_error { |e|\n          e.should be_a OpenIDConnect::ValidationFailed\n",
+                      "markdown": "`  describe '#validate!' do\n    context 'when valid' do\n      it do\n        expect do\n          instance.validate!\n        end.not_to raise_error { |e|\n          e.should be_a OpenIDConnect::ValidationFailed\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client/registrar_spec.rb"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 9,
+                  "endLine": 196,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'when failed' do\n      it 'should raise OpenIDConnect::Client::Registrar::RegistrationFailed' do\n        mock_json :post, endpoint, 'errors/unknown', params: minimum_attributes, status: 400 do\n          expect do\n            instance.register!\n          end.to raise_error OpenIDConnect::Client::Registrar::RegistrationFailed\n        end\n",
+                    "rendered": {
+                      "text": "    context 'when failed' do\n      it 'should raise OpenIDConnect::Client::Registrar::RegistrationFailed' do\n        mock_json :post, endpoint, 'errors/unknown', params: minimum_attributes, status: 400 do\n          expect do\n            instance.register!\n          end.to raise_error OpenIDConnect::Client::Registrar::RegistrationFailed\n        end\n",
+                      "markdown": "`    context 'when failed' do\n      it 'should raise OpenIDConnect::Client::Registrar::RegistrationFailed' do\n        mock_json :post, endpoint, 'errors/unknown', params: minimum_attributes, status: 400 do\n          expect do\n            instance.register!\n          end.to raise_error OpenIDConnect::Client::Registrar::RegistrationFailed\n        end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client/registrar_spec.rb"
+                },
+                "region": {
+                  "startLine": 175,
+                  "startColumn": 7,
+                  "endLine": 175,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        )\n      end\n      it do\n        expect do\n          instance.as_json\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n",
+                    "rendered": {
+                      "text": "        )\n      end\n      it do\n        expect do\n          instance.as_json\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n",
+                      "markdown": "`        )\n      end\n      it do\n        expect do\n          instance.as_json\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/request_with_con"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 62,
+                  "endLine": 11,
+                  "endColumn": 67,
+                  "snippet": {
+                    "text": "    }\n  end\n  let(:env)     { Rack::MockRequest.env_for(\"/authorize?#{base_params.to_query}&#{params.to_query}\") }\n  let(:request) { Rack::OAuth2::Server::Authorize::Request.new env }\n  subject { request }\n\n  describe 'prompt' do\n",
+                    "rendered": {
+                      "text": "    }\n  end\n  let(:env)     { Rack::MockRequest.env_for(\"/authorize?#{base_params.to_query}&#{params.to_query}\") }\n  let(:request) { Rack::OAuth2::Server::Authorize::Request.new env }\n  subject { request }\n\n  describe 'prompt' do\n",
+                      "markdown": "`    }\n  end\n  let(:env)     { Rack::MockRequest.env_for(\"/authorize?#{base_params.to_query}&#{params.to_query}\") }\n  let(:request) { Rack::OAuth2::Server::Authorize::Request.new env }\n  subject { request }\n\n  describe 'prompt' do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 30,
+                  "endLine": 6,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "describe Rack::OAuth2::Server::Authorize::Extension::IdToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=id_token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let :id_token do\n    OpenIDConnect::ResponseObject::IdToken.new(\n",
+                    "rendered": {
+                      "text": "describe Rack::OAuth2::Server::Authorize::Extension::IdToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=id_token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let :id_token do\n    OpenIDConnect::ResponseObject::IdToken.new(\n",
+                      "markdown": "`describe Rack::OAuth2::Server::Authorize::Extension::IdToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=id_token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let :id_token do\n    OpenIDConnect::ResponseObject::IdToken.new(\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 13,
+                  "endLine": 16,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n",
+                    "rendered": {
+                      "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n",
+                      "markdown": "`      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 84,
+                  "endLine": 63,
+                  "endColumn": 89,
+                  "snippet": {
+                    "text": "\n  context 'when openid scope given' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id&scope=openid\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n    it do\n      request.openid_connect_request?.should == true\n    end\n",
+                    "rendered": {
+                      "text": "\n  context 'when openid scope given' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id&scope=openid\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n    it do\n      request.openid_connect_request?.should == true\n    end\n",
+                      "markdown": "`\n  context 'when openid scope given' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id&scope=openid\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n    it do\n      request.openid_connect_request?.should == true\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 5,
+                  "endLine": 55,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                    "rendered": {
+                      "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                      "markdown": "`    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 84,
+                  "endLine": 52,
+                  "endColumn": 89,
+                  "snippet": {
+                    "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                    "rendered": {
+                      "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                      "markdown": "`\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 5,
+                  "endLine": 46,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n",
+                    "rendered": {
+                      "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n",
+                      "markdown": "`      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 30,
+                  "endLine": 6,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "describe Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=token%20id_token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:bearer_token) { Rack::OAuth2::AccessToken::Bearer.new(access_token: 'access_token') }\n  let :id_token do\n",
+                    "rendered": {
+                      "text": "describe Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=token%20id_token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:bearer_token) { Rack::OAuth2::AccessToken::Bearer.new(access_token: 'access_token') }\n  let :id_token do\n",
+                      "markdown": "`describe Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=token%20id_token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:bearer_token) { Rack::OAuth2::AccessToken::Bearer.new(access_token: 'access_token') }\n  let :id_token do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 13,
+                  "endLine": 17,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n",
+                    "rendered": {
+                      "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n",
+                      "markdown": "`      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 5,
+                  "endLine": 60,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                    "rendered": {
+                      "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                      "markdown": "`    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 92,
+                  "endLine": 57,
+                  "endColumn": 97,
+                  "snippet": {
+                    "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                    "rendered": {
+                      "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                      "markdown": "`\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::IdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/id_tok"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 5,
+                  "endLine": 51,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n",
+                    "rendered": {
+                      "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n",
+                      "markdown": "`      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 30,
+                  "endLine": 6,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "describe Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get(\"/?response_type=code%20id_token&client_id=client&state=state\") }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:code)         { 'authorization_code' }\n  let :id_token do\n",
+                    "rendered": {
+                      "text": "describe Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get(\"/?response_type=code%20id_token&client_id=client&state=state\") }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:code)         { 'authorization_code' }\n  let :id_token do\n",
+                      "markdown": "`describe Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get(\"/?response_type=code%20id_token&client_id=client&state=state\") }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:code)         { 'authorization_code' }\n  let :id_token do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 13,
+                  "endLine": 17,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n",
+                    "rendered": {
+                      "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n",
+                      "markdown": "`      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context \"when id_token is given\" do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 5,
+                  "endLine": 59,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                    "rendered": {
+                      "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                      "markdown": "`    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 56,
+                  "startColumn": 91,
+                  "endLine": 56,
+                  "endColumn": 96,
+                  "snippet": {
+                    "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                    "rendered": {
+                      "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                      "markdown": "`\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 5,
+                  "endLine": 50,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n",
+                    "rendered": {
+                      "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n",
+                      "markdown": "`      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'id_token' required.\"\n    end\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider_spec.rb"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 9,
+                  "endLine": 63,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "      let(:resource)   { \"https://#{host}\" }\n      it 'should raise OpenIDConnect::Discovery::DiscoveryFailed' do\n        mock_json :get, endpoint, 'discovery/webfinger', params: query, status: [404, 'Not Found'] do\n          expect do\n            discover\n          end.to raise_error OpenIDConnect::Discovery::DiscoveryFailed\n        end\n",
+                    "rendered": {
+                      "text": "      let(:resource)   { \"https://#{host}\" }\n      it 'should raise OpenIDConnect::Discovery::DiscoveryFailed' do\n        mock_json :get, endpoint, 'discovery/webfinger', params: query, status: [404, 'Not Found'] do\n          expect do\n            discover\n          end.to raise_error OpenIDConnect::Discovery::DiscoveryFailed\n        end\n",
+                      "markdown": "`      let(:resource)   { \"https://#{host}\" }\n      it 'should raise OpenIDConnect::Discovery::DiscoveryFailed' do\n        mock_json :get, endpoint, 'discovery/webfinger', params: query, status: [404, 'Not Found'] do\n          expect do\n            discover\n          end.to raise_error OpenIDConnect::Discovery::DiscoveryFailed\n        end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/specifications/openid_connect-1.1.8.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 28,
+                  "endLine": 2,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: openid_connect 1.1.8 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"openid_connect\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: openid_connect 1.1.8 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"openid_connect\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: openid_connect 1.1.8 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"openid_connect\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config/reso"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 7,
+                  "endLine": 16,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "      end\n\n      it do\n        expect { resource.endpoint }.to raise_error SWD::Exception\n      end\n    end\n  end\n",
+                    "rendered": {
+                      "text": "      end\n\n      it do\n        expect { resource.endpoint }.to raise_error SWD::Exception\n      end\n    end\n  end\n",
+                      "markdown": "`      end\n\n      it do\n        expect { resource.endpoint }.to raise_error SWD::Exception\n      end\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/helpers/crypto_spec_helper.rb"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 9,
+                  "endLine": 26,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "    @ec_public_key\n  end\n\n  def ec_private_key\n    ec_key\n  end\nend\n",
+                    "rendered": {
+                      "text": "    @ec_public_key\n  end\n\n  def ec_private_key\n    ec_key\n  end\nend\n",
+                      "markdown": "`    @ec_public_key\n  end\n\n  def ec_private_key\n    ec_key\n  end\nend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/helpers/crypto_spec_helper.rb"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 21,
+                  "endLine": 21,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "  def ec_public_key\n    unless @ec_public_key\n      @ec_public_key = OpenSSL::PKey::EC.new ec_key\n      @ec_public_key.private_key = nil\n    end\n    @ec_public_key\n  end\n",
+                    "rendered": {
+                      "text": "  def ec_public_key\n    unless @ec_public_key\n      @ec_public_key = OpenSSL::PKey::EC.new ec_key\n      @ec_public_key.private_key = nil\n    end\n    @ec_public_key\n  end\n",
+                      "markdown": "`  def ec_public_key\n    unless @ec_public_key\n      @ec_public_key = OpenSSL::PKey::EC.new ec_key\n      @ec_public_key.private_key = nil\n    end\n    @ec_public_key\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/helpers/crypto_spec_helper.rb"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 11,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "  end\n\n  def private_key\n    @private_key ||= OpenSSL::PKey::RSA.new rsa_key.export(OpenSSL::Cipher.new('DES-EDE3-CBC'), 'pass-phrase'), 'pass-phrase'\n  end\n\n  def ec_key\n",
+                    "rendered": {
+                      "text": "  end\n\n  def private_key\n    @private_key ||= OpenSSL::PKey::RSA.new rsa_key.export(OpenSSL::Cipher.new('DES-EDE3-CBC'), 'pass-phrase'), 'pass-phrase'\n  end\n\n  def ec_key\n",
+                      "markdown": "`  end\n\n  def private_key\n    @private_key ||= OpenSSL::PKey::RSA.new rsa_key.export(OpenSSL::Cipher.new('DES-EDE3-CBC'), 'pass-phrase'), 'pass-phrase'\n  end\n\n  def ec_key\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/helpers/crypto_spec_helper.rb"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 6,
+                  "endLine": 10,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    @public_key ||= rsa_key.public_key\n  end\n\n  def private_key\n    @private_key ||= OpenSSL::PKey::RSA.new rsa_key.export(OpenSSL::Cipher.new('DES-EDE3-CBC'), 'pass-phrase'), 'pass-phrase'\n  end\n\n",
+                    "rendered": {
+                      "text": "    @public_key ||= rsa_key.public_key\n  end\n\n  def private_key\n    @private_key ||= OpenSSL::PKey::RSA.new rsa_key.export(OpenSSL::Cipher.new('DES-EDE3-CBC'), 'pass-phrase'), 'pass-phrase'\n  end\n\n",
+                      "markdown": "`    @public_key ||= rsa_key.public_key\n  end\n\n  def private_key\n    @private_key ||= OpenSSL::PKey::RSA.new rsa_key.export(OpenSSL::Cipher.new('DES-EDE3-CBC'), 'pass-phrase'), 'pass-phrase'\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 245,
+                  "startColumn": 43,
+                  "endLine": 245,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "  end\n\n  describe '.decode' do\n    subject { klass.decode id_token.to_jwt(private_key), public_key }\n    let(:attributes) { required_attributes }\n    it { should be_a klass }\n    [:iss, :sub, :aud].each do |key|\n",
+                    "rendered": {
+                      "text": "  end\n\n  describe '.decode' do\n    subject { klass.decode id_token.to_jwt(private_key), public_key }\n    let(:attributes) { required_attributes }\n    it { should be_a klass }\n    [:iss, :sub, :aud].each do |key|\n",
+                      "markdown": "`  end\n\n  describe '.decode' do\n    subject { klass.decode id_token.to_jwt(private_key), public_key }\n    let(:attributes) { required_attributes }\n    it { should be_a klass }\n    [:iss, :sub, :aud].each do |key|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 28,
+                  "endLine": 227,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "\n    context 'when neither access_token nor code are given' do\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash, :c_hash\n      end\n",
+                    "rendered": {
+                      "text": "\n    context 'when neither access_token nor code are given' do\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash, :c_hash\n      end\n",
+                      "markdown": "`\n    context 'when neither access_token nor code are given' do\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash, :c_hash\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 28,
+                  "endLine": 210,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "        id_token.code = 'authorization_code'\n      end\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should include :at_hash\n        jwt.should include :c_hash\n",
+                    "rendered": {
+                      "text": "        id_token.code = 'authorization_code'\n      end\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should include :at_hash\n        jwt.should include :c_hash\n",
+                      "markdown": "`        id_token.code = 'authorization_code'\n      end\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should include :at_hash\n        jwt.should include :c_hash\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 193,
+                  "startColumn": 28,
+                  "endLine": 193,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "    context 'when code is given' do\n      before { id_token.code = 'authorization_code' }\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash\n        jwt.should include :c_hash\n",
+                    "rendered": {
+                      "text": "    context 'when code is given' do\n      before { id_token.code = 'authorization_code' }\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash\n        jwt.should include :c_hash\n",
+                      "markdown": "`    context 'when code is given' do\n      before { id_token.code = 'authorization_code' }\n      it 'should include at_hash' do\n        t = id_token.to_jwt private_key\n        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash\n        jwt.should include :c_hash\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 30,
+                  "endLine": 168,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "    context 'when access_token is given' do\n      shared_examples_for :id_token_with_at_hash do\n        it 'should include at_hash' do\n          t = id_token.to_jwt private_key\n          jwt = JSON::JWT.decode t, public_key\n          jwt.should include :at_hash\n          jwt.should_not include :c_hash\n",
+                    "rendered": {
+                      "text": "    context 'when access_token is given' do\n      shared_examples_for :id_token_with_at_hash do\n        it 'should include at_hash' do\n          t = id_token.to_jwt private_key\n          jwt = JSON::JWT.decode t, public_key\n          jwt.should include :at_hash\n          jwt.should_not include :c_hash\n",
+                      "markdown": "`    context 'when access_token is given' do\n      shared_examples_for :id_token_with_at_hash do\n        it 'should include at_hash' do\n          t = id_token.to_jwt private_key\n          jwt = JSON::JWT.decode t, public_key\n          jwt.should include :at_hash\n          jwt.should_not include :c_hash\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 157,
+                  "startColumn": 28,
+                  "endLine": 157,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "\n    context 'when block given' do\n      it 'should allow add additional headers' do\n        t = id_token.to_jwt private_key do |t|\n          t.header[:x5u] = \"http://server.example.com/x5u\"\n        end\n        h = Base64.urlsafe_decode64 t.split('.').first\n",
+                    "rendered": {
+                      "text": "\n    context 'when block given' do\n      it 'should allow add additional headers' do\n        t = id_token.to_jwt private_key do |t|\n          t.header[:x5u] = \"http://server.example.com/x5u\"\n        end\n        h = Base64.urlsafe_decode64 t.split('.').first\n",
+                      "markdown": "`\n    context 'when block given' do\n      it 'should allow add additional headers' do\n        t = id_token.to_jwt private_key do |t|\n          t.header[:x5u] = \"http://server.example.com/x5u\"\n        end\n        h = Base64.urlsafe_decode64 t.split('.').first\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 30,
+                  "endLine": 152,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "  end\n\n  describe '#to_jwt' do\n    subject { id_token.to_jwt private_key }\n    it { should be_a String }\n\n    context 'when block given' do\n",
+                    "rendered": {
+                      "text": "  end\n\n  describe '#to_jwt' do\n    subject { id_token.to_jwt private_key }\n    it { should be_a String }\n\n    context 'when block given' do\n",
+                      "markdown": "`  end\n\n  describe '#to_jwt' do\n    subject { id_token.to_jwt private_key }\n    it { should be_a String }\n\n    context 'when block given' do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 31,
+                  "endLine": 218,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "          OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n          padding: false\n        )\n        jwt[:c_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('authorization_code')[0, 128 / 8],\n          padding: false\n        )\n",
+                    "rendered": {
+                      "text": "          OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n          padding: false\n        )\n        jwt[:c_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('authorization_code')[0, 128 / 8],\n          padding: false\n        )\n",
+                      "markdown": "`          OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n          padding: false\n        )\n        jwt[:c_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('authorization_code')[0, 128 / 8],\n          padding: false\n        )\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 32,
+                  "endLine": 214,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "        jwt = JSON::JWT.decode t, public_key\n        jwt.should include :at_hash\n        jwt.should include :c_hash\n        jwt[:at_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n          padding: false\n        )\n",
+                    "rendered": {
+                      "text": "        jwt = JSON::JWT.decode t, public_key\n        jwt.should include :at_hash\n        jwt.should include :c_hash\n        jwt[:at_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n          padding: false\n        )\n",
+                      "markdown": "`        jwt = JSON::JWT.decode t, public_key\n        jwt.should include :at_hash\n        jwt.should include :c_hash\n        jwt[:at_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n          padding: false\n        )\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 31,
+                  "endLine": 197,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash\n        jwt.should include :c_hash\n        jwt[:c_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('authorization_code')[0, 128 / 8],\n          padding: false\n        )\n",
+                    "rendered": {
+                      "text": "        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash\n        jwt.should include :c_hash\n        jwt[:c_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('authorization_code')[0, 128 / 8],\n          padding: false\n        )\n",
+                      "markdown": "`        jwt = JSON::JWT.decode t, public_key\n        jwt.should_not include :at_hash\n        jwt.should include :c_hash\n        jwt[:c_hash].should == Base64.urlsafe_encode64(\n          OpenSSL::Digest::SHA256.digest('authorization_code')[0, 128 / 8],\n          padding: false\n        )\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 34,
+                  "endLine": 172,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "          jwt = JSON::JWT.decode t, public_key\n          jwt.should include :at_hash\n          jwt.should_not include :c_hash\n          jwt[:at_hash].should == Base64.urlsafe_encode64(\n            OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n            padding: false\n          )\n",
+                    "rendered": {
+                      "text": "          jwt = JSON::JWT.decode t, public_key\n          jwt.should include :at_hash\n          jwt.should_not include :c_hash\n          jwt[:at_hash].should == Base64.urlsafe_encode64(\n            OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n            padding: false\n          )\n",
+                      "markdown": "`          jwt = JSON::JWT.decode t, public_key\n          jwt.should include :at_hash\n          jwt.should_not include :c_hash\n          jwt[:at_hash].should == Base64.urlsafe_encode64(\n            OpenSSL::Digest::SHA256.digest('access_token')[0, 128 / 8],\n            padding: false\n          )\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 12,
+                  "endLine": 160,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "        t = id_token.to_jwt private_key do |t|\n          t.header[:x5u] = \"http://server.example.com/x5u\"\n        end\n        h = Base64.urlsafe_decode64 t.split('.').first\n        h.should include 'x5u'\n      end\n    end\n",
+                    "rendered": {
+                      "text": "        t = id_token.to_jwt private_key do |t|\n          t.header[:x5u] = \"http://server.example.com/x5u\"\n        end\n        h = Base64.urlsafe_decode64 t.split('.').first\n        h.should include 'x5u'\n      end\n    end\n",
+                      "markdown": "`        t = id_token.to_jwt private_key do |t|\n          t.header[:x5u] = \"http://server.example.com/x5u\"\n        end\n        h = Base64.urlsafe_decode64 t.split('.').first\n        h.should include 'x5u'\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 295,
+                  "startColumn": 9,
+                  "endLine": 295,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "        end\n\n        it do\n          expect do\n            klass.decode self_issued, :self_issued\n          end.to raise_error OpenIDConnect::ResponseObject::IdToken::InvalidToken, 'Missing sub_jwk'\n        end\n",
+                    "rendered": {
+                      "text": "        end\n\n        it do\n          expect do\n            klass.decode self_issued, :self_issued\n          end.to raise_error OpenIDConnect::ResponseObject::IdToken::InvalidToken, 'Missing sub_jwk'\n        end\n",
+                      "markdown": "`        end\n\n        it do\n          expect do\n            klass.decode self_issued, :self_issued\n          end.to raise_error OpenIDConnect::ResponseObject::IdToken::InvalidToken, 'Missing sub_jwk'\n        end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 283,
+                  "startColumn": 9,
+                  "endLine": 283,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "        end\n\n        it do\n          expect do\n            klass.decode self_issued, :self_issued\n          end.to raise_error OpenIDConnect::ResponseObject::IdToken::InvalidToken, 'Invalid subject'\n        end\n",
+                    "rendered": {
+                      "text": "        end\n\n        it do\n          expect do\n            klass.decode self_issued, :self_issued\n          end.to raise_error OpenIDConnect::ResponseObject::IdToken::InvalidToken, 'Invalid subject'\n        end\n",
+                      "markdown": "`        end\n\n        it do\n          expect do\n            klass.decode self_issued, :self_issued\n          end.to raise_error OpenIDConnect::ResponseObject::IdToken::InvalidToken, 'Invalid subject'\n        end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 270,
+                  "startColumn": 11,
+                  "endLine": 270,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "\n        context 'when key == public_key' do\n          it do\n            expect do\n              klass.decode self_issued, public_key\n            end.to raise_error JSON::JWS::VerificationFailed\n          end\n",
+                    "rendered": {
+                      "text": "\n        context 'when key == public_key' do\n          it do\n            expect do\n              klass.decode self_issued, public_key\n            end.to raise_error JSON::JWS::VerificationFailed\n          end\n",
+                      "markdown": "`\n        context 'when key == public_key' do\n          it do\n            expect do\n              klass.decode self_issued, public_key\n            end.to raise_error JSON::JWS::VerificationFailed\n          end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 262,
+                  "startColumn": 11,
+                  "endLine": 262,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "\n        context 'when key == :self_issued' do\n          it do\n            expect do\n              klass.decode self_issued, :self_issued\n            end.not_to raise_error\n          end\n",
+                    "rendered": {
+                      "text": "\n        context 'when key == :self_issued' do\n          it do\n            expect do\n              klass.decode self_issued, :self_issued\n            end.not_to raise_error\n          end\n",
+                      "markdown": "`\n        context 'when key == :self_issued' do\n          it do\n            expect do\n              klass.decode self_issued, :self_issued\n            end.not_to raise_error\n          end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 9,
+                  "endLine": 140,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "\n      context 'when nonce is missing' do\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud]\n",
+                    "rendered": {
+                      "text": "\n      context 'when nonce is missing' do\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud]\n",
+                      "markdown": "`\n      context 'when nonce is missing' do\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 128,
+                  "startColumn": 9,
+                  "endLine": 128,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "\n      context 'when nonce is invalid' do\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud],\n",
+                    "rendered": {
+                      "text": "\n      context 'when nonce is invalid' do\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud],\n",
+                      "markdown": "`\n      context 'when nonce is invalid' do\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud],\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 7,
+                  "endLine": 105,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'when client_id is missing' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: attributes[:iss]\n          )\n",
+                    "rendered": {
+                      "text": "\n    context 'when client_id is missing' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: attributes[:iss]\n          )\n",
+                      "markdown": "`\n    context 'when client_id is missing' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: attributes[:iss]\n          )\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 7,
+                  "endLine": 94,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'when client_id is invalid' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: attributes[:iss],\n            client_id: 'invalid_client'\n",
+                    "rendered": {
+                      "text": "\n    context 'when client_id is invalid' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: attributes[:iss],\n            client_id: 'invalid_client'\n",
+                      "markdown": "`\n    context 'when client_id is invalid' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: attributes[:iss],\n            client_id: 'invalid_client'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 7,
+                  "endLine": 84,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'when issuer is missing' do\n      it do\n        expect do\n          id_token.verify!(\n            client_id: attributes[:aud]\n          )\n",
+                    "rendered": {
+                      "text": "\n    context 'when issuer is missing' do\n      it do\n        expect do\n          id_token.verify!(\n            client_id: attributes[:aud]\n          )\n",
+                      "markdown": "`\n    context 'when issuer is missing' do\n      it do\n        expect do\n          id_token.verify!(\n            client_id: attributes[:aud]\n          )\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 7,
+                  "endLine": 73,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'when issuer is invalid' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: 'invalid_issuer',\n            client_id: attributes[:aud]\n",
+                    "rendered": {
+                      "text": "\n    context 'when issuer is invalid' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: 'invalid_issuer',\n            client_id: attributes[:aud]\n",
+                      "markdown": "`\n    context 'when issuer is invalid' do\n      it do\n        expect do\n          id_token.verify!(\n            issuer: 'invalid_issuer',\n            client_id: attributes[:aud]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 9,
+                  "endLine": 61,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "      context 'when expired' do\n        let(:ext) { 10.minutes.ago }\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud]\n",
+                    "rendered": {
+                      "text": "      context 'when expired' do\n        let(:ext) { 10.minutes.ago }\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud]\n",
+                      "markdown": "`      context 'when expired' do\n        let(:ext) { 10.minutes.ago }\n        it do\n          expect do\n            id_token.verify!(\n              issuer: attributes[:iss],\n              client_id: attributes[:aud]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/response_object/id_token_spec."
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 19,
+                  "endLine": 27,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "    describe 'auth_time' do\n      subject { id_token.auth_time }\n\n      context 'when Time object given' do\n        let(:attributes) do\n          required_attributes.merge(auth_time: Time.now)\n        end\n",
+                    "rendered": {
+                      "text": "    describe 'auth_time' do\n      subject { id_token.auth_time }\n\n      context 'when Time object given' do\n        let(:attributes) do\n          required_attributes.merge(auth_time: Time.now)\n        end\n",
+                      "markdown": "`    describe 'auth_time' do\n      subject { id_token.auth_time }\n\n      context 'when Time object given' do\n        let(:attributes) do\n          required_attributes.merge(auth_time: Time.now)\n        end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/request_object_spec.rb"
+                },
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 5,
+                  "endLine": 115,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    end\n    it { should_not be_valid }\n    it do\n      expect do\n        request_object.as_json\n      end.to raise_error OpenIDConnect::ValidationFailed\n    end\n",
+                    "rendered": {
+                      "text": "    end\n    it { should_not be_valid }\n    it do\n      expect do\n        request_object.as_json\n      end.to raise_error OpenIDConnect::ValidationFailed\n    end\n",
+                      "markdown": "`    end\n    it { should_not be_valid }\n    it do\n      expect do\n        request_object.as_json\n      end.to raise_error OpenIDConnect::ValidationFailed\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/rack/oauth2/server/authorize/extension/code_an"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 37,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                    "rendered": {
+                      "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                      "markdown": "`            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/rack/oauth2/server/authorize/error_with_connec"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 85,
+                  "endLine": 10,
+                  "endColumn": 89,
+                  "snippet": {
+                    "text": "redirect_uri in the request does not match any of pre-registered redirect_uris.',\n            interaction_required: 'End-User interaction required.',\n            login_required: 'End-User authentication required.',\n            session_selection_required: 'The End-User is required to select a session at the Authorization Server.',\n            consent_required: 'End-User consent required.',\n            invalid_request_uri: 'The request_uri in the request returns an error or invalid data.',\n            invalid_openid_request_object: 'The request parameter contains an invalid OpenID Request Object.'\n ",
+                    "rendered": {
+                      "text": "redirect_uri in the request does not match any of pre-registered redirect_uris.',\n            interaction_required: 'End-User interaction required.',\n            login_required: 'End-User authentication required.',\n            session_selection_required: 'The End-User is required to select a session at the Authorization Server.',\n            consent_required: 'End-User consent required.',\n            invalid_request_uri: 'The request_uri in the request returns an error or invalid data.',\n            invalid_openid_request_object: 'The request parameter contains an invalid OpenID Request Object.'\n ",
+                      "markdown": "`redirect_uri in the request does not match any of pre-registered redirect_uris.',\n            interaction_required: 'End-User interaction required.',\n            login_required: 'End-User authentication required.',\n            session_selection_required: 'The End-User is required to select a session at the Authorization Server.',\n            consent_required: 'End-User consent required.',\n            invalid_request_uri: 'The request_uri in the request returns an error or invalid data.',\n            invalid_openid_request_object: 'The request parameter contains an invalid OpenID Request Object.'\n `"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/connect_object_spec.rb"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 7,
+                  "endLine": 83,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "      end\n\n      it 'should raise OpenIDConnect::ValidationFailed with ActiveModel::Errors owner' do\n        expect { instance.validate! }.to raise_error(OpenIDConnect::ValidationFailed) { |e|\n          e.message.should include 'Required is not included in the list'\n          e.message.should include 'Required is too long (maximum is 10 characters)'\n          e.object.errors.should be_a ActiveModel::Errors\n",
+                    "rendered": {
+                      "text": "      end\n\n      it 'should raise OpenIDConnect::ValidationFailed with ActiveModel::Errors owner' do\n        expect { instance.validate! }.to raise_error(OpenIDConnect::ValidationFailed) { |e|\n          e.message.should include 'Required is not included in the list'\n          e.message.should include 'Required is too long (maximum is 10 characters)'\n          e.object.errors.should be_a ActiveModel::Errors\n",
+                      "markdown": "`      end\n\n      it 'should raise OpenIDConnect::ValidationFailed with ActiveModel::Errors owner' do\n        expect { instance.validate! }.to raise_error(OpenIDConnect::ValidationFailed) { |e|\n          e.message.should include 'Required is not included in the list'\n          e.message.should include 'Required is too long (maximum is 10 characters)'\n          e.object.errors.should be_a ActiveModel::Errors\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/connect_object_spec.rb"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 7,
+                  "endLine": 62,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "      end\n\n      it 'should raise OpenIDConnect::ValidationFailed with ActiveModel::Errors owner' do\n        expect { instance.as_json }.to raise_error(OpenIDConnect::ValidationFailed) { |e|\n          e.message.should include 'Required is not included in the list'\n          e.message.should include 'Required is too long (maximum is 10 characters)'\n          e.object.errors.should be_a ActiveModel::Errors\n",
+                    "rendered": {
+                      "text": "      end\n\n      it 'should raise OpenIDConnect::ValidationFailed with ActiveModel::Errors owner' do\n        expect { instance.as_json }.to raise_error(OpenIDConnect::ValidationFailed) { |e|\n          e.message.should include 'Required is not included in the list'\n          e.message.should include 'Required is too long (maximum is 10 characters)'\n          e.object.errors.should be_a ActiveModel::Errors\n",
+                      "markdown": "`      end\n\n      it 'should raise OpenIDConnect::ValidationFailed with ActiveModel::Errors owner' do\n        expect { instance.as_json }.to raise_error(OpenIDConnect::ValidationFailed) { |e|\n          e.message.should include 'Required is not included in the list'\n          e.message.should include 'Required is too long (maximum is 10 characters)'\n          e.object.errors.should be_a ActiveModel::Errors\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/connect_object_spec.rb"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 7,
+                  "endLine": 44,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'otherwise' do\n      it do\n        expect { klass.new }.to raise_error AttrRequired::AttrMissing\n      end\n    end\n  end\n",
+                    "rendered": {
+                      "text": "\n    context 'otherwise' do\n      it do\n        expect { klass.new }.to raise_error AttrRequired::AttrMissing\n      end\n    end\n  end\n",
+                      "markdown": "`\n    context 'otherwise' do\n      it do\n        expect { klass.new }.to raise_error AttrRequired::AttrMissing\n      end\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/connect_object_spec.rb"
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 7,
+                  "endLine": 38,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        {optional: 'Optional'}\n      end\n      it do\n        expect { klass.new attributes }.to raise_error AttrRequired::AttrMissing\n      end\n    end\n\n",
+                    "rendered": {
+                      "text": "        {optional: 'Optional'}\n      end\n      it do\n        expect { klass.new attributes }.to raise_error AttrRequired::AttrMissing\n      end\n    end\n\n",
+                      "markdown": "`        {optional: 'Optional'}\n      end\n      it do\n        expect { klass.new attributes }.to raise_error AttrRequired::AttrMissing\n      end\n    end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client_spec.rb"
+                },
+                "region": {
+                  "startLine": 178,
+                  "startColumn": 9,
+                  "endLine": 178,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'otherwise' do\n      it 'should raise Unexpected Token Type exception' do\n        mock_json :post, client.token_endpoint, 'access_token/mac', request_header: header_params, params: protocol_params do\n          expect { access_token }.to raise_error OpenIDConnect::Exception, 'Unexpected Token Type: mac'\n        end\n      end\n\n",
+                    "rendered": {
+                      "text": "    context 'otherwise' do\n      it 'should raise Unexpected Token Type exception' do\n        mock_json :post, client.token_endpoint, 'access_token/mac', request_header: header_params, params: protocol_params do\n          expect { access_token }.to raise_error OpenIDConnect::Exception, 'Unexpected Token Type: mac'\n        end\n      end\n\n",
+                      "markdown": "`    context 'otherwise' do\n      it 'should raise Unexpected Token Type exception' do\n        mock_json :post, client.token_endpoint, 'access_token/mac', request_header: header_params, params: protocol_params do\n          expect { access_token }.to raise_error OpenIDConnect::Exception, 'Unexpected Token Type: mac'\n        end\n      end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client_spec.rb"
+                },
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 9,
+                  "endLine": 168,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'when invalid JSON is returned' do\n      it 'should raise OpenIDConnect::Exception' do\n        mock_json :post, client.token_endpoint, 'access_token/invalid_json', request_header: header_params, params: protocol_params do\n          expect do\n            access_token\n          end.to raise_error OpenIDConnect::Exception, 'Unknown Token Type'\n        end\n",
+                    "rendered": {
+                      "text": "    context 'when invalid JSON is returned' do\n      it 'should raise OpenIDConnect::Exception' do\n        mock_json :post, client.token_endpoint, 'access_token/invalid_json', request_header: header_params, params: protocol_params do\n          expect do\n            access_token\n          end.to raise_error OpenIDConnect::Exception, 'Unknown Token Type'\n        end\n",
+                      "markdown": "`    context 'when invalid JSON is returned' do\n      it 'should raise OpenIDConnect::Exception' do\n        mock_json :post, client.token_endpoint, 'access_token/invalid_json', request_header: header_params, params: protocol_params do\n          expect do\n            access_token\n          end.to raise_error OpenIDConnect::Exception, 'Unknown Token Type'\n        end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/client_spec.rb"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 11,
+                  "endLine": 29,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "      [:authorization_uri, :userinfo_uri].each do |endpoint|\n        describe endpoint do\n          it do\n            expect { client.send endpoint }.to raise_error 'No Host Info'\n          end\n        end\n      end\n",
+                    "rendered": {
+                      "text": "      [:authorization_uri, :userinfo_uri].each do |endpoint|\n        describe endpoint do\n          it do\n            expect { client.send endpoint }.to raise_error 'No Host Info'\n          end\n        end\n      end\n",
+                      "markdown": "`      [:authorization_uri, :userinfo_uri].each do |endpoint|\n        describe endpoint do\n          it do\n            expect { client.send endpoint }.to raise_error 'No Host Info'\n          end\n        end\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/rack/oauth2/server/authorize/extension/id_toke"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 37,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                    "rendered": {
+                      "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                      "markdown": "`            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/rack/oauth2/server/authorize/extension/code_an"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 37,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                    "rendered": {
+                      "text": "            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n",
+                      "markdown": "`            end\n\n            def _call(env)\n              @request  = Request.new env\n              @response = Response.new request\n              super\n            end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config_spec"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 7,
+                  "endLine": 91,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'when response include no issuer' do\n      it do\n        expect do\n          mock_json :get, endpoint, 'discovery/config_without_issuer' do\n            OpenIDConnect::Discovery::Provider::Config.discover! provider\n          end\n",
+                    "rendered": {
+                      "text": "\n    context 'when response include no issuer' do\n      it do\n        expect do\n          mock_json :get, endpoint, 'discovery/config_without_issuer' do\n            OpenIDConnect::Discovery::Provider::Config.discover! provider\n          end\n",
+                      "markdown": "`\n    context 'when response include no issuer' do\n      it do\n        expect do\n          mock_json :get, endpoint, 'discovery/config_without_issuer' do\n            OpenIDConnect::Discovery::Provider::Config.discover! provider\n          end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config_spec"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 9,
+                  "endLine": 80,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "        end\n\n        it do\n          expect do\n            mock_json :get, endpoint, 'discovery/config_with_invalid_issuer' do\n              OpenIDConnect::Discovery::Provider::Config.discover! provider\n            end\n",
+                    "rendered": {
+                      "text": "        end\n\n        it do\n          expect do\n            mock_json :get, endpoint, 'discovery/config_with_invalid_issuer' do\n              OpenIDConnect::Discovery::Provider::Config.discover! provider\n            end\n",
+                      "markdown": "`        end\n\n        it do\n          expect do\n            mock_json :get, endpoint, 'discovery/config_with_invalid_issuer' do\n              OpenIDConnect::Discovery::Provider::Config.discover! provider\n            end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config_spec"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 9,
+                  "endLine": 62,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    describe 'when response include invalid issuer' do\n      context 'with normal configuration' do\n        it do\n          expect do\n            mock_json :get, endpoint, 'discovery/config_with_invalid_issuer' do\n              OpenIDConnect::Discovery::Provider::Config.discover! provider\n            end\n",
+                    "rendered": {
+                      "text": "    describe 'when response include invalid issuer' do\n      context 'with normal configuration' do\n        it do\n          expect do\n            mock_json :get, endpoint, 'discovery/config_with_invalid_issuer' do\n              OpenIDConnect::Discovery::Provider::Config.discover! provider\n            end\n",
+                      "markdown": "`    describe 'when response include invalid issuer' do\n      context 'with normal configuration' do\n        it do\n          expect do\n            mock_json :get, endpoint, 'discovery/config_with_invalid_issuer' do\n              OpenIDConnect::Discovery::Provider::Config.discover! provider\n            end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config_spec"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 7,
+                  "endLine": 51,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'when SWD::Exception raised' do\n      it do\n        expect do\n          mock_json :get, endpoint, 'errors/unknown', status: [404, 'Not Found'] do\n            OpenIDConnect::Discovery::Provider::Config.discover! provider\n          end\n",
+                    "rendered": {
+                      "text": "\n    context 'when SWD::Exception raised' do\n      it do\n        expect do\n          mock_json :get, endpoint, 'errors/unknown', status: [404, 'Not Found'] do\n            OpenIDConnect::Discovery::Provider::Config.discover! provider\n          end\n",
+                      "markdown": "`\n    context 'when SWD::Exception raised' do\n      it do\n        expect do\n          mock_json :get, endpoint, 'errors/unknown', status: [404, 'Not Found'] do\n            OpenIDConnect::Discovery::Provider::Config.discover! provider\n          end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config/resp"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 7,
+                  "endLine": 79,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    context 'otherwise' do\n      it do\n        expect do\n          instance.validate!\n        end.not_to raise_error{ |e|\n          e.should be_a OpenIDConnect::ValidationFailed\n",
+                    "rendered": {
+                      "text": "\n    context 'otherwise' do\n      it do\n        expect do\n          instance.validate!\n        end.not_to raise_error{ |e|\n          e.should be_a OpenIDConnect::ValidationFailed\n",
+                      "markdown": "`\n    context 'otherwise' do\n      it do\n        expect do\n          instance.validate!\n        end.not_to raise_error{ |e|\n          e.should be_a OpenIDConnect::ValidationFailed\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/discovery/provider/config/resp"
+                },
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 7,
+                  "endLine": 71,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        {}\n      end\n      it do\n        expect do\n          instance.validate!\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n",
+                    "rendered": {
+                      "text": "        {}\n      end\n      it do\n        expect do\n          instance.validate!\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n",
+                      "markdown": "`        {}\n      end\n      it do\n        expect do\n          instance.validate!\n        end.to raise_error OpenIDConnect::ValidationFailed\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/openid_connect/client/registrar.rb"
+                },
+                "region": {
+                  "startLine": 128,
+                  "startColumn": 13,
+                  "endLine": 128,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "        if contacts\n          include_invalid = contacts.any? do |contact|\n            begin\n              mail = Mail::Address.new(contact)\n              mail.address != contact || mail.domain.split(\".\").length <= 1\n            rescue\n              :invalid\n",
+                    "rendered": {
+                      "text": "        if contacts\n          include_invalid = contacts.any? do |contact|\n            begin\n              mail = Mail::Address.new(contact)\n              mail.address != contact || mail.domain.split(\".\").length <= 1\n            rescue\n              :invalid\n",
+                      "markdown": "`        if contacts\n          include_invalid = contacts.any? do |contact|\n            begin\n              mail = Mail::Address.new(contact)\n              mail.address != contact || mail.domain.split(\".\").length <= 1\n            rescue\n              :invalid\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 30,
+                  "endLine": 6,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "describe Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=code%20id_token%20token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:bearer_token) { Rack::OAuth2::AccessToken::Bearer.new(access_token: 'access_token') }\n  let(:code)         { 'authorization_code' }\n",
+                    "rendered": {
+                      "text": "describe Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=code%20id_token%20token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:bearer_token) { Rack::OAuth2::AccessToken::Bearer.new(access_token: 'access_token') }\n  let(:code)         { 'authorization_code' }\n",
+                      "markdown": "`describe Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken do\n  subject { response }\n  let(:request)      { Rack::MockRequest.new app }\n  let(:response)     { request.get('/?response_type=code%20id_token%20token&client_id=client&state=state') }\n  let(:redirect_uri) { 'http://client.example.com/callback' }\n  let(:bearer_token) { Rack::OAuth2::AccessToken::Bearer.new(access_token: 'access_token') }\n  let(:code)         { 'authorization_code' }\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 13,
+                  "endLine": 18,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n",
+                    "rendered": {
+                      "text": "      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n",
+                      "markdown": "`      nonce: 'nonce',\n      exp: 1313424327,\n      iat: 1313420327\n    ).to_jwt private_key\n  end\n\n  context 'when id_token is given' do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 5,
+                  "endLine": 62,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                    "rendered": {
+                      "text": "    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n",
+                      "markdown": "`    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n        e.protocol_params_location.should == :fragment\n      }\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 99,
+                  "endLine": 59,
+                  "endColumn": 104,
+                  "snippet": {
+                    "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                    "rendered": {
+                      "text": "\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n",
+                      "markdown": "`\n  context 'when error response' do\n    let(:env)     { Rack::MockRequest.env_for(\"/authorize?client_id=client_id\") }\n    let(:request) { Rack::OAuth2::Server::Authorize::Extension::CodeAndIdTokenAndToken::Request.new env }\n\n    it 'should set protocol_params_location = :fragment' do\n      expect { request.bad_request! }.to raise_error(Rack::OAuth2::Server::Authorize::BadRequest) { |e|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/rack/oauth2/server/authorize/extension/code_a"
+                },
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 5,
+                  "endLine": 53,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'access_token', 'code', 'id_token' required.\"\n    end\n  end\n\n",
+                    "rendered": {
+                      "text": "      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'access_token', 'code', 'id_token' required.\"\n    end\n  end\n\n",
+                      "markdown": "`      end\n    end\n    it do\n      expect { response }.to raise_error AttrRequired::AttrMissing, \"'access_token', 'code', 'id_token' required.\"\n    end\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/README.rdoc"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 11,
+                  "endLine": 15,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "\n* View Source on GitHub (https://github.com/nov/openid_connect)\n* Report Issues on GitHub (https://github.com/nov/openid_connect/issues)\n* Subscribe Update Info (https://www.facebook.com/OpenIDConnect.rb)\n\n== Examples\n\n",
+                    "rendered": {
+                      "text": "\n* View Source on GitHub (https://github.com/nov/openid_connect)\n* Report Issues on GitHub (https://github.com/nov/openid_connect/issues)\n* Subscribe Update Info (https://www.facebook.com/OpenIDConnect.rb)\n\n== Examples\n\n",
+                      "markdown": "`\n* View Source on GitHub (https://github.com/nov/openid_connect)\n* Report Issues on GitHub (https://github.com/nov/openid_connect/issues)\n* Subscribe Update Info (https://www.facebook.com/OpenIDConnect.rb)\n\n== Examples\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/access_token_spec.rb"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 9,
+                  "endLine": 81,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'when unknown' do\n      it 'should raise OpenIDConnect::HttpError' do\n        mock_json :get, endpoint, 'errors/unknown', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 500 do\n          expect { request }.to raise_error OpenIDConnect::HttpError\n        end\n      end\n    end\n",
+                    "rendered": {
+                      "text": "    context 'when unknown' do\n      it 'should raise OpenIDConnect::HttpError' do\n        mock_json :get, endpoint, 'errors/unknown', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 500 do\n          expect { request }.to raise_error OpenIDConnect::HttpError\n        end\n      end\n    end\n",
+                      "markdown": "`    context 'when unknown' do\n      it 'should raise OpenIDConnect::HttpError' do\n        mock_json :get, endpoint, 'errors/unknown', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 500 do\n          expect { request }.to raise_error OpenIDConnect::HttpError\n        end\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/access_token_spec.rb"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 9,
+                  "endLine": 73,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'when forbidden' do\n      it 'should raise OpenIDConnect::Forbidden' do\n        mock_json :get, endpoint, 'errors/insufficient_scope', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 403 do\n          expect { request }.to raise_error OpenIDConnect::Forbidden\n        end\n      end\n    end\n",
+                    "rendered": {
+                      "text": "    context 'when forbidden' do\n      it 'should raise OpenIDConnect::Forbidden' do\n        mock_json :get, endpoint, 'errors/insufficient_scope', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 403 do\n          expect { request }.to raise_error OpenIDConnect::Forbidden\n        end\n      end\n    end\n",
+                      "markdown": "`    context 'when forbidden' do\n      it 'should raise OpenIDConnect::Forbidden' do\n        mock_json :get, endpoint, 'errors/insufficient_scope', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 403 do\n          expect { request }.to raise_error OpenIDConnect::Forbidden\n        end\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/access_token_spec.rb"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 9,
+                  "endLine": 65,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'when unauthorized' do\n      it 'should raise OpenIDConnect::Unauthorized' do\n        mock_json :get, endpoint, 'errors/invalid_access_token', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 401 do\n          expect { request }.to raise_error OpenIDConnect::Unauthorized\n        end\n      end\n    end\n",
+                    "rendered": {
+                      "text": "    context 'when unauthorized' do\n      it 'should raise OpenIDConnect::Unauthorized' do\n        mock_json :get, endpoint, 'errors/invalid_access_token', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 401 do\n          expect { request }.to raise_error OpenIDConnect::Unauthorized\n        end\n      end\n    end\n",
+                      "markdown": "`    context 'when unauthorized' do\n      it 'should raise OpenIDConnect::Unauthorized' do\n        mock_json :get, endpoint, 'errors/invalid_access_token', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 401 do\n          expect { request }.to raise_error OpenIDConnect::Unauthorized\n        end\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/spec/openid_connect/access_token_spec.rb"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 9,
+                  "endLine": 57,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    context 'when bad_request' do\n      it 'should raise OpenIDConnect::Forbidden' do\n        mock_json :get, endpoint, 'errors/invalid_request', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 400 do\n          expect { request }.to raise_error OpenIDConnect::BadRequest\n        end\n      end\n    end\n",
+                    "rendered": {
+                      "text": "    context 'when bad_request' do\n      it 'should raise OpenIDConnect::Forbidden' do\n        mock_json :get, endpoint, 'errors/invalid_request', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 400 do\n          expect { request }.to raise_error OpenIDConnect::BadRequest\n        end\n      end\n    end\n",
+                      "markdown": "`    context 'when bad_request' do\n      it 'should raise OpenIDConnect::Forbidden' do\n        mock_json :get, endpoint, 'errors/invalid_request', :HTTP_AUTHORIZATION => 'Bearer access_token', status: 400 do\n          expect { request }.to raise_error OpenIDConnect::BadRequest\n        end\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/TODOs"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1,
+                  "endLine": 12,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "\n## Message\n\n* Update UserInfo OpenID Schema",
+                    "rendered": {
+                      "text": "\n## Message\n\n* Update UserInfo OpenID Schema",
+                      "markdown": "`\n## Message\n\n* Update UserInfo OpenID Schema`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/TODOs"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 1,
+                  "endLine": 7,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "\n## Dynamic Client Registration\n\n* Update Registration Response Format\n* Client Metadata \"Read\" Call Support\n\n## Message\n",
+                    "rendered": {
+                      "text": "\n## Dynamic Client Registration\n\n* Update Registration Response Format\n* Client Metadata \"Read\" Call Support\n\n## Message\n",
+                      "markdown": "`\n## Dynamic Client Registration\n\n* Update Registration Response Format\n* Client Metadata \"Read\" Call Support\n\n## Message\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/lib/openid_connect/response_object/id_token.rb"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 8,
+                  "endLine": 62,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "\n      def left_half_hash_of(string, hash_length)\n        digest = OpenSSL::Digest.new(\"SHA#{hash_length}\").digest string\n        Base64.urlsafe_encode64 digest[0, hash_length / (2 * 8)], padding: false\n      end\n\n      class << self\n",
+                    "rendered": {
+                      "text": "\n      def left_half_hash_of(string, hash_length)\n        digest = OpenSSL::Digest.new(\"SHA#{hash_length}\").digest string\n        Base64.urlsafe_encode64 digest[0, hash_length / (2 * 8)], padding: false\n      end\n\n      class << self\n",
+                      "markdown": "`\n      def left_half_hash_of(string, hash_length)\n        digest = OpenSSL::Digest.new(\"SHA#{hash_length}\").digest string\n        Base64.urlsafe_encode64 digest[0, hash_length / (2 * 8)], padding: false\n      end\n\n      class << self\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/.gitignore"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 2,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "\\#*\n.\\#*\n\n## VIM\n*.swp\n\n## PROJECT::GENERAL\ncoverage*\n",
+                    "rendered": {
+                      "text": "\\#*\n.\\#*\n\n## VIM\n*.swp\n\n## PROJECT::GENERAL\ncoverage*\n",
+                      "markdown": "`\\#*\n.\\#*\n\n## VIM\n*.swp\n\n## PROJECT::GENERAL\ncoverage*\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-openid_connect-1.1.8-1.1.8-r5.apk/ruby3.2-openid_connect-1.1.8-1.1.8-r5/usr/lib/ruby/gems/3.2.0/gems/openid_connect-1.1.8/.gitignore"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 2,
+                  "endLine": 9,
+                  "snippet": {
+                    "text": "*.tmproj\ntmtags\n\n## EMACS\n*~\n\\#*\n.\\#*\n\n",
+                    "rendered": {
+                      "text": "*.tmproj\ntmtags\n\n## EMACS\n*~\n\\#*\n.\\#*\n\n",
+                      "markdown": "`*.tmproj\ntmtags\n\n## EMACS\n*~\n\\#*\n.\\#*\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,3199 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/resources/stack.py"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 35,
+                  "endLine": 26,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "\n    @property\n    def replicas(self):\n        replicas = self.obj[\"spec\"].get(\"replicas\")\n        if replicas is not None:\n            return replicas\n        else:\n",
+                    "rendered": {
+                      "text": "\n    @property\n    def replicas(self):\n        replicas = self.obj[\"spec\"].get(\"replicas\")\n        if replicas is not None:\n            return replicas\n        else:\n",
+                      "markdown": "`\n    @property\n    def replicas(self):\n        replicas = self.obj[\"spec\"].get(\"replicas\")\n        if replicas is not None:\n            return replicas\n        else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/resources/stack.py"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 54,
+                  "endLine": 21,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "            return int(spec[\"autoscaler\"].get(\"maxReplicas\", 0))\n        elif \"horizontalPodAutoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L139\n            return int(spec[\"horizontalPodAutoscaler\"].get(\"maxReplicas\", 0))\n        return None\n\n    @property\n",
+                    "rendered": {
+                      "text": "            return int(spec[\"autoscaler\"].get(\"maxReplicas\", 0))\n        elif \"horizontalPodAutoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L139\n            return int(spec[\"horizontalPodAutoscaler\"].get(\"maxReplicas\", 0))\n        return None\n\n    @property\n",
+                      "markdown": "`            return int(spec[\"autoscaler\"].get(\"maxReplicas\", 0))\n        elif \"horizontalPodAutoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L139\n            return int(spec[\"horizontalPodAutoscaler\"].get(\"maxReplicas\", 0))\n        return None\n\n    @property\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/resources/stack.py"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 41,
+                  "endLine": 18,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "        spec = self.obj[\"spec\"]\n        if \"autoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L116\n            return int(spec[\"autoscaler\"].get(\"maxReplicas\", 0))\n        elif \"horizontalPodAutoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L139\n            return int(spec[\"horizontalPodAutoscaler\"].get(\"maxReplicas\", 0))\n",
+                    "rendered": {
+                      "text": "        spec = self.obj[\"spec\"]\n        if \"autoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L116\n            return int(spec[\"autoscaler\"].get(\"maxReplicas\", 0))\n        elif \"horizontalPodAutoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L139\n            return int(spec[\"horizontalPodAutoscaler\"].get(\"maxReplicas\", 0))\n",
+                      "markdown": "`        spec = self.obj[\"spec\"]\n        if \"autoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L116\n            return int(spec[\"autoscaler\"].get(\"maxReplicas\", 0))\n        elif \"horizontalPodAutoscaler\" in spec:\n            # see https://github.com/zalando-incubator/stackset-controller/blob/2baddca617e2b76e34976357765206280cfd382e/pkg/apis/zalando.org/v1/types.go#L139\n            return int(spec[\"horizontalPodAutoscaler\"].get(\"maxReplicas\", 0))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000702"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Environment)",
+            "id": "BD000702"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/cmd.py"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 22,
+                  "endLine": 48,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "    parser.add_argument(\n        \"--include-resources\",\n        type=check_include_resources,\n        default=os.getenv(\"INCLUDE_RESOURCES\", \"deployments\"),\n        help=f\"Downscale resources of this kind as comma separated list. [{', '.join(sorted(VALID_RESOURCES))}] (default: deployments)\",\n    )\n    parser.add_argument(\n",
+                    "rendered": {
+                      "text": "    parser.add_argument(\n        \"--include-resources\",\n        type=check_include_resources,\n        default=os.getenv(\"INCLUDE_RESOURCES\", \"deployments\"),\n        help=f\"Downscale resources of this kind as comma separated list. [{', '.join(sorted(VALID_RESOURCES))}] (default: deployments)\",\n    )\n    parser.add_argument(\n",
+                      "markdown": "`    parser.add_argument(\n        \"--include-resources\",\n        type=check_include_resources,\n        default=os.getenv(\"INCLUDE_RESOURCES\", \"deployments\"),\n        help=f\"Downscale resources of this kind as comma separated list. [{', '.join(sorted(VALID_RESOURCES))}] (default: deployments)\",\n    )\n    parser.add_argument(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/cmd.py"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 21,
+                  "endLine": 74,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "    )\n    downscalescale_group.add_argument(\n        \"--default-downtime\",\n        help=\"Default time range to scale down for (default: never)\",\n        default=os.getenv(\"DEFAULT_DOWNTIME\", \"never\"),\n    )\n    parser.add_argument(\n",
+                    "rendered": {
+                      "text": "    )\n    downscalescale_group.add_argument(\n        \"--default-downtime\",\n        help=\"Default time range to scale down for (default: never)\",\n        default=os.getenv(\"DEFAULT_DOWNTIME\", \"never\"),\n    )\n    parser.add_argument(\n",
+                      "markdown": "`    )\n    downscalescale_group.add_argument(\n        \"--default-downtime\",\n        help=\"Default time range to scale down for (default: never)\",\n        default=os.getenv(\"DEFAULT_DOWNTIME\", \"never\"),\n    )\n    parser.add_argument(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/cmd.py"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 21,
+                  "endLine": 69,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "    )\n    downscalescale_group.add_argument(\n        \"--downscale-period\",\n        help=\"Default time period to scale down once (default: never)\",\n        default=os.getenv(\"DOWNSCALE_PERIOD\", \"never\"),\n    )\n    downscalescale_group.add_argument(\n",
+                    "rendered": {
+                      "text": "    )\n    downscalescale_group.add_argument(\n        \"--downscale-period\",\n        help=\"Default time period to scale down once (default: never)\",\n        default=os.getenv(\"DOWNSCALE_PERIOD\", \"never\"),\n    )\n    downscalescale_group.add_argument(\n",
+                      "markdown": "`    )\n    downscalescale_group.add_argument(\n        \"--downscale-period\",\n        help=\"Default time period to scale down once (default: never)\",\n        default=os.getenv(\"DOWNSCALE_PERIOD\", \"never\"),\n    )\n    downscalescale_group.add_argument(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/cmd.py"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 21,
+                  "endLine": 64,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "    )\n    upscale_group.add_argument(\n        \"--default-uptime\",\n        help=\"Default time range to scale up for (default: always)\",\n        default=os.getenv(\"DEFAULT_UPTIME\", \"always\"),\n    )\n    downscalescale_group.add_argument(\n",
+                    "rendered": {
+                      "text": "    )\n    upscale_group.add_argument(\n        \"--default-uptime\",\n        help=\"Default time range to scale up for (default: always)\",\n        default=os.getenv(\"DEFAULT_UPTIME\", \"always\"),\n    )\n    downscalescale_group.add_argument(\n",
+                      "markdown": "`    )\n    upscale_group.add_argument(\n        \"--default-uptime\",\n        help=\"Default time range to scale up for (default: always)\",\n        default=os.getenv(\"DEFAULT_UPTIME\", \"always\"),\n    )\n    downscalescale_group.add_argument(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/cmd.py"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 21,
+                  "endLine": 59,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "    )\n    upscale_group.add_argument(\n        \"--upscale-period\",\n        help=\"Default time period to scale up once (default: never)\",\n        default=os.getenv(\"UPSCALE_PERIOD\", \"never\"),\n    )\n    upscale_group.add_argument(\n",
+                    "rendered": {
+                      "text": "    )\n    upscale_group.add_argument(\n        \"--upscale-period\",\n        help=\"Default time period to scale up once (default: never)\",\n        default=os.getenv(\"UPSCALE_PERIOD\", \"never\"),\n    )\n    upscale_group.add_argument(\n",
+                      "markdown": "`    )\n    upscale_group.add_argument(\n        \"--upscale-period\",\n        help=\"Default time period to scale up once (default: never)\",\n        default=os.getenv(\"UPSCALE_PERIOD\", \"never\"),\n    )\n    upscale_group.add_argument(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 467,
+                  "startColumn": 37,
+                  "endLine": 467,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "            namespace_obj.annotations.get(FORCE_UPTIME_ANNOTATION, forced_uptime)\n        )\n        forced_downtime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_DOWNTIME_ANNOTATION, False)\n        )\n        if forced_uptime_value_for_namespace.lower() == \"true\":\n            forced_uptime_for_namespace = True\n",
+                    "rendered": {
+                      "text": "            namespace_obj.annotations.get(FORCE_UPTIME_ANNOTATION, forced_uptime)\n        )\n        forced_downtime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_DOWNTIME_ANNOTATION, False)\n        )\n        if forced_uptime_value_for_namespace.lower() == \"true\":\n            forced_uptime_for_namespace = True\n",
+                      "markdown": "`            namespace_obj.annotations.get(FORCE_UPTIME_ANNOTATION, forced_uptime)\n        )\n        forced_downtime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_DOWNTIME_ANNOTATION, False)\n        )\n        if forced_uptime_value_for_namespace.lower() == \"true\":\n            forced_uptime_for_namespace = True\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 464,
+                  "startColumn": 37,
+                  "endLine": 464,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "            DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n        )\n        forced_uptime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_UPTIME_ANNOTATION, forced_uptime)\n        )\n        forced_downtime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_DOWNTIME_ANNOTATION, False)\n",
+                    "rendered": {
+                      "text": "            DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n        )\n        forced_uptime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_UPTIME_ANNOTATION, forced_uptime)\n        )\n        forced_downtime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_DOWNTIME_ANNOTATION, False)\n",
+                      "markdown": "`            DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n        )\n        forced_uptime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_UPTIME_ANNOTATION, forced_uptime)\n        )\n        forced_downtime_value_for_namespace = str(\n            namespace_obj.annotations.get(FORCE_DOWNTIME_ANNOTATION, False)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 460,
+                  "startColumn": 66,
+                  "endLine": 460,
+                  "endColumn": 71,
+                  "snippet": {
+                    "text": "        upscale_period_for_namespace = namespace_obj.annotations.get(\n            UPSCALE_PERIOD_ANNOTATION, upscale_period\n        )\n        downscale_period_for_namespace = namespace_obj.annotations.get(\n            DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n        )\n        forced_uptime_value_for_namespace = str(\n",
+                    "rendered": {
+                      "text": "        upscale_period_for_namespace = namespace_obj.annotations.get(\n            UPSCALE_PERIOD_ANNOTATION, upscale_period\n        )\n        downscale_period_for_namespace = namespace_obj.annotations.get(\n            DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n        )\n        forced_uptime_value_for_namespace = str(\n",
+                      "markdown": "`        upscale_period_for_namespace = namespace_obj.annotations.get(\n            UPSCALE_PERIOD_ANNOTATION, upscale_period\n        )\n        downscale_period_for_namespace = namespace_obj.annotations.get(\n            DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n        )\n        forced_uptime_value_for_namespace = str(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 457,
+                  "startColumn": 64,
+                  "endLine": 457,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "        if default_downtime_replicas_for_namespace is None:\n            default_downtime_replicas_for_namespace = downtime_replicas\n\n        upscale_period_for_namespace = namespace_obj.annotations.get(\n            UPSCALE_PERIOD_ANNOTATION, upscale_period\n        )\n        downscale_period_for_namespace = namespace_obj.annotations.get(\n",
+                    "rendered": {
+                      "text": "        if default_downtime_replicas_for_namespace is None:\n            default_downtime_replicas_for_namespace = downtime_replicas\n\n        upscale_period_for_namespace = namespace_obj.annotations.get(\n            UPSCALE_PERIOD_ANNOTATION, upscale_period\n        )\n        downscale_period_for_namespace = namespace_obj.annotations.get(\n",
+                      "markdown": "`        if default_downtime_replicas_for_namespace is None:\n            default_downtime_replicas_for_namespace = downtime_replicas\n\n        upscale_period_for_namespace = namespace_obj.annotations.get(\n            UPSCALE_PERIOD_ANNOTATION, upscale_period\n        )\n        downscale_period_for_namespace = namespace_obj.annotations.get(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 448,
+                  "startColumn": 66,
+                  "endLine": 448,
+                  "endColumn": 71,
+                  "snippet": {
+                    "text": "        default_uptime_for_namespace = namespace_obj.annotations.get(\n            UPTIME_ANNOTATION, default_uptime\n        )\n        default_downtime_for_namespace = namespace_obj.annotations.get(\n            DOWNTIME_ANNOTATION, default_downtime\n        )\n        default_downtime_replicas_for_namespace = get_annotation_value_as_int(\n",
+                    "rendered": {
+                      "text": "        default_uptime_for_namespace = namespace_obj.annotations.get(\n            UPTIME_ANNOTATION, default_uptime\n        )\n        default_downtime_for_namespace = namespace_obj.annotations.get(\n            DOWNTIME_ANNOTATION, default_downtime\n        )\n        default_downtime_replicas_for_namespace = get_annotation_value_as_int(\n",
+                      "markdown": "`        default_uptime_for_namespace = namespace_obj.annotations.get(\n            UPTIME_ANNOTATION, default_uptime\n        )\n        default_downtime_for_namespace = namespace_obj.annotations.get(\n            DOWNTIME_ANNOTATION, default_downtime\n        )\n        default_downtime_replicas_for_namespace = get_annotation_value_as_int(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 445,
+                  "startColumn": 64,
+                  "endLine": 445,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "\n        excluded = ignore_resource(namespace_obj, now)\n\n        default_uptime_for_namespace = namespace_obj.annotations.get(\n            UPTIME_ANNOTATION, default_uptime\n        )\n        default_downtime_for_namespace = namespace_obj.annotations.get(\n",
+                    "rendered": {
+                      "text": "\n        excluded = ignore_resource(namespace_obj, now)\n\n        default_uptime_for_namespace = namespace_obj.annotations.get(\n            UPTIME_ANNOTATION, default_uptime\n        )\n        default_downtime_for_namespace = namespace_obj.annotations.get(\n",
+                      "markdown": "`\n        excluded = ignore_resource(namespace_obj, now)\n\n        default_uptime_for_namespace = namespace_obj.annotations.get(\n            UPTIME_ANNOTATION, default_uptime\n        )\n        default_downtime_for_namespace = namespace_obj.annotations.get(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 334,
+                  "startColumn": 47,
+                  "endLine": 334,
+                  "endColumn": 52,
+                  "snippet": {
+                    "text": "                )\n            else:\n                uptime = resource.annotations.get(UPTIME_ANNOTATION, default_uptime)\n                downtime = resource.annotations.get(\n                    DOWNTIME_ANNOTATION, default_downtime\n                )\n                is_uptime = matches_time_spec(now, uptime) and not matches_time_spec(\n",
+                    "rendered": {
+                      "text": "                )\n            else:\n                uptime = resource.annotations.get(UPTIME_ANNOTATION, default_uptime)\n                downtime = resource.annotations.get(\n                    DOWNTIME_ANNOTATION, default_downtime\n                )\n                is_uptime = matches_time_spec(now, uptime) and not matches_time_spec(\n",
+                      "markdown": "`                )\n            else:\n                uptime = resource.annotations.get(UPTIME_ANNOTATION, default_uptime)\n                downtime = resource.annotations.get(\n                    DOWNTIME_ANNOTATION, default_downtime\n                )\n                is_uptime = matches_time_spec(now, uptime) and not matches_time_spec(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 333,
+                  "startColumn": 45,
+                  "endLine": 333,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "                    f\"Periods checked: upscale={upscale_period}, downscale={downscale_period}, ignore={ignore}, is_uptime={is_uptime}\"\n                )\n            else:\n                uptime = resource.annotations.get(UPTIME_ANNOTATION, default_uptime)\n                downtime = resource.annotations.get(\n                    DOWNTIME_ANNOTATION, default_downtime\n                )\n",
+                    "rendered": {
+                      "text": "                    f\"Periods checked: upscale={upscale_period}, downscale={downscale_period}, ignore={ignore}, is_uptime={is_uptime}\"\n                )\n            else:\n                uptime = resource.annotations.get(UPTIME_ANNOTATION, default_uptime)\n                downtime = resource.annotations.get(\n                    DOWNTIME_ANNOTATION, default_downtime\n                )\n",
+                      "markdown": "`                    f\"Periods checked: upscale={upscale_period}, downscale={downscale_period}, ignore={ignore}, is_uptime={is_uptime}\"\n                )\n            else:\n                uptime = resource.annotations.get(UPTIME_ANNOTATION, default_uptime)\n                downtime = resource.annotations.get(\n                    DOWNTIME_ANNOTATION, default_downtime\n                )\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 306,
+                  "startColumn": 51,
+                  "endLine": 306,
+                  "endColumn": 56,
+                  "snippet": {
+                    "text": "            upscale_period = resource.annotations.get(\n                UPSCALE_PERIOD_ANNOTATION, upscale_period\n            )\n            downscale_period = resource.annotations.get(\n                DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n            )\n            if forced_uptime or (exclude and original_replicas):\n",
+                    "rendered": {
+                      "text": "            upscale_period = resource.annotations.get(\n                UPSCALE_PERIOD_ANNOTATION, upscale_period\n            )\n            downscale_period = resource.annotations.get(\n                DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n            )\n            if forced_uptime or (exclude and original_replicas):\n",
+                      "markdown": "`            upscale_period = resource.annotations.get(\n                UPSCALE_PERIOD_ANNOTATION, upscale_period\n            )\n            downscale_period = resource.annotations.get(\n                DOWNSCALE_PERIOD_ANNOTATION, downscale_period\n            )\n            if forced_uptime or (exclude and original_replicas):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 303,
+                  "startColumn": 49,
+                  "endLine": 303,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "            ignore = False\n            is_uptime = True\n\n            upscale_period = resource.annotations.get(\n                UPSCALE_PERIOD_ANNOTATION, upscale_period\n            )\n            downscale_period = resource.annotations.get(\n",
+                    "rendered": {
+                      "text": "            ignore = False\n            is_uptime = True\n\n            upscale_period = resource.annotations.get(\n                UPSCALE_PERIOD_ANNOTATION, upscale_period\n            )\n            downscale_period = resource.annotations.get(\n",
+                      "markdown": "`            ignore = False\n            is_uptime = True\n\n            upscale_period = resource.annotations.get(\n                UPSCALE_PERIOD_ANNOTATION, upscale_period\n            )\n            downscale_period = resource.annotations.get(\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 257,
+                  "startColumn": 32,
+                  "endLine": 257,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "def get_annotation_value_as_int(\n    resource: NamespacedAPIObject, annotation_name: str\n) -> Optional[int]:\n    value = resource.annotations.get(annotation_name)\n    if value is None:\n        return None\n    try:\n",
+                    "rendered": {
+                      "text": "def get_annotation_value_as_int(\n    resource: NamespacedAPIObject, annotation_name: str\n) -> Optional[int]:\n    value = resource.annotations.get(annotation_name)\n    if value is None:\n        return None\n    try:\n",
+                      "markdown": "`def get_annotation_value_as_int(\n    resource: NamespacedAPIObject, annotation_name: str\n) -> Optional[int]:\n    value = resource.annotations.get(annotation_name)\n    if value is None:\n        return None\n    try:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 40,
+                  "endLine": 119,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "    if resource.annotations.get(EXCLUDE_ANNOTATION, \"false\").lower() != \"false\":\n        return True\n\n    exclude_until = resource.annotations.get(EXCLUDE_UNTIL_ANNOTATION)\n    if exclude_until:\n        try:\n            until_ts = parse_time(exclude_until)\n",
+                    "rendered": {
+                      "text": "    if resource.annotations.get(EXCLUDE_ANNOTATION, \"false\").lower() != \"false\":\n        return True\n\n    exclude_until = resource.annotations.get(EXCLUDE_UNTIL_ANNOTATION)\n    if exclude_until:\n        try:\n            until_ts = parse_time(exclude_until)\n",
+                      "markdown": "`    if resource.annotations.get(EXCLUDE_ANNOTATION, \"false\").lower() != \"false\":\n        return True\n\n    exclude_until = resource.annotations.get(EXCLUDE_UNTIL_ANNOTATION)\n    if exclude_until:\n        try:\n            until_ts = parse_time(exclude_until)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 27,
+                  "endLine": 116,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "        return True\n\n    # any value different from \"false\" will ignore the resource (to be on the safe side)\n    if resource.annotations.get(EXCLUDE_ANNOTATION, \"false\").lower() != \"false\":\n        return True\n\n    exclude_until = resource.annotations.get(EXCLUDE_UNTIL_ANNOTATION)\n",
+                    "rendered": {
+                      "text": "        return True\n\n    # any value different from \"false\" will ignore the resource (to be on the safe side)\n    if resource.annotations.get(EXCLUDE_ANNOTATION, \"false\").lower() != \"false\":\n        return True\n\n    exclude_until = resource.annotations.get(EXCLUDE_UNTIL_ANNOTATION)\n",
+                      "markdown": "`        return True\n\n    # any value different from \"false\" will ignore the resource (to be on the safe side)\n    if resource.annotations.get(EXCLUDE_ANNOTATION, \"false\").lower() != \"false\":\n        return True\n\n    exclude_until = resource.annotations.get(EXCLUDE_UNTIL_ANNOTATION)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 42,
+                  "endLine": 101,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "\ndef is_stack_deployment(resource: NamespacedAPIObject) -> bool:\n    if resource.kind == Deployment.kind and resource.version == Deployment.version:\n        for owner_ref in resource.metadata.get(\"ownerReferences\", []):\n            if (\n                owner_ref[\"apiVersion\"] == Stack.version\n                and owner_ref[\"kind\"] == Stack.kind\n",
+                    "rendered": {
+                      "text": "\ndef is_stack_deployment(resource: NamespacedAPIObject) -> bool:\n    if resource.kind == Deployment.kind and resource.version == Deployment.version:\n        for owner_ref in resource.metadata.get(\"ownerReferences\", []):\n            if (\n                owner_ref[\"apiVersion\"] == Stack.version\n                and owner_ref[\"kind\"] == Stack.kind\n",
+                      "markdown": "`\ndef is_stack_deployment(resource: NamespacedAPIObject) -> bool:\n    if resource.kind == Deployment.kind and resource.version == Deployment.version:\n        for owner_ref in resource.metadata.get(\"ownerReferences\", []):\n            if (\n                owner_ref[\"apiVersion\"] == Stack.version\n                and owner_ref[\"kind\"] == Stack.kind\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 26,
+                  "endLine": 93,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n            return True\n    return False\n",
+                    "rendered": {
+                      "text": "    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n            return True\n    return False\n",
+                      "markdown": "`    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n            return True\n    return False\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 36,
+                  "endLine": 91,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "def pods_force_uptime(api, namespace: str):\n    \"\"\"Return True if there are any running pods which require the deployments to be scaled back up.\"\"\"\n    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n",
+                    "rendered": {
+                      "text": "def pods_force_uptime(api, namespace: str):\n    \"\"\"Return True if there are any running pods which require the deployments to be scaled back up.\"\"\"\n    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n",
+                      "markdown": "`def pods_force_uptime(api, namespace: str):\n    \"\"\"Return True if there are any running pods which require the deployments to be scaled back up.\"\"\"\n    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 18,
+                  "endLine": 91,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "def pods_force_uptime(api, namespace: str):\n    \"\"\"Return True if there are any running pods which require the deployments to be scaled back up.\"\"\"\n    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n",
+                    "rendered": {
+                      "text": "def pods_force_uptime(api, namespace: str):\n    \"\"\"Return True if there are any running pods which require the deployments to be scaled back up.\"\"\"\n    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n",
+                      "markdown": "`def pods_force_uptime(api, namespace: str):\n    \"\"\"Return True if there are any running pods which require the deployments to be scaled back up.\"\"\"\n    for pod in pykube.Pod.objects(api).filter(namespace=(namespace or pykube.all)):\n        if pod.obj.get(\"status\", {}).get(\"phase\") in (\"Succeeded\", \"Failed\"):\n            continue\n        if pod.annotations.get(FORCE_UPTIME_ANNOTATION, \"\").lower() == \"true\":\n            logger.info(f\"Forced uptime because of {pod.namespace}/{pod.name}\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 37,
+                  "endLine": 76,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "\n    if deployment_time_annotation:\n        annotations = resource.metadata.get(\"annotations\", {})\n        deployment_time = annotations.get(deployment_time_annotation)\n        if deployment_time:\n            try:\n                update_time = max(update_time, parse_time(deployment_time))\n",
+                    "rendered": {
+                      "text": "\n    if deployment_time_annotation:\n        annotations = resource.metadata.get(\"annotations\", {})\n        deployment_time = annotations.get(deployment_time_annotation)\n        if deployment_time:\n            try:\n                update_time = max(update_time, parse_time(deployment_time))\n",
+                      "markdown": "`\n    if deployment_time_annotation:\n        annotations = resource.metadata.get(\"annotations\", {})\n        deployment_time = annotations.get(deployment_time_annotation)\n        if deployment_time:\n            try:\n                update_time = max(update_time, parse_time(deployment_time))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 75,
+                  "startColumn": 39,
+                  "endLine": 75,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "    update_time = parse_time(resource.metadata[\"creationTimestamp\"])\n\n    if deployment_time_annotation:\n        annotations = resource.metadata.get(\"annotations\", {})\n        deployment_time = annotations.get(deployment_time_annotation)\n        if deployment_time:\n            try:\n",
+                    "rendered": {
+                      "text": "    update_time = parse_time(resource.metadata[\"creationTimestamp\"])\n\n    if deployment_time_annotation:\n        annotations = resource.metadata.get(\"annotations\", {})\n        deployment_time = annotations.get(deployment_time_annotation)\n        if deployment_time:\n            try:\n",
+                      "markdown": "`    update_time = parse_time(resource.metadata[\"creationTimestamp\"])\n\n    if deployment_time_annotation:\n        annotations = resource.metadata.get(\"annotations\", {})\n        deployment_time = annotations.get(deployment_time_annotation)\n        if deployment_time:\n            try:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 7,
+                  "endLine": 54,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\n\ndef parse_time(timestamp: str) -> datetime.datetime:\n    for fmt in TIMESTAMP_FORMATS:\n        try:\n            dt = datetime.datetime.strptime(timestamp, fmt)\n        except ValueError:\n",
+                    "rendered": {
+                      "text": "\n\ndef parse_time(timestamp: str) -> datetime.datetime:\n    for fmt in TIMESTAMP_FORMATS:\n        try:\n            dt = datetime.datetime.strptime(timestamp, fmt)\n        except ValueError:\n",
+                      "markdown": "`\n\ndef parse_time(timestamp: str) -> datetime.datetime:\n    for fmt in TIMESTAMP_FORMATS:\n        try:\n            dt = datetime.datetime.strptime(timestamp, fmt)\n        except ValueError:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/scaler.py"
+                },
+                "region": {
+                  "startLine": 389,
+                  "startColumn": 44,
+                  "endLine": 389,
+                  "endColumn": 52,
+                  "snippet": {
+                    "text": "            if update_needed:\n                if dry_run:\n                    logger.info(\n                        f\"**DRY-RUN**: would update {resource.kind} {resource.namespace}/{resource.name}\"\n                    )\n                else:\n                    resource.update()\n",
+                    "rendered": {
+                      "text": "            if update_needed:\n                if dry_run:\n                    logger.info(\n                        f\"**DRY-RUN**: would update {resource.kind} {resource.namespace}/{resource.name}\"\n                    )\n                else:\n                    resource.update()\n",
+                      "markdown": "`            if update_needed:\n                if dry_run:\n                    logger.info(\n                        f\"**DRY-RUN**: would update {resource.kind} {resource.namespace}/{resource.name}\"\n                    )\n                else:\n                    resource.update()\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/helper.py"
+                },
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 40,
+                  "endLine": 124,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "                \"kind\": resource.kind,\n                \"resourceVersion\": resource.metadata.get(\"resourceVersion\"),\n                # https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids\n                \"uid\": resource.metadata.get(\"uid\"),\n            },\n            \"message\": message,\n            \"source\": {\"component\": \"kube-downscaler\"},\n",
+                    "rendered": {
+                      "text": "                \"kind\": resource.kind,\n                \"resourceVersion\": resource.metadata.get(\"resourceVersion\"),\n                # https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids\n                \"uid\": resource.metadata.get(\"uid\"),\n            },\n            \"message\": message,\n            \"source\": {\"component\": \"kube-downscaler\"},\n",
+                      "markdown": "`                \"kind\": resource.kind,\n                \"resourceVersion\": resource.metadata.get(\"resourceVersion\"),\n                # https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids\n                \"uid\": resource.metadata.get(\"uid\"),\n            },\n            \"message\": message,\n            \"source\": {\"component\": \"kube-downscaler\"},\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/helper.py"
+                },
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 52,
+                  "endLine": 122,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "                \"name\": resource.name,\n                \"namespace\": resource.namespace,\n                \"kind\": resource.kind,\n                \"resourceVersion\": resource.metadata.get(\"resourceVersion\"),\n                # https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids\n                \"uid\": resource.metadata.get(\"uid\"),\n            },\n",
+                    "rendered": {
+                      "text": "                \"name\": resource.name,\n                \"namespace\": resource.namespace,\n                \"kind\": resource.kind,\n                \"resourceVersion\": resource.metadata.get(\"resourceVersion\"),\n                # https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids\n                \"uid\": resource.metadata.get(\"uid\"),\n            },\n",
+                      "markdown": "`                \"name\": resource.name,\n                \"namespace\": resource.namespace,\n                \"kind\": resource.kind,\n                \"resourceVersion\": resource.metadata.get(\"resourceVersion\"),\n                # https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids\n                \"uid\": resource.metadata.get(\"uid\"),\n            },\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/helper.py"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 55,
+                  "endLine": 80,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "        .filter(\n            namespace=resource.namespace,\n            field_selector={\n                \"involvedObject.uid\": resource.metadata.get(\"uid\"),\n                \"reason\": reason,\n                \"type\": event_type,\n            },\n",
+                    "rendered": {
+                      "text": "        .filter(\n            namespace=resource.namespace,\n            field_selector={\n                \"involvedObject.uid\": resource.metadata.get(\"uid\"),\n                \"reason\": reason,\n                \"type\": event_type,\n            },\n",
+                      "markdown": "`        .filter(\n            namespace=resource.namespace,\n            field_selector={\n                \"involvedObject.uid\": resource.metadata.get(\"uid\"),\n                \"reason\": reason,\n                \"type\": event_type,\n            },\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/helper.py"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 36,
+                  "endLine": 96,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "            event.update()\n            return event\n        except Exception as e:\n            logger.error(f\"Could not update event {event.obj}: {e}\")\n        return\n\n    return create_event(resource, message, reason, event_type, dry_run)\n",
+                    "rendered": {
+                      "text": "            event.update()\n            return event\n        except Exception as e:\n            logger.error(f\"Could not update event {event.obj}: {e}\")\n        return\n\n    return create_event(resource, message, reason, event_type, dry_run)\n",
+                      "markdown": "`            event.update()\n            return event\n        except Exception as e:\n            logger.error(f\"Could not update event {event.obj}: {e}\")\n        return\n\n    return create_event(resource, message, reason, event_type, dry_run)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/helper.py"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 23,
+                  "endLine": 65,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "def _matches_absolute_time_spec(time: datetime.datetime, match: Match):\n    time_from = datetime.datetime.fromisoformat(match.group(1))\n    time_to = datetime.datetime.fromisoformat(match.group(2))\n    return time_from <= time <= time_to\n\n\ndef get_kube_api():\n",
+                    "rendered": {
+                      "text": "def _matches_absolute_time_spec(time: datetime.datetime, match: Match):\n    time_from = datetime.datetime.fromisoformat(match.group(1))\n    time_to = datetime.datetime.fromisoformat(match.group(2))\n    return time_from <= time <= time_to\n\n\ndef get_kube_api():\n",
+                      "markdown": "`def _matches_absolute_time_spec(time: datetime.datetime, match: Match):\n    time_from = datetime.datetime.fromisoformat(match.group(1))\n    time_to = datetime.datetime.fromisoformat(match.group(2))\n    return time_from <= time <= time_to\n\n\ndef get_kube_api():\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 361,
+                  "startColumn": 40,
+                  "endLine": 361,
+                  "endColumn": 82,
+                  "snippet": {
+                    "text": "        }\n      ],\n      \"packageVerificationCode\": {\n        \"packageVerificationCodeValue\": \"b127ab8a4b6dc3f3cee70d41ac290a4677d8b6d6\"\n      }\n    }\n  ],\n",
+                    "rendered": {
+                      "text": "        }\n      ],\n      \"packageVerificationCode\": {\n        \"packageVerificationCodeValue\": \"b127ab8a4b6dc3f3cee70d41ac290a4677d8b6d6\"\n      }\n    }\n  ],\n",
+                      "markdown": "`        }\n      ],\n      \"packageVerificationCode\": {\n        \"packageVerificationCodeValue\": \"b127ab8a4b6dc3f3cee70d41ac290a4677d8b6d6\"\n      }\n    }\n  ],\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 319,
+                  "startColumn": 27,
+                  "endLine": 319,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"be49bf90411324d605a8f03665e1d9ddfc2a3350e67982d447ff5aca361ae22e314af7ba1f10ec7856b57388c432350a498cc7f3be0e43cf8cddcb69efd31cc7\"\n        }\n      ]\n    }\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"be49bf90411324d605a8f03665e1d9ddfc2a3350e67982d447ff5aca361ae22e314af7ba1f10ec7856b57388c432350a498cc7f3be0e43cf8cddcb69efd31cc7\"\n        }\n      ]\n    }\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"be49bf90411324d605a8f03665e1d9ddfc2a3350e67982d447ff5aca361ae22e314af7ba1f10ec7856b57388c432350a498cc7f3be0e43cf8cddcb69efd31cc7\"\n        }\n      ]\n    }\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 315,
+                  "startColumn": 27,
+                  "endLine": 315,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"0d7e5bb3c29fc505c8afbc2bccbff9d3aa5d6e6bdc11ade3017e001389ab36dc\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"0d7e5bb3c29fc505c8afbc2bccbff9d3aa5d6e6bdc11ade3017e001389ab36dc\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"0d7e5bb3c29fc505c8afbc2bccbff9d3aa5d6e6bdc11ade3017e001389ab36dc\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 311,
+                  "startColumn": 27,
+                  "endLine": 311,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"ddc227820956297e89466ed49817d5099f843489\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"ddc227820956297e89466ed49817d5099f843489\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"ddc227820956297e89466ed49817d5099f843489\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 300,
+                  "startColumn": 27,
+                  "endLine": 300,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"2f60b05a22f2511fed52b08c4436752f5a5200b9a716ba0df0308f8b9bcfd6300ac29b6969c86623f51ed718941abdf416cf2ffa7bdd870636dee6e62cb63712\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"2f60b05a22f2511fed52b08c4436752f5a5200b9a716ba0df0308f8b9bcfd6300ac29b6969c86623f51ed718941abdf416cf2ffa7bdd870636dee6e62cb63712\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"2f60b05a22f2511fed52b08c4436752f5a5200b9a716ba0df0308f8b9bcfd6300ac29b6969c86623f51ed718941abdf416cf2ffa7bdd870636dee6e62cb63712\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 296,
+                  "startColumn": 27,
+                  "endLine": 296,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"31d4c57f81bce53a0e121776cbedbd2e880d43d3b94fd4ed843d5fec0baee1e0\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"31d4c57f81bce53a0e121776cbedbd2e880d43d3b94fd4ed843d5fec0baee1e0\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"31d4c57f81bce53a0e121776cbedbd2e880d43d3b94fd4ed843d5fec0baee1e0\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 292,
+                  "startColumn": 27,
+                  "endLine": 292,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"44c30eb19fc70303f5a750909893d6848f9e85ac\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"44c30eb19fc70303f5a750909893d6848f9e85ac\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"44c30eb19fc70303f5a750909893d6848f9e85ac\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 281,
+                  "startColumn": 27,
+                  "endLine": 281,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"fe8bf8309144a060f0e87d16c0e4b029cef3e0aecc53a86fa51243a59f2cae6d5e950aff2c1fa658e65743789ac010c04efb622ea48bb6cfa71e4e71a56529ab\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"fe8bf8309144a060f0e87d16c0e4b029cef3e0aecc53a86fa51243a59f2cae6d5e950aff2c1fa658e65743789ac010c04efb622ea48bb6cfa71e4e71a56529ab\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"fe8bf8309144a060f0e87d16c0e4b029cef3e0aecc53a86fa51243a59f2cae6d5e950aff2c1fa658e65743789ac010c04efb622ea48bb6cfa71e4e71a56529ab\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 277,
+                  "startColumn": 27,
+                  "endLine": 277,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"7ea639b4a5bd40e5bfcb3666d143c7b41a28f739d8a1cf9a89e297c6f8b674e6\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"7ea639b4a5bd40e5bfcb3666d143c7b41a28f739d8a1cf9a89e297c6f8b674e6\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"7ea639b4a5bd40e5bfcb3666d143c7b41a28f739d8a1cf9a89e297c6f8b674e6\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 273,
+                  "startColumn": 27,
+                  "endLine": 273,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"bf90c9d5b032a099dba9ac70c3560db3f00e3745\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"bf90c9d5b032a099dba9ac70c3560db3f00e3745\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"bf90c9d5b032a099dba9ac70c3560db3f00e3745\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 262,
+                  "startColumn": 27,
+                  "endLine": 262,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"eaca0f72df3e11d4223226d732e8da8785c760ac5746b2875ec450fd392edc7fa60810f5ced48c5e2b749e86fb89cfd1f6f10ff09f15d8490fd3cd5be44957a8\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"eaca0f72df3e11d4223226d732e8da8785c760ac5746b2875ec450fd392edc7fa60810f5ced48c5e2b749e86fb89cfd1f6f10ff09f15d8490fd3cd5be44957a8\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"eaca0f72df3e11d4223226d732e8da8785c760ac5746b2875ec450fd392edc7fa60810f5ced48c5e2b749e86fb89cfd1f6f10ff09f15d8490fd3cd5be44957a8\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 27,
+                  "endLine": 258,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"baaf5c701a4105b397ce27bab8cd6b52795819f2ea404775730d725c2fcfd88b\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"baaf5c701a4105b397ce27bab8cd6b52795819f2ea404775730d725c2fcfd88b\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"baaf5c701a4105b397ce27bab8cd6b52795819f2ea404775730d725c2fcfd88b\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 254,
+                  "startColumn": 27,
+                  "endLine": 254,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"5fa9d888dbad8609aa0f36450074c0dbc432beee\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"5fa9d888dbad8609aa0f36450074c0dbc432beee\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"5fa9d888dbad8609aa0f36450074c0dbc432beee\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 243,
+                  "startColumn": 27,
+                  "endLine": 243,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"1a74e9d805b2b0127149a63a2a300ae9ee1ed88b29d2a765e6e0d05adb408d20c7035ab544831956671c4a488e76aea8acad28bf7bd030b79938b1b79ad6afb9\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"1a74e9d805b2b0127149a63a2a300ae9ee1ed88b29d2a765e6e0d05adb408d20c7035ab544831956671c4a488e76aea8acad28bf7bd030b79938b1b79ad6afb9\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"1a74e9d805b2b0127149a63a2a300ae9ee1ed88b29d2a765e6e0d05adb408d20c7035ab544831956671c4a488e76aea8acad28bf7bd030b79938b1b79ad6afb9\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 27,
+                  "endLine": 239,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"ca01bb349753dc97df0bb22d35e6dc57792f74dca1b9e1799aa60087adeb41cc\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"ca01bb349753dc97df0bb22d35e6dc57792f74dca1b9e1799aa60087adeb41cc\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"ca01bb349753dc97df0bb22d35e6dc57792f74dca1b9e1799aa60087adeb41cc\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 235,
+                  "startColumn": 27,
+                  "endLine": 235,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"2f18931f5a761068ce0b67b7fb5312f790fdaf67\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"2f18931f5a761068ce0b67b7fb5312f790fdaf67\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"2f18931f5a761068ce0b67b7fb5312f790fdaf67\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 224,
+                  "startColumn": 27,
+                  "endLine": 224,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 27,
+                  "endLine": 220,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 27,
+                  "endLine": 216,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"da39a3ee5e6b4b0d3255bfef95601890afd80709\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"da39a3ee5e6b4b0d3255bfef95601890afd80709\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"da39a3ee5e6b4b0d3255bfef95601890afd80709\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 205,
+                  "startColumn": 27,
+                  "endLine": 205,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"22f83a7e881145a19422d813b276222792219a90eee966be6dca09b7555a13244b00ca8156d7b4874976b403368ae9acceaea76b1296687ec3a633219edfaf06\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"22f83a7e881145a19422d813b276222792219a90eee966be6dca09b7555a13244b00ca8156d7b4874976b403368ae9acceaea76b1296687ec3a633219edfaf06\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"22f83a7e881145a19422d813b276222792219a90eee966be6dca09b7555a13244b00ca8156d7b4874976b403368ae9acceaea76b1296687ec3a633219edfaf06\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 27,
+                  "endLine": 201,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"5cb3d545741f8d40537723ea0b4cd16881969e97d0768a12dfbf9e540c4ba75a\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"5cb3d545741f8d40537723ea0b4cd16881969e97d0768a12dfbf9e540c4ba75a\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"5cb3d545741f8d40537723ea0b4cd16881969e97d0768a12dfbf9e540c4ba75a\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 27,
+                  "endLine": 197,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"4c23da9851d05f1effb62b5ea9d62c9d34a3e47e\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"4c23da9851d05f1effb62b5ea9d62c9d34a3e47e\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"4c23da9851d05f1effb62b5ea9d62c9d34a3e47e\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 27,
+                  "endLine": 186,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"34f12a792f7796e2914d4069926bf9d8ea95f4d1f36133ade1c0d884af27e72a9aa74e50f77ee4112392cd501ac27a90de3a9c6dd6c2c8363fedea251ddab7e3\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"34f12a792f7796e2914d4069926bf9d8ea95f4d1f36133ade1c0d884af27e72a9aa74e50f77ee4112392cd501ac27a90de3a9c6dd6c2c8363fedea251ddab7e3\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"34f12a792f7796e2914d4069926bf9d8ea95f4d1f36133ade1c0d884af27e72a9aa74e50f77ee4112392cd501ac27a90de3a9c6dd6c2c8363fedea251ddab7e3\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 27,
+                  "endLine": 182,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"168e2b6f2f36aac32b192e2be468ceb57b1978ce483f58c4d0974ffeb00ac8c2\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"168e2b6f2f36aac32b192e2be468ceb57b1978ce483f58c4d0974ffeb00ac8c2\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"168e2b6f2f36aac32b192e2be468ceb57b1978ce483f58c4d0974ffeb00ac8c2\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 178,
+                  "startColumn": 27,
+                  "endLine": 178,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"7c2bb446ad732903b06a90edc01a35f36c4ae6a2\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"7c2bb446ad732903b06a90edc01a35f36c4ae6a2\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"7c2bb446ad732903b06a90edc01a35f36c4ae6a2\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 27,
+                  "endLine": 167,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"0dc178ddeef7315de9927731230c4467b9bf703647040b24c5cbac3c6950682c9ac96adaeaae1d85e93d1f9361adc610307ab3dc0cad4bd469614b7d50d5a683\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"0dc178ddeef7315de9927731230c4467b9bf703647040b24c5cbac3c6950682c9ac96adaeaae1d85e93d1f9361adc610307ab3dc0cad4bd469614b7d50d5a683\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"0dc178ddeef7315de9927731230c4467b9bf703647040b24c5cbac3c6950682c9ac96adaeaae1d85e93d1f9361adc610307ab3dc0cad4bd469614b7d50d5a683\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 27,
+                  "endLine": 163,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"c468d8e7cf29cb93600184c2c05d98e45185869cb7264e3fe501a611d6d190e5\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"c468d8e7cf29cb93600184c2c05d98e45185869cb7264e3fe501a611d6d190e5\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"c468d8e7cf29cb93600184c2c05d98e45185869cb7264e3fe501a611d6d190e5\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 159,
+                  "startColumn": 27,
+                  "endLine": 159,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"8da4f58efd0b709d2da4dae876f53f2bc989c811\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"8da4f58efd0b709d2da4dae876f53f2bc989c811\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"8da4f58efd0b709d2da4dae876f53f2bc989c811\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 27,
+                  "endLine": 148,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"04d51b5cca28b9f29b415f8443e2a77c49f7fe03d2db518faad0644bcd2f18129b584cec53ba2c6d4960e2d54945a2776544761f008e490920b98a643f459192\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"04d51b5cca28b9f29b415f8443e2a77c49f7fe03d2db518faad0644bcd2f18129b584cec53ba2c6d4960e2d54945a2776544761f008e490920b98a643f459192\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"04d51b5cca28b9f29b415f8443e2a77c49f7fe03d2db518faad0644bcd2f18129b584cec53ba2c6d4960e2d54945a2776544761f008e490920b98a643f459192\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 27,
+                  "endLine": 144,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"5667f792b510e9c5a8da35e4c283e7b30e06eed0a4c1bda9c4831c47a8492431\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"5667f792b510e9c5a8da35e4c283e7b30e06eed0a4c1bda9c4831c47a8492431\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"5667f792b510e9c5a8da35e4c283e7b30e06eed0a4c1bda9c4831c47a8492431\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 27,
+                  "endLine": 140,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"ab733d8041c6f38d0ad3a9d4101d8c5df7e0db92\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"ab733d8041c6f38d0ad3a9d4101d8c5df7e0db92\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"ab733d8041c6f38d0ad3a9d4101d8c5df7e0db92\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 27,
+                  "endLine": 129,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"d07e78b230d45bf9509ad093dce44e89ad2f26fa9e034f9e0ae3bebafd1f3f64524d4eaba7a6f27526ebe0e041734e9267f69d18b56b4303dd534ca9028ed2b7\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"d07e78b230d45bf9509ad093dce44e89ad2f26fa9e034f9e0ae3bebafd1f3f64524d4eaba7a6f27526ebe0e041734e9267f69d18b56b4303dd534ca9028ed2b7\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"d07e78b230d45bf9509ad093dce44e89ad2f26fa9e034f9e0ae3bebafd1f3f64524d4eaba7a6f27526ebe0e041734e9267f69d18b56b4303dd534ca9028ed2b7\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 27,
+                  "endLine": 125,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"17c0f443d48379ff61651bb583ac858ae436c106eba004772303e4fade7d7f3c\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"17c0f443d48379ff61651bb583ac858ae436c106eba004772303e4fade7d7f3c\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"17c0f443d48379ff61651bb583ac858ae436c106eba004772303e4fade7d7f3c\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 27,
+                  "endLine": 121,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"e3c01b2b404bae839ac71236c32ef1d59b5497e0\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"e3c01b2b404bae839ac71236c32ef1d59b5497e0\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"e3c01b2b404bae839ac71236c32ef1d59b5497e0\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 110,
+                  "startColumn": 27,
+                  "endLine": 110,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"1de8929c6c68d621b69f331e264f9d77d332931494891f7a50721ba27bda237c0105c16b2879c5ef8a8e8c05a7b3ad6669b55e23422f78e506555a848e81ce43\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"1de8929c6c68d621b69f331e264f9d77d332931494891f7a50721ba27bda237c0105c16b2879c5ef8a8e8c05a7b3ad6669b55e23422f78e506555a848e81ce43\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"1de8929c6c68d621b69f331e264f9d77d332931494891f7a50721ba27bda237c0105c16b2879c5ef8a8e8c05a7b3ad6669b55e23422f78e506555a848e81ce43\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 106,
+                  "startColumn": 27,
+                  "endLine": 106,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"814ff63be804e811971068c6c5f0e34494b0140c2b7e34dfddcc28e89d193882\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"814ff63be804e811971068c6c5f0e34494b0140c2b7e34dfddcc28e89d193882\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"814ff63be804e811971068c6c5f0e34494b0140c2b7e34dfddcc28e89d193882\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 27,
+                  "endLine": 102,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"78ca5366dc3ea816d3227a2d5d7efdf18373927b\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"78ca5366dc3ea816d3227a2d5d7efdf18373927b\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"78ca5366dc3ea816d3227a2d5d7efdf18373927b\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 27,
+                  "endLine": 91,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"a0ba37a0b2f3d4ae1ee2b09bb13ed20912db4e6a009fe9ba9414830ad4fdbf58571e195abbe0d19f5582e2cf958cfb49ffdacd7c5182008699f92a0f5eec6c41\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"a0ba37a0b2f3d4ae1ee2b09bb13ed20912db4e6a009fe9ba9414830ad4fdbf58571e195abbe0d19f5582e2cf958cfb49ffdacd7c5182008699f92a0f5eec6c41\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"a0ba37a0b2f3d4ae1ee2b09bb13ed20912db4e6a009fe9ba9414830ad4fdbf58571e195abbe0d19f5582e2cf958cfb49ffdacd7c5182008699f92a0f5eec6c41\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 27,
+                  "endLine": 87,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"a2241587fe4f9d033413780f762cf4f5608d9b08870cc6867abfde96a0777283\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"a2241587fe4f9d033413780f762cf4f5608d9b08870cc6867abfde96a0777283\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"a2241587fe4f9d033413780f762cf4f5608d9b08870cc6867abfde96a0777283\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 27,
+                  "endLine": 83,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"502f95da3089549e19c451737aa262e45c5bc3bc\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"502f95da3089549e19c451737aa262e45c5bc3bc\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"502f95da3089549e19c451737aa262e45c5bc3bc\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 27,
+                  "endLine": 72,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"f265beec68b5f435aa67bd32e753c6c94c1897ced22de664baa6c272548eab85454dd364fb4858701891fde797f3336f18d85f2c998b208e80523061c7d32d36\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"f265beec68b5f435aa67bd32e753c6c94c1897ced22de664baa6c272548eab85454dd364fb4858701891fde797f3336f18d85f2c998b208e80523061c7d32d36\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"f265beec68b5f435aa67bd32e753c6c94c1897ced22de664baa6c272548eab85454dd364fb4858701891fde797f3336f18d85f2c998b208e80523061c7d32d36\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 27,
+                  "endLine": 68,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"456fa96de95e798c69b30ed36a3110330c2d35462227b6951c8f1085e23bafa2\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"456fa96de95e798c69b30ed36a3110330c2d35462227b6951c8f1085e23bafa2\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"456fa96de95e798c69b30ed36a3110330c2d35462227b6951c8f1085e23bafa2\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 27,
+                  "endLine": 64,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"a77dae89ff8a7d74199cd755a78c470c1d4e0fdd\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"a77dae89ff8a7d74199cd755a78c470c1d4e0fdd\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"a77dae89ff8a7d74199cd755a78c470c1d4e0fdd\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 27,
+                  "endLine": 53,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"cb7457038b1eb0ab6525eb7fac05607ba0ba1843f259c6220f4942a33a07492dbc28b478882145d2ffcb5e0071e96c08882eace18ec00b94c21fbd1e20bb3223\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"cb7457038b1eb0ab6525eb7fac05607ba0ba1843f259c6220f4942a33a07492dbc28b478882145d2ffcb5e0071e96c08882eace18ec00b94c21fbd1e20bb3223\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"cb7457038b1eb0ab6525eb7fac05607ba0ba1843f259c6220f4942a33a07492dbc28b478882145d2ffcb5e0071e96c08882eace18ec00b94c21fbd1e20bb3223\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 27,
+                  "endLine": 49,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"c6b6f4e8aefa5437ee1e8dfe5bc149723b3571263736237f75055c9c1a857790\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"c6b6f4e8aefa5437ee1e8dfe5bc149723b3571263736237f75055c9c1a857790\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"c6b6f4e8aefa5437ee1e8dfe5bc149723b3571263736237f75055c9c1a857790\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 27,
+                  "endLine": 45,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"a93c3e32fa7e52c6d2c4fc83d917f885f79d7b08\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"a93c3e32fa7e52c6d2c4fc83d917f885f79d7b08\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"a93c3e32fa7e52c6d2c4fc83d917f885f79d7b08\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 27,
+                  "endLine": 34,
+                  "endColumn": 157,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"7633623b66b5e686bb94dd96a7cdb5a7e5ee00e87004fab416a5610d59c62badaf512a2e26e34e2455b7ed6b76690d2cd47464836d7d85d78b51d50f7e933d5c\"\n        }\n      ]\n    },\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"7633623b66b5e686bb94dd96a7cdb5a7e5ee00e87004fab416a5610d59c62badaf512a2e26e34e2455b7ed6b76690d2cd47464836d7d85d78b51d50f7e933d5c\"\n        }\n      ]\n    },\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA512\",\n          \"checksumValue\": \"7633623b66b5e686bb94dd96a7cdb5a7e5ee00e87004fab416a5610d59c62badaf512a2e26e34e2455b7ed6b76690d2cd47464836d7d85d78b51d50f7e933d5c\"\n        }\n      ]\n    },\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 27,
+                  "endLine": 30,
+                  "endColumn": 93,
+                  "snippet": {
+                    "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                    "rendered": {
+                      "text": "        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n",
+                      "markdown": "`        },\n        {\n          \"algorithm\": \"SHA256\",\n          \"checksumValue\": \"8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903\"\n        },\n        {\n          \"algorithm\": \"SHA512\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/var/lib/db/sbom/kube-downscaler-23.2.0-r8.spdx.json"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 27,
+                  "endLine": 26,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"8624bcdae55baeef00cd11d5dfcfa60f68710a02\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                    "rendered": {
+                      "text": "      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"8624bcdae55baeef00cd11d5dfcfa60f68710a02\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n",
+                      "markdown": "`      \"checksums\": [\n        {\n          \"algorithm\": \"SHA1\",\n          \"checksumValue\": \"8624bcdae55baeef00cd11d5dfcfa60f68710a02\"\n        },\n        {\n          \"algorithm\": \"SHA256\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/resources/rollout.py"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 35,
+                  "endLine": 14,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "\n    @property\n    def replicas(self):\n        replicas = self.obj[\"spec\"].get(\"replicas\")\n        return replicas\n",
+                    "rendered": {
+                      "text": "\n    @property\n    def replicas(self):\n        replicas = self.obj[\"spec\"].get(\"replicas\")\n        return replicas\n",
+                      "markdown": "`\n    @property\n    def replicas(self):\n        replicas = self.obj[\"spec\"].get(\"replicas\")\n        return replicas\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/main.py"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 27,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "import time\n\nfrom kube_downscaler import __version__\nfrom kube_downscaler import cmd\nfrom kube_downscaler import shutdown\nfrom kube_downscaler.scaler import scale\n\nlogger = logging.getLogger(\"downscaler\")\n",
+                    "rendered": {
+                      "text": "import time\n\nfrom kube_downscaler import __version__\nfrom kube_downscaler import cmd\nfrom kube_downscaler import shutdown\nfrom kube_downscaler.scaler import scale\n\nlogger = logging.getLogger(\"downscaler\")\n",
+                      "markdown": "`import time\n\nfrom kube_downscaler import __version__\nfrom kube_downscaler import cmd\nfrom kube_downscaler import shutdown\nfrom kube_downscaler.scaler import scale\n\nlogger = logging.getLogger(\"downscaler\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/kube-downscaler-23.2.0-r8.apk/kube-downscaler-23.2.0-r8/usr/lib/python3.12/site-packages/kube_downscaler/main.py"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 6,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\nimport logging\nimport re\nimport time\n\nfrom kube_downscaler import __version__\nfrom kube_downscaler import cmd\nfrom kube_downscaler import shutdown\n",
+                    "rendered": {
+                      "text": "#!/usr/bin/env python3\nimport logging\nimport re\nimport time\n\nfrom kube_downscaler import __version__\nfrom kube_downscaler import cmd\nfrom kube_downscaler import shutdown\n",
+                      "markdown": "`#!/usr/bin/env python3\nimport logging\nimport re\nimport time\n\nfrom kube_downscaler import __version__\nfrom kube_downscaler import cmd\nfrom kube_downscaler import shutdown\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,831 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/test/test_filter_record_modifier.rb"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 32,
+                  "endLine": 50,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "      d.feed(\"a\" => 2)\n    end\n\n    mapped = {'gen_host' => get_hostname, 'foo' => 'bar', 'included_tag' => @tag, 'tag_wrap' => \"-#{@tag.split('.')[0]}-#{@tag.split('.')[1]}-\"}\n    assert_equal [\n      {\"a\" => 1}.merge(mapped),\n      {\"a\" => 2}.merge(mapped),\n",
+                    "rendered": {
+                      "text": "      d.feed(\"a\" => 2)\n    end\n\n    mapped = {'gen_host' => get_hostname, 'foo' => 'bar', 'included_tag' => @tag, 'tag_wrap' => \"-#{@tag.split('.')[0]}-#{@tag.split('.')[1]}-\"}\n    assert_equal [\n      {\"a\" => 1}.merge(mapped),\n      {\"a\" => 2}.merge(mapped),\n",
+                      "markdown": "`      d.feed(\"a\" => 2)\n    end\n\n    mapped = {'gen_host' => get_hostname, 'foo' => 'bar', 'included_tag' => @tag, 'tag_wrap' => \"-#{@tag.split('.')[0]}-#{@tag.split('.')[1]}-\"}\n    assert_equal [\n      {\"a\" => 1}.merge(mapped),\n      {\"a\" => 2}.merge(mapped),\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/test/test_filter_record_modifier.rb"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 10,
+                  "endLine": 28,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "    Fluent::Test::Driver::Filter.new(Fluent::Plugin::RecordModifierFilter).configure(conf)\n  end\n\n  def get_hostname\n    require 'socket'\n    Socket.gethostname.chomp\n  end\n",
+                    "rendered": {
+                      "text": "    Fluent::Test::Driver::Filter.new(Fluent::Plugin::RecordModifierFilter).configure(conf)\n  end\n\n  def get_hostname\n    require 'socket'\n    Socket.gethostname.chomp\n  end\n",
+                      "markdown": "`    Fluent::Test::Driver::Filter.new(Fluent::Plugin::RecordModifierFilter).configure(conf)\n  end\n\n  def get_hostname\n    require 'socket'\n    Socket.gethostname.chomp\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/specifications/fluent-plugin-record-modifier-2.2.0.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 43,
+                  "endLine": 2,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-record-modifier 2.2.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-record-modifier\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-record-modifier 2.2.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-record-modifier\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: fluent-plugin-record-modifier 2.2.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"fluent-plugin-record-modifier\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/lib/fluent/plugin/out_record_modifi"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 17,
+                  "endLine": 15,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "    config_param :prepare_value, :string, default: nil,\n                 desc: <<-DESC\nPrepare values for filtering in configure phase. Prepared values can be used in <record>.\nYou can write any ruby code.\nDESC\n    config_param :char_encoding, :string, default: nil,\n                 desc: <<-DESC\n",
+                    "rendered": {
+                      "text": "    config_param :prepare_value, :string, default: nil,\n                 desc: <<-DESC\nPrepare values for filtering in configure phase. Prepared values can be used in <record>.\nYou can write any ruby code.\nDESC\n    config_param :char_encoding, :string, default: nil,\n                 desc: <<-DESC\n",
+                      "markdown": "`    config_param :prepare_value, :string, default: nil,\n                 desc: <<-DESC\nPrepare values for filtering in configure phase. Prepared values can be used in <record>.\nYou can write any ruby code.\nDESC\n    config_param :char_encoding, :string, default: nil,\n                 desc: <<-DESC\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/lib/fluent/plugin/filter_record_mod"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 17,
+                  "endLine": 12,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "    config_param :prepare_value, :string, default: nil,\n                 desc: <<-DESC\nPrepare values for filtering in configure phase. Prepared values can be used in <record>.\nYou can write any ruby code.\nDESC\n    config_param :char_encoding, :string, default: nil,\n                 desc: <<-DESC\n",
+                    "rendered": {
+                      "text": "    config_param :prepare_value, :string, default: nil,\n                 desc: <<-DESC\nPrepare values for filtering in configure phase. Prepared values can be used in <record>.\nYou can write any ruby code.\nDESC\n    config_param :char_encoding, :string, default: nil,\n                 desc: <<-DESC\n",
+                      "markdown": "`    config_param :prepare_value, :string, default: nil,\n                 desc: <<-DESC\nPrepare values for filtering in configure phase. Prepared values can be used in <record>.\nYou can write any ruby code.\nDESC\n    config_param :char_encoding, :string, default: nil,\n                 desc: <<-DESC\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/ChangeLog"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 3,
+                  "endLine": 69,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\nRelease 0.2.0 - 2014/09/29\n\n  * Update fluent-mixin-config-placeholders to v0.3.0\n    https://github.com/repeatedly/fluent-plugin-record-modifier/pull/6\n\n\n",
+                    "rendered": {
+                      "text": "\nRelease 0.2.0 - 2014/09/29\n\n  * Update fluent-mixin-config-placeholders to v0.3.0\n    https://github.com/repeatedly/fluent-plugin-record-modifier/pull/6\n\n\n",
+                      "markdown": "`\nRelease 0.2.0 - 2014/09/29\n\n  * Update fluent-mixin-config-placeholders to v0.3.0\n    https://github.com/repeatedly/fluent-plugin-record-modifier/pull/6\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/ChangeLog"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 3,
+                  "endLine": 16,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\nRelease 2.0.0 - 2019/01/23\n\n  * Update output plugin to follow filter plugin\n  * Remove backward compatibility check for 0.5.0 or earlier version\n\nRelease 1.1.0 - 2018/06/01\n",
+                    "rendered": {
+                      "text": "\nRelease 2.0.0 - 2019/01/23\n\n  * Update output plugin to follow filter plugin\n  * Remove backward compatibility check for 0.5.0 or earlier version\n\nRelease 1.1.0 - 2018/06/01\n",
+                      "markdown": "`\nRelease 2.0.0 - 2019/01/23\n\n  * Update output plugin to follow filter plugin\n  * Remove backward compatibility check for 0.5.0 or earlier version\n\nRelease 1.1.0 - 2018/06/01\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/ChangeLog"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 3,
+                  "endLine": 12,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\nRelease 2.0.1 - 2019/02/06\n\n  * Update output plugin to support multi process environment\n\nRelease 2.0.0 - 2019/01/23\n\n",
+                    "rendered": {
+                      "text": "\nRelease 2.0.1 - 2019/02/06\n\n  * Update output plugin to support multi process environment\n\nRelease 2.0.0 - 2019/01/23\n\n",
+                      "markdown": "`\nRelease 2.0.1 - 2019/02/06\n\n  * Update output plugin to support multi process environment\n\nRelease 2.0.0 - 2019/01/23\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/.travis.yml"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 19,
+                  "endLine": 22,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "  allow_failures:\n    - rvm: ruby-head\n\nbefore_install: gem update bundler\nscript: bundle exec rake test\n",
+                    "rendered": {
+                      "text": "  allow_failures:\n    - rvm: ruby-head\n\nbefore_install: gem update bundler\nscript: bundle exec rake test\n",
+                      "markdown": "`  allow_failures:\n    - rvm: ruby-head\n\nbefore_install: gem update bundler\nscript: bundle exec rake test\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/.travis.yml"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 9,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "language: ruby\n\nrvm:\n  - 2.1\n  - 2.2.5\n",
+                    "rendered": {
+                      "text": "language: ruby\n\nrvm:\n  - 2.1\n  - 2.2.5\n",
+                      "markdown": "`language: ruby\n\nrvm:\n  - 2.1\n  - 2.2.5\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/test/test_out_record_modifier.rb"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 32,
+                  "endLine": 44,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "      d.feed({\"a\" => 2})\n    end\n\n    mapped = {'gen_host' => get_hostname, 'foo' => 'bar'}\n    assert_equal [\n      {\"a\" => 1}.merge(mapped),\n      {\"a\" => 2}.merge(mapped),\n",
+                    "rendered": {
+                      "text": "      d.feed({\"a\" => 2})\n    end\n\n    mapped = {'gen_host' => get_hostname, 'foo' => 'bar'}\n    assert_equal [\n      {\"a\" => 1}.merge(mapped),\n      {\"a\" => 2}.merge(mapped),\n",
+                      "markdown": "`      d.feed({\"a\" => 2})\n    end\n\n    mapped = {'gen_host' => get_hostname, 'foo' => 'bar'}\n    assert_equal [\n      {\"a\" => 1}.merge(mapped),\n      {\"a\" => 2}.merge(mapped),\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/test/test_out_record_modifier.rb"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 21,
+                  "endLine": 32,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "    d = create_driver\n    map = d.instance.instance_variable_get(:@map)\n\n    assert_equal get_hostname, map['gen_host'].param_value\n    assert_equal 'bar', map['foo'].param_value\n  end\n\n",
+                    "rendered": {
+                      "text": "    d = create_driver\n    map = d.instance.instance_variable_get(:@map)\n\n    assert_equal get_hostname, map['gen_host'].param_value\n    assert_equal 'bar', map['foo'].param_value\n  end\n\n",
+                      "markdown": "`    d = create_driver\n    map = d.instance.instance_variable_get(:@map)\n\n    assert_equal get_hostname, map['gen_host'].param_value\n    assert_equal 'bar', map['foo'].param_value\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/test/test_out_record_modifier.rb"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 10,
+                  "endLine": 23,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "    Fluent::Test::Driver::Output.new(Fluent::Plugin::RecordModifierOutput).configure(conf)\n  end\n\n  def get_hostname\n    require 'socket'\n    Socket.gethostname.chomp\n  end\n",
+                    "rendered": {
+                      "text": "    Fluent::Test::Driver::Output.new(Fluent::Plugin::RecordModifierOutput).configure(conf)\n  end\n\n  def get_hostname\n    require 'socket'\n    Socket.gethostname.chomp\n  end\n",
+                      "markdown": "`    Fluent::Test::Driver::Output.new(Fluent::Plugin::RecordModifierOutput).configure(conf)\n  end\n\n  def get_hostname\n    require 'socket'\n    Socket.gethostname.chomp\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 52,
+                  "endLine": 6,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "Adding arbitary field to event record without customizing existence plugin.\n\nFor example, generated event from *in_tail* doesn't contain \"hostname\" of running machine.\nIn this case, you can use *record_modifier* to add \"hostname\" field to event record.\n\n## Requirements\n\n",
+                    "rendered": {
+                      "text": "Adding arbitary field to event record without customizing existence plugin.\n\nFor example, generated event from *in_tail* doesn't contain \"hostname\" of running machine.\nIn this case, you can use *record_modifier* to add \"hostname\" field to event record.\n\n## Requirements\n\n",
+                      "markdown": "`Adding arbitary field to event record without customizing existence plugin.\n\nFor example, generated event from *in_tail* doesn't contain \"hostname\" of running machine.\nIn this case, you can use *record_modifier* to add \"hostname\" field to event record.\n\n## Requirements\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 61,
+                  "endLine": 5,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "\nAdding arbitary field to event record without customizing existence plugin.\n\nFor example, generated event from *in_tail* doesn't contain \"hostname\" of running machine.\nIn this case, you can use *record_modifier* to add \"hostname\" field to event record.\n\n## Requirements\n",
+                    "rendered": {
+                      "text": "\nAdding arbitary field to event record without customizing existence plugin.\n\nFor example, generated event from *in_tail* doesn't contain \"hostname\" of running machine.\nIn this case, you can use *record_modifier* to add \"hostname\" field to event record.\n\n## Requirements\n",
+                      "markdown": "`\nAdding arbitary field to event record without customizing existence plugin.\n\nFor example, generated event from *in_tail* doesn't contain \"hostname\" of running machine.\nIn this case, you can use *record_modifier* to add \"hostname\" field to event record.\n\n## Requirements\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 95,
+                  "endLine": 212,
+                  "endColumn": 99,
+                  "snippet": {
+                    "text": "\n### record_modifier output\n\nOutput plugin version of `record_modifier` filter. If you want to process events and change tag at the same time, this plugin is useful.\n\n    <match pattern>\n      @type record_modifier\n",
+                    "rendered": {
+                      "text": "\n### record_modifier output\n\nOutput plugin version of `record_modifier` filter. If you want to process events and change tag at the same time, this plugin is useful.\n\n    <match pattern>\n      @type record_modifier\n",
+                      "markdown": "`\n### record_modifier output\n\nOutput plugin version of `record_modifier` filter. If you want to process events and change tag at the same time, this plugin is useful.\n\n    <match pattern>\n      @type record_modifier\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 3,
+                  "endLine": 196,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "```\n\n\n### Ruby code trick for complex logic\n\nIf you need own complex logic in filter, writing filter plugin is better. But if you don't want to write new plugin, you can use temporal key trick like below:\n\n",
+                    "rendered": {
+                      "text": "```\n\n\n### Ruby code trick for complex logic\n\nIf you need own complex logic in filter, writing filter plugin is better. But if you don't want to write new plugin, you can use temporal key trick like below:\n\n",
+                      "markdown": "````\n\n\n### Ruby code trick for complex logic\n\nIf you need own complex logic in filter, writing filter plugin is better. But if you don't want to write new plugin, you can use temporal key trick like below:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 34,
+                  "endLine": 68,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "\n### prepare_value\n\nPrepare values for filtering. This ruby code is evaluated in `configure` phase and prepared values can be used in `<record>`. Here is an example:\n\n    <filter pattern>\n      @type record_modifier\n",
+                    "rendered": {
+                      "text": "\n### prepare_value\n\nPrepare values for filtering. This ruby code is evaluated in `configure` phase and prepared values can be used in `<record>`. Here is an example:\n\n    <filter pattern>\n      @type record_modifier\n",
+                      "markdown": "`\n### prepare_value\n\nPrepare values for filtering. This ruby code is evaluated in `configure` phase and prepared values can be used in `<record>`. Here is an example:\n\n    <filter pattern>\n      @type record_modifier\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 125,
+                  "endLine": 47,
+                  "endColumn": 131,
+                  "snippet": {
+                    "text": "{\"message\":\"hello world!\", \"gen_host\":\"oreore-mac.local\", \"foo\":\"bar\"}\n```\n\nYou can also use `record_transformer` like `${xxx}` placeholders and access `tag`, `time`, `record` and `tag_parts` values by Ruby code.\n\n    <filter pattern>\n      @type record_modifier\n",
+                    "rendered": {
+                      "text": "{\"message\":\"hello world!\", \"gen_host\":\"oreore-mac.local\", \"foo\":\"bar\"}\n```\n\nYou can also use `record_transformer` like `${xxx}` placeholders and access `tag`, `time`, `record` and `tag_parts` values by Ruby code.\n\n    <filter pattern>\n      @type record_modifier\n",
+                      "markdown": "`{\"message\":\"hello world!\", \"gen_host\":\"oreore-mac.local\", \"foo\":\"bar\"}\n```\n\nYou can also use `record_transformer` like `${xxx}` placeholders and access `tag`, `time`, `record` and `tag_parts` values by Ruby code.\n\n    <filter pattern>\n      @type record_modifier\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/README.md"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 44,
+                  "endLine": 10,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "\n## Requirements\n\n| fluent-plugin-record-modifier  | fluentd | ruby |\n|--------------------------------|---------|------|\n| >= 2.0.0 | >= v1.0.0  | >= 2.1 |\n| >= 1.0.0 | >= v0.14.0 | >= 2.1 |\n",
+                    "rendered": {
+                      "text": "\n## Requirements\n\n| fluent-plugin-record-modifier  | fluentd | ruby |\n|--------------------------------|---------|------|\n| >= 2.0.0 | >= v1.0.0  | >= 2.1 |\n| >= 1.0.0 | >= v0.14.0 | >= 2.1 |\n",
+                      "markdown": "`\n## Requirements\n\n| fluent-plugin-record-modifier  | fluentd | ruby |\n|--------------------------------|---------|------|\n| >= 2.0.0 | >= v1.0.0  | >= 2.1 |\n| >= 1.0.0 | >= v0.14.0 | >= 2.1 |\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/.github/workflows/linux.yml"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 9,
+                  "endLine": 21,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "            os: ubuntu-latest\n            experimental: true\n\n    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v2\n    - uses: ruby/setup-ruby@v1\n",
+                    "rendered": {
+                      "text": "            os: ubuntu-latest\n            experimental: true\n\n    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v2\n    - uses: ruby/setup-ruby@v1\n",
+                      "markdown": "`            os: ubuntu-latest\n            experimental: true\n\n    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v2\n    - uses: ruby/setup-ruby@v1\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/fluent-plugin-record-modifier-2.2.0-r3.apk/fluent-plugin-record-modifier-2.2.0-r3/usr/lib/ruby/gems/3.2.0/gems/fluent-plugin-record-modifier-2.2.0/.github/workflows/linux.yml"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 25,
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "          - ubuntu-latest\n        experimental: [false]\n        include:\n          - ruby-version: head\n            os: ubuntu-latest\n            experimental: true\n\n    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}\n",
+                    "rendered": {
+                      "text": "          - ubuntu-latest\n        experimental: [false]\n        include:\n          - ruby-version: head\n            os: ubuntu-latest\n            experimental: true\n\n    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}\n",
+                      "markdown": "`          - ubuntu-latest\n        experimental: [false]\n        include:\n          - ruby-version: head\n            os: ubuntu-latest\n            experimental: true\n\n    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/conntrack-tools-1.4.8-r4.apk/conntrack-tools-1.4.8-r4/etc/conntrackd/conntrackd.conf"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 44,
+                  "endLine": 65,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "\t# to dump the states in the kernel every N seconds. With regards to\n\t# synchronization mode, the polling mode can only guarantee that\n\t# long-lifetime states are recovered. The main advantage of this method\n\t# is the reduction in the state replication at the cost of reducing the\n\t# chances of recovering connections.\n\t#\n\t# PollSecs 15\n",
+                    "rendered": {
+                      "text": "\t# to dump the states in the kernel every N seconds. With regards to\n\t# synchronization mode, the polling mode can only guarantee that\n\t# long-lifetime states are recovered. The main advantage of this method\n\t# is the reduction in the state replication at the cost of reducing the\n\t# chances of recovering connections.\n\t#\n\t# PollSecs 15\n",
+                      "markdown": "`\t# to dump the states in the kernel every N seconds. With regards to\n\t# synchronization mode, the polling mode can only guarantee that\n\t# long-lifetime states are recovered. The main advantage of this method\n\t# is the reduction in the state replication at the cost of reducing the\n\t# chances of recovering connections.\n\t#\n\t# PollSecs 15\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/conntrack-tools-1.4.8-r4.apk/conntrack-tools-1.4.8-r4/etc/conntrackd/conntrackd.conf"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 18,
+                  "endLine": 20,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\n\t#\n\t# Maximum number of conntracks: \n\t# it must be >= $ cat /proc/sys/net/ipv4/netfilter/ip_conntrack_max\n\t#\n\tHashLimit 65535\n\n",
+                    "rendered": {
+                      "text": "\n\t#\n\t# Maximum number of conntracks: \n\t# it must be >= $ cat /proc/sys/net/ipv4/netfilter/ip_conntrack_max\n\t#\n\tHashLimit 65535\n\n",
+                      "markdown": "`\n\t#\n\t# Maximum number of conntracks: \n\t# it must be >= $ cat /proc/sys/net/ipv4/netfilter/ip_conntrack_max\n\t#\n\tHashLimit 65535\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/conntrack-tools-1.4.8-r4.apk/conntrack-tools-1.4.8-r4/etc/conntrackd/conntrackd.conf"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 39,
+                  "endLine": 7,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "General {\n\t#\n\t# Enable systemd support. If conntrackd is compiled with the proper\n\t# configuration, you can use a systemd service unit of Type=notify\n\t# and use conntrackd with systemd watchdog as well.\n\t# Default is: on if built with --enable-systemd, off otherwhise\n\t#\n",
+                    "rendered": {
+                      "text": "General {\n\t#\n\t# Enable systemd support. If conntrackd is compiled with the proper\n\t# configuration, you can use a systemd service unit of Type=notify\n\t# and use conntrackd with systemd watchdog as well.\n\t# Default is: on if built with --enable-systemd, off otherwhise\n\t#\n",
+                      "markdown": "`General {\n\t#\n\t# Enable systemd support. If conntrackd is compiled with the proper\n\t# configuration, you can use a systemd service unit of Type=notify\n\t# and use conntrackd with systemd watchdog as well.\n\t# Default is: on if built with --enable-systemd, off otherwhise\n\t#\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

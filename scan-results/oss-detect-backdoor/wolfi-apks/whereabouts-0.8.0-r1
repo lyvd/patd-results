@@ -1,0 +1,462 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 63,
+                  "endLine": 62,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "  if [ \"$SKIP_TLS_VERIFY\" == \"true\" ]; then\n    TLS_CFG=\"insecure-skip-tls-verify: true\"\n  elif [ -f \"$KUBE_CA_FILE\" ]; then\n    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n",
+                    "rendered": {
+                      "text": "  if [ \"$SKIP_TLS_VERIFY\" == \"true\" ]; then\n    TLS_CFG=\"insecure-skip-tls-verify: true\"\n  elif [ -f \"$KUBE_CA_FILE\" ]; then\n    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n",
+                      "markdown": "`  if [ \"$SKIP_TLS_VERIFY\" == \"true\" ]; then\n    TLS_CFG=\"insecure-skip-tls-verify: true\"\n  elif [ -f \"$KUBE_CA_FILE\" ]; then\n    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 37,
+                  "endLine": 116,
+                  "endColumn": 3,
+                  "snippet": {
+                    "text": "  warn \"Doesn't look like we're running in a kubernetes environment (no serviceaccount token)\"\nfi\n\n# copy whereabouts to the cni bin dir\ncp -f /whereabouts $CNI_BIN_DIR\n\n# ---------------------- end Generate a \"kube-config\".\n\n",
+                    "rendered": {
+                      "text": "  warn \"Doesn't look like we're running in a kubernetes environment (no serviceaccount token)\"\nfi\n\n# copy whereabouts to the cni bin dir\ncp -f /whereabouts $CNI_BIN_DIR\n\n# ---------------------- end Generate a \"kube-config\".\n\n",
+                      "markdown": "`  warn \"Doesn't look like we're running in a kubernetes environment (no serviceaccount token)\"\nfi\n\n# copy whereabouts to the cni bin dir\ncp -f /whereabouts $CNI_BIN_DIR\n\n# ---------------------- end Generate a \"kube-config\".\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 1,
+                  "endLine": 101,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "\n  touch $WHEREABOUTS_FLATFILE\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_FLATFILE\n  cat > $WHEREABOUTS_FLATFILE <<EOF\n{\n  \"datastore\": \"kubernetes\",\n  \"kubernetes\": {\n",
+                    "rendered": {
+                      "text": "\n  touch $WHEREABOUTS_FLATFILE\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_FLATFILE\n  cat > $WHEREABOUTS_FLATFILE <<EOF\n{\n  \"datastore\": \"kubernetes\",\n  \"kubernetes\": {\n",
+                      "markdown": "`\n  touch $WHEREABOUTS_FLATFILE\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_FLATFILE\n  cat > $WHEREABOUTS_FLATFILE <<EOF\n{\n  \"datastore\": \"kubernetes\",\n  \"kubernetes\": {\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 1,
+                  "endLine": 100,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "EOF\n\n  touch $WHEREABOUTS_FLATFILE\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_FLATFILE\n  cat > $WHEREABOUTS_FLATFILE <<EOF\n{\n  \"datastore\": \"kubernetes\",\n",
+                    "rendered": {
+                      "text": "EOF\n\n  touch $WHEREABOUTS_FLATFILE\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_FLATFILE\n  cat > $WHEREABOUTS_FLATFILE <<EOF\n{\n  \"datastore\": \"kubernetes\",\n",
+                      "markdown": "`EOF\n\n  touch $WHEREABOUTS_FLATFILE\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_FLATFILE\n  cat > $WHEREABOUTS_FLATFILE <<EOF\n{\n  \"datastore\": \"kubernetes\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 1,
+                  "endLine": 77,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "  # if the provided CNI network config references it.\n  touch $WHEREABOUTS_KUBECONFIG\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_KUBECONFIG\n  cat > $WHEREABOUTS_KUBECONFIG <<EOF\n# Kubeconfig file for the Whereabouts CNI plugin.\napiVersion: v1\nkind: Config\n",
+                    "rendered": {
+                      "text": "  # if the provided CNI network config references it.\n  touch $WHEREABOUTS_KUBECONFIG\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_KUBECONFIG\n  cat > $WHEREABOUTS_KUBECONFIG <<EOF\n# Kubeconfig file for the Whereabouts CNI plugin.\napiVersion: v1\nkind: Config\n",
+                      "markdown": "`  # if the provided CNI network config references it.\n  touch $WHEREABOUTS_KUBECONFIG\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_KUBECONFIG\n  cat > $WHEREABOUTS_KUBECONFIG <<EOF\n# Kubeconfig file for the Whereabouts CNI plugin.\napiVersion: v1\nkind: Config\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 1,
+                  "endLine": 76,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "  # writing more complete kubeconfig files. This is only used\n  # if the provided CNI network config references it.\n  touch $WHEREABOUTS_KUBECONFIG\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_KUBECONFIG\n  cat > $WHEREABOUTS_KUBECONFIG <<EOF\n# Kubeconfig file for the Whereabouts CNI plugin.\napiVersion: v1\n",
+                    "rendered": {
+                      "text": "  # writing more complete kubeconfig files. This is only used\n  # if the provided CNI network config references it.\n  touch $WHEREABOUTS_KUBECONFIG\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_KUBECONFIG\n  cat > $WHEREABOUTS_KUBECONFIG <<EOF\n# Kubeconfig file for the Whereabouts CNI plugin.\napiVersion: v1\n",
+                      "markdown": "`  # writing more complete kubeconfig files. This is only used\n  # if the provided CNI network config references it.\n  touch $WHEREABOUTS_KUBECONFIG\n  chmod ${KUBECONFIG_MODE:-600} $WHEREABOUTS_KUBECONFIG\n  cat > $WHEREABOUTS_KUBECONFIG <<EOF\n# Kubeconfig file for the Whereabouts CNI plugin.\napiVersion: v1\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 14,
+                  "endLine": 65,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n  KUBERNETES_SERVICE_HOST_WRAP=$KUBERNETES_SERVICE_HOST\n  if [ \"$KUBERNETES_SERVICE_HOST_WRAP\" != \"${KUBERNETES_SERVICE_HOST_WRAP#*:[0-9a-fA-F]}\" ]; then\n    KUBERNETES_SERVICE_HOST_WRAP=\\[$KUBERNETES_SERVICE_HOST_WRAP\\]\n",
+                    "rendered": {
+                      "text": "    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n  KUBERNETES_SERVICE_HOST_WRAP=$KUBERNETES_SERVICE_HOST\n  if [ \"$KUBERNETES_SERVICE_HOST_WRAP\" != \"${KUBERNETES_SERVICE_HOST_WRAP#*:[0-9a-fA-F]}\" ]; then\n    KUBERNETES_SERVICE_HOST_WRAP=\\[$KUBERNETES_SERVICE_HOST_WRAP\\]\n",
+                      "markdown": "`    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n  KUBERNETES_SERVICE_HOST_WRAP=$KUBERNETES_SERVICE_HOST\n  if [ \"$KUBERNETES_SERVICE_HOST_WRAP\" != \"${KUBERNETES_SERVICE_HOST_WRAP#*:[0-9a-fA-F]}\" ]; then\n    KUBERNETES_SERVICE_HOST_WRAP=\\[$KUBERNETES_SERVICE_HOST_WRAP\\]\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 62,
+                  "endLine": 62,
+                  "endColumn": 70,
+                  "snippet": {
+                    "text": "  if [ \"$SKIP_TLS_VERIFY\" == \"true\" ]; then\n    TLS_CFG=\"insecure-skip-tls-verify: true\"\n  elif [ -f \"$KUBE_CA_FILE\" ]; then\n    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n",
+                    "rendered": {
+                      "text": "  if [ \"$SKIP_TLS_VERIFY\" == \"true\" ]; then\n    TLS_CFG=\"insecure-skip-tls-verify: true\"\n  elif [ -f \"$KUBE_CA_FILE\" ]; then\n    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n",
+                      "markdown": "`  if [ \"$SKIP_TLS_VERIFY\" == \"true\" ]; then\n    TLS_CFG=\"insecure-skip-tls-verify: true\"\n  elif [ -f \"$KUBE_CA_FILE\" ]; then\n    TLS_CFG=\"certificate-authority-data: $(cat $KUBE_CA_FILE | base64 | tr -d '\\n')\"\n  fi\n\n  # Kubernetes service address must be wrapped if it is IPv6 address\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 32,
+                  "endLine": 51,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "\n# Check if we're running as a k8s pod.\nif [ -f \"$SERVICE_ACCOUNT_PATH/token\" ]; then\n  # We're running as a k8d pod - expect some variables.\n  if [ -z ${KUBERNETES_SERVICE_HOST} ]; then\n    error \"KUBERNETES_SERVICE_HOST not set\"; exit 1;\n  fi\n",
+                    "rendered": {
+                      "text": "\n# Check if we're running as a k8s pod.\nif [ -f \"$SERVICE_ACCOUNT_PATH/token\" ]; then\n  # We're running as a k8d pod - expect some variables.\n  if [ -z ${KUBERNETES_SERVICE_HOST} ]; then\n    error \"KUBERNETES_SERVICE_HOST not set\"; exit 1;\n  fi\n",
+                      "markdown": "`\n# Check if we're running as a k8s pod.\nif [ -f \"$SERVICE_ACCOUNT_PATH/token\" ]; then\n  # We're running as a k8d pod - expect some variables.\n  if [ -z ${KUBERNETES_SERVICE_HOST} ]; then\n    error \"KUBERNETES_SERVICE_HOST not set\"; exit 1;\n  fi\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/install-cni.sh"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 65,
+                  "endLine": 23,
+                  "endColumn": 70,
+                  "snippet": {
+                    "text": "mkdir -p $CNI_CONF_DIR/whereabouts.d\nWHEREABOUTS_KUBECONFIG=$CNI_CONF_DIR/whereabouts.d/whereabouts.kubeconfig\nWHEREABOUTS_FLATFILE=$CNI_CONF_DIR/whereabouts.d/whereabouts.conf # Yuki~ Nikhil's note: imo we should remove \"flatfile\" from whereabouts vocabulary and call this \"WHEREABOUTS_CONF_FILE\" instead. Flatfile may be the format but it's confusing naming.\nWHEREABOUTS_KUBECONFIG_LITERAL=$(echo \"$WHEREABOUTS_KUBECONFIG\" | sed -e s'|/host||')\n\n# ------------------------------- Generate a \"kube-config\"\nSERVICE_ACCOUNT_PATH=/var/run/secrets/kubernetes.io/serviceaccount\n",
+                    "rendered": {
+                      "text": "mkdir -p $CNI_CONF_DIR/whereabouts.d\nWHEREABOUTS_KUBECONFIG=$CNI_CONF_DIR/whereabouts.d/whereabouts.kubeconfig\nWHEREABOUTS_FLATFILE=$CNI_CONF_DIR/whereabouts.d/whereabouts.conf # Yuki~ Nikhil's note: imo we should remove \"flatfile\" from whereabouts vocabulary and call this \"WHEREABOUTS_CONF_FILE\" instead. Flatfile may be the format but it's confusing naming.\nWHEREABOUTS_KUBECONFIG_LITERAL=$(echo \"$WHEREABOUTS_KUBECONFIG\" | sed -e s'|/host||')\n\n# ------------------------------- Generate a \"kube-config\"\nSERVICE_ACCOUNT_PATH=/var/run/secrets/kubernetes.io/serviceaccount\n",
+                      "markdown": "`mkdir -p $CNI_CONF_DIR/whereabouts.d\nWHEREABOUTS_KUBECONFIG=$CNI_CONF_DIR/whereabouts.d/whereabouts.kubeconfig\nWHEREABOUTS_FLATFILE=$CNI_CONF_DIR/whereabouts.d/whereabouts.conf # Yuki~ Nikhil's note: imo we should remove \"flatfile\" from whereabouts vocabulary and call this \"WHEREABOUTS_CONF_FILE\" instead. Flatfile may be the format but it's confusing naming.\nWHEREABOUTS_KUBECONFIG_LITERAL=$(echo \"$WHEREABOUTS_KUBECONFIG\" | sed -e s'|/host||')\n\n# ------------------------------- Generate a \"kube-config\"\nSERVICE_ACCOUNT_PATH=/var/run/secrets/kubernetes.io/serviceaccount\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 8,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "url = \ncommit = fea4fa1fb86c3c992cd84b5ffaa83061191f8e06\nbuilddate = 1726160336\ndepend = busybox\nprovides = cmd:controlloop=0.8.0-r1\nprovides = cmd:whereabouts=0.8.0-r1\ndatahash = 322f263d8483160de6c8c20ca55aa723b781227cd41af3001e9b06005d46dc8e\n",
+                    "rendered": {
+                      "text": "url = \ncommit = fea4fa1fb86c3c992cd84b5ffaa83061191f8e06\nbuilddate = 1726160336\ndepend = busybox\nprovides = cmd:controlloop=0.8.0-r1\nprovides = cmd:whereabouts=0.8.0-r1\ndatahash = 322f263d8483160de6c8c20ca55aa723b781227cd41af3001e9b06005d46dc8e\n",
+                      "markdown": "`url = \ncommit = fea4fa1fb86c3c992cd84b5ffaa83061191f8e06\nbuilddate = 1726160336\ndepend = busybox\nprovides = cmd:controlloop=0.8.0-r1\nprovides = cmd:whereabouts=0.8.0-r1\ndatahash = 322f263d8483160de6c8c20ca55aa723b781227cd41af3001e9b06005d46dc8e\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/whereabouts-0.8.0-r1.apk/whereabouts-0.8.0-r1/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 40,
+                  "endLine": 7,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 84918928\norigin = whereabouts\npkgdesc = A CNI IPAM plugin that assigns IP addresses cluster-wide\nurl = \ncommit = fea4fa1fb86c3c992cd84b5ffaa83061191f8e06\nbuilddate = 1726160336\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 84918928\norigin = whereabouts\npkgdesc = A CNI IPAM plugin that assigns IP addresses cluster-wide\nurl = \ncommit = fea4fa1fb86c3c992cd84b5ffaa83061191f8e06\nbuilddate = 1726160336\n",
+                      "markdown": "`arch = x86_64\nsize = 84918928\norigin = whereabouts\npkgdesc = A CNI IPAM plugin that assigns IP addresses cluster-wide\nurl = \ncommit = fea4fa1fb86c3c992cd84b5ffaa83061191f8e06\nbuilddate = 1726160336\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

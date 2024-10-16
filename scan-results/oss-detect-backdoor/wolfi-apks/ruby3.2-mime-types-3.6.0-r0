@@ -1,0 +1,3296 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/lib/mime/type.rb"
+                },
+                "region": {
+                  "startLine": 392,
+                  "startColumn": 52,
+                  "endLine": 392,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "\n  # Returns the default encoding for the MIME::Type based on the media type.\n  def default_encoding\n    (@media_type == \"text\") ? \"quoted-printable\" : \"base64\"\n  end\n\n  ##\n",
+                    "rendered": {
+                      "text": "\n  # Returns the default encoding for the MIME::Type based on the media type.\n  def default_encoding\n    (@media_type == \"text\") ? \"quoted-printable\" : \"base64\"\n  end\n\n  ##\n",
+                      "markdown": "`\n  # Returns the default encoding for the MIME::Type based on the media type.\n  def default_encoding\n    (@media_type == \"text\") ? \"quoted-printable\" : \"base64\"\n  end\n\n  ##\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/lib/mime/type.rb"
+                },
+                "region": {
+                  "startLine": 113,
+                  "startColumn": 24,
+                  "endLine": 113,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "  restricted_name = \"#{restricted_name_first}#{restricted_name_chars}\"\n  MEDIA_TYPE_RE = %r{(#{restricted_name})/(#{restricted_name})}.freeze\n  I18N_RE = /[^[:alnum:]]/.freeze\n  BINARY_ENCODINGS = %w[base64 8bit].freeze\n  ASCII_ENCODINGS = %w[7bit quoted-printable].freeze\n  # :startdoc:\n\n",
+                    "rendered": {
+                      "text": "  restricted_name = \"#{restricted_name_first}#{restricted_name_chars}\"\n  MEDIA_TYPE_RE = %r{(#{restricted_name})/(#{restricted_name})}.freeze\n  I18N_RE = /[^[:alnum:]]/.freeze\n  BINARY_ENCODINGS = %w[base64 8bit].freeze\n  ASCII_ENCODINGS = %w[7bit quoted-printable].freeze\n  # :startdoc:\n\n",
+                      "markdown": "`  restricted_name = \"#{restricted_name_first}#{restricted_name_chars}\"\n  MEDIA_TYPE_RE = %r{(#{restricted_name})/(#{restricted_name})}.freeze\n  I18N_RE = /[^[:alnum:]]/.freeze\n  BINARY_ENCODINGS = %w[base64 8bit].freeze\n  ASCII_ENCODINGS = %w[7bit quoted-printable].freeze\n  # :startdoc:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/lib/mime/type.rb"
+                },
+                "region": {
+                  "startLine": 223,
+                  "startColumn": 9,
+                  "endLine": 223,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "    if pc.zero? || !(extensions & other.extensions).empty?\n      pc =\n        if (reg = registered?) != other.registered?\n          reg ? -1 : 1 # registered < unregistered\n        elsif (comp = complete?) != other.complete?\n          comp ? -1 : 1 # complete < incomplete\n        elsif (obs = obsolete?) != other.obsolete?\n",
+                    "rendered": {
+                      "text": "    if pc.zero? || !(extensions & other.extensions).empty?\n      pc =\n        if (reg = registered?) != other.registered?\n          reg ? -1 : 1 # registered < unregistered\n        elsif (comp = complete?) != other.complete?\n          comp ? -1 : 1 # complete < incomplete\n        elsif (obs = obsolete?) != other.obsolete?\n",
+                      "markdown": "`    if pc.zero? || !(extensions & other.extensions).empty?\n      pc =\n        if (reg = registered?) != other.registered?\n          reg ? -1 : 1 # registered < unregistered\n        elsif (comp = complete?) != other.complete?\n          comp ? -1 : 1 # complete < incomplete\n        elsif (obs = obsolete?) != other.obsolete?\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/lib/mime/type.rb"
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 55,
+                  "endLine": 19,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "#  puts text.media_type            # => \"text\"\n#  puts text.sub_type              # => \"plain\"\n#\n#  puts text.extensions.join(\" \")  # => \"txt asc c cc h hh cpp hpp dat hlp\"\n#  puts text.preferred_extension   # => \"txt\"\n#  puts text.friendly              # => \"Text Document\"\n#  puts text.i18n_key              # => \"text.plain\"\n",
+                    "rendered": {
+                      "text": "#  puts text.media_type            # => \"text\"\n#  puts text.sub_type              # => \"plain\"\n#\n#  puts text.extensions.join(\" \")  # => \"txt asc c cc h hh cpp hpp dat hlp\"\n#  puts text.preferred_extension   # => \"txt\"\n#  puts text.friendly              # => \"Text Document\"\n#  puts text.i18n_key              # => \"text.plain\"\n",
+                      "markdown": "`#  puts text.media_type            # => \"text\"\n#  puts text.sub_type              # => \"plain\"\n#\n#  puts text.extensions.join(\" \")  # => \"txt asc c cc h hh cpp hpp dat hlp\"\n#  puts text.preferred_extension   # => \"txt\"\n#  puts text.friendly              # => \"Text Document\"\n#  puts text.i18n_key              # => \"text.plain\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/lib/mime/type.rb"
+                },
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 74,
+                  "endLine": 217,
+                  "snippet": {
+                    "text": "  #\n  # While this method is public, its use is strongly discouraged by consumers\n  # of mime-types. In mime-types 3, this method is likely to see substantial\n  # revision and simplification to ensure current registered content types sort\n  # before unregistered or obsolete content types.\n  def priority_compare(other)\n    pc = simplified <=> other.simplified\n    if pc.zero? || !(extensions & other.extensions).empty?\n",
+                    "rendered": {
+                      "text": "  #\n  # While this method is public, its use is strongly discouraged by consumers\n  # of mime-types. In mime-types 3, this method is likely to see substantial\n  # revision and simplification to ensure current registered content types sort\n  # before unregistered or obsolete content types.\n  def priority_compare(other)\n    pc = simplified <=> other.simplified\n    if pc.zero? || !(extensions & other.extensions).empty?\n",
+                      "markdown": "`  #\n  # While this method is public, its use is strongly discouraged by consumers\n  # of mime-types. In mime-types 3, this method is likely to see substantial\n  # revision and simplification to ensure current registered content types sort\n  # before unregistered or obsolete content types.\n  def priority_compare(other)\n    pc = simplified <=> other.simplified\n    if pc.zero? || !(extensions & other.extensions).empty?\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/lib/mime/type.rb"
+                },
+                "region": {
+                  "startLine": 203,
+                  "startColumn": 52,
+                  "endLine": 203,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "  end\n\n  # Compares the +other+ MIME::Type based on how reliable it is before doing a\n  # normal <=> comparison. Used by MIME::Types#[] to sort types. The\n  # comparisons involved are:\n  #\n  # 1. self.simplified <=> other.simplified (ensures that we\n",
+                    "rendered": {
+                      "text": "  end\n\n  # Compares the +other+ MIME::Type based on how reliable it is before doing a\n  # normal <=> comparison. Used by MIME::Types#[] to sort types. The\n  # comparisons involved are:\n  #\n  # 1. self.simplified <=> other.simplified (ensures that we\n",
+                      "markdown": "`  end\n\n  # Compares the +other+ MIME::Type based on how reliable it is before doing a\n  # normal <=> comparison. Used by MIME::Types#[] to sort types. The\n  # comparisons involved are:\n  #\n  # 1. self.simplified <=> other.simplified (ensures that we\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 9,
+                  "endLine": 7,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 230339\norigin = ruby3.2-mime-types\npkgdesc = Ruby MIME type registry library\nurl = \ncommit = 60709c9eed3aefcb0f715a9a8bee1b32cf894b1f\nbuilddate = 1727838667\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 230339\norigin = ruby3.2-mime-types\npkgdesc = Ruby MIME type registry library\nurl = \ncommit = 60709c9eed3aefcb0f715a9a8bee1b32cf894b1f\nbuilddate = 1727838667\n",
+                      "markdown": "`arch = x86_64\nsize = 230339\norigin = ruby3.2-mime-types\npkgdesc = Ruby MIME type registry library\nurl = \ncommit = 60709c9eed3aefcb0f715a9a8bee1b32cf894b1f\nbuilddate = 1727838667\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/specifications/mime-types-3.6.0.gemspec"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 324,
+                  "endLine": 13,
+                  "endColumn": 330,
+                  "snippet": {
+                    "text": "ime-types library provides a library and registry for information about\\nMIME content type definitions. It can be used to determine defined filename\\nextensions for MIME types, or to use filename extensions to look up the likely\\nMIME type definitions.\\n\\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\\ndeprecated functions. The columnar registry format introduced in 2.6 has been\\nmade the primary format; the registry data has been extracted from this library\\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\\nAdditionally, mime-types is n",
+                    "rendered": {
+                      "text": "ime-types library provides a library and registry for information about\\nMIME content type definitions. It can be used to determine defined filename\\nextensions for MIME types, or to use filename extensions to look up the likely\\nMIME type definitions.\\n\\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\\ndeprecated functions. The columnar registry format introduced in 2.6 has been\\nmade the primary format; the registry data has been extracted from this library\\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\\nAdditionally, mime-types is n",
+                      "markdown": "`ime-types library provides a library and registry for information about\\nMIME content type definitions. It can be used to determine defined filename\\nextensions for MIME types, or to use filename extensions to look up the likely\\nMIME type definitions.\\n\\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\\ndeprecated functions. The columnar registry format introduced in 2.6 has been\\nmade the primary format; the registry data has been extracted from this library\\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\\nAdditionally, mime-types is n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/specifications/mime-types-3.6.0.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 24,
+                  "endLine": 2,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: mime-types 3.6.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"mime-types\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: mime-types 3.6.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"mime-types\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: mime-types 3.6.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"mime-types\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_types_class.rb"
+                },
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 16,
+                  "endLine": 94,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "        MIME::Types.type_for(%w[foo.txt foo.jpeg])\n    end\n\n    it \"does not find unknown extensions\" do\n      assert_empty MIME::Types.type_for(\"zzz\")\n    end\n\n",
+                    "rendered": {
+                      "text": "        MIME::Types.type_for(%w[foo.txt foo.jpeg])\n    end\n\n    it \"does not find unknown extensions\" do\n      assert_empty MIME::Types.type_for(\"zzz\")\n    end\n\n",
+                      "markdown": "`        MIME::Types.type_for(%w[foo.txt foo.jpeg])\n    end\n\n    it \"does not find unknown extensions\" do\n      assert_empty MIME::Types.type_for(\"zzz\")\n    end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/old-data"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 14,
+                  "endLine": 6,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "*!image/bmp @bmp =use-instead:image/x-bmp\n*application/acad 'LTSW\n*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}\n*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs\napplication/1d-interleaved-parityfec 'IANA,RFC6015\naudio/1d-interleaved-parityfec 'IANA,RFC6015\nmac:application/x-apple-diskimage @dmg\n",
+                    "rendered": {
+                      "text": "*!image/bmp @bmp =use-instead:image/x-bmp\n*application/acad 'LTSW\n*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}\n*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs\napplication/1d-interleaved-parityfec 'IANA,RFC6015\naudio/1d-interleaved-parityfec 'IANA,RFC6015\nmac:application/x-apple-diskimage @dmg\n",
+                      "markdown": "`*!image/bmp @bmp =use-instead:image/x-bmp\n*application/acad 'LTSW\n*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}\n*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs\napplication/1d-interleaved-parityfec 'IANA,RFC6015\naudio/1d-interleaved-parityfec 'IANA,RFC6015\nmac:application/x-apple-diskimage @dmg\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000702"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Environment)",
+            "id": "BD000702"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 34,
+                  "endLine": 120,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "column file for all types in the registry.\n\nThe load of any column data is performed with a Mutex to ensure that types are\nupdated safely in a multithreaded environment. Benchmarks show that while\ncolumnar data loading is slower than the JSON store, it cuts the memory use by\na third over the JSON store.\n\n",
+                    "rendered": {
+                      "text": "column file for all types in the registry.\n\nThe load of any column data is performed with a Mutex to ensure that types are\nupdated safely in a multithreaded environment. Benchmarks show that while\ncolumnar data loading is slower than the JSON store, it cuts the memory use by\na third over the JSON store.\n\n",
+                      "markdown": "`column file for all types in the registry.\n\nThe load of any column data is performed with a Mutex to ensure that types are\nupdated safely in a multithreaded environment. Benchmarks show that while\ncolumnar data loading is slower than the JSON store, it cuts the memory use by\na third over the JSON store.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 67,
+                  "endLine": 136,
+                  "endColumn": 71,
+                  "snippet": {
+                    "text": "Libraries that use mime-types are discouraged from choosing the JSON store.\n\nFor applications and clients that used mime-types 2.6 when the columnar store\nwas introduced, the require used previously will still work through at least\n{version\n4}[https://github.com/mime-types/ruby-mime-types/pull/96#issuecomment-100725400]\nand possibly beyond; it is effectively an empty operation. You are recommended\n",
+                    "rendered": {
+                      "text": "Libraries that use mime-types are discouraged from choosing the JSON store.\n\nFor applications and clients that used mime-types 2.6 when the columnar store\nwas introduced, the require used previously will still work through at least\n{version\n4}[https://github.com/mime-types/ruby-mime-types/pull/96#issuecomment-100725400]\nand possibly beyond; it is effectively an empty operation. You are recommended\n",
+                      "markdown": "`Libraries that use mime-types are discouraged from choosing the JSON store.\n\nFor applications and clients that used mime-types 2.6 when the columnar store\nwas introduced, the require used previously will still work through at least\n{version\n4}[https://github.com/mime-types/ruby-mime-types/pull/96#issuecomment-100725400]\nand possibly beyond; it is effectively an empty operation. You are recommended\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 34,
+                  "endLine": 124,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "columnar data loading is slower than the JSON store, it cuts the memory use by\na third over the JSON store.\n\nIf you prefer to load all the data at once, this can be specified in your\napplication Gemfile as:\n\n   gem 'mime-types', require: 'mime/types/full'\n",
+                    "rendered": {
+                      "text": "columnar data loading is slower than the JSON store, it cuts the memory use by\na third over the JSON store.\n\nIf you prefer to load all the data at once, this can be specified in your\napplication Gemfile as:\n\n   gem 'mime-types', require: 'mime/types/full'\n",
+                      "markdown": "`columnar data loading is slower than the JSON store, it cuts the memory use by\na third over the JSON store.\n\nIf you prefer to load all the data at once, this can be specified in your\napplication Gemfile as:\n\n   gem 'mime-types', require: 'mime/types/full'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 55,
+                  "endLine": 57,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "   puts text.media_type            # => 'text'\n   puts text.sub_type              # => 'plain'\n\n   puts text.extensions.join(' ')  # => 'txt asc c cc h hh cpp hpp dat hlp'\n   puts text.preferred_extension   # => 'txt'\n   puts text.friendly              # => 'Text Document'\n   puts text.i18n_key              # => 'text.plain'\n",
+                    "rendered": {
+                      "text": "   puts text.media_type            # => 'text'\n   puts text.sub_type              # => 'plain'\n\n   puts text.extensions.join(' ')  # => 'txt asc c cc h hh cpp hpp dat hlp'\n   puts text.preferred_extension   # => 'txt'\n   puts text.friendly              # => 'Text Document'\n   puts text.i18n_key              # => 'text.plain'\n",
+                      "markdown": "`   puts text.media_type            # => 'text'\n   puts text.sub_type              # => 'plain'\n\n   puts text.extensions.join(' ')  # => 'txt asc c cc h hh cpp hpp dat hlp'\n   puts text.preferred_extension   # => 'txt'\n   puts text.friendly              # => 'Text Document'\n   puts text.i18n_key              # => 'text.plain'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 79,
+                  "endLine": 47,
+                  "endColumn": 3,
+                  "snippet": {
+                    "text": "\n== Synopsis\n\nMIME types are used in MIME entities, as in email or HTTP traffic. It is useful\nat times to have information available about MIME types (or, inversely, about\nfiles). A MIME::Type stores the known information about one MIME type.\n\n   require 'mime/types'\n",
+                    "rendered": {
+                      "text": "\n== Synopsis\n\nMIME types are used in MIME entities, as in email or HTTP traffic. It is useful\nat times to have information available about MIME types (or, inversely, about\nfiles). A MIME::Type stores the known information about one MIME type.\n\n   require 'mime/types'\n",
+                      "markdown": "`\n== Synopsis\n\nMIME types are used in MIME entities, as in email or HTTP traffic. It is useful\nat times to have information available about MIME types (or, inversely, about\nfiles). A MIME::Type stores the known information about one MIME type.\n\n   require 'mime/types'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 23,
+                  "endLine": 42,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "=== mime-types 3.x\n\nUsers are encouraged to upgrade to mime-types 3.x as soon as is practical.\nmime-types 3.x requires Ruby 2.0 compatibility and a simpler licensing scheme.\n\n== Synopsis\n\n",
+                    "rendered": {
+                      "text": "=== mime-types 3.x\n\nUsers are encouraged to upgrade to mime-types 3.x as soon as is practical.\nmime-types 3.x requires Ruby 2.0 compatibility and a simpler licensing scheme.\n\n== Synopsis\n\n",
+                      "markdown": "`=== mime-types 3.x\n\nUsers are encouraged to upgrade to mime-types 3.x as soon as is practical.\nmime-types 3.x requires Ruby 2.0 compatibility and a simpler licensing scheme.\n\n== Synopsis\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 44,
+                  "endLine": 18,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "extensions for MIME types, or to use filename extensions to look up the likely\nMIME type definitions.\n\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\ndeprecated functions. The columnar registry format introduced in 2.6 has been\nmade the primary format; the registry data has been extracted from this library\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\n",
+                    "rendered": {
+                      "text": "extensions for MIME types, or to use filename extensions to look up the likely\nMIME type definitions.\n\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\ndeprecated functions. The columnar registry format introduced in 2.6 has been\nmade the primary format; the registry data has been extracted from this library\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\n",
+                      "markdown": "`extensions for MIME types, or to use filename extensions to look up the likely\nMIME type definitions.\n\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\ndeprecated functions. The columnar registry format introduced in 2.6 has been\nmade the primary format; the registry data has been extracted from this library\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/README.rdoc"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 16,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "= mime-types for Ruby\n\nhome :: https://github.com/mime-types/ruby-mime-types/\ncode :: https://github.com/mime-types/ruby-mime-types/\nbugs :: https://github.com/mime-types/ruby-mime-types/issues\n",
+                    "rendered": {
+                      "text": "= mime-types for Ruby\n\nhome :: https://github.com/mime-types/ruby-mime-types/\ncode :: https://github.com/mime-types/ruby-mime-types/\nbugs :: https://github.com/mime-types/ruby-mime-types/issues\n",
+                      "markdown": "`= mime-types for Ruby\n\nhome :: https://github.com/mime-types/ruby-mime-types/\ncode :: https://github.com/mime-types/ruby-mime-types/\nbugs :: https://github.com/mime-types/ruby-mime-types/issues\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/bad-fixtures/malformed"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 14,
+                  "endLine": 6,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "*!image/bmp @bmp =use-instead:image/x-bmp\n*application/acad 'LTSW\n*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}\n*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs\napplication/1d-interleaved-parityfec 'IANA,RFC6015\naudio/1d-interleaved-parityfec 'IANA,RFC6015\nmac:application/x-apple-diskimage @dmg\n",
+                    "rendered": {
+                      "text": "*!image/bmp @bmp =use-instead:image/x-bmp\n*application/acad 'LTSW\n*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}\n*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs\napplication/1d-interleaved-parityfec 'IANA,RFC6015\naudio/1d-interleaved-parityfec 'IANA,RFC6015\nmac:application/x-apple-diskimage @dmg\n",
+                      "markdown": "`*!image/bmp @bmp =use-instead:image/x-bmp\n*application/acad 'LTSW\n*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}\n*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs\napplication/1d-interleaved-parityfec 'IANA,RFC6015\naudio/1d-interleaved-parityfec 'IANA,RFC6015\nmac:application/x-apple-diskimage @dmg\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Rakefile"
+                },
+                "region": {
+                  "startLine": 156,
+                  "startColumn": 3,
+                  "endLine": 156,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "      \"-f\", output.to_s,\n      script.to_s\n    ]\n    ruby args.join(\" \")\n  end\n\n  task full: \"tmp/profile\" do\n",
+                    "rendered": {
+                      "text": "      \"-f\", output.to_s,\n      script.to_s\n    ]\n    ruby args.join(\" \")\n  end\n\n  task full: \"tmp/profile\" do\n",
+                      "markdown": "`      \"-f\", output.to_s,\n      script.to_s\n    ]\n    ruby args.join(\" \")\n  end\n\n  task full: \"tmp/profile\" do\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Rakefile"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 3,
+                  "endLine": 144,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "    require \"pathname\"\n    output = Pathname(\"tmp/profile\").join(script)\n    output.mkpath\n    script = Pathname(\"support/profile\").join(\"#{script}.rb\")\n\n    args = [\n      \"-W0\",\n",
+                    "rendered": {
+                      "text": "    require \"pathname\"\n    output = Pathname(\"tmp/profile\").join(script)\n    output.mkpath\n    script = Pathname(\"support/profile\").join(\"#{script}.rb\")\n\n    args = [\n      \"-W0\",\n",
+                      "markdown": "`    require \"pathname\"\n    output = Pathname(\"tmp/profile\").join(script)\n    output.mkpath\n    script = Pathname(\"support/profile\").join(\"#{script}.rb\")\n\n    args = [\n      \"-W0\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_types.rb"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 16,
+                  "endLine": 146,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "        mime_types.type_for(%w[foo.txt foo.jpeg])\n    end\n\n    it \"does not find unknown extensions\" do\n      keys = mime_types.instance_variable_get(:@extension_index).keys\n      assert_empty mime_types.type_for(\"zzz\")\n      assert_equal keys, mime_types.instance_variable_get(:@extension_index).keys\n",
+                    "rendered": {
+                      "text": "        mime_types.type_for(%w[foo.txt foo.jpeg])\n    end\n\n    it \"does not find unknown extensions\" do\n      keys = mime_types.instance_variable_get(:@extension_index).keys\n      assert_empty mime_types.type_for(\"zzz\")\n      assert_equal keys, mime_types.instance_variable_get(:@extension_index).keys\n",
+                      "markdown": "`        mime_types.type_for(%w[foo.txt foo.jpeg])\n    end\n\n    it \"does not find unknown extensions\" do\n      keys = mime_types.instance_variable_get(:@extension_index).keys\n      assert_empty mime_types.type_for(\"zzz\")\n      assert_equal keys, mime_types.instance_variable_get(:@extension_index).keys\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 12,
+                  "endLine": 52,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n  extensions:\n  - dmg\n  registered: false\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n  extensions:\n  - dmg\n  registered: false\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n  extensions:\n  - dmg\n  registered: false\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 12,
+                  "endLine": 48,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 12,
+                  "endLine": 44,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n",
+                    "rendered": {
+                      "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n",
+                      "markdown": "`  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 12,
+                  "endLine": 40,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "- !ruby/object:MIME::Type\n  content-type: image/pjpeg\n  docs: Fixes a bug with IE6 and progressive JPEGs\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n",
+                    "rendered": {
+                      "text": "- !ruby/object:MIME::Type\n  content-type: image/pjpeg\n  docs: Fixes a bug with IE6 and progressive JPEGs\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n",
+                      "markdown": "`- !ruby/object:MIME::Type\n  content-type: image/pjpeg\n  docs: Fixes a bug with IE6 and progressive JPEGs\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 12,
+                  "endLine": 33,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n  extensions:\n  - webm\n  registered: false\n",
+                    "rendered": {
+                      "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n  extensions:\n  - webm\n  registered: false\n",
+                      "markdown": "`  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n  extensions:\n  - webm\n  registered: false\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 12,
+                  "endLine": 29,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/acad\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n",
+                    "rendered": {
+                      "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/acad\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n",
+                      "markdown": "`  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/acad\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 12,
+                  "endLine": 21,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: image/bmp\n  encoding: base64\n  extensions:\n  - bmp\n  obsolete: true\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: image/bmp\n  encoding: base64\n  extensions:\n  - bmp\n  obsolete: true\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: image/bmp\n  encoding: base64\n  extensions:\n  - bmp\n  obsolete: true\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 12,
+                  "endLine": 13,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/vnd.qcelp\n  encoding: base64\n  extensions:\n  - qcp\n  obsolete: true\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/vnd.qcelp\n  encoding: base64\n  extensions:\n  - qcp\n  obsolete: true\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/vnd.qcelp\n  encoding: base64\n  extensions:\n  - qcp\n  obsolete: true\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 11,
+                  "endLine": 53,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n  extensions:\n  - dmg\n  registered: false\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n  extensions:\n  - dmg\n  registered: false\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n  extensions:\n  - dmg\n  registered: false\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 11,
+                  "endLine": 49,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: application/x-apple-diskimage\n  encoding: base64\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 11,
+                  "endLine": 45,
+                  "snippet": {
+                    "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n",
+                    "rendered": {
+                      "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n",
+                      "markdown": "`  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/1d-interleaved-parityfec\n  encoding: base64\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 11,
+                  "endLine": 41,
+                  "snippet": {
+                    "text": "- !ruby/object:MIME::Type\n  content-type: image/pjpeg\n  docs: Fixes a bug with IE6 and progressive JPEGs\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n",
+                    "rendered": {
+                      "text": "- !ruby/object:MIME::Type\n  content-type: image/pjpeg\n  docs: Fixes a bug with IE6 and progressive JPEGs\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n",
+                      "markdown": "`- !ruby/object:MIME::Type\n  content-type: image/pjpeg\n  docs: Fixes a bug with IE6 and progressive JPEGs\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/1d-interleaved-parityfec\n  encoding: base64\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 11,
+                  "endLine": 34,
+                  "snippet": {
+                    "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n  extensions:\n  - webm\n  registered: false\n- !ruby/object:MIME::Type\n",
+                    "rendered": {
+                      "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n  extensions:\n  - webm\n  registered: false\n- !ruby/object:MIME::Type\n",
+                      "markdown": "`  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n  extensions:\n  - webm\n  registered: false\n- !ruby/object:MIME::Type\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 11,
+                  "endLine": 30,
+                  "snippet": {
+                    "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/acad\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n",
+                    "rendered": {
+                      "text": "  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/acad\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n",
+                      "markdown": "`  registered: false\n- !ruby/object:MIME::Type\n  content-type: application/acad\n  encoding: base64\n  registered: false\n- !ruby/object:MIME::Type\n  content-type: audio/webm\n  encoding: base64\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 11,
+                  "endLine": 22,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: image/bmp\n  encoding: base64\n  extensions:\n  - bmp\n  obsolete: true\n  use-instead: image/x-bmp\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: image/bmp\n  encoding: base64\n  extensions:\n  - bmp\n  obsolete: true\n  use-instead: image/x-bmp\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: image/bmp\n  encoding: base64\n  extensions:\n  - bmp\n  obsolete: true\n  use-instead: image/x-bmp\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/yaml.yaml"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 11,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/vnd.qcelp\n  encoding: base64\n  extensions:\n  - qcp\n  obsolete: true\n  use-instead: audio/QCELP\n",
+                    "rendered": {
+                      "text": "  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/vnd.qcelp\n  encoding: base64\n  extensions:\n  - qcp\n  obsolete: true\n  use-instead: audio/QCELP\n",
+                      "markdown": "`  registered: true\n- !ruby/object:MIME::Type\n  content-type: audio/vnd.qcelp\n  encoding: base64\n  extensions:\n  - qcp\n  obsolete: true\n  use-instead: audio/QCELP\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Contributing.md"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 38,
+                  "endLine": 15,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "  commits into logical chunks as necessary.\n- Use [quality commit messages][].\n- Do not change the version number; when your patch is accepted and a release\n  is made, the version will be updated at that point.\n- Submit a GitHub pull request with your changes.\n- New or changed behaviours require new or updated documentation.\n\n",
+                    "rendered": {
+                      "text": "  commits into logical chunks as necessary.\n- Use [quality commit messages][].\n- Do not change the version number; when your patch is accepted and a release\n  is made, the version will be updated at that point.\n- Submit a GitHub pull request with your changes.\n- New or changed behaviours require new or updated documentation.\n\n",
+                      "markdown": "`  commits into logical chunks as necessary.\n- Use [quality commit messages][].\n- Do not change the version number; when your patch is accepted and a release\n  is made, the version will be updated at that point.\n- Submit a GitHub pull request with your changes.\n- New or changed behaviours require new or updated documentation.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Contributing.md"
+                },
+                "region": {
+                  "startLine": 110,
+                  "startColumn": 5,
+                  "endLine": 111,
+                  "snippet": {
+                    "text": "- Juanito Fatas\n- Jun Aruga\n- Keerthi Siva\n- Ken Ip\n- Kevin Menard\n- Koichi ITO\n- Łukasz Śliwa\n- Martin d'Allens\n",
+                    "rendered": {
+                      "text": "- Juanito Fatas\n- Jun Aruga\n- Keerthi Siva\n- Ken Ip\n- Kevin Menard\n- Koichi ITO\n- Łukasz Śliwa\n- Martin d'Allens\n",
+                      "markdown": "`- Juanito Fatas\n- Jun Aruga\n- Keerthi Siva\n- Ken Ip\n- Kevin Menard\n- Koichi ITO\n- Łukasz Śliwa\n- Martin d'Allens\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Contributing.md"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 24,
+                  "endLine": 52,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "- `rake benchmark:load`\n\nThere are two allocation tracing benchmarks (for normal and columnar loads).\nThese can only be run on Ruby 2.1 or better and requires the\n[allocation\\_tracer][] gem (not installed by default).\n\n- `rake benchmark:allocations`\n",
+                    "rendered": {
+                      "text": "- `rake benchmark:load`\n\nThere are two allocation tracing benchmarks (for normal and columnar loads).\nThese can only be run on Ruby 2.1 or better and requires the\n[allocation\\_tracer][] gem (not installed by default).\n\n- `rake benchmark:allocations`\n",
+                      "markdown": "`- `rake benchmark:load`\n\nThere are two allocation tracing benchmarks (for normal and columnar loads).\nThese can only be run on Ruby 2.1 or better and requires the\n[allocation\\_tracer][] gem (not installed by default).\n\n- `rake benchmark:allocations`\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 248,
+                  "startColumn": 72,
+                  "endLine": 249,
+                  "snippet": {
+                    "text": "    [#97][].\n\n  - The registry data has been removed from mime-types and put into\n    mime-types-data, maintained and released separately. It can be found at\n    [mime-types-data][].\n\n- 17 minor changes:\n\n",
+                    "rendered": {
+                      "text": "    [#97][].\n\n  - The registry data has been removed from mime-types and put into\n    mime-types-data, maintained and released separately. It can be found at\n    [mime-types-data][].\n\n- 17 minor changes:\n\n",
+                      "markdown": "`    [#97][].\n\n  - The registry data has been removed from mime-types and put into\n    mime-types-data, maintained and released separately. It can be found at\n    [mime-types-data][].\n\n- 17 minor changes:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 3,
+                  "endLine": 63,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\n- Dependency and CI updates:\n\n  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n",
+                    "rendered": {
+                      "text": "\n- Dependency and CI updates:\n\n  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n",
+                      "markdown": "`\n- Dependency and CI updates:\n\n  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 66,
+                  "endLine": 23,
+                  "endColumn": 74,
+                  "snippet": {
+                    "text": "\n## 3.5.2 / 2024-01-02\n\nThere are no primary code changes, but we are releasing this as an update as\nthere are some validation changes and updated code with formatting.\n\n- Dependency and CI updates:\n",
+                    "rendered": {
+                      "text": "\n## 3.5.2 / 2024-01-02\n\nThere are no primary code changes, but we are releasing this as an update as\nthere are some validation changes and updated code with formatting.\n\n- Dependency and CI updates:\n",
+                      "markdown": "`\n## 3.5.2 / 2024-01-02\n\nThere are no primary code changes, but we are releasing this as an update as\nthere are some validation changes and updated code with formatting.\n\n- Dependency and CI updates:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 61,
+                  "endLine": 17,
+                  "endColumn": 65,
+                  "snippet": {
+                    "text": "  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n  for outputting certain warnings once. Because there will be at least one other\n  release after 3.6, we do not need to make the type initialization deprecations\n  frequent with this release.\n\n",
+                    "rendered": {
+                      "text": "  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n  for outputting certain warnings once. Because there will be at least one other\n  release after 3.6, we do not need to make the type initialization deprecations\n  frequent with this release.\n\n",
+                      "markdown": "`  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n  for outputting certain warnings once. Because there will be at least one other\n  release after 3.6, we do not need to make the type initialization deprecations\n  frequent with this release.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 244,
+                  "startColumn": 27,
+                  "endLine": 244,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\n  - All methods deprecated in mime-types 2.x have been removed.\n\n  - mime-types now requires Ruby 2.0 compatibility or later. Resolves\n    [#97][].\n\n  - The registry data has been removed from mime-types and put into\n",
+                    "rendered": {
+                      "text": "\n  - All methods deprecated in mime-types 2.x have been removed.\n\n  - mime-types now requires Ruby 2.0 compatibility or later. Resolves\n    [#97][].\n\n  - The registry data has been removed from mime-types and put into\n",
+                      "markdown": "`\n  - All methods deprecated in mime-types 2.x have been removed.\n\n  - mime-types now requires Ruby 2.0 compatibility or later. Resolves\n    [#97][].\n\n  - The registry data has been removed from mime-types and put into\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 47,
+                  "endLine": 212,
+                  "endColumn": 53,
+                  "snippet": {
+                    "text": "\n- 3 bug fixes\n\n  - A test for `MIME::Types::Cache` fails under Ruby 2.3 because of frozen\n    strings, [#118][]. This has been fixed.\n\n  - The JSON data has been incorrectly encoded since the release of\n",
+                    "rendered": {
+                      "text": "\n- 3 bug fixes\n\n  - A test for `MIME::Types::Cache` fails under Ruby 2.3 because of frozen\n    strings, [#118][]. This has been fixed.\n\n  - The JSON data has been incorrectly encoded since the release of\n",
+                      "markdown": "`\n- 3 bug fixes\n\n  - A test for `MIME::Types::Cache` fails under Ruby 2.3 because of frozen\n    strings, [#118][]. This has been fixed.\n\n  - The JSON data has been incorrectly encoded since the release of\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 48,
+                  "endLine": 196,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "\n- Administrivia:\n\n  - CI configuration for more modern versions of Ruby were added by Nicolas\n    Leger ([#130][]), Jun Aruga ([#125][]), and Austin Ziegler. Removed\n    ruby-head-clang and rbx (Rubinius) from CI.\n\n",
+                    "rendered": {
+                      "text": "\n- Administrivia:\n\n  - CI configuration for more modern versions of Ruby were added by Nicolas\n    Leger ([#130][]), Jun Aruga ([#125][]), and Austin Ziegler. Removed\n    ruby-head-clang and rbx (Rubinius) from CI.\n\n",
+                      "markdown": "`\n- Administrivia:\n\n  - CI configuration for more modern versions of Ruby were added by Nicolas\n    Leger ([#130][]), Jun Aruga ([#125][]), and Austin Ziegler. Removed\n    ruby-head-clang and rbx (Rubinius) from CI.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 43,
+                  "endLine": 145,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "## 3.2.1 / 2018-08-12\n\n- A few bugs related to MIME::Types::Container and its use in the\n  mime-types-data helper tools reared their head because I released 3.2\n  before verifying against mime-types-data.\n\n## 3.2 / 2018-08-12\n",
+                    "rendered": {
+                      "text": "## 3.2.1 / 2018-08-12\n\n- A few bugs related to MIME::Types::Container and its use in the\n  mime-types-data helper tools reared their head because I released 3.2\n  before verifying against mime-types-data.\n\n## 3.2 / 2018-08-12\n",
+                      "markdown": "`## 3.2.1 / 2018-08-12\n\n- A few bugs related to MIME::Types::Container and its use in the\n  mime-types-data helper tools reared their head because I released 3.2\n  before verifying against mime-types-data.\n\n## 3.2 / 2018-08-12\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 128,
+                  "startColumn": 42,
+                  "endLine": 128,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "\n- 1 minor enhancement\n\n  - Jean Boussier reduced memory usage for Ruby versions 2.3 or higher by\n    interning various string values in each type. This is done with a\n    backwards-compatible call that _freezes_ the strings on older versions of\n    Ruby. [#141]\n",
+                    "rendered": {
+                      "text": "\n- 1 minor enhancement\n\n  - Jean Boussier reduced memory usage for Ruby versions 2.3 or higher by\n    interning various string values in each type. This is done with a\n    backwards-compatible call that _freezes_ the strings on older versions of\n    Ruby. [#141]\n",
+                      "markdown": "`\n- 1 minor enhancement\n\n  - Jean Boussier reduced memory usage for Ruby versions 2.3 or higher by\n    interning various string values in each type. This is done with a\n    backwards-compatible call that _freezes_ the strings on older versions of\n    Ruby. [#141]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 11,
+                  "endLine": 115,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "- 1 minor bug fix:\n\n  - Al Snow fixed a warning with MIME::Types::Logger producing a warning\n    because Ruby 2.7 introduces numbered block parameters. Because of the way\n    that the MIME::Types::Logger works for deprecation messages, the\n    initializer parameters had been named `_1`, `_2`, and `_3`. This has now\n    been resolved. [#146]\n",
+                    "rendered": {
+                      "text": "- 1 minor bug fix:\n\n  - Al Snow fixed a warning with MIME::Types::Logger producing a warning\n    because Ruby 2.7 introduces numbered block parameters. Because of the way\n    that the MIME::Types::Logger works for deprecation messages, the\n    initializer parameters had been named `_1`, `_2`, and `_3`. This has now\n    been resolved. [#146]\n",
+                      "markdown": "`- 1 minor bug fix:\n\n  - Al Snow fixed a warning with MIME::Types::Logger producing a warning\n    because Ruby 2.7 introduces numbered block parameters. Because of the way\n    that the MIME::Types::Logger works for deprecation messages, the\n    initializer parameters had been named `_1`, `_2`, and `_3`. This has now\n    been resolved. [#146]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 34,
+                  "endLine": 107,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "    [#150][]. Removed Coveralls configuration.\n  - Igor Victor added TruffleRuby to the Travis CI configuration. [#149]\n  - Koichi ITO loosened an excessively tight dependency. [#147]\n  - Started using `standardrb` for Ruby formatting and validation.\n  - Moved `deps:top` functionality to a support file.\n\n## 3.3.1 / 2019-12-26\n",
+                    "rendered": {
+                      "text": "    [#150][]. Removed Coveralls configuration.\n  - Igor Victor added TruffleRuby to the Travis CI configuration. [#149]\n  - Koichi ITO loosened an excessively tight dependency. [#147]\n  - Started using `standardrb` for Ruby formatting and validation.\n  - Moved `deps:top` functionality to a support file.\n\n## 3.3.1 / 2019-12-26\n",
+                      "markdown": "`    [#150][]. Removed Coveralls configuration.\n  - Igor Victor added TruffleRuby to the Travis CI configuration. [#149]\n  - Koichi ITO loosened an excessively tight dependency. [#147]\n  - Started using `standardrb` for Ruby formatting and validation.\n  - Moved `deps:top` functionality to a support file.\n\n## 3.3.1 / 2019-12-26\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 9,
+                  "endLine": 101,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n- Administrivia:\n\n  - Added Ruby 3.0 to the CI test matrix. Added `windows/jruby` to the\n    CI exclusion list; it refuses to run successfully.\n  - Removed the Travis CI configuration and changed it to Github Workflows\n    [#150][]. Removed Coveralls configuration.\n",
+                    "rendered": {
+                      "text": "\n- Administrivia:\n\n  - Added Ruby 3.0 to the CI test matrix. Added `windows/jruby` to the\n    CI exclusion list; it refuses to run successfully.\n  - Removed the Travis CI configuration and changed it to Github Workflows\n    [#150][]. Removed Coveralls configuration.\n",
+                      "markdown": "`\n- Administrivia:\n\n  - Added Ruby 3.0 to the CI test matrix. Added `windows/jruby` to the\n    CI exclusion list; it refuses to run successfully.\n  - Removed the Travis CI configuration and changed it to Github Workflows\n    [#150][]. Removed Coveralls configuration.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 11,
+                  "endLine": 82,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "\n- 1 bug fix:\n\n  - Fixed a Ruby &lt; 2.3 incompatibility introduced by the use of standardrb,\n    where `<<-` heredocs were converted to `<<~` heredocs. These have been\n    reverted back to `<<-` with the indentation kept and a `.strip` call\n    to prevent excess whitespace.\n",
+                    "rendered": {
+                      "text": "\n- 1 bug fix:\n\n  - Fixed a Ruby &lt; 2.3 incompatibility introduced by the use of standardrb,\n    where `<<-` heredocs were converted to `<<~` heredocs. These have been\n    reverted back to `<<-` with the indentation kept and a `.strip` call\n    to prevent excess whitespace.\n",
+                      "markdown": "`\n- 1 bug fix:\n\n  - Fixed a Ruby &lt; 2.3 incompatibility introduced by the use of standardrb,\n    where `<<-` heredocs were converted to `<<~` heredocs. These have been\n    reverted back to `<<-` with the indentation kept and a `.strip` call\n    to prevent excess whitespace.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 40,
+                  "endLine": 74,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "    - Apply `standardrb --fix`.\n\n    - The above changes have resulted in the Soft deprecation of Ruby versions\n      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,\n      and 2.5 will be resolved, but maintaining CI for these versions is\n      unsustainable.\n\n",
+                    "rendered": {
+                      "text": "    - Apply `standardrb --fix`.\n\n    - The above changes have resulted in the Soft deprecation of Ruby versions\n      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,\n      and 2.5 will be resolved, but maintaining CI for these versions is\n      unsustainable.\n\n",
+                      "markdown": "`    - Apply `standardrb --fix`.\n\n    - The above changes have resulted in the Soft deprecation of Ruby versions\n      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,\n      and 2.5 will be resolved, but maintaining CI for these versions is\n      unsustainable.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 64,
+                  "endLine": 73,
+                  "endColumn": 70,
+                  "snippet": {
+                    "text": "\n    - Apply `standardrb --fix`.\n\n    - The above changes have resulted in the Soft deprecation of Ruby versions\n      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,\n      and 2.5 will be resolved, but maintaining CI for these versions is\n      unsustainable.\n",
+                    "rendered": {
+                      "text": "\n    - Apply `standardrb --fix`.\n\n    - The above changes have resulted in the Soft deprecation of Ruby versions\n      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,\n      and 2.5 will be resolved, but maintaining CI for these versions is\n      unsustainable.\n",
+                      "markdown": "`\n    - Apply `standardrb --fix`.\n\n    - The above changes have resulted in the Soft deprecation of Ruby versions\n      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,\n      and 2.5 will be resolved, but maintaining CI for these versions is\n      unsustainable.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 34,
+                  "endLine": 67,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n    are not properly detected with Ruby 2.0.\n\n    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.\n\n",
+                    "rendered": {
+                      "text": "    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n    are not properly detected with Ruby 2.0.\n\n    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.\n\n",
+                      "markdown": "`    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n    are not properly detected with Ruby 2.0.\n\n    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 54,
+                  "endLine": 66,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n    are not properly detected with Ruby 2.0.\n\n    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.\n",
+                    "rendered": {
+                      "text": "  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n    are not properly detected with Ruby 2.0.\n\n    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.\n",
+                      "markdown": "`  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n    are not properly detected with Ruby 2.0.\n\n    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 56,
+                  "endLine": 63,
+                  "endColumn": 62,
+                  "snippet": {
+                    "text": "\n- Dependency and CI updates:\n\n  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n",
+                    "rendered": {
+                      "text": "\n- Dependency and CI updates:\n\n  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n",
+                      "markdown": "`\n- Dependency and CI updates:\n\n  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more\n    reliably test certain combinations rather than depending on exclusions.\n\n  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 25,
+                  "endLine": 28,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "\n- Dependency and CI updates:\n\n  - Masato Nakamura added Ruby 3.3 to the CI workflow in [#179][].\n\n  - Fixed regressions in standard formatting in [#180][].\n\n",
+                    "rendered": {
+                      "text": "\n- Dependency and CI updates:\n\n  - Masato Nakamura added Ruby 3.3 to the CI workflow in [#179][].\n\n  - Fixed regressions in standard formatting in [#180][].\n\n",
+                      "markdown": "`\n- Dependency and CI updates:\n\n  - Masato Nakamura added Ruby 3.3 to the CI workflow in [#179][].\n\n  - Fixed regressions in standard formatting in [#180][].\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n  for outputting certain warnings once. Because there will be at least one other\n",
+                    "rendered": {
+                      "text": "\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n  for outputting certain warnings once. Because there will be at least one other\n",
+                      "markdown": "`\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n  for outputting certain warnings once. Because there will be at least one other\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 52,
+                  "endLine": 13,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "  Use of these these will result in deprecation warnings.\n\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n",
+                    "rendered": {
+                      "text": "  Use of these these will result in deprecation warnings.\n\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n",
+                      "markdown": "`  Use of these these will result in deprecation warnings.\n\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/History.md"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 70,
+                  "endLine": 13,
+                  "snippet": {
+                    "text": "\n  Use of these these will result in deprecation warnings.\n\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n",
+                    "rendered": {
+                      "text": "\n  Use of these these will result in deprecation warnings.\n\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n",
+                      "markdown": "`\n  Use of these these will result in deprecation warnings.\n\n- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby\n  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and\n  will be suppressed in Ruby 3.3.6.\n\n- Reworked the deprecation message code to be somewhat more flexible and allow\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 508,
+                  "startColumn": 41,
+                  "endLine": 508,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":false}'\n    }\n    let(:expected_2) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":true,\"provisional\":true}'\n    }\n\n    it \"converts to JSON when requested\" do\n",
+                    "rendered": {
+                      "text": "      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":false}'\n    }\n    let(:expected_2) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":true,\"provisional\":true}'\n    }\n\n    it \"converts to JSON when requested\" do\n",
+                      "markdown": "`      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":false}'\n    }\n    let(:expected_2) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":true,\"provisional\":true}'\n    }\n\n    it \"converts to JSON when requested\" do\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 505,
+                  "startColumn": 41,
+                  "endLine": 505,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "\n  describe \"#to_json\" do\n    let(:expected_1) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":false}'\n    }\n    let(:expected_2) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":true,\"provisional\":true}'\n",
+                    "rendered": {
+                      "text": "\n  describe \"#to_json\" do\n    let(:expected_1) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":false}'\n    }\n    let(:expected_2) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":true,\"provisional\":true}'\n",
+                      "markdown": "`\n  describe \"#to_json\" do\n    let(:expected_1) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":false}'\n    }\n    let(:expected_2) {\n      '{\"content-type\":\"a/b\",\"encoding\":\"base64\",\"registered\":true,\"provisional\":true}'\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 20,
+                  "endLine": 239,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "  describe \"#encoding, #encoding=\" do\n    it \"returns #default_encoding if not set explicitly\" do\n      assert_equal \"quoted-printable\", text_plain.encoding\n      assert_equal \"base64\", image_jpeg.encoding\n    end\n\n    it \"returns the set value when set\" do\n",
+                    "rendered": {
+                      "text": "  describe \"#encoding, #encoding=\" do\n    it \"returns #default_encoding if not set explicitly\" do\n      assert_equal \"quoted-printable\", text_plain.encoding\n      assert_equal \"base64\", image_jpeg.encoding\n    end\n\n    it \"returns the set value when set\" do\n",
+                      "markdown": "`  describe \"#encoding, #encoding=\" do\n    it \"returns #default_encoding if not set explicitly\" do\n      assert_equal \"quoted-printable\", text_plain.encoding\n      assert_equal \"base64\", image_jpeg.encoding\n    end\n\n    it \"returns the set value when set\" do\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 232,
+                  "startColumn": 20,
+                  "endLine": 232,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n\n",
+                    "rendered": {
+                      "text": "    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n\n",
+                      "markdown": "`    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 231,
+                  "startColumn": 11,
+                  "endLine": 231,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "      assert_equal \"quoted-printable\", text_plain.default_encoding\n    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n",
+                    "rendered": {
+                      "text": "      assert_equal \"quoted-printable\", text_plain.default_encoding\n    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n",
+                      "markdown": "`      assert_equal \"quoted-printable\", text_plain.default_encoding\n    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 231,
+                  "startColumn": 10,
+                  "endLine": 231,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "      assert_equal \"quoted-printable\", text_plain.default_encoding\n    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n",
+                    "rendered": {
+                      "text": "      assert_equal \"quoted-printable\", text_plain.default_encoding\n    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n",
+                      "markdown": "`      assert_equal \"quoted-printable\", text_plain.default_encoding\n    end\n\n    it \"is base64 for non-text/* types\" do\n      assert_equal \"base64\", image_jpeg.default_encoding\n    end\n  end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 174,
+                  "startColumn": 53,
+                  "endLine": 174,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "      assert_operator text_html, :<, \"text/plain\"\n    end\n\n    it \"correctly compares types against strings that sort later\" do\n      refute_equal text_plain, \"text/html\"\n      assert_operator text_plain, :>, \"text/html\"\n    end\n",
+                    "rendered": {
+                      "text": "      assert_operator text_html, :<, \"text/plain\"\n    end\n\n    it \"correctly compares types against strings that sort later\" do\n      refute_equal text_plain, \"text/html\"\n      assert_operator text_plain, :>, \"text/html\"\n    end\n",
+                      "markdown": "`      assert_operator text_html, :<, \"text/plain\"\n    end\n\n    it \"correctly compares types against strings that sort later\" do\n      refute_equal text_plain, \"text/html\"\n      assert_operator text_plain, :>, \"text/html\"\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 169,
+                  "startColumn": 53,
+                  "endLine": 169,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "      assert_equal text_plain, \"text/plain\"\n    end\n\n    it \"correctly compares types against strings that sort earlier\" do\n      refute_equal text_html, \"text/plain\"\n      assert_operator text_html, :<, \"text/plain\"\n    end\n",
+                    "rendered": {
+                      "text": "      assert_equal text_plain, \"text/plain\"\n    end\n\n    it \"correctly compares types against strings that sort earlier\" do\n      refute_equal text_html, \"text/plain\"\n      assert_operator text_html, :<, \"text/plain\"\n    end\n",
+                      "markdown": "`      assert_equal text_plain, \"text/plain\"\n    end\n\n    it \"correctly compares types against strings that sort earlier\" do\n      refute_equal text_html, \"text/plain\"\n      assert_operator text_html, :<, \"text/plain\"\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 37,
+                  "endLine": 160,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "      assert_operator text_html, :<, text_plain\n    end\n\n    it \"correctly compares types that sort later\" do\n      refute_equal text_plain, text_html\n      assert_operator text_plain, :>, text_html\n    end\n",
+                    "rendered": {
+                      "text": "      assert_operator text_html, :<, text_plain\n    end\n\n    it \"correctly compares types that sort later\" do\n      refute_equal text_plain, text_html\n      assert_operator text_plain, :>, text_html\n    end\n",
+                      "markdown": "`      assert_operator text_html, :<, text_plain\n    end\n\n    it \"correctly compares types that sort later\" do\n      refute_equal text_plain, text_html\n      assert_operator text_plain, :>, text_html\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/test_mime_type.rb"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 37,
+                  "endLine": 155,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "      assert_equal text_plain, right\n    end\n\n    it \"correctly compares types that sort earlier\" do\n      refute_equal text_html, text_plain\n      assert_operator text_html, :<, text_plain\n    end\n",
+                    "rendered": {
+                      "text": "      assert_equal text_plain, right\n    end\n\n    it \"correctly compares types that sort earlier\" do\n      refute_equal text_html, text_plain\n      assert_operator text_html, :<, text_plain\n    end\n",
+                      "markdown": "`      assert_equal text_plain, right\n    end\n\n    it \"correctly compares types that sort earlier\" do\n      refute_equal text_html, text_plain\n      assert_operator text_html, :<, text_plain\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 955,
+                  "endLine": 1,
+                  "endColumn": 961,
+                  "snippet": {
+                    "text": "rogressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n",
+                    "rendered": {
+                      "text": "rogressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n",
+                      "markdown": "`rogressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 868,
+                  "endLine": 1,
+                  "endColumn": 874,
+                  "snippet": {
+                    "text": "\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n",
+                    "rendered": {
+                      "text": "\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n",
+                      "markdown": "`\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 780,
+                  "endLine": 1,
+                  "endColumn": 786,
+                  "snippet": {
+                    "text": "\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n",
+                    "rendered": {
+                      "text": "\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n",
+                      "markdown": "`\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"registered\":false}]\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 685,
+                  "endLine": 1,
+                  "endColumn": 691,
+                  "snippet": {
+                    "text": "tead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"regist",
+                    "rendered": {
+                      "text": "tead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"regist",
+                      "markdown": "`tead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"application/x-apple-diskimage\",\"encoding\":\"base64\",\"extensions\":[\"dmg\"],\"regist`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 541,
+                  "endLine": 1,
+                  "endColumn": 547,
+                  "snippet": {
+                    "text": "rue,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-pa",
+                    "rendered": {
+                      "text": "rue,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-pa",
+                      "markdown": "`rue,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\":\"base64\",\"registered\":true},{\"content-type\":\"audio/1d-interleaved-pa`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 472,
+                  "endLine": 1,
+                  "endColumn": 478,
+                  "snippet": {
+                    "text": "udio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\"",
+                    "rendered": {
+                      "text": "udio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\"",
+                      "markdown": "`udio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a bug with IE6 and progressive JPEGs\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"application/1d-interleaved-parityfec\",\"encoding\"`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 332,
+                  "endLine": 1,
+                  "endColumn": 338,
+                  "snippet": {
+                    "text": "il\",\"encoding\":\"8bit\",\"extensions\":[\"smi\",\"smil\"],\"obsolete\":true,\"use-instead\":\"application/smil+xml\",\"registered\":true},{\"content-type\":\"audio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a b",
+                    "rendered": {
+                      "text": "il\",\"encoding\":\"8bit\",\"extensions\":[\"smi\",\"smil\"],\"obsolete\":true,\"use-instead\":\"application/smil+xml\",\"registered\":true},{\"content-type\":\"audio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a b",
+                      "markdown": "`il\",\"encoding\":\"8bit\",\"extensions\":[\"smi\",\"smil\"],\"obsolete\":true,\"use-instead\":\"application/smil+xml\",\"registered\":true},{\"content-type\":\"audio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"content-type\":\"audio/webm\",\"encoding\":\"base64\",\"extensions\":[\"webm\"],\"registered\":false},{\"content-type\":\"image/pjpeg\",\"docs\":\"Fixes a b`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/test/fixture/json.json"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 200,
+                  "endLine": 1,
+                  "endColumn": 206,
+                  "snippet": {
+                    "text": "[{\"content-type\":\"application/smil\",\"encoding\":\"8bit\",\"extensions\":[\"smi\",\"smil\"],\"obsolete\":true,\"use-instead\":\"application/smil+xml\",\"registered\":true},{\"content-type\":\"audio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"cont",
+                    "rendered": {
+                      "text": "[{\"content-type\":\"application/smil\",\"encoding\":\"8bit\",\"extensions\":[\"smi\",\"smil\"],\"obsolete\":true,\"use-instead\":\"application/smil+xml\",\"registered\":true},{\"content-type\":\"audio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"cont",
+                      "markdown": "`[{\"content-type\":\"application/smil\",\"encoding\":\"8bit\",\"extensions\":[\"smi\",\"smil\"],\"obsolete\":true,\"use-instead\":\"application/smil+xml\",\"registered\":true},{\"content-type\":\"audio/vnd.qcelp\",\"encoding\":\"base64\",\"extensions\":[\"qcp\"],\"obsolete\":true,\"use-instead\":\"audio/QCELP\",\"registered\":true},{\"content-type\":\"image/bmp\",\"encoding\":\"base64\",\"extensions\":[\"bmp\"],\"obsolete\":true,\"use-instead\":\"image/x-bmp\",\"registered\":false},{\"content-type\":\"application/acad\",\"encoding\":\"base64\",\"registered\":false},{\"cont`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 70,
+                  "endLine": 125,
+                  "snippet": {
+                    "text": "[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n\nFor answers to common questions about this code of conduct, see the FAQ at\n<https://www.contributor-covenant.org/faq>. Translations are available at\n<https://www.contributor-covenant.org/translations>.\n\n[homepage]: https://www.contributor-covenant.org\n[Mozilla CoC]: https://github.com/mozilla/diversity\n",
+                    "rendered": {
+                      "text": "[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n\nFor answers to common questions about this code of conduct, see the FAQ at\n<https://www.contributor-covenant.org/faq>. Translations are available at\n<https://www.contributor-covenant.org/translations>.\n\n[homepage]: https://www.contributor-covenant.org\n[Mozilla CoC]: https://github.com/mozilla/diversity\n",
+                      "markdown": "`[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n\nFor answers to common questions about this code of conduct, see the FAQ at\n<https://www.contributor-covenant.org/faq>. Translations are available at\n<https://www.contributor-covenant.org/translations>.\n\n[homepage]: https://www.contributor-covenant.org\n[Mozilla CoC]: https://github.com/mozilla/diversity\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 123,
+                  "startColumn": 71,
+                  "endLine": 124,
+                  "snippet": {
+                    "text": "Community Impact Guidelines were inspired by\n[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n\nFor answers to common questions about this code of conduct, see the FAQ at\n<https://www.contributor-covenant.org/faq>. Translations are available at\n<https://www.contributor-covenant.org/translations>.\n\n[homepage]: https://www.contributor-covenant.org\n",
+                    "rendered": {
+                      "text": "Community Impact Guidelines were inspired by\n[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n\nFor answers to common questions about this code of conduct, see the FAQ at\n<https://www.contributor-covenant.org/faq>. Translations are available at\n<https://www.contributor-covenant.org/translations>.\n\n[homepage]: https://www.contributor-covenant.org\n",
+                      "markdown": "`Community Impact Guidelines were inspired by\n[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n\nFor answers to common questions about this code of conduct, see the FAQ at\n<https://www.contributor-covenant.org/faq>. Translations are available at\n<https://www.contributor-covenant.org/translations>.\n\n[homepage]: https://www.contributor-covenant.org\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 22,
+                  "endLine": 118,
+                  "snippet": {
+                    "text": "## Attribution\n\nThis Code of Conduct is adapted from the [Contributor Covenant][homepage],\nversion 2.1, available at\n<https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.\n\nCommunity Impact Guidelines were inspired by\n[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n",
+                    "rendered": {
+                      "text": "## Attribution\n\nThis Code of Conduct is adapted from the [Contributor Covenant][homepage],\nversion 2.1, available at\n<https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.\n\nCommunity Impact Guidelines were inspired by\n[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n",
+                      "markdown": "`## Attribution\n\nThis Code of Conduct is adapted from the [Contributor Covenant][homepage],\nversion 2.1, available at\n<https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.\n\nCommunity Impact Guidelines were inspired by\n[Mozilla's code of conduct enforcement ladder][Mozilla CoC].\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 61,
+                  "endLine": 62,
+                  "endColumn": 65,
+                  "snippet": {
+                    "text": "## Enforcement\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be\nreported to the community leaders responsible for enforcement at [INSERT CONTACT\nMETHOD]. All complaints will be reviewed and investigated promptly and fairly.\n\nAll community leaders are obligated to respect the privacy and security of the\n",
+                    "rendered": {
+                      "text": "## Enforcement\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be\nreported to the community leaders responsible for enforcement at [INSERT CONTACT\nMETHOD]. All complaints will be reviewed and investigated promptly and fairly.\n\nAll community leaders are obligated to respect the privacy and security of the\n",
+                      "markdown": "`## Enforcement\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be\nreported to the community leaders responsible for enforcement at [INSERT CONTACT\nMETHOD]. All complaints will be reviewed and investigated promptly and fairly.\n\nAll community leaders are obligated to respect the privacy and security of the\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 14,
+                  "endLine": 57,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "an individual is officially representing the community in public spaces.\nExamples of representing our community include using an official email address,\nposting via an official social media account, or acting as an appointed\nrepresentative at an online or offline event.\n\n## Enforcement\n\n",
+                    "rendered": {
+                      "text": "an individual is officially representing the community in public spaces.\nExamples of representing our community include using an official email address,\nposting via an official social media account, or acting as an appointed\nrepresentative at an online or offline event.\n\n## Enforcement\n\n",
+                      "markdown": "`an individual is officially representing the community in public spaces.\nExamples of representing our community include using an official email address,\nposting via an official social media account, or acting as an appointed\nrepresentative at an online or offline event.\n\n## Enforcement\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 41,
+                  "endLine": 111,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "standards, including sustained inappropriate behavior, harassment of an\nindividual, or aggression toward or disparagement of classes of individuals.\n\n**Consequence**: A permanent ban from any sort of public interaction within the\ncommunity.\n\n## Attribution\n",
+                    "rendered": {
+                      "text": "standards, including sustained inappropriate behavior, harassment of an\nindividual, or aggression toward or disparagement of classes of individuals.\n\n**Consequence**: A permanent ban from any sort of public interaction within the\ncommunity.\n\n## Attribution\n",
+                      "markdown": "`standards, including sustained inappropriate behavior, harassment of an\nindividual, or aggression toward or disparagement of classes of individuals.\n\n**Consequence**: A permanent ban from any sort of public interaction within the\ncommunity.\n\n## Attribution\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-mime-types-3.6.0-r0.apk/ruby3.2-mime-types-3.6.0-r0/usr/lib/ruby/gems/3.2.0/gems/mime-types-3.6.0/Code-of-Conduct.md"
+                },
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 41,
+                  "endLine": 99,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "**Community Impact**: A serious violation of community standards, including\nsustained inappropriate behavior.\n\n**Consequence**: A temporary ban from any sort of interaction or public\ncommunication with the community for a specified period of time. No public or\nprivate interaction with the people involved, including unsolicited interaction\nwith those enforcing the Code of Conduct, is allowed during this period.\n",
+                    "rendered": {
+                      "text": "**Community Impact**: A serious violation of community standards, including\nsustained inappropriate behavior.\n\n**Consequence**: A temporary ban from any sort of interaction or public\ncommunication with the community for a specified period of time. No public or\nprivate interaction with the people involved, including unsolicited interaction\nwith those enforcing the Code of Conduct, is allowed during this period.\n",
+                      "markdown": "`**Community Impact**: A serious violation of community standards, including\nsustained inappropriate behavior.\n\n**Consequence**: A temporary ban from any sort of interaction or public\ncommunication with the community for a specified period of time. No public or\nprivate interaction with the people involved, including unsolicited interaction\nwith those enforcing the Code of Conduct, is allowed during this period.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 8,
+                  "endLine": 13,
+                  "snippet": {
+                    "text": "commit = a15849f91ec8168a428464f119fd1cbbe614d0cd\nbuilddate = 1727903050\nlicense = BSD-2-Clause\ndepend = busybox\ndepend = gettext\ndatahash = de7123836a6dbf73af34abe2a0005ae5171d5300fe39db5d84850e9161a2e986\n",
+                    "rendered": {
+                      "text": "commit = a15849f91ec8168a428464f119fd1cbbe614d0cd\nbuilddate = 1727903050\nlicense = BSD-2-Clause\ndepend = busybox\ndepend = gettext\ndatahash = de7123836a6dbf73af34abe2a0005ae5171d5300fe39db5d84850e9161a2e986\n",
+                      "markdown": "`commit = a15849f91ec8168a428464f119fd1cbbe614d0cd\nbuilddate = 1727903050\nlicense = BSD-2-Clause\ndepend = busybox\ndepend = gettext\ndatahash = de7123836a6dbf73af34abe2a0005ae5171d5300fe39db5d84850e9161a2e986\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/docker-entrypoint.sh"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 61,
+                  "endLine": 17,
+                  "endColumn": 67,
+                  "snippet": {
+                    "text": "        entrypoint_log \"$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\"\n\n        entrypoint_log \"$0: Looking for shell scripts in /docker-entrypoint.d/\"\n        find \"/docker-entrypoint.d/\" -follow -type f -print | sort -V | while read -r f; do\n            case \"$f\" in\n                *.envsh)\n                    if [ -x \"$f\" ]; then\n",
+                    "rendered": {
+                      "text": "        entrypoint_log \"$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\"\n\n        entrypoint_log \"$0: Looking for shell scripts in /docker-entrypoint.d/\"\n        find \"/docker-entrypoint.d/\" -follow -type f -print | sort -V | while read -r f; do\n            case \"$f\" in\n                *.envsh)\n                    if [ -x \"$f\" ]; then\n",
+                      "markdown": "`        entrypoint_log \"$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\"\n\n        entrypoint_log \"$0: Looking for shell scripts in /docker-entrypoint.d/\"\n        find \"/docker-entrypoint.d/\" -follow -type f -print | sort -V | while read -r f; do\n            case \"$f\" in\n                *.envsh)\n                    if [ -x \"$f\" ]; then\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/docker-entrypoint.sh"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 7,
+                  "endLine": 17,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "        entrypoint_log \"$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\"\n\n        entrypoint_log \"$0: Looking for shell scripts in /docker-entrypoint.d/\"\n        find \"/docker-entrypoint.d/\" -follow -type f -print | sort -V | while read -r f; do\n            case \"$f\" in\n                *.envsh)\n                    if [ -x \"$f\" ]; then\n",
+                    "rendered": {
+                      "text": "        entrypoint_log \"$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\"\n\n        entrypoint_log \"$0: Looking for shell scripts in /docker-entrypoint.d/\"\n        find \"/docker-entrypoint.d/\" -follow -type f -print | sort -V | while read -r f; do\n            case \"$f\" in\n                *.envsh)\n                    if [ -x \"$f\" ]; then\n",
+                      "markdown": "`        entrypoint_log \"$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\"\n\n        entrypoint_log \"$0: Looking for shell scripts in /docker-entrypoint.d/\"\n        find \"/docker-entrypoint.d/\" -follow -type f -print | sort -V | while read -r f; do\n            case \"$f\" in\n                *.envsh)\n                    if [ -x \"$f\" ]; then\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/docker-entrypoint.d/20-envsubst-on-templates.sh"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 3,
+                  "endLine": 64,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "      return 0\n    fi\n    add_stream_block\n    find \"$template_dir\" -follow -type f -name \"*$stream_suffix\" -print | while read -r template; do\n      relative_path=\"${template#\"$template_dir/\"}\"\n      output_path=\"$stream_output_dir/${relative_path%\"$stream_suffix\"}\"\n      subdir=$(dirname \"$relative_path\")\n",
+                    "rendered": {
+                      "text": "      return 0\n    fi\n    add_stream_block\n    find \"$template_dir\" -follow -type f -name \"*$stream_suffix\" -print | while read -r template; do\n      relative_path=\"${template#\"$template_dir/\"}\"\n      output_path=\"$stream_output_dir/${relative_path%\"$stream_suffix\"}\"\n      subdir=$(dirname \"$relative_path\")\n",
+                      "markdown": "`      return 0\n    fi\n    add_stream_block\n    find \"$template_dir\" -follow -type f -name \"*$stream_suffix\" -print | while read -r template; do\n      relative_path=\"${template#\"$template_dir/\"}\"\n      output_path=\"$stream_output_dir/${relative_path%\"$stream_suffix\"}\"\n      subdir=$(dirname \"$relative_path\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/docker-entrypoint.d/20-envsubst-on-templates.sh"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 1,
+                  "endLine": 46,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "    entrypoint_log \"$ME: ERROR: $template_dir exists, but $output_dir is not writable\"\n    return 0\n  fi\n  find \"$template_dir\" -follow -type f -name \"*$suffix\" -print | while read -r template; do\n    relative_path=\"${template#\"$template_dir/\"}\"\n    output_path=\"$output_dir/${relative_path%\"$suffix\"}\"\n    subdir=$(dirname \"$relative_path\")\n",
+                    "rendered": {
+                      "text": "    entrypoint_log \"$ME: ERROR: $template_dir exists, but $output_dir is not writable\"\n    return 0\n  fi\n  find \"$template_dir\" -follow -type f -name \"*$suffix\" -print | while read -r template; do\n    relative_path=\"${template#\"$template_dir/\"}\"\n    output_path=\"$output_dir/${relative_path%\"$suffix\"}\"\n    subdir=$(dirname \"$relative_path\")\n",
+                      "markdown": "`    entrypoint_log \"$ME: ERROR: $template_dir exists, but $output_dir is not writable\"\n    return 0\n  fi\n  find \"$template_dir\" -follow -type f -name \"*$suffix\" -print | while read -r template; do\n    relative_path=\"${template#\"$template_dir/\"}\"\n    output_path=\"$output_dir/${relative_path%\"$suffix\"}\"\n    subdir=$(dirname \"$relative_path\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/docker-entrypoint.d/20-envsubst-on-templates.sh"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 3,
+                  "endLine": 22,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "    # check if the file can be modified, e.g. not on a r/o filesystem\n    touch \"$conffile\" 2>/dev/null || { entrypoint_log \"$ME: info: can not modify $conffile (read-only file system?)\"; exit 0; }\n    entrypoint_log \"$ME: Appending stream block to $conffile to include $stream_output_dir/*.conf\"\n    cat << END >> \"$conffile\"\n# added by \"$ME\" on \"$(date)\"\nstream {\n  include $stream_output_dir/*.conf;\n",
+                    "rendered": {
+                      "text": "    # check if the file can be modified, e.g. not on a r/o filesystem\n    touch \"$conffile\" 2>/dev/null || { entrypoint_log \"$ME: info: can not modify $conffile (read-only file system?)\"; exit 0; }\n    entrypoint_log \"$ME: Appending stream block to $conffile to include $stream_output_dir/*.conf\"\n    cat << END >> \"$conffile\"\n# added by \"$ME\" on \"$(date)\"\nstream {\n  include $stream_output_dir/*.conf;\n",
+                      "markdown": "`    # check if the file can be modified, e.g. not on a r/o filesystem\n    touch \"$conffile\" 2>/dev/null || { entrypoint_log \"$ME: info: can not modify $conffile (read-only file system?)\"; exit 0; }\n    entrypoint_log \"$ME: Appending stream block to $conffile to include $stream_output_dir/*.conf\"\n    cat << END >> \"$conffile\"\n# added by \"$ME\" on \"$(date)\"\nstream {\n  include $stream_output_dir/*.conf;\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/docker-nginx-1.27.2-r0.apk/docker-nginx-1.27.2-r0/docker-entrypoint.d/20-envsubst-on-templates.sh"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 4,
+                  "endLine": 16,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "add_stream_block() {\n  local conffile=\"/etc/nginx/nginx.conf\"\n\n  if grep -q -E \"\\s*stream\\s*\\{\" \"$conffile\"; then\n    entrypoint_log \"$ME: $conffile contains a stream block; include $stream_output_dir/*.conf to enable stream templates\"\n  else\n    # check if the file can be modified, e.g. not on a r/o filesystem\n",
+                    "rendered": {
+                      "text": "add_stream_block() {\n  local conffile=\"/etc/nginx/nginx.conf\"\n\n  if grep -q -E \"\\s*stream\\s*\\{\" \"$conffile\"; then\n    entrypoint_log \"$ME: $conffile contains a stream block; include $stream_output_dir/*.conf to enable stream templates\"\n  else\n    # check if the file can be modified, e.g. not on a r/o filesystem\n",
+                      "markdown": "`add_stream_block() {\n  local conffile=\"/etc/nginx/nginx.conf\"\n\n  if grep -q -E \"\\s*stream\\s*\\{\" \"$conffile\"; then\n    entrypoint_log \"$ME: $conffile contains a stream block; include $stream_output_dir/*.conf to enable stream templates\"\n  else\n    # check if the file can be modified, e.g. not on a r/o filesystem\n`"
+                    }
+                  },
+                  "sourceLanguage": "shellscript"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

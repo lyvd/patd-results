@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/gitleaks-8.20.1-r0.apk/gitleaks-8.20.1-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 72,
+                  "endLine": 7,
+                  "endColumn": 80,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 8026192\norigin = gitleaks\npkgdesc = SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos\nurl = \ncommit = 220fc1a80b243adb9ae3dad29804c02fb64b71a3\nbuilddate = 1728324108\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 8026192\norigin = gitleaks\npkgdesc = SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos\nurl = \ncommit = 220fc1a80b243adb9ae3dad29804c02fb64b71a3\nbuilddate = 1728324108\n",
+                      "markdown": "`arch = x86_64\nsize = 8026192\norigin = gitleaks\npkgdesc = SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos\nurl = \ncommit = 220fc1a80b243adb9ae3dad29804c02fb64b71a3\nbuilddate = 1728324108\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/gitleaks-8.20.1-r0.apk/gitleaks-8.20.1-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 106,
+                  "endLine": 7,
+                  "endColumn": 111,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 8026192\norigin = gitleaks\npkgdesc = SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos\nurl = \ncommit = 220fc1a80b243adb9ae3dad29804c02fb64b71a3\nbuilddate = 1728324108\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 8026192\norigin = gitleaks\npkgdesc = SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos\nurl = \ncommit = 220fc1a80b243adb9ae3dad29804c02fb64b71a3\nbuilddate = 1728324108\n",
+                      "markdown": "`arch = x86_64\nsize = 8026192\norigin = gitleaks\npkgdesc = SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos\nurl = \ncommit = 220fc1a80b243adb9ae3dad29804c02fb64b71a3\nbuilddate = 1728324108\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

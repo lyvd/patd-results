@@ -1,0 +1,1570 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/decorator.py"
+                },
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 22,
+                  "endLine": 127,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "            # Handle setting of Flask-Cors parameters\n            options = get_cors_options(current_app, _options)\n\n            if options.get('automatic_options') and request.method == 'OPTIONS':\n                resp = current_app.make_default_options_response()\n            else:\n                resp = make_response(f(*args, **kwargs))\n",
+                    "rendered": {
+                      "text": "            # Handle setting of Flask-Cors parameters\n            options = get_cors_options(current_app, _options)\n\n            if options.get('automatic_options') and request.method == 'OPTIONS':\n                resp = current_app.make_default_options_response()\n            else:\n                resp = make_response(f(*args, **kwargs))\n",
+                      "markdown": "`            # Handle setting of Flask-Cors parameters\n            options = get_cors_options(current_app, _options)\n\n            if options.get('automatic_options') and request.method == 'OPTIONS':\n                resp = current_app.make_default_options_response()\n            else:\n                resp = make_response(f(*args, **kwargs))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/decorator.py"
+                },
+                "region": {
+                  "startLine": 118,
+                  "startColumn": 19,
+                  "endLine": 118,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "        # If f.provide_automatic_options is unset or True, Flask's route\n        # decorator (which is actually wraps the function object we return)\n        # intercepts OPTIONS handling, and requests will not have CORS headers\n        if _options.get('automatic_options', True):\n            f.required_methods = getattr(f, 'required_methods', set())\n            f.required_methods.add('OPTIONS')\n            f.provide_automatic_options = False\n",
+                    "rendered": {
+                      "text": "        # If f.provide_automatic_options is unset or True, Flask's route\n        # decorator (which is actually wraps the function object we return)\n        # intercepts OPTIONS handling, and requests will not have CORS headers\n        if _options.get('automatic_options', True):\n            f.required_methods = getattr(f, 'required_methods', set())\n            f.required_methods.add('OPTIONS')\n            f.provide_automatic_options = False\n",
+                      "markdown": "`        # If f.provide_automatic_options is unset or True, Flask's route\n        # decorator (which is actually wraps the function object we return)\n        # intercepts OPTIONS handling, and requests will not have CORS headers\n        if _options.get('automatic_options', True):\n            f.required_methods = getattr(f, 'required_methods', set())\n            f.required_methods.add('OPTIONS')\n            f.provide_automatic_options = False\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/decorator.py"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 19,
+                  "endLine": 70,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "    :type supports_credentials: bool\n\n    :param max_age:\n        The maximum time for which this CORS request maybe cached. This value\n        is set as the `Access-Control-Max-Age` header.\n\n        Default : None\n",
+                    "rendered": {
+                      "text": "    :type supports_credentials: bool\n\n    :param max_age:\n        The maximum time for which this CORS request maybe cached. This value\n        is set as the `Access-Control-Max-Age` header.\n\n        Default : None\n",
+                      "markdown": "`    :type supports_credentials: bool\n\n    :param max_age:\n        The maximum time for which this CORS request maybe cached. This value\n        is set as the `Access-Control-Max-Age` header.\n\n        Default : None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/extension.py"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 52,
+                  "endLine": 206,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "def make_after_request_function(resources):\n    def cors_after_request(resp):\n        # If CORS headers are set in a view decorator, pass\n        if resp.headers is not None and resp.headers.get(ACL_ORIGIN):\n            LOG.debug('CORS have been already evaluated, skipping')\n            return resp\n        normalized_path = unquote_plus(request.path)\n",
+                    "rendered": {
+                      "text": "def make_after_request_function(resources):\n    def cors_after_request(resp):\n        # If CORS headers are set in a view decorator, pass\n        if resp.headers is not None and resp.headers.get(ACL_ORIGIN):\n            LOG.debug('CORS have been already evaluated, skipping')\n            return resp\n        normalized_path = unquote_plus(request.path)\n",
+                      "markdown": "`def make_after_request_function(resources):\n    def cors_after_request(resp):\n        # If CORS headers are set in a view decorator, pass\n        if resp.headers is not None and resp.headers.get(ACL_ORIGIN):\n            LOG.debug('CORS have been already evaluated, skipping')\n            return resp\n        normalized_path = unquote_plus(request.path)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/extension.py"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 18,
+                  "endLine": 191,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\n        # Wrap exception handlers with cross_origin\n        # These error handlers will still respect the behavior of the route\n        if options.get('intercept_exceptions', True):\n            def _after_request_decorator(f):\n                def wrapped_function(*args, **kwargs):\n                    return cors_after_request(app.make_response(f(*args, **kwargs)))\n",
+                    "rendered": {
+                      "text": "\n        # Wrap exception handlers with cross_origin\n        # These error handlers will still respect the behavior of the route\n        if options.get('intercept_exceptions', True):\n            def _after_request_decorator(f):\n                def wrapped_function(*args, **kwargs):\n                    return cors_after_request(app.make_response(f(*args, **kwargs)))\n",
+                      "markdown": "`\n        # Wrap exception handlers with cross_origin\n        # These error handlers will still respect the behavior of the route\n        if options.get('intercept_exceptions', True):\n            def _after_request_decorator(f):\n                def wrapped_function(*args, **kwargs):\n                    return cors_after_request(app.make_response(f(*args, **kwargs)))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/extension.py"
+                },
+                "region": {
+                  "startLine": 171,
+                  "startColumn": 43,
+                  "endLine": 171,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "\n        # Flatten our resources into a list of the form\n        # (pattern_or_regexp, dictionary_of_options)\n        resources = parse_resources(options.get('resources'))\n\n        # Compute the options for each resource by combining the options from\n        # the app's configuration, the constructor, the kwargs to init_app, and\n",
+                    "rendered": {
+                      "text": "\n        # Flatten our resources into a list of the form\n        # (pattern_or_regexp, dictionary_of_options)\n        resources = parse_resources(options.get('resources'))\n\n        # Compute the options for each resource by combining the options from\n        # the app's configuration, the constructor, the kwargs to init_app, and\n",
+                      "markdown": "`\n        # Flatten our resources into a list of the form\n        # (pattern_or_regexp, dictionary_of_options)\n        resources = parse_resources(options.get('resources'))\n\n        # Compute the options for each resource by combining the options from\n        # the app's configuration, the constructor, the kwargs to init_app, and\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/extension.py"
+                },
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 19,
+                  "endLine": 115,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "    :type supports_credentials: bool\n\n    :param max_age:\n        The maximum time for which this CORS request maybe cached. This value\n        is set as the `Access-Control-Max-Age` header.\n\n        Default : None\n",
+                    "rendered": {
+                      "text": "    :type supports_credentials: bool\n\n    :param max_age:\n        The maximum time for which this CORS request maybe cached. This value\n        is set as the `Access-Control-Max-Age` header.\n\n        Default : None\n",
+                      "markdown": "`    :type supports_credentials: bool\n\n    :param max_age:\n        The maximum time for which this CORS request maybe cached. This value\n        is set as the `Access-Control-Max-Age` header.\n\n        Default : None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 381,
+                  "startColumn": 25,
+                  "endLine": 381,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "    serialize_option(options, 'expose_headers')\n    serialize_option(options, 'methods', upper=True)\n\n    if isinstance(options.get('max_age'), timedelta):\n        options['max_age'] = str(int(options['max_age'].total_seconds()))\n\n    return options\n",
+                    "rendered": {
+                      "text": "    serialize_option(options, 'expose_headers')\n    serialize_option(options, 'methods', upper=True)\n\n    if isinstance(options.get('max_age'), timedelta):\n        options['max_age'] = str(int(options['max_age'].total_seconds()))\n\n    return options\n",
+                      "markdown": "`    serialize_option(options, 'expose_headers')\n    serialize_option(options, 'methods', upper=True)\n\n    if isinstance(options.get('max_age'), timedelta):\n        options['max_age'] = str(int(options['max_age'].total_seconds()))\n\n    return options\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 367,
+                  "startColumn": 59,
+                  "endLine": 367,
+                  "endColumn": 64,
+                  "snippet": {
+                    "text": "\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n    # This is expressly forbidden by the spec. Raise a value error so people\n    # don't get burned in production.\n",
+                    "rendered": {
+                      "text": "\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n    # This is expressly forbidden by the spec. Raise a value error so people\n    # don't get burned in production.\n",
+                      "markdown": "`\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n    # This is expressly forbidden by the spec. Raise a value error so people\n    # don't get burned in production.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 366,
+                  "startColumn": 53,
+                  "endLine": 366,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "            LOG.warning(\"Unknown option passed to Flask-CORS: %s\", key)\n\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n    # This is expressly forbidden by the spec. Raise a value error so people\n",
+                    "rendered": {
+                      "text": "            LOG.warning(\"Unknown option passed to Flask-CORS: %s\", key)\n\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n    # This is expressly forbidden by the spec. Raise a value error so people\n",
+                      "markdown": "`            LOG.warning(\"Unknown option passed to Flask-CORS: %s\", key)\n\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n    # This is expressly forbidden by the spec. Raise a value error so people\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 315,
+                  "startColumn": 21,
+                  "endLine": 315,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "    return {\n        k.lower().replace('cors_', ''): app_config.get(k)\n        for k in CONFIG_OPTIONS\n        if app_config.get(k) is not None\n    }\n\n\n",
+                    "rendered": {
+                      "text": "    return {\n        k.lower().replace('cors_', ''): app_config.get(k)\n        for k in CONFIG_OPTIONS\n        if app_config.get(k) is not None\n    }\n\n\n",
+                      "markdown": "`    return {\n        k.lower().replace('cors_', ''): app_config.get(k)\n        for k in CONFIG_OPTIONS\n        if app_config.get(k) is not None\n    }\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 313,
+                  "startColumn": 50,
+                  "endLine": 313,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "    app_config = getattr(app, 'config', {})\n\n    return {\n        k.lower().replace('cors_', ''): app_config.get(k)\n        for k in CONFIG_OPTIONS\n        if app_config.get(k) is not None\n    }\n",
+                    "rendered": {
+                      "text": "    app_config = getattr(app, 'config', {})\n\n    return {\n        k.lower().replace('cors_', ''): app_config.get(k)\n        for k in CONFIG_OPTIONS\n        if app_config.get(k) is not None\n    }\n",
+                      "markdown": "`    app_config = getattr(app, 'config', {})\n\n    return {\n        k.lower().replace('cors_', ''): app_config.get(k)\n        for k in CONFIG_OPTIONS\n        if app_config.get(k) is not None\n    }\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 45,
+                  "endLine": 220,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "            pass\n        elif (len(options.get('origins')) > 1 or\n              len(origins_to_set) > 1 or\n              any(map(probably_regex, options.get('origins')))):\n            headers.add('Vary', 'Origin')\n\n    return MultiDict((k, v) for k, v in headers.items() if v)\n",
+                    "rendered": {
+                      "text": "            pass\n        elif (len(options.get('origins')) > 1 or\n              len(origins_to_set) > 1 or\n              any(map(probably_regex, options.get('origins')))):\n            headers.add('Vary', 'Origin')\n\n    return MultiDict((k, v) for k, v in headers.items() if v)\n",
+                      "markdown": "`            pass\n        elif (len(options.get('origins')) > 1 or\n              len(origins_to_set) > 1 or\n              any(map(probably_regex, options.get('origins')))):\n            headers.add('Vary', 'Origin')\n\n    return MultiDict((k, v) for k, v in headers.items() if v)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 25,
+                  "endLine": 218,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "        # origins that can be matched.\n        if headers[ACL_ORIGIN] == '*':\n            pass\n        elif (len(options.get('origins')) > 1 or\n              len(origins_to_set) > 1 or\n              any(map(probably_regex, options.get('origins')))):\n            headers.add('Vary', 'Origin')\n",
+                    "rendered": {
+                      "text": "        # origins that can be matched.\n        if headers[ACL_ORIGIN] == '*':\n            pass\n        elif (len(options.get('origins')) > 1 or\n              len(origins_to_set) > 1 or\n              any(map(probably_regex, options.get('origins')))):\n            headers.add('Vary', 'Origin')\n",
+                      "markdown": "`        # origins that can be matched.\n        if headers[ACL_ORIGIN] == '*':\n            pass\n        elif (len(options.get('origins')) > 1 or\n              len(origins_to_set) > 1 or\n              any(map(probably_regex, options.get('origins')))):\n            headers.add('Vary', 'Origin')\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 14,
+                  "endLine": 212,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n\n    # http://www.w3.org/TR/cors/#resource-implementation\n    if options.get('vary_header'):\n        # Only set header if the origin returned will vary dynamically,\n        # i.e. if we are not returning an asterisk, and there are multiple\n        # origins that can be matched.\n",
+                    "rendered": {
+                      "text": "            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n\n    # http://www.w3.org/TR/cors/#resource-implementation\n    if options.get('vary_header'):\n        # Only set header if the origin returned will vary dynamically,\n        # i.e. if we are not returning an asterisk, and there are multiple\n        # origins that can be matched.\n",
+                      "markdown": "`            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n\n    # http://www.w3.org/TR/cors/#resource-implementation\n    if options.get('vary_header'):\n        # Only set header if the origin returned will vary dynamically,\n        # i.e. if we are not returning an asterisk, and there are multiple\n        # origins that can be matched.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 42,
+                  "endLine": 207,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n\n",
+                    "rendered": {
+                      "text": "            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n\n",
+                      "markdown": "`            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 42,
+                  "endLine": 206,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "            # list of methods do not set any additional headers and terminate\n            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n",
+                    "rendered": {
+                      "text": "            # list of methods do not set any additional headers and terminate\n            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n",
+                      "markdown": "`            # list of methods do not set any additional headers and terminate\n            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n            LOG.info(\"The request's Access-Control-Request-Method header does not match allowed methods. CORS headers will not be applied.\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 205,
+                  "startColumn": 83,
+                  "endLine": 205,
+                  "endColumn": 88,
+                  "snippet": {
+                    "text": "            # If method is not a case-sensitive match for any of the values in\n            # list of methods do not set any additional headers and terminate\n            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n",
+                    "rendered": {
+                      "text": "            # If method is not a case-sensitive match for any of the values in\n            # list of methods do not set any additional headers and terminate\n            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n",
+                      "markdown": "`            # If method is not a case-sensitive match for any of the values in\n            # list of methods do not set any additional headers and terminate\n            # this set of steps.\n            headers[ACL_ALLOW_HEADERS] = get_allow_headers(options, request_headers.get(ACL_REQUEST_HEADERS))\n            headers[ACL_MAX_AGE] = options.get('max_age')\n            headers[ACL_METHODS] = options.get('methods')\n        else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 200,
+                  "startColumn": 63,
+                  "endLine": 200,
+                  "endColumn": 68,
+                  "snippet": {
+                    "text": "\n        # If there is no Access-Control-Request-Method header or if parsing\n        # failed, do not set any additional headers\n        if acl_request_method and acl_request_method in options.get('methods'):\n\n            # If method is not a case-sensitive match for any of the values in\n            # list of methods do not set any additional headers and terminate\n",
+                    "rendered": {
+                      "text": "\n        # If there is no Access-Control-Request-Method header or if parsing\n        # failed, do not set any additional headers\n        if acl_request_method and acl_request_method in options.get('methods'):\n\n            # If method is not a case-sensitive match for any of the values in\n            # list of methods do not set any additional headers and terminate\n",
+                      "markdown": "`\n        # If there is no Access-Control-Request-Method header or if parsing\n        # failed, do not set any additional headers\n        if acl_request_method and acl_request_method in options.get('methods'):\n\n            # If method is not a case-sensitive match for any of the values in\n            # list of methods do not set any additional headers and terminate\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 44,
+                  "endLine": 196,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "    # This is a preflight request\n    # http://www.w3.org/TR/cors/#resource-preflight-requests\n    if request_method == 'OPTIONS':\n        acl_request_method = request_headers.get(ACL_REQUEST_METHOD, '').upper()\n\n        # If there is no Access-Control-Request-Method header or if parsing\n        # failed, do not set any additional headers\n",
+                    "rendered": {
+                      "text": "    # This is a preflight request\n    # http://www.w3.org/TR/cors/#resource-preflight-requests\n    if request_method == 'OPTIONS':\n        acl_request_method = request_headers.get(ACL_REQUEST_METHOD, '').upper()\n\n        # If there is no Access-Control-Request-Method header or if parsing\n        # failed, do not set any additional headers\n",
+                      "markdown": "`    # This is a preflight request\n    # http://www.w3.org/TR/cors/#resource-preflight-requests\n    if request_method == 'OPTIONS':\n        acl_request_method = request_headers.get(ACL_REQUEST_METHOD, '').upper()\n\n        # If there is no Access-Control-Request-Method header or if parsing\n        # failed, do not set any additional headers\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 49,
+                  "endLine": 190,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n            and request_headers.get(ACL_REQUEST_HEADER_PRIVATE_NETWORK) == 'true':\n        allow_private_network = 'true' if options.get('allow_private_network') else 'false'\n        headers[ACL_RESPONSE_PRIVATE_NETWORK] = allow_private_network\n\n    # This is a preflight request\n",
+                    "rendered": {
+                      "text": "\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n            and request_headers.get(ACL_REQUEST_HEADER_PRIVATE_NETWORK) == 'true':\n        allow_private_network = 'true' if options.get('allow_private_network') else 'false'\n        headers[ACL_RESPONSE_PRIVATE_NETWORK] = allow_private_network\n\n    # This is a preflight request\n",
+                      "markdown": "`\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n            and request_headers.get(ACL_REQUEST_HEADER_PRIVATE_NETWORK) == 'true':\n        allow_private_network = 'true' if options.get('allow_private_network') else 'false'\n        headers[ACL_RESPONSE_PRIVATE_NETWORK] = allow_private_network\n\n    # This is a preflight request\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 31,
+                  "endLine": 189,
+                  "endColumn": 36,
+                  "snippet": {
+                    "text": "        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n            and request_headers.get(ACL_REQUEST_HEADER_PRIVATE_NETWORK) == 'true':\n        allow_private_network = 'true' if options.get('allow_private_network') else 'false'\n        headers[ACL_RESPONSE_PRIVATE_NETWORK] = allow_private_network\n\n",
+                    "rendered": {
+                      "text": "        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n            and request_headers.get(ACL_REQUEST_HEADER_PRIVATE_NETWORK) == 'true':\n        allow_private_network = 'true' if options.get('allow_private_network') else 'false'\n        headers[ACL_RESPONSE_PRIVATE_NETWORK] = allow_private_network\n\n",
+                      "markdown": "`        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n            and request_headers.get(ACL_REQUEST_HEADER_PRIVATE_NETWORK) == 'true':\n        allow_private_network = 'true' if options.get('allow_private_network') else 'false'\n        headers[ACL_RESPONSE_PRIVATE_NETWORK] = allow_private_network\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 185,
+                  "startColumn": 14,
+                  "endLine": 185,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "\n    headers[ACL_EXPOSE_HEADERS] = options.get('expose_headers')\n\n    if options.get('supports_credentials'):\n        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n",
+                    "rendered": {
+                      "text": "\n    headers[ACL_EXPOSE_HEADERS] = options.get('expose_headers')\n\n    if options.get('supports_credentials'):\n        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n",
+                      "markdown": "`\n    headers[ACL_EXPOSE_HEADERS] = options.get('expose_headers')\n\n    if options.get('supports_credentials'):\n        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n\n    if ACL_REQUEST_HEADER_PRIVATE_NETWORK in request_headers \\\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 183,
+                  "startColumn": 41,
+                  "endLine": 183,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "    for origin in origins_to_set:\n        headers.add(ACL_ORIGIN, origin)\n\n    headers[ACL_EXPOSE_HEADERS] = options.get('expose_headers')\n\n    if options.get('supports_credentials'):\n        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n",
+                    "rendered": {
+                      "text": "    for origin in origins_to_set:\n        headers.add(ACL_ORIGIN, origin)\n\n    headers[ACL_EXPOSE_HEADERS] = options.get('expose_headers')\n\n    if options.get('supports_credentials'):\n        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n",
+                      "markdown": "`    for origin in origins_to_set:\n        headers.add(ACL_ORIGIN, origin)\n\n    headers[ACL_EXPOSE_HEADERS] = options.get('expose_headers')\n\n    if options.get('supports_credentials'):\n        headers[ACL_CREDENTIALS] = 'true'  # case sensitive\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 174,
+                  "startColumn": 62,
+                  "endLine": 174,
+                  "endColumn": 67,
+                  "snippet": {
+                    "text": "\n\ndef get_cors_headers(options, request_headers, request_method):\n    origins_to_set = get_cors_origins(options, request_headers.get('Origin'))\n    headers = MultiDict()\n\n    if not origins_to_set:  # CORS is not enabled for this route\n",
+                    "rendered": {
+                      "text": "\n\ndef get_cors_headers(options, request_headers, request_method):\n    origins_to_set = get_cors_origins(options, request_headers.get('Origin'))\n    headers = MultiDict()\n\n    if not origins_to_set:  # CORS is not enabled for this route\n",
+                      "markdown": "`\n\ndef get_cors_headers(options, request_headers, request_method):\n    origins_to_set = get_cors_origins(options, request_headers.get('Origin'))\n    headers = MultiDict()\n\n    if not origins_to_set:  # CORS is not enabled for this route\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 46,
+                  "endLine": 164,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "\n        # any header that matches in the allow_headers\n        matching_headers = filter(\n            lambda h: try_match_any(h, options.get('allow_headers')),\n            request_headers\n        )\n\n",
+                    "rendered": {
+                      "text": "\n        # any header that matches in the allow_headers\n        matching_headers = filter(\n            lambda h: try_match_any(h, options.get('allow_headers')),\n            request_headers\n        )\n\n",
+                      "markdown": "`\n        # any header that matches in the allow_headers\n        matching_headers = filter(\n            lambda h: try_match_any(h, options.get('allow_headers')),\n            request_headers\n        )\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 22,
+                  "endLine": 144,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "            # It is the most-likely to be correct thing to do (the only other\n            # option is to return nothing, which  almost certainly not what\n            # the developer wants if the '*' origin was specified.\n            if options.get('supports_credentials'):\n                return None\n            else:\n                return ['*']\n",
+                    "rendered": {
+                      "text": "            # It is the most-likely to be correct thing to do (the only other\n            # option is to return nothing, which  almost certainly not what\n            # the developer wants if the '*' origin was specified.\n            if options.get('supports_credentials'):\n                return None\n            else:\n                return ['*']\n",
+                      "markdown": "`            # It is the most-likely to be correct thing to do (the only other\n            # option is to return nothing, which  almost certainly not what\n            # the developer wants if the '*' origin was specified.\n            if options.get('supports_credentials'):\n                return None\n            else:\n                return ['*']\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 16,
+                  "endLine": 136,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "            return None\n\n\n    elif options.get('always_send'):\n        if wildcard:\n            # If wildcard is in the origins, even if 'send_wildcard' is False,\n            # simply send the wildcard. Unless supports_credentials is True,\n",
+                    "rendered": {
+                      "text": "            return None\n\n\n    elif options.get('always_send'):\n        if wildcard:\n            # If wildcard is in the origins, even if 'send_wildcard' is False,\n            # simply send the wildcard. Unless supports_credentials is True,\n",
+                      "markdown": "`            return None\n\n\n    elif options.get('always_send'):\n        if wildcard:\n            # If wildcard is in the origins, even if 'send_wildcard' is False,\n            # simply send the wildcard. Unless supports_credentials is True,\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 31,
+                  "endLine": 120,
+                  "endColumn": 36,
+                  "snippet": {
+                    "text": "        LOG.debug(\"CORS request received with 'Origin' %s\", request_origin)\n\n        # If the allowed origins is an asterisk or 'wildcard', always match\n        if wildcard and options.get('send_wildcard'):\n            LOG.debug(\"Allowed origins are set to '*'. Sending wildcard CORS header.\")\n            return ['*']\n        # If the value of the Origin header is a case-sensitive match\n",
+                    "rendered": {
+                      "text": "        LOG.debug(\"CORS request received with 'Origin' %s\", request_origin)\n\n        # If the allowed origins is an asterisk or 'wildcard', always match\n        if wildcard and options.get('send_wildcard'):\n            LOG.debug(\"Allowed origins are set to '*'. Sending wildcard CORS header.\")\n            return ['*']\n        # If the value of the Origin header is a case-sensitive match\n",
+                      "markdown": "`        LOG.debug(\"CORS request received with 'Origin' %s\", request_origin)\n\n        # If the allowed origins is an asterisk or 'wildcard', always match\n        if wildcard and options.get('send_wildcard'):\n            LOG.debug(\"Allowed origins are set to '*'. Sending wildcard CORS header.\")\n            return ['*']\n        # If the value of the Origin header is a case-sensitive match\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 21,
+                  "endLine": 111,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "\n\ndef get_cors_origins(options, request_origin):\n    origins = options.get('origins')\n    wildcard = r'.*' in origins\n\n    # If the Origin header is not present terminate this set of steps.\n",
+                    "rendered": {
+                      "text": "\n\ndef get_cors_origins(options, request_origin):\n    origins = options.get('origins')\n    wildcard = r'.*' in origins\n\n    # If the Origin header is not present terminate this set of steps.\n",
+                      "markdown": "`\n\ndef get_cors_origins(options, request_origin):\n    origins = options.get('origins')\n    wildcard = r'.*' in origins\n\n    # If the Origin header is not present terminate this set of steps.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 365,
+                  "startColumn": 54,
+                  "endLine": 365,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "        if key not in DEFAULT_OPTIONS:\n            LOG.warning(\"Unknown option passed to Flask-CORS: %s\", key)\n\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n",
+                    "rendered": {
+                      "text": "        if key not in DEFAULT_OPTIONS:\n            LOG.warning(\"Unknown option passed to Flask-CORS: %s\", key)\n\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n",
+                      "markdown": "`        if key not in DEFAULT_OPTIONS:\n            LOG.warning(\"Unknown option passed to Flask-CORS: %s\", key)\n\n    # Ensure origins is a list of allowed origins with at least one entry.\n    options['origins'] = sanitize_regex_param(options.get('origins'))\n    options['allow_headers'] = sanitize_regex_param(options.get('allow_headers'))\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 270,
+                  "startColumn": 36,
+                  "endLine": 271,
+                  "snippet": {
+                    "text": "        Replace the invalid regex r'*' with the valid, wildcard regex r'/.*' to\n        enable the CORS app extension to have a more user friendly api.\n    \"\"\"\n    return r'.*' if reg == r'*' else reg\n\n\ndef try_match_any(inst, patterns):\n    return any(try_match(inst, pattern) for pattern in patterns)\n",
+                    "rendered": {
+                      "text": "        Replace the invalid regex r'*' with the valid, wildcard regex r'/.*' to\n        enable the CORS app extension to have a more user friendly api.\n    \"\"\"\n    return r'.*' if reg == r'*' else reg\n\n\ndef try_match_any(inst, patterns):\n    return any(try_match(inst, pattern) for pattern in patterns)\n",
+                      "markdown": "`        Replace the invalid regex r'*' with the valid, wildcard regex r'/.*' to\n        enable the CORS app extension to have a more user friendly api.\n    \"\"\"\n    return r'.*' if reg == r'*' else reg\n\n\ndef try_match_any(inst, patterns):\n    return any(try_match(inst, pattern) for pattern in patterns)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 270,
+                  "startColumn": 19,
+                  "endLine": 270,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "        Replace the invalid regex r'*' with the valid, wildcard regex r'/.*' to\n        enable the CORS app extension to have a more user friendly api.\n    \"\"\"\n    return r'.*' if reg == r'*' else reg\n\n\ndef try_match_any(inst, patterns):\n",
+                    "rendered": {
+                      "text": "        Replace the invalid regex r'*' with the valid, wildcard regex r'/.*' to\n        enable the CORS app extension to have a more user friendly api.\n    \"\"\"\n    return r'.*' if reg == r'*' else reg\n\n\ndef try_match_any(inst, patterns):\n",
+                      "markdown": "`        Replace the invalid regex r'*' with the valid, wildcard regex r'/.*' to\n        enable the CORS app extension to have a more user friendly api.\n    \"\"\"\n    return r'.*' if reg == r'*' else reg\n\n\ndef try_match_any(inst, patterns):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 5,
+                  "endLine": 87,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "        return [(re_fix(r), {}) for r in resources]\n\n    # Type of compiled regex is not part of the public API. Test for this\n    # at runtime.\n    elif isinstance(resources,  RegexObject):\n        return [(re_fix(resources), {})]\n\n",
+                    "rendered": {
+                      "text": "        return [(re_fix(r), {}) for r in resources]\n\n    # Type of compiled regex is not part of the public API. Test for this\n    # at runtime.\n    elif isinstance(resources,  RegexObject):\n        return [(re_fix(resources), {})]\n\n",
+                      "markdown": "`        return [(re_fix(r), {}) for r in resources]\n\n    # Type of compiled regex is not part of the public API. Test for this\n    # at runtime.\n    elif isinstance(resources,  RegexObject):\n        return [(re_fix(resources), {})]\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/flask_cors/core.py"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 9,
+                  "endLine": 69,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        # resource of '*', which is not actually a valid regexp.\n        resources = [(re_fix(k), v) for k, v in resources.items()]\n\n        # Sort by regex length to provide consistency of matching and\n        # to provide a proxy for specificity of match. E.G. longer\n        # regular expressions are tried first.\n        def pattern_length(pair):\n",
+                    "rendered": {
+                      "text": "        # resource of '*', which is not actually a valid regexp.\n        resources = [(re_fix(k), v) for k, v in resources.items()]\n\n        # Sort by regex length to provide consistency of matching and\n        # to provide a proxy for specificity of match. E.G. longer\n        # regular expressions are tried first.\n        def pattern_length(pair):\n",
+                      "markdown": "`        # resource of '*', which is not actually a valid regexp.\n        resources = [(re_fix(k), v) for k, v in resources.items()]\n\n        # Sort by regex length to provide consistency of matching and\n        # to provide a proxy for specificity of match. E.G. longer\n        # regular expressions are tried first.\n        def pattern_length(pair):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 139,
+                  "startColumn": 69,
+                  "endLine": 139,
+                  "endColumn": 78,
+                  "snippet": {
+                    "text": "Credits\n-------\n\nThis Flask extension is based upon the `Decorator for the HTTP Access Control <https://web.archive.org/web/20190128010149/http://flask.pocoo.org/snippets/56/>`__ written by Armin Ronacher.\n\n.. |Build Status| image:: https://github.com/corydolphin/flask-cors/actions/workflows/unittests.yaml/badge.svg\n   :target: https://travis-ci.org/corydolphin/flask-cors\n",
+                    "rendered": {
+                      "text": "Credits\n-------\n\nThis Flask extension is based upon the `Decorator for the HTTP Access Control <https://web.archive.org/web/20190128010149/http://flask.pocoo.org/snippets/56/>`__ written by Armin Ronacher.\n\n.. |Build Status| image:: https://github.com/corydolphin/flask-cors/actions/workflows/unittests.yaml/badge.svg\n   :target: https://travis-ci.org/corydolphin/flask-cors\n",
+                      "markdown": "`Credits\n-------\n\nThis Flask extension is based upon the `Decorator for the HTTP Access Control <https://web.archive.org/web/20190128010149/http://flask.pocoo.org/snippets/56/>`__ written by Armin Ronacher.\n\n.. |Build Status| image:: https://github.com/corydolphin/flask-cors/actions/workflows/unittests.yaml/badge.svg\n   :target: https://travis-ci.org/corydolphin/flask-cors\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 133,
+                  "startColumn": 87,
+                  "endLine": 133,
+                  "endColumn": 91,
+                  "snippet": {
+                    "text": "------------\n\nQuestions, comments or improvements?\nPlease create an issue on `Github <https://github.com/corydolphin/flask-cors>`__, tweet at `@corydolphin <https://twitter.com/corydolphin>`__ or send me an email.\nI do my best to include every contribution proposed in any way that I can.\n\nCredits\n",
+                    "rendered": {
+                      "text": "------------\n\nQuestions, comments or improvements?\nPlease create an issue on `Github <https://github.com/corydolphin/flask-cors>`__, tweet at `@corydolphin <https://twitter.com/corydolphin>`__ or send me an email.\nI do my best to include every contribution proposed in any way that I can.\n\nCredits\n",
+                      "markdown": "`------------\n\nQuestions, comments or improvements?\nPlease create an issue on `Github <https://github.com/corydolphin/flask-cors>`__, tweet at `@corydolphin <https://twitter.com/corydolphin>`__ or send me an email.\nI do my best to include every contribution proposed in any way that I can.\n\nCredits\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 9,
+                  "endLine": 47,
+                  "snippet": {
+                    "text": "\nInstall the extension with using pip, or easy\\_install.\n\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n",
+                    "rendered": {
+                      "text": "\nInstall the extension with using pip, or easy\\_install.\n\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n",
+                      "markdown": "`\nInstall the extension with using pip, or easy\\_install.\n\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 5,
+                  "endLine": 48,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n-----\n",
+                    "rendered": {
+                      "text": "\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n-----\n",
+                      "markdown": "`\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n-----\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 9,
+                  "endLine": 47,
+                  "snippet": {
+                    "text": "\nInstall the extension with using pip, or easy\\_install.\n\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n",
+                    "rendered": {
+                      "text": "\nInstall the extension with using pip, or easy\\_install.\n\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n",
+                      "markdown": "`\nInstall the extension with using pip, or easy\\_install.\n\n.. code:: bash\n\n    $ pip install -U flask-cors\n\nUsage\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 104,
+                  "endLine": 39,
+                  "endColumn": 110,
+                  "snippet": {
+                    "text": "This means no mucking around with different allowed headers, methods, etc.\n\nBy default, submission of cookies across domains is disabled due to the security implications.\nPlease see the documentation for how to enable credential'ed requests, and please make sure you add some sort of `CSRF <http://en.wikipedia.org/wiki/Cross-site_request_forgery>`__ protection before doing so!\n\nInstallation\n------------\n",
+                    "rendered": {
+                      "text": "This means no mucking around with different allowed headers, methods, etc.\n\nBy default, submission of cookies across domains is disabled due to the security implications.\nPlease see the documentation for how to enable credential'ed requests, and please make sure you add some sort of `CSRF <http://en.wikipedia.org/wiki/Cross-site_request_forgery>`__ protection before doing so!\n\nInstallation\n------------\n",
+                      "markdown": "`This means no mucking around with different allowed headers, methods, etc.\n\nBy default, submission of cookies across domains is disabled due to the security implications.\nPlease see the documentation for how to enable credential'ed requests, and please make sure you add some sort of `CSRF <http://en.wikipedia.org/wiki/Cross-site_request_forgery>`__ protection before doing so!\n\nInstallation\n------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-flask-cors-5.0.0-r0.apk/py3-flask-cors-5.0.0-r0/usr/lib/python3.12/site-packages/Flask_Cors-5.0.0-py3.12.egg-info/PKG-INFO"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 71,
+                  "endLine": 35,
+                  "endColumn": 77,
+                  "snippet": {
+                    "text": "\nA Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.\n\nThis package has a simple philosophy: when you want to enable CORS, you wish to enable it for all use cases on a domain.\nThis means no mucking around with different allowed headers, methods, etc.\n\nBy default, submission of cookies across domains is disabled due to the security implications.\n",
+                    "rendered": {
+                      "text": "\nA Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.\n\nThis package has a simple philosophy: when you want to enable CORS, you wish to enable it for all use cases on a domain.\nThis means no mucking around with different allowed headers, methods, etc.\n\nBy default, submission of cookies across domains is disabled due to the security implications.\n",
+                      "markdown": "`\nA Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.\n\nThis package has a simple philosophy: when you want to enable CORS, you wish to enable it for all use cases on a domain.\nThis means no mucking around with different allowed headers, methods, etc.\n\nBy default, submission of cookies across domains is disabled due to the security implications.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

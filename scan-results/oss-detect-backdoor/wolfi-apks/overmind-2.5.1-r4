@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/overmind-2.5.1-r4.apk/overmind-2.5.1-r4/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 8,
+                  "endLine": 13,
+                  "snippet": {
+                    "text": "commit = 5976198d85668ad53a42d59fd8a654266325592c\nbuilddate = 1726678120\nlicense = MIT\ndepend = tmux\nprovides = cmd:overmind=2.5.1-r4\ndatahash = ff3e54c71eeae97cd66c852f0c29c5d4a329b5ed748d3c3a3bb8e023abc9a081\n",
+                    "rendered": {
+                      "text": "commit = 5976198d85668ad53a42d59fd8a654266325592c\nbuilddate = 1726678120\nlicense = MIT\ndepend = tmux\nprovides = cmd:overmind=2.5.1-r4\ndatahash = ff3e54c71eeae97cd66c852f0c29c5d4a329b5ed748d3c3a3bb8e023abc9a081\n",
+                      "markdown": "`commit = 5976198d85668ad53a42d59fd8a654266325592c\nbuilddate = 1726678120\nlicense = MIT\ndepend = tmux\nprovides = cmd:overmind=2.5.1-r4\ndatahash = ff3e54c71eeae97cd66c852f0c29c5d4a329b5ed748d3c3a3bb8e023abc9a081\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

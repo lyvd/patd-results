@@ -1,0 +1,611 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/lib/aws-sigv4/signer.rb"
+                },
+                "region": {
+                  "startLine": 161,
+                  "startColumn": 35,
+                  "endLine": 161,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "           Signer.use_crt? && Aws::Crt::GEM_VERSION <= '0.1.9'\n          raise ArgumentError,\n                'This version of aws-crt does not support S3 Express. Please\n                 update this gem to at least version 0.2.0.'\n        end\n      end\n\n",
+                    "rendered": {
+                      "text": "           Signer.use_crt? && Aws::Crt::GEM_VERSION <= '0.1.9'\n          raise ArgumentError,\n                'This version of aws-crt does not support S3 Express. Please\n                 update this gem to at least version 0.2.0.'\n        end\n      end\n\n",
+                      "markdown": "`           Signer.use_crt? && Aws::Crt::GEM_VERSION <= '0.1.9'\n          raise ArgumentError,\n                'This version of aws-crt does not support S3 Express. Please\n                 update this gem to at least version 0.2.0.'\n        end\n      end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/lib/aws-sigv4/signer.rb"
+                },
+                "region": {
+                  "startLine": 161,
+                  "startColumn": 16,
+                  "endLine": 161,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "           Signer.use_crt? && Aws::Crt::GEM_VERSION <= '0.1.9'\n          raise ArgumentError,\n                'This version of aws-crt does not support S3 Express. Please\n                 update this gem to at least version 0.2.0.'\n        end\n      end\n\n",
+                    "rendered": {
+                      "text": "           Signer.use_crt? && Aws::Crt::GEM_VERSION <= '0.1.9'\n          raise ArgumentError,\n                'This version of aws-crt does not support S3 Express. Please\n                 update this gem to at least version 0.2.0.'\n        end\n      end\n\n",
+                      "markdown": "`           Signer.use_crt? && Aws::Crt::GEM_VERSION <= '0.1.9'\n          raise ArgumentError,\n                'This version of aws-crt does not support S3 Express. Please\n                 update this gem to at least version 0.2.0.'\n        end\n      end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/lib/aws-sigv4/signer.rb"
+                },
+                "region": {
+                  "startLine": 348,
+                  "startColumn": 7,
+                  "endLine": 348,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "      def sign_event(prior_signature, payload, encoder)\n        # Note: CRT does not currently provide event stream signing, so we always use the ruby implementation.\n        creds, _ = fetch_credentials\n        time = Time.now\n        headers = {}\n\n        datetime = time.utc.strftime(\"%Y%m%dT%H%M%SZ\")\n",
+                    "rendered": {
+                      "text": "      def sign_event(prior_signature, payload, encoder)\n        # Note: CRT does not currently provide event stream signing, so we always use the ruby implementation.\n        creds, _ = fetch_credentials\n        time = Time.now\n        headers = {}\n\n        datetime = time.utc.strftime(\"%Y%m%dT%H%M%SZ\")\n",
+                      "markdown": "`      def sign_event(prior_signature, payload, encoder)\n        # Note: CRT does not currently provide event stream signing, so we always use the ruby implementation.\n        creds, _ = fetch_credentials\n        time = Time.now\n        headers = {}\n\n        datetime = time.utc.strftime(\"%Y%m%dT%H%M%SZ\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/lib/aws-sigv4/signer.rb"
+                },
+                "region": {
+                  "startLine": 130,
+                  "startColumn": 25,
+                  "endLine": 130,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "      # @option options [Boolean] :apply_checksum_header (true) When `true`,\n      #   the computed content checksum is returned in the hash of signature\n      #   headers. This is required for AWS Glacier, and optional for\n      #   every other AWS service as of late 2016.\n      #\n      # @option options [Symbol] :signing_algorithm (:sigv4) The\n      #   algorithm to use for signing.\n",
+                    "rendered": {
+                      "text": "      # @option options [Boolean] :apply_checksum_header (true) When `true`,\n      #   the computed content checksum is returned in the hash of signature\n      #   headers. This is required for AWS Glacier, and optional for\n      #   every other AWS service as of late 2016.\n      #\n      # @option options [Symbol] :signing_algorithm (:sigv4) The\n      #   algorithm to use for signing.\n",
+                      "markdown": "`      # @option options [Boolean] :apply_checksum_header (true) When `true`,\n      #   the computed content checksum is returned in the hash of signature\n      #   headers. This is required for AWS Glacier, and optional for\n      #   every other AWS service as of late 2016.\n      #\n      # @option options [Symbol] :signing_algorithm (:sigv4) The\n      #   algorithm to use for signing.\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/lib/aws-sigv4/signer.rb"
+                },
+                "region": {
+                  "startLine": 106,
+                  "startColumn": 38,
+                  "endLine": 106,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "      #     * `#set?` => Boolean\n      #\n      # @overload initialize(service:, region:, credentials_provider:, **options)\n      #   @param [String] :service The service signing name, e.g. 's3'.\n      #   @param [String] :region The region name, e.g. 'us-east-1'. When signing\n      #    with sigv4a, this should be a comma separated list of regions.\n      #   @param [#credentials] :credentials_provider An object that responds\n",
+                    "rendered": {
+                      "text": "      #     * `#set?` => Boolean\n      #\n      # @overload initialize(service:, region:, credentials_provider:, **options)\n      #   @param [String] :service The service signing name, e.g. 's3'.\n      #   @param [String] :region The region name, e.g. 'us-east-1'. When signing\n      #    with sigv4a, this should be a comma separated list of regions.\n      #   @param [#credentials] :credentials_provider An object that responds\n",
+                      "markdown": "`      #     * `#set?` => Boolean\n      #\n      # @overload initialize(service:, region:, credentials_provider:, **options)\n      #   @param [String] :service The service signing name, e.g. 's3'.\n      #   @param [String] :region The region name, e.g. 'us-east-1'. When signing\n      #    with sigv4a, this should be a comma separated list of regions.\n      #   @param [#credentials] :credentials_provider An object that responds\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/lib/aws-sigv4/signer.rb"
+                },
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 38,
+                  "endLine": 94,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "      #   @param [String] :session_token (nil)\n      #\n      # @overload initialize(service:, region:, credentials:, **options)\n      #   @param [String] :service The service signing name, e.g. 's3'.\n      #   @param [String] :region The region name, e.g. 'us-east-1'. When signing\n      #    with sigv4a, this should be a comma separated list of regions.\n      #   @param [Credentials] :credentials Any object that responds to the following\n",
+                    "rendered": {
+                      "text": "      #   @param [String] :session_token (nil)\n      #\n      # @overload initialize(service:, region:, credentials:, **options)\n      #   @param [String] :service The service signing name, e.g. 's3'.\n      #   @param [String] :region The region name, e.g. 'us-east-1'. When signing\n      #    with sigv4a, this should be a comma separated list of regions.\n      #   @param [Credentials] :credentials Any object that responds to the following\n",
+                      "markdown": "`      #   @param [String] :session_token (nil)\n      #\n      # @overload initialize(service:, region:, credentials:, **options)\n      #   @param [String] :service The service signing name, e.g. 's3'.\n      #   @param [String] :region The region name, e.g. 'us-east-1'. When signing\n      #    with sigv4a, this should be a comma separated list of regions.\n      #   @param [Credentials] :credentials Any object that responds to the following\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/specifications/aws-sigv4-1.9.0.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 23,
+                  "endLine": 2,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: aws-sigv4 1.9.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"aws-sigv4\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: aws-sigv4 1.9.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"aws-sigv4\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: aws-sigv4 1.9.0 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"aws-sigv4\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 9,
+                  "endLine": 117,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "1.0.2 (2017-08-31)\n------------------\n\n* Issue - Update `aws-sigv4` gemspec metadata.\n\n1.0.1 (2017-07-12)\n------------------\n",
+                    "rendered": {
+                      "text": "1.0.2 (2017-08-31)\n------------------\n\n* Issue - Update `aws-sigv4` gemspec metadata.\n\n1.0.1 (2017-07-12)\n------------------\n",
+                      "markdown": "`1.0.2 (2017-08-31)\n------------------\n\n* Issue - Update `aws-sigv4` gemspec metadata.\n\n1.0.1 (2017-07-12)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 13,
+                  "endLine": 112,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "1.0.2 (2018-02-21)\n------------------\n\n* Issue - Fix Ruby warning: shadowed local variable \"headers\".\n\n1.0.2 (2017-08-31)\n------------------\n",
+                    "rendered": {
+                      "text": "1.0.2 (2018-02-21)\n------------------\n\n* Issue - Fix Ruby warning: shadowed local variable \"headers\".\n\n1.0.2 (2017-08-31)\n------------------\n",
+                      "markdown": "`1.0.2 (2018-02-21)\n------------------\n\n* Issue - Fix Ruby warning: shadowed local variable \"headers\".\n\n1.0.2 (2017-08-31)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 9,
+                  "endLine": 67,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "1.2.2 (2020-08-13)\n------------------\n\n* Issue - Sort query params with same names by value when signing. (#2376)\n\n1.2.1 (2020-06-24)\n------------------\n",
+                    "rendered": {
+                      "text": "1.2.2 (2020-08-13)\n------------------\n\n* Issue - Sort query params with same names by value when signing. (#2376)\n\n1.2.1 (2020-06-24)\n------------------\n",
+                      "markdown": "`1.2.2 (2020-08-13)\n------------------\n\n* Issue - Sort query params with same names by value when signing. (#2376)\n\n1.2.1 (2020-06-24)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 47,
+                  "endLine": 52,
+                  "endColumn": 53,
+                  "snippet": {
+                    "text": "1.3.0 (2021-09-01)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 1.9, 2.0, 2.1, and 2.2.\n\n1.2.4 (2021-07-08)\n------------------\n",
+                    "rendered": {
+                      "text": "1.3.0 (2021-09-01)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 1.9, 2.0, 2.1, and 2.2.\n\n1.2.4 (2021-07-08)\n------------------\n",
+                      "markdown": "`1.3.0 (2021-09-01)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 1.9, 2.0, 2.1, and 2.2.\n\n1.2.4 (2021-07-08)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 23,
+                  "endLine": 52,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "1.3.0 (2021-09-01)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 1.9, 2.0, 2.1, and 2.2.\n\n1.2.4 (2021-07-08)\n------------------\n",
+                    "rendered": {
+                      "text": "1.3.0 (2021-09-01)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 1.9, 2.0, 2.1, and 2.2.\n\n1.2.4 (2021-07-08)\n------------------\n",
+                      "markdown": "`1.3.0 (2021-09-01)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 1.9, 2.0, 2.1, and 2.2.\n\n1.2.4 (2021-07-08)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 88,
+                  "endLine": 27,
+                  "endColumn": 94,
+                  "snippet": {
+                    "text": "1.6.0 (2023-06-28)\n------------------\n\n* Feature - Select the minimum expiration time for presigned urls between the expiration time option and the credential expiration time.\n\n1.5.2 (2022-09-30)\n------------------\n",
+                    "rendered": {
+                      "text": "1.6.0 (2023-06-28)\n------------------\n\n* Feature - Select the minimum expiration time for presigned urls between the expiration time option and the credential expiration time.\n\n1.5.2 (2022-09-30)\n------------------\n",
+                      "markdown": "`1.6.0 (2023-06-28)\n------------------\n\n* Feature - Select the minimum expiration time for presigned urls between the expiration time option and the credential expiration time.\n\n1.5.2 (2022-09-30)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 41,
+                  "endLine": 27,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "1.6.0 (2023-06-28)\n------------------\n\n* Feature - Select the minimum expiration time for presigned urls between the expiration time option and the credential expiration time.\n\n1.5.2 (2022-09-30)\n------------------\n",
+                    "rendered": {
+                      "text": "1.6.0 (2023-06-28)\n------------------\n\n* Feature - Select the minimum expiration time for presigned urls between the expiration time option and the credential expiration time.\n\n1.5.2 (2022-09-30)\n------------------\n",
+                      "markdown": "`1.6.0 (2023-06-28)\n------------------\n\n* Feature - Select the minimum expiration time for presigned urls between the expiration time option and the credential expiration time.\n\n1.5.2 (2022-09-30)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 47,
+                  "endLine": 17,
+                  "endColumn": 53,
+                  "snippet": {
+                    "text": "1.7.0 (2023-11-22)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 2.3 and 2.4.\n\n1.6.1 (2023-10-25)\n------------------\n",
+                    "rendered": {
+                      "text": "1.7.0 (2023-11-22)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 2.3 and 2.4.\n\n1.6.1 (2023-10-25)\n------------------\n",
+                      "markdown": "`1.7.0 (2023-11-22)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 2.3 and 2.4.\n\n1.6.1 (2023-10-25)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-aws-sigv4-1.9.0-r0.apk/ruby3.2-aws-sigv4-1.9.0-r0/usr/lib/ruby/gems/3.2.0/gems/aws-sigv4-1.9.0/CHANGELOG.md"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "1.7.0 (2023-11-22)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 2.3 and 2.4.\n\n1.6.1 (2023-10-25)\n------------------\n",
+                    "rendered": {
+                      "text": "1.7.0 (2023-11-22)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 2.3 and 2.4.\n\n1.6.1 (2023-10-25)\n------------------\n",
+                      "markdown": "`1.7.0 (2023-11-22)\n------------------\n\n* Feature - AWS SDK for Ruby no longer supports Ruby runtime versions 2.3 and 2.4.\n\n1.6.1 (2023-10-25)\n------------------\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

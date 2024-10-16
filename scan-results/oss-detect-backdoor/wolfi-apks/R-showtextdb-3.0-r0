@@ -1,0 +1,128 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/R-showtextdb-3.0-r0.apk/R-showtextdb-3.0-r0/usr/lib/R/library/showtextdb/R/showtextdb"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 56,
+                  "endLine": 17,
+                  "snippet": {
+                    "text": "#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n#  GNU General Public License for more details.\n#\n#  A copy of the GNU General Public License is available at\n#  https://www.r-project.org/Licenses/\n\nlocal({\n    info <- loadingNamespaceInfo()\n",
+                    "rendered": {
+                      "text": "#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n#  GNU General Public License for more details.\n#\n#  A copy of the GNU General Public License is available at\n#  https://www.r-project.org/Licenses/\n\nlocal({\n    info <- loadingNamespaceInfo()\n",
+                      "markdown": "`#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n#  GNU General Public License for more details.\n#\n#  A copy of the GNU General Public License is available at\n#  https://www.r-project.org/Licenses/\n\nlocal({\n    info <- loadingNamespaceInfo()\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/R-showtextdb-3.0-r0.apk/R-showtextdb-3.0-r0/usr/lib/R/library/showtextdb/R/showtextdb"
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 20,
+                  "endLine": 24,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "    pkg <- info$pkgname\n    ns <- .getNamespace(as.name(pkg))\n    if (is.null(ns))\n        stop(\"cannot find namespace environment for \", pkg, domain = NA);\n    dbbase <- file.path(info$libname, pkg, \"R\", pkg)\n    lazyLoad(dbbase, ns, filter = function(n) n != \".__NAMESPACE__.\")\n})\n",
+                    "rendered": {
+                      "text": "    pkg <- info$pkgname\n    ns <- .getNamespace(as.name(pkg))\n    if (is.null(ns))\n        stop(\"cannot find namespace environment for \", pkg, domain = NA);\n    dbbase <- file.path(info$libname, pkg, \"R\", pkg)\n    lazyLoad(dbbase, ns, filter = function(n) n != \".__NAMESPACE__.\")\n})\n",
+                      "markdown": "`    pkg <- info$pkgname\n    ns <- .getNamespace(as.name(pkg))\n    if (is.null(ns))\n        stop(\"cannot find namespace environment for \", pkg, domain = NA);\n    dbbase <- file.path(info$libname, pkg, \"R\", pkg)\n    lazyLoad(dbbase, ns, filter = function(n) n != \".__NAMESPACE__.\")\n})\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/R-showtextdb-3.0-r0.apk/R-showtextdb-3.0-r0/usr/lib/R/library/showtextdb/DESCRIPTION"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 9,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>\nDescription: Providing font files that can be used by the 'showtext' package.\nImports: sysfonts (>= 0.7), utils\nSuggests: curl\nLicense: Apache License (>= 2.0)\nCopyright: see file COPYRIGHTS\nRoxygenNote: 7.1.0\nNeedsCompilation: no\n",
+                    "rendered": {
+                      "text": "Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>\nDescription: Providing font files that can be used by the 'showtext' package.\nImports: sysfonts (>= 0.7), utils\nSuggests: curl\nLicense: Apache License (>= 2.0)\nCopyright: see file COPYRIGHTS\nRoxygenNote: 7.1.0\nNeedsCompilation: no\n",
+                      "markdown": "`Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>\nDescription: Providing font files that can be used by the 'showtext' package.\nImports: sysfonts (>= 0.7), utils\nSuggests: curl\nLicense: Apache License (>= 2.0)\nCopyright: see file COPYRIGHTS\nRoxygenNote: 7.1.0\nNeedsCompilation: no\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

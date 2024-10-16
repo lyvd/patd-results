@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/lua-resty-cookie-0.1.0-r4.apk/lua-resty-cookie-0.1.0-r4/usr/lib/lua/resty/cookie.lua"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 11,
+                  "endLine": 111,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "        mt)\nend\n\nfunction _M.get(self, key)\n    if not self._cookie then\n        return nil, \"no cookie found in the current request\"\n    end\n",
+                    "rendered": {
+                      "text": "        mt)\nend\n\nfunction _M.get(self, key)\n    if not self._cookie then\n        return nil, \"no cookie found in the current request\"\n    end\n",
+                      "markdown": "`        mt)\nend\n\nfunction _M.get(self, key)\n    if not self._cookie then\n        return nil, \"no cookie found in the current request\"\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "lua"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

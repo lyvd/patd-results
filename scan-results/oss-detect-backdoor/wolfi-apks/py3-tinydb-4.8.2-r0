@@ -1,0 +1,2050 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/utils.py"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 21,
+                  "endLine": 101,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "        return default\n\n    def set(self, key: K, value: V):\n        if self.cache.get(key):\n            self.cache[key] = value\n            self.cache.move_to_end(key, last=True)\n        else:\n",
+                    "rendered": {
+                      "text": "        return default\n\n    def set(self, key: K, value: V):\n        if self.cache.get(key):\n            self.cache[key] = value\n            self.cache.move_to_end(key, last=True)\n        else:\n",
+                      "markdown": "`        return default\n\n    def set(self, key: K, value: V):\n        if self.cache.get(key):\n            self.cache[key] = value\n            self.cache.move_to_end(key, last=True)\n        else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/utils.py"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 26,
+                  "endLine": 91,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "        return iter(self.cache)\n\n    def get(self, key: K, default: Optional[D] = None) -> Optional[Union[V, D]]:\n        value = self.cache.get(key)\n\n        if value is not None:\n            self.cache.move_to_end(key, last=True)\n",
+                    "rendered": {
+                      "text": "        return iter(self.cache)\n\n    def get(self, key: K, default: Optional[D] = None) -> Optional[Union[V, D]]:\n        value = self.cache.get(key)\n\n        if value is not None:\n            self.cache.move_to_end(key, last=True)\n",
+                      "markdown": "`        return iter(self.cache)\n\n    def get(self, key: K, default: Optional[D] = None) -> Optional[Union[V, D]]:\n        value = self.cache.get(key)\n\n        if value is not None:\n            self.cache.move_to_end(key, last=True)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/utils.py"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 20,
+                  "endLine": 81,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "        del self.cache[key]\n\n    def __getitem__(self, key) -> V:\n        value = self.get(key)\n        if value is None:\n            raise KeyError(key)\n\n",
+                    "rendered": {
+                      "text": "        del self.cache[key]\n\n    def __getitem__(self, key) -> V:\n        value = self.get(key)\n        if value is None:\n            raise KeyError(key)\n\n",
+                      "markdown": "`        del self.cache[key]\n\n    def __getitem__(self, key) -> V:\n        value = self.get(key)\n        if value is None:\n            raise KeyError(key)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 366,
+                  "startColumn": 23,
+                  "endLine": 366,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "\n        elif cond is not None:\n            # Document specified by condition\n            return self.get(cond) is not None\n\n        raise RuntimeError('You have to pass either cond or doc_id')\n\n",
+                    "rendered": {
+                      "text": "\n        elif cond is not None:\n            # Document specified by condition\n            return self.get(cond) is not None\n\n        raise RuntimeError('You have to pass either cond or doc_id')\n\n",
+                      "markdown": "`\n        elif cond is not None:\n            # Document specified by condition\n            return self.get(cond) is not None\n\n        raise RuntimeError('You have to pass either cond or doc_id')\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 362,
+                  "startColumn": 23,
+                  "endLine": 362,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "        \"\"\"\n        if doc_id is not None:\n            # Documents specified by ID\n            return self.get(doc_id=doc_id) is not None\n\n        elif cond is not None:\n            # Document specified by condition\n",
+                    "rendered": {
+                      "text": "        \"\"\"\n        if doc_id is not None:\n            # Documents specified by ID\n            return self.get(doc_id=doc_id) is not None\n\n        elif cond is not None:\n            # Document specified by condition\n",
+                      "markdown": "`        \"\"\"\n        if doc_id is not None:\n            # Documents specified by ID\n            return self.get(doc_id=doc_id) is not None\n\n        elif cond is not None:\n            # Document specified by condition\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 306,
+                  "startColumn": 27,
+                  "endLine": 306,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "\n        if doc_id is not None:\n            # Retrieve a document specified by its ID\n            raw_doc = table.get(str(doc_id), None)\n\n            if raw_doc is None:\n                return None\n",
+                    "rendered": {
+                      "text": "\n        if doc_id is not None:\n            # Retrieve a document specified by its ID\n            raw_doc = table.get(str(doc_id), None)\n\n            if raw_doc is None:\n                return None\n",
+                      "markdown": "`\n        if doc_id is not None:\n            # Retrieve a document specified by its ID\n            raw_doc = table.get(str(doc_id), None)\n\n            if raw_doc is None:\n                return None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 249,
+                  "startColumn": 42,
+                  "endLine": 249,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "\n        # First, we check the query cache to see if it has results for this\n        # query\n        cached_results = self._query_cache.get(cond)\n        if cached_results is not None:\n            return cached_results[:]\n\n",
+                    "rendered": {
+                      "text": "\n        # First, we check the query cache to see if it has results for this\n        # query\n        cached_results = self._query_cache.get(cond)\n        if cached_results is not None:\n            return cached_results[:]\n\n",
+                      "markdown": "`\n        # First, we check the query cache to see if it has results for this\n        # query\n        cached_results = self._query_cache.get(cond)\n        if cached_results is not None:\n            return cached_results[:]\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 758,
+                  "startColumn": 27,
+                  "endLine": 758,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "            for doc_id, doc in raw_table.items()\n        }\n\n        # Perform the table update operation\n        updater(table)\n\n        # Convert the document IDs back to strings.\n",
+                    "rendered": {
+                      "text": "            for doc_id, doc in raw_table.items()\n        }\n\n        # Perform the table update operation\n        updater(table)\n\n        # Convert the document IDs back to strings.\n",
+                      "markdown": "`            for doc_id, doc in raw_table.items()\n        }\n\n        # Perform the table update operation\n        updater(table)\n\n        # Convert the document IDs back to strings.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 730,
+                  "startColumn": 30,
+                  "endLine": 730,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n        to only update portions of the table data, we first perform a read\n        operation, perform the update on the table data and then write\n        the updated data back to the storage.\n\n        As a further optimization, we don't convert the documents into the\n",
+                    "rendered": {
+                      "text": "        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n        to only update portions of the table data, we first perform a read\n        operation, perform the update on the table data and then write\n        the updated data back to the storage.\n\n        As a further optimization, we don't convert the documents into the\n",
+                      "markdown": "`        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n        to only update portions of the table data, we first perform a read\n        operation, perform the update on the table data and then write\n        the updated data back to the storage.\n\n        As a further optimization, we don't convert the documents into the\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 729,
+                  "startColumn": 15,
+                  "endLine": 729,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\n        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n        to only update portions of the table data, we first perform a read\n        operation, perform the update on the table data and then write\n        the updated data back to the storage.\n\n",
+                    "rendered": {
+                      "text": "\n        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n        to only update portions of the table data, we first perform a read\n        operation, perform the update on the table data and then write\n        the updated data back to the storage.\n\n",
+                      "markdown": "`\n        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n        to only update portions of the table data, we first perform a read\n        operation, perform the update on the table data and then write\n        the updated data back to the storage.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 725,
+                  "startColumn": 23,
+                  "endLine": 725,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "\n    def _update_table(self, updater: Callable[[Dict[int, Mapping]], None]):\n        \"\"\"\n        Perform a table update operation.\n\n        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n",
+                    "rendered": {
+                      "text": "\n    def _update_table(self, updater: Callable[[Dict[int, Mapping]], None]):\n        \"\"\"\n        Perform a table update operation.\n\n        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n",
+                      "markdown": "`\n    def _update_table(self, updater: Callable[[Dict[int, Mapping]], None]):\n        \"\"\"\n        Perform a table update operation.\n\n        The storage interface used by TinyDB only allows to read/write the\n        complete database data, but not modifying only portions of it. Thus,\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 622,
+                  "startColumn": 9,
+                  "endLine": 622,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "        Truncate the table by removing all documents.\n        \"\"\"\n\n        # Update the table by resetting all data\n        self._update_table(lambda table: table.clear())\n\n        # Reset document ID counter\n",
+                    "rendered": {
+                      "text": "        Truncate the table by removing all documents.\n        \"\"\"\n\n        # Update the table by resetting all data\n        self._update_table(lambda table: table.clear())\n\n        # Reset document ID counter\n",
+                      "markdown": "`        Truncate the table by removing all documents.\n        \"\"\"\n\n        # Update the table by resetting all data\n        self._update_table(lambda table: table.clear())\n\n        # Reset document ID counter\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 539,
+                  "startColumn": 21,
+                  "endLine": 539,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "                             \"specify a doc_id. Hint: use a table.Document \"\n                             \"object.\")\n\n        # Perform the update operation\n        try:\n            updated_docs: Optional[List[int]] = self.update(document, cond, doc_ids)\n        except KeyError:\n",
+                    "rendered": {
+                      "text": "                             \"specify a doc_id. Hint: use a table.Document \"\n                             \"object.\")\n\n        # Perform the update operation\n        try:\n            updated_docs: Optional[List[int]] = self.update(document, cond, doc_ids)\n        except KeyError:\n",
+                      "markdown": "`                             \"specify a doc_id. Hint: use a table.Document \"\n                             \"object.\")\n\n        # Perform the update operation\n        try:\n            updated_docs: Optional[List[int]] = self.update(document, cond, doc_ids)\n        except KeyError:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 521,
+                  "startColumn": 64,
+                  "endLine": 522,
+                  "snippet": {
+                    "text": "        argument can be a tinydb.table.Document object if you want to specify a\n        doc_id.\n\n        :param document: the document to insert or the fields to update\n        :param cond: which document to look for, optional if you've passed a\n        Document with a doc_id\n        :returns: a list containing the updated documents' IDs\n        \"\"\"\n",
+                    "rendered": {
+                      "text": "        argument can be a tinydb.table.Document object if you want to specify a\n        doc_id.\n\n        :param document: the document to insert or the fields to update\n        :param cond: which document to look for, optional if you've passed a\n        Document with a doc_id\n        :returns: a list containing the updated documents' IDs\n        \"\"\"\n",
+                      "markdown": "`        argument can be a tinydb.table.Document object if you want to specify a\n        doc_id.\n\n        :param document: the document to insert or the fields to update\n        :param cond: which document to look for, optional if you've passed a\n        Document with a doc_id\n        :returns: a list containing the updated documents' IDs\n        \"\"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 517,
+                  "startColumn": 23,
+                  "endLine": 517,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "        \"\"\"\n        Update documents, if they exist, insert them otherwise.\n\n        Note: This will update *all* documents matching the query. Document\n        argument can be a tinydb.table.Document object if you want to specify a\n        doc_id.\n\n",
+                    "rendered": {
+                      "text": "        \"\"\"\n        Update documents, if they exist, insert them otherwise.\n\n        Note: This will update *all* documents matching the query. Document\n        argument can be a tinydb.table.Document object if you want to specify a\n        doc_id.\n\n",
+                      "markdown": "`        \"\"\"\n        Update documents, if they exist, insert them otherwise.\n\n        Note: This will update *all* documents matching the query. Document\n        argument can be a tinydb.table.Document object if you want to specify a\n        doc_id.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 515,
+                  "startColumn": 7,
+                  "endLine": 515,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\n    def upsert(self, document: Mapping, cond: Optional[QueryLike] = None) -> List[int]:\n        \"\"\"\n        Update documents, if they exist, insert them otherwise.\n\n        Note: This will update *all* documents matching the query. Document\n        argument can be a tinydb.table.Document object if you want to specify a\n",
+                    "rendered": {
+                      "text": "\n    def upsert(self, document: Mapping, cond: Optional[QueryLike] = None) -> List[int]:\n        \"\"\"\n        Update documents, if they exist, insert them otherwise.\n\n        Note: This will update *all* documents matching the query. Document\n        argument can be a tinydb.table.Document object if you want to specify a\n",
+                      "markdown": "`\n    def upsert(self, document: Mapping, cond: Optional[QueryLike] = None) -> List[int]:\n        \"\"\"\n        Update documents, if they exist, insert them otherwise.\n\n        Note: This will update *all* documents matching the query. Document\n        argument can be a tinydb.table.Document object if you want to specify a\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 508,
+                  "startColumn": 21,
+                  "endLine": 508,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "                        # Perform the update (see above)\n                        perform_update(fields, table, doc_id)\n\n        # Perform the update operation (see _update_table for details)\n        self._update_table(updater)\n\n        return updated_ids\n",
+                    "rendered": {
+                      "text": "                        # Perform the update (see above)\n                        perform_update(fields, table, doc_id)\n\n        # Perform the update operation (see _update_table for details)\n        self._update_table(updater)\n\n        return updated_ids\n",
+                      "markdown": "`                        # Perform the update (see above)\n                        perform_update(fields, table, doc_id)\n\n        # Perform the update operation (see _update_table for details)\n        self._update_table(updater)\n\n        return updated_ids\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 505,
+                  "startColumn": 37,
+                  "endLine": 505,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "                        # Add ID to list of updated documents\n                        updated_ids.append(doc_id)\n\n                        # Perform the update (see above)\n                        perform_update(fields, table, doc_id)\n\n        # Perform the update operation (see _update_table for details)\n",
+                    "rendered": {
+                      "text": "                        # Add ID to list of updated documents\n                        updated_ids.append(doc_id)\n\n                        # Perform the update (see above)\n                        perform_update(fields, table, doc_id)\n\n        # Perform the update operation (see _update_table for details)\n",
+                      "markdown": "`                        # Add ID to list of updated documents\n                        updated_ids.append(doc_id)\n\n                        # Perform the update (see above)\n                        perform_update(fields, table, doc_id)\n\n        # Perform the update operation (see _update_table for details)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 484,
+                  "startColumn": 21,
+                  "endLine": 484,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "                # data\n                table[doc_id].update(fields)\n\n        # Perform the update operation for documents specified by a query\n\n        # Collect affected doc_ids\n        updated_ids = []\n",
+                    "rendered": {
+                      "text": "                # data\n                table[doc_id].update(fields)\n\n        # Perform the update operation for documents specified by a query\n\n        # Collect affected doc_ids\n        updated_ids = []\n",
+                      "markdown": "`                # data\n                table[doc_id].update(fields)\n\n        # Perform the update operation for documents specified by a query\n\n        # Collect affected doc_ids\n        updated_ids = []\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 480,
+                  "startColumn": 17,
+                  "endLine": 480,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "                # by the user\n                fields(table[doc_id])\n            else:\n                # Update documents by setting all fields from the provided\n                # data\n                table[doc_id].update(fields)\n\n",
+                    "rendered": {
+                      "text": "                # by the user\n                fields(table[doc_id])\n            else:\n                # Update documents by setting all fields from the provided\n                # data\n                table[doc_id].update(fields)\n\n",
+                      "markdown": "`                # by the user\n                fields(table[doc_id])\n            else:\n                # Update documents by setting all fields from the provided\n                # data\n                table[doc_id].update(fields)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 476,
+                  "startColumn": 49,
+                  "endLine": 476,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n                fields(table[doc_id])\n            else:\n",
+                    "rendered": {
+                      "text": "        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n                fields(table[doc_id])\n            else:\n",
+                      "markdown": "`        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n                fields(table[doc_id])\n            else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 476,
+                  "startColumn": 17,
+                  "endLine": 476,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n                fields(table[doc_id])\n            else:\n",
+                    "rendered": {
+                      "text": "        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n                fields(table[doc_id])\n            else:\n",
+                      "markdown": "`        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n                fields(table[doc_id])\n            else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 473,
+                  "startColumn": 51,
+                  "endLine": 474,
+                  "snippet": {
+                    "text": "        :returns: a list containing the updated document's ID\n        \"\"\"\n\n        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n",
+                    "rendered": {
+                      "text": "        :returns: a list containing the updated document's ID\n        \"\"\"\n\n        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n",
+                      "markdown": "`        :returns: a list containing the updated document's ID\n        \"\"\"\n\n        # Define the function that will perform the update\n        def perform_update(fields, table, doc_id):\n            if callable(fields):\n                # Update documents by calling the update function provided\n                # by the user\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 468,
+                  "startColumn": 7,
+                  "endLine": 468,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        ],\n    ) -> List[int]:\n        \"\"\"\n        Update all matching documents to have a given set of fields.\n\n        :returns: a list containing the updated document's ID\n        \"\"\"\n",
+                    "rendered": {
+                      "text": "        ],\n    ) -> List[int]:\n        \"\"\"\n        Update all matching documents to have a given set of fields.\n\n        :returns: a list containing the updated document's ID\n        \"\"\"\n",
+                      "markdown": "`        ],\n    ) -> List[int]:\n        \"\"\"\n        Update all matching documents to have a given set of fields.\n\n        :returns: a list containing the updated document's ID\n        \"\"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 456,
+                  "startColumn": 25,
+                  "endLine": 456,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "                    # Perform the update (see above)\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n",
+                    "rendered": {
+                      "text": "                    # Perform the update (see above)\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n",
+                      "markdown": "`                    # Perform the update (see above)\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 453,
+                  "startColumn": 33,
+                  "endLine": 453,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "                    # Add ID to list of updated documents\n                    updated_ids.append(doc_id)\n\n                    # Perform the update (see above)\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n",
+                    "rendered": {
+                      "text": "                    # Add ID to list of updated documents\n                    updated_ids.append(doc_id)\n\n                    # Perform the update (see above)\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n",
+                      "markdown": "`                    # Add ID to list of updated documents\n                    updated_ids.append(doc_id)\n\n                    # Perform the update (see above)\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 13,
+                  "endLine": 443,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "            return updated_ids\n\n        else:\n            # Update all documents unconditionally\n\n            updated_ids = []\n\n",
+                    "rendered": {
+                      "text": "            return updated_ids\n\n        else:\n            # Update all documents unconditionally\n\n            updated_ids = []\n\n",
+                      "markdown": "`            return updated_ids\n\n        else:\n            # Update all documents unconditionally\n\n            updated_ids = []\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 437,
+                  "startColumn": 25,
+                  "endLine": 437,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "                        # Perform the update (see above)\n                        perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n",
+                    "rendered": {
+                      "text": "                        # Perform the update (see above)\n                        perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n",
+                      "markdown": "`                        # Perform the update (see above)\n                        perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 434,
+                  "startColumn": 37,
+                  "endLine": 434,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "                        # Add ID to list of updated documents\n                        updated_ids.append(doc_id)\n\n                        # Perform the update (see above)\n                        perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n",
+                    "rendered": {
+                      "text": "                        # Add ID to list of updated documents\n                        updated_ids.append(doc_id)\n\n                        # Perform the update (see above)\n                        perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n",
+                      "markdown": "`                        # Add ID to list of updated documents\n                        updated_ids.append(doc_id)\n\n                        # Perform the update (see above)\n                        perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 414,
+                  "startColumn": 25,
+                  "endLine": 414,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "            return updated_ids\n\n        elif cond is not None:\n            # Perform the update operation for documents specified by a query\n\n            # Collect affected doc_ids\n            updated_ids = []\n",
+                    "rendered": {
+                      "text": "            return updated_ids\n\n        elif cond is not None:\n            # Perform the update operation for documents specified by a query\n\n            # Collect affected doc_ids\n            updated_ids = []\n",
+                      "markdown": "`            return updated_ids\n\n        elif cond is not None:\n            # Perform the update operation for documents specified by a query\n\n            # Collect affected doc_ids\n            updated_ids = []\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 408,
+                  "startColumn": 25,
+                  "endLine": 408,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "                for doc_id in updated_ids:\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n",
+                    "rendered": {
+                      "text": "                for doc_id in updated_ids:\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n",
+                      "markdown": "`                for doc_id in updated_ids:\n                    perform_update(table, doc_id)\n\n            # Perform the update operation (see _update_table for details)\n            self._update_table(updater)\n\n            return updated_ids\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 398,
+                  "startColumn": 25,
+                  "endLine": 398,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "                table[doc_id].update(fields)\n\n        if doc_ids is not None:\n            # Perform the update operation for documents specified by a list\n            # of document IDs\n\n            updated_ids = list(doc_ids)\n",
+                    "rendered": {
+                      "text": "                table[doc_id].update(fields)\n\n        if doc_ids is not None:\n            # Perform the update operation for documents specified by a list\n            # of document IDs\n\n            updated_ids = list(doc_ids)\n",
+                      "markdown": "`                table[doc_id].update(fields)\n\n        if doc_ids is not None:\n            # Perform the update operation for documents specified by a list\n            # of document IDs\n\n            updated_ids = list(doc_ids)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 394,
+                  "startColumn": 17,
+                  "endLine": 394,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "                fields(table[doc_id])\n        else:\n            def perform_update(table, doc_id):\n                # Update documents by setting all fields from the provided data\n                table[doc_id].update(fields)\n\n        if doc_ids is not None:\n",
+                    "rendered": {
+                      "text": "                fields(table[doc_id])\n        else:\n            def perform_update(table, doc_id):\n                # Update documents by setting all fields from the provided data\n                table[doc_id].update(fields)\n\n        if doc_ids is not None:\n",
+                      "markdown": "`                fields(table[doc_id])\n        else:\n            def perform_update(table, doc_id):\n                # Update documents by setting all fields from the provided data\n                table[doc_id].update(fields)\n\n        if doc_ids is not None:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 389,
+                  "startColumn": 49,
+                  "endLine": 389,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n                fields(table[doc_id])\n        else:\n",
+                    "rendered": {
+                      "text": "        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n                fields(table[doc_id])\n        else:\n",
+                      "markdown": "`        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n                fields(table[doc_id])\n        else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 389,
+                  "startColumn": 17,
+                  "endLine": 389,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n                fields(table[doc_id])\n        else:\n",
+                    "rendered": {
+                      "text": "        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n                fields(table[doc_id])\n        else:\n",
+                      "markdown": "`        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n                fields(table[doc_id])\n        else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 386,
+                  "startColumn": 51,
+                  "endLine": 387,
+                  "snippet": {
+                    "text": "        :returns: a list containing the updated document's ID\n        \"\"\"\n\n        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n",
+                    "rendered": {
+                      "text": "        :returns: a list containing the updated document's ID\n        \"\"\"\n\n        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n",
+                      "markdown": "`        :returns: a list containing the updated document's ID\n        \"\"\"\n\n        # Define the function that will perform the update\n        if callable(fields):\n            def perform_update(table, doc_id):\n                # Update documents by calling the update function provided by\n                # the user\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 381,
+                  "startColumn": 39,
+                  "endLine": 382,
+                  "snippet": {
+                    "text": "\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n        :param cond: which documents to update\n        :param doc_ids: a list of document IDs\n        :returns: a list containing the updated document's ID\n        \"\"\"\n\n",
+                    "rendered": {
+                      "text": "\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n        :param cond: which documents to update\n        :param doc_ids: a list of document IDs\n        :returns: a list containing the updated document's ID\n        \"\"\"\n\n",
+                      "markdown": "`\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n        :param cond: which documents to update\n        :param doc_ids: a list of document IDs\n        :returns: a list containing the updated document's ID\n        \"\"\"\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 380,
+                  "startColumn": 44,
+                  "endLine": 380,
+                  "endColumn": 52,
+                  "snippet": {
+                    "text": "        Update all matching documents to have a given set of fields.\n\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n        :param cond: which documents to update\n        :param doc_ids: a list of document IDs\n        :returns: a list containing the updated document's ID\n",
+                    "rendered": {
+                      "text": "        Update all matching documents to have a given set of fields.\n\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n        :param cond: which documents to update\n        :param doc_ids: a list of document IDs\n        :returns: a list containing the updated document's ID\n",
+                      "markdown": "`        Update all matching documents to have a given set of fields.\n\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n        :param cond: which documents to update\n        :param doc_ids: a list of document IDs\n        :returns: a list containing the updated document's ID\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 377,
+                  "startColumn": 7,
+                  "endLine": 377,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        doc_ids: Optional[Iterable[int]] = None,\n    ) -> List[int]:\n        \"\"\"\n        Update all matching documents to have a given set of fields.\n\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n",
+                    "rendered": {
+                      "text": "        doc_ids: Optional[Iterable[int]] = None,\n    ) -> List[int]:\n        \"\"\"\n        Update all matching documents to have a given set of fields.\n\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n",
+                      "markdown": "`        doc_ids: Optional[Iterable[int]] = None,\n    ) -> List[int]:\n        \"\"\"\n        Update all matching documents to have a given set of fields.\n\n        :param fields: the fields that the matching documents will have\n                       or a method that will update the documents\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 278,
+                  "startColumn": 13,
+                  "endLine": 278,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "        is_cacheable: Callable[[], bool] = getattr(cond, 'is_cacheable',\n                                                   lambda: True)\n        if is_cacheable():\n            # Update the query cache\n            self._query_cache[cond] = docs[:]\n\n        return docs\n",
+                    "rendered": {
+                      "text": "        is_cacheable: Callable[[], bool] = getattr(cond, 'is_cacheable',\n                                                   lambda: True)\n        if is_cacheable():\n            # Update the query cache\n            self._query_cache[cond] = docs[:]\n\n        return docs\n",
+                      "markdown": "`        is_cacheable: Callable[[], bool] = getattr(cond, 'is_cacheable',\n                                                   lambda: True)\n        if is_cacheable():\n            # Update the query cache\n            self._query_cache[cond] = docs[:]\n\n        return docs\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 165,
+                  "startColumn": 17,
+                  "endLine": 165,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "            # In all other cases we use the next free ID\n            doc_id = self._get_next_id()\n\n        # Now, we update the table and add the document\n        def updater(table: dict):\n            if doc_id in table:\n                raise ValueError(f'Document with ID {str(doc_id)} '\n",
+                    "rendered": {
+                      "text": "            # In all other cases we use the next free ID\n            doc_id = self._get_next_id()\n\n        # Now, we update the table and add the document\n        def updater(table: dict):\n            if doc_id in table:\n                raise ValueError(f'Document with ID {str(doc_id)} '\n",
+                      "markdown": "`            # In all other cases we use the next free ID\n            doc_id = self._get_next_id()\n\n        # Now, we update the table and add the document\n        def updater(table: dict):\n            if doc_id in table:\n                raise ValueError(f'Document with ID {str(doc_id)} '\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 533,
+                  "startColumn": 35,
+                  "endLine": 533,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "        else:\n            doc_ids = None\n\n        # Make sure we can actually find a matching document\n        if doc_ids is None and cond is None:\n            raise ValueError(\"If you don't specify a search query, you must \"\n                             \"specify a doc_id. Hint: use a table.Document \"\n",
+                    "rendered": {
+                      "text": "        else:\n            doc_ids = None\n\n        # Make sure we can actually find a matching document\n        if doc_ids is None and cond is None:\n            raise ValueError(\"If you don't specify a search query, you must \"\n                             \"specify a doc_id. Hint: use a table.Document \"\n",
+                      "markdown": "`        else:\n            doc_ids = None\n\n        # Make sure we can actually find a matching document\n        if doc_ids is None and cond is None:\n            raise ValueError(\"If you don't specify a search query, you must \"\n                             \"specify a doc_id. Hint: use a table.Document \"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 499,
+                  "startColumn": 51,
+                  "endLine": 499,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "                for fields, cond in updates:\n                    _cond = cast(QueryLike, cond)\n\n                    # Pass through all documents to find documents matching the\n                    # query. Call the processing callback with the document ID\n                    if _cond(table[doc_id]):\n                        # Add ID to list of updated documents\n",
+                    "rendered": {
+                      "text": "                for fields, cond in updates:\n                    _cond = cast(QueryLike, cond)\n\n                    # Pass through all documents to find documents matching the\n                    # query. Call the processing callback with the document ID\n                    if _cond(table[doc_id]):\n                        # Add ID to list of updated documents\n",
+                      "markdown": "`                for fields, cond in updates:\n                    _cond = cast(QueryLike, cond)\n\n                    # Pass through all documents to find documents matching the\n                    # query. Call the processing callback with the document ID\n                    if _cond(table[doc_id]):\n                        # Add ID to list of updated documents\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 428,
+                  "startColumn": 51,
+                  "endLine": 428,
+                  "endColumn": 57,
+                  "snippet": {
+                    "text": "                # result in an exception (RuntimeError: dictionary changed size\n                # during iteration)\n                for doc_id in list(table.keys()):\n                    # Pass through all documents to find documents matching the\n                    # query. Call the processing callback with the document ID\n                    if _cond(table[doc_id]):\n                        # Add ID to list of updated documents\n",
+                    "rendered": {
+                      "text": "                # result in an exception (RuntimeError: dictionary changed size\n                # during iteration)\n                for doc_id in list(table.keys()):\n                    # Pass through all documents to find documents matching the\n                    # query. Call the processing callback with the document ID\n                    if _cond(table[doc_id]):\n                        # Add ID to list of updated documents\n",
+                      "markdown": "`                # result in an exception (RuntimeError: dictionary changed size\n                # during iteration)\n                for doc_id in list(table.keys()):\n                    # Pass through all documents to find documents matching the\n                    # query. Call the processing callback with the document ID\n                    if _cond(table[doc_id]):\n                        # Add ID to list of updated documents\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 330,
+                  "startColumn": 13,
+                  "endLine": 330,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "            ]\n\n        elif cond is not None:\n            # Find a document specified by a query\n            # The trailing underscore in doc_id_ is needed so MyPy\n            # doesn't think that `doc_id_` (which is a string) needs\n            # to have the same type as `doc_id` which is this function's\n",
+                    "rendered": {
+                      "text": "            ]\n\n        elif cond is not None:\n            # Find a document specified by a query\n            # The trailing underscore in doc_id_ is needed so MyPy\n            # doesn't think that `doc_id_` (which is a string) needs\n            # to have the same type as `doc_id` which is this function's\n",
+                      "markdown": "`            ]\n\n        elif cond is not None:\n            # Find a document specified by a query\n            # The trailing underscore in doc_id_ is needed so MyPy\n            # doesn't think that `doc_id_` (which is a string) needs\n            # to have the same type as `doc_id` which is this function's\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 319,
+                  "startColumn": 22,
+                  "endLine": 319,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "            # have doc id specified in the doc_id list.\n\n            # Since document IDs will be unique, we make it a set to ensure\n            # constant time lookup\n            doc_ids_set = set(str(doc_id) for doc_id in doc_ids)\n\n            # Now return the filtered documents in form of list\n",
+                    "rendered": {
+                      "text": "            # have doc id specified in the doc_id list.\n\n            # Since document IDs will be unique, we make it a set to ensure\n            # constant time lookup\n            doc_ids_set = set(str(doc_id) for doc_id in doc_ids)\n\n            # Now return the filtered documents in form of list\n",
+                      "markdown": "`            # have doc id specified in the doc_id list.\n\n            # Since document IDs will be unique, we make it a set to ensure\n            # constant time lookup\n            doc_ids_set = set(str(doc_id) for doc_id in doc_ids)\n\n            # Now return the filtered documents in form of list\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/table.py"
+                },
+                "region": {
+                  "startLine": 270,
+                  "startColumn": 38,
+                  "endLine": 270,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "        # optional.\n        # See: https://github.com/python/mypy/issues/1424\n        #\n        # Note also that by default we expect custom query objects to be\n        # cacheable (which means they need to have a stable hash value).\n        # This is to keep consistency with TinyDB's behavior before\n        # `is_cacheable` was introduced which assumed that all queries\n",
+                    "rendered": {
+                      "text": "        # optional.\n        # See: https://github.com/python/mypy/issues/1424\n        #\n        # Note also that by default we expect custom query objects to be\n        # cacheable (which means they need to have a stable hash value).\n        # This is to keep consistency with TinyDB's behavior before\n        # `is_cacheable` was introduced which assumed that all queries\n",
+                      "markdown": "`        # optional.\n        # See: https://github.com/python/mypy/issues/1424\n        #\n        # Note also that by default we expect custom query objects to be\n        # cacheable (which means they need to have a stable hash value).\n        # This is to keep consistency with TinyDB's behavior before\n        # `is_cacheable` was introduced which assumed that all queries\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/operations.py"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 15,
+                  "endLine": 2,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\"\"\"\nA collection of update operations for TinyDB.\n\nThey are used for updates like this:\n\n",
+                    "rendered": {
+                      "text": "\"\"\"\nA collection of update operations for TinyDB.\n\nThey are used for updates like this:\n\n",
+                      "markdown": "`\"\"\"\nA collection of update operations for TinyDB.\n\nThey are used for updates like this:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb-4.8.2.dist-info/METADATA"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 38,
+                  "endLine": 79,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "\n- **100% test coverage:** No explanation needed.\n\nTo dive straight into all the details, head over to the `TinyDB docs\n<https://tinydb.readthedocs.io/>`_. You can also discuss everything related\nto TinyDB like general development, extensions or showcase your TinyDB-based\nprojects on the `discussion forum <http://forum.m-siemens.de/.>`_.\n",
+                    "rendered": {
+                      "text": "\n- **100% test coverage:** No explanation needed.\n\nTo dive straight into all the details, head over to the `TinyDB docs\n<https://tinydb.readthedocs.io/>`_. You can also discuss everything related\nto TinyDB like general development, extensions or showcase your TinyDB-based\nprojects on the `discussion forum <http://forum.m-siemens.de/.>`_.\n",
+                      "markdown": "`\n- **100% test coverage:** No explanation needed.\n\nTo dive straight into all the details, head over to the `TinyDB docs\n<https://tinydb.readthedocs.io/>`_. You can also discuss everything related\nto TinyDB like general development, extensions or showcase your TinyDB-based\nprojects on the `discussion forum <http://forum.m-siemens.de/.>`_.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/queries.py"
+                },
+                "region": {
+                  "startLine": 412,
+                  "startColumn": 36,
+                  "endLine": 412,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "            {'f1': [3, 4, 5]}\n\n        :param cond: Either a query that at least one document has to match or\n                     a list of which at least one document has to be contained\n                     in the tested document.\n        \"\"\"\n        if callable(cond):\n",
+                    "rendered": {
+                      "text": "            {'f1': [3, 4, 5]}\n\n        :param cond: Either a query that at least one document has to match or\n                     a list of which at least one document has to be contained\n                     in the tested document.\n        \"\"\"\n        if callable(cond):\n",
+                      "markdown": "`            {'f1': [3, 4, 5]}\n\n        :param cond: Either a query that at least one document has to match or\n                     a list of which at least one document has to be contained\n                     in the tested document.\n        \"\"\"\n        if callable(cond):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/queries.py"
+                },
+                "region": {
+                  "startLine": 411,
+                  "startColumn": 40,
+                  "endLine": 411,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "            {'f1': [1, 2]}\n            {'f1': [3, 4, 5]}\n\n        :param cond: Either a query that at least one document has to match or\n                     a list of which at least one document has to be contained\n                     in the tested document.\n        \"\"\"\n",
+                    "rendered": {
+                      "text": "            {'f1': [1, 2]}\n            {'f1': [3, 4, 5]}\n\n        :param cond: Either a query that at least one document has to match or\n                     a list of which at least one document has to be contained\n                     in the tested document.\n        \"\"\"\n",
+                      "markdown": "`            {'f1': [1, 2]}\n            {'f1': [3, 4, 5]}\n\n        :param cond: Either a query that at least one document has to match or\n                     a list of which at least one document has to be contained\n                     in the tested document.\n        \"\"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/queries.py"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 17,
+                  "endLine": 191,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "        # Now we add the accessed item to the query path ...\n        query._path = self._path + (item,)\n\n        # ... and update the query hash\n        query._hash = ('path', query._path) if self.is_cacheable() else None\n\n        return query\n",
+                    "rendered": {
+                      "text": "        # Now we add the accessed item to the query path ...\n        query._path = self._path + (item,)\n\n        # ... and update the query hash\n        query._hash = ('path', query._path) if self.is_cacheable() else None\n\n        return query\n",
+                      "markdown": "`        # Now we add the accessed item to the query path ...\n        query._path = self._path + (item,)\n\n        # ... and update the query hash\n        query._hash = ('path', query._path) if self.is_cacheable() else None\n\n        return query\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/queries.py"
+                },
+                "region": {
+                  "startLine": 158,
+                  "startColumn": 62,
+                  "endLine": 158,
+                  "endColumn": 70,
+                  "snippet": {
+                    "text": "    >>> # Binary OR:\n    >>> db.search((where('field1').exists()) | (where('field2') == 5))\n\n    Queries are executed by calling the resulting object. They expect to get\n    the document to test as the first argument and return ``True`` or\n    ``False`` depending on whether the documents match the query or not.\n    \"\"\"\n",
+                    "rendered": {
+                      "text": "    >>> # Binary OR:\n    >>> db.search((where('field1').exists()) | (where('field2') == 5))\n\n    Queries are executed by calling the resulting object. They expect to get\n    the document to test as the first argument and return ``True`` or\n    ``False`` depending on whether the documents match the query or not.\n    \"\"\"\n",
+                      "markdown": "`    >>> # Binary OR:\n    >>> db.search((where('field1').exists()) | (where('field2') == 5))\n\n    Queries are executed by calling the resulting object. They expect to get\n    the document to test as the first argument and return ``True`` or\n    ``False`` depending on whether the documents match the query or not.\n    \"\"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/middlewares.py"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 52,
+                  "endLine": 81,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "    Add some caching to TinyDB.\n\n    This Middleware aims to improve the performance of TinyDB by writing only\n    the last DB state every :attr:`WRITE_CACHE_SIZE` time and reading always\n    from cache.\n    \"\"\"\n\n",
+                    "rendered": {
+                      "text": "    Add some caching to TinyDB.\n\n    This Middleware aims to improve the performance of TinyDB by writing only\n    the last DB state every :attr:`WRITE_CACHE_SIZE` time and reading always\n    from cache.\n    \"\"\"\n\n",
+                      "markdown": "`    Add some caching to TinyDB.\n\n    This Middleware aims to improve the performance of TinyDB by writing only\n    the last DB state every :attr:`WRITE_CACHE_SIZE` time and reading always\n    from cache.\n    \"\"\"\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-tinydb-4.8.2-r0.apk/py3-tinydb-4.8.2-r0/usr/lib/python3.12/site-packages/tinydb/middlewares.py"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 50,
+                  "endLine": 50,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "                       Already an instance!\n\n        So, when running ``self.storage = storage(*args, **kwargs)`` Python\n        now will call ``__call__`` and TinyDB will expect the return value to\n        be the storage (or Middleware) instance. Returning the instance is\n        simple, but we also got the underlying (*real*) StorageClass as an\n        __init__ argument that still is not an instance.\n",
+                    "rendered": {
+                      "text": "                       Already an instance!\n\n        So, when running ``self.storage = storage(*args, **kwargs)`` Python\n        now will call ``__call__`` and TinyDB will expect the return value to\n        be the storage (or Middleware) instance. Returning the instance is\n        simple, but we also got the underlying (*real*) StorageClass as an\n        __init__ argument that still is not an instance.\n",
+                      "markdown": "`                       Already an instance!\n\n        So, when running ``self.storage = storage(*args, **kwargs)`` Python\n        now will call ``__call__`` and TinyDB will expect the return value to\n        be the storage (or Middleware) instance. Returning the instance is\n        simple, but we also got the underlying (*real*) StorageClass as an\n        __init__ argument that still is not an instance.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/lib/random/formatter.rb"
+                },
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 6,
+                  "endLine": 115,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "  #   prng.base64 #=> \"6BbW0pxO0YENxn38HMUbcQ==\"\n  #\n  # See RFC 3548 for the definition of base64.\n  def base64(n=nil)\n    [random_bytes(n)].pack(\"m0\")\n  end\n\n",
+                    "rendered": {
+                      "text": "  #   prng.base64 #=> \"6BbW0pxO0YENxn38HMUbcQ==\"\n  #\n  # See RFC 3548 for the definition of base64.\n  def base64(n=nil)\n    [random_bytes(n)].pack(\"m0\")\n  end\n\n",
+                      "markdown": "`  #   prng.base64 #=> \"6BbW0pxO0YENxn38HMUbcQ==\"\n  #\n  # See RFC 3548 for the definition of base64.\n  def base64(n=nil)\n    [random_bytes(n)].pack(\"m0\")\n  end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/bin/console"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 14,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "#!/usr/bin/env ruby\n\nrequire \"bundler/setup\"\nrequire \"securerandom\"\n\n",
+                    "rendered": {
+                      "text": "#!/usr/bin/env ruby\n\nrequire \"bundler/setup\"\nrequire \"securerandom\"\n\n",
+                      "markdown": "`#!/usr/bin/env ruby\n\nrequire \"bundler/setup\"\nrequire \"securerandom\"\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/bin/setup"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 14,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "#!/usr/bin/env bash\nset -euo pipefail\nIFS=$'\\n\\t'\nset -vx\n\n",
+                    "rendered": {
+                      "text": "#!/usr/bin/env bash\nset -euo pipefail\nIFS=$'\\n\\t'\nset -vx\n\n",
+                      "markdown": "`#!/usr/bin/env bash\nset -euo pipefail\nIFS=$'\\n\\t'\nset -vx\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/bin/setup"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 14,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "#!/usr/bin/env bash\nset -euo pipefail\nIFS=$'\\n\\t'\nset -vx\n\n",
+                    "rendered": {
+                      "text": "#!/usr/bin/env bash\nset -euo pipefail\nIFS=$'\\n\\t'\nset -vx\n\n",
+                      "markdown": "`#!/usr/bin/env bash\nset -euo pipefail\nIFS=$'\\n\\t'\nset -vx\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/specifications/securerandom-0.3.1.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 26,
+                  "endLine": 2,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: securerandom 0.3.1 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"securerandom\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: securerandom 0.3.1 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"securerandom\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: securerandom 0.3.1 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"securerandom\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/.github/workflows/test.yml"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 18,
+                  "endLine": 23,
+                  "snippet": {
+                    "text": "    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Set up Ruby\n      uses: ruby/setup-ruby@v1\n      with:\n        ruby-version: ${{ matrix.ruby }}\n    - name: Install dependencies\n",
+                    "rendered": {
+                      "text": "    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Set up Ruby\n      uses: ruby/setup-ruby@v1\n      with:\n        ruby-version: ${{ matrix.ruby }}\n    - name: Install dependencies\n",
+                      "markdown": "`    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Set up Ruby\n      uses: ruby/setup-ruby@v1\n      with:\n        ruby-version: ${{ matrix.ruby }}\n    - name: Install dependencies\n`"
+                    }
+                  },
+                  "sourceLanguage": "yaml"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 9,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "url = \ncommit = 92905971a402879e0f72f686e575a4743469ad48\nbuilddate = 1725833233\nlicense = Ruby\nlicense = BSD-2-Clause\ndepend = ruby-3.2\ndatahash = 63aecd5e3bb245f5ea4da528d08bd4b2b3c190ef7b2fecc07c40b99ac7f22dc4\n",
+                    "rendered": {
+                      "text": "url = \ncommit = 92905971a402879e0f72f686e575a4743469ad48\nbuilddate = 1725833233\nlicense = Ruby\nlicense = BSD-2-Clause\ndepend = ruby-3.2\ndatahash = 63aecd5e3bb245f5ea4da528d08bd4b2b3c190ef7b2fecc07c40b99ac7f22dc4\n",
+                      "markdown": "`url = \ncommit = 92905971a402879e0f72f686e575a4743469ad48\nbuilddate = 1725833233\nlicense = Ruby\nlicense = BSD-2-Clause\ndepend = ruby-3.2\ndatahash = 63aecd5e3bb245f5ea4da528d08bd4b2b3c190ef7b2fecc07c40b99ac7f22dc4\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 13,
+                  "endLine": 39,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n\nGenerate random binary strings:\n",
+                    "rendered": {
+                      "text": "```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n\nGenerate random binary strings:\n",
+                      "markdown": "````ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n\nGenerate random binary strings:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 13,
+                  "endLine": 38,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n\n",
+                    "rendered": {
+                      "text": "\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n\n",
+                      "markdown": "`\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 13,
+                  "endLine": 37,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "Generate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n",
+                    "rendered": {
+                      "text": "Generate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n",
+                      "markdown": "`Generate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\nSecureRandom.base64(10) #=> \"KO1nIU+p9DKxGg==\"\nSecureRandom.base64(12) #=> \"7kJSM/MzBJI+75j8\"\n```\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 16,
+                  "endLine": 34,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "SecureRandom.hex(13) #=> \"39b290146bea6ce975c37cfc23\"\n```\n\nGenerate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\n",
+                    "rendered": {
+                      "text": "SecureRandom.hex(13) #=> \"39b290146bea6ce975c37cfc23\"\n```\n\nGenerate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\n",
+                      "markdown": "`SecureRandom.hex(13) #=> \"39b290146bea6ce975c37cfc23\"\n```\n\nGenerate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 51,
+                  "endLine": 71,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "\n## Contributing\n\nBug reports and pull requests are welcome on GitHub at https://github.com/ruby/securerandom.\n\n",
+                    "rendered": {
+                      "text": "\n## Contributing\n\nBug reports and pull requests are welcome on GitHub at https://github.com/ruby/securerandom.\n\n",
+                      "markdown": "`\n## Contributing\n\nBug reports and pull requests are welcome on GitHub at https://github.com/ruby/securerandom.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 102,
+                  "endLine": 67,
+                  "endColumn": 110,
+                  "snippet": {
+                    "text": "\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n",
+                    "rendered": {
+                      "text": "\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n",
+                      "markdown": "`\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 236,
+                  "endLine": 67,
+                  "endColumn": 241,
+                  "snippet": {
+                    "text": "\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n",
+                    "rendered": {
+                      "text": "\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n",
+                      "markdown": "`\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 206,
+                  "endLine": 67,
+                  "endColumn": 211,
+                  "snippet": {
+                    "text": "\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n",
+                    "rendered": {
+                      "text": "\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n",
+                      "markdown": "`\nAfter checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.\n\nTo install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).\n\n## Contributing\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-securerandom-0.3.1-r0.apk/ruby3.2-securerandom-0.3.1-r0/usr/lib/ruby/gems/3.2.0/gems/securerandom-0.3.1/README.md"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 15,
+                  "endLine": 34,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "SecureRandom.hex(13) #=> \"39b290146bea6ce975c37cfc23\"\n```\n\nGenerate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\n",
+                    "rendered": {
+                      "text": "SecureRandom.hex(13) #=> \"39b290146bea6ce975c37cfc23\"\n```\n\nGenerate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\n",
+                      "markdown": "`SecureRandom.hex(13) #=> \"39b290146bea6ce975c37cfc23\"\n```\n\nGenerate random base64 strings:\n\n```ruby\nSecureRandom.base64(10) #=> \"EcmTPZwWRAozdA==\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,2530 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/patch.py"
+                },
+                "region": {
+                  "startLine": 383,
+                  "startColumn": 38,
+                  "endLine": 383,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "        for pool, connections in self._connection_pool_to_connections.items():\n            readd_connections = []\n            while pool.pool and not pool.pool.empty() and connections:\n                connection = pool.pool.get()\n                if isinstance(connection, self._connection_class):\n                    connections.remove(connection)\n                    connection.close()\n",
+                    "rendered": {
+                      "text": "        for pool, connections in self._connection_pool_to_connections.items():\n            readd_connections = []\n            while pool.pool and not pool.pool.empty() and connections:\n                connection = pool.pool.get()\n                if isinstance(connection, self._connection_class):\n                    connections.remove(connection)\n                    connection.close()\n",
+                      "markdown": "`        for pool, connections in self._connection_pool_to_connections.items():\n            readd_connections = []\n            while pool.pool and not pool.pool.empty() and connections:\n                connection = pool.pool.get()\n                if isinstance(connection, self._connection_class):\n                    connections.remove(connection)\n                    connection.close()\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/patch.py"
+                },
+                "region": {
+                  "startLine": 159,
+                  "startColumn": 33,
+                  "endLine": 159,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "        value for `cassette` is first created.\n\n        The function is recursive because it looks in to dictionaries\n        and replaces class values at any depth with the subclass\n        described in the previous paragraph.\n        \"\"\"\n        if isinstance(replacement_dict_or_obj, dict):\n",
+                    "rendered": {
+                      "text": "        value for `cassette` is first created.\n\n        The function is recursive because it looks in to dictionaries\n        and replaces class values at any depth with the subclass\n        described in the previous paragraph.\n        \"\"\"\n        if isinstance(replacement_dict_or_obj, dict):\n",
+                      "markdown": "`        value for `cassette` is first created.\n\n        The function is recursive because it looks in to dictionaries\n        and replaces class values at any depth with the subclass\n        described in the previous paragraph.\n        \"\"\"\n        if isinstance(replacement_dict_or_obj, dict):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/patch.py"
+                },
+                "region": {
+                  "startLine": 441,
+                  "startColumn": 41,
+                  "endLine": 442,
+                  "snippet": {
+                    "text": "    else:\n        yield mock.patch.object(simple.SimpleAsyncHTTPClient, \"fetch_impl\", _SimpleAsyncHTTPClient_fetch_impl)\n    try:\n        import tornado.curl_httpclient as curl\n    except ImportError:  # pragma: no cover\n        pass\n    else:\n        yield mock.patch.object(curl.CurlAsyncHTTPClient, \"fetch_impl\", _CurlAsyncHTTPClient_fetch_impl)\n",
+                    "rendered": {
+                      "text": "    else:\n        yield mock.patch.object(simple.SimpleAsyncHTTPClient, \"fetch_impl\", _SimpleAsyncHTTPClient_fetch_impl)\n    try:\n        import tornado.curl_httpclient as curl\n    except ImportError:  # pragma: no cover\n        pass\n    else:\n        yield mock.patch.object(curl.CurlAsyncHTTPClient, \"fetch_impl\", _CurlAsyncHTTPClient_fetch_impl)\n",
+                      "markdown": "`    else:\n        yield mock.patch.object(simple.SimpleAsyncHTTPClient, \"fetch_impl\", _SimpleAsyncHTTPClient_fetch_impl)\n    try:\n        import tornado.curl_httpclient as curl\n    except ImportError:  # pragma: no cover\n        pass\n    else:\n        yield mock.patch.object(curl.CurlAsyncHTTPClient, \"fetch_impl\", _CurlAsyncHTTPClient_fetch_impl)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/patch.py"
+                },
+                "region": {
+                  "startLine": 285,
+                  "startColumn": 45,
+                  "endLine": 286,
+                  "snippet": {
+                    "text": "            new_fetch_impl = vcr_fetch_impl(self._cassette, _SimpleAsyncHTTPClient_fetch_impl)\n            yield simple.SimpleAsyncHTTPClient, \"fetch_impl\", new_fetch_impl\n        try:\n            import tornado.curl_httpclient as curl\n        except ImportError:  # pragma: no cover\n            pass\n        else:\n            from .stubs.tornado_stubs import vcr_fetch_impl\n",
+                    "rendered": {
+                      "text": "            new_fetch_impl = vcr_fetch_impl(self._cassette, _SimpleAsyncHTTPClient_fetch_impl)\n            yield simple.SimpleAsyncHTTPClient, \"fetch_impl\", new_fetch_impl\n        try:\n            import tornado.curl_httpclient as curl\n        except ImportError:  # pragma: no cover\n            pass\n        else:\n            from .stubs.tornado_stubs import vcr_fetch_impl\n",
+                      "markdown": "`            new_fetch_impl = vcr_fetch_impl(self._cassette, _SimpleAsyncHTTPClient_fetch_impl)\n            yield simple.SimpleAsyncHTTPClient, \"fetch_impl\", new_fetch_impl\n        try:\n            import tornado.curl_httpclient as curl\n        except ImportError:  # pragma: no cover\n            pass\n        else:\n            from .stubs.tornado_stubs import vcr_fetch_impl\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/request.py"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 25,
+                  "endLine": 144,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "            value = value[0]\n\n        # Preserve the case from the first time this key was set.\n        old = self._store.get(key.lower())\n        if old:\n            key = old[0]\n\n",
+                    "rendered": {
+                      "text": "            value = value[0]\n\n        # Preserve the case from the first time this key was set.\n        old = self._store.get(key.lower())\n        if old:\n            key = old[0]\n\n",
+                      "markdown": "`            value = value[0]\n\n        # Preserve the case from the first time this key was set.\n        old = self._store.get(key.lower())\n        if old:\n            key = old[0]\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/request.py"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 34,
+                  "endLine": 68,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "\n    @property\n    def host(self):\n        return urlparse(self.uri).hostname\n\n    @property\n    def port(self):\n",
+                    "rendered": {
+                      "text": "\n    @property\n    def host(self):\n        return urlparse(self.uri).hostname\n\n    @property\n    def port(self):\n",
+                      "markdown": "`\n    @property\n    def host(self):\n        return urlparse(self.uri).hostname\n\n    @property\n    def port(self):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/request.py"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 33,
+                  "endLine": 68,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "\n    @property\n    def host(self):\n        return urlparse(self.uri).hostname\n\n    @property\n    def port(self):\n",
+                    "rendered": {
+                      "text": "\n    @property\n    def host(self):\n        return urlparse(self.uri).hostname\n\n    @property\n    def port(self):\n",
+                      "markdown": "`\n    @property\n    def host(self):\n        return urlparse(self.uri).hostname\n\n    @property\n    def port(self):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/request.py"
+                },
+                "region": {
+                  "startLine": 143,
+                  "startColumn": 42,
+                  "endLine": 143,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "        if isinstance(value, (tuple, list)):\n            value = value[0]\n\n        # Preserve the case from the first time this key was set.\n        old = self._store.get(key.lower())\n        if old:\n            key = old[0]\n",
+                    "rendered": {
+                      "text": "        if isinstance(value, (tuple, list)):\n            value = value[0]\n\n        # Preserve the case from the first time this key was set.\n        old = self._store.get(key.lower())\n        if old:\n            key = old[0]\n",
+                      "markdown": "`        if isinstance(value, (tuple, list)):\n            value = value[0]\n\n        # Preserve the case from the first time this key was set.\n        old = self._store.get(key.lower())\n        if old:\n            key = old[0]\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 250,
+                  "startColumn": 24,
+                  "endLine": 250,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n        if auth is not None:\n            headers[\"AUTHORIZATION\"] = auth.encode()\n",
+                    "rendered": {
+                      "text": "        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n        if auth is not None:\n            headers[\"AUTHORIZATION\"] = auth.encode()\n",
+                      "markdown": "`        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n        if auth is not None:\n            headers[\"AUTHORIZATION\"] = auth.encode()\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 249,
+                  "startColumn": 23,
+                  "endLine": 249,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n        if auth is not None:\n",
+                    "rendered": {
+                      "text": "        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n        if auth is not None:\n",
+                      "markdown": "`        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n        if auth is not None:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 248,
+                  "startColumn": 40,
+                  "endLine": 248,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n",
+                    "rendered": {
+                      "text": "        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n",
+                      "markdown": "`        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 248,
+                  "startColumn": 21,
+                  "endLine": 248,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n",
+                    "rendered": {
+                      "text": "        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n",
+                      "markdown": "`        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n        cookies = kwargs.get(\"cookies\")\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 246,
+                  "startColumn": 21,
+                  "endLine": 246,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "    @functools.wraps(real_request)\n    async def new_request(self, method, url, **kwargs):\n        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n",
+                    "rendered": {
+                      "text": "    @functools.wraps(real_request)\n    async def new_request(self, method, url, **kwargs):\n        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n",
+                      "markdown": "`    @functools.wraps(real_request)\n    async def new_request(self, method, url, **kwargs):\n        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n        params = kwargs.get(\"params\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 245,
+                  "startColumn": 24,
+                  "endLine": 245,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "def vcr_request(cassette, real_request):\n    @functools.wraps(real_request)\n    async def new_request(self, method, url, **kwargs):\n        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n",
+                    "rendered": {
+                      "text": "def vcr_request(cassette, real_request):\n    @functools.wraps(real_request)\n    async def new_request(self, method, url, **kwargs):\n        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n",
+                      "markdown": "`def vcr_request(cassette, real_request):\n    @functools.wraps(real_request)\n    async def new_request(self, method, url, **kwargs):\n        headers = kwargs.get(\"headers\")\n        auth = kwargs.get(\"auth\")\n        headers = self._prepare_headers(headers)\n        data = kwargs.get(\"data\", kwargs.get(\"json\"))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 223,
+                  "startColumn": 28,
+                  "endLine": 223,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "        c.load(cookie_header)\n    for name, value in all_cookies.items():\n        if isinstance(value, Morsel):\n            mrsl_val = value.get(value.key, Morsel())\n            mrsl_val.set(value.key, value.value, value.coded_value)\n            c[name] = mrsl_val\n        else:\n",
+                    "rendered": {
+                      "text": "        c.load(cookie_header)\n    for name, value in all_cookies.items():\n        if isinstance(value, Morsel):\n            mrsl_val = value.get(value.key, Morsel())\n            mrsl_val.set(value.key, value.value, value.coded_value)\n            c[name] = mrsl_val\n        else:\n",
+                      "markdown": "`        c.load(cookie_header)\n    for name, value in all_cookies.items():\n        if isinstance(value, Morsel):\n            mrsl_val = value.get(value.key, Morsel())\n            mrsl_val.set(value.key, value.value, value.coded_value)\n            c[name] = mrsl_val\n        else:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 28,
+                  "endLine": 122,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\ndef play_responses(cassette, vcr_request, kwargs):\n    history = []\n    allow_redirects = kwargs.get(\"allow_redirects\", True)\n    vcr_response = cassette.play_response(vcr_request)\n    response = build_response(vcr_request, vcr_response, history)\n\n",
+                    "rendered": {
+                      "text": "\ndef play_responses(cassette, vcr_request, kwargs):\n    history = []\n    allow_redirects = kwargs.get(\"allow_redirects\", True)\n    vcr_response = cassette.play_response(vcr_request)\n    response = build_response(vcr_request, vcr_response, history)\n\n",
+                      "markdown": "`\ndef play_responses(cassette, vcr_request, kwargs):\n    history = []\n    allow_redirects = kwargs.get(\"allow_redirects\", True)\n    vcr_response = cassette.play_response(vcr_request)\n    response = build_response(vcr_request, vcr_response, history)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 32,
+                  "endLine": 81,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "        try:\n            cookies = SimpleCookie(hdr)\n            for cookie_name, cookie in cookies.items():\n                expires = cookie.get(\"expires\", \"\").strip()\n                if expires:\n                    log.debug('Ignoring expiration date: %s=\"%s\"', cookie_name, expires)\n                cookie[\"expires\"] = \"\"\n",
+                    "rendered": {
+                      "text": "        try:\n            cookies = SimpleCookie(hdr)\n            for cookie_name, cookie in cookies.items():\n                expires = cookie.get(\"expires\", \"\").strip()\n                if expires:\n                    log.debug('Ignoring expiration date: %s=\"%s\"', cookie_name, expires)\n                cookie[\"expires\"] = \"\"\n",
+                      "markdown": "`        try:\n            cookies = SimpleCookie(hdr)\n            for cookie_name, cookie in cookies.items():\n                expires = cookie.get(\"expires\", \"\").strip()\n                if expires:\n                    log.debug('Ignoring expiration date: %s=\"%s\"', cookie_name, expires)\n                cookie[\"expires\"] = \"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/aiohttp_stubs.py"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 41,
+                  "endLine": 72,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "    )\n    response = MockClientResponse(vcr_request.method, URL(vcr_request.url), request_info=request_info)\n    response.status = vcr_response[\"status\"][\"code\"]\n    response._body = vcr_response[\"body\"].get(\"string\", b\"\")\n    response.reason = vcr_response[\"status\"][\"message\"]\n    response._headers = _deserialize_headers(vcr_response[\"headers\"])\n    response._history = tuple(history)\n",
+                    "rendered": {
+                      "text": "    )\n    response = MockClientResponse(vcr_request.method, URL(vcr_request.url), request_info=request_info)\n    response.status = vcr_response[\"status\"][\"code\"]\n    response._body = vcr_response[\"body\"].get(\"string\", b\"\")\n    response.reason = vcr_response[\"status\"][\"message\"]\n    response._headers = _deserialize_headers(vcr_response[\"headers\"])\n    response._history = tuple(history)\n",
+                      "markdown": "`    )\n    response = MockClientResponse(vcr_request.method, URL(vcr_request.url), request_info=request_info)\n    response.status = vcr_response[\"status\"][\"code\"]\n    response._body = vcr_response[\"body\"].get(\"string\", b\"\")\n    response.reason = vcr_response[\"status\"][\"message\"]\n    response._headers = _deserialize_headers(vcr_response[\"headers\"])\n    response._history = tuple(history)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/matchers.py"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 25,
+                  "endLine": 77,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "\ndef _header_checker(value, header=\"Content-Type\"):\n    def checker(headers):\n        _header = headers.get(header, \"\")\n        if isinstance(_header, bytes):\n            _header = _header.decode(\"utf-8\")\n        return value in _header.lower()\n",
+                    "rendered": {
+                      "text": "\ndef _header_checker(value, header=\"Content-Type\"):\n    def checker(headers):\n        _header = headers.get(header, \"\")\n        if isinstance(_header, bytes):\n            _header = _header.decode(\"utf-8\")\n        return value in _header.lower()\n",
+                      "markdown": "`\ndef _header_checker(value, header=\"Content-Type\"):\n    def checker(headers):\n        _header = headers.get(header, \"\")\n        if isinstance(_header, bytes):\n            _header = _header.decode(\"utf-8\")\n        return value in _header.lower()\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/__init__.py"
+                },
+                "region": {
+                  "startLine": 374,
+                  "startColumn": 24,
+                  "endLine": 374,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "        Send requests for weird attributes up to the real connection\n        (counterpart to __setattr above)\n        \"\"\"\n        if self.__dict__.get(\"real_connection\"):\n            # check in case real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            return getattr(self.real_connection, name)\n",
+                    "rendered": {
+                      "text": "        Send requests for weird attributes up to the real connection\n        (counterpart to __setattr above)\n        \"\"\"\n        if self.__dict__.get(\"real_connection\"):\n            # check in case real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            return getattr(self.real_connection, name)\n",
+                      "markdown": "`        Send requests for weird attributes up to the real connection\n        (counterpart to __setattr above)\n        \"\"\"\n        if self.__dict__.get(\"real_connection\"):\n            # check in case real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            return getattr(self.real_connection, name)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/__init__.py"
+                },
+                "region": {
+                  "startLine": 277,
+                  "startColumn": 36,
+                  "endLine": 277,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "            from vcr.patch import force_reset\n\n            with force_reset():\n                self.real_connection.request(\n                    method=self._vcr_request.method,\n                    url=self._url(self._vcr_request.uri),\n                    body=self._vcr_request.body,\n",
+                    "rendered": {
+                      "text": "            from vcr.patch import force_reset\n\n            with force_reset():\n                self.real_connection.request(\n                    method=self._vcr_request.method,\n                    url=self._url(self._vcr_request.uri),\n                    body=self._vcr_request.body,\n",
+                      "markdown": "`            from vcr.patch import force_reset\n\n            with force_reset():\n                self.real_connection.request(\n                    method=self._vcr_request.method,\n                    url=self._url(self._vcr_request.uri),\n                    body=self._vcr_request.body,\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/__init__.py"
+                },
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 56,
+                  "endLine": 212,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "        self._vcr_request = Request(method=method, uri=self._uri(url), body=body, headers=headers or {})\n        log.debug(f\"Got {self._vcr_request}\")\n\n        # Note: The request may not actually be finished at this point, so\n        # I'm not sending the actual request until getresponse().  This\n        # allows me to compare the entire length of the response to see if it\n        # exists in the cassette.\n",
+                    "rendered": {
+                      "text": "        self._vcr_request = Request(method=method, uri=self._uri(url), body=body, headers=headers or {})\n        log.debug(f\"Got {self._vcr_request}\")\n\n        # Note: The request may not actually be finished at this point, so\n        # I'm not sending the actual request until getresponse().  This\n        # allows me to compare the entire length of the response to see if it\n        # exists in the cassette.\n",
+                      "markdown": "`        self._vcr_request = Request(method=method, uri=self._uri(url), body=body, headers=headers or {})\n        log.debug(f\"Got {self._vcr_request}\")\n\n        # Note: The request may not actually be finished at this point, so\n        # I'm not sending the actual request until getresponse().  This\n        # allows me to compare the entire length of the response to see if it\n        # exists in the cassette.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/__init__.py"
+                },
+                "region": {
+                  "startLine": 376,
+                  "startColumn": 68,
+                  "endLine": 377,
+                  "snippet": {
+                    "text": "        \"\"\"\n        if self.__dict__.get(\"real_connection\"):\n            # check in case real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            return getattr(self.real_connection, name)\n\n        return super().__getattr__(name)\n\n",
+                    "rendered": {
+                      "text": "        \"\"\"\n        if self.__dict__.get(\"real_connection\"):\n            # check in case real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            return getattr(self.real_connection, name)\n\n        return super().__getattr__(name)\n\n",
+                      "markdown": "`        \"\"\"\n        if self.__dict__.get(\"real_connection\"):\n            # check in case real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            return getattr(self.real_connection, name)\n\n        return super().__getattr__(name)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/__init__.py"
+                },
+                "region": {
+                  "startLine": 364,
+                  "startColumn": 68,
+                  "endLine": 365,
+                  "snippet": {
+                    "text": "            setattr(self.real_connection, name, value)\n        except AttributeError:\n            # raised if real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            pass\n\n        super().__setattr__(name, value)\n\n",
+                    "rendered": {
+                      "text": "            setattr(self.real_connection, name, value)\n        except AttributeError:\n            # raised if real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            pass\n\n        super().__setattr__(name, value)\n\n",
+                      "markdown": "`            setattr(self.real_connection, name, value)\n        except AttributeError:\n            # raised if real_connection has not been set yet, such as when\n            # we're setting the real_connection itself for the first time\n            pass\n\n        super().__setattr__(name, value)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/__init__.py"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 44,
+                  "endLine": 31,
+                  "snippet": {
+                    "text": "\n    def fileno(self):\n        \"\"\"\n        This is kinda crappy.  requests will watch\n        this descriptor and make sure it's not closed.\n        Return file descriptor 0 since that's stdin.\n        \"\"\"\n        return 0  # wonder how bad this is....\n",
+                    "rendered": {
+                      "text": "\n    def fileno(self):\n        \"\"\"\n        This is kinda crappy.  requests will watch\n        this descriptor and make sure it's not closed.\n        Return file descriptor 0 since that's stdin.\n        \"\"\"\n        return 0  # wonder how bad this is....\n",
+                      "markdown": "`\n    def fileno(self):\n        \"\"\"\n        This is kinda crappy.  requests will watch\n        this descriptor and make sure it's not closed.\n        Return file descriptor 0 since that's stdin.\n        \"\"\"\n        return 0  # wonder how bad this is....\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/filters.py"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 26,
+                  "endLine": 146,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "    \"\"\"\n\n    def is_compressed(headers):\n        encoding = headers.get(\"content-encoding\", [])\n        return encoding and encoding[0] in (\"gzip\", \"deflate\")\n\n    def decompress_body(body, encoding):\n",
+                    "rendered": {
+                      "text": "    \"\"\"\n\n    def is_compressed(headers):\n        encoding = headers.get(\"content-encoding\", [])\n        return encoding and encoding[0] in (\"gzip\", \"deflate\")\n\n    def decompress_body(body, encoding):\n",
+                      "markdown": "`    \"\"\"\n\n    def is_compressed(headers):\n        encoding = headers.get(\"content-encoding\", [])\n        return encoding and encoding[0] in (\"gzip\", \"deflate\")\n\n    def decompress_body(body, encoding):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/filters.py"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 28,
+                  "endLine": 97,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "                    if rv is not None:\n                        new_body[k] = rv\n            request.body = new_body\n        elif request.headers.get(\"Content-Type\") == \"application/json\":\n            json_data = json.loads(request.body)\n            for k, rv in replacements.items():\n                if k in json_data:\n",
+                    "rendered": {
+                      "text": "                    if rv is not None:\n                        new_body[k] = rv\n            request.body = new_body\n        elif request.headers.get(\"Content-Type\") == \"application/json\":\n            json_data = json.loads(request.body)\n            for k, rv in replacements.items():\n                if k in json_data:\n",
+                      "markdown": "`                    if rv is not None:\n                        new_body[k] = rv\n            request.body = new_body\n        elif request.headers.get(\"Content-Type\") == \"application/json\":\n            json_data = json.loads(request.body)\n            for k, rv in replacements.items():\n                if k in json_data:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/filters.py"
+                },
+                "region": {
+                  "startLine": 142,
+                  "startColumn": 8,
+                  "endLine": 142,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "    If the response is compressed with gzip or deflate:\n      1. decompress the response body\n      2. delete the content-encoding header\n      3. update content-length header to decompressed length\n    \"\"\"\n\n    def is_compressed(headers):\n",
+                    "rendered": {
+                      "text": "    If the response is compressed with gzip or deflate:\n      1. decompress the response body\n      2. delete the content-encoding header\n      3. update content-length header to decompressed length\n    \"\"\"\n\n    def is_compressed(headers):\n",
+                      "markdown": "`    If the response is compressed with gzip or deflate:\n      1. decompress the response body\n      2. delete the content-encoding header\n      3. update content-length header to decompressed length\n    \"\"\"\n\n    def is_compressed(headers):\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcrpy-6.0.2.dist-info/METADATA"
+                },
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 22,
+                  "endLine": 116,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": ".. |Build Status| image:: https://github.com/kevin1024/vcrpy/actions/workflows/main.yml/badge.svg\n   :target: https://github.com/kevin1024/vcrpy/actions\n.. |Gitter| image:: https://badges.gitter.im/Join%20Chat.svg\n   :alt: Join the chat at https://gitter.im/kevin1024/vcrpy\n   :target: https://gitter.im/kevin1024/vcrpy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge\n.. |CodeCov| image:: https://codecov.io/gh/kevin1024/vcrpy/branch/master/graph/badge.svg\n   :target: https://codecov.io/gh/kevin1024/vcrpy\n",
+                    "rendered": {
+                      "text": ".. |Build Status| image:: https://github.com/kevin1024/vcrpy/actions/workflows/main.yml/badge.svg\n   :target: https://github.com/kevin1024/vcrpy/actions\n.. |Gitter| image:: https://badges.gitter.im/Join%20Chat.svg\n   :alt: Join the chat at https://gitter.im/kevin1024/vcrpy\n   :target: https://gitter.im/kevin1024/vcrpy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge\n.. |CodeCov| image:: https://codecov.io/gh/kevin1024/vcrpy/branch/master/graph/badge.svg\n   :target: https://codecov.io/gh/kevin1024/vcrpy\n",
+                      "markdown": "`.. |Build Status| image:: https://github.com/kevin1024/vcrpy/actions/workflows/main.yml/badge.svg\n   :target: https://github.com/kevin1024/vcrpy/actions\n.. |Gitter| image:: https://badges.gitter.im/Join%20Chat.svg\n   :alt: Join the chat at https://gitter.im/kevin1024/vcrpy\n   :target: https://gitter.im/kevin1024/vcrpy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge\n.. |CodeCov| image:: https://codecov.io/gh/kevin1024/vcrpy/branch/master/graph/badge.svg\n   :target: https://codecov.io/gh/kevin1024/vcrpy\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcrpy-6.0.2.dist-info/METADATA"
+                },
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 33,
+                  "endLine": 95,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "If the server you are testing against ever changes its API, all you need\nto do is delete your existing cassette files, and run your tests again.\nVCR.py will detect the absence of a cassette file and once again record\nall HTTP interactions, which will update them to correspond to the new\nAPI.\n\nUsage with Pytest\n",
+                    "rendered": {
+                      "text": "If the server you are testing against ever changes its API, all you need\nto do is delete your existing cassette files, and run your tests again.\nVCR.py will detect the absence of a cassette file and once again record\nall HTTP interactions, which will update them to correspond to the new\nAPI.\n\nUsage with Pytest\n",
+                      "markdown": "`If the server you are testing against ever changes its API, all you need\nto do is delete your existing cassette files, and run your tests again.\nVCR.py will detect the absence of a cassette file and once again record\nall HTTP interactions, which will update them to correspond to the new\nAPI.\n\nUsage with Pytest\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcrpy-6.0.2.dist-info/METADATA"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 5,
+                  "endLine": 76,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "---------\n\nVCR.py simplifies and speeds up tests that make HTTP requests. The\nfirst time you run code that is inside a VCR.py context manager or\ndecorated function, VCR.py records all HTTP interactions that take\nplace through the libraries it supports and serializes and writes them\nto a flat file (in yaml format by default). This flat file is called a\n",
+                    "rendered": {
+                      "text": "---------\n\nVCR.py simplifies and speeds up tests that make HTTP requests. The\nfirst time you run code that is inside a VCR.py context manager or\ndecorated function, VCR.py records all HTTP interactions that take\nplace through the libraries it supports and serializes and writes them\nto a flat file (in yaml format by default). This flat file is called a\n",
+                      "markdown": "`---------\n\nVCR.py simplifies and speeds up tests that make HTTP requests. The\nfirst time you run code that is inside a VCR.py context manager or\ndecorated function, VCR.py records all HTTP interactions that take\nplace through the libraries it supports and serializes and writes them\nto a flat file (in yaml format by default). This flat file is called a\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/migration.py"
+                },
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 15,
+                  "endLine": 100,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "\ndef _already_migrated(data):\n    try:\n        if data.get(\"version\") == 1:\n            return True\n    except AttributeError:\n        return False\n",
+                    "rendered": {
+                      "text": "\ndef _already_migrated(data):\n    try:\n        if data.get(\"version\") == 1:\n            return True\n    except AttributeError:\n        return False\n",
+                      "markdown": "`\ndef _already_migrated(data):\n    try:\n        if data.get(\"version\") == 1:\n            return True\n    except AttributeError:\n        return False\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/migration.py"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 9,
+                  "endLine": 2,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "\"\"\"\nMigration script for old 'yaml' and 'json' cassettes\n\n.. warning:: Backup your cassettes files before migration.\n\n",
+                    "rendered": {
+                      "text": "\"\"\"\nMigration script for old 'yaml' and 'json' cassettes\n\n.. warning:: Backup your cassettes files before migration.\n\n",
+                      "markdown": "`\"\"\"\nMigration script for old 'yaml' and 'json' cassettes\n\n.. warning:: Backup your cassettes files before migration.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/serializers/compat.py"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 19,
+                  "endLine": 63,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "        # Some of the tests just serialize and deserialize a string.\n        return _convert_string_to_unicode(resp)\n    else:\n        body = resp.get(\"body\")\n\n        if body is not None:\n            try:\n",
+                    "rendered": {
+                      "text": "        # Some of the tests just serialize and deserialize a string.\n        return _convert_string_to_unicode(resp)\n    else:\n        body = resp.get(\"body\")\n\n        if body is not None:\n            try:\n",
+                      "markdown": "`        # Some of the tests just serialize and deserialize a string.\n        return _convert_string_to_unicode(resp)\n    else:\n        body = resp.get(\"body\")\n\n        if body is not None:\n            try:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 34,
+                  "endLine": 196,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n        if filter_headers:\n            replacements = [h if isinstance(h, tuple) else (h, None) for h in filter_headers]\n            filter_functions.append(functools.partial(filters.replace_headers, replacements=replacements))\n",
+                    "rendered": {
+                      "text": "            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n        if filter_headers:\n            replacements = [h if isinstance(h, tuple) else (h, None) for h in filter_headers]\n            filter_functions.append(functools.partial(filters.replace_headers, replacements=replacements))\n",
+                      "markdown": "`            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n        if filter_headers:\n            replacements = [h if isinstance(h, tuple) else (h, None) for h in filter_headers]\n            filter_functions.append(functools.partial(filters.replace_headers, replacements=replacements))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 195,
+                  "startColumn": 30,
+                  "endLine": 195,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n        if filter_headers:\n            replacements = [h if isinstance(h, tuple) else (h, None) for h in filter_headers]\n",
+                    "rendered": {
+                      "text": "            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n        if filter_headers:\n            replacements = [h if isinstance(h, tuple) else (h, None) for h in filter_headers]\n",
+                      "markdown": "`            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n        if filter_headers:\n            replacements = [h if isinstance(h, tuple) else (h, None) for h in filter_headers]\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 193,
+                  "startColumn": 19,
+                  "endLine": 193,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "        )\n        before_record_request = options.get(\n            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n",
+                    "rendered": {
+                      "text": "        )\n        before_record_request = options.get(\n            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n",
+                      "markdown": "`        )\n        before_record_request = options.get(\n            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n        ignore_hosts = options.get(\"ignore_hosts\", self.ignore_hosts)\n        ignore_localhost = options.get(\"ignore_localhost\", self.ignore_localhost)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 39,
+                  "endLine": 191,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n        )\n        before_record_request = options.get(\n            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n",
+                    "rendered": {
+                      "text": "            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n        )\n        before_record_request = options.get(\n            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n",
+                      "markdown": "`            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n        )\n        before_record_request = options.get(\n            \"before_record_request\",\n            options.get(\"before_record\", self.before_record_request),\n        )\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 187,
+                  "startColumn": 45,
+                  "endLine": 187,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n        )\n",
+                    "rendered": {
+                      "text": "        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n        )\n",
+                      "markdown": "`        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n        )\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 41,
+                  "endLine": 186,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "    def _build_before_record_request(self, options):\n        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n",
+                    "rendered": {
+                      "text": "    def _build_before_record_request(self, options):\n        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n",
+                      "markdown": "`    def _build_before_record_request(self, options):\n        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n            self.filter_post_data_parameters,\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 185,
+                  "startColumn": 32,
+                  "endLine": 185,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "\n    def _build_before_record_request(self, options):\n        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n",
+                    "rendered": {
+                      "text": "\n    def _build_before_record_request(self, options):\n        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n",
+                      "markdown": "`\n    def _build_before_record_request(self, options):\n        filter_functions = []\n        filter_headers = options.get(\"filter_headers\", self.filter_headers)\n        filter_query_parameters = options.get(\"filter_query_parameters\", self.filter_query_parameters)\n        filter_post_data_parameters = options.get(\n            \"filter_post_data_parameters\",\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 162,
+                  "startColumn": 44,
+                  "endLine": 162,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "\n    def _build_before_record_response(self, options):\n        before_record_response = options.get(\"before_record_response\", self.before_record_response)\n        decode_compressed_response = options.get(\n            \"decode_compressed_response\",\n            self.decode_compressed_response,\n        )\n",
+                    "rendered": {
+                      "text": "\n    def _build_before_record_response(self, options):\n        before_record_response = options.get(\"before_record_response\", self.before_record_response)\n        decode_compressed_response = options.get(\n            \"decode_compressed_response\",\n            self.decode_compressed_response,\n        )\n",
+                      "markdown": "`\n    def _build_before_record_response(self, options):\n        before_record_response = options.get(\"before_record_response\", self.before_record_response)\n        decode_compressed_response = options.get(\n            \"decode_compressed_response\",\n            self.decode_compressed_response,\n        )\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 161,
+                  "startColumn": 40,
+                  "endLine": 161,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "        return merged_config\n\n    def _build_before_record_response(self, options):\n        before_record_response = options.get(\"before_record_response\", self.before_record_response)\n        decode_compressed_response = options.get(\n            \"decode_compressed_response\",\n            self.decode_compressed_response,\n",
+                    "rendered": {
+                      "text": "        return merged_config\n\n    def _build_before_record_response(self, options):\n        before_record_response = options.get(\"before_record_response\", self.before_record_response)\n        decode_compressed_response = options.get(\n            \"decode_compressed_response\",\n            self.decode_compressed_response,\n",
+                      "markdown": "`        return merged_config\n\n    def _build_before_record_response(self, options):\n        before_record_response = options.get(\"before_record_response\", self.before_record_response)\n        decode_compressed_response = options.get(\n            \"decode_compressed_response\",\n            self.decode_compressed_response,\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 21,
+                  "endLine": 155,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n            \"record_on_exception\": record_on_exception,\n        }\n        path = kwargs.get(\"path\")\n        if path:\n            merged_config[\"path\"] = path\n        return merged_config\n",
+                    "rendered": {
+                      "text": "            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n            \"record_on_exception\": record_on_exception,\n        }\n        path = kwargs.get(\"path\")\n        if path:\n            merged_config[\"path\"] = path\n        return merged_config\n",
+                      "markdown": "`            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n            \"record_on_exception\": record_on_exception,\n        }\n        path = kwargs.get(\"path\")\n        if path:\n            merged_config[\"path\"] = path\n        return merged_config\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 44,
+                  "endLine": 152,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n            \"record_on_exception\": record_on_exception,\n        }\n        path = kwargs.get(\"path\")\n",
+                    "rendered": {
+                      "text": "            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n            \"record_on_exception\": record_on_exception,\n        }\n        path = kwargs.get(\"path\")\n",
+                      "markdown": "`            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n            \"record_on_exception\": record_on_exception,\n        }\n        path = kwargs.get(\"path\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 149,
+                  "startColumn": 28,
+                  "endLine": 149,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n",
+                    "rendered": {
+                      "text": "            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n",
+                      "markdown": "`            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n            \"allow_playback_repeats\": kwargs.get(\"allow_playback_repeats\", False),\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 59,
+                  "endLine": 148,
+                  "endColumn": 64,
+                  "snippet": {
+                    "text": "            \"record_mode\": kwargs.get(\"record_mode\", self.record_mode),\n            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n",
+                    "rendered": {
+                      "text": "            \"record_mode\": kwargs.get(\"record_mode\", self.record_mode),\n            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n",
+                      "markdown": "`            \"record_mode\": kwargs.get(\"record_mode\", self.record_mode),\n            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n            \"inject\": kwargs.get(\"inject_cassette\", self.inject_cassette),\n            \"path_transformer\": path_transformer,\n            \"func_path_generator\": func_path_generator,\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 33,
+                  "endLine": 145,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "            \"serializer\": self._get_serializer(serializer_name),\n            \"persister\": self.persister,\n            \"match_on\": self._get_matchers(tuple(matcher_names) + tuple(additional_matchers)),\n            \"record_mode\": kwargs.get(\"record_mode\", self.record_mode),\n            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n",
+                    "rendered": {
+                      "text": "            \"serializer\": self._get_serializer(serializer_name),\n            \"persister\": self.persister,\n            \"match_on\": self._get_matchers(tuple(matcher_names) + tuple(additional_matchers)),\n            \"record_mode\": kwargs.get(\"record_mode\", self.record_mode),\n            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n",
+                      "markdown": "`            \"serializer\": self._get_serializer(serializer_name),\n            \"persister\": self.persister,\n            \"match_on\": self._get_matchers(tuple(matcher_names) + tuple(additional_matchers)),\n            \"record_mode\": kwargs.get(\"record_mode\", self.record_mode),\n            \"before_record_request\": self._build_before_record_request(kwargs),\n            \"before_record_response\": self._build_before_record_response(kwargs),\n            \"custom_patches\": self._custom_patches + kwargs.get(\"custom_patches\", ()),\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 36,
+                  "endLine": 126,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n        if cassette_library_dir:\n\n",
+                    "rendered": {
+                      "text": "        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n        if cassette_library_dir:\n\n",
+                      "markdown": "`        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n        if cassette_library_dir:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 36,
+                  "endLine": 125,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n        if cassette_library_dir:\n",
+                    "rendered": {
+                      "text": "        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n        if cassette_library_dir:\n",
+                      "markdown": "`        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n        if cassette_library_dir:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 37,
+                  "endLine": 124,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n",
+                    "rendered": {
+                      "text": "        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n",
+                      "markdown": "`        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 123,
+                  "startColumn": 36,
+                  "endLine": 123,
+                  "endColumn": 41,
+                  "snippet": {
+                    "text": "        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n",
+                    "rendered": {
+                      "text": "        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n",
+                      "markdown": "`        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n        record_on_exception = kwargs.get(\"record_on_exception\", self.record_on_exception)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 33,
+                  "endLine": 122,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n",
+                    "rendered": {
+                      "text": "    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n",
+                      "markdown": "`    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n        additional_matchers = kwargs.get(\"additional_matchers\", ())\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 30,
+                  "endLine": 121,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "\n    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n",
+                    "rendered": {
+                      "text": "\n    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n",
+                      "markdown": "`\n    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n        cassette_library_dir = kwargs.get(\"cassette_library_dir\", self.cassette_library_dir)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 32,
+                  "endLine": 120,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "        return Cassette.use_arg_getter(args_getter)\n\n    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n",
+                    "rendered": {
+                      "text": "        return Cassette.use_arg_getter(args_getter)\n\n    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n",
+                      "markdown": "`        return Cassette.use_arg_getter(args_getter)\n\n    def get_merged_config(self, **kwargs):\n        serializer_name = kwargs.get(\"serializer\", self.serializer)\n        matcher_names = kwargs.get(\"match_on\", self.match_on)\n        path_transformer = kwargs.get(\"path_transformer\", self.path_transformer)\n        func_path_generator = kwargs.get(\"func_path_generator\", self.func_path_generator)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/config.py"
+                },
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 54,
+                  "endLine": 112,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "        if with_current_defaults:\n            config = self.get_merged_config(**kwargs)\n            return Cassette.use(**config)\n        # This is made a function that evaluates every time a cassette\n        # is made so that changes that are made to this VCR instance\n        # that occur AFTER the `use_cassette` decorator is applied\n        # still affect subsequent calls to the decorated function.\n",
+                    "rendered": {
+                      "text": "        if with_current_defaults:\n            config = self.get_merged_config(**kwargs)\n            return Cassette.use(**config)\n        # This is made a function that evaluates every time a cassette\n        # is made so that changes that are made to this VCR instance\n        # that occur AFTER the `use_cassette` decorator is applied\n        # still affect subsequent calls to the decorated function.\n",
+                      "markdown": "`        if with_current_defaults:\n            config = self.get_merged_config(**kwargs)\n            return Cassette.use(**config)\n        # This is made a function that evaluates every time a cassette\n        # is made so that changes that are made to this VCR instance\n        # that occur AFTER the `use_cassette` decorator is applied\n        # still affect subsequent calls to the decorated function.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/tornado_stubs.py"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 42,
+                  "endLine": 59,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "                reason=vcr_response[\"status\"][\"message\"],\n                headers=headers,\n                buffer=BytesIO(vcr_response[\"body\"][\"string\"]),\n                effective_url=vcr_response.get(\"url\"),\n                request_time=self.io_loop.time() - request.start_time,\n            )\n            return callback(response)\n",
+                    "rendered": {
+                      "text": "                reason=vcr_response[\"status\"][\"message\"],\n                headers=headers,\n                buffer=BytesIO(vcr_response[\"body\"][\"string\"]),\n                effective_url=vcr_response.get(\"url\"),\n                request_time=self.io_loop.time() - request.start_time,\n            )\n            return callback(response)\n",
+                      "markdown": "`                reason=vcr_response[\"status\"][\"message\"],\n                headers=headers,\n                buffer=BytesIO(vcr_response[\"body\"][\"string\"]),\n                effective_url=vcr_response.get(\"url\"),\n                request_time=self.io_loop.time() - request.start_time,\n            )\n            return callback(response)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/boto3_stubs.py"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 51,
+                  "endLine": 29,
+                  "endColumn": 56,
+                  "snippet": {
+                    "text": "            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                    "rendered": {
+                      "text": "            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                      "markdown": "`            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/boto3_stubs.py"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 57,
+                  "endLine": 28,
+                  "endColumn": 62,
+                  "snippet": {
+                    "text": "            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                    "rendered": {
+                      "text": "            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                      "markdown": "`            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/boto3_stubs.py"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 70,
+                  "endLine": 28,
+                  "endColumn": 78,
+                  "snippet": {
+                    "text": "            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                    "rendered": {
+                      "text": "            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                      "markdown": "`            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/stubs/boto3_stubs.py"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 40,
+                  "endLine": 28,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                    "rendered": {
+                      "text": "            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n",
+                      "markdown": "`            self.real_connection = self._baseclass(*args, **kwargs)\n            # Make sure to set those attributes as it seems `AWSHTTPConnection` does not\n            # set them, making the connection to fail !\n            self.real_connection.assert_hostname = kwargs.get(\"assert_hostname\", False)\n            self.real_connection.cert_reqs = kwargs.get(\"cert_reqs\", \"CERT_NONE\")\n\n        self._sock = None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 142,
+                  "startColumn": 39,
+                  "endLine": 142,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "        def new_args_getter():\n            kwargs = self._args_getter()\n            if \"path\" not in kwargs:\n                name_generator = kwargs.get(\"func_path_generator\") or self.get_function_name\n                path = name_generator(function)\n                kwargs[\"path\"] = path\n            return kwargs\n",
+                    "rendered": {
+                      "text": "        def new_args_getter():\n            kwargs = self._args_getter()\n            if \"path\" not in kwargs:\n                name_generator = kwargs.get(\"func_path_generator\") or self.get_function_name\n                path = name_generator(function)\n                kwargs[\"path\"] = path\n            return kwargs\n",
+                      "markdown": "`        def new_args_getter():\n            kwargs = self._args_getter()\n            if \"path\" not in kwargs:\n                name_generator = kwargs.get(\"func_path_generator\") or self.get_function_name\n                path = name_generator(function)\n                kwargs[\"path\"] = path\n            return kwargs\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 49,
+                  "endLine": 88,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "\n    def __exit__(self, *exc_info):\n        exception_was_raised = any(exc_info)\n        record_on_exception = self._args_getter().get(\"record_on_exception\", True)\n        if record_on_exception or not exception_was_raised:\n            self.__cassette._save()\n            self.__cassette = None\n",
+                    "rendered": {
+                      "text": "\n    def __exit__(self, *exc_info):\n        exception_was_raised = any(exc_info)\n        record_on_exception = self._args_getter().get(\"record_on_exception\", True)\n        if record_on_exception or not exception_was_raised:\n            self.__cassette._save()\n            self.__cassette = None\n",
+                      "markdown": "`\n    def __exit__(self, *exc_info):\n        exception_was_raised = any(exc_info)\n        record_on_exception = self._args_getter().get(\"record_on_exception\", True)\n        if record_on_exception or not exception_was_raised:\n            self.__cassette._save()\n            self.__cassette = None\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 23,
+                  "endLine": 79,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "            lambda key, _: key in self._non_cassette_arguments,\n            self._args_getter(),\n        )\n        if other_kwargs.get(\"path_transformer\"):\n            transformer = other_kwargs[\"path_transformer\"]\n            cassette_kwargs[\"path\"] = transformer(cassette_kwargs[\"path\"])\n        self.__cassette = self.cls.load(**cassette_kwargs)\n",
+                    "rendered": {
+                      "text": "            lambda key, _: key in self._non_cassette_arguments,\n            self._args_getter(),\n        )\n        if other_kwargs.get(\"path_transformer\"):\n            transformer = other_kwargs[\"path_transformer\"]\n            cassette_kwargs[\"path\"] = transformer(cassette_kwargs[\"path\"])\n        self.__cassette = self.cls.load(**cassette_kwargs)\n",
+                      "markdown": "`            lambda key, _: key in self._non_cassette_arguments,\n            self._args_getter(),\n        )\n        if other_kwargs.get(\"path_transformer\"):\n            transformer = other_kwargs[\"path_transformer\"]\n            cassette_kwargs[\"path\"] = transformer(cassette_kwargs[\"path\"])\n        self.__cassette = self.cls.load(**cassette_kwargs)\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 51,
+                  "endLine": 155,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "\n    @classmethod\n    def load(cls, **kwargs):\n        \"\"\"Instantiate and load the cassette stored at the specified path.\"\"\"\n        new_cassette = cls(**kwargs)\n        new_cassette._load()\n        return new_cassette\n",
+                    "rendered": {
+                      "text": "\n    @classmethod\n    def load(cls, **kwargs):\n        \"\"\"Instantiate and load the cassette stored at the specified path.\"\"\"\n        new_cassette = cls(**kwargs)\n        new_cassette._load()\n        return new_cassette\n",
+                      "markdown": "`\n    @classmethod\n    def load(cls, **kwargs):\n        \"\"\"Instantiate and load the cassette stored at the specified path.\"\"\"\n        new_cassette = cls(**kwargs)\n        new_cassette._load()\n        return new_cassette\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 55,
+                  "endLine": 60,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "        with contextlib.ExitStack() as exit_stack:\n            for patcher in CassettePatcherBuilder(cassette).build():\n                exit_stack.enter_context(patcher)\n            log_format = \"{action} context for cassette at {path}.\"\n            log.debug(log_format.format(action=\"Entering\", path=cassette._path))\n            yield cassette\n            log.debug(log_format.format(action=\"Exiting\", path=cassette._path))\n",
+                    "rendered": {
+                      "text": "        with contextlib.ExitStack() as exit_stack:\n            for patcher in CassettePatcherBuilder(cassette).build():\n                exit_stack.enter_context(patcher)\n            log_format = \"{action} context for cassette at {path}.\"\n            log.debug(log_format.format(action=\"Entering\", path=cassette._path))\n            yield cassette\n            log.debug(log_format.format(action=\"Exiting\", path=cassette._path))\n",
+                      "markdown": "`        with contextlib.ExitStack() as exit_stack:\n            for patcher in CassettePatcherBuilder(cassette).build():\n                exit_stack.enter_context(patcher)\n            log_format = \"{action} context for cassette at {path}.\"\n            log.debug(log_format.format(action=\"Entering\", path=cassette._path))\n            yield cassette\n            log.debug(log_format.format(action=\"Exiting\", path=cassette._path))\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 13,
+                  "endLine": 27,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "    removing cassettes.\n\n    This class defers the creation of a new cassette instance until\n    the point at which it is installed by context manager or\n    decorator. The fact that a new cassette is used with each\n    application prevents the state of any cassette from interfering\n    with another.\n",
+                    "rendered": {
+                      "text": "    removing cassettes.\n\n    This class defers the creation of a new cassette instance until\n    the point at which it is installed by context manager or\n    decorator. The fact that a new cassette is used with each\n    application prevents the state of any cassette from interfering\n    with another.\n",
+                      "markdown": "`    removing cassettes.\n\n    This class defers the creation of a new cassette instance until\n    the point at which it is installed by context manager or\n    decorator. The fact that a new cassette is used with each\n    application prevents the state of any cassette from interfering\n    with another.\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/py3-vcrpy-6.0.2-r0.apk/py3-vcrpy-6.0.2-r0/usr/lib/python3.12/site-packages/vcr/cassette.py"
+                },
+                "region": {
+                  "startLine": 268,
+                  "startColumn": 7,
+                  "endLine": 268,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "\n    def responses_of(self, request):\n        \"\"\"\n        Find the responses corresponding to a request.\n        This function isn't actually used by VCR internally, but is\n        provided as an external API.\n        \"\"\"\n",
+                    "rendered": {
+                      "text": "\n    def responses_of(self, request):\n        \"\"\"\n        Find the responses corresponding to a request.\n        This function isn't actually used by VCR internally, but is\n        provided as an external API.\n        \"\"\"\n",
+                      "markdown": "`\n    def responses_of(self, request):\n        \"\"\"\n        Find the responses corresponding to a request.\n        This function isn't actually used by VCR internally, but is\n        provided as an external API.\n        \"\"\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

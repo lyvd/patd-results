@@ -1,0 +1,1345 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/input_stream.rb"
+                },
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 22,
+                  "endLine": 126,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "    def open_entry\n      @current_entry = ::Zip::Entry.read_local_entry(@archive_io)\n      if @current_entry && @current_entry.encrypted? && @decrypter.kind_of?(NullEncrypter)\n        raise Error, 'password required to decode zip file'\n      end\n\n      if @current_entry && @current_entry.incomplete? && @current_entry.crc == 0 \\\n",
+                    "rendered": {
+                      "text": "    def open_entry\n      @current_entry = ::Zip::Entry.read_local_entry(@archive_io)\n      if @current_entry && @current_entry.encrypted? && @decrypter.kind_of?(NullEncrypter)\n        raise Error, 'password required to decode zip file'\n      end\n\n      if @current_entry && @current_entry.incomplete? && @current_entry.crc == 0 \\\n",
+                      "markdown": "`    def open_entry\n      @current_entry = ::Zip::Entry.read_local_entry(@archive_io)\n      if @current_entry && @current_entry.encrypted? && @decrypter.kind_of?(NullEncrypter)\n        raise Error, 'password required to decode zip file'\n      end\n\n      if @current_entry && @current_entry.incomplete? && @current_entry.crc == 0 \\\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/entry.rb"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 52,
+                  "endLine": 373,
+                  "endColumn": 56,
+                  "snippet": {
+                    "text": "    def check_c_dir_entry_signature\n      return if header_signature == ::Zip::CENTRAL_DIRECTORY_ENTRY_SIGNATURE\n\n      raise Error, \"Zip local header magic not found at location '#{local_header_offset}'\"\n    end\n\n    def check_c_dir_entry_comment_size\n",
+                    "rendered": {
+                      "text": "    def check_c_dir_entry_signature\n      return if header_signature == ::Zip::CENTRAL_DIRECTORY_ENTRY_SIGNATURE\n\n      raise Error, \"Zip local header magic not found at location '#{local_header_offset}'\"\n    end\n\n    def check_c_dir_entry_comment_size\n",
+                      "markdown": "`    def check_c_dir_entry_signature\n      return if header_signature == ::Zip::CENTRAL_DIRECTORY_ENTRY_SIGNATURE\n\n      raise Error, \"Zip local header magic not found at location '#{local_header_offset}'\"\n    end\n\n    def check_c_dir_entry_comment_size\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/entry.rb"
+                },
+                "region": {
+                  "startLine": 257,
+                  "startColumn": 61,
+                  "endLine": 257,
+                  "endColumn": 65,
+                  "snippet": {
+                    "text": "      unpack_local_entry(static_sized_fields_buf)\n\n      unless @header_signature == ::Zip::LOCAL_ENTRY_SIGNATURE\n        raise ::Zip::Error, \"Zip local header magic not found at location '#{local_header_offset}'\"\n      end\n\n      set_time(@last_mod_date, @last_mod_time)\n",
+                    "rendered": {
+                      "text": "      unpack_local_entry(static_sized_fields_buf)\n\n      unless @header_signature == ::Zip::LOCAL_ENTRY_SIGNATURE\n        raise ::Zip::Error, \"Zip local header magic not found at location '#{local_header_offset}'\"\n      end\n\n      set_time(@last_mod_date, @last_mod_time)\n",
+                      "markdown": "`      unpack_local_entry(static_sized_fields_buf)\n\n      unless @header_signature == ::Zip::LOCAL_ENTRY_SIGNATURE\n        raise ::Zip::Error, \"Zip local header magic not found at location '#{local_header_offset}'\"\n      end\n\n      set_time(@last_mod_date, @last_mod_time)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/entry.rb"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 15,
+                  "endLine": 97,
+                  "snippet": {
+                    "text": "      end\n    end\n\n    alias mtime time\n\n    def time=(value)\n      unless @extra.member?('UniversalTime') || @extra.member?('NTFS')\n        @extra.create('UniversalTime')\n",
+                    "rendered": {
+                      "text": "      end\n    end\n\n    alias mtime time\n\n    def time=(value)\n      unless @extra.member?('UniversalTime') || @extra.member?('NTFS')\n        @extra.create('UniversalTime')\n",
+                      "markdown": "`      end\n    end\n\n    alias mtime time\n\n    def time=(value)\n      unless @extra.member?('UniversalTime') || @extra.member?('NTFS')\n        @extra.create('UniversalTime')\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/entry.rb"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 60,
+                  "endLine": 91,
+                  "snippet": {
+                    "text": "      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n      else\n        # Standard time field in central directory has local time\n        # under archive creator. Then, we can't get timezone.\n        @time\n      end\n    end\n",
+                    "rendered": {
+                      "text": "      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n      else\n        # Standard time field in central directory has local time\n        # under archive creator. Then, we can't get timezone.\n        @time\n      end\n    end\n",
+                      "markdown": "`      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n      else\n        # Standard time field in central directory has local time\n        # under archive creator. Then, we can't get timezone.\n        @time\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/entry.rb"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 18,
+                  "endLine": 90,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n      else\n        # Standard time field in central directory has local time\n        # under archive creator. Then, we can't get timezone.\n        @time\n      end\n",
+                    "rendered": {
+                      "text": "      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n      else\n        # Standard time field in central directory has local time\n        # under archive creator. Then, we can't get timezone.\n        @time\n      end\n",
+                      "markdown": "`      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n      else\n        # Standard time field in central directory has local time\n        # under archive creator. Then, we can't get timezone.\n        @time\n      end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/entry.rb"
+                },
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 7,
+                  "endLine": 85,
+                  "snippet": {
+                    "text": "      gp_flags & 8 == 8\n    end\n\n    def time\n      if @extra['UniversalTime']\n        @extra['UniversalTime'].mtime\n      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n",
+                    "rendered": {
+                      "text": "      gp_flags & 8 == 8\n    end\n\n    def time\n      if @extra['UniversalTime']\n        @extra['UniversalTime'].mtime\n      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n",
+                      "markdown": "`      gp_flags & 8 == 8\n    end\n\n    def time\n      if @extra['UniversalTime']\n        @extra['UniversalTime'].mtime\n      elsif @extra['NTFS']\n        @extra['NTFS'].mtime\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/dos_time.rb"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 17,
+                  "endLine": 2,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "module Zip\n  class DOSTime < Time #:nodoc:all\n    # MS-DOS File Date and Time format as used in Interrupt 21H Function 57H:\n\n    # Register CX, the Time:\n",
+                    "rendered": {
+                      "text": "module Zip\n  class DOSTime < Time #:nodoc:all\n    # MS-DOS File Date and Time format as used in Interrupt 21H Function 57H:\n\n    # Register CX, the Time:\n",
+                      "markdown": "`module Zip\n  class DOSTime < Time #:nodoc:all\n    # MS-DOS File Date and Time format as used in Interrupt 21H Function 57H:\n\n    # Register CX, the Time:\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/crypto/traditional_encryption.rb"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 7,
+                  "endLine": 22,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "      @key0 = 0x12345678\n      @key1 = 0x23456789\n      @key2 = 0x34567890\n      @password.each_byte do |byte|\n        update_keys(byte.chr)\n      end\n    end\n",
+                    "rendered": {
+                      "text": "      @key0 = 0x12345678\n      @key1 = 0x23456789\n      @key2 = 0x34567890\n      @password.each_byte do |byte|\n        update_keys(byte.chr)\n      end\n    end\n",
+                      "markdown": "`      @key0 = 0x12345678\n      @key1 = 0x23456789\n      @key2 = 0x34567890\n      @password.each_byte do |byte|\n        update_keys(byte.chr)\n      end\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/crypto/traditional_encryption.rb"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 18,
+                  "endLine": 4,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n\n",
+                    "rendered": {
+                      "text": "module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n\n",
+                      "markdown": "`module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/crypto/traditional_encryption.rb"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 7,
+                  "endLine": 4,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n\n",
+                    "rendered": {
+                      "text": "module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n\n",
+                      "markdown": "`module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/crypto/traditional_encryption.rb"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 19,
+                  "endLine": 3,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n",
+                    "rendered": {
+                      "text": "module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n",
+                      "markdown": "`module Zip\n  module TraditionalEncryption\n    def initialize(password)\n      @password = password\n      reset_keys!\n    end\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 22,
+                  "endLine": 7,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 235109\norigin = ruby3.2-rubyzip\npkgdesc = rubyzip is a ruby module for reading and writing zip files\nurl = \ncommit = 6c3e34c97c3fc70a86207abd16afe6de997cd7c6\nbuilddate = 1721404986\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 235109\norigin = ruby3.2-rubyzip\npkgdesc = rubyzip is a ruby module for reading and writing zip files\nurl = \ncommit = 6c3e34c97c3fc70a86207abd16afe6de997cd7c6\nbuilddate = 1721404986\n",
+                      "markdown": "`arch = x86_64\nsize = 235109\norigin = ruby3.2-rubyzip\npkgdesc = rubyzip is a ruby module for reading and writing zip files\nurl = \ncommit = 6c3e34c97c3fc70a86207abd16afe6de997cd7c6\nbuilddate = 1721404986\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/specifications/rubyzip-2.3.2.gemspec"
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 27,
+                  "endLine": 19,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "ee https://github.com/rubyzip/rubyzip for details. The Changelog also\\nlists other enhancements and bugfixes that have been implemented since\\nversion 2.3.0.\\n\".freeze\n  s.required_ruby_version = Gem::Requirement.new(\">= 2.4\".freeze)\n  s.rubygems_version = \"3.4.19\".freeze\n  s.summary = \"rubyzip is a ruby module for reading and writing zip files\".freeze\n\n  s.installed_by_version = \"3.4.19\" if s.respond_to? :installed_by_version\n\n  s.specification_version = 4\n\n  s.add_development_dependency(%q<coveralls>.freeze, [\"~> 0.7\"])\n  s.add_development_dependency(%q<minitest>.freeze, [\"~> 5.4\"])\n  s.add_develo",
+                    "rendered": {
+                      "text": "ee https://github.com/rubyzip/rubyzip for details. The Changelog also\\nlists other enhancements and bugfixes that have been implemented since\\nversion 2.3.0.\\n\".freeze\n  s.required_ruby_version = Gem::Requirement.new(\">= 2.4\".freeze)\n  s.rubygems_version = \"3.4.19\".freeze\n  s.summary = \"rubyzip is a ruby module for reading and writing zip files\".freeze\n\n  s.installed_by_version = \"3.4.19\" if s.respond_to? :installed_by_version\n\n  s.specification_version = 4\n\n  s.add_development_dependency(%q<coveralls>.freeze, [\"~> 0.7\"])\n  s.add_development_dependency(%q<minitest>.freeze, [\"~> 5.4\"])\n  s.add_develo",
+                      "markdown": "`ee https://github.com/rubyzip/rubyzip for details. The Changelog also\\nlists other enhancements and bugfixes that have been implemented since\\nversion 2.3.0.\\n\".freeze\n  s.required_ruby_version = Gem::Requirement.new(\">= 2.4\".freeze)\n  s.rubygems_version = \"3.4.19\".freeze\n  s.summary = \"rubyzip is a ruby module for reading and writing zip files\".freeze\n\n  s.installed_by_version = \"3.4.19\" if s.respond_to? :installed_by_version\n\n  s.specification_version = 4\n\n  s.add_development_dependency(%q<coveralls>.freeze, [\"~> 0.7\"])\n  s.add_development_dependency(%q<minitest>.freeze, [\"~> 5.4\"])\n  s.add_develo`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/specifications/rubyzip-2.3.2.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 21,
+                  "endLine": 2,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: rubyzip 2.3.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"rubyzip\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: rubyzip 2.3.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"rubyzip\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: rubyzip 2.3.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"rubyzip\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/file.rb"
+                },
+                "region": {
+                  "startLine": 269,
+                  "startColumn": 63,
+                  "endLine": 269,
+                  "endColumn": 69,
+                  "snippet": {
+                    "text": "    # File.open method.\n    def get_output_stream(entry, permission_int = nil, comment = nil,\n                          extra = nil, compressed_size = nil, crc = nil,\n                          compression_method = nil, size = nil, time = nil,\n                          &a_proc)\n\n      new_entry =\n",
+                    "rendered": {
+                      "text": "    # File.open method.\n    def get_output_stream(entry, permission_int = nil, comment = nil,\n                          extra = nil, compressed_size = nil, crc = nil,\n                          compression_method = nil, size = nil, time = nil,\n                          &a_proc)\n\n      new_entry =\n",
+                      "markdown": "`    # File.open method.\n    def get_output_stream(entry, permission_int = nil, comment = nil,\n                          extra = nil, compressed_size = nil, crc = nil,\n                          compression_method = nil, size = nil, time = nil,\n                          &a_proc)\n\n      new_entry =\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/extra_field/universal_time.rb"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 14,
+                  "endLine": 35,
+                  "snippet": {
+                    "text": "\n    def mtime=(time)\n      @flag = time.nil? ? @flag & ~MTIME_MASK : @flag | MTIME_MASK\n      @mtime = time\n    end\n\n    def merge(binstr)\n      return if binstr.empty?\n",
+                    "rendered": {
+                      "text": "\n    def mtime=(time)\n      @flag = time.nil? ? @flag & ~MTIME_MASK : @flag | MTIME_MASK\n      @mtime = time\n    end\n\n    def merge(binstr)\n      return if binstr.empty?\n",
+                      "markdown": "`\n    def mtime=(time)\n      @flag = time.nil? ? @flag & ~MTIME_MASK : @flag | MTIME_MASK\n      @mtime = time\n    end\n\n    def merge(binstr)\n      return if binstr.empty?\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/extra_field/universal_time.rb"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 14,
+                  "endLine": 30,
+                  "snippet": {
+                    "text": "\n    def ctime=(time)\n      @flag = time.nil? ? @flag & ~CTIME_MASK : @flag | CTIME_MASK\n      @ctime = time\n    end\n\n    def mtime=(time)\n      @flag = time.nil? ? @flag & ~MTIME_MASK : @flag | MTIME_MASK\n",
+                    "rendered": {
+                      "text": "\n    def ctime=(time)\n      @flag = time.nil? ? @flag & ~CTIME_MASK : @flag | CTIME_MASK\n      @ctime = time\n    end\n\n    def mtime=(time)\n      @flag = time.nil? ? @flag & ~MTIME_MASK : @flag | MTIME_MASK\n",
+                      "markdown": "`\n    def ctime=(time)\n      @flag = time.nil? ? @flag & ~CTIME_MASK : @flag | CTIME_MASK\n      @ctime = time\n    end\n\n    def mtime=(time)\n      @flag = time.nil? ? @flag & ~MTIME_MASK : @flag | MTIME_MASK\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/lib/zip/extra_field/universal_time.rb"
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 14,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "\n    def atime=(time)\n      @flag = time.nil? ? @flag & ~ATIME_MASK : @flag | ATIME_MASK\n      @atime = time\n    end\n\n    def ctime=(time)\n      @flag = time.nil? ? @flag & ~CTIME_MASK : @flag | CTIME_MASK\n",
+                    "rendered": {
+                      "text": "\n    def atime=(time)\n      @flag = time.nil? ? @flag & ~ATIME_MASK : @flag | ATIME_MASK\n      @atime = time\n    end\n\n    def ctime=(time)\n      @flag = time.nil? ? @flag & ~CTIME_MASK : @flag | CTIME_MASK\n",
+                      "markdown": "`\n    def atime=(time)\n      @flag = time.nil? ? @flag & ~ATIME_MASK : @flag | ATIME_MASK\n      @atime = time\n    end\n\n    def ctime=(time)\n      @flag = time.nil? ? @flag & ~CTIME_MASK : @flag | CTIME_MASK\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/TODO"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 6,
+                  "endLine": 14,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "* non-MSDOS permission attributes\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* Packager version, required unpacker version in zip headers\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* implement storing attributes and ownership information\n",
+                    "rendered": {
+                      "text": "* non-MSDOS permission attributes\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* Packager version, required unpacker version in zip headers\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* implement storing attributes and ownership information\n",
+                      "markdown": "`* non-MSDOS permission attributes\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* Packager version, required unpacker version in zip headers\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* implement storing attributes and ownership information\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/TODO"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 6,
+                  "endLine": 12,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "* Implement ZipFsDir.glob\n* ZipFile.checkIntegrity method\n* non-MSDOS permission attributes\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* Packager version, required unpacker version in zip headers\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* implement storing attributes and ownership information\n",
+                    "rendered": {
+                      "text": "* Implement ZipFsDir.glob\n* ZipFile.checkIntegrity method\n* non-MSDOS permission attributes\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* Packager version, required unpacker version in zip headers\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* implement storing attributes and ownership information\n",
+                      "markdown": "`* Implement ZipFsDir.glob\n* ZipFile.checkIntegrity method\n* non-MSDOS permission attributes\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* Packager version, required unpacker version in zip headers\n** See mail from Ned Konz to ruby-talk subj. \"Re: SV: [ANN] Archive 0.2\"\n* implement storing attributes and ownership information\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 82,
+                  "endLine": 191,
+                  "endColumn": 90,
+                  "snippet": {
+                    "text": "Rubyzip supports reading/writing zip files with traditional zip encryption (a.k.a. \"ZipCrypto\"). AES encryption is not yet supported. It can be used with buffer streams, e.g.:\n\n```ruby\nZip::OutputStream.write_buffer(::StringIO.new(''), Zip::TraditionalEncrypter.new('password')) do |out|\n  out.put_next_entry(\"my_file.txt\")\n  out.write my_data\nend.string\n",
+                    "rendered": {
+                      "text": "Rubyzip supports reading/writing zip files with traditional zip encryption (a.k.a. \"ZipCrypto\"). AES encryption is not yet supported. It can be used with buffer streams, e.g.:\n\n```ruby\nZip::OutputStream.write_buffer(::StringIO.new(''), Zip::TraditionalEncrypter.new('password')) do |out|\n  out.put_next_entry(\"my_file.txt\")\n  out.write my_data\nend.string\n",
+                      "markdown": "`Rubyzip supports reading/writing zip files with traditional zip encryption (a.k.a. \"ZipCrypto\"). AES encryption is not yet supported. It can be used with buffer streams, e.g.:\n\n```ruby\nZip::OutputStream.write_buffer(::StringIO.new(''), Zip::TraditionalEncrypter.new('password')) do |out|\n  out.put_next_entry(\"my_file.txt\")\n  out.write my_data\nend.string\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 4,
+                  "endLine": 186,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\nIf `::Zip::InputStream` finds such entry in the zip archive it will raise an exception.\n\n### Password Protection (Experimental)\n\nRubyzip supports reading/writing zip files with traditional zip encryption (a.k.a. \"ZipCrypto\"). AES encryption is not yet supported. It can be used with buffer streams, e.g.:\n\n",
+                    "rendered": {
+                      "text": "\nIf `::Zip::InputStream` finds such entry in the zip archive it will raise an exception.\n\n### Password Protection (Experimental)\n\nRubyzip supports reading/writing zip files with traditional zip encryption (a.k.a. \"ZipCrypto\"). AES encryption is not yet supported. It can be used with buffer streams, e.g.:\n\n",
+                      "markdown": "`\nIf `::Zip::InputStream` finds such entry in the zip archive it will raise an exception.\n\n### Password Protection (Experimental)\n\nRubyzip supports reading/writing zip files with traditional zip encryption (a.k.a. \"ZipCrypto\"). AES encryption is not yet supported. It can be used with buffer streams, e.g.:\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 349,
+                  "startColumn": 56,
+                  "endLine": 349,
+                  "endColumn": 60,
+                  "snippet": {
+                    "text": "\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\nextra-field support contributed by Tatsuki Sugiura (sugi at nemui.org)\n\n## License\n\n",
+                    "rendered": {
+                      "text": "\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\nextra-field support contributed by Tatsuki Sugiura (sugi at nemui.org)\n\n## License\n\n",
+                      "markdown": "`\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\nextra-field support contributed by Tatsuki Sugiura (sugi at nemui.org)\n\n## License\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 347,
+                  "startColumn": 29,
+                  "endLine": 347,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\nThomas Sondergaard (thomas at sondergaard.cc)\n\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\nextra-field support contributed by Tatsuki Sugiura (sugi at nemui.org)\n\n",
+                    "rendered": {
+                      "text": "\nThomas Sondergaard (thomas at sondergaard.cc)\n\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\nextra-field support contributed by Tatsuki Sugiura (sugi at nemui.org)\n\n",
+                      "markdown": "`\nThomas Sondergaard (thomas at sondergaard.cc)\n\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\nextra-field support contributed by Tatsuki Sugiura (sugi at nemui.org)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 345,
+                  "startColumn": 26,
+                  "endLine": 345,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "\nAlan Harper ( alan at aussiegeek.net)\n\nThomas Sondergaard (thomas at sondergaard.cc)\n\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\n",
+                    "rendered": {
+                      "text": "\nAlan Harper ( alan at aussiegeek.net)\n\nThomas Sondergaard (thomas at sondergaard.cc)\n\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\n",
+                      "markdown": "`\nAlan Harper ( alan at aussiegeek.net)\n\nThomas Sondergaard (thomas at sondergaard.cc)\n\nTechnorama Ltd. (oss-ruby-zip at technorama.net)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 18,
+                  "endLine": 343,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "\nAlexander Simonov ( alex at simonov.me)\n\nAlan Harper ( alan at aussiegeek.net)\n\nThomas Sondergaard (thomas at sondergaard.cc)\n\n",
+                    "rendered": {
+                      "text": "\nAlexander Simonov ( alex at simonov.me)\n\nAlan Harper ( alan at aussiegeek.net)\n\nThomas Sondergaard (thomas at sondergaard.cc)\n\n",
+                      "markdown": "`\nAlexander Simonov ( alex at simonov.me)\n\nAlan Harper ( alan at aussiegeek.net)\n\nThomas Sondergaard (thomas at sondergaard.cc)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 341,
+                  "startColumn": 24,
+                  "endLine": 341,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "\n## Authors\n\nAlexander Simonov ( alex at simonov.me)\n\nAlan Harper ( alan at aussiegeek.net)\n\n",
+                    "rendered": {
+                      "text": "\n## Authors\n\nAlexander Simonov ( alex at simonov.me)\n\nAlan Harper ( alan at aussiegeek.net)\n\n",
+                      "markdown": "`\n## Authors\n\nAlexander Simonov ( alex at simonov.me)\n\nAlan Harper ( alan at aussiegeek.net)\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 313,
+                  "startColumn": 29,
+                  "endLine": 313,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\n### Block Form\n\nYou can set multiple settings at the same time by using a block:\n\n```ruby\n  Zip.setup do |c|\n",
+                    "rendered": {
+                      "text": "\n### Block Form\n\nYou can set multiple settings at the same time by using a block:\n\n```ruby\n  Zip.setup do |c|\n",
+                      "markdown": "`\n### Block Form\n\nYou can set multiple settings at the same time by using a block:\n\n```ruby\n  Zip.setup do |c|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 268,
+                  "startColumn": 425,
+                  "endLine": 268,
+                  "endColumn": 429,
+                  "snippet": {
+                    "text": "\n### Size Validation\n\nBy default (in rubyzip >= 2.0), rubyzip's `extract` method checks that an entry's reported uncompressed size is not (significantly) smaller than its actual size. This is to help you protect your application against [zip bombs](https://en.wikipedia.org/wiki/Zip_bomb). Before `extract`ing an entry, you should check that its size is in the range you expect. For example, if your application supports processing up to 100 files at once, each up to 10MiB, your zip extraction code might look like:\n\n```ruby\nMAX_FILE_SIZE = 10 * 1024**2 # 10MiB\n",
+                    "rendered": {
+                      "text": "\n### Size Validation\n\nBy default (in rubyzip >= 2.0), rubyzip's `extract` method checks that an entry's reported uncompressed size is not (significantly) smaller than its actual size. This is to help you protect your application against [zip bombs](https://en.wikipedia.org/wiki/Zip_bomb). Before `extract`ing an entry, you should check that its size is in the range you expect. For example, if your application supports processing up to 100 files at once, each up to 10MiB, your zip extraction code might look like:\n\n```ruby\nMAX_FILE_SIZE = 10 * 1024**2 # 10MiB\n",
+                      "markdown": "`\n### Size Validation\n\nBy default (in rubyzip >= 2.0), rubyzip's `extract` method checks that an entry's reported uncompressed size is not (significantly) smaller than its actual size. This is to help you protect your application against [zip bombs](https://en.wikipedia.org/wiki/Zip_bomb). Before `extract`ing an entry, you should check that its size is in the range you expect. For example, if your application supports processing up to 100 files at once, each up to 10MiB, your zip extraction code might look like:\n\n```ruby\nMAX_FILE_SIZE = 10 * 1024**2 # 10MiB\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 313,
+                  "startColumn": 41,
+                  "endLine": 313,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "\n### Block Form\n\nYou can set multiple settings at the same time by using a block:\n\n```ruby\n  Zip.setup do |c|\n",
+                    "rendered": {
+                      "text": "\n### Block Form\n\nYou can set multiple settings at the same time by using a block:\n\n```ruby\n  Zip.setup do |c|\n",
+                      "markdown": "`\n### Block Form\n\nYou can set multiple settings at the same time by using a block:\n\n```ruby\n  Zip.setup do |c|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 250,
+                  "startColumn": 141,
+                  "endLine": 250,
+                  "endColumn": 147,
+                  "snippet": {
+                    "text": "Zip.unicode_names = true\n```\n\nSometimes file names inside zip contain non-ASCII characters. If you can assume which encoding was used for such names and want to be able to find such entries using `find_entry` then you can force assumed encoding like so:\n\n```ruby\nZip.force_entry_names_encoding = 'UTF-8'\n",
+                    "rendered": {
+                      "text": "Zip.unicode_names = true\n```\n\nSometimes file names inside zip contain non-ASCII characters. If you can assume which encoding was used for such names and want to be able to find such entries using `find_entry` then you can force assumed encoding like so:\n\n```ruby\nZip.force_entry_names_encoding = 'UTF-8'\n",
+                      "markdown": "`Zip.unicode_names = true\n```\n\nSometimes file names inside zip contain non-ASCII characters. If you can assume which encoding was used for such names and want to be able to find such entries using `find_entry` then you can force assumed encoding like so:\n\n```ruby\nZip.force_entry_names_encoding = 'UTF-8'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 169,
+                  "startColumn": 3,
+                  "endLine": 169,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "    content = entry.get_input_stream.read\n  end\n\n  # Find specific entry\n  entry = zip_file.glob('*.csv').first\n  raise 'File too large when extracted' if entry.size > MAX_SIZE\n  puts entry.get_input_stream.read\n",
+                    "rendered": {
+                      "text": "    content = entry.get_input_stream.read\n  end\n\n  # Find specific entry\n  entry = zip_file.glob('*.csv').first\n  raise 'File too large when extracted' if entry.size > MAX_SIZE\n  puts entry.get_input_stream.read\n",
+                      "markdown": "`    content = entry.get_input_stream.read\n  end\n\n  # Find specific entry\n  entry = zip_file.glob('*.csv').first\n  raise 'File too large when extracted' if entry.size > MAX_SIZE\n  puts entry.get_input_stream.read\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 56,
+                  "startColumn": 48,
+                  "endLine": 56,
+                  "endColumn": 54,
+                  "snippet": {
+                    "text": "  input_filenames.each do |filename|\n    # Two arguments:\n    # - The name of the file as it will appear in the archive\n    # - The original file, including the path to find it\n    zipfile.add(filename, File.join(folder, filename))\n  end\n  zipfile.get_output_stream(\"myFile\") { |f| f.write \"myFile contains just this\" }\n",
+                    "rendered": {
+                      "text": "  input_filenames.each do |filename|\n    # Two arguments:\n    # - The name of the file as it will appear in the archive\n    # - The original file, including the path to find it\n    zipfile.add(filename, File.join(folder, filename))\n  end\n  zipfile.get_output_stream(\"myFile\") { |f| f.write \"myFile contains just this\" }\n",
+                      "markdown": "`  input_filenames.each do |filename|\n    # Two arguments:\n    # - The name of the file as it will appear in the archive\n    # - The original file, including the path to find it\n    zipfile.add(filename, File.join(folder, filename))\n  end\n  zipfile.get_output_stream(\"myFile\") { |f| f.write \"myFile contains just this\" }\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 1,
+                  "endLine": 23,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "\n## Requirements\n\n- Ruby 2.4 or greater (for rubyzip 2.0; use 1.x for older rubies)\n\n## Installation\n\n",
+                    "rendered": {
+                      "text": "\n## Requirements\n\n- Ruby 2.4 or greater (for rubyzip 2.0; use 1.x for older rubies)\n\n## Installation\n\n",
+                      "markdown": "`\n## Requirements\n\n- Ruby 2.4 or greater (for rubyzip 2.0; use 1.x for older rubies)\n\n## Installation\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-rubyzip-2.3.2-r2.apk/ruby3.2-rubyzip-2.3.2-r2/usr/lib/ruby/gems/3.2.0/gems/rubyzip-2.3.2/README.md"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 12,
+                  "endLine": 8,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "[![Code Climate](https://codeclimate.com/github/rubyzip/rubyzip.svg)](https://codeclimate.com/github/rubyzip/rubyzip)\n[![Coverage Status](https://img.shields.io/coveralls/rubyzip/rubyzip.svg)](https://coveralls.io/r/rubyzip/rubyzip?branch=master)\n\nRubyzip is a ruby library for reading and writing zip files.\n\n## Important note\n\n",
+                    "rendered": {
+                      "text": "[![Code Climate](https://codeclimate.com/github/rubyzip/rubyzip.svg)](https://codeclimate.com/github/rubyzip/rubyzip)\n[![Coverage Status](https://img.shields.io/coveralls/rubyzip/rubyzip.svg)](https://coveralls.io/r/rubyzip/rubyzip?branch=master)\n\nRubyzip is a ruby library for reading and writing zip files.\n\n## Important note\n\n",
+                      "markdown": "`[![Code Climate](https://codeclimate.com/github/rubyzip/rubyzip.svg)](https://codeclimate.com/github/rubyzip/rubyzip)\n[![Coverage Status](https://img.shields.io/coveralls/rubyzip/rubyzip.svg)](https://coveralls.io/r/rubyzip/rubyzip?branch=master)\n\nRubyzip is a ruby library for reading and writing zip files.\n\n## Important note\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

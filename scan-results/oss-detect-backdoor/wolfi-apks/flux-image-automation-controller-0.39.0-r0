@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/flux-image-automation-controller-0.39.0-r0.apk/flux-image-automation-controller-0.39.0-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 72,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 55818468\norigin = flux-image-automation-controller\npkgdesc = GitOps Toolkit controller that patches container image tags in Git\nurl = \ncommit = f0f5f15cc74d656f158641dedb8e6d375d2ef018\nbuilddate = 1727381023\nlicense = Apache-2.0\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 55818468\norigin = flux-image-automation-controller\npkgdesc = GitOps Toolkit controller that patches container image tags in Git\nurl = \ncommit = f0f5f15cc74d656f158641dedb8e6d375d2ef018\nbuilddate = 1727381023\nlicense = Apache-2.0\n",
+                      "markdown": "`arch = x86_64\nsize = 55818468\norigin = flux-image-automation-controller\npkgdesc = GitOps Toolkit controller that patches container image tags in Git\nurl = \ncommit = f0f5f15cc74d656f158641dedb8e6d375d2ef018\nbuilddate = 1727381023\nlicense = Apache-2.0\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

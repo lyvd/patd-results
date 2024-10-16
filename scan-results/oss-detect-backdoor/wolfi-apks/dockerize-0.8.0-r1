@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/dockerize-0.8.0-r1.apk/dockerize-0.8.0-r1/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 53,
+                  "endLine": 7,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 7735497\norigin = dockerize\npkgdesc = Utility to simplify running applications in docker containers\nurl = \ncommit = 536107551dd658ee613fef86253874a658901f32\nbuilddate = 1726169808\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 7735497\norigin = dockerize\npkgdesc = Utility to simplify running applications in docker containers\nurl = \ncommit = 536107551dd658ee613fef86253874a658901f32\nbuilddate = 1726169808\n",
+                      "markdown": "`arch = x86_64\nsize = 7735497\norigin = dockerize\npkgdesc = Utility to simplify running applications in docker containers\nurl = \ncommit = 536107551dd658ee613fef86253874a658901f32\nbuilddate = 1726169808\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,1590 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/task.rb"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 13,
+                  "endLine": 55,
+                  "snippet": {
+                    "text": "\tend\n\t\n\t# @public Since `stable-v1`.\n\tclass Task < Node\n\t\t# Raised when a child task is created within a task that has finished execution.\n\t\tclass FinishedError < RuntimeError\n\t\t\t# Create a new finished error.\n\t\t\t#\n",
+                    "rendered": {
+                      "text": "\tend\n\t\n\t# @public Since `stable-v1`.\n\tclass Task < Node\n\t\t# Raised when a child task is created within a task that has finished execution.\n\t\tclass FinishedError < RuntimeError\n\t\t\t# Create a new finished error.\n\t\t\t#\n",
+                      "markdown": "`\tend\n\t\n\t# @public Since `stable-v1`.\n\tclass Task < Node\n\t\t# Raised when a child task is created within a task that has finished execution.\n\t\tclass FinishedError < RuntimeError\n\t\t\t# Create a new finished error.\n\t\t\t#\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/semaphore.md"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 23,
+                  "endLine": 21,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "\tterms.each do |term|\n\t\tsemaphore.async do |task|\n\t\t\tConsole.info(\"Searching for #{term}...\")\n\t\t\tresponse = Net::HTTP.get(URI \"https://www.google.com/search?q=#{term}\")\n\t\t\tConsole.info(\"Got response #{response.size} bytes.\")\n\t\tend\n\tend\n",
+                    "rendered": {
+                      "text": "\tterms.each do |term|\n\t\tsemaphore.async do |task|\n\t\t\tConsole.info(\"Searching for #{term}...\")\n\t\t\tresponse = Net::HTTP.get(URI \"https://www.google.com/search?q=#{term}\")\n\t\t\tConsole.info(\"Got response #{response.size} bytes.\")\n\t\tend\n\tend\n",
+                      "markdown": "`\tterms.each do |term|\n\t\tsemaphore.async do |task|\n\t\t\tConsole.info(\"Searching for #{term}...\")\n\t\t\tresponse = Net::HTTP.get(URI \"https://www.google.com/search?q=#{term}\")\n\t\t\tConsole.info(\"Got response #{response.size} bytes.\")\n\t\tend\n\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/semaphore.md"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 34,
+                  "endLine": 11,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "require 'net/http'\n\nSync do\n\t# Only allow two concurrent tasks at a time:\n\tsemaphore = Async::Semaphore.new(2)\n\t\n\t# Generate an array of 10 numbers:\n",
+                    "rendered": {
+                      "text": "require 'net/http'\n\nSync do\n\t# Only allow two concurrent tasks at a time:\n\tsemaphore = Async::Semaphore.new(2)\n\t\n\t# Generate an array of 10 numbers:\n",
+                      "markdown": "`require 'net/http'\n\nSync do\n\t# Only allow two concurrent tasks at a time:\n\tsemaphore = Async::Semaphore.new(2)\n\t\n\t# Generate an array of 10 numbers:\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/semaphore.md"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 3,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/semaphore'\nrequire 'net/http'\n\n",
+                    "rendered": {
+                      "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/semaphore'\nrequire 'net/http'\n\n",
+                      "markdown": "`\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/semaphore'\nrequire 'net/http'\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/readme.md"
+                },
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 67,
+                  "endLine": 58,
+                  "endColumn": 73,
+                  "snippet": {
+                    "text": "  - [async-websocket](https://github.com/socketry/async-websocket) — Asynchronous client and server websockets.\n  - [async-dns](https://github.com/socketry/async-dns) — Asynchronous DNS resolver and server.\n  - [falcon](https://github.com/socketry/falcon) — A rack compatible server built on top of `async-http`.\n  - [rubydns](https://github.com/ioquatix/rubydns) — An easy to use Ruby DNS server.\n  - [slack-ruby-bot](https://github.com/slack-ruby/slack-ruby-bot) — A client for making slack bots.\n",
+                    "rendered": {
+                      "text": "  - [async-websocket](https://github.com/socketry/async-websocket) — Asynchronous client and server websockets.\n  - [async-dns](https://github.com/socketry/async-dns) — Asynchronous DNS resolver and server.\n  - [falcon](https://github.com/socketry/falcon) — A rack compatible server built on top of `async-http`.\n  - [rubydns](https://github.com/ioquatix/rubydns) — An easy to use Ruby DNS server.\n  - [slack-ruby-bot](https://github.com/slack-ruby/slack-ruby-bot) — A client for making slack bots.\n",
+                      "markdown": "`  - [async-websocket](https://github.com/socketry/async-websocket) — Asynchronous client and server websockets.\n  - [async-dns](https://github.com/socketry/async-dns) — Asynchronous DNS resolver and server.\n  - [falcon](https://github.com/socketry/falcon) — A rack compatible server built on top of `async-http`.\n  - [rubydns](https://github.com/ioquatix/rubydns) — An easy to use Ruby DNS server.\n  - [slack-ruby-bot](https://github.com/slack-ruby/slack-ruby-bot) — A client for making slack bots.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/readme.md"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 84,
+                  "endLine": 57,
+                  "endColumn": 89,
+                  "snippet": {
+                    "text": "  - [async-http](https://github.com/socketry/async-http) — Asynchronous HTTP client/server.\n  - [async-websocket](https://github.com/socketry/async-websocket) — Asynchronous client and server websockets.\n  - [async-dns](https://github.com/socketry/async-dns) — Asynchronous DNS resolver and server.\n  - [falcon](https://github.com/socketry/falcon) — A rack compatible server built on top of `async-http`.\n  - [rubydns](https://github.com/ioquatix/rubydns) — An easy to use Ruby DNS server.\n  - [slack-ruby-bot](https://github.com/slack-ruby/slack-ruby-bot) — A client for making slack bots.\n",
+                    "rendered": {
+                      "text": "  - [async-http](https://github.com/socketry/async-http) — Asynchronous HTTP client/server.\n  - [async-websocket](https://github.com/socketry/async-websocket) — Asynchronous client and server websockets.\n  - [async-dns](https://github.com/socketry/async-dns) — Asynchronous DNS resolver and server.\n  - [falcon](https://github.com/socketry/falcon) — A rack compatible server built on top of `async-http`.\n  - [rubydns](https://github.com/ioquatix/rubydns) — An easy to use Ruby DNS server.\n  - [slack-ruby-bot](https://github.com/slack-ruby/slack-ruby-bot) — A client for making slack bots.\n",
+                      "markdown": "`  - [async-http](https://github.com/socketry/async-http) — Asynchronous HTTP client/server.\n  - [async-websocket](https://github.com/socketry/async-websocket) — Asynchronous client and server websockets.\n  - [async-dns](https://github.com/socketry/async-dns) — Asynchronous DNS resolver and server.\n  - [falcon](https://github.com/socketry/falcon) — A rack compatible server built on top of `async-http`.\n  - [rubydns](https://github.com/ioquatix/rubydns) — An easy to use Ruby DNS server.\n  - [slack-ruby-bot](https://github.com/slack-ruby/slack-ruby-bot) — A client for making slack bots.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/readme.md"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 146,
+                  "endLine": 28,
+                  "endColumn": 152,
+                  "snippet": {
+                    "text": "\n  - [Event Loop](https://socketry.github.io/async/guides/event-loop/index) - This guide gives an overview of how the event loop is implemented.\n\n  - [Compatibility](https://socketry.github.io/async/guides/compatibility/index) - This guide gives an overview of the compatibility of Async with Ruby and other frameworks.\n\n  - [Best Practices](https://socketry.github.io/async/guides/best-practices/index) - This guide gives an overview of best practices for using Async.\n\n",
+                    "rendered": {
+                      "text": "\n  - [Event Loop](https://socketry.github.io/async/guides/event-loop/index) - This guide gives an overview of how the event loop is implemented.\n\n  - [Compatibility](https://socketry.github.io/async/guides/compatibility/index) - This guide gives an overview of the compatibility of Async with Ruby and other frameworks.\n\n  - [Best Practices](https://socketry.github.io/async/guides/best-practices/index) - This guide gives an overview of best practices for using Async.\n\n",
+                      "markdown": "`\n  - [Event Loop](https://socketry.github.io/async/guides/event-loop/index) - This guide gives an overview of how the event loop is implemented.\n\n  - [Compatibility](https://socketry.github.io/async/guides/compatibility/index) - This guide gives an overview of the compatibility of Async with Ruby and other frameworks.\n\n  - [Best Practices](https://socketry.github.io/async/guides/best-practices/index) - This guide gives an overview of best practices for using Async.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/readme.md"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 52,
+                  "endLine": 3,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "# ![Async](assets/logo.webp)\n\nAsync is a composable asynchronous I/O framework for Ruby based on [io-event](https://github.com/socketry/io-event).\n\n> \"Lately I've been looking into `async`, as one of my projects –\n> [tus-ruby-server](https://github.com/janko/tus-ruby-server) – would really benefit from non-blocking I/O. It's really\n",
+                    "rendered": {
+                      "text": "# ![Async](assets/logo.webp)\n\nAsync is a composable asynchronous I/O framework for Ruby based on [io-event](https://github.com/socketry/io-event).\n\n> \"Lately I've been looking into `async`, as one of my projects –\n> [tus-ruby-server](https://github.com/janko/tus-ruby-server) – would really benefit from non-blocking I/O. It's really\n",
+                      "markdown": "`# ![Async](assets/logo.webp)\n\nAsync is a composable asynchronous I/O framework for Ruby based on [io-event](https://github.com/socketry/io-event).\n\n> \"Lately I've been looking into `async`, as one of my projects –\n> [tus-ruby-server](https://github.com/janko/tus-ruby-server) – would really benefit from non-blocking I/O. It's really\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/waiter.md"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 8,
+                  "endLine": 18,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "\twaiter = Async::Waiter.new(parent: barrier)\n\tsemaphore = Async::Semaphore.new(2, parent: waiter)\n\t\n\t# Sleep sort the numbers:\n\tgenerator = Async do\n\t\twhile true\n\t\t\tsemaphore.async do |task|\n",
+                    "rendered": {
+                      "text": "\twaiter = Async::Waiter.new(parent: barrier)\n\tsemaphore = Async::Semaphore.new(2, parent: waiter)\n\t\n\t# Sleep sort the numbers:\n\tgenerator = Async do\n\t\twhile true\n\t\t\tsemaphore.async do |task|\n",
+                      "markdown": "`\twaiter = Async::Waiter.new(parent: barrier)\n\tsemaphore = Async::Semaphore.new(2, parent: waiter)\n\t\n\t# Sleep sort the numbers:\n\tgenerator = Async do\n\t\twhile true\n\t\t\tsemaphore.async do |task|\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/waiter.md"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 3,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/semaphore'\nrequire 'async/barrier'\nrequire 'async/waiter'\n",
+                    "rendered": {
+                      "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/semaphore'\nrequire 'async/barrier'\nrequire 'async/waiter'\n",
+                      "markdown": "`\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/semaphore'\nrequire 'async/barrier'\nrequire 'async/waiter'\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/semaphore.rb"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 34,
+                  "endLine": 97,
+                  "endColumn": 40,
+                  "snippet": {
+                    "text": "\t\tdef release\n\t\t\t@count -= 1\n\t\t\t\n\t\t\twhile (@limit - @count) > 0 and node = @waiting.first\n\t\t\t\tnode.resume\n\t\t\tend\n\t\tend\n",
+                    "rendered": {
+                      "text": "\t\tdef release\n\t\t\t@count -= 1\n\t\t\t\n\t\t\twhile (@limit - @count) > 0 and node = @waiting.first\n\t\t\t\tnode.resume\n\t\t\tend\n\t\tend\n",
+                      "markdown": "`\t\tdef release\n\t\t\t@count -= 1\n\t\t\t\n\t\t\twhile (@limit - @count) > 0 and node = @waiting.first\n\t\t\t\tnode.resume\n\t\t\tend\n\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/semaphore.rb"
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 17,
+                  "endLine": 43,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\t\t\t# We can't suspend \n\t\t\tif difference > 0\n\t\t\t\tdifference.times do\n\t\t\t\t\tbreak unless node = @waiting.first\n\t\t\t\t\t\n\t\t\t\t\tnode.resume\n\t\t\t\tend\n",
+                    "rendered": {
+                      "text": "\t\t\t# We can't suspend \n\t\t\tif difference > 0\n\t\t\t\tdifference.times do\n\t\t\t\t\tbreak unless node = @waiting.first\n\t\t\t\t\t\n\t\t\t\t\tnode.resume\n\t\t\t\tend\n",
+                      "markdown": "`\t\t\t# We can't suspend \n\t\t\tif difference > 0\n\t\t\t\tdifference.times do\n\t\t\t\t\tbreak unless node = @waiting.first\n\t\t\t\t\t\n\t\t\t\t\tnode.resume\n\t\t\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 244,
+                  "startColumn": 18,
+                  "endLine": 245,
+                  "snippet": {
+                    "text": "\t\t\talias inspect to_s\n\t\tend\n\t\t\n\t\tclass Iterator < Node\n\t\t\tdef initialize(list)\n\t\t\t\t@list = list\n\t\t\t\t\n\t\t\t\t# Insert the iterator as the first item in the list:\n",
+                    "rendered": {
+                      "text": "\t\t\talias inspect to_s\n\t\tend\n\t\t\n\t\tclass Iterator < Node\n\t\t\tdef initialize(list)\n\t\t\t\t@list = list\n\t\t\t\t\n\t\t\t\t# Insert the iterator as the first item in the list:\n",
+                      "markdown": "`\t\t\talias inspect to_s\n\t\tend\n\t\t\n\t\tclass Iterator < Node\n\t\t\tdef initialize(list)\n\t\t\t\t@list = list\n\t\t\t\t\n\t\t\t\t# Insert the iterator as the first item in the list:\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 237,
+                  "startColumn": 7,
+                  "endLine": 238,
+                  "snippet": {
+                    "text": "\t\tend\n\t\t\n\t\t# A linked list Node.\n\t\tclass Node\n\t\t\tattr_accessor :head\n\t\t\tattr_accessor :tail\n\t\t\t\n\t\t\talias inspect to_s\n",
+                    "rendered": {
+                      "text": "\t\tend\n\t\t\n\t\t# A linked list Node.\n\t\tclass Node\n\t\t\tattr_accessor :head\n\t\t\tattr_accessor :tail\n\t\t\t\n\t\t\talias inspect to_s\n",
+                      "markdown": "`\t\tend\n\t\t\n\t\t# A linked list Node.\n\t\tclass Node\n\t\t\tattr_accessor :head\n\t\t\tattr_accessor :tail\n\t\t\t\n\t\t\talias inspect to_s\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 231,
+                  "startColumn": 5,
+                  "endLine": 231,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\t\t\n\t\t# Shift the first node off the list, if it is not empty.\n\t\tdef shift\n\t\t\tif node = first\n\t\t\t\tremove!(node)\n\t\t\tend\n\t\tend\n",
+                    "rendered": {
+                      "text": "\t\t\n\t\t# Shift the first node off the list, if it is not empty.\n\t\tdef shift\n\t\t\tif node = first\n\t\t\t\tremove!(node)\n\t\t\tend\n\t\tend\n",
+                      "markdown": "`\t\t\n\t\t# Shift the first node off the list, if it is not empty.\n\t\tdef shift\n\t\t\tif node = first\n\t\t\t\tremove!(node)\n\t\t\tend\n\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 9,
+                  "endLine": 96,
+                  "snippet": {
+                    "text": "\t\t# A callback that is invoked when an item is removed from the list.\n\t\tdef removed(node)\n\t\t\t@size -= 1\n\t\t\treturn node\n\t\tend\n\t\t\n\t\t# Remove the node if it is in a list.\n\t\t#\n",
+                    "rendered": {
+                      "text": "\t\t# A callback that is invoked when an item is removed from the list.\n\t\tdef removed(node)\n\t\t\t@size -= 1\n\t\t\treturn node\n\t\tend\n\t\t\n\t\t# Remove the node if it is in a list.\n\t\t#\n",
+                      "markdown": "`\t\t# A callback that is invoked when an item is removed from the list.\n\t\tdef removed(node)\n\t\t\t@size -= 1\n\t\t\treturn node\n\t\tend\n\t\t\n\t\t# Remove the node if it is in a list.\n\t\t#\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 10,
+                  "endLine": 78,
+                  "snippet": {
+                    "text": "\t\t\tnode.head = self\n\t\t\t@tail.head = node\n\t\t\tnode.tail = @tail\n\t\t\t@tail = node\n\t\t\t\n\t\t\treturn added(node)\n\t\tend\n\t\t\n",
+                    "rendered": {
+                      "text": "\t\t\tnode.head = self\n\t\t\t@tail.head = node\n\t\t\tnode.tail = @tail\n\t\t\t@tail = node\n\t\t\t\n\t\t\treturn added(node)\n\t\tend\n\t\t\n",
+                      "markdown": "`\t\t\tnode.head = self\n\t\t\t@tail.head = node\n\t\t\tnode.tail = @tail\n\t\t\t@tail = node\n\t\t\t\n\t\t\treturn added(node)\n\t\tend\n\t\t\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 75,
+                  "startColumn": 15,
+                  "endLine": 76,
+                  "snippet": {
+                    "text": "\t\t\tend\n\t\t\t\n\t\t\tnode.head = self\n\t\t\t@tail.head = node\n\t\t\tnode.tail = @tail\n\t\t\t@tail = node\n\t\t\t\n\t\t\treturn added(node)\n",
+                    "rendered": {
+                      "text": "\t\t\tend\n\t\t\t\n\t\t\tnode.head = self\n\t\t\t@tail.head = node\n\t\t\tnode.tail = @tail\n\t\t\t@tail = node\n\t\t\t\n\t\t\treturn added(node)\n",
+                      "markdown": "`\t\t\tend\n\t\t\t\n\t\t\tnode.head = self\n\t\t\t@tail.head = node\n\t\t\tnode.tail = @tail\n\t\t\t@tail = node\n\t\t\t\n\t\t\treturn added(node)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 10,
+                  "endLine": 64,
+                  "snippet": {
+                    "text": "\t\t\tnode.tail = self\n\t\t\t@head.tail = node\n\t\t\tnode.head = @head\n\t\t\t@head = node\n\t\t\t\n\t\t\treturn added(node)\n\t\tend\n\t\t\n",
+                    "rendered": {
+                      "text": "\t\t\tnode.tail = self\n\t\t\t@head.tail = node\n\t\t\tnode.head = @head\n\t\t\t@head = node\n\t\t\t\n\t\t\treturn added(node)\n\t\tend\n\t\t\n",
+                      "markdown": "`\t\t\tnode.tail = self\n\t\t\t@head.tail = node\n\t\t\tnode.head = @head\n\t\t\t@head = node\n\t\t\t\n\t\t\treturn added(node)\n\t\tend\n\t\t\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 15,
+                  "endLine": 62,
+                  "snippet": {
+                    "text": "\t\t\tend\n\t\t\t\n\t\t\tnode.tail = self\n\t\t\t@head.tail = node\n\t\t\tnode.head = @head\n\t\t\t@head = node\n\t\t\t\n\t\t\treturn added(node)\n",
+                    "rendered": {
+                      "text": "\t\t\tend\n\t\t\t\n\t\t\tnode.tail = self\n\t\t\t@head.tail = node\n\t\t\tnode.head = @head\n\t\t\t@head = node\n\t\t\t\n\t\t\treturn added(node)\n",
+                      "markdown": "`\t\t\tend\n\t\t\t\n\t\t\tnode.tail = self\n\t\t\t@head.tail = node\n\t\t\tnode.head = @head\n\t\t\t@head = node\n\t\t\t\n\t\t\treturn added(node)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/list.rb"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 9,
+                  "endLine": 52,
+                  "snippet": {
+                    "text": "\t\t# A callback that is invoked when an item is added to the list.\n\t\tdef added(node)\n\t\t\t@size += 1\n\t\t\treturn node\n\t\tend\n\t\t\n\t\t# Append a node to the end of the list.\n\t\tdef append(node)\n",
+                    "rendered": {
+                      "text": "\t\t# A callback that is invoked when an item is added to the list.\n\t\tdef added(node)\n\t\t\t@size += 1\n\t\t\treturn node\n\t\tend\n\t\t\n\t\t# Append a node to the end of the list.\n\t\tdef append(node)\n",
+                      "markdown": "`\t\t# A callback that is invoked when an item is added to the list.\n\t\tdef added(node)\n\t\t\t@size += 1\n\t\t\treturn node\n\t\tend\n\t\t\n\t\t# Append a node to the end of the list.\n\t\tdef append(node)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/condition.md"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 3,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\n\nSync do\n\tcondition = Async::Condition.new\n",
+                    "rendered": {
+                      "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\n\nSync do\n\tcondition = Async::Condition.new\n",
+                      "markdown": "`\n## Example\n\n~~~ ruby\nrequire 'async'\n\nSync do\n\tcondition = Async::Condition.new\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/specifications/async-2.14.2.gemspec"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 20,
+                  "endLine": 2,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "# -*- encoding: utf-8 -*-\n# stub: async 2.14.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"async\".freeze\n",
+                    "rendered": {
+                      "text": "# -*- encoding: utf-8 -*-\n# stub: async 2.14.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"async\".freeze\n",
+                      "markdown": "`# -*- encoding: utf-8 -*-\n# stub: async 2.14.2 ruby lib\n\nGem::Specification.new do |s|\n  s.name = \"async\".freeze\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 25,
+                  "endLine": 219,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n\t\t\n",
+                    "rendered": {
+                      "text": "\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n\t\t\n",
+                      "markdown": "`\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n\t\t\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 14,
+                  "endLine": 218,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n",
+                    "rendered": {
+                      "text": "\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n",
+                      "markdown": "`\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 3,
+                  "endLine": 218,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n",
+                    "rendered": {
+                      "text": "\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n",
+                      "markdown": "`\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n\t\t\t::Resolv.getaddresses(hostname)\n\t\tend\n\t\t\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 215,
+                  "startColumn": 22,
+                  "endLine": 215,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "\t\tend\n\t\t\n\t\t# @asynchronous May be non-blocking..\n\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n",
+                    "rendered": {
+                      "text": "\t\tend\n\t\t\n\t\t# @asynchronous May be non-blocking..\n\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n",
+                      "markdown": "`\t\tend\n\t\t\n\t\t# @asynchronous May be non-blocking..\n\t\tdef address_resolve(hostname)\n\t\t\t# On some platforms, hostnames may contain a device-specific suffix (e.g. %en0). We need to strip this before resolving.\n\t\t\t# See <https://github.com/socketry/async/issues/180> for more details.\n\t\t\thostname = hostname.split(\"%\", 2).first\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 329,
+                  "startColumn": 14,
+                  "endLine": 330,
+                  "snippet": {
+                    "text": "\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n\t\t\tbegin\n\t\t\t\t@selector.select(interval)\n",
+                    "rendered": {
+                      "text": "\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n\t\t\tbegin\n\t\t\t\t@selector.select(interval)\n",
+                      "markdown": "`\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n\t\t\tbegin\n\t\t\t\t@selector.select(interval)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 328,
+                  "startColumn": 31,
+                  "endLine": 329,
+                  "snippet": {
+                    "text": "\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n\t\t\tbegin\n",
+                    "rendered": {
+                      "text": "\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n\t\t\tbegin\n",
+                      "markdown": "`\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n\t\t\tbegin\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 328,
+                  "startColumn": 8,
+                  "endLine": 328,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n",
+                    "rendered": {
+                      "text": "\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n",
+                      "markdown": "`\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n\t\t\t\tinterval = timeout\n\t\t\tend\n\t\t\t\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 324,
+                  "startColumn": 14,
+                  "endLine": 325,
+                  "snippet": {
+                    "text": "\t\t\t# If there is no interval to wait (thus no timers), and no tasks, we could be done:\n\t\t\tif interval.nil?\n\t\t\t\t# Allow the user to specify a maximum interval if we would otherwise be sleeping indefinitely:\n\t\t\t\tinterval = timeout\n\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n",
+                    "rendered": {
+                      "text": "\t\t\t# If there is no interval to wait (thus no timers), and no tasks, we could be done:\n\t\t\tif interval.nil?\n\t\t\t\t# Allow the user to specify a maximum interval if we would otherwise be sleeping indefinitely:\n\t\t\t\tinterval = timeout\n\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n",
+                      "markdown": "`\t\t\t# If there is no interval to wait (thus no timers), and no tasks, we could be done:\n\t\t\tif interval.nil?\n\t\t\t\t# Allow the user to specify a maximum interval if we would otherwise be sleeping indefinitely:\n\t\t\t\tinterval = timeout\n\t\t\telsif interval < 0\n\t\t\t\t# We have timers ready to fire, don't sleep in the selctor:\n\t\t\t\tinterval = 0\n\t\t\telsif timeout and interval > timeout\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 273,
+                  "startColumn": 7,
+                  "endLine": 273,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "\t\t\t\tdef io_write(io, buffer, length, offset = 0)\n\t\t\t\t\tfiber = Fiber.current\n\t\t\t\t\t\n\t\t\t\t\tif timeout = get_timeout(io)\n\t\t\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become writable!\")\n\t\t\t\t\t\tend\n",
+                    "rendered": {
+                      "text": "\t\t\t\tdef io_write(io, buffer, length, offset = 0)\n\t\t\t\t\tfiber = Fiber.current\n\t\t\t\t\t\n\t\t\t\t\tif timeout = get_timeout(io)\n\t\t\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become writable!\")\n\t\t\t\t\t\tend\n",
+                      "markdown": "`\t\t\t\tdef io_write(io, buffer, length, offset = 0)\n\t\t\t\t\tfiber = Fiber.current\n\t\t\t\t\t\n\t\t\t\t\tif timeout = get_timeout(io)\n\t\t\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become writable!\")\n\t\t\t\t\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 6,
+                  "endLine": 258,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "\t\t\tdef io_read(io, buffer, length, offset = 0)\n\t\t\t\tfiber = Fiber.current\n\t\t\t\t\n\t\t\t\tif timeout = get_timeout(io)\n\t\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become readable!\")\n\t\t\t\t\tend\n",
+                    "rendered": {
+                      "text": "\t\t\tdef io_read(io, buffer, length, offset = 0)\n\t\t\t\tfiber = Fiber.current\n\t\t\t\t\n\t\t\t\tif timeout = get_timeout(io)\n\t\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become readable!\")\n\t\t\t\t\tend\n",
+                      "markdown": "`\t\t\tdef io_read(io, buffer, length, offset = 0)\n\t\t\t\tfiber = Fiber.current\n\t\t\t\t\n\t\t\t\tif timeout = get_timeout(io)\n\t\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become readable!\")\n\t\t\t\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 242,
+                  "startColumn": 8,
+                  "endLine": 242,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.transfer\n\t\t\t\tend\n\t\t\telsif timeout = get_timeout(io)\n\t\t\t\t# Otherwise, if we default to the io's timeout, we raise an exception:\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become ready!\")\n",
+                    "rendered": {
+                      "text": "\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.transfer\n\t\t\t\tend\n\t\t\telsif timeout = get_timeout(io)\n\t\t\t\t# Otherwise, if we default to the io's timeout, we raise an exception:\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become ready!\")\n",
+                      "markdown": "`\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.transfer\n\t\t\t\tend\n\t\t\telsif timeout = get_timeout(io)\n\t\t\t\t# Otherwise, if we default to the io's timeout, we raise an exception:\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.raise(::IO::TimeoutError, \"Timeout while waiting for IO to become ready!\")\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 237,
+                  "startColumn": 5,
+                  "endLine": 238,
+                  "snippet": {
+                    "text": "\t\tdef io_wait(io, events, timeout = nil)\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n\t\t\t\t# If an explicit timeout is specified, we expect that the user will handle it themselves:\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.transfer\n\t\t\t\tend\n",
+                    "rendered": {
+                      "text": "\t\tdef io_wait(io, events, timeout = nil)\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n\t\t\t\t# If an explicit timeout is specified, we expect that the user will handle it themselves:\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.transfer\n\t\t\t\tend\n",
+                      "markdown": "`\t\tdef io_wait(io, events, timeout = nil)\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n\t\t\t\t# If an explicit timeout is specified, we expect that the user will handle it themselves:\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tfiber.transfer\n\t\t\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 234,
+                  "startColumn": 25,
+                  "endLine": 234,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "\t\tend\n\t\t\n\t\t# @asynchronous May be non-blocking..\n\t\tdef io_wait(io, events, timeout = nil)\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n",
+                    "rendered": {
+                      "text": "\t\tend\n\t\t\n\t\t# @asynchronous May be non-blocking..\n\t\tdef io_wait(io, events, timeout = nil)\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n",
+                      "markdown": "`\t\tend\n\t\t\n\t\t# @asynchronous May be non-blocking..\n\t\tdef io_wait(io, events, timeout = nil)\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 176,
+                  "startColumn": 5,
+                  "endLine": 177,
+                  "snippet": {
+                    "text": "\t\t\t# $stderr.puts \"block(#{blocker}, #{Fiber.current}, #{timeout})\"\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tif fiber.alive?\n\t\t\t\t\t\tfiber.transfer(false)\n\t\t\t\t\tend\n",
+                    "rendered": {
+                      "text": "\t\t\t# $stderr.puts \"block(#{blocker}, #{Fiber.current}, #{timeout})\"\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tif fiber.alive?\n\t\t\t\t\t\tfiber.transfer(false)\n\t\t\t\t\tend\n",
+                      "markdown": "`\t\t\t# $stderr.puts \"block(#{blocker}, #{Fiber.current}, #{timeout})\"\n\t\t\tfiber = Fiber.current\n\t\t\t\n\t\t\tif timeout\n\t\t\t\ttimer = @timers.after(timeout) do\n\t\t\t\t\tif fiber.alive?\n\t\t\t\t\t\tfiber.transfer(false)\n\t\t\t\t\tend\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 17,
+                  "endLine": 59,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\t\tdef load\n\t\t\ttotal_time = @busy_time + @idle_time\n\t\t\t\n\t\t\t# If the total time is zero, then the load is zero:\n\t\t\treturn 0.0 if total_time.zero?\n\t\t\t\n\t\t\t# We normalize to a 1 second window:\n",
+                    "rendered": {
+                      "text": "\t\tdef load\n\t\t\ttotal_time = @busy_time + @idle_time\n\t\t\t\n\t\t\t# If the total time is zero, then the load is zero:\n\t\t\treturn 0.0 if total_time.zero?\n\t\t\t\n\t\t\t# We normalize to a 1 second window:\n",
+                      "markdown": "`\t\tdef load\n\t\t\ttotal_time = @busy_time + @idle_time\n\t\t\t\n\t\t\t# If the total time is zero, then the load is zero:\n\t\t\treturn 0.0 if total_time.zero?\n\t\t\t\n\t\t\t# We normalize to a 1 second window:\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 45,
+                  "endLine": 38,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "\t\t# Create a new scheduler.\n\t\t#\n\t\t# @public Since `stable-v1`.\n\t\t# @parameter parent [Node | Nil] The parent node to use for task hierarchy.\n\t\t# @parameter selector [IO::Event::Selector] The selector to use for event handling.\n\t\tdef initialize(parent = nil, selector: nil)\n\t\t\tsuper(parent)\n",
+                    "rendered": {
+                      "text": "\t\t# Create a new scheduler.\n\t\t#\n\t\t# @public Since `stable-v1`.\n\t\t# @parameter parent [Node | Nil] The parent node to use for task hierarchy.\n\t\t# @parameter selector [IO::Event::Selector] The selector to use for event handling.\n\t\tdef initialize(parent = nil, selector: nil)\n\t\t\tsuper(parent)\n",
+                      "markdown": "`\t\t# Create a new scheduler.\n\t\t#\n\t\t# @public Since `stable-v1`.\n\t\t# @parameter parent [Node | Nil] The parent node to use for task hierarchy.\n\t\t# @parameter selector [IO::Event::Selector] The selector to use for event handling.\n\t\tdef initialize(parent = nil, selector: nil)\n\t\t\tsuper(parent)\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/scheduler.rb"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 18,
+                  "endLine": 19,
+                  "snippet": {
+                    "text": "\nmodule Async\n\t# Handles scheduling of fibers. Implements the fiber scheduler interface.\n\tclass Scheduler < Node\n\t\t# Raised when an operation is attempted on a closed scheduler.\n\t\tclass ClosedError < RuntimeError\n\t\t\t# Create a new error.\n\t\t\t#\n",
+                    "rendered": {
+                      "text": "\nmodule Async\n\t# Handles scheduling of fibers. Implements the fiber scheduler interface.\n\tclass Scheduler < Node\n\t\t# Raised when an operation is attempted on a closed scheduler.\n\t\tclass ClosedError < RuntimeError\n\t\t\t# Create a new error.\n\t\t\t#\n",
+                      "markdown": "`\nmodule Async\n\t# Handles scheduling of fibers. Implements the fiber scheduler interface.\n\tclass Scheduler < Node\n\t\t# Raised when an operation is attempted on a closed scheduler.\n\t\tclass ClosedError < RuntimeError\n\t\t\t# Create a new error.\n\t\t\t#\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/node.rb"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 6,
+                  "endLine": 58,
+                  "snippet": {
+                    "text": "\tend\n\t\n\t# A node in a tree, used for implementing the task hierarchy.\n\tclass Node\n\t\t# Create a new node in the tree.\n\t\t# @parameter parent [Node | Nil] This node will attach to the given parent.\n\t\tdef initialize(parent = nil, annotation: nil, transient: false)\n\t\t\t@parent = nil\n",
+                    "rendered": {
+                      "text": "\tend\n\t\n\t# A node in a tree, used for implementing the task hierarchy.\n\tclass Node\n\t\t# Create a new node in the tree.\n\t\t# @parameter parent [Node | Nil] This node will attach to the given parent.\n\t\tdef initialize(parent = nil, annotation: nil, transient: false)\n\t\t\t@parent = nil\n",
+                      "markdown": "`\tend\n\t\n\t# A node in a tree, used for implementing the task hierarchy.\n\tclass Node\n\t\t# Create a new node in the tree.\n\t\t# @parameter parent [Node | Nil] This node will attach to the given parent.\n\t\tdef initialize(parent = nil, annotation: nil, transient: false)\n\t\t\t@parent = nil\n`"
+                    }
+                  },
+                  "sourceLanguage": "ruby"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/barrier.md"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 8,
+                  "endLine": 18,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "\tnumbers = 10.times.map{rand(10)}\n\tsorted = []\n\t\n\t# Sleep sort the numbers:\n\tnumbers.each do |number|\n\t\tbarrier.async do |task|\n\t\t\ttask.sleep(number)\n",
+                    "rendered": {
+                      "text": "\tnumbers = 10.times.map{rand(10)}\n\tsorted = []\n\t\n\t# Sleep sort the numbers:\n\tnumbers.each do |number|\n\t\tbarrier.async do |task|\n\t\t\ttask.sleep(number)\n",
+                      "markdown": "`\tnumbers = 10.times.map{rand(10)}\n\tsorted = []\n\t\n\t# Sleep sort the numbers:\n\tnumbers.each do |number|\n\t\tbarrier.async do |task|\n\t\t\ttask.sleep(number)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/ruby3.2-async-2.14.2-r0.apk/ruby3.2-async-2.14.2-r0/usr/lib/ruby/gems/3.2.0/gems/async-2.14.2/lib/async/barrier.md"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 3,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/barrier'\n\nbarrier = Async::Barrier.new\n",
+                    "rendered": {
+                      "text": "\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/barrier'\n\nbarrier = Async::Barrier.new\n",
+                      "markdown": "`\n## Example\n\n~~~ ruby\nrequire 'async'\nrequire 'async/barrier'\n\nbarrier = Async::Barrier.new\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

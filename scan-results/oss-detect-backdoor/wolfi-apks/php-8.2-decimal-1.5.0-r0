@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/php-8.2-decimal-1.5.0-r0.apk/php-8.2-decimal-1.5.0-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 71,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 119019\norigin = php-8.2-decimal\npkgdesc = Correctly-rounded, arbitrary-precision decimal arithmetic for PHP\nurl = \ncommit = e9874f1f161d8ad202924d95a006d4cf8b4add52\nbuilddate = 1712535642\nlicense = MIT\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 119019\norigin = php-8.2-decimal\npkgdesc = Correctly-rounded, arbitrary-precision decimal arithmetic for PHP\nurl = \ncommit = e9874f1f161d8ad202924d95a006d4cf8b4add52\nbuilddate = 1712535642\nlicense = MIT\n",
+                      "markdown": "`arch = x86_64\nsize = 119019\norigin = php-8.2-decimal\npkgdesc = Correctly-rounded, arbitrary-precision decimal arithmetic for PHP\nurl = \ncommit = e9874f1f161d8ad202924d95a006d4cf8b4add52\nbuilddate = 1712535642\nlicense = MIT\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

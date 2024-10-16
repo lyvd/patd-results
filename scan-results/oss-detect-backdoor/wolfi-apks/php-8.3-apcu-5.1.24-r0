@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/php-8.3-apcu-5.1.24-r0.apk/php-8.3-apcu-5.1.24-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 9,
+                  "endLine": 7,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 212198\norigin = php-8.3-apcu\npkgdesc = PHP extension for User Cache\nurl = \ncommit = 19397d4f2c069cdf8dc447dd8f39d6c16cc1dbcd\nbuilddate = 1726955902\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 212198\norigin = php-8.3-apcu\npkgdesc = PHP extension for User Cache\nurl = \ncommit = 19397d4f2c069cdf8dc447dd8f39d6c16cc1dbcd\nbuilddate = 1726955902\n",
+                      "markdown": "`arch = x86_64\nsize = 212198\norigin = php-8.3-apcu\npkgdesc = PHP extension for User Cache\nurl = \ncommit = 19397d4f2c069cdf8dc447dd8f39d6c16cc1dbcd\nbuilddate = 1726955902\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/php-8.3-apcu-5.1.24-r0.apk/php-8.3-apcu-5.1.24-r0/usr/include/php/ext/apcu/apc_arginfo.h"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 24,
+                  "endLine": 4,
+                  "endColumn": 29,
+                  "snippet": {
+                    "text": "#if PHP_VERSION_ID < 80000\n# include \"php_apc_legacy_arginfo.h\"\n#else\n# error Not supported on PHP >= 8.0\n#endif\n",
+                    "rendered": {
+                      "text": "#if PHP_VERSION_ID < 80000\n# include \"php_apc_legacy_arginfo.h\"\n#else\n# error Not supported on PHP >= 8.0\n#endif\n",
+                      "markdown": "`#if PHP_VERSION_ID < 80000\n# include \"php_apc_legacy_arginfo.h\"\n#else\n# error Not supported on PHP >= 8.0\n#endif\n`"
+                    }
+                  },
+                  "sourceLanguage": "c"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

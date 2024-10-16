@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/aws-c-s3-0.6.6-r0.apk/aws-c-s3-0.6.6-r0/.PKGINFO"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 70,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "arch = x86_64\nsize = 310404\norigin = aws-c-s3\npkgdesc = AWS C99 library implementation for communicating with the S3 service\nurl = \ncommit = 6ee77b0223e70b991c042ee0325a21aa6a6bb9b9\nbuilddate = 1726705567\nlicense = Apache-2.0\n",
+                    "rendered": {
+                      "text": "arch = x86_64\nsize = 310404\norigin = aws-c-s3\npkgdesc = AWS C99 library implementation for communicating with the S3 service\nurl = \ncommit = 6ee77b0223e70b991c042ee0325a21aa6a6bb9b9\nbuilddate = 1726705567\nlicense = Apache-2.0\n",
+                      "markdown": "`arch = x86_64\nsize = 310404\norigin = aws-c-s3\npkgdesc = AWS C99 library implementation for communicating with the S3 service\nurl = \ncommit = 6ee77b0223e70b991c042ee0325a21aa6a6bb9b9\nbuilddate = 1726705567\nlicense = Apache-2.0\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

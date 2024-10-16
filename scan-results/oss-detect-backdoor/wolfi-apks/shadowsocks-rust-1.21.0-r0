@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/shadowsocks-rust-1.21.0-r0.apk/shadowsocks-rust-1.21.0-r0/etc/shadowsocks-rust/config.json"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 17,
+                  "endLine": 6,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "    \"server_port\": 8388,\r\n    \"local_port\": 1080,\r\n    \"local_address\": \"127.0.0.1\",\r\n    \"password\": \"password\",\r\n    \"timeout\": 300,\r\n    \"method\": \"aes-256-gcm\"\r\n}\r\n",
+                    "rendered": {
+                      "text": "    \"server_port\": 8388,\r\n    \"local_port\": 1080,\r\n    \"local_address\": \"127.0.0.1\",\r\n    \"password\": \"password\",\r\n    \"timeout\": 300,\r\n    \"method\": \"aes-256-gcm\"\r\n}\r\n",
+                      "markdown": "`    \"server_port\": 8388,\r\n    \"local_port\": 1080,\r\n    \"local_address\": \"127.0.0.1\",\r\n    \"password\": \"password\",\r\n    \"timeout\": 300,\r\n    \"method\": \"aes-256-gcm\"\r\n}\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/shadowsocks-rust-1.21.0-r0.apk/shadowsocks-rust-1.21.0-r0/etc/shadowsocks-rust/config.json"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 5,
+                  "endLine": 6,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "    \"server_port\": 8388,\r\n    \"local_port\": 1080,\r\n    \"local_address\": \"127.0.0.1\",\r\n    \"password\": \"password\",\r\n    \"timeout\": 300,\r\n    \"method\": \"aes-256-gcm\"\r\n}\r\n",
+                    "rendered": {
+                      "text": "    \"server_port\": 8388,\r\n    \"local_port\": 1080,\r\n    \"local_address\": \"127.0.0.1\",\r\n    \"password\": \"password\",\r\n    \"timeout\": 300,\r\n    \"method\": \"aes-256-gcm\"\r\n}\r\n",
+                      "markdown": "`    \"server_port\": 8388,\r\n    \"local_port\": 1080,\r\n    \"local_address\": \"127.0.0.1\",\r\n    \"password\": \"password\",\r\n    \"timeout\": 300,\r\n    \"method\": \"aes-256-gcm\"\r\n}\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "json"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

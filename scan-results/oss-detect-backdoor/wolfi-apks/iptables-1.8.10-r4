@@ -1,0 +1,940 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/usr/share/xtables/iptables.xslt"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 17,
+                  "endLine": 65,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "    <xsl:apply-templates select=\"node()\"/>\n  </xsl:template>\n\n  <!-- output the head of the rule, and any conditions -->\n  <xsl:template name=\"rule-head\">\n    <xsl:if test=\"string-length(@packet-count)+string-length(@byte-count)\">\n      <xsl:call-template name=\"counters\"><xsl:with-param name=\"node\" select=\".\"/></xsl:call-template>\n",
+                    "rendered": {
+                      "text": "    <xsl:apply-templates select=\"node()\"/>\n  </xsl:template>\n\n  <!-- output the head of the rule, and any conditions -->\n  <xsl:template name=\"rule-head\">\n    <xsl:if test=\"string-length(@packet-count)+string-length(@byte-count)\">\n      <xsl:call-template name=\"counters\"><xsl:with-param name=\"node\" select=\".\"/></xsl:call-template>\n",
+                      "markdown": "`    <xsl:apply-templates select=\"node()\"/>\n  </xsl:template>\n\n  <!-- output the head of the rule, and any conditions -->\n  <xsl:template name=\"rule-head\">\n    <xsl:if test=\"string-length(@packet-count)+string-length(@byte-count)\">\n      <xsl:call-template name=\"counters\"><xsl:with-param name=\"node\" select=\".\"/></xsl:call-template>\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 16,
+                  "endLine": 136,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "SHORTOPTS=\"t:w:chV\";\nLONGOPTS=\"timeout:,write:,command,help,version\";\n\nOPTS=$(getopt -s bash -o \"$SHORTOPTS\" -l \"$LONGOPTS\" -n \"$PROGNAME\" -- \"$@\") || exit $?\nfor opt in $OPTS; do\n\tcase \"$opt\" in\n\t\t(-*)\n",
+                    "rendered": {
+                      "text": "SHORTOPTS=\"t:w:chV\";\nLONGOPTS=\"timeout:,write:,command,help,version\";\n\nOPTS=$(getopt -s bash -o \"$SHORTOPTS\" -l \"$LONGOPTS\" -n \"$PROGNAME\" -- \"$@\") || exit $?\nfor opt in $OPTS; do\n\tcase \"$opt\" in\n\t\t(-*)\n",
+                      "markdown": "`SHORTOPTS=\"t:w:chV\";\nLONGOPTS=\"timeout:,write:,command,help,version\";\n\nOPTS=$(getopt -s bash -o \"$SHORTOPTS\" -l \"$LONGOPTS\" -n \"$PROGNAME\" -- \"$@\") || exit $?\nfor opt in $OPTS; do\n\tcase \"$opt\" in\n\t\t(-*)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 113,
+                  "startColumn": 4,
+                  "endLine": 113,
+                  "endColumn": 9,
+                  "snippet": {
+                    "text": "}\n\nfunction checkcommands() {\n\tfor cmd in \"${COMMANDS[@]}\"; do\n\t\tif ! command -v \"$cmd\" >/dev/null; then\n\t\t\techo \"Error: needed command not found: $cmd\" >&2\n\t\t\texit 127\n",
+                    "rendered": {
+                      "text": "}\n\nfunction checkcommands() {\n\tfor cmd in \"${COMMANDS[@]}\"; do\n\t\tif ! command -v \"$cmd\" >/dev/null; then\n\t\t\techo \"Error: needed command not found: $cmd\" >&2\n\t\t\texit 127\n",
+                      "markdown": "`}\n\nfunction checkcommands() {\n\tfor cmd in \"${COMMANDS[@]}\"; do\n\t\tif ! command -v \"$cmd\" >/dev/null; then\n\t\t\techo \"Error: needed command not found: $cmd\" >&2\n\t\t\texit 127\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 37,
+                  "endLine": 52,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "\nfunction blurb() {\n\tcat <<-__EOF__\n\t$PROGNAME $VERSION -- a safer way to update iptables remotely\n\t__EOF__\n}\n\n",
+                    "rendered": {
+                      "text": "\nfunction blurb() {\n\tcat <<-__EOF__\n\t$PROGNAME $VERSION -- a safer way to update iptables remotely\n\t__EOF__\n}\n\n",
+                      "markdown": "`\nfunction blurb() {\n\tcat <<-__EOF__\n\t$PROGNAME $VERSION -- a safer way to update iptables remotely\n\t__EOF__\n}\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 34,
+                  "endLine": 2,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "#!/bin/bash\n# iptables-apply -- a safer way to update iptables remotely\n#\n# Usage:\n#   iptables-apply [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n",
+                    "rendered": {
+                      "text": "#!/bin/bash\n# iptables-apply -- a safer way to update iptables remotely\n#\n# Usage:\n#   iptables-apply [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n",
+                      "markdown": "`#!/bin/bash\n# iptables-apply -- a safer way to update iptables remotely\n#\n# Usage:\n#   iptables-apply [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 214,
+                  "startColumn": 5,
+                  "endLine": 214,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\nif ! \"$SAVE\" >\"$TMPFILE\"; then\n\t# An error occured\n\tif ! grep -q ipt /proc/modules 2>/dev/null; then\n\t\techo \"Error: iptables support lacking from the kernel\" >&2\n\t\texit 3\n\telse\n",
+                    "rendered": {
+                      "text": "\nif ! \"$SAVE\" >\"$TMPFILE\"; then\n\t# An error occured\n\tif ! grep -q ipt /proc/modules 2>/dev/null; then\n\t\techo \"Error: iptables support lacking from the kernel\" >&2\n\t\texit 3\n\telse\n",
+                      "markdown": "`\nif ! \"$SAVE\" >\"$TMPFILE\"; then\n\t# An error occured\n\tif ! grep -q ipt /proc/modules 2>/dev/null; then\n\t\techo \"Error: iptables support lacking from the kernel\" >&2\n\t\texit 3\n\telse\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 13,
+                  "endLine": 168,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "if [ \"$TIMEOUT\" -ge 0 ] 2>/dev/null; then\n\tTIMEOUT=$((TIMEOUT))\nelse\n\techo \"Error: timeout must be a positive number\" >&2\n\texit 1\nfi\n\n",
+                    "rendered": {
+                      "text": "if [ \"$TIMEOUT\" -ge 0 ] 2>/dev/null; then\n\tTIMEOUT=$((TIMEOUT))\nelse\n\techo \"Error: timeout must be a positive number\" >&2\n\texit 1\nfi\n\n",
+                      "markdown": "`if [ \"$TIMEOUT\" -ge 0 ] 2>/dev/null; then\n\tTIMEOUT=$((TIMEOUT))\nelse\n\techo \"Error: timeout must be a positive number\" >&2\n\texit 1\nfi\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 16,
+                  "endLine": 136,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "SHORTOPTS=\"t:w:chV\";\nLONGOPTS=\"timeout:,write:,command,help,version\";\n\nOPTS=$(getopt -s bash -o \"$SHORTOPTS\" -l \"$LONGOPTS\" -n \"$PROGNAME\" -- \"$@\") || exit $?\nfor opt in $OPTS; do\n\tcase \"$opt\" in\n\t\t(-*)\n",
+                    "rendered": {
+                      "text": "SHORTOPTS=\"t:w:chV\";\nLONGOPTS=\"timeout:,write:,command,help,version\";\n\nOPTS=$(getopt -s bash -o \"$SHORTOPTS\" -l \"$LONGOPTS\" -n \"$PROGNAME\" -- \"$@\") || exit $?\nfor opt in $OPTS; do\n\tcase \"$opt\" in\n\t\t(-*)\n",
+                      "markdown": "`SHORTOPTS=\"t:w:chV\";\nLONGOPTS=\"timeout:,write:,command,help,version\";\n\nOPTS=$(getopt -s bash -o \"$SHORTOPTS\" -l \"$LONGOPTS\" -n \"$PROGNAME\" -- \"$@\") || exit $?\nfor opt in $OPTS; do\n\tcase \"$opt\" in\n\t\t(-*)\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 14,
+                  "endLine": 97,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "\tOptions:\n\n\t-t seconds, --timeout seconds\n\t  Specify the timeout in seconds (default: $DEF_TIMEOUT).\n\t-w savefile, --write savefile\n\t  Specify the savefile where successfully applied rules will be written to\n\t  (default if empty string is given: $DEF_SAVEFILE).\n",
+                    "rendered": {
+                      "text": "\tOptions:\n\n\t-t seconds, --timeout seconds\n\t  Specify the timeout in seconds (default: $DEF_TIMEOUT).\n\t-w savefile, --write savefile\n\t  Specify the savefile where successfully applied rules will be written to\n\t  (default if empty string is given: $DEF_SAVEFILE).\n",
+                      "markdown": "`\tOptions:\n\n\t-t seconds, --timeout seconds\n\t  Specify the timeout in seconds (default: $DEF_TIMEOUT).\n\t-w savefile, --write savefile\n\t  Specify the savefile where successfully applied rules will be written to\n\t  (default if empty string is given: $DEF_SAVEFILE).\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 36,
+                  "endLine": 90,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "\tconfiguration mechanism when experimenting with an iptables setup script:\n\t  $PROGNAME -w $DEF_SAVEFILE -c $DEF_RUNCMD\n\n\tWhen called as ip6tables-apply, the script will use ip6tables-save/-restore\n\tand IPv6 default values instead. Default value for rulesfile is\n\t'$DEF_RULESFILE'.\n\n",
+                    "rendered": {
+                      "text": "\tconfiguration mechanism when experimenting with an iptables setup script:\n\t  $PROGNAME -w $DEF_SAVEFILE -c $DEF_RUNCMD\n\n\tWhen called as ip6tables-apply, the script will use ip6tables-save/-restore\n\tand IPv6 default values instead. Default value for rulesfile is\n\t'$DEF_RULESFILE'.\n\n",
+                      "markdown": "`\tconfiguration mechanism when experimenting with an iptables setup script:\n\t  $PROGNAME -w $DEF_SAVEFILE -c $DEF_RUNCMD\n\n\tWhen called as ip6tables-apply, the script will use ip6tables-save/-restore\n\tand IPv6 default values instead. Default value for rulesfile is\n\t'$DEF_RULESFILE'.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 10,
+                  "endLine": 83,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n\tSuccessfully applied rules can also be written to savefile and later used\n\tto roll back to this state. This can be used to implement a store last good\n",
+                    "rendered": {
+                      "text": "\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n\tSuccessfully applied rules can also be written to savefile and later used\n\tto roll back to this state. This can be used to implement a store last good\n",
+                      "markdown": "`\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n\tSuccessfully applied rules can also be written to savefile and later used\n\tto roll back to this state. This can be used to implement a store last good\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 18,
+                  "endLine": 82,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n\tSuccessfully applied rules can also be written to savefile and later used\n",
+                    "rendered": {
+                      "text": "\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n\tSuccessfully applied rules can also be written to savefile and later used\n",
+                      "markdown": "`\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n\tSuccessfully applied rules can also be written to savefile and later used\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 72,
+                  "endLine": 81,
+                  "snippet": {
+                    "text": "\n\tThe script will try to apply a new rulesfile (as output by iptables-save,\n\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n",
+                    "rendered": {
+                      "text": "\n\tThe script will try to apply a new rulesfile (as output by iptables-save,\n\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n",
+                      "markdown": "`\n\tThe script will try to apply a new rulesfile (as output by iptables-save,\n\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n\tIn this case, the script rolls back to the previous working iptables rules\n\tafter the timeout expires.\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 4,
+                  "endLine": 78,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\tUsage:\n\t  $PROGNAME [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n\n\tThe script will try to apply a new rulesfile (as output by iptables-save,\n\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n",
+                    "rendered": {
+                      "text": "\tUsage:\n\t  $PROGNAME [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n\n\tThe script will try to apply a new rulesfile (as output by iptables-save,\n\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n",
+                      "markdown": "`\tUsage:\n\t  $PROGNAME [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n\n\tThe script will try to apply a new rulesfile (as output by iptables-save,\n\tread by iptables-restore) or run a command to configure iptables and then\n\tprompt the user whether the changes are okay. If the new iptables rules cut\n\tthe existing connection, the user will not be able to answer affirmatively.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 74,
+                  "endLine": 74,
+                  "endColumn": 5,
+                  "snippet": {
+                    "text": "function usage() {\n\tblurb\n\techo\n\tcat <<-__EOF__\n\tUsage:\n\t  $PROGNAME [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n\n",
+                    "rendered": {
+                      "text": "function usage() {\n\tblurb\n\techo\n\tcat <<-__EOF__\n\tUsage:\n\t  $PROGNAME [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n\n",
+                      "markdown": "`function usage() {\n\tblurb\n\techo\n\tcat <<-__EOF__\n\tUsage:\n\t  $PROGNAME [-hV] [-t timeout] [-w savefile] {[rulesfile]|-c [runcmd]}\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 57,
+                  "endLine": 57,
+                  "endColumn": 5,
+                  "snippet": {
+                    "text": "}\n\nfunction copyright() {\n\tcat <<-__EOF__\n\t$PROGNAME has been published under the terms of the Artistic Licence 2.0.\n\n\tOriginal version - Copyright 2006 Martin F. Krafft <madduck@madduck.net>.\n",
+                    "rendered": {
+                      "text": "}\n\nfunction copyright() {\n\tcat <<-__EOF__\n\t$PROGNAME has been published under the terms of the Artistic Licence 2.0.\n\n\tOriginal version - Copyright 2006 Martin F. Krafft <madduck@madduck.net>.\n",
+                      "markdown": "`}\n\nfunction copyright() {\n\tcat <<-__EOF__\n\t$PROGNAME has been published under the terms of the Artistic Licence 2.0.\n\n\tOriginal version - Copyright 2006 Martin F. Krafft <madduck@madduck.net>.\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/sbin/iptables-apply"
+                },
+                "region": {
+                  "startLine": 51,
+                  "endLine": 51,
+                  "endColumn": 5,
+                  "snippet": {
+                    "text": "### Functions\n\nfunction blurb() {\n\tcat <<-__EOF__\n\t$PROGNAME $VERSION -- a safer way to update iptables remotely\n\t__EOF__\n}\n",
+                    "rendered": {
+                      "text": "### Functions\n\nfunction blurb() {\n\tcat <<-__EOF__\n\t$PROGNAME $VERSION -- a safer way to update iptables remotely\n\t__EOF__\n}\n",
+                      "markdown": "`### Functions\n\nfunction blurb() {\n\tcat <<-__EOF__\n\t$PROGNAME $VERSION -- a safer way to update iptables remotely\n\t__EOF__\n}\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/ethertypes"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 18,
+                  "endLine": 33,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "802_1Q\t\t8100\t8021q 1q 802.1q\tdot1q # 802.1Q Virtual LAN tagged frame\nIPX\t\t8137\t\t\t# Novell IPX\nNetBEUI\t\t8191\t\t\t# NetBEUI\nIPv6\t\t86DD\tip6 \t\t# IP version 6\nPPP\t\t880B\t\t\t# PPP\nATMMPOA\t\t884C\t\t\t# MultiProtocol over ATM\nPPP_DISC\t8863\t\t\t# PPPoE discovery messages\n",
+                    "rendered": {
+                      "text": "802_1Q\t\t8100\t8021q 1q 802.1q\tdot1q # 802.1Q Virtual LAN tagged frame\nIPX\t\t8137\t\t\t# Novell IPX\nNetBEUI\t\t8191\t\t\t# NetBEUI\nIPv6\t\t86DD\tip6 \t\t# IP version 6\nPPP\t\t880B\t\t\t# PPP\nATMMPOA\t\t884C\t\t\t# MultiProtocol over ATM\nPPP_DISC\t8863\t\t\t# PPPoE discovery messages\n",
+                      "markdown": "`802_1Q\t\t8100\t8021q 1q 802.1q\tdot1q # 802.1Q Virtual LAN tagged frame\nIPX\t\t8137\t\t\t# Novell IPX\nNetBEUI\t\t8191\t\t\t# NetBEUI\nIPv6\t\t86DD\tip6 \t\t# IP version 6\nPPP\t\t880B\t\t\t# PPP\nATMMPOA\t\t884C\t\t\t# MultiProtocol over ATM\nPPP_DISC\t8863\t\t\t# PPPoE discovery messages\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/ethertypes"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 22,
+                  "endLine": 27,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "SCA\t\t6007\t\t\t# DEC Systems Comms Arch\nTEB\t\t6558\t\t\t# Trans Ether Bridging   [RFC1701]\nRAW_FR  \t6559\t\t\t# Raw Frame Relay        [RFC1701]\nRARP\t\t8035\t\t\t# Reverse ARP            [RFC903]\nAARP\t\t80F3\t\t\t# Appletalk AARP\nATALK\t\t809B\t\t\t# Appletalk\n802_1Q\t\t8100\t8021q 1q 802.1q\tdot1q # 802.1Q Virtual LAN tagged frame\n",
+                    "rendered": {
+                      "text": "SCA\t\t6007\t\t\t# DEC Systems Comms Arch\nTEB\t\t6558\t\t\t# Trans Ether Bridging   [RFC1701]\nRAW_FR  \t6559\t\t\t# Raw Frame Relay        [RFC1701]\nRARP\t\t8035\t\t\t# Reverse ARP            [RFC903]\nAARP\t\t80F3\t\t\t# Appletalk AARP\nATALK\t\t809B\t\t\t# Appletalk\n802_1Q\t\t8100\t8021q 1q 802.1q\tdot1q # 802.1Q Virtual LAN tagged frame\n",
+                      "markdown": "`SCA\t\t6007\t\t\t# DEC Systems Comms Arch\nTEB\t\t6558\t\t\t# Trans Ether Bridging   [RFC1701]\nRAW_FR  \t6559\t\t\t# Raw Frame Relay        [RFC1701]\nRARP\t\t8035\t\t\t# Reverse ARP            [RFC903]\nAARP\t\t80F3\t\t\t# Appletalk AARP\nATALK\t\t809B\t\t\t# Appletalk\n802_1Q\t\t8100\t8021q 1q 802.1q\tdot1q # 802.1Q Virtual LAN tagged frame\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/ethertypes"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 31,
+                  "endLine": 15,
+                  "endColumn": 36,
+                  "snippet": {
+                    "text": "IPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\nBPQ\t\t08FF\t\t\t# G8BPQ AX.25 Ethernet Packet\nDEC\t\t6000\t\t\t# DEC Assigned proto\nDNA_DL\t\t6001\t\t\t# DEC DNA Dump/Load\n",
+                    "rendered": {
+                      "text": "IPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\nBPQ\t\t08FF\t\t\t# G8BPQ AX.25 Ethernet Packet\nDEC\t\t6000\t\t\t# DEC Assigned proto\nDNA_DL\t\t6001\t\t\t# DEC DNA Dump/Load\n",
+                      "markdown": "`IPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\nBPQ\t\t08FF\t\t\t# G8BPQ AX.25 Ethernet Packet\nDEC\t\t6000\t\t\t# DEC Assigned proto\nDNA_DL\t\t6001\t\t\t# DEC DNA Dump/Load\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/ethertypes"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 9,
+                  "endLine": 14,
+                  "endColumn": 4,
+                  "snippet": {
+                    "text": "# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\nBPQ\t\t08FF\t\t\t# G8BPQ AX.25 Ethernet Packet\nDEC\t\t6000\t\t\t# DEC Assigned proto\n",
+                    "rendered": {
+                      "text": "# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\nBPQ\t\t08FF\t\t\t# G8BPQ AX.25 Ethernet Packet\nDEC\t\t6000\t\t\t# DEC Assigned proto\n",
+                      "markdown": "`# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\nBPQ\t\t08FF\t\t\t# G8BPQ AX.25 Ethernet Packet\nDEC\t\t6000\t\t\t# DEC Assigned proto\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/ethertypes"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 33,
+                  "endLine": 12,
+                  "endColumn": 37,
+                  "snippet": {
+                    "text": "#\n# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\n",
+                    "rendered": {
+                      "text": "#\n# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\n",
+                      "markdown": "`#\n# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/ethertypes"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 13,
+                  "endLine": 12,
+                  "endColumn": 17,
+                  "snippet": {
+                    "text": "#\n# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\n",
+                    "rendered": {
+                      "text": "#\n# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\n",
+                      "markdown": "`#\n# <name>    <hexnumber> <alias1>...<alias35> #Comment\n#\nIPv4\t \t0800  \tip ip4 \t\t# Internet IP (IPv4)\nX25\t\t0805\nARP\t\t0806\tether-arp\t#\nFR_ARP\t\t0808    \t\t# Frame Relay ARP        [RFC1701]\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/conf.d/iptables"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "# /etc/conf.d/iptables\n\n# Location in which iptables initscript will save set rules on \n# service shutdown\nIPTABLES_SAVE=\"/etc/iptables/rules-save\"\n\n# Options to pass to iptables-save and iptables-restore \n",
+                    "rendered": {
+                      "text": "# /etc/conf.d/iptables\n\n# Location in which iptables initscript will save set rules on \n# service shutdown\nIPTABLES_SAVE=\"/etc/iptables/rules-save\"\n\n# Options to pass to iptables-save and iptables-restore \n",
+                      "markdown": "`# /etc/conf.d/iptables\n\n# Location in which iptables initscript will save set rules on \n# service shutdown\nIPTABLES_SAVE=\"/etc/iptables/rules-save\"\n\n# Options to pass to iptables-save and iptables-restore \n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/iptables-1.8.10-r4.apk/iptables-1.8.10-r4/etc/conf.d/ebtables"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 10,
+                  "snippet": {
+                    "text": "# /etc/conf.d/ebtables\n\n# Location in which ebtables initscript will save set rules on \n# service shutdown\nEBTABLES_SAVE=\"/var/lib/ebtables/rules-save\"\n\n# Options to pass to ebtables-save and ebtables-restore \n",
+                    "rendered": {
+                      "text": "# /etc/conf.d/ebtables\n\n# Location in which ebtables initscript will save set rules on \n# service shutdown\nEBTABLES_SAVE=\"/var/lib/ebtables/rules-save\"\n\n# Options to pass to ebtables-save and ebtables-restore \n",
+                      "markdown": "`# /etc/conf.d/ebtables\n\n# Location in which ebtables initscript will save set rules on \n# service shutdown\nEBTABLES_SAVE=\"/var/lib/ebtables/rules-save\"\n\n# Options to pass to ebtables-save and ebtables-restore \n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

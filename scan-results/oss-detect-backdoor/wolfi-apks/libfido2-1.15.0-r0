@@ -1,0 +1,426 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.0.0+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 225,
+                  "startColumn": 8,
+                  "endLine": 225,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano S+ HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Stax HID+U2F by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano S+ HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Stax HID+U2F by LEDGER\n",
+                      "markdown": "`# Ledger Nano S+ HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Stax HID+U2F by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 222,
+                  "startColumn": 8,
+                  "endLine": 222,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano S+ HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F+WEBUSB by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano S+ HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F+WEBUSB by LEDGER\n",
+                      "markdown": "`# Ledger Nano S+ HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F+WEBUSB by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 8,
+                  "endLine": 219,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano X HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+WEBUSB by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano X HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+WEBUSB by LEDGER\n",
+                      "markdown": "`# Ledger Nano X HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"5005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+WEBUSB by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 8,
+                  "endLine": 216,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano X HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano X HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F by LEDGER\n",
+                      "markdown": "`# Ledger Nano X HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S+ HID+U2F by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 213,
+                  "startColumn": 8,
+                  "endLine": 213,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano X HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F+WEBUSB by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano X HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F+WEBUSB by LEDGER\n",
+                      "markdown": "`# Ledger Nano X HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F+WEBUSB by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 8,
+                  "endLine": 210,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano S HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+WEBUSB by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano S HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+WEBUSB by LEDGER\n",
+                      "markdown": "`# Ledger Nano S HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"4005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+WEBUSB by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 8,
+                  "endLine": 207,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano S HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano S HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F by LEDGER\n",
+                      "markdown": "`# Ledger Nano S HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X HID+U2F by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 204,
+                  "startColumn": 8,
+                  "endLine": 204,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano S HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F+WEBUSB by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano S HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F+WEBUSB by LEDGER\n",
+                      "markdown": "`# Ledger Nano S HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+WEBUSB by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1011\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F+WEBUSB by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 8,
+                  "endLine": 201,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Blue Legacy by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+WEBUSB by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Blue Legacy by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+WEBUSB by LEDGER\n",
+                      "markdown": "`# Ledger Blue Legacy by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0015\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+U2F by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"1005\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S HID+WEBUSB by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 192,
+                  "startColumn": 8,
+                  "endLine": 192,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Nano S Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0001\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0004\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Blue by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Nano S Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0001\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0004\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Blue by LEDGER\n",
+                      "markdown": "`# Ledger Nano S Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0001\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0004\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Blue by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "/tmp/panic-at-the-distro-malicious-apks/datasets/wolfi_apks/libfido2-1.15.0-r0.apk/libfido2-1.15.0-r0/lib/udev/rules.d/70-u2f.rules"
+                },
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 8,
+                  "endLine": 189,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "# Ledger Blue by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0000\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0001\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X Old firmware by LEDGER\n",
+                    "rendered": {
+                      "text": "# Ledger Blue by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0000\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0001\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X Old firmware by LEDGER\n",
+                      "markdown": "`# Ledger Blue by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0000\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano S Old firmware by LEDGER\nKERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{idVendor}==\"2c97\", ATTRS{idProduct}==\"0001\", TAG+=\"uaccess\", GROUP=\"plugdev\", MODE=\"0660\"\n\n# Ledger Nano X Old firmware by LEDGER\n`"
+                    }
+                  },
+                  "sourceLanguage": "Unknown"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}
