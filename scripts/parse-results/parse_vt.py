@@ -21,12 +21,14 @@ def parse_json_file(file_path):
             av_results = attributes.get('results', {})
             
             file_paths = file_path.split(os.sep)
-            package = file_paths[-1]
-            dataset = file_paths[-3]  
-            if not dataset.startswith('dataset'):
+            
+            if file_paths[-2] in ['js', 'python', 'ruby']:
+                dataset = file_paths[-3]
+            else:
                 dataset = file_paths[-2]
+                
+            package = file_paths[-1]
                             
-
             results['package'] = package[:-5] # Remove .json extension
             results['dataset'] = dataset
             results['av_results'] = av_results if isinstance(av_results, dict) else {}
