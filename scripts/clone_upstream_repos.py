@@ -13,10 +13,17 @@ def clone_repo(package_name, repo_url, base_dir):
         os.makedirs(package_dir)
         print(f"Cloning {package_name} from {repo_url} into {package_dir}")
         
-        # Run the git clone command
-        subprocess.run(['git', 'clone', repo_url, package_dir])
+        try:
+            # Run the git clone command with a timeout of 1 minute
+            subprocess.run(['git', 'clone', repo_url, package_dir], timeout=60, check=True)
+            return True
+        except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
+            print(f"Cloning {package_name} from {repo_url} failed or timed out. Deleting directory and moving to the next.")
+            shutil.rmtree(package_dir)
+            return False
     else:
         print(f"Directory {package_name} already exists, skipping...")
+        return False
 
 # Function to zip the directory and remove the cloned repository
 def zip_and_delete(package_name, base_dir):
@@ -42,10 +49,9 @@ def main(csv_file, base_dir):
         repo_url = row[-1]     # Last column: GitHub URL
         
         if pd.notna(repo_url) and repo_url.strip():
-            clone_repo(package_name, repo_url, base_dir)
-            
-            # Zip the directory and delete it
-            zip_and_delete(package_name, base_dir)
+            if clone_repo(package_name, repo_url, base_dir):
+                # Zip the directory and delete it only if cloning was successful
+                zip_and_delete(package_name, base_dir)
 
 if __name__ == '__main__':
     # CSV file containing package names and GitHub URLs
@@ -60,4 +66,3 @@ if __name__ == '__main__':
     
     # Parse CSV and clone repositories, zip them, and remove directories
     main(csv_file, base_dir)
-

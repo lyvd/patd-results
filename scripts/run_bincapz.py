@@ -33,6 +33,6 @@ for f, path in onlyfiles:
     print(f)
     filename_wo_ext = Path(path).with_suffix('').name
     result_path = os.path.join(sys.argv[2], filename_wo_ext + ".json")
-    if not os.path.exists(result_path, result_path):
+    if not os.path.exists(result_path):
         command = 'mal --format=json --min-risk=high -o {} scan {}'.format(result_path, path)
-        run_linux_command(command)
+        run_linux_command(command, result_path)

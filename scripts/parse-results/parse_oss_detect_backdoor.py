@@ -73,7 +73,7 @@ def main():
     root_dir = os.path.abspath(os.path.join(script_dir, '../../scan-results/oss-detect-backdoor'))
     results = explore_and_parse_files(root_dir)
     
-    output_file = os.path.abspath(os.path.join(script_dir, '../../results-csv/oss-detect-backdoor/oss-detect-backdoor.csv'))
+    output_file = os.path.abspath(os.path.join(script_dir, '../../results-csv/oss-detect-backdoor.csv'))
     save_results_to_csv(results, output_file)
     
 

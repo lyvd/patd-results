@@ -3,8 +3,24 @@ import os
 import json
 import argparse
 
-VALID_FILE_EXTENSIONS = ['.html', '.css', '.js', '.ts', '.php', '.rb', '.py', '.java', '.cs', '.go', 
-    '.r', '.pl', '.c', '.cpp', '.h', '.rs', '.swift', '.kt', '.lua', '.sh']
+FILE_TEXT_EXTENSION = [
+    '.txt',    # Plain text file
+    '.md',     # Markdown file
+    '.rtf',    # Rich Text Format
+    '.csv',    # Comma-Separated Values
+    '.log',    # Log file
+    '.xml',    # XML file
+    '.yaml',   # YAML Ain't Markup Language
+    '.yml',    # YAML Ain't Markup Language
+    '.ini',    # Initialization file
+    '.conf',   # Configuration file
+    '.cfg',    # Configuration file
+    '.sql',    # SQL file
+    '.tex',    # LaTeX file
+    '.html',   # Hypertext Markup Language
+    '.htm',    # Hypertext Markup Language
+    '.srt',    # SubRip Subtitle
+]
 
 def parse_bincapz_file(file_path):
     if not os.path.exists(file_path):
@@ -27,21 +43,25 @@ def parse_bincapz_file(file_path):
 
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
+            data_json = json.load(f)
 
-            data = data.get('Files', {})
+            data = data_json.get('Files', {})
 
             results = []
 
             for dataPath in data:
-                if dataPath.endswith(tuple(VALID_FILE_EXTENSIONS)):
-                    if data[dataPath].get('RiskLevel', '') in ['CRITICAL', 'HIGH']:
+                risk_level = data[dataPath].get('RiskLevel', '')
+                if not dataPath.endswith(tuple(FILE_TEXT_EXTENSION)):
+                    
+                    if risk_level.lower() in ['high', 'critical']:
                         results.append({
                             'package': package_information['package'],
                             'dataset': package_information['dataset'],
                             'file': dataPath,
                             'risk_level': data[dataPath].get('RiskLevel', '')
                         })
+                elif risk_level in ['high', 'critical']:
+                    print(f"Skipping file {dataPath} as it is not a valid file type.")
             return results
         
     except Exception as e:
