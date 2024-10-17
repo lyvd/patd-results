@@ -3,9 +3,24 @@ import json
 import csv
 from collections import Counter
 import re
-
-VALID_FILE_EXTENSIONS = ['.html', '.css', '.js', '.ts', '.php', '.rb', '.py', '.java', '.cs', '.go', 
-    '.r', '.pl', '.c', '.cpp', '.h', '.rs', '.swift', '.kt', '.lua', '.sh']
+FILE_TEXT_EXTENSION = [
+    '.txt',    # Plain text file
+    '.md',     # Markdown file
+    '.rtf',    # Rich Text Format
+    '.csv',    # Comma-Separated Values
+    '.log',    # Log file
+    '.xml',    # XML file
+    '.yaml',   # YAML Ain't Markup Language
+    '.yml',    # YAML Ain't Markup Language
+    '.ini',    # Initialization file
+    '.conf',   # Configuration file
+    '.cfg',    # Configuration file
+    '.sql',    # SQL file
+    '.tex',    # LaTeX file
+    '.html',   # Hypertext Markup Language
+    '.htm',    # Hypertext Markup Language
+    '.srt',    # SubRip Subtitle
+]
 
 def parse_oss_detect_backdoor_file(file_path):
     package_information = {}
@@ -15,7 +30,6 @@ def parse_oss_detect_backdoor_file(file_path):
     if not os.path.exists(file_path):
         print(f"File {file_path} does not exist.")
         return []
-    
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)           
@@ -23,10 +37,13 @@ def parse_oss_detect_backdoor_file(file_path):
             for run in data.get('runs', []):
                 number_of_alert = Counter()
                 for result in run.get('results', []):
+                    # Extract the physical location
                     for location in result.get('locations', []):
                         physical_location = location.get('physicalLocation', {})
                         file_path = physical_location.get('address', {}).get('fullyQualifiedName', 'Unknown')
-                        if file_path.endswith(tuple(VALID_FILE_EXTENSIONS)):
+                        
+                        # Check if file path does not end with specified extensions
+                        if not file_path.endswith(tuple(FILE_TEXT_EXTENSION)):
                             number_of_alert[file_path] += 1
                     
                 for file, count in number_of_alert.most_common():
@@ -41,6 +58,7 @@ def parse_oss_detect_backdoor_file(file_path):
     except (json.JSONDecodeError, IOError) as e:
         print(f"Error processing file {file_path}: {e}")
         return []
+    
 
 def save_results_to_csv(results, output_file):
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
