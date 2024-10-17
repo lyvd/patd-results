@@ -20,11 +20,17 @@ FILE_TEXT_EXTENSION = [
     '.html',   # Hypertext Markup Language
     '.htm',    # Hypertext Markup Language
     '.srt',    # SubRip Subtitle
+    'README',  # README file
 ]
 
 def parse_oss_detect_backdoor_file(file_path):
+    file_parts = file_path.split(os.sep)
     package_information = {}
-    package_information['dataset'] = file_path.split(os.sep)[-3]
+    if file_parts[-2] in ['js', 'python', 'ruby']:
+        package_information['dataset'] = file_parts[-3]
+    else:
+        package_information['dataset'] = file_parts[-2]
+
     package_information['package'] = file_path.split(os.sep)[-1]
 
     if not os.path.exists(file_path):

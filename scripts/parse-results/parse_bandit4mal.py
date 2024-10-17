@@ -4,8 +4,24 @@ import os
 import sys
 from collections import Counter
 
-VALID_FILE_EXTENSIONS = ['.html', '.css', '.js', '.ts', '.php', '.rb', '.py', '.java', '.cs', '.go', 
-    '.r', '.pl', '.c', '.cpp', '.h', '.rs', '.swift', '.kt', '.lua', '.sh']
+FILE_TEXT_EXTENSION = [
+    '.txt',    # Plain text file
+    '.md',     # Markdown file
+    '.rtf',    # Rich Text Format
+    '.csv',    # Comma-Separated Values
+    '.log',    # Log file
+    '.xml',    # XML file
+    '.yaml',   # YAML Ain't Markup Language
+    '.yml',    # YAML Ain't Markup Language
+    '.ini',    # Initialization file
+    '.conf',   # Configuration file
+    '.cfg',    # Configuration file
+    '.sql',    # SQL file
+    '.tex',    # LaTeX file
+    '.html',   # Hypertext Markup Language
+    '.htm',    # Hypertext Markup Language
+    '.srt',    # SubRip Subtitle
+]
 
 def parse_analysis_results(results_dir):
     results = []
@@ -34,7 +50,7 @@ def parse_bandit_results(file_path):
             number_of_alert = Counter()
             for result in data.get('results', []):
                file_path = result.get('filename', 'Unknown')
-               if file_path.endswith(tuple(VALID_FILE_EXTENSIONS)):
+               if not file_path.endswith(tuple(FILE_TEXT_EXTENSION)):
                      number_of_alert[file_path] += 1
             
             for file, count in number_of_alert.most_common():

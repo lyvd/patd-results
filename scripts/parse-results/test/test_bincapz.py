@@ -47,7 +47,10 @@ def test_parse_bincapz_invalid_file():
     assert len(results) == 0, "Expected no results for an invalid log file"
 
 def test_parse_bincapz_2():
-    file_test = r"D:\HocTap\projectDrVuDucLy\final\patd-results\scan-results\bincapz\dataset5\Backdoor.Linux.Rootin.b-4.5.1-r0.json"
+    file_test = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), 
+        '../../../scan-results/bincapz/dataset5/Backdoor.Linux.Rootin.b-4.5.1-r0.json'
+    ))
     results = parse_bincapz_file(file_test)
     assert len(results) == 1, "Expected 1 because high alert"
 

@@ -31,11 +31,10 @@ def parse_bincapz_file(file_path):
     package_information = {}
     
     # Determine the dataset name based on the file path structure
-    if file_path_parts[-3].startswith(('dataset', 'wolfi-apks')):
+    if file_path_parts[-2] in ['js', 'python', 'ruby']:
         package_information['dataset'] = file_path_parts[-3]
     else:
         package_information['dataset'] = file_path_parts[-2]
-    
     # Extract the package name from the file path
     package_information['package'] = file_path_parts[-1][:-5]
 
