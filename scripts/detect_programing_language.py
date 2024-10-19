@@ -9,7 +9,7 @@ import tempfile
 import zipfile
 
 # GitHub personal access token
-GITHUB_TOKEN = "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"
+GITHUB_TOKEN = ""
 GITHUB_API_URL = "https://api.github.com"
 
 
