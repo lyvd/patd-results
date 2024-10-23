@@ -110,7 +110,11 @@ class StaticAnalyzer(object):
                     fpath = abspath(join(i_root, fname))
                     if fname.endswith(Language2Extensions[language]):
                         infiles.append(fpath)
-                    fext_type = file_ext_type(fpath)
+                    # Workaround to handle symbolic links
+                    try:
+                        fext_type = file_ext_type(fpath)
+                    except Exception: 
+                        continue
                     if fext_type in ['application/x-executable', 'application/x-sharedlib', 'application/octet-stream']:
                         bins.append(fpath)
                     allfiles.append(fpath)
