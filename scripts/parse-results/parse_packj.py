@@ -4,6 +4,9 @@ import json
 import argparse
 import multiprocessing
 
+def filter_languages(language):
+    allowed_languages = {"python": "Python", "javascript": "Javascript", "ruby": "Ruby"}
+    return allowed_languages.get(language.lower(), None)
 
 def process_single_file(file_path):
     """Processes a single file and extracts relevant package data."""
@@ -32,7 +35,7 @@ def process_single_file(file_path):
                 results.append({
                     'Dataset': package_information['dataset'],
                     'Package': package_name,
-                    'Language': language.lower(),
+                    'Language': filter_languages(language.lower()),
                     'fullName': api.get('fullName'),
                     'sourceType': api.get('sourceType', api.get('sinkType'))
                 })
@@ -76,7 +79,7 @@ def save_csv(data, output_file):
             writer = csv.writer(f)
             writer.writerow(['Dataset', 'Package', 'Language', 'fullName', 'sourceType'])
             for row in data:
-                writer.writerow([row['Dataset'], row['Package'], row['Language'], row['fullName'].lower(), row['sourceType'].lower()])
+                writer.writerow([row['Dataset'], row['Package'], row['Language'], row['fullName'], row['sourceType']])
         print(f"Data successfully written to {output_file}")
     except Exception as e:
         print(f"Failed to write data to CSV: {e}")
