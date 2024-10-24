@@ -6,7 +6,20 @@ import multiprocessing
 
 
 def process_single_file(file_path):
-    """Processes a single JSON file and extracts relevant package data."""
+    """Processes a single file and extracts relevant package data."""
+
+        
+    file_path_parts = file_path.split(os.sep)
+    package_information = {}
+    
+    # Determine the dataset name based on the file path structure
+    if file_path_parts[-2] in ['js', 'python', 'ruby']:
+        package_information['dataset'] = file_path_parts[-3]
+    else:
+        package_information['dataset'] = file_path_parts[-2]
+    # Extract the package name from the file path
+    package_information['package'] = file_path_parts[-1][:-5]
+
     results = []
     try:
         with open(file_path, "r") as f:
@@ -17,6 +30,7 @@ def process_single_file(file_path):
             
             for api in package_data.get('config', {}).get("apis", []):  # Safely iterate over 'config'
                 results.append({
+                    'Dataset': package_information['dataset'],
                     'Package': package_name,
                     'Language': language.lower(),
                     'fullName': api.get('fullName'),
@@ -60,9 +74,9 @@ def save_csv(data, output_file):
     try:
         with open(output_file, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Package', 'Language', 'fullName', 'sourceType'])
+            writer.writerow(['Dataset', 'Package', 'Language', 'fullName', 'sourceType'])
             for row in data:
-                writer.writerow([row['Package'], row['Language'], row['fullName'], row['sourceType']])
+                writer.writerow([row['Dataset'], row['Package'], row['Language'], row['fullName'].lower(), row['sourceType'].lower()])
         print(f"Data successfully written to {output_file}")
     except Exception as e:
         print(f"Failed to write data to CSV: {e}")
@@ -81,7 +95,7 @@ def main():
         print(f"Error: The directory '{args.directory}' does not exist.")
         return
 
-    # Process JSON files in parallel
+    # Process results
     results = explore_file(args.directory)
 
     # Save the results to the CSV file
