@@ -25,7 +25,18 @@ def cleaned_package_name(project):
     print(f"Could not find a matching package for {project}")
 
 
-    return None
+    return project
+
+def remove_extension(file):
+    EXTENSIONS = ('.zip.apk', '.apk', '.zip', '.json', '.zip.json')
+    while True:
+        for ext in EXTENSIONS:
+            if file.endswith(ext):
+                file = file[:-len(ext)]
+                break
+        else:
+            break
+    return file
 
 
 def  get_unscanned_projects(csv_file_path, scan_results_dir):
@@ -57,28 +68,11 @@ def  get_unscanned_projects(csv_file_path, scan_results_dir):
                     for root, _, files in os.walk(dataset_dir):
                         for file in files:
                             if dataset == 'wolfi-apks':
-                                match tool:
-                                    case 'vt':
-                                        project_name = cleaned_package_name(file.removesuffix('.apk.json'))
-                                        scanned_projects[tool][dataset].add(project_name)
-                                        
-                                    case 'bincapz':
-                                        project_name = cleaned_package_name(file.removesuffix('.json'))
-                                        scanned_projects[tool][dataset].add(project_name)
-                                        
-                                    case 'oss-detect-backdoor':
-                                        project_name = cleaned_package_name(file)
-                                        scanned_projects[tool][dataset].add(project_name)
-                                        
-
-                                    case _:
-                                        
-                                        continue
-
-                            else:
-                                project_name = file.split('.')[0]
+                                project_name = cleaned_package_name(remove_extension(file))
                                 scanned_projects[tool][dataset].add(project_name)
-
+                            else:
+                                project_name = remove_extension(file)
+                                scanned_projects[tool][dataset].add(project_name)
     # Identify un-scanned projects
     unscanned_projects = {tool: {} for tool in scanned_projects.keys()}
 
@@ -86,6 +80,7 @@ def  get_unscanned_projects(csv_file_path, scan_results_dir):
         for dataset, scanned in datasets.items():
             if dataset in ['upstream-repos', 'wolfi-apks']:
                 unscanned_projects[tool][dataset] = set(packages) - scanned
+
     return unscanned_projects
 
 
