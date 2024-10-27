@@ -124,8 +124,7 @@ def main():
     for tool, datasets in unscanned_projects.items():
         for dataset, projects in datasets.items():
             print(f'{tool} - {dataset}: {len(projects)}')
-            if tool == 'vt':
-                print(projects)
+
 
 
 
