@@ -28,7 +28,9 @@ def cleaned_package_name(project):
     return project
 
 def remove_extension(file):
-    EXTENSIONS = ('.zip.apk', '.apk', '.zip', '.json', '.zip.json')
+    EXTENSIONS = ('.zip.apk', '.apk', '.zip', '.json',
+                   '.zip.json', '.gem', '.tar.gz', '.gz',
+                   '.gem', '.tar', '.tgz')
     while True:
         for ext in EXTENSIONS:
             if file.endswith(ext):
@@ -38,15 +40,26 @@ def remove_extension(file):
             break
     return file
 
+def get_malicious_samples(malicious_dir):
+    malicious_dataset = {
+    "dataset1": set(),
+    "dataset2" : set(),
+    "dataset3" : set(),
+    "dataset4" : set(),
+    "dataset5" : set(),
+    }
 
-def  get_unscanned_projects(csv_file_path, scan_results_dir):
 
-    data_package = pd.read_csv(csv_file_path)
+    for dataset in malicious_dataset.keys():
+        for root, _, files in os.walk(os.path.join(malicious_dir, dataset)):
+            for file in files:
+                malicious_dataset[dataset].add(remove_extension(file))
 
-    packages = data_package['package_name'].to_list()
+    return malicious_dataset
+        
 
 
-
+def  get_scanned_projects(scan_results_dir):
 
     # Initialize a dictionary to store scanned projects
     scanned_projects = {
@@ -73,29 +86,46 @@ def  get_unscanned_projects(csv_file_path, scan_results_dir):
                             else:
                                 project_name = remove_extension(file)
                                 scanned_projects[tool][dataset].add(project_name)
-    # Identify un-scanned projects
-    unscanned_projects = {tool: {} for tool in scanned_projects.keys()}
-
-    for tool, datasets in scanned_projects.items():
-        for dataset, scanned in datasets.items():
-            if dataset in ['upstream-repos', 'wolfi-apks']:
-                unscanned_projects[tool][dataset] = set(packages) - scanned
-
-    return unscanned_projects
+    return scanned_projects
 
 
 def main():
     #get input file csv and scan-result dir from user
     parser = argparse.ArgumentParser()
-    parser.add_argument('input_file', help='path to the input file csv')
+    parser.add_argument('csv_file_path', help='path to the input file csv')
     parser.add_argument('scan_results_dir', help='path to the scan-results directory')
+    parser.add_argument('malicious_dir', help='path to the malicious samples directory')
     args = parser.parse_args()
 
-    #get the unscanned projects
-    unscanned_projects = get_unscanned_projects(args.input_file, args.scan_results_dir)
+
+
+
+
+
+    data_package = pd.read_csv(args.csv_file_path)
+
+    packages = data_package['package_name'].to_list()
+
+    maliciouse_samples = get_malicious_samples(args.malicious_dir)
+
+    scanned_samples = get_scanned_projects( args.scan_results_dir)
+
+        # Identify un-scanned projects
+    unscanned_projects = {tool: {} for tool in scanned_samples.keys()}
+
+    for tool, datasets in scanned_samples.items():
+        for dataset, scanned in datasets.items():
+            if dataset in ['upstream-repos', 'wolfi-apks']:
+                unscanned_projects[tool][dataset] = set(packages) - scanned
+            else:
+                unscanned_projects[tool][dataset] = maliciouse_samples[dataset] - scanned
+
+
     for tool, datasets in unscanned_projects.items():
         for dataset, projects in datasets.items():
             print(f'{tool} - {dataset}: {len(projects)}')
+            if tool == 'vt':
+                print(projects)
 
 
 
