@@ -1,0 +1,2808 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:17:05Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\fuse2\\test\\conftest.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 68,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 95,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 59,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py": {
+      "CONFIDENCE.HIGH": 112,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 112,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 700,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 135,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 132,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 3,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 132,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1057,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "7 \n8 import subprocess\n9 import pytest\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "44         cmdline.append('--delay_ms=200')\n45     subprocess.check_call(cmdline, stdout=output_checker.fd, stderr=output_checker.fd)\n46 \n",
+      "col_offset": 4,
+      "end_col_offset": 86,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 45,
+      "line_range": [
+        45
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "62         cmdline.append('--no-notify')\n63     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n64                                      stderr=output_checker.fd)\n65     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 63,
+      "line_range": [
+        63,
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "73         if notify:\n74             assert read1 != read2\n75         else:\n",
+      "col_offset": 12,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 74,
+      "line_range": [
+        74
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "75         else:\n76             assert read1 == read2\n77     except:\n",
+      "col_offset": 12,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 76,
+      "line_range": [
+        76
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "94         cmdline.append('--no-notify')\n95     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n96                                      stderr=output_checker.fd)\n97     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 95,
+      "line_range": [
+        95,
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "103         if notify:\n104             assert new_size > size\n105         else:\n",
+      "col_offset": 12,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 104,
+      "line_range": [
+        104
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "105         else:\n106             assert new_size == size\n107     except:\n",
+      "col_offset": 12,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_ctests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 106,
+      "line_range": [
+        106
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "11 import struct\n12 import subprocess\n13 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 12,
+      "line_range": [
+        12
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "54         fuse_out_header_fmt, response_header)\n55     assert unique_res == unique_req\n56 \n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "58     response_payload = struct.unpack(fuse_init_out_fmt, response_payload)\n59     assert response_payload[0] == FUSE_MAJOR_VERSION\n60 \n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 59,
+      "line_range": [
+        59
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "64     print(cmdline)\n65     uds_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n66                                    stderr=output_checker.fd)\n67     time.sleep(1)\n",
+      "col_offset": 18,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 65,
+      "line_range": [
+        65,
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "70     sock.settimeout(1)\n71     sock.connect(\"/tmp/libfuse-hello-ll.sock\")\n72 \n",
+      "col_offset": 17,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 71,
+      "line_range": [
+        71
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "80         uds_process.kill()\n81     os.remove(\"/tmp/libfuse-hello-ll.sock\")\n",
+      "col_offset": 14,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_custom_io.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 81,
+      "line_range": [
+        81
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "7 \n8 import subprocess\n9 import os\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "78     cmd = base_cmdline + [ pjoin(basename, 'test', 'readdir_inode'), dir ]\n79     with subprocess.Popen(cmd, stdout=subprocess.PIPE,\n80                           universal_newlines=True) as proc:\n81         lines = proc.communicate()[0].splitlines()\n",
+      "col_offset": 9,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 79,
+      "line_range": [
+        79,
+        80
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "91     mnt_dir = str(tmpdir)\n92     mount_process = subprocess.Popen(\n93         cmdline_builder(mnt_dir, name, options),\n94         stdout=output_checker.fd, stderr=output_checker.fd)\n95     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 92,
+      "line_range": [
+        92,
+        93,
+        94
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "96         wait_for_mount(mount_process, mnt_dir)\n97         assert os.listdir(mnt_dir) == [ 'hello' ]\n98         filename = pjoin(mnt_dir, 'hello')\n",
+      "col_offset": 8,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 97,
+      "line_range": [
+        97
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "99         with open(filename, 'r') as fh:\n100             assert fh.read() == 'Hello World!\\n'\n101         with pytest.raises(IOError) as exc_info:\n",
+      "col_offset": 12,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 100,
+      "line_range": [
+        100
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "102             open(filename, 'r+')\n103         assert exc_info.value.errno == errno.EACCES\n104         with pytest.raises(IOError) as exc_info:\n",
+      "col_offset": 8,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 103,
+      "line_range": [
+        103
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "105             open(filename + 'does-not-exist', 'r+')\n106         assert exc_info.value.errno == errno.ENOENT\n107         if name == 'hello_ll':\n",
+      "col_offset": 8,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 106,
+      "line_range": [
+        106
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "150         \n151     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n152                                      stderr=output_checker.fd)\n153     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 151,
+      "line_range": [
+        151,
+        152
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "187             syscall_test_cmd.append('-53')\n188         subprocess.check_call(syscall_test_cmd)\n189     except:\n",
+      "col_offset": 8,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 188,
+      "line_range": [
+        188
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "208         \n209     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n210                                      stderr=output_checker.fd)\n211     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 209,
+      "line_range": [
+        209,
+        210
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "255                 syscall_test_cmd.append('-u')\n256             subprocess.check_call(syscall_test_cmd)\n257     except:\n",
+      "col_offset": 12,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 256,
+      "line_range": [
+        256
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "273     cmdline = base_cmdline + [progname, '-f', mnt_dir ]\n274     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n275                                      stderr=output_checker.fd)\n276     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 274,
+      "line_range": [
+        274,
+        275
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "281                     testfile ]\n282         assert subprocess.check_output(cmdline) == b'0\\n'\n283         with open(testfile, 'wb') as fh:\n",
+      "col_offset": 8,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 282,
+      "line_range": [
+        282
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "281                     testfile ]\n282         assert subprocess.check_output(cmdline) == b'0\\n'\n283         with open(testfile, 'wb') as fh:\n",
+      "col_offset": 15,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 282,
+      "line_range": [
+        282
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "284             fh.write(b'foobar')\n285         assert subprocess.check_output(cmdline) == b'6\\n'\n286         subprocess.check_call(cmdline + [ '3' ])\n",
+      "col_offset": 8,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 285,
+      "line_range": [
+        285
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "284             fh.write(b'foobar')\n285         assert subprocess.check_output(cmdline) == b'6\\n'\n286         subprocess.check_call(cmdline + [ '3' ])\n",
+      "col_offset": 15,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 285,
+      "line_range": [
+        285
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "285         assert subprocess.check_output(cmdline) == b'6\\n'\n286         subprocess.check_call(cmdline + [ '3' ])\n287         with open(testfile, 'rb') as fh:\n",
+      "col_offset": 8,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 286,
+      "line_range": [
+        286
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "287         with open(testfile, 'rb') as fh:\n288             assert fh.read()== b'foo'\n289     except:\n",
+      "col_offset": 12,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 288,
+      "line_range": [
+        288
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "298                '-f', mnt_dir ]\n299     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n300                                      stderr=output_checker.fd)\n301     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 299,
+      "line_range": [
+        299,
+        300
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "304                   [ pjoin(basename, 'example', 'poll_client') ]\n305         subprocess.check_call(cmdline, cwd=mnt_dir)\n306     except:\n",
+      "col_offset": 8,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 305,
+      "line_range": [
+        305
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "320     cmdline = base_cmdline + [ progname, '-f', mnt_file ]\n321     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n322                                      stderr=output_checker.fd)\n323     def test_fn(name):\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 321,
+      "line_range": [
+        321,
+        322
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "327         with open(mnt_file, 'rb') as fh:\n328             assert fh.read(382) == b'\\0' * 382\n329         with open(mnt_file, 'wb') as fh:\n",
+      "col_offset": 12,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 328,
+      "line_range": [
+        328
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "353             pytest.skip('only-expire not supported by running kernel')\n354     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n355                                      stderr=output_checker.fd)\n356     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 354,
+      "line_range": [
+        354,
+        355
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "394                 '-f', mnt_dir ]\n395     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n396                                      stderr=output_checker.fd)\n397     try:\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 395,
+      "line_range": [
+        395,
+        396
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "423                 '-f', '--name=%s' % devname ]\n424     mount_process = subprocess.Popen(cmdline, stdout=output_checker.fd,\n425                                      stderr=output_checker.fd)\n426 \n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 424,
+      "line_range": [
+        424,
+        425
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "432                        test_fn=os.path.exists)\n433         assert subprocess.check_output(cmdline + ['s']) == b'0\\n'\n434         data = b'some test data'\n",
+      "col_offset": 8,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 433,
+      "line_range": [
+        433
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "432                        test_fn=os.path.exists)\n433         assert subprocess.check_output(cmdline + ['s']) == b'0\\n'\n434         data = b'some test data'\n",
+      "col_offset": 15,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 433,
+      "line_range": [
+        433
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "435         off = 5\n436         proc = subprocess.Popen(cmdline + [ 'w', str(len(data)), str(off) ],\n437                                 stdin=subprocess.PIPE)\n438         proc.stdin.write(data)\n",
+      "col_offset": 15,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 436,
+      "line_range": [
+        436,
+        437
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "439         proc.stdin.close()\n440         assert proc.wait(timeout=10) == 0\n441         size = str(off + len(data)).encode() + b'\\n'\n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 440,
+      "line_range": [
+        440
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "441         size = str(off + len(data)).encode() + b'\\n'\n442         assert subprocess.check_output(cmdline + ['s']) == size\n443         out = subprocess.check_output(\n",
+      "col_offset": 8,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 442,
+      "line_range": [
+        442
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "441         size = str(off + len(data)).encode() + b'\\n'\n442         assert subprocess.check_output(cmdline + ['s']) == size\n443         out = subprocess.check_output(\n",
+      "col_offset": 15,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 442,
+      "line_range": [
+        442
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "442         assert subprocess.check_output(cmdline + ['s']) == size\n443         out = subprocess.check_output(\n444             cmdline + [ 'r', str(off + len(data) + 2), '0' ])\n445         assert out == (b'\\0' * off) + data\n",
+      "col_offset": 14,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 443,
+      "line_range": [
+        443,
+        444
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "444             cmdline + [ 'r', str(off + len(data) + 2), '0' ])\n445         assert out == (b'\\0' * off) + data\n446     finally:\n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 445,
+      "line_range": [
+        445
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "477 \n478     fuse_process = subprocess.Popen(fuse_binary_command,\n479                                    stdout=output_checker.fd,\n480                                    stderr=output_checker.fd)\n481 \n",
+      "col_offset": 19,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 478,
+      "line_range": [
+        478,
+        479,
+        480
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "484 \n485         temp_dir = tempfile.TemporaryDirectory(dir=\"/tmp/\")\n486         temp_dir_path = temp_dir.name\n",
+      "col_offset": 51,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 485,
+      "line_range": [
+        485
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "495 \n496         assert os.listdir(temp_dir_path) == []\n497     \n",
+      "col_offset": 8,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 496,
+      "line_range": [
+        496
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "526         fh.write(b'hello')\n527     assert name in os.listdir(mnt_dir)\n528     os.unlink(fullname)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 527,
+      "line_range": [
+        527
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "530         os.stat(fullname)\n531     assert exc_info.value.errno == errno.ENOENT\n532     assert name not in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 531,
+      "line_range": [
+        531
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "531     assert exc_info.value.errno == errno.ENOENT\n532     assert name not in os.listdir(mnt_dir)\n533 \n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 532,
+      "line_range": [
+        532
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "538     fstat = os.stat(fullname)\n539     assert stat.S_ISDIR(fstat.st_mode)\n540     assert os.listdir(fullname) ==  []\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 539,
+      "line_range": [
+        539
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "539     assert stat.S_ISDIR(fstat.st_mode)\n540     assert os.listdir(fullname) ==  []\n541     # Some filesystem (e.g. BTRFS) don't track st_nlink for directories\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 540,
+      "line_range": [
+        540
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "541     # Some filesystem (e.g. BTRFS) don't track st_nlink for directories\n542     assert fstat.st_nlink in (1,2)\n543     assert dirname in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 542,
+      "line_range": [
+        542
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "542     assert fstat.st_nlink in (1,2)\n543     assert dirname in os.listdir(mnt_dir)\n544 \n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 543,
+      "line_range": [
+        543
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "551     os.mkdir(srcname)\n552     assert name in os.listdir(mnt_dir)\n553     os.rmdir(fullname)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 552,
+      "line_range": [
+        552
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "555         os.stat(fullname)\n556     assert exc_info.value.errno == errno.ENOENT\n557     assert name not in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 556,
+      "line_range": [
+        556
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "556     assert exc_info.value.errno == errno.ENOENT\n557     assert name not in os.listdir(mnt_dir)\n558 \n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 557,
+      "line_range": [
+        557
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "563     fstat = os.lstat(fullname)\n564     assert stat.S_ISLNK(fstat.st_mode)\n565     assert os.readlink(fullname) == \"/imaginary/dest\"\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 564,
+      "line_range": [
+        564
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "564     assert stat.S_ISLNK(fstat.st_mode)\n565     assert os.readlink(fullname) == \"/imaginary/dest\"\n566     assert fstat.st_nlink == 1\n",
+      "col_offset": 4,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 565,
+      "line_range": [
+        565
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "565     assert os.readlink(fullname) == \"/imaginary/dest\"\n566     assert fstat.st_nlink == 1\n567     assert linkname in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 566,
+      "line_range": [
+        566
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "566     assert fstat.st_nlink == 1\n567     assert linkname in os.listdir(mnt_dir)\n568 \n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 567,
+      "line_range": [
+        567
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "573         os.stat(fullname)\n574     assert exc_info.value.errno == errno.ENOENT\n575     assert name not in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 574,
+      "line_range": [
+        574
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "574     assert exc_info.value.errno == errno.ENOENT\n575     assert name not in os.listdir(mnt_dir)\n576 \n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 575,
+      "line_range": [
+        575
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "579 \n580     assert name in os.listdir(mnt_dir)\n581     fstat = os.lstat(fullname)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 580,
+      "line_range": [
+        580
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "581     fstat = os.lstat(fullname)\n582     assert stat.S_ISREG(fstat.st_mode)\n583     assert fstat.st_nlink == 1\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 582,
+      "line_range": [
+        582
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "582     assert stat.S_ISREG(fstat.st_mode)\n583     assert fstat.st_nlink == 1\n584     assert fstat.st_size == 0\n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 583,
+      "line_range": [
+        583
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "583     assert fstat.st_nlink == 1\n584     assert fstat.st_size == 0\n585 \n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 584,
+      "line_range": [
+        584
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "595     fstat = os.lstat(filename)\n596     assert fstat.st_uid == uid_new\n597     assert fstat.st_gid == gid\n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 596,
+      "line_range": [
+        596
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "596     assert fstat.st_uid == uid_new\n597     assert fstat.st_gid == gid\n598 \n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 597,
+      "line_range": [
+        597
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "601     fstat = os.lstat(filename)\n602     assert fstat.st_uid == uid_new\n603     assert fstat.st_gid == gid_new\n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 602,
+      "line_range": [
+        602
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "602     assert fstat.st_uid == uid_new\n603     assert fstat.st_gid == gid_new\n604 \n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 603,
+      "line_range": [
+        603
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "610 \n611     assert filecmp.cmp(pjoin(mnt_dir, name), TEST_FILE, False)\n612 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 611,
+      "line_range": [
+        611
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "620 \n621     assert filecmp.cmp(fullname, TEST_FILE, False)\n622 \n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 621,
+      "line_range": [
+        621
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "632     with open(fullname, 'rb') as fh:\n633         assert fh.read() == b'foo\\nbar\\n'\n634 \n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 633,
+      "line_range": [
+        633
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "646     with open(fullname, 'rb') as fh:\n647         assert fh.read() == b'\\0foocom\\n'\n648         \n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 647,
+      "line_range": [
+        647
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "658             os.stat(fullname)\n659         assert exc_info.value.errno == errno.ENOENT\n660         assert name not in os.listdir(mnt_dir)\n",
+      "col_offset": 8,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 659,
+      "line_range": [
+        659
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "659         assert exc_info.value.errno == errno.ENOENT\n660         assert name not in os.listdir(mnt_dir)\n661         fh.write(data2)\n",
+      "col_offset": 8,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 660,
+      "line_range": [
+        660
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "662         fh.seek(0)\n663         assert fh.read() == data1+data2\n664 \n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 663,
+      "line_range": [
+        663
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "671     shutil.copyfile(TEST_FILE, name1)\n672     assert filecmp.cmp(name1, TEST_FILE, False)\n673 \n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 672,
+      "line_range": [
+        672
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "674     fstat1 = os.lstat(name1)\n675     assert fstat1.st_nlink == 1\n676 \n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 675,
+      "line_range": [
+        675
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "680     fstat2 = os.lstat(name2)\n681     assert fstat1 == fstat2\n682     assert fstat1.st_nlink == 2\n",
+      "col_offset": 4,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 681,
+      "line_range": [
+        681
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "681     assert fstat1 == fstat2\n682     assert fstat1.st_nlink == 2\n683     assert os.path.basename(name2) in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 682,
+      "line_range": [
+        682
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "682     assert fstat1.st_nlink == 2\n683     assert os.path.basename(name2) in os.listdir(mnt_dir)\n684     assert filecmp.cmp(name1, name2, False)\n",
+      "col_offset": 4,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 683,
+      "line_range": [
+        683
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "683     assert os.path.basename(name2) in os.listdir(mnt_dir)\n684     assert filecmp.cmp(name1, name2, False)\n685 \n",
+      "col_offset": 4,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 684,
+      "line_range": [
+        684
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "692 \n693     assert os.path.basename(name2) not in os.listdir(mnt_dir)\n694     with pytest.raises(FileNotFoundError):\n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 693,
+      "line_range": [
+        693
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "703         time.sleep(0.1)\n704     assert fstat1.st_nlink == 1\n705 \n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 704,
+      "line_range": [
+        704
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "725     listdir_should.sort()\n726     assert listdir_is == listdir_should\n727 \n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 726,
+      "line_range": [
+        726
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "729     inodes_should = readdir_inode(src_newdir)\n730     assert inodes_is == inodes_should\n731 \n",
+      "col_offset": 4,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 730,
+      "line_range": [
+        730
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "750     listdir_should = sorted(os.listdir(src_dir))\n751     assert listdir_is == listdir_should\n752 \n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 751,
+      "line_range": [
+        751
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "754     inodes_should = readdir_inode(src_dir)\n755     assert inodes_is == inodes_should\n756 \n",
+      "col_offset": 4,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 755,
+      "line_range": [
+        755
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "759         stat_mnt = os.stat(pjoin(mnt_dir, fname))\n760         assert stat_src.st_ino == stat_mnt.st_ino\n761         assert stat_src.st_mtime == stat_mnt.st_mtime\n",
+      "col_offset": 8,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 760,
+      "line_range": [
+        760
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "760         assert stat_src.st_ino == stat_mnt.st_ino\n761         assert stat_src.st_mtime == stat_mnt.st_mtime\n762         assert stat_src.st_ctime == stat_mnt.st_ctime\n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 761,
+      "line_range": [
+        761
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "761         assert stat_src.st_mtime == stat_mnt.st_mtime\n762         assert stat_src.st_ctime == stat_mnt.st_ctime\n763         assert stat_src.st_size == stat_mnt.st_size\n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 762,
+      "line_range": [
+        762
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "762         assert stat_src.st_ctime == stat_mnt.st_ctime\n763         assert stat_src.st_size == stat_mnt.st_size\n764         os.unlink(pjoin(src_dir, fname))\n",
+      "col_offset": 8,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 763,
+      "line_range": [
+        763
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "766 def tst_truncate_path(mnt_dir):\n767     assert len(TEST_DATA) > 1024\n768 \n",
+      "col_offset": 4,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 767,
+      "line_range": [
+        767
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "774     size = fstat.st_size\n775     assert size == len(TEST_DATA)\n776 \n",
+      "col_offset": 4,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 775,
+      "line_range": [
+        775
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "778     os.truncate(filename, size + 1024)\n779     assert os.stat(filename).st_size == size + 1024\n780     with open(filename, 'rb') as fh:\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 779,
+      "line_range": [
+        779
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "780     with open(filename, 'rb') as fh:\n781         assert fh.read(size) == TEST_DATA\n782         assert fh.read(1025) == b'\\0' * 1024\n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 781,
+      "line_range": [
+        781
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "781         assert fh.read(size) == TEST_DATA\n782         assert fh.read(1025) == b'\\0' * 1024\n783 \n",
+      "col_offset": 8,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 782,
+      "line_range": [
+        782
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "785     os.truncate(filename, size - 1024)\n786     assert os.stat(filename).st_size == size - 1024\n787     with open(filename, 'rb') as fh:\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 786,
+      "line_range": [
+        786
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "787     with open(filename, 'rb') as fh:\n788         assert fh.read(size) == TEST_DATA[:size-1024]\n789 \n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 788,
+      "line_range": [
+        788
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "792 def tst_truncate_fd(mnt_dir):\n793     assert len(TEST_DATA) > 1024\n794     with NamedTemporaryFile('w+b', 0, dir=mnt_dir) as fh:\n",
+      "col_offset": 4,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 793,
+      "line_range": [
+        793
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "798         size = fstat.st_size\n799         assert size == len(TEST_DATA)\n800 \n",
+      "col_offset": 8,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 799,
+      "line_range": [
+        799
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "802         os.ftruncate(fd, size + 1024)\n803         assert os.fstat(fd).st_size == size + 1024\n804         fh.seek(0)\n",
+      "col_offset": 8,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 803,
+      "line_range": [
+        803
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "804         fh.seek(0)\n805         assert fh.read(size) == TEST_DATA\n806         assert fh.read(1025) == b'\\0' * 1024\n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 805,
+      "line_range": [
+        805
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "805         assert fh.read(size) == TEST_DATA\n806         assert fh.read(1025) == b'\\0' * 1024\n807 \n",
+      "col_offset": 8,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 806,
+      "line_range": [
+        806
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "809         os.ftruncate(fd, size - 1024)\n810         assert os.fstat(fd).st_size == size - 1024\n811         fh.seek(0)\n",
+      "col_offset": 8,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 810,
+      "line_range": [
+        810
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "811         fh.seek(0)\n812         assert fh.read(size) == TEST_DATA[:size-1024]\n813 \n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 812,
+      "line_range": [
+        812
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "829 \n830     assert abs(fstat.st_atime - atime) < 1\n831     assert abs(fstat.st_mtime - mtime) < 1\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 830,
+      "line_range": [
+        830
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "830     assert abs(fstat.st_atime - atime) < 1\n831     assert abs(fstat.st_mtime - mtime) < 1\n832     if sys.version_info >= (3,3):\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 831,
+      "line_range": [
+        831
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "832     if sys.version_info >= (3,3):\n833         assert abs(fstat.st_atime_ns - atime_ns) <= ns_tol\n834         assert abs(fstat.st_mtime_ns - mtime_ns) <= ns_tol\n",
+      "col_offset": 8,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 833,
+      "line_range": [
+        833
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "833         assert abs(fstat.st_atime_ns - atime_ns) <= ns_tol\n834         assert abs(fstat.st_mtime_ns - mtime_ns) <= ns_tol\n835 \n",
+      "col_offset": 8,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 834,
+      "line_range": [
+        834
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "839     mnt_name = pjoin(src_dir, name)\n840     assert name not in os.listdir(src_dir)\n841     assert name not in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 840,
+      "line_range": [
+        840
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "840     assert name not in os.listdir(src_dir)\n841     assert name not in os.listdir(mnt_dir)\n842     with open(src_name, 'w') as fh:\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 841,
+      "line_range": [
+        841
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "843         fh.write('Hello, world')\n844     assert name in os.listdir(src_dir)\n845     assert name in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 844,
+      "line_range": [
+        844
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "844     assert name in os.listdir(src_dir)\n845     assert name in os.listdir(mnt_dir)\n846     assert os.stat(src_name) == os.stat(mnt_name)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 845,
+      "line_range": [
+        845
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "845     assert name in os.listdir(mnt_dir)\n846     assert os.stat(src_name) == os.stat(mnt_name)\n847 \n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 846,
+      "line_range": [
+        846
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "850     mnt_name = pjoin(src_dir, name)\n851     assert name not in os.listdir(src_dir)\n852     assert name not in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 851,
+      "line_range": [
+        851
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "851     assert name not in os.listdir(src_dir)\n852     assert name not in os.listdir(mnt_dir)\n853     with open(mnt_name, 'w') as fh:\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 852,
+      "line_range": [
+        852
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "854         fh.write('Hello, world')\n855     assert name in os.listdir(src_dir)\n856     assert name in os.listdir(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 855,
+      "line_range": [
+        855
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "855     assert name in os.listdir(src_dir)\n856     assert name in os.listdir(mnt_dir)\n857     assert os.stat(src_name) == os.stat(mnt_name)\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 856,
+      "line_range": [
+        856
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "856     assert name in os.listdir(mnt_dir)\n857     assert os.stat(src_name) == os.stat(mnt_name)\n858 \n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 857,
+      "line_range": [
+        857
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "861     os.setxattr(path, b'hello_ll_setxattr_name', b'hello_ll_setxattr_value')\n862     assert os.getxattr(path, b'hello_ll_getxattr_name') == b'hello_ll_getxattr_value'\n863     os.removexattr(path, b'hello_ll_removexattr_name')\n",
+      "col_offset": 4,
+      "end_col_offset": 85,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 862,
+      "line_range": [
+        862
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "866 # avoid warning about unused import\n867 assert test_printcap\n",
+      "col_offset": 0,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\test_examples.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 867,
+      "line_range": [
+        867
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1 #!/usr/bin/env python3\n2 import subprocess\n3 import pytest\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 2,
+      "line_range": [
+        2
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "15     cmdline = base_cmdline + [ pjoin(basename, 'example', 'printcap') ]\n16     proc = subprocess.Popen(cmdline, stdout=subprocess.PIPE,\n17                             universal_newlines=True)\n18     (stdout, _) = proc.communicate(30)\n",
+      "col_offset": 11,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 16,
+      "line_range": [
+        16,
+        17
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "18     (stdout, _) = proc.communicate(30)\n19     assert proc.returncode == 0\n20 \n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "56                          '-z', '-u', mnt_dir]\n57     subprocess.call(cmd, stdout=subprocess.DEVNULL,\n58                     stderr=subprocess.STDOUT)\n59     mount_process.terminate()\n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 57,
+      "line_range": [
+        57,
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "78 \n79     subprocess.check_call(cmdline)\n80     assert not os.path.ismount(mnt_dir)\n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 79,
+      "line_range": [
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "79     subprocess.check_call(cmdline)\n80     assert not os.path.ismount(mnt_dir)\n81 \n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 80,
+      "line_range": [
+        80
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "122 \n123     with subprocess.Popen(['which', 'fusermount3'], stdout=subprocess.PIPE,\n124                           universal_newlines=True) as which:\n125         fusermount_path = which.communicate()[0].strip()\n",
+      "col_offset": 9,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 123,
+      "line_range": [
+        123,
+        124
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "122 \n123     with subprocess.Popen(['which', 'fusermount3'], stdout=subprocess.PIPE,\n124                           universal_newlines=True) as which:\n125         fusermount_path = which.communicate()[0].strip()\n",
+      "col_offset": 9,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\fuse2\\test\\util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 123,
+      "line_range": [
+        123,
+        124
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

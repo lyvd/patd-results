@@ -1,0 +1,422 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:17:12Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\compare_metrics.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 41,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\dco_check.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 940,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\draft-release.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 79,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\import-order-cleanup.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 79,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 5,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 175,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\replace_license_headers.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 37,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\updateLicense.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 90,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\jaeger\\scripts\\utils\\ids-to-base64.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 25,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 7,
+      "SEVERITY.MEDIUM": 6,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1466,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "26 import re\n27 import subprocess\n28 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\dco_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "316                 del env[key]\n317         process = subprocess.Popen(\n318             command,\n319             stdout=subprocess.PIPE,\n320             stderr=subprocess.STDOUT,\n321             env=env,\n322         )\n323         output_stdout, _ = process.communicate()\n",
+      "col_offset": 18,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\dco_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 317,
+      "line_range": [
+        317,
+        318,
+        319,
+        320,
+        321,
+        322
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "831         # Fetch base branch\n832         assert base_branch\n833         remote = options.default_remote\n",
+      "col_offset": 8,
+      "end_col_offset": 26,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\dco_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 832,
+      "line_range": [
+        832
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "970         })\n971         response = request.urlopen(req)\n972         if 200 != response.getcode():  # pragma: no cover\n",
+      "col_offset": 19,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\dco_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 971,
+      "line_range": [
+        971
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "7 import re\n8 import subprocess\n9 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\draft-release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "26         header += f\" / v{version_v2}\"\n27     output_string = subprocess.check_output(\n28         [\n29             \"gh\",\n30             \"release\",\n31             \"create\",\n32             f\"v{version_v1}\",\n33             \"--draft\",\n34             \"--title\",\n35             header,\n36             \"--repo\",\n37             f\"jaegertracing/{repo}\",\n38             \"-F\",\n39             \"-\",\n40         ],\n41         input=changelog_text,\n42         text=True,\n43     )\n44     print(f\"Draft created at: {output_string}\")\n",
+      "col_offset": 20,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\draft-release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 27,
+      "line_range": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "26         header += f\" / v{version_v2}\"\n27     output_string = subprocess.check_output(\n28         [\n29             \"gh\",\n30             \"release\",\n31             \"create\",\n32             f\"v{version_v1}\",\n33             \"--draft\",\n34             \"--title\",\n35             header,\n36             \"--repo\",\n37             f\"jaegertracing/{repo}\",\n38             \"-F\",\n39             \"-\",\n40         ],\n41         input=changelog_text,\n42         text=True,\n43     )\n44     print(f\"Draft created at: {output_string}\")\n",
+      "col_offset": 20,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\draft-release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 27,
+      "line_range": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "35     req.add_header(\"Authorization\", f\"token {token}\")\n36     tags = json.loads(urlopen(req).read())\n37     prev_release_tag = tags[0]['name']\n",
+      "col_offset": 22,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 36,
+      "line_range": [
+        36
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "40     req.add_header(\"Authorization\", f\"token {token}\")\n41     compare_results = json.loads(urlopen(req).read())\n42     num_commits = compare_results['behind_by']\n",
+      "col_offset": 33,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 41,
+      "line_range": [
+        41
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "86     req.add_header('Authorization', f'token {token}')\n87     commits = json.loads(urlopen(req).read())\n88 \n",
+      "col_offset": 25,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 87,
+      "line_range": [
+        87
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "116         req.add_header('Authorization', f'token {token}')\n117         pulls = json.loads(urlopen(req).read())\n118         if len(pulls) > 1:\n",
+      "col_offset": 27,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 117,
+      "line_range": [
+        117
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "201     req.add_header('Authorization', f'token {token}')\n202     labels = json.loads(urlopen(req).read())\n203     return [label['name'] for label in labels]\n",
+      "col_offset": 24,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 202,
+      "line_range": [
+        202
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "224     args = parser.parse_args()\n225     generate_token_url = \"https://github.com/settings/tokens/new?description=GitHub%20Changelog%20Generator%20token\"\n226     generate_err_msg = (f\"Please generate a token from this URL: {generate_token_url} and \"\n",
+      "col_offset": 25,
+      "end_col_offset": 116,
+      "filename": "D:\\bandit\\upstream-repos\\jaeger\\scripts\\release-notes.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'https://github.com/settings/tokens/new?description=GitHub%20Changelog%20Generator%20token'",
+      "line_number": 225,
+      "line_range": [
+        225
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    }
+  ]
+}

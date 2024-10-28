@@ -1,0 +1,272 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:09:02Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py": {
+      "CONFIDENCE.HIGH": 9,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 223,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\cluster-api-controller\\hack\\boilerplate\\boilerplate.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 160,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\cluster-api-controller\\hack\\boilerplate\\boilerplate_test.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 26,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\cluster-api-controller\\hack\\boilerplate\\test\\fail.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\cluster-api-controller\\hack\\boilerplate\\test\\pass.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 9,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 410,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "46 import os\n47 import subprocess\n48 import urllib.request\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 47,
+      "line_range": [
+        47
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "116     try:\n117         out = subprocess.Popen(args,\n118                                stdout=subprocess.PIPE,\n119                                stderr=subprocess.STDOUT)\n120 \n",
+      "col_offset": 14,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 117,
+      "line_range": [
+        117,
+        118,
+        119
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "168     providerList = settings.get('providers', [])\n169     assert providerList is not None, 'invalid configuration: please define the list of providers to override'\n170     assert len(providerList)>0, 'invalid configuration: please define at least one provider to override'\n",
+      "col_offset": 4,
+      "end_col_offset": 109,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 169,
+      "line_range": [
+        169
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "169     assert providerList is not None, 'invalid configuration: please define the list of providers to override'\n170     assert len(providerList)>0, 'invalid configuration: please define at least one provider to override'\n171 \n",
+      "col_offset": 4,
+      "end_col_offset": 104,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 170,
+      "line_range": [
+        170
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "176         p = providers.get(provider)\n177         assert p is not None, 'invalid configuration: please specify the configuration for the {} provider'.format(\n178             provider)\n179 \n",
+      "col_offset": 8,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 177,
+      "line_range": [
+        177,
+        178
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "184         next_version = p.get('nextVersion')\n185         assert next_version is not None, 'invalid configuration for provider {}: please provide nextVersion value'.format(\n186             provider)\n187 \n",
+      "col_offset": 8,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 185,
+      "line_range": [
+        185,
+        186
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "188         name, type = splitNameAndType(provider)\n189         assert name is not None, 'invalid configuration for provider {}: please use a valid provider label'.format(\n190             provider)\n191 \n",
+      "col_offset": 8,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 189,
+      "line_range": [
+        189,
+        190
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "192         components_file = p.get('componentsFile')\n193         assert components_file is not None, 'invalid configuration for provider {}: please provide componentsFile value'.format(\n194             provider)\n195 \n",
+      "col_offset": 8,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 193,
+      "line_range": [
+        193,
+        194
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "197             url = \"{}/{}\".format(sys.argv[1], components_file)\n198             components_yaml = urllib.request.urlopen(url).read()\n199         else:\n",
+      "col_offset": 30,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\cluster-api-controller\\cmd\\clusterctl\\hack\\create-local-repository.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 198,
+      "line_range": [
+        198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:51:47Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1802,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-ipaddress\\setup.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 30,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 5,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 6,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1789,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 6,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 7,
+      "SEVERITY.MEDIUM": 7,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 3621,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "28     _compat_str = str\n29     assert bytes != str\n30 if b'\\0'[0] == 0:  # Python 3 semantics\n",
+      "col_offset": 4,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "39     def _compat_int_from_byte_vals(bytvals, endianess):\n40         assert endianess == 'big'\n41         res = 0\n",
+      "col_offset": 8,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 40,
+      "line_range": [
+        40
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "42         for bv in bytvals:\n43             assert isinstance(bv, _compat_int_types)\n44             res = (res << 8) + bv\n",
+      "col_offset": 12,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 43,
+      "line_range": [
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "48 def _compat_to_bytes(intval, length, endianess):\n49     assert isinstance(intval, _compat_int_types)\n50     assert endianess == 'big'\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 49,
+      "line_range": [
+        49
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49     assert isinstance(intval, _compat_int_types)\n50     assert endianess == 'big'\n51     if length == 4:\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "74 def _compat_range(start, end, step=1):\n75     assert step > 0\n76     i = start\n",
+      "col_offset": 4,
+      "end_col_offset": 19,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1705 \n1706     _unspecified_address = IPv4Address('0.0.0.0')\n1707 \n",
+      "col_offset": 39,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\ipaddress.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 1706,
+      "line_range": [
+        1706
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "9 import operator\n10 import pickle\n11 import re\n",
+      "col_offset": 0,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with pickle module.",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "105                 x = self.factory(addr)\n106                 y = pickle.loads(pickle.dumps(x, proto))\n107                 self.assertEqual(y, x)\n",
+      "col_offset": 20,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 106,
+      "line_range": [
+        106
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "112     def test_leading_zeros(self):\n113         self.assertInstancesEqual(\"000.000.000.000\", \"0.0.0.0\")\n114         self.assertInstancesEqual(\"192.168.000.001\", \"192.168.0.1\")\n",
+      "col_offset": 53,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 113,
+      "line_range": [
+        113
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "116     def test_int(self):\n117         self.assertInstancesEqual(0, \"0.0.0.0\")\n118         self.assertInstancesEqual(3232235521, \"192.168.0.1\")\n",
+      "col_offset": 37,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 117,
+      "line_range": [
+        117
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "121         self.assertInstancesEqual(\n122             _compat_bytes_fromhex(\"00000000\"), \"0.0.0.0\")\n123         self.assertInstancesEqual(\n124             _compat_bytes_fromhex(\"c0a80001\"), \"192.168.0.1\")\n",
+      "col_offset": 47,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 122,
+      "line_range": [
+        121,
+        122
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "1791         # test addresses\n1792         self.assertEqual(True, ipaddress.ip_address('0.0.0.0').is_unspecified)\n1793         self.assertEqual(True, ipaddress.ip_address('224.1.1.1').is_multicast)\n",
+      "col_offset": 52,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 1792,
+      "line_range": [
+        1792
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "1819         self.assertEqual(False, ipaddress.ip_address('128.0.0.0').is_loopback)\n1820         self.assertEqual(True, ipaddress.ip_network('0.0.0.0').is_unspecified)\n1821 \n",
+      "col_offset": 52,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-ipaddress\\test_ipaddress.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 1820,
+      "line_range": [
+        1820
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    }
+  ]
+}

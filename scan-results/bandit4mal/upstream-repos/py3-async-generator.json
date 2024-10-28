@@ -1,0 +1,2682 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:37:31Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 22,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_impl.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 243,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\conftest.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 24,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py": {
+      "CONFIDENCE.HIGH": 97,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 96,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 660,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py": {
+      "CONFIDENCE.HIGH": 24,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 23,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 173,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_util.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 69,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_version.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\docs\\source\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 57,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-async-generator\\setup.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 28,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 124,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 121,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1277,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "60 async def test_async_generator():\n61     assert await collect(async_range(10)) == list(range(10))\n62     assert (await collect(double(async_range(5))) == [0, 2, 4, 6, 8])\n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 61,
+      "line_range": [
+        61
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "61     assert await collect(async_range(10)) == list(range(10))\n62     assert (await collect(double(async_range(5))) == [0, 2, 4, 6, 8])\n63 \n",
+      "col_offset": 4,
+      "end_col_offset": 69,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "64     tripler = HasAsyncGenMethod(3)\n65     assert (\n66         await\n67         collect(tripler.async_multiplied(async_range(5))) == [0, 3, 6, 9, 12]\n68     )\n69 \n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 65,
+      "line_range": [
+        65,
+        66,
+        67,
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "76 async def test_yield_no_arg():\n77     assert await collect(agen_yield_no_arg()) == [None]\n78 \n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 77,
+      "line_range": [
+        77
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "96     async for item in gen:  # pragma: no branch\n97         assert item == 1\n98         break\n",
+      "col_offset": 8,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 97,
+      "line_range": [
+        97
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "99     async for item in gen:  # pragma: no branch\n100         assert item == 2\n101         break\n",
+      "col_offset": 8,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 100,
+      "line_range": [
+        100
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "104     except StopAsyncIteration as e:\n105         assert e.args[0] == \"hi\"\n106 \n",
+      "col_offset": 8,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 105,
+      "line_range": [
+        105
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "139 def number_me():\n140     assert (yield \"number me\") == 1\n141 \n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 140,
+      "line_range": [
+        140
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "144 def next_me():\n145     assert (yield \"next me\") is None\n146 \n",
+      "col_offset": 4,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 145,
+      "line_range": [
+        145
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "170             else:\n171                 assert value in (None, \"next me\")\n172                 value = coro_iter.__next__()\n",
+      "col_offset": 16,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 171,
+      "line_range": [
+        171
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "179     yielded = hostile_coroutine_runner(coro)\n180     assert yielded == [1, 2, 3, 4]\n181 \n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 180,
+      "line_range": [
+        180
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "202     sender2 = ag.asend(None)\n203     assert sender1.send(None) == \"mock_sleep\"\n204     with pytest.raises(ValueError):\n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 203,
+      "line_range": [
+        203
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "220     fut = asend_coro.send(None)\n221     assert fut == \"mock_sleep\"\n222     # Now the async generator's frame is not executing, but a call to asend()\n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 221,
+      "line_range": [
+        221
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "224     # can't start up another call to asend().\n225     assert ag.ag_running\n226     with pytest.raises(ValueError):\n",
+      "col_offset": 4,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 225,
+      "line_range": [
+        225
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "243 async def asend_me():\n244     assert (await yield_(1)) == 2\n245     assert (await yield_(3)) == 4\n",
+      "col_offset": 4,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 244,
+      "line_range": [
+        244
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "244     assert (await yield_(1)) == 2\n245     assert (await yield_(3)) == 4\n246 \n",
+      "col_offset": 4,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 245,
+      "line_range": [
+        245
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "249     aiter = asend_me()\n250     assert (await aiter.__anext__()) == 1\n251     assert (await aiter.asend(2)) == 3\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 250,
+      "line_range": [
+        250
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "250     assert (await aiter.__anext__()) == 1\n251     assert (await aiter.asend(2)) == 3\n252     with pytest.raises(StopAsyncIteration):\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 251,
+      "line_range": [
+        251
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "273     aiter = athrow_me()\n274     assert (await aiter.__anext__()) == 1\n275     assert (await aiter.athrow(KeyError(\"oops\"))) == 2\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 274,
+      "line_range": [
+        274
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "274     assert (await aiter.__anext__()) == 1\n275     assert (await aiter.athrow(KeyError(\"oops\"))) == 2\n276     assert (await aiter.athrow(ValueError(\"oops\"))) == 3\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 275,
+      "line_range": [
+        275
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "275     assert (await aiter.athrow(KeyError(\"oops\"))) == 2\n276     assert (await aiter.athrow(ValueError(\"oops\"))) == 3\n277     with pytest.raises(OSError):\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 276,
+      "line_range": [
+        276
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "302     async for obj in aiter:  # pragma: no branch\n303         assert obj == 1\n304         break\n",
+      "col_offset": 8,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 303,
+      "line_range": [
+        303
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "304         break\n305     assert track[0] is None\n306     await aiter.aclose()\n",
+      "col_offset": 4,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 305,
+      "line_range": [
+        305
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "306     await aiter.aclose()\n307     assert track[0] == \"closed\"\n308 \n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 307,
+      "line_range": [
+        307
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "313     async for obj in aiter:\n314         assert False  # pragma: no cover\n315 \n",
+      "col_offset": 8,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 314,
+      "line_range": [
+        314
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "341     aiter = sync_yield_during_aclose()\n342     assert (await aiter.__anext__()) == 1\n343     # Doesn't raise:\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 342,
+      "line_range": [
+        342
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "346     aiter = async_yield_during_aclose()\n347     assert (await aiter.__anext__()) == 1\n348     with pytest.raises(RuntimeError):\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 347,
+      "line_range": [
+        347
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "366 if sys.version_info >= (3, 6):\n367     exec(\n368         \"\"\"\n369 async def native_async_range(count):\n370     for i in range(count):\n371         yield i\n372 \n373 # XX uncomment if/when we re-enable the ctypes hacks:\n374 # async def native_async_range_twice(count):\n375 #     # make sure yield_from_ works inside a native async generator\n376 #     await yield_from_(async_range(count))\n377 #     yield None\n378 #     # make sure we can yield_from_ a native async generator\n379 #     await yield_from_(native_async_range(count))\n380     \"\"\"\n381     )\n382 \n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 367,
+      "line_range": [
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "384 async def test_async_yield_from_():\n385     assert await collect(async_range_twice(3)) == [\n386         0,\n387         1,\n388         2,\n389         None,\n390         0,\n391         1,\n392         2,\n393     ]\n394 \n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 385,
+      "line_range": [
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "400 \n401         assert await collect(yield_from_native()) == [0, 1, 2]\n402 \n",
+      "col_offset": 8,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 401,
+      "line_range": [
+        401
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "423     await gen.__anext__() == 20\n424     assert (await gen.asend(2)) == 4\n425     assert (await gen.asend(5)) == 10\n",
+      "col_offset": 4,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 424,
+      "line_range": [
+        424
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "424     assert (await gen.asend(2)) == 4\n425     assert (await gen.asend(5)) == 10\n426     assert (await gen.asend(0)) == 0\n",
+      "col_offset": 4,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 425,
+      "line_range": [
+        425
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "425     assert (await gen.asend(5)) == 10\n426     assert (await gen.asend(0)) == 0\n427     await gen.aclose()\n",
+      "col_offset": 4,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 426,
+      "line_range": [
+        426
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "431     gen = async_range_twice(2)\n432     assert (await gen.__anext__()) == 0\n433     with pytest.raises(ValueError):\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 432,
+      "line_range": [
+        432
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "448 async def test_async_yield_from_return_value():\n449     assert await collect(yields_from_returns_1()) == [0, 1]\n450 \n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 449,
+      "line_range": [
+        449
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "459     async def yield_from_empty():\n460         assert (await yield_from_(empty())) == \"done\"\n461 \n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 460,
+      "line_range": [
+        460
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "461 \n462     assert await collect(yield_from_empty()) == []\n463 \n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 462,
+      "line_range": [
+        462
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "492             c = Countdown(count)\n493             assert (await yield_from_(c)) == \"boom\"\n494         except BaseException as e:\n",
+      "col_offset": 12,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 493,
+      "line_range": [
+        493
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "500     h = []\n501     assert await collect(yield_from_countdown(3, h)) == [2, 1, 0]\n502     assert h == []\n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 501,
+      "line_range": [
+        501
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "501     assert await collect(yield_from_countdown(3, h)) == [2, 1, 0]\n502     assert h == []\n503 \n",
+      "col_offset": 4,
+      "end_col_offset": 18,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 502,
+      "line_range": [
+        502
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "507     agen = yield_from_countdown(3, h)\n508     assert await agen.__anext__() == 2\n509     exc = ValueError(\"x\")\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 508,
+      "line_range": [
+        508
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "512     except StopAsyncIteration as e:\n513         assert e.args[0] is exc\n514     assert h == [\"raise\"]\n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 513,
+      "line_range": [
+        513
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "513         assert e.args[0] is exc\n514     assert h == [\"raise\"]\n515 \n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 514,
+      "line_range": [
+        514
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "518     agen = yield_from_countdown(3, h)\n519     assert await agen.__anext__() == 2\n520     await agen.aclose()\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 519,
+      "line_range": [
+        519
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "520     await agen.aclose()\n521     assert h == [\"countdown closed\", \"raise\"]\n522 \n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 521,
+      "line_range": [
+        521
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "526     agen = yield_from_countdown(3, h)\n527     assert await agen.__anext__() == 2\n528     exc = GeneratorExit()\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 527,
+      "line_range": [
+        527
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "530         await agen.athrow(exc)\n531     assert h == [\"countdown closed\", \"raise\"]\n532 \n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 531,
+      "line_range": [
+        531
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "558 \n559     assert await collect(yield_from_countdown(3)) == [2, 1, 0]\n560 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 559,
+      "line_range": [
+        559
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "561     agen = yield_from_countdown(3)\n562     assert await agen.__anext__() == 2\n563     assert await agen.__anext__() == 1\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 562,
+      "line_range": [
+        562
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "562     assert await agen.__anext__() == 2\n563     assert await agen.__anext__() == 1\n564     # It's OK that Countdown has no aclose\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 563,
+      "line_range": [
+        563
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "588 \n589     assert await collect(yield_from_countdown(3)) == [2, 1, 0]\n590 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 589,
+      "line_range": [
+        589
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "605     agen = yield_from_catch()\n606     assert await agen.__anext__() == \"hi\"\n607     assert await agen.__anext__() == \"hi\"\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 606,
+      "line_range": [
+        606
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "606     assert await agen.__anext__() == \"hi\"\n607     assert await agen.__anext__() == \"hi\"\n608     thrown = ValueError(\"oops\")\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 607,
+      "line_range": [
+        607
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "611     except StopAsyncIteration as caught:\n612         assert caught.args == ((\"bye\", thrown),)\n613     else:\n",
+      "col_offset": 8,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 612,
+      "line_range": [
+        612
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "642     gen = awaits_when_unwinding()\n643     assert await collect(gen) == [0, 1, 2]\n644     # Exhausted, so no problem\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 643,
+      "line_range": [
+        643
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "649         for turn in range(stop_after_turn):\n650             assert await gen.__anext__() == turn\n651         await gen.aclose()\n",
+      "col_offset": 12,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 650,
+      "line_range": [
+        650
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "657         for turn in range(stop_after_turn):\n658             assert await gen.__anext__() == turn\n659 \n",
+      "col_offset": 12,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 658,
+      "line_range": [
+        658
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "664                 gen.__del__()\n665             assert \"awaited during finalization; install a finalization hook\" in str(\n666                 info.value\n667             )\n668         else:\n",
+      "col_offset": 12,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 665,
+      "line_range": [
+        665,
+        666,
+        667
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "671 \n672     assert completions == 3\n673 \n",
+      "col_offset": 4,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 672,
+      "line_range": [
+        672
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "681     gen = yields_when_unwinding()\n682     assert await gen.__anext__() == 1\n683     with pytest.raises(RuntimeError) as info:\n",
+      "col_offset": 4,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 682,
+      "line_range": [
+        682
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "692 def test_isasyncgen():\n693     assert not isasyncgen(async_range)\n694     assert isasyncgen(async_range(10))\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 693,
+      "line_range": [
+        693
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "693     assert not isasyncgen(async_range)\n694     assert isasyncgen(async_range(10))\n695 \n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 694,
+      "line_range": [
+        694
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "696     if sys.version_info >= (3, 6):\n697         assert not isasyncgen(native_async_range)\n698         assert isasyncgen(native_async_range(10))\n",
+      "col_offset": 8,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 697,
+      "line_range": [
+        697
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "697         assert not isasyncgen(native_async_range)\n698         assert isasyncgen(native_async_range(10))\n699 \n",
+      "col_offset": 8,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 698,
+      "line_range": [
+        698
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "701 def test_isasyncgenfunction():\n702     assert isasyncgenfunction(async_range)\n703     assert not isasyncgenfunction(list)\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 702,
+      "line_range": [
+        702
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "702     assert isasyncgenfunction(async_range)\n703     assert not isasyncgenfunction(list)\n704     assert not isasyncgenfunction(async_range(10))\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 703,
+      "line_range": [
+        703
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "703     assert not isasyncgenfunction(list)\n704     assert not isasyncgenfunction(async_range(10))\n705 \n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 704,
+      "line_range": [
+        704
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "706     if sys.version_info >= (3, 6):\n707         assert isasyncgenfunction(native_async_range)\n708         assert not isasyncgenfunction(native_async_range(10))\n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 707,
+      "line_range": [
+        707
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "707         assert isasyncgenfunction(native_async_range)\n708         assert not isasyncgenfunction(native_async_range(10))\n709 \n",
+      "col_offset": 8,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 708,
+      "line_range": [
+        708
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "732 \n733     assert not isasyncgenfunction(async_range_wrapper)\n734     assert isasyncgenfunction(async_range_wrapper.__wrapped__)\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 733,
+      "line_range": [
+        733
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "733     assert not isasyncgenfunction(async_range_wrapper)\n734     assert isasyncgenfunction(async_range_wrapper.__wrapped__)\n735 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 734,
+      "line_range": [
+        734
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "738     if hasattr(collections.abc, \"AsyncGenerator\"):\n739         assert isinstance(async_range(10), collections.abc.AsyncGenerator)\n740 \n",
+      "col_offset": 8,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 739,
+      "line_range": [
+        739
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "748     agen = f()\n749     assert agen.ag_code.co_name == \"f\"\n750     async for _ in agen:  # pragma: no branch\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 749,
+      "line_range": [
+        749
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "750     async for _ in agen:  # pragma: no branch\n751         assert agen.ag_frame.f_locals[\"x\"] == 1\n752         break\n",
+      "col_offset": 8,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 751,
+      "line_range": [
+        751
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "773     print(sys.getrefcount(x))\n774     assert sys.getrefcount(x) >= base_count + 100\n775     l2 = [_impl._unwrap(box) for box in l]\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 774,
+      "line_range": [
+        774
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "775     l2 = [_impl._unwrap(box) for box in l]\n776     assert sys.getrefcount(x) >= base_count + 200\n777     print(sys.getrefcount(x))\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 776,
+      "line_range": [
+        776
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "788     print(sys.getrefcount(x))\n789     assert sys.getrefcount(x) == base_count\n790     print(sys.getrefcount(x))\n",
+      "col_offset": 4,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 789,
+      "line_range": [
+        789
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "815             await agen.athrow(exc)\n816         assert excinfo.type is RuntimeError\n817         assert excinfo.value.__cause__ is exc\n",
+      "col_offset": 8,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 816,
+      "line_range": [
+        816
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "816         assert excinfo.type is RuntimeError\n817         assert excinfo.value.__cause__ is exc\n818 \n",
+      "col_offset": 8,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 817,
+      "line_range": [
+        817
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "835         print(msg)\n836         assert not issubclass(msg.category, RuntimeWarning)\n837 \n",
+      "col_offset": 8,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 836,
+      "line_range": [
+        836
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "860     set_asyncgen_hooks(None, None)\n861     assert get_asyncgen_hooks() == (None, None)\n862     set_asyncgen_hooks(finalizer=two)\n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 861,
+      "line_range": [
+        861
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "862     set_asyncgen_hooks(finalizer=two)\n863     assert get_asyncgen_hooks() == (None, two)\n864     set_asyncgen_hooks(firstiter=one)\n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 863,
+      "line_range": [
+        863
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "864     set_asyncgen_hooks(firstiter=one)\n865     assert get_asyncgen_hooks() == (one, two)\n866     set_asyncgen_hooks(finalizer=None, firstiter=two)\n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 865,
+      "line_range": [
+        865
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "866     set_asyncgen_hooks(finalizer=None, firstiter=two)\n867     assert get_asyncgen_hooks() == (two, None)\n868     set_asyncgen_hooks(None, one)\n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 867,
+      "line_range": [
+        867
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "868     set_asyncgen_hooks(None, one)\n869     assert get_asyncgen_hooks() == (None, one)\n870     tup = (one, two)\n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 869,
+      "line_range": [
+        869
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "871     set_asyncgen_hooks(*tup)\n872     assert get_asyncgen_hooks() == tup\n873 \n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 872,
+      "line_range": [
+        872
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "889     thread.join()\n890     assert results == [(None, None), (two, one)]\n891     assert get_asyncgen_hooks() == (one, two)\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 890,
+      "line_range": [
+        890
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "890     assert results == [(None, None), (two, one)]\n891     assert get_asyncgen_hooks() == (one, two)\n892 \n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 891,
+      "line_range": [
+        891
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "943 \n944     assert events == [\n945         \"before asend A\", \"before send A\", \"yield 1 A\", \"after asend A\",\n946         \"before asend B\", \"firstiter B\", \"before send B\", \"yield 1 B\",\n947         \"after asend B\", \"before asend C\", \"firstiter C\", \"before send C\",\n948         \"yield 1 C\", \"after asend C\"\n949     ]\n950     del events[:]\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 944,
+      "line_range": [
+        944,
+        945,
+        946,
+        947,
+        948,
+        949
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "960     await iterX.aclose()\n961     assert events == [\"firstiter X\", \"before close\"]\n962     del events[:]\n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 961,
+      "line_range": [
+        961
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "974         gc.collect()\n975     assert refA() is None\n976     assert events == [\n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 975,
+      "line_range": [
+        975
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "975     assert refA() is None\n976     assert events == [\n977         \"yield 2 A\", \"after yield 2 A\", \"mock_sleep A\", \"yield 3 A\",\n978         \"unwind 3 A\"\n979     ]\n980     assert not to_finalize\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 976,
+      "line_range": [
+        976,
+        977,
+        978,
+        979
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "979     ]\n980     assert not to_finalize\n981     del events[:]\n",
+      "col_offset": 4,
+      "end_col_offset": 26,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 980,
+      "line_range": [
+        980
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "993         gc.collect()\n994     assert events == [\n995         \"yield 2 C\", \"yield 2 B\", \"after yield 2 C\", \"mock_sleep C\",\n996         \"yield 3 C\", \"finalizer B\", \"finalizer C\"\n997     ]\n998     del events[:]\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 994,
+      "line_range": [
+        994,
+        995,
+        996,
+        997
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1000     # finalizer invokes aclose() is not called again once the revived reference drops\n1001     assert list(map(id, to_finalize)) == [idB, idC]\n1002     events.append(\"before aclose B\")\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1001,
+      "line_range": [
+        1001
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1009         gc.collect()\n1010     assert refB() is None and refC() is None\n1011 \n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1010,
+      "line_range": [
+        1010
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1011 \n1012     assert events == [\n1013         \"before aclose B\", \"mock_sleep B\", \"before aclose C\", \"unwind 3 C\",\n1014         \"after aclose both\"\n1015     ]\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_async_generator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1012,
+      "line_range": [
+        1012,
+        1013,
+        1014,
+        1015
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "19         async for item in gen:  # pragma: no branch\n20             assert item == next(it)\n21             if item == 4:\n",
+      "col_offset": 12,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 20,
+      "line_range": [
+        20
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "22                 break\n23     assert closed_slot[0]\n24 \n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "29             async for item in gen:  # pragma: no branch\n30                 assert item == next(it)\n31                 if item == 4:\n",
+      "col_offset": 16,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 30,
+      "line_range": [
+        30
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "34         pass\n35     assert closed_slot[0]\n36 \n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49             raise ZeroDivisionError\n50     assert excinfo.value.args[0] == 'issue29692:Chained'\n51     assert isinstance(excinfo.value.__cause__, ZeroDivisionError)\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "50     assert excinfo.value.args[0] == 'issue29692:Chained'\n51     assert isinstance(excinfo.value.__cause__, ZeroDivisionError)\n52 \n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "58             raise exc\n59     assert excinfo.value.args[0] == 'issue29692:Chained'\n60     cause = excinfo.value.__cause__\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 59,
+      "line_range": [
+        59
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "60     cause = excinfo.value.__cause__\n61     assert cause.args[0] == 'generator raised StopIteration'\n62     assert cause.__cause__ is exc\n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 61,
+      "line_range": [
+        61
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "61     assert cause.args[0] == 'generator raised StopIteration'\n62     assert cause.__cause__ is exc\n63 \n",
+      "col_offset": 4,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "66             raise StopAsyncIteration('issue29692:Unchained')\n67     assert excinfo.value.args[0] == 'issue29692:Unchained'\n68     assert excinfo.value.__cause__ is None\n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 67,
+      "line_range": [
+        67
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "67     assert excinfo.value.args[0] == 'issue29692:Unchained'\n68     assert excinfo.value.__cause__ is None\n69 \n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 68,
+      "line_range": [
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "82 try:\n83     exec(\n84         \"\"\"\n85 @asynccontextmanager\n86 async def manager_issue29692_2():\n87     try:\n88         yield\n89     except Exception as exc:\n90         raise RuntimeError('issue29692:Chained') from exc\n91 \"\"\"\n92     )\n93 except SyntaxError:\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 83,
+      "line_range": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "106             raise ZeroDivisionError\n107     assert excinfo.value.args[0] == 'issue29692:Chained'\n108     assert isinstance(excinfo.value.__cause__, ZeroDivisionError)\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 107,
+      "line_range": [
+        107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "107     assert excinfo.value.args[0] == 'issue29692:Chained'\n108     assert isinstance(excinfo.value.__cause__, ZeroDivisionError)\n109 \n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 108,
+      "line_range": [
+        108
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "113                 raise cls('issue29692:Unchained')\n114         assert excinfo.value.args[0] == 'issue29692:Unchained'\n115         assert excinfo.value.__cause__ is None\n",
+      "col_offset": 8,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 114,
+      "line_range": [
+        114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "114         assert excinfo.value.args[0] == 'issue29692:Unchained'\n115         assert excinfo.value.__cause__ is None\n116 \n",
+      "col_offset": 8,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 115,
+      "line_range": [
+        115
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "171 \n172     assert \"async with\" in str(excinfo.value)\n173 \n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 172,
+      "line_range": [
+        172
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "185         async with yeehaw():\n186             assert False  # pragma: no cover\n187 \n",
+      "col_offset": 12,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 186,
+      "line_range": [
+        186
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "187 \n188     assert \"didn't yield\" in str(excinfo.value)\n189 \n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 188,
+      "line_range": [
+        188
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "198             await yield_()\n199         except Exception:\n200             pass\n201         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 199,
+      "line_range": [
+        199,
+        200
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "210 \n211     assert \"didn't stop\" in str(excinfo.value)\n212     assert closed_count == 1\n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 211,
+      "line_range": [
+        211
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "211     assert \"didn't stop\" in str(excinfo.value)\n212     assert closed_count == 1\n213 \n",
+      "col_offset": 4,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 212,
+      "line_range": [
+        212
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "217 \n218     assert \"didn't stop after athrow\" in str(excinfo.value)\n219     assert closed_count == 2\n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 218,
+      "line_range": [
+        218
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "218     assert \"didn't stop after athrow\" in str(excinfo.value)\n219     assert closed_count == 2\n220 \n",
+      "col_offset": 4,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_tests\\test_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 219,
+      "line_range": [
+        219
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "50                 # but AFAICT this can't happen anymore.\n51                 assert value is not None\n52                 try:\n",
+      "col_offset": 16,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "92     def __exit__(self):  # pragma: no cover\n93         assert False, \"\"\"Never called, but should be defined\"\"\"\n94 \n",
+      "col_offset": 8,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\async_generator\\_util.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 93,
+      "line_range": [
+        93
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4 \n5 exec(open(\"async_generator/_version.py\", encoding=\"utf-8\").read())\n6 \n",
+      "col_offset": 0,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\py3-async-generator\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 5,
+      "line_range": [
+        5
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    }
+  ]
+}

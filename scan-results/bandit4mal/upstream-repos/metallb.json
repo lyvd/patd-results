@@ -1,0 +1,115 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:29:26Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\metallb\\tasks.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1348,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1348,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "277                 )\n278             except:\n279                 pass\n280             run(\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\metallb\\tasks.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 278,
+      "line_range": [
+        278,
+        279
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "732         bgpd_config = (\n733             jinja2.Environment()\n734             .from_string(f.read())\n",
+      "col_offset": 12,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\metallb\\tasks.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "line_number": 733,
+      "line_range": [
+        733
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b701_jinja2_autoescape_false.html",
+      "test_id": "B701",
+      "test_name": "jinja2_autoescape_false"
+    },
+    {
+      "code": "790         mlb_config = (\n791             jinja2.Environment()\n792             .from_string(f.read())\n",
+      "col_offset": 12,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\metallb\\tasks.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "line_number": 791,
+      "line_range": [
+        791
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b701_jinja2_autoescape_false.html",
+      "test_id": "B701",
+      "test_name": "jinja2_autoescape_false"
+    },
+    {
+      "code": "1300     else:\n1301         report_path = \"/tmp/metallbreport{}\".format(time.time())\n1302 \n",
+      "col_offset": 22,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\metallb\\tasks.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 1301,
+      "line_range": [
+        1301
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    }
+  ]
+}

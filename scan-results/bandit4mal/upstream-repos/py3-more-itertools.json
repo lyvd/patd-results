@@ -1,0 +1,585 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:52:40Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\docs\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 64,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 4,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py": {
+      "CONFIDENCE.HIGH": 11,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 3758,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\recipes.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 780,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\setup.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py": {
+      "CONFIDENCE.HIGH": 9,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 4917,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_recipes.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 987,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 23,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 22,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 10512,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "3659         while True:\n3660             W *= exp(log(random()) / k)\n3661             skip = floor(log(random()) / log1p(-W))\n",
+      "col_offset": 25,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3660,
+      "line_range": [
+        3660
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3660             W *= exp(log(random()) / k)\n3661             skip = floor(log(random()) / log1p(-W))\n3662             element = next(islice(iterator, skip, None))\n",
+      "col_offset": 29,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3661,
+      "line_range": [
+        3661
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3662             element = next(islice(iterator, skip, None))\n3663             reservoir[randrange(k)] = element\n3664 \n",
+      "col_offset": 22,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3663,
+      "line_range": [
+        3663
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3673     # Log-transform for numerical stability for weights that are small/large\n3674     weight_keys = (log(random()) / weight for weight in weights)\n3675 \n",
+      "col_offset": 23,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3674,
+      "line_range": [
+        3674
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3686     smallest_weight_key, _ = reservoir[0]\n3687     weights_to_skip = log(random()) / smallest_weight_key\n3688 \n",
+      "col_offset": 26,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3687,
+      "line_range": [
+        3687
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3694             t_w = exp(weight * smallest_weight_key)\n3695             r_2 = uniform(t_w, 1)  # generate U(t_w, 1)\n3696             weight_key = log(r_2) / weight\n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3695,
+      "line_range": [
+        3695
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3698             smallest_weight_key, _ = reservoir[0]\n3699             weights_to_skip = log(random()) / smallest_weight_key\n3700         else:\n",
+      "col_offset": 34,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3699,
+      "line_range": [
+        3699
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3731         while True:\n3732             W *= exp(log(random()) / k)\n3733             skip = floor(log(random()) / log1p(-W))\n",
+      "col_offset": 25,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3732,
+      "line_range": [
+        3732
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3732             W *= exp(log(random()) / k)\n3733             skip = floor(log(random()) / log1p(-W))\n3734             element = feed(skip)\n",
+      "col_offset": 29,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3733,
+      "line_range": [
+        3733
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3734             element = feed(skip)\n3735             reservoir[randrange(k)] = element\n3736 \n",
+      "col_offset": 22,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 3735,
+      "line_range": [
+        3735
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4094         c = perm(n, r)\n4095     assert c > 0  # factortial(n)>0, and r<n so perm(n,r) is never zero\n4096 \n",
+      "col_offset": 4,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4095,
+      "line_range": [
+        4095
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "629     pools = [tuple(pool) for pool in args] * repeat\n630     return tuple(choice(pool) for pool in pools)\n631 \n",
+      "col_offset": 17,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\recipes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 630,
+      "line_range": [
+        630
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "679     n = len(pool)\n680     indices = sorted(randrange(n) for i in range(r))\n681     return tuple(pool[i] for i in indices)\n",
+      "col_offset": 21,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\more_itertools\\recipes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 680,
+      "line_range": [
+        680
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "25 from operator import add, mul, itemgetter\n26 from pickle import loads, dumps\n27 from random import Random, random, randrange, seed\n",
+      "col_offset": 0,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with loads module.",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "1081         # number of elements starting with a character (\"a0\", \"a1\", ...)\n1082         rng = Random(0)\n1083         iterables = []\n",
+      "col_offset": 14,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 1082,
+      "line_range": [
+        1082
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "1095             ]\n1096             assert len(set(interleaved_actual)) == len(iterable)\n1097 \n",
+      "col_offset": 12,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1096,
+      "line_range": [
+        1096
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1917         (warning,) = caught\n1918         assert warning.category == DeprecationWarning\n1919 \n",
+      "col_offset": 8,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1918,
+      "line_range": [
+        1918
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "3056             self.assertTrue(dumps(r))  # assert not empty\n3057             self.assertEqual(r, loads(dumps(r)))\n3058 \n",
+      "col_offset": 32,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 3057,
+      "line_range": [
+        3057
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5925         for _ in range(1_000):\n5926             N = randrange(35)\n5927             xarr = [complex(random(), random()) for i in range(N)]\n",
+      "col_offset": 16,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 5926,
+      "line_range": [
+        5926
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5926             N = randrange(35)\n5927             xarr = [complex(random(), random()) for i in range(N)]\n5928             Xarr = list(mi.dft(xarr))\n",
+      "col_offset": 28,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 5927,
+      "line_range": [
+        5927
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5926             N = randrange(35)\n5927             xarr = [complex(random(), random()) for i in range(N)]\n5928             Xarr = list(mi.dft(xarr))\n",
+      "col_offset": 38,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 5927,
+      "line_range": [
+        5927
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5928             Xarr = list(mi.dft(xarr))\n5929             assert all(map(cmath.isclose, mi.idft(Xarr), xarr))\n5930 \n",
+      "col_offset": 12,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_more.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 5929,
+      "line_range": [
+        5929
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "817                 break\n818             assert operation in [\"SUM\", \"MULTIPLY\"]\n819 \n",
+      "col_offset": 12,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-more-itertools\\tests\\test_recipes.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 818,
+      "line_range": [
+        818
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

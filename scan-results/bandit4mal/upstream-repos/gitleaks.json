@@ -1,0 +1,134 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:17:06Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\gitleaks\\scripts\\pre-commit.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 21,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 21,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "4 import sys\n5 import subprocess\n6 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\gitleaks\\scripts\\pre-commit.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 5,
+      "line_range": [
+        5
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "9     \"\"\"Determine if the pre-commit hook for gitleaks is enabled.\"\"\"\n10     out = subprocess.getoutput(\"git config --bool hooks.gitleaks\")\n11     if out == \"false\":\n",
+      "col_offset": 10,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\gitleaks\\scripts\\pre-commit.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "9     \"\"\"Determine if the pre-commit hook for gitleaks is enabled.\"\"\"\n10     out = subprocess.getoutput(\"git config --bool hooks.gitleaks\")\n11     if out == \"false\":\n",
+      "col_offset": 10,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\gitleaks\\scripts\\pre-commit.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "16 if gitleaksEnabled():\n17     exitCode = os.WEXITSTATUS(os.system('gitleaks protect -v --staged'))\n18     if exitCode == 1:\n",
+      "col_offset": 30,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\gitleaks\\scripts\\pre-commit.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 17,
+      "line_range": [
+        17
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "16 if gitleaksEnabled():\n17     exitCode = os.WEXITSTATUS(os.system('gitleaks protect -v --staged'))\n18     if exitCode == 1:\n",
+      "col_offset": 30,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\gitleaks\\scripts\\pre-commit.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 17,
+      "line_range": [
+        17
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    }
+  ]
+}

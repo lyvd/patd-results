@@ -1,0 +1,668 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:52:03Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\firstuseauthenticator\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 9,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\firstuseauthenticator\\_version.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 10,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\firstuseauthenticator\\firstuseauthenticator.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 272,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\firstuseauthenticator\\templates\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\setup.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 29,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py": {
+      "CONFIDENCE.HIGH": 24,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 3,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 27,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 134,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 25,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 3,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 27,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 454,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "8 with open(os.path.join(here, 'firstuseauthenticator', '_version.py')) as f:\n9     exec(f.read(), {}, version_ns)\n10 \n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "18     name = \"name\"\n19     password = \"firstpassword\"\n20     username = await auth.authenticate(mock.Mock(), {\"username\": name, \"password\": password})\n",
+      "col_offset": 15,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'firstpassword'",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "20     username = await auth.authenticate(mock.Mock(), {\"username\": name, \"password\": password})\n21     assert username == \"name\"\n22     # second login, same password\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 21,
+      "line_range": [
+        21
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "23     username = await auth.authenticate(mock.Mock(), {\"username\": name, \"password\": password})\n24     assert username == \"name\"\n25 \n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 24,
+      "line_range": [
+        24
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "29     )\n30     assert username is None\n31 \n",
+      "col_offset": 4,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 30,
+      "line_range": [
+        30
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "43     name = \"name\"\n44     password = \"\"\n45     with mock.patch.object(auth, '_user_exists', user_exists):\n",
+      "col_offset": 15,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: ''",
+      "line_number": 44,
+      "line_range": [
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "46         username = await auth.authenticate(mock.Mock(), {\"username\": name, \"password\": password})\n47         assert username == \"name\"\n48         users.append(name)\n",
+      "col_offset": 8,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 47,
+      "line_range": [
+        47
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "57         for record in caplog.records:\n58             assert record.levelname != 'ERROR'\n59 \n",
+      "col_offset": 12,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 58,
+      "line_range": [
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "61     name = \"newuser\"\n62     password = \"tooshort\"\n63     with mock.patch.object(auth, '_user_exists', user_exists):\n",
+      "col_offset": 15,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'tooshort'",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "64         username = await auth.authenticate(mock.Mock(), {\"username\": name, \"password\": password})\n65         assert username is None\n66         # assert that new users' passwords must have the specified length\n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 65,
+      "line_range": [
+        65
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "68             if record.levelname == 'ERROR':\n69                 assert record.msg == (\n70                     'Password too short! Please choose a password at least %d characters long.'\n71                     % auth.min_password_length\n72                 )\n73 \n",
+      "col_offset": 16,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 69,
+      "line_range": [
+        69,
+        70,
+        71,
+        72
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "94         for username in to_load:\n95             assert await auth1.authenticate(\n96                 mock.Mock(),\n97                 {\n98                     \"username\": username,\n99                     \"password\": username,\n100                 },\n101             )\n102 \n",
+      "col_offset": 12,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 95,
+      "line_range": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "105         for username in to_load:\n106             assert db.get(username.encode(\"utf8\"))\n107     # at startup, normalization is checked\n",
+      "col_offset": 12,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 106,
+      "line_range": [
+        106
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "112     # 1.a no-op\n113     assert \"onlynormalized\" in in_db\n114     # 1.b renamed\n",
+      "col_offset": 4,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 113,
+      "line_range": [
+        113
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "114     # 1.b renamed\n115     assert \"onlynotnormalized\" in in_db\n116     assert \"onlyNotNormalized\" not in in_db\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 115,
+      "line_range": [
+        115
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "115     assert \"onlynotnormalized\" in in_db\n116     assert \"onlyNotNormalized\" not in in_db\n117     # 2.a collision, preserve normalized\n",
+      "col_offset": 4,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 116,
+      "line_range": [
+        116
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "117     # 2.a collision, preserve normalized\n118     assert \"collisionnormalized\" in in_db\n119     assert \"collisionNormalized\" not in in_db\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 118,
+      "line_range": [
+        118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "118     assert \"collisionnormalized\" in in_db\n119     assert \"collisionNormalized\" not in in_db\n120     # 2.b collision, preserve and add normalized\n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 119,
+      "line_range": [
+        119
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "120     # 2.b collision, preserve and add normalized\n121     assert \"collisionnotnormalized\" in in_db\n122     assert \"collisionNotNormalized\" not in in_db\n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 121,
+      "line_range": [
+        121
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "121     assert \"collisionnotnormalized\" in in_db\n122     assert \"collisionNotNormalized\" not in in_db\n123     assert \"collisionNotnormalized\" not in in_db\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 122,
+      "line_range": [
+        122
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "122     assert \"collisionNotNormalized\" not in in_db\n123     assert \"collisionNotnormalized\" not in in_db\n124 \n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 123,
+      "line_range": [
+        123
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "131     for name in to_load:\n132         assert name in backup_passwords\n133 \n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 132,
+      "line_range": [
+        132
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "153         )\n154         assert authenticated is None\n155 \n",
+      "col_offset": 8,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 154,
+      "line_range": [
+        154
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "163         )\n164         assert authenticated is None\n165 \n",
+      "col_offset": 8,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 164,
+      "line_range": [
+        164
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "173         )\n174         assert authenticated\n175         assert authenticated == auth2.normalize_username(username)\n",
+      "col_offset": 8,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 174,
+      "line_range": [
+        174
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "174         assert authenticated\n175         assert authenticated == auth2.normalize_username(username)\n176 \n",
+      "col_offset": 8,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 175,
+      "line_range": [
+        175
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "184         )\n185         assert authenticated\n186         assert authenticated == auth2.normalize_username(username)\n",
+      "col_offset": 8,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 185,
+      "line_range": [
+        185
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "185         assert authenticated\n186         assert authenticated == auth2.normalize_username(username)\n187 \n",
+      "col_offset": 8,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jupyterhub-firstuseauthenticator\\tests\\test_authenticator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 186,
+      "line_range": [
+        186
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

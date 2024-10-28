@@ -1,0 +1,779 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:17:33Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\base\\net\\simple_embedder.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 35,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_extra_files.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 138,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py": {
+      "CONFIDENCE.HIGH": 18,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 17,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 9595,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\generator_utils.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 159,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\generator_utils_test.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 43,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py": {
+      "CONFIDENCE.HIGH": 13,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 13,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 8511,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 31,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 30,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 18481,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "354   if not gen_setters_and_getters:\n355     assert comment is None, ('Accessor comments cannot be used when'\n356                              ' gen_setters_and_getters is False')\n357   assert tag_id >= 2, ('Error, tag_id must be >=2 for field %s' % name)\n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 355,
+      "line_range": [
+        355,
+        356
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "356                              ' gen_setters_and_getters is False')\n357   assert tag_id >= 2, ('Error, tag_id must be >=2 for field %s' % name)\n358   member_name = name + '_'\n",
+      "col_offset": 2,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 357,
+      "line_range": [
+        357
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "360   if getter_is_override:\n361     assert gen_setters_and_getters, ('getter_is_override cannot be used when '\n362                                      'gen_setters_and_getters is false')\n363     getter_override = 'override '\n",
+      "col_offset": 4,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 361,
+      "line_range": [
+        361,
+        362
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "364   if isinstance(ctype, ScalarType):\n365     assert field_loader == FieldLoaderMethod.OPTIONAL, ('field_loader should '\n366                                                         'not be specified for '\n367                                                         'scalar field %s' %\n368                                                         name)\n369     cpp_default = ctype.cpp_default\n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 365,
+      "line_range": [
+        365,
+        366,
+        367,
+        368
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "516       proto_field_type = 'Any%sProto' % name\n517       assert gen_init_fields is None, ('gen_init_fields cannot be used for '\n518                                        'non-final class {}').format(name)\n519     else:\n",
+      "col_offset": 6,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 517,
+      "line_range": [
+        517,
+        518
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "524       elif not gen_init_fields:\n525         assert ('absl::Status InitFields() final {' in extra_private_defs), (\n526             'class {} must provide InitFields() in extra_private_defs when '\n527             'gen_init_fields=False').format(name)\n528     node_kind = NameToNodeKind(name)\n",
+      "col_offset": 8,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 525,
+      "line_range": [
+        525,
+        526,
+        527
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "530     visibility_types = ['public:', 'protected:', 'private:']\n531     assert (type not in extra_public_defs for type in visibility_types\n532            ), 'visibility specifiers should not be used in extra_public_defs'\n533     assert (type not in extra_protected_defs for type in visibility_types\n",
+      "col_offset": 4,
+      "end_col_offset": 77,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 531,
+      "line_range": [
+        531,
+        532
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "532            ), 'visibility specifiers should not be used in extra_public_defs'\n533     assert (type not in extra_protected_defs for type in visibility_types\n534            ), 'visibility specifiers should not be used in extra_protected_defs'\n535     assert (type not in extra_private_defs for type in visibility_types\n",
+      "col_offset": 4,
+      "end_col_offset": 80,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 533,
+      "line_range": [
+        533,
+        534
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "534            ), 'visibility specifiers should not be used in extra_protected_defs'\n535     assert (type not in extra_private_defs for type in visibility_types\n536            ), 'visibility specifiers should not be used in extra_private_defs'\n537 \n",
+      "col_offset": 4,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 535,
+      "line_range": [
+        535,
+        536
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "547       field_name = field['name']\n548       assert field_tag_id not in field_tag_ids, (\n549           f'\\n\\nError, duplicate tag_id {field_tag_id} for field'\n550           f'{field_name} in node {name}\\n')\n551       field_tag_ids.add(field_tag_id)\n",
+      "col_offset": 6,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 548,
+      "line_range": [
+        548,
+        549,
+        550
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "551       field_tag_ids.add(field_tag_id)\n552     assert not (\n553         (has_protected_fields or extra_protected_defs) and not is_abstract), (\n554             'protected fields and methods cannot be used in final class %s',\n555             name)\n556 \n",
+      "col_offset": 4,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 552,
+      "line_range": [
+        552,
+        553,
+        554,
+        555
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "557     if custom_debug_string_comment:\n558       assert use_custom_debug_string, ('custom_debug_string_comment should be '\n559                                        'used with use_custom_debug_string')\n560       custom_debug_string_comment = CleanIndent(\n",
+      "col_offset": 6,
+      "end_col_offset": 75,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 558,
+      "line_range": [
+        558,
+        559
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "593     self.nodes.append(node_dict)\n594     assert name not in self.node_map, f'Error, duplicate node name {name}'\n595     self.node_map[name] = node_dict\n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 594,
+      "line_range": [
+        594
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "596 \n597     assert tag_id < NEXT_NODE_TAG_ID, (\n598         f'\\n\\nError, node {name} has a tag_id ({tag_id}) less than'\n599         f'  NEXT_NODE_TAG_ID ({NEXT_NODE_TAG_ID}), please update '\n600         'NEXT_NODE_TAG_ID\\n')\n601     assert tag_id not in self.node_tag_ids, (\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 597,
+      "line_range": [
+        597,
+        598,
+        599,
+        600
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "600         'NEXT_NODE_TAG_ID\\n')\n601     assert tag_id not in self.node_tag_ids, (\n602         f'\\n\\nError, node {name} has a duplicate tag_id {tag_id},'\n603         f'please set to {NEXT_NODE_TAG_ID} and update NEXT_NODE_TAG_ID\\n')\n604     self.node_tag_ids.add(tag_id)\n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 601,
+      "line_range": [
+        601,
+        602,
+        603
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "645     \"\"\"\n646     assert not self.root_child_nodes\n647 \n",
+      "col_offset": 4,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 646,
+      "line_range": [
+        646
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "699         init_fields_dict = {field.member_name: field for field in init_fields}\n700         assert set(init_fields_order_members).issubset(init_fields_dict), (\n701             'in class {} init_fields_order {} contains invalid field names not '\n702             'present in {}').format(node['name'], node['init_fields_order'],\n703                                     list(init_fields_dict.keys()))\n704         init_fields = []\n",
+      "col_offset": 8,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 700,
+      "line_range": [
+        700,
+        701,
+        702,
+        703
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "714 \n715     jinja_env = jinja2.Environment(\n716         undefined=jinja2.StrictUndefined,\n717         autoescape=False,\n718         trim_blocks=True,\n719         lstrip_blocks=True,\n720         line_statement_prefix='# ',\n721         loader=jinja2.FileSystemLoader('', followlinks=True))\n722 \n",
+      "col_offset": 16,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\parser\\gen_parse_tree.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Using jinja2 templates with autoescape=False is dangerous and can lead to XSS. Use autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "line_number": 715,
+      "line_range": [
+        715,
+        716,
+        717,
+        718,
+        719,
+        720,
+        721
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b701_jinja2_autoescape_false.html",
+      "test_id": "B701",
+      "test_name": "jinja2_autoescape_false"
+    },
+    {
+      "code": "339   \"\"\"\n340   assert tag_id > 1, tag_id\n341   assert ignorable in (IGNORABLE, NOT_IGNORABLE, IGNORABLE_DEFAULT)\n",
+      "col_offset": 2,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 340,
+      "line_range": [
+        340
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "340   assert tag_id > 1, tag_id\n341   assert ignorable in (IGNORABLE, NOT_IGNORABLE, IGNORABLE_DEFAULT)\n342   member_name = name + '_'\n",
+      "col_offset": 2,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 341,
+      "line_range": [
+        341
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "346   if vector:\n347     assert name.endswith('_list') or name.endswith('_path'), (\n348         'Vector fields should normally be named <x>_list or <x>_path: %s' %\n349         name)\n350 \n",
+      "col_offset": 4,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 347,
+      "line_range": [
+        347,
+        348,
+        349
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "415     # Non-scalars should all be node types (possibly node vectors).\n416     assert 'const' not in ctype, ctype\n417     assert '*' not in ctype, ctype\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 416,
+      "line_range": [
+        416
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "416     assert 'const' not in ctype, ctype\n417     assert '*' not in ctype, ctype\n418     if not ctype.startswith(NODE_NAME_PREFIX):\n",
+      "col_offset": 4,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 417,
+      "line_range": [
+        417
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "496   # `propagate_order` can be enabled only for non-vector, node-typed fields.\n497   assert not propagate_order or (is_node_type and not vector)\n498 \n",
+      "col_offset": 2,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 497,
+      "line_range": [
+        497
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "592     \"\"\"\n593     assert name not in self.node_map, name\n594     assert name != ROOT_NODE_NAME, name\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 593,
+      "line_range": [
+        593
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "593     assert name not in self.node_map, name\n594     assert name != ROOT_NODE_NAME, name\n595     assert parent in self.node_map or parent == ROOT_NODE_NAME, parent\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 594,
+      "line_range": [
+        594
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "594     assert name != ROOT_NODE_NAME, name\n595     assert parent in self.node_map or parent == ROOT_NODE_NAME, parent\n596     if parent == ROOT_NODE_NAME:\n",
+      "col_offset": 4,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 595,
+      "line_range": [
+        595
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "598       # Nodes that are part of other nodes are usually ResolvedArguments.\n599       assert name in ('ResolvedArgument', 'ResolvedExpr', 'ResolvedScan',\n600                       'ResolvedStatement'), name\n601     assert len(fields) <= 32, 'More than 32 fields not supported'\n",
+      "col_offset": 6,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 599,
+      "line_range": [
+        599,
+        600
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "600                       'ResolvedStatement'), name\n601     assert len(fields) <= 32, 'More than 32 fields not supported'\n602     fields = [field.copy() for field in fields]\n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 601,
+      "line_range": [
+        601
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "761     \"\"\"\n762     assert not self.root_child_nodes\n763 \n",
+      "col_offset": 4,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 762,
+      "line_range": [
+        762
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "806     line_statement_prefix = '# ' if FLAGS.allow_hash_prefix else None\n807     jinja_env = jinja2.Environment(\n808         undefined=jinja2.StrictUndefined,\n809         autoescape=ShouldAutoescape,\n810         trim_blocks=True,\n811         lstrip_blocks=True,\n812         line_statement_prefix=line_statement_prefix,\n813         loader=jinja2.FileSystemLoader([''] + data_dirs))\n814 \n",
+      "col_offset": 16,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Using jinja2 templates with autoescape=False is dangerous and can lead to XSS. Ensure autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "line_number": 807,
+      "line_range": [
+        807,
+        808,
+        809,
+        810,
+        811,
+        812,
+        813
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b701_jinja2_autoescape_false.html",
+      "test_id": "B701",
+      "test_name": "jinja2_autoescape_false"
+    },
+    {
+      "code": "949     }\n950     assert len(input_file_paths) == len(output_file_paths)\n951 \n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\zetasql\\zetasql\\resolved_ast\\gen_resolved_ast.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 950,
+      "line_range": [
+        950
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

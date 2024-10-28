@@ -1,0 +1,544 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:06:01Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\docs\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 47,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 3,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 204,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_hangs_tests.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 11,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\setup.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 76,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1570,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 4,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1252,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 9,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 13,
+      "SEVERITY.MEDIUM": 8,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 3160,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "25 PG_USERNAME = 'postgres'\n26 PG_PASSWORD = 'postgres'\n27 PG_QUERY = 'select version()'\n",
+      "col_offset": 14,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'postgres'",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "27 PG_QUERY = 'select version()'\n28 PG_EXPECT = eval(\n29     \"\"\"('PostgreSQL 13.0 (Debian 13.0-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit',)\"\"\")\n30 \n",
+      "col_offset": 12,
+      "end_col_offset": 128,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 28,
+      "line_range": [
+        28,
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "32 MYSQL_USERNAME = 'mysql'\n33 MYSQL_PASSWORD = 'mysql'\n34 MYSQL_QUERY = 'select version()'\n",
+      "col_offset": 17,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'mysql'",
+      "line_number": 33,
+      "line_range": [
+        33
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "38 MONGO_USERNAME = 'mongo'\n39 MONGO_PASSWORD = 'mongo'\n40 MONGO_QUERY = lambda client, db: client.server_info()\n",
+      "col_offset": 17,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'mongo'",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "40 MONGO_QUERY = lambda client, db: client.server_info()\n41 MONGO_EXPECT = eval(\n42     \"\"\"{'version': '3.6.23', 'gitVersion': 'd352e6a4764659e0d0350ce77279de3c1f243e5c', 'modules': [], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [3, 6, 23, 0], 'openssl': {'running': 'OpenSSL 1.0.2g  1 Mar 2016', 'compiled': 'OpenSSL 1.0.2g  1 Mar 2016'}, 'buildEnvironment': {'distmod': 'ubuntu1604', 'distarch': 'x86_64', 'cc': '/opt/mongodbtoolchain/v2/bin/gcc: gcc (GCC) 5.4.0', 'ccflags': '-fno-omit-frame-pointer -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -Werror -O2 -Wno-unused-local-typedefs -Wno-unused-function -Wno-deprecated-declarations -Wno-unused-but-set-variable -Wno-missing-braces -fstack-protector-strong -fno-builtin-memcmp', 'cxx': '/opt/mongodbtoolchain/v2/bin/g++: g++ (GCC) 5.4.0', 'cxxflags': '-Woverloaded-virtual -Wno-maybe-uninitialized -std=c++14', 'linkflags': '-pthread -Wl,-z,now -rdynamic -Wl,--fatal-warnings -fstack-protector-strong -fuse-ld=gold -Wl,--build-id -Wl,--hash-style=gnu -Wl,-z,noexecstack -Wl,--warn-execstack -Wl,-z,relro', 'target_arch': 'x86_64', 'target_os': 'linux'}, 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'mmapv1', 'wiredTiger'], 'ok': 1.0}\"\"\")\n43 \n",
+      "col_offset": 15,
+      "end_col_offset": 1271,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 41,
+      "line_range": [
+        41,
+        42
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "245 \n246     assert res == (PG_EXPECT, MYSQL_EXPECT, MONGO_EXPECT)\n",
+      "col_offset": 4,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_db_tests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 246,
+      "line_range": [
+        246
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "8     with open(path) as f:\n9         exec(f.read())\n10     logging.warning('RUN')\n",
+      "col_offset": 8,
+      "end_col_offset": 22,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\e2e_tests\\run_docker_e2e_hangs_tests.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "28     data = f.read()\n29     version = eval(re.search(\"__version__[ ]*=[ ]*([^\\r\\n]+)\", data).group(1))\n30 \n",
+      "col_offset": 14,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "79 def check_host(host):\n80     assert isinstance(host, string_types), 'IP is not a string ({0})'.format(\n81         type(host).__name__\n82     )\n83 \n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 80,
+      "line_range": [
+        80,
+        81,
+        82
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "85 def check_port(port):\n86     assert isinstance(port, int), 'PORT is not a number'\n87     assert port >= 0, 'PORT < 0 ({0})'.format(port)\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 86,
+      "line_range": [
+        86
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "86     assert isinstance(port, int), 'PORT is not a number'\n87     assert port >= 0, 'PORT < 0 ({0})'.format(port)\n88 \n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 87,
+      "line_range": [
+        87
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "149     \"\"\"\n150     assert all(isinstance(x, (tuple, string_types)) for x in address_list)\n151     if (is_remote and any(isinstance(x, string_types) for x in address_list)):\n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 150,
+      "line_range": [
+        150
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "264     letters = string.ascii_letters + string.digits\n265     return ''.join(random.choice(letters) for _ in range(length))\n266 \n",
+      "col_offset": 19,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 265,
+      "line_range": [
+        265
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "804             connect_to = ('127.0.0.1', _srv.local_port) \\\n805                 if _srv.local_host == '0.0.0.0' else _srv.local_address\n806             s.connect(connect_to)\n",
+      "col_offset": 38,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 805,
+      "line_range": [
+        805
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "1129                              '(local_bind_addresses > remote_bind_addresses)')\n1130         local_binds.extend([('0.0.0.0', 0) for x in range(count)])\n1131         return local_binds\n",
+      "col_offset": 29,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\sshtunnel.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 1130,
+      "line_range": [
+        1130
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "48     asciis = ascii_lowercase + ascii_uppercase + digits\n49     return ''.join([random.choice(asciis) for _ in range(length)])\n50 \n",
+      "col_offset": 20,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 49,
+      "line_range": [
+        49
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "423     def randomize_eport(self):\n424         return random.randint(49152, 65535)\n425 \n",
+      "col_offset": 15,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 424,
+      "line_range": [
+        424
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "598         ) as server:\n599             self.assertEqual(server.local_bind_host, '0.0.0.0')\n600 \n",
+      "col_offset": 53,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 605,
+        "link": "https://cwe.mitre.org/data/definitions/605.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible binding to all interfaces.",
+      "line_number": 599,
+      "line_range": [
+        599
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces"
+    },
+    {
+      "code": "1018         encr_pkey = get_test_data_path(ENCRYPTED_PKEY_FILE)\n1019         pkey = sshtunnel.SSHTunnelForwarder.read_private_key_file(\n1020             encr_pkey,\n1021             pkey_password='sshtunnel',\n1022             logger=self.log\n1023         )\n1024         _pkey = paramiko.RSAKey.from_private_key_file(\n",
+      "col_offset": 15,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'sshtunnel'",
+      "line_number": 1019,
+      "line_range": [
+        1019,
+        1020,
+        1021,
+        1022,
+        1023
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b106_hardcoded_password_funcarg.html",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg"
+    },
+    {
+      "code": "1029         # Using a wrong password returns None\n1030         self.assertIsNone(sshtunnel.SSHTunnelForwarder.read_private_key_file(\n1031             encr_pkey,\n1032             pkey_password='bad password',\n1033             logger=self.log\n1034         ))\n1035         self.assertIn(\"Private key file ({0}) could not be loaded as type \"\n",
+      "col_offset": 26,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'bad password'",
+      "line_number": 1030,
+      "line_range": [
+        1030,
+        1031,
+        1032,
+        1033,
+        1034
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b106_hardcoded_password_funcarg.html",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg"
+    },
+    {
+      "code": "1393         if os.name == 'posix':  # UNIX sockets supported by the platform\n1394             address_list.append('/tmp/unix-socket')\n1395             # UNIX sockets not supported on remote addresses\n",
+      "col_offset": 32,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sshtunnel\\tests\\test_forwarder.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 1394,
+      "line_range": [
+        1394
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    }
+  ]
+}

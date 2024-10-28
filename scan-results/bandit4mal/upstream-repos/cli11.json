@@ -1,0 +1,133 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:09:01Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\cli11\\scripts\\ExtractVersion.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 12,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\cli11\\scripts\\MakeSingleHeader.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 130,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 142,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "7 import argparse\n8 from subprocess import Popen, PIPE\n9 import warnings\n",
+      "col_offset": 0,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\cli11\\scripts\\MakeSingleHeader.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "67             if action == \"verbatim\":\n68                 assert (\n69                     name not in self\n70                 ), \"{name} read in more than once! Quitting.\".format(name=name)\n71                 self[name] = content\n",
+      "col_offset": 16,
+      "end_col_offset": 79,
+      "filename": "D:\\bandit\\upstream-repos\\cli11\\scripts\\MakeSingleHeader.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 68,
+      "line_range": [
+        68,
+        69,
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "93     try:\n94         proc = Popen(\n95             [\"git\", \"describe\", \"--tags\", \"--always\"], cwd=str(DIR), stdout=PIPE\n96         )\n97         out, _ = proc.communicate()\n",
+      "col_offset": 15,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\cli11\\scripts\\MakeSingleHeader.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 94,
+      "line_range": [
+        94,
+        95,
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "93     try:\n94         proc = Popen(\n95             [\"git\", \"describe\", \"--tags\", \"--always\"], cwd=str(DIR), stdout=PIPE\n96         )\n97         out, _ = proc.communicate()\n",
+      "col_offset": 15,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\cli11\\scripts\\MakeSingleHeader.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 94,
+      "line_range": [
+        94,
+        95,
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

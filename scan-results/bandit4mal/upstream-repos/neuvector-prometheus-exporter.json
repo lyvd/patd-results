@@ -1,0 +1,120 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:29:47Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\neuvector-prometheus-exporter\\nv_exporter.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 513,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 513,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "47                                  data=json.dumps(body),\n48                                  verify=False)\n49     except requests.exceptions.RequestException as login_error:\n50         print(login_error)\n51         return -1\n52 \n",
+      "col_offset": 19,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\neuvector-prometheus-exporter\\nv_exporter.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "line_number": 48,
+      "line_range": [
+        45,
+        46,
+        47,
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b501_request_with_no_cert_validation.html",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation"
+    },
+    {
+      "code": "44     try:\n45         response = requests.post(ctrl_url + '/v1/auth',\n46                                  headers=headers,\n47                                  data=json.dumps(body),\n48                                  verify=False)\n49     except requests.exceptions.RequestException as login_error:\n",
+      "col_offset": 19,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\neuvector-prometheus-exporter\\nv_exporter.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 45,
+      "line_range": [
+        45,
+        46,
+        47,
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "576 ENV_CTRL_USERNAME = \"CTRL_USERNAME\"\n577 ENV_CTRL_PASSWORD = \"CTRL_PASSWORD\"\n578 ENV_EXPORTER_PORT = \"EXPORTER_PORT\"\n",
+      "col_offset": 20,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\neuvector-prometheus-exporter\\nv_exporter.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'CTRL_PASSWORD'",
+      "line_number": 577,
+      "line_range": [
+        577
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "623     else:\n624         CTRL_PASS = \"admin\"\n625 \n",
+      "col_offset": 20,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\neuvector-prometheus-exporter\\nv_exporter.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'admin'",
+      "line_number": 624,
+      "line_range": [
+        624
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:05:44Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\sphinxcontrib\\applehelp\\__init__.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 220,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\conftest.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 7,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\roots\\test-basic\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 34,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 12,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 261,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "6 import shlex\n7 import subprocess\n8 from os import environ, path\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\sphinxcontrib\\applehelp\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "9 from pathlib import Path\n10 from subprocess import PIPE, STDOUT, CalledProcessError\n11 from typing import TYPE_CHECKING\n",
+      "col_offset": 0,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\sphinxcontrib\\applehelp\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "205             try:\n206                 subprocess.run(args, stdout=PIPE, stderr=STDOUT, check=True)\n207             except OSError as err:\n",
+      "col_offset": 16,
+      "end_col_offset": 76,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\sphinxcontrib\\applehelp\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 206,
+      "line_range": [
+        206
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "230             try:\n231                 subprocess.run(args, stdout=PIPE, stderr=STDOUT, check=True)\n232             except OSError as err:\n",
+      "col_offset": 16,
+      "end_col_offset": 76,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\sphinxcontrib\\applehelp\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 231,
+      "line_range": [
+        231
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "16     contentsdir = outdir / 'Contents'\n17     assert contentsdir.is_dir()\n18     assert (contentsdir / 'Info.plist').is_file()\n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 17,
+      "line_range": [
+        17
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "17     assert contentsdir.is_dir()\n18     assert (contentsdir / 'Info.plist').is_file()\n19 \n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 18,
+      "line_range": [
+        18
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "21         plist = plistlib.load(f)\n22     assert plist\n23     assert len(plist)\n",
+      "col_offset": 4,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 22,
+      "line_range": [
+        22
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "22     assert plist\n23     assert len(plist)\n24     assert plist.get('CFBundleIdentifier', None) == 'org.sphinx-doc.Sphinx.help'\n",
+      "col_offset": 4,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "23     assert len(plist)\n24     assert plist.get('CFBundleIdentifier', None) == 'org.sphinx-doc.Sphinx.help'\n25 \n",
+      "col_offset": 4,
+      "end_col_offset": 80,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 24,
+      "line_range": [
+        24
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "25 \n26     assert (contentsdir / 'Resources').is_dir()\n27     assert (contentsdir / 'Resources' / 'en.lproj').is_dir()\n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "26     assert (contentsdir / 'Resources').is_dir()\n27     assert (contentsdir / 'Resources' / 'en.lproj').is_dir()\n28 \n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "31     lprojdir = outdir / 'Contents' / 'Resources' / 'en.lproj'\n32     assert (lprojdir / 'localized.txt').is_file()\n33 \n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-sphinxcontrib-applehelp\\tests\\test_applehelp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 32,
+      "line_range": [
+        32
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

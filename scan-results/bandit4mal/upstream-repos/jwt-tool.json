@@ -1,0 +1,1136 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:28:49Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py": {
+      "CONFIDENCE.HIGH": 49,
+      "CONFIDENCE.LOW": 4,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 6,
+      "SEVERITY.LOW": 42,
+      "SEVERITY.MEDIUM": 5,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2014,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 49,
+      "CONFIDENCE.LOW": 4,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 6,
+      "SEVERITY.LOW": 42,
+      "SEVERITY.MEDIUM": 5,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2014,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "155             if postdata:\n156                 response = requests.post(url, data=postdata, headers=headers, cookies=cookiedict, proxies=False, verify=False, allow_redirects=redirBool)\n157             else:\n",
+      "col_offset": 27,
+      "end_col_offset": 153,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "line_number": 156,
+      "line_range": [
+        156
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b501_request_with_no_cert_validation.html",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation"
+    },
+    {
+      "code": "155             if postdata:\n156                 response = requests.post(url, data=postdata, headers=headers, cookies=cookiedict, proxies=False, verify=False, allow_redirects=redirBool)\n157             else:\n",
+      "col_offset": 27,
+      "end_col_offset": 153,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 156,
+      "line_range": [
+        156
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "157             else:\n158                 response = requests.get(url, headers=headers, cookies=cookiedict, proxies=False, verify=False, allow_redirects=redirBool)\n159         else:\n",
+      "col_offset": 27,
+      "end_col_offset": 137,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "line_number": 158,
+      "line_range": [
+        158
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b501_request_with_no_cert_validation.html",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation"
+    },
+    {
+      "code": "157             else:\n158                 response = requests.get(url, headers=headers, cookies=cookiedict, proxies=False, verify=False, allow_redirects=redirBool)\n159         else:\n",
+      "col_offset": 27,
+      "end_col_offset": 137,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 158,
+      "line_range": [
+        158
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "161             if postdata:\n162                 response = requests.post(url, data=postdata, headers=headers, cookies=cookiedict, proxies=proxies, verify=False, allow_redirects=redirBool)\n163             else:\n",
+      "col_offset": 27,
+      "end_col_offset": 155,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "line_number": 162,
+      "line_range": [
+        162
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b501_request_with_no_cert_validation.html",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation"
+    },
+    {
+      "code": "161             if postdata:\n162                 response = requests.post(url, data=postdata, headers=headers, cookies=cookiedict, proxies=proxies, verify=False, allow_redirects=redirBool)\n163             else:\n",
+      "col_offset": 27,
+      "end_col_offset": 155,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 162,
+      "line_range": [
+        162
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "163             else:\n164                 response = requests.get(url, headers=headers, cookies=cookiedict, proxies=proxies, verify=False, allow_redirects=redirBool)\n165         if int(response.elapsed.total_seconds()) >= 9:\n",
+      "col_offset": 27,
+      "end_col_offset": 139,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "line_number": 164,
+      "line_range": [
+        164
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b501_request_with_no_cert_validation.html",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation"
+    },
+    {
+      "code": "163             else:\n164                 response = requests.get(url, headers=headers, cookies=cookiedict, proxies=proxies, verify=False, allow_redirects=redirBool)\n165         if int(response.elapsed.total_seconds()) >= 9:\n",
+      "col_offset": 27,
+      "end_col_offset": 139,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 164,
+      "line_range": [
+        164
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "197     idFrag = genTime+str(token)\n198     logID = \"jwttool_\"+hashlib.md5(idFrag.encode()).hexdigest()\n199     if config['argvals']['targetUrl'] != \"\":\n",
+      "col_offset": 23,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 198,
+      "line_range": [
+        198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "215                         headertoken[1] = 1\n216                 except:\n217                     pass\n218         else:\n",
+      "col_offset": 16,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 216,
+      "line_range": [
+        216,
+        217
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "270         config['argvals']['rescode'],config['argvals']['ressize'],config['argvals']['rescontent'] = str(resData[0]),str(resData[1]),str(resData[2])\n271     except:\n272         pass\n273 \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 271,
+      "line_range": [
+        271,
+        272
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "438                 newVal = int(newVal)\n439             except:\n440                 pass\n441             paylList.append(newPair)\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 439,
+      "line_range": [
+        439,
+        440
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "450                 i += 1\n451             delPair = eval(input(\"> \"))\n452             del paylDict[paylList[delPair]]\n",
+      "col_offset": 22,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 451,
+      "line_range": [
+        451
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "872             sig = base64.urlsafe_b64decode(sig)\n873         except:\n874             pass\n875         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 873,
+      "line_range": [
+        873,
+        874
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "876             sig = base64.urlsafe_b64decode(sig+\"=\")\n877         except:\n878             pass\n879         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 877,
+      "line_range": [
+        877,
+        878
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "880             sig = base64.urlsafe_b64decode(sig+\"==\")\n881         except:\n882             pass\n883     elif \"+\" in sig:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 881,
+      "line_range": [
+        881,
+        882
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "885             sig = base64.b64decode(sig)\n886         except:\n887             pass\n888         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 886,
+      "line_range": [
+        886,
+        887
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "889             sig = base64.b64decode(sig+\"=\")\n890         except:\n891             pass\n892         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 890,
+      "line_range": [
+        890,
+        891
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "893             sig = base64.b64decode(sig+\"==\")\n894         except:\n895             pass\n896     else:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 894,
+      "line_range": [
+        894,
+        895
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "924             signature = base64.urlsafe_b64decode(sig)\n925         except:\n926             pass\n927         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 925,
+      "line_range": [
+        925,
+        926
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "928             signature = base64.urlsafe_b64decode(sig+\"=\")\n929         except:\n930             pass\n931         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 929,
+      "line_range": [
+        929,
+        930
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "932             signature = base64.urlsafe_b64decode(sig+\"==\")\n933         except:\n934             pass\n935     elif \"+\" in str(sig):\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 933,
+      "line_range": [
+        933,
+        934
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "937             signature = base64.b64decode(sig)\n938         except:\n939             pass\n940         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 938,
+      "line_range": [
+        938,
+        939
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "941             signature = base64.b64decode(sig+\"=\")\n942         except:\n943             pass\n944         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 942,
+      "line_range": [
+        942,
+        943
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "945             signature = base64.b64decode(sig+\"==\")\n946         except:\n947             pass\n948     else:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 946,
+      "line_range": [
+        946,
+        947
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "976             sig = base64.urlsafe_b64decode(sig)\n977         except:\n978             pass\n979         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 977,
+      "line_range": [
+        977,
+        978
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "980             sig = base64.urlsafe_b64decode(sig+\"=\")\n981         except:\n982             pass\n983         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 981,
+      "line_range": [
+        981,
+        982
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "984             sig = base64.urlsafe_b64decode(sig+\"==\")\n985         except:\n986             pass\n987     elif \"+\" in sig:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 985,
+      "line_range": [
+        985,
+        986
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "989             sig = base64.b64decode(sig)\n990         except:\n991             pass\n992         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 990,
+      "line_range": [
+        990,
+        991
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "993             sig = base64.b64decode(sig+\"=\")\n994         except:\n995             pass\n996         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 994,
+      "line_range": [
+        994,
+        995
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "997             sig = base64.b64decode(sig+\"==\")\n998         except:\n999             pass\n1000     else:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 998,
+      "line_range": [
+        998,
+        999
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1058                 valid = verifyTokenEC(headDict, paylDict, sig, pubkeyName)\n1059             except:\n1060                 pass\n1061             try:\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1059,
+      "line_range": [
+        1059,
+        1060
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1068                 valid = verifyTokenRSA(headDict, paylDict, sig, pubkeyName)\n1069             except:\n1070                 pass\n1071     except:\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1069,
+      "line_range": [
+        1069,
+        1070
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1083             valid = verifyTokenEC(headDict, paylDict, sig, pubkeyName)\n1084         except:\n1085             pass\n1086         try:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1084,
+      "line_range": [
+        1084,
+        1085
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1094             valid = verifyTokenRSA(headDict, paylDict, sig, pubkeyName)\n1095         except:\n1096             pass\n1097 \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1095,
+      "line_range": [
+        1095,
+        1096
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1100         x = int.from_bytes(base64.urlsafe_b64decode(x), byteorder='big')\n1101     except:\n1102         pass\n1103     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1101,
+      "line_range": [
+        1101,
+        1102
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1104         x = int.from_bytes(base64.urlsafe_b64decode(x+\"=\"), byteorder='big')\n1105     except:\n1106         pass\n1107     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1105,
+      "line_range": [
+        1105,
+        1106
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1108         x = int.from_bytes(base64.urlsafe_b64decode(x+\"==\"), byteorder='big')\n1109     except:\n1110         pass\n1111     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1109,
+      "line_range": [
+        1109,
+        1110
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1112         y = int.from_bytes(base64.urlsafe_b64decode(y), byteorder='big')\n1113     except:\n1114         pass\n1115     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1113,
+      "line_range": [
+        1113,
+        1114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1116         y = int.from_bytes(base64.urlsafe_b64decode(y+\"=\"), byteorder='big')\n1117     except:\n1118         pass\n1119     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1117,
+      "line_range": [
+        1117,
+        1118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1120         y = int.from_bytes(base64.urlsafe_b64decode(y+\"==\"), byteorder='big')\n1121     except:\n1122         pass\n1123     new_key = ECC.construct(curve='P-256', point_x=x, point_y=y)\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1121,
+      "line_range": [
+        1121,
+        1122
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1132         n = int.from_bytes(base64.urlsafe_b64decode(n), byteorder='big')\n1133     except:\n1134         pass\n1135     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1133,
+      "line_range": [
+        1133,
+        1134
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1136         n = int.from_bytes(base64.urlsafe_b64decode(n+\"=\"), byteorder='big')\n1137     except:\n1138         pass\n1139     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1137,
+      "line_range": [
+        1137,
+        1138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1140         n = int.from_bytes(base64.urlsafe_b64decode(n+\"==\"), byteorder='big')\n1141     except:\n1142         pass\n1143     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1141,
+      "line_range": [
+        1141,
+        1142
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1144         e = int.from_bytes(base64.urlsafe_b64decode(e), byteorder='big')\n1145     except:\n1146         pass\n1147     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1145,
+      "line_range": [
+        1145,
+        1146
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1148         e = int.from_bytes(base64.urlsafe_b64decode(e+\"=\"), byteorder='big')\n1149     except:\n1150         pass\n1151     try:\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1149,
+      "line_range": [
+        1149,
+        1150
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1152         e = int.from_bytes(base64.urlsafe_b64decode(e+\"==\"), byteorder='big')\n1153     except:\n1154         pass\n1155     new_key = RSA.construct((n, e))\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1153,
+      "line_range": [
+        1153,
+        1154
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1530         cprintc(\"Check if still working once expired.\", \"cyan\")\n1531     except:\n1532         pass\n1533 \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1531,
+      "line_range": [
+        1531,
+        1532
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1578                 origVal = headDict[nextHeader]\n1579             except:\n1580                 pass\n1581             headDict[nextHeader] = contentVal\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1579,
+      "line_range": [
+        1579,
+        1580
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1594                 origVal = paylDict[nextPayload]\n1595             except:\n1596                 pass\n1597             paylDict[nextPayload] = contentVal\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1595,
+      "line_range": [
+        1595,
+        1596
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1626         origVal = headDict[headerClaim]\n1627     except:\n1628         pass\n1629     headDict[headerClaim] = injectUrl\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1627,
+      "line_range": [
+        1627,
+        1628
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1641         origVal = paylDict[payloadClaim]\n1642     except:\n1643         pass\n1644     paylDict[payloadClaim] = injectUrl\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1642,
+      "line_range": [
+        1642,
+        1643
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1661 def reflectedClaims():\n1662     checkVal = \"jwt_inject_\"+hashlib.md5(datetime.now().strftime('%Y-%m-%d %H:%M:%S').encode()).hexdigest()+\"_\"\n1663     for claim in paylDict:\n",
+      "col_offset": 29,
+      "end_col_offset": 95,
+      "filename": "D:\\bandit\\upstream-repos\\jwt-tool\\jwt_tool.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 1662,
+      "line_range": [
+        1662
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    }
+  ]
+}

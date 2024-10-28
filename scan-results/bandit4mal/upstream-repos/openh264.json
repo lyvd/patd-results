@@ -1,0 +1,213 @@
+{
+  "errors": [
+    {
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\build\\mktargets.py",
+      "reason": "syntax error while parsing AST from file"
+    },
+    {
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\module\\task_utils.py",
+      "reason": "syntax error while parsing AST from file"
+    }
+  ],
+  "generated_at": "2024-10-27T17:29:56Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\openh264\\build\\mktargets.py": {
+      "loc": 237,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 533,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openh264\\module\\task_utils.py": {
+      "loc": 173,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 943,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "1 from __future__ import print_function\n2 import re, sys, os, time, glob, errno, tempfile, binascii, subprocess, shutil\n3 from lxml import etree\n",
+      "col_offset": 0,
+      "end_col_offset": 77,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 2,
+      "line_range": [
+        2
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "2 import re, sys, os, time, glob, errno, tempfile, binascii, subprocess, shutil\n3 from lxml import etree\n4 from optparse import OptionParser\n",
+      "col_offset": 0,
+      "end_col_offset": 22,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Using etree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace etree with the equivalent defusedxml package.",
+      "line_number": 3,
+      "line_range": [
+        3
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b410-import-lxml",
+      "test_id": "B410",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "64         self.re_doxy = \"<doxygen2rst\\s(\\S*)=(\\S*)>(.*?)</doxygen2rst>\"\n65         self.index_root = etree.parse(os.path.join(self.doxy_output_dir, \"index.xml\")).getroot()\n66         self.references = {}\n",
+      "col_offset": 26,
+      "end_col_offset": 86,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Using lxml.etree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.parse with its defusedxml equivalent function.",
+      "line_number": 65,
+      "line_range": [
+        65
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-etree",
+      "test_id": "B320",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "124         print(\" \".join(cmds))\n125         os.system(\" \".join(cmds))\n126         shutil.rmtree(self.temp_uml_path)\n",
+      "col_offset": 8,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Starting a process with a shell, possible injection detected, security issue.",
+      "line_number": 125,
+      "line_range": [
+        125
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "191             print(\"Link already added: %s == %s\" % (reflink[0], node.attrib[\"refid\"]))\n192             assert(reflink[0] == node.attrib[\"refid\"])\n193             pass\n",
+      "col_offset": 12,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 192,
+      "line_range": [
+        192
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "544         print(\"covert_item: id=%s, name=%s\" % (id, xml_path))\n545         obj_root = etree.parse(xml_path).getroot()\n546         retstr = \"\"\n",
+      "col_offset": 19,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Using lxml.etree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.parse with its defusedxml equivalent function.",
+      "line_number": 545,
+      "line_range": [
+        545
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-etree",
+      "test_id": "B320",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "580         print(\"convert_doxy: type=%s, name=%s\" % (type, xml_path))\n581         obj_root = etree.parse(xml_path).getroot()\n582         compound = obj_root.find(\"compounddef\")\n",
+      "col_offset": 19,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Using lxml.etree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.parse with its defusedxml equivalent function.",
+      "line_number": 581,
+      "line_range": [
+        581
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-etree",
+      "test_id": "B320",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "583         compound_kind = compound.attrib[\"kind\"]\n584         assert(dst_kind == compound_kind)\n585         retstr = \"\"\n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\openh264\\docs\\doxygen2rst.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 584,
+      "line_range": [
+        584
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

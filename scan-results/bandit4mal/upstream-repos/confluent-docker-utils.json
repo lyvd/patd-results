@@ -1,0 +1,660 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:09:05Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\__init__.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 151,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 3,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 401,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\dub.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 261,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\confluent-docker-utils\\setup.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 20,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py": {
+      "CONFIDENCE.HIGH": 16,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 16,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 73,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 23,
+      "CONFIDENCE.LOW": 2,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 5,
+      "SEVERITY.LOW": 19,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 906,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "2 import os\n3 import subprocess\n4 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 3,
+      "line_range": [
+        3
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "80         command=command,\n81         host_config={'NetworkMode': 'host', 'Binds': ['/tmp:/tmp']})\n82     print(\"Running command %s: %s\" % (command, logs))\n",
+      "col_offset": 54,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\__init__.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 81,
+      "line_range": [
+        81
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "91 \n92     output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)\n93 \n",
+      "col_offset": 13,
+      "end_col_offset": 79,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 92,
+      "line_range": [
+        92
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "44 from requests.auth import HTTPBasicAuth\n45 import subprocess\n46 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 45,
+      "line_range": [
+        45
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "75 \n76 def __request(host, port, secure, ignore_cert, username='', password='', path=''):\n77     \"\"\"Executes a GET request against a HTTP(S) endpoint.\n78 \n79     Args:\n80         host: Hostname where the service is hosted.\n81         port: Port where the service is expected to bind.\n82         secure: Use TLS to secure the connection.\n83         ignore_cert: Ignore TLS certificate errors.\n84         path: Path on the remote server.\n85         username: Username used to authenticate to the server.\n86         password: Password used to authenticate to the server.\n87 \n88     Returns:\n89         Request result.\n90 \n91     \"\"\"\n92     scheme = \"https\" if secure else \"http\"\n93     url = \"%s://%s:%s/%s\" % (scheme, host, port, path)\n94     auth = HTTPBasicAuth(username, password) if (username or password) else None\n95     return requests.get(url, verify = not ignore_cert, auth = auth)\n96 \n",
+      "col_offset": 0,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: ''",
+      "line_number": 76,
+      "line_range": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b107_hardcoded_password_default.html",
+      "test_id": "B107",
+      "test_name": "hardcoded_password_default"
+    },
+    {
+      "code": "94     auth = HTTPBasicAuth(username, password) if (username or password) else None\n95     return requests.get(url, verify = not ignore_cert, auth = auth)\n96 \n",
+      "col_offset": 11,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "145 \n146     return subprocess.call(cmd, shell=True) == 0\n147 \n",
+      "col_offset": 11,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 146,
+      "line_range": [
+        146
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "199 \n200     exit_code = subprocess.call(cmd, shell=True)\n201 \n",
+      "col_offset": 16,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 200,
+      "line_range": [
+        200
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "428 \n429     exit_code = subprocess.call(cmd, shell=True)\n430 \n",
+      "col_offset": 16,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\cub.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 429,
+      "line_range": [
+        429
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "187         # Check if service is responding as expected\n188         r = requests.get(url)\n189         if r.status_code // 100 == 2:\n",
+      "col_offset": 12,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\dub.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 188,
+      "line_range": [
+        188
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "290     try:\n291         j2_env = Environment(\n292             loader=FileSystemLoader(searchpath=\"/\"),\n293             trim_blocks=True)\n294         j2_env.globals['parse_log4j_loggers'] = parse_log4j_loggers\n",
+      "col_offset": 17,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\confluent\\docker_utils\\dub.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "line_number": 291,
+      "line_range": [
+        291,
+        292,
+        293
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b701_jinja2_autoescape_false.html",
+      "test_id": "B701",
+      "test_name": "jinja2_autoescape_false"
+    },
+    {
+      "code": "32     with patch.dict('os.environ', fake_environ):\n33         assert utils.add_registry_and_tag(base_image) == 'default-registry/confluentinc/example:default-tag'\n34         assert utils.add_registry_and_tag(base_image, scope=\"UPSTREAM\") == 'upstream-registry/confluentinc/example:upstream-tag'\n",
+      "col_offset": 8,
+      "end_col_offset": 108,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 33,
+      "line_range": [
+        33
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "33         assert utils.add_registry_and_tag(base_image) == 'default-registry/confluentinc/example:default-tag'\n34         assert utils.add_registry_and_tag(base_image, scope=\"UPSTREAM\") == 'upstream-registry/confluentinc/example:upstream-tag'\n35         assert utils.add_registry_and_tag(base_image, scope=\"TEST\") == 'test-registry/confluentinc/example:test-tag'\n",
+      "col_offset": 8,
+      "end_col_offset": 128,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 34,
+      "line_range": [
+        34
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "34         assert utils.add_registry_and_tag(base_image, scope=\"UPSTREAM\") == 'upstream-registry/confluentinc/example:upstream-tag'\n35         assert utils.add_registry_and_tag(base_image, scope=\"TEST\") == 'test-registry/confluentinc/example:test-tag'\n36 \n",
+      "col_offset": 8,
+      "end_col_offset": 116,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "42     with patch.dict(\"os.environ\", {}):\n43         assert dub.exit_if_all_absent(all_absent_envs) == False\n44 \n",
+      "col_offset": 8,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 43,
+      "line_range": [
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49     with patch.dict(\"os.environ\", fake_environ):\n50         assert dub.exit_if_all_absent(all_absent_envs)\n51 \n",
+      "col_offset": 8,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "66         result = dub.env_to_props(\"KAFKA_\", \"kafka.\", exclude = [\"KAFKA_IGNORED\"])\n67         assert \"kafka.foo\" in result\n68         assert \"kafka.foo.bar\" in result\n",
+      "col_offset": 8,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 67,
+      "line_range": [
+        67
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "67         assert \"kafka.foo\" in result\n68         assert \"kafka.foo.bar\" in result\n69         assert \"kafka.ignored\" not in result\n",
+      "col_offset": 8,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 68,
+      "line_range": [
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "68         assert \"kafka.foo.bar\" in result\n69         assert \"kafka.ignored\" not in result\n70         assert \"kafka.with_underscore\" in result\n",
+      "col_offset": 8,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 69,
+      "line_range": [
+        69
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "69         assert \"kafka.ignored\" not in result\n70         assert \"kafka.with_underscore\" in result\n71         assert \"kafka.with_underscore.and.more\" in result\n",
+      "col_offset": 8,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 70,
+      "line_range": [
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "70         assert \"kafka.with_underscore\" in result\n71         assert \"kafka.with_underscore.and.more\" in result\n72         assert \"kafka.with-dash\" in result\n",
+      "col_offset": 8,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 71,
+      "line_range": [
+        71
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "71         assert \"kafka.with_underscore.and.more\" in result\n72         assert \"kafka.with-dash\" in result\n73         assert \"kafka.with-dash.and.more\" in result\n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 72,
+      "line_range": [
+        72
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "72         assert \"kafka.with-dash\" in result\n73         assert \"kafka.with-dash.and.more\" in result\n74 \n",
+      "col_offset": 8,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 73,
+      "line_range": [
+        73
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "88 def test_image_exists(official_image):\n89     assert utils.image_exists(OFFICIAL_IMAGE)\n90 \n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 89,
+      "line_range": [
+        89
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "93 def test_path_exists_in_image(official_image):\n94     assert utils.path_exists_in_image(OFFICIAL_IMAGE, \"/usr/local/bin/dub\")\n95     assert utils.path_exists_in_image(OFFICIAL_IMAGE, \"/usr/local/bin/cub\")\n",
+      "col_offset": 4,
+      "end_col_offset": 75,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 94,
+      "line_range": [
+        94
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "94     assert utils.path_exists_in_image(OFFICIAL_IMAGE, \"/usr/local/bin/dub\")\n95     assert utils.path_exists_in_image(OFFICIAL_IMAGE, \"/usr/local/bin/cub\")\n96 \n",
+      "col_offset": 4,
+      "end_col_offset": 75,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "102     output = utils.run_docker_command(image=OFFICIAL_IMAGE, command=cmd)\n103     assert expected in output\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\confluent-docker-utils\\test\\test_docker_utils.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 103,
+      "line_range": [
+        103
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

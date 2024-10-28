@@ -1,0 +1,534 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:37:57Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-configargparse\\configargparse.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1155,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py": {
+      "CONFIDENCE.HIGH": 16,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 15,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 104,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-configargparse\\tests\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-configargparse\\tests\\test_configargparse.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1239,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 23,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 21,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2498,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "403             s = ast.literal_eval(text)\n404             assert isinstance(s, str)\n405         except Exception as e:\n",
+      "col_offset": 12,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 404,
+      "line_range": [
+        404
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1123         if action is not None and isinstance(action, ACTION_TYPES_THAT_DONT_NEED_A_VALUE):\n1124             assert isinstance(value, str), \"config parser should convert anything that is not a list to string.\"\n1125             if value.lower() in (\"true\", \"yes\", \"on\", \"1\"):\n",
+      "col_offset": 12,
+      "end_col_offset": 112,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1124,
+      "line_range": [
+        1124
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1260                         config_file.close()\n1261                     except Exception:\n1262                         pass\n1263                 self.error(\"Unable to open config file: %s. Error: %s\" % (\n",
+      "col_offset": 20,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 1261,
+      "line_range": [
+        1261,
+        1262
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "12 def launch_http_server(directory):\n13     assert os.path.isdir(directory)\n14 \n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 13,
+      "line_range": [
+        13
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "51 if command == 'publish':\n52     os.system('rm -rf dist')    \n53     os.system('python3 setup.py sdist')\n",
+      "col_offset": 4,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 52,
+      "line_range": [
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "51 if command == 'publish':\n52     os.system('rm -rf dist')    \n53     os.system('python3 setup.py sdist')\n",
+      "col_offset": 4,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 52,
+      "line_range": [
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "52     os.system('rm -rf dist')    \n53     os.system('python3 setup.py sdist')\n54     os.system('python3 setup.py bdist_wheel')\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "52     os.system('rm -rf dist')    \n53     os.system('python3 setup.py sdist')\n54     os.system('python3 setup.py bdist_wheel')\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "53     os.system('python3 setup.py sdist')\n54     os.system('python3 setup.py bdist_wheel')\n55     os.system('twine check dist/*')  # check for formatting or other issues that would cause twine upload to error out\n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "53     os.system('python3 setup.py sdist')\n54     os.system('python3 setup.py bdist_wheel')\n55     os.system('twine check dist/*')  # check for formatting or other issues that would cause twine upload to error out\n",
+      "col_offset": 4,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "54     os.system('python3 setup.py bdist_wheel')\n55     os.system('twine check dist/*')  # check for formatting or other issues that would cause twine upload to error out\n56     os.system('twine upload dist/*whl dist/*gz')\n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "54     os.system('python3 setup.py bdist_wheel')\n55     os.system('twine check dist/*')  # check for formatting or other issues that would cause twine upload to error out\n56     os.system('twine upload dist/*whl dist/*gz')\n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "55     os.system('twine check dist/*')  # check for formatting or other issues that would cause twine upload to error out\n56     os.system('twine upload dist/*whl dist/*gz')\n57     sys.exit()\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "55     os.system('twine check dist/*')  # check for formatting or other issues that would cause twine upload to error out\n56     os.system('twine upload dist/*whl dist/*gz')\n57     sys.exit()\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "63     setup_py_path = os.path.abspath(__file__)\n64     os.system('coverage run --source=configargparse ' + setup_py_path +' test')\n65     os.system('coverage report')\n",
+      "col_offset": 4,
+      "end_col_offset": 79,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Starting a process with a shell, possible injection detected, security issue.",
+      "line_number": 64,
+      "line_range": [
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "64     os.system('coverage run --source=configargparse ' + setup_py_path +' test')\n65     os.system('coverage report')\n66     os.system('coverage html')\n",
+      "col_offset": 4,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 65,
+      "line_range": [
+        65
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "64     os.system('coverage run --source=configargparse ' + setup_py_path +' test')\n65     os.system('coverage report')\n66     os.system('coverage html')\n",
+      "col_offset": 4,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 65,
+      "line_range": [
+        65
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "65     os.system('coverage report')\n66     os.system('coverage html')\n67     print(\"Done computing coverage\")\n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a shell: Seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 66,
+      "line_range": [
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    },
+    {
+      "code": "65     os.system('coverage report')\n66     os.system('coverage html')\n67     print(\"Done computing coverage\")\n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 66,
+      "line_range": [
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "1510         args = parser.parse_args([\"--config=%s\"%config_file])\n1511         assert args.verbosity == 3\n1512         assert args.verbose == True\n",
+      "col_offset": 8,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\tests\\test_configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1511,
+      "line_range": [
+        1511
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1511         assert args.verbosity == 3\n1512         assert args.verbose == True\n1513         assert args.level == 35\n",
+      "col_offset": 8,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\tests\\test_configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1512,
+      "line_range": [
+        1512
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1512         assert args.verbose == True\n1513         assert args.level == 35\n1514 \n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\tests\\test_configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1513,
+      "line_range": [
+        1513
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1552 \n1553     exec(test_argparse_source_code)\n1554 \n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-configargparse\\tests\\test_configargparse.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 1553,
+      "line_range": [
+        1553
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    }
+  ]
+}

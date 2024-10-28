@@ -1,0 +1,471 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:37:35Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-bcrypt\\release.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 15,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-bcrypt\\src\\bcrypt\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 30,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py": {
+      "CONFIDENCE.HIGH": 18,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 18,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 425,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 20,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 20,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 470,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "12 \n13 import subprocess\n14 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 13,
+      "line_range": [
+        13
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "19     print(f\"[running] {list(args)}\")\n20     subprocess.check_call(list(args), **kwargs)\n21 \n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 20,
+      "line_range": [
+        20
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "175     salt = bcrypt.gensalt()\n176     assert salt.startswith(b\"$2b$12$\")\n177 \n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 176,
+      "line_range": [
+        176
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "207 \n208     assert salt.startswith(expected_prefix)\n209 \n",
+      "col_offset": 4,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 208,
+      "line_range": [
+        208
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "223     salt = bcrypt.gensalt(prefix=b\"2a\")\n224     assert salt.startswith(b\"$2a$12$\")\n225 \n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 224,
+      "line_range": [
+        224
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "228 def test_hashpw_new(password, salt, hashed):\n229     assert bcrypt.hashpw(password, salt) == hashed\n230 \n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 229,
+      "line_range": [
+        229
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "233 def test_checkpw(password, salt, hashed):\n234     assert bcrypt.checkpw(password, hashed) is True\n235 \n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 234,
+      "line_range": [
+        234
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "238 def test_hashpw_existing(password, salt, hashed):\n239     assert bcrypt.hashpw(password, hashed) == hashed\n240 \n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 239,
+      "line_range": [
+        239
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "243 def test_hashpw_2y_prefix(password, hashed, expected):\n244     assert bcrypt.hashpw(password, hashed) == expected\n245 \n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 244,
+      "line_range": [
+        244
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "248 def test_checkpw_2y_prefix(password, hashed, expected):\n249     assert bcrypt.checkpw(password, hashed) is True\n250 \n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 249,
+      "line_range": [
+        249
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "257 def test_checkpw_wrong_password():\n258     assert (\n259         bcrypt.checkpw(\n260             b\"badpass\",\n261             b\"$2b$04$2Siw3Nv3Q/gTOIPetAyPr.GNj3aO0lb1E5E9UumYGKjP9BYqlNWJe\",\n262         )\n263         is False\n264     )\n265 \n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 258,
+      "line_range": [
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "315     hashed = bcrypt.hashpw(b\"abc\\0def\", salt)\n316     assert bcrypt.checkpw(b\"abc\\0def\", hashed)\n317     # assert that we are sensitive to changes in the password after the first\n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 316,
+      "line_range": [
+        316
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "318     # null byte:\n319     assert not bcrypt.checkpw(b\"abc\\0deg\", hashed)\n320     assert not bcrypt.checkpw(b\"abc\\0def\\0\", hashed)\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 319,
+      "line_range": [
+        319
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "319     assert not bcrypt.checkpw(b\"abc\\0deg\", hashed)\n320     assert not bcrypt.checkpw(b\"abc\\0def\\0\", hashed)\n321     assert not bcrypt.checkpw(b\"abc\\0def\\0\\0\", hashed)\n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 320,
+      "line_range": [
+        320
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "320     assert not bcrypt.checkpw(b\"abc\\0def\\0\", hashed)\n321     assert not bcrypt.checkpw(b\"abc\\0def\\0\\0\", hashed)\n322 \n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 321,
+      "line_range": [
+        321
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "327 \n328     assert bcrypt.checkpw(b\"abc\", hashed)\n329     assert bcrypt.checkpw(b\"abc\", hashed + b\"extra\") is False\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 328,
+      "line_range": [
+        328
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "328     assert bcrypt.checkpw(b\"abc\", hashed)\n329     assert bcrypt.checkpw(b\"abc\", hashed + b\"extra\") is False\n330     assert bcrypt.checkpw(b\"abc\", hashed[:-10]) is False\n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 329,
+      "line_range": [
+        329
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "329     assert bcrypt.checkpw(b\"abc\", hashed + b\"extra\") is False\n330     assert bcrypt.checkpw(b\"abc\", hashed[:-10]) is False\n331 \n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 330,
+      "line_range": [
+        330
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "447     )\n448     assert derived == expected\n449 \n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 448,
+      "line_range": [
+        448
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "488 def test_2a_wraparound_bug():\n489     assert (\n490         bcrypt.hashpw(\n491             (b\"0123456789\" * 26)[:255], b\"$2a$04$R1lJ2gkNaoPGdafE.H.16.\"\n492         )\n493         == b\"$2a$04$R1lJ2gkNaoPGdafE.H.16.1MKHPvmKwryeulRe225LKProWYwt9Oi\"\n494     )\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-bcrypt\\tests\\test_bcrypt.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 489,
+      "line_range": [
+        489,
+        490,
+        491,
+        492,
+        493,
+        494
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

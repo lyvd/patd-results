@@ -1,0 +1,2710 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:38:15Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-expandvars\\expandvars.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 345,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py": {
+      "CONFIDENCE.HIGH": 121,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 121,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 265,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_option_nounset.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 27,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_recover_null.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 11,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 130,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 130,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 648,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "16 \n17     assert expandvars.expandvars(\"FOO\") == \"FOO\"\n18     assert expandvars.expandvars(\"$\") == \"$\"\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 17,
+      "line_range": [
+        17
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "17     assert expandvars.expandvars(\"FOO\") == \"FOO\"\n18     assert expandvars.expandvars(\"$\") == \"$\"\n19     assert expandvars.expandvars(\"BAR$\") == \"BAR$\"\n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 18,
+      "line_range": [
+        18
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "18     assert expandvars.expandvars(\"$\") == \"$\"\n19     assert expandvars.expandvars(\"BAR$\") == \"BAR$\"\n20 \n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "25 \n26     assert expandvars.expandvars(\"\") == \"\"\n27     assert expandvars.expandvars(\"$FOO\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "26     assert expandvars.expandvars(\"\") == \"\"\n27     assert expandvars.expandvars(\"$FOO\") == \"\"\n28 \n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "33 \n34     assert expandvars.expandvars(\"$FOO\") == \"bar\"\n35     assert expandvars.expandvars(\"${FOO}\") == \"bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 34,
+      "line_range": [
+        34
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "34     assert expandvars.expandvars(\"$FOO\") == \"bar\"\n35     assert expandvars.expandvars(\"${FOO}\") == \"bar\"\n36 \n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "42     with open(\"tests/data/foo.txt\") as f:\n43         assert expandvars.expandvars(f) == \"bar:bar\"\n44 \n",
+      "col_offset": 8,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 43,
+      "line_range": [
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49 \n50     assert expandvars.expandvars(\"${FOO}:$BIZ\") == \"bar:buz\"\n51     assert expandvars.expandvars(\"$FOO$BIZ\") == \"barbuz\"\n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "50     assert expandvars.expandvars(\"${FOO}:$BIZ\") == \"bar:buz\"\n51     assert expandvars.expandvars(\"$FOO$BIZ\") == \"barbuz\"\n52     assert expandvars.expandvars(\"${FOO}$BIZ\") == \"barbuz\"\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "51     assert expandvars.expandvars(\"$FOO$BIZ\") == \"barbuz\"\n52     assert expandvars.expandvars(\"${FOO}$BIZ\") == \"barbuz\"\n53     assert expandvars.expandvars(\"$FOO${BIZ}\") == \"barbuz\"\n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 52,
+      "line_range": [
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "52     assert expandvars.expandvars(\"${FOO}$BIZ\") == \"barbuz\"\n53     assert expandvars.expandvars(\"$FOO${BIZ}\") == \"barbuz\"\n54     assert expandvars.expandvars(\"$FOO-$BIZ\") == \"bar-buz\"\n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "53     assert expandvars.expandvars(\"$FOO${BIZ}\") == \"barbuz\"\n54     assert expandvars.expandvars(\"$FOO-$BIZ\") == \"bar-buz\"\n55     assert expandvars.expandvars(\"boo$BIZ\") == \"boobuz\"\n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "54     assert expandvars.expandvars(\"$FOO-$BIZ\") == \"bar-buz\"\n55     assert expandvars.expandvars(\"boo$BIZ\") == \"boobuz\"\n56     assert expandvars.expandvars(\"boo${BIZ}\") == \"boobuz\"\n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "55     assert expandvars.expandvars(\"boo$BIZ\") == \"boobuz\"\n56     assert expandvars.expandvars(\"boo${BIZ}\") == \"boobuz\"\n57 \n",
+      "col_offset": 4,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "62 \n63     assert expandvars.expandvars(\"$$\") == str(getpid())\n64     assert expandvars.expandvars(\"PID( $$ )\") == \"PID( {0} )\".format(getpid())\n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 63,
+      "line_range": [
+        63
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "63     assert expandvars.expandvars(\"$$\") == str(getpid())\n64     assert expandvars.expandvars(\"PID( $$ )\") == \"PID( {0} )\".format(getpid())\n65 \n",
+      "col_offset": 4,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 64,
+      "line_range": [
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "70 \n71     assert expandvars.expandvars(\"${FOO-default}\") == \"default\"\n72     assert expandvars.expandvars(\"${FOO:-default}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 71,
+      "line_range": [
+        71
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "71     assert expandvars.expandvars(\"${FOO-default}\") == \"default\"\n72     assert expandvars.expandvars(\"${FOO:-default}\") == \"default\"\n73     assert expandvars.expandvars(\"${EMPTY:-default}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 72,
+      "line_range": [
+        72
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "72     assert expandvars.expandvars(\"${FOO:-default}\") == \"default\"\n73     assert expandvars.expandvars(\"${EMPTY:-default}\") == \"default\"\n74     assert expandvars.expandvars(\"${FOO:-}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 73,
+      "line_range": [
+        73
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "73     assert expandvars.expandvars(\"${EMPTY:-default}\") == \"default\"\n74     assert expandvars.expandvars(\"${FOO:-}\") == \"\"\n75     assert expandvars.expandvars(\"${FOO:-foo}:${FOO-bar}\") == \"foo:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 74,
+      "line_range": [
+        74
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "74     assert expandvars.expandvars(\"${FOO:-}\") == \"\"\n75     assert expandvars.expandvars(\"${FOO:-foo}:${FOO-bar}\") == \"foo:bar\"\n76     assert expandvars.expandvars(\"${FOO:-$ALTERNATE}\") == \"Alternate\"\n",
+      "col_offset": 4,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "75     assert expandvars.expandvars(\"${FOO:-foo}:${FOO-bar}\") == \"foo:bar\"\n76     assert expandvars.expandvars(\"${FOO:-$ALTERNATE}\") == \"Alternate\"\n77     assert expandvars.expandvars(\"${UNSET:-\\\\$foo}-\\\\$foo\") == \"$foo-$foo\"\n",
+      "col_offset": 4,
+      "end_col_offset": 69,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 76,
+      "line_range": [
+        76
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "76     assert expandvars.expandvars(\"${FOO:-$ALTERNATE}\") == \"Alternate\"\n77     assert expandvars.expandvars(\"${UNSET:-\\\\$foo}-\\\\$foo\") == \"$foo-$foo\"\n78 \n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 77,
+      "line_range": [
+        77
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "83 \n84     assert expandvars.expandvars(\"${FOO:=}\") == \"\"\n85     assert expandvars.expandvars(\"${FOO=}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 84,
+      "line_range": [
+        84
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "84     assert expandvars.expandvars(\"${FOO:=}\") == \"\"\n85     assert expandvars.expandvars(\"${FOO=}\") == \"\"\n86     assert expandvars.expandvars(\"${EMPTY:=}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 85,
+      "line_range": [
+        85
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "85     assert expandvars.expandvars(\"${FOO=}\") == \"\"\n86     assert expandvars.expandvars(\"${EMPTY:=}\") == \"\"\n87 \n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 86,
+      "line_range": [
+        86
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "90 \n91     assert expandvars.expandvars(\"${FOO:=default}\") == \"default\"\n92     assert expandvars.expandvars(\"${FOO=default}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 91,
+      "line_range": [
+        91
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "91     assert expandvars.expandvars(\"${FOO:=default}\") == \"default\"\n92     assert expandvars.expandvars(\"${FOO=default}\") == \"default\"\n93     assert expandvars.expandvars(\"${EMPTY:=default}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 92,
+      "line_range": [
+        92
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "92     assert expandvars.expandvars(\"${FOO=default}\") == \"default\"\n93     assert expandvars.expandvars(\"${EMPTY:=default}\") == \"default\"\n94     assert env.get(\"FOO\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 93,
+      "line_range": [
+        93
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "93     assert expandvars.expandvars(\"${EMPTY:=default}\") == \"default\"\n94     assert env.get(\"FOO\") == \"default\"\n95     assert expandvars.expandvars(\"${FOO:=ignoreme}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 94,
+      "line_range": [
+        94
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "94     assert env.get(\"FOO\") == \"default\"\n95     assert expandvars.expandvars(\"${FOO:=ignoreme}\") == \"default\"\n96     assert expandvars.expandvars(\"${EMPTY:=ignoreme}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "95     assert expandvars.expandvars(\"${FOO:=ignoreme}\") == \"default\"\n96     assert expandvars.expandvars(\"${EMPTY:=ignoreme}\") == \"default\"\n97     assert expandvars.expandvars(\"${FOO=ignoreme}:bar\") == \"default:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "96     assert expandvars.expandvars(\"${EMPTY:=ignoreme}\") == \"default\"\n97     assert expandvars.expandvars(\"${FOO=ignoreme}:bar\") == \"default:bar\"\n98 \n",
+      "col_offset": 4,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 97,
+      "line_range": [
+        97
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "103 \n104     assert expandvars.expandvars(\"${FOO:+foo}\") == \"foo\"\n105     assert expandvars.expandvars(\"${FOO+foo}\") == \"foo\"\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 104,
+      "line_range": [
+        104
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "104     assert expandvars.expandvars(\"${FOO:+foo}\") == \"foo\"\n105     assert expandvars.expandvars(\"${FOO+foo}\") == \"foo\"\n106     assert expandvars.expandvars(\"${BAR:+foo}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 105,
+      "line_range": [
+        105
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "105     assert expandvars.expandvars(\"${FOO+foo}\") == \"foo\"\n106     assert expandvars.expandvars(\"${BAR:+foo}\") == \"\"\n107     assert expandvars.expandvars(\"${BAR+foo}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 106,
+      "line_range": [
+        106
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "106     assert expandvars.expandvars(\"${BAR:+foo}\") == \"\"\n107     assert expandvars.expandvars(\"${BAR+foo}\") == \"\"\n108     assert expandvars.expandvars(\"${EMPTY:+foo}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 107,
+      "line_range": [
+        107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "107     assert expandvars.expandvars(\"${BAR+foo}\") == \"\"\n108     assert expandvars.expandvars(\"${EMPTY:+foo}\") == \"\"\n109     assert expandvars.expandvars(\"${BAR:+}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 108,
+      "line_range": [
+        108
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "108     assert expandvars.expandvars(\"${EMPTY:+foo}\") == \"\"\n109     assert expandvars.expandvars(\"${BAR:+}\") == \"\"\n110     assert expandvars.expandvars(\"${BAR+}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 109,
+      "line_range": [
+        109
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "109     assert expandvars.expandvars(\"${BAR:+}\") == \"\"\n110     assert expandvars.expandvars(\"${BAR+}\") == \"\"\n111     assert expandvars.expandvars(\"${BUZ:+foo}\") == \"foo\"\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 110,
+      "line_range": [
+        110
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "110     assert expandvars.expandvars(\"${BAR+}\") == \"\"\n111     assert expandvars.expandvars(\"${BUZ:+foo}\") == \"foo\"\n112     assert expandvars.expandvars(\"${BUZ+foo}:bar\") == \"foo:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 111,
+      "line_range": [
+        111
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "111     assert expandvars.expandvars(\"${BUZ:+foo}\") == \"foo\"\n112     assert expandvars.expandvars(\"${BUZ+foo}:bar\") == \"foo:bar\"\n113     assert expandvars.expandvars(\"${FOO:+${FOO};}\") == \"bar;\"\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 112,
+      "line_range": [
+        112
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "112     assert expandvars.expandvars(\"${BUZ+foo}:bar\") == \"foo:bar\"\n113     assert expandvars.expandvars(\"${FOO:+${FOO};}\") == \"bar;\"\n114     assert expandvars.expandvars(\"${BAR:+${BAR};}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 113,
+      "line_range": [
+        113
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "113     assert expandvars.expandvars(\"${FOO:+${FOO};}\") == \"bar;\"\n114     assert expandvars.expandvars(\"${BAR:+${BAR};}\") == \"\"\n115     assert expandvars.expandvars(\"${BAR:+${EMPTY};}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 114,
+      "line_range": [
+        114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "114     assert expandvars.expandvars(\"${BAR:+${BAR};}\") == \"\"\n115     assert expandvars.expandvars(\"${BAR:+${EMPTY};}\") == \"\"\n116     assert expandvars.expandvars(\"${FOO:+\\\\$foo}-\\\\$foo\") == \"$foo-$foo\"\n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 115,
+      "line_range": [
+        115
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "115     assert expandvars.expandvars(\"${BAR:+${EMPTY};}\") == \"\"\n116     assert expandvars.expandvars(\"${FOO:+\\\\$foo}-\\\\$foo\") == \"$foo-$foo\"\n117 \n",
+      "col_offset": 4,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 116,
+      "line_range": [
+        116
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "122 \n123     assert expandvars.expandvars(\"${FOO:3}\") == \"nbigfoobar\"\n124     assert expandvars.expandvars(\"${FOO: 4 }\") == \"bigfoobar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 123,
+      "line_range": [
+        123
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "123     assert expandvars.expandvars(\"${FOO:3}\") == \"nbigfoobar\"\n124     assert expandvars.expandvars(\"${FOO: 4 }\") == \"bigfoobar\"\n125     assert expandvars.expandvars(\"${FOO:30}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 124,
+      "line_range": [
+        124
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "124     assert expandvars.expandvars(\"${FOO: 4 }\") == \"bigfoobar\"\n125     assert expandvars.expandvars(\"${FOO:30}\") == \"\"\n126     assert expandvars.expandvars(\"${FOO:0}\") == \"damnbigfoobar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 125,
+      "line_range": [
+        125
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "125     assert expandvars.expandvars(\"${FOO:30}\") == \"\"\n126     assert expandvars.expandvars(\"${FOO:0}\") == \"damnbigfoobar\"\n127     assert expandvars.expandvars(\"${FOO: }\") == \"damnbigfoobar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 126,
+      "line_range": [
+        126
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "126     assert expandvars.expandvars(\"${FOO:0}\") == \"damnbigfoobar\"\n127     assert expandvars.expandvars(\"${FOO: }\") == \"damnbigfoobar\"\n128     assert expandvars.expandvars(\"${FOO: : }\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 127,
+      "line_range": [
+        127
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "127     assert expandvars.expandvars(\"${FOO: }\") == \"damnbigfoobar\"\n128     assert expandvars.expandvars(\"${FOO: : }\") == \"\"\n129     assert expandvars.expandvars(\"${FOO:-3}:bar\") == \"damnbigfoobar:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 128,
+      "line_range": [
+        128
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "128     assert expandvars.expandvars(\"${FOO: : }\") == \"\"\n129     assert expandvars.expandvars(\"${FOO:-3}:bar\") == \"damnbigfoobar:bar\"\n130     assert expandvars.expandvars(\"${FOO::}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 129,
+      "line_range": [
+        129
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "129     assert expandvars.expandvars(\"${FOO:-3}:bar\") == \"damnbigfoobar:bar\"\n130     assert expandvars.expandvars(\"${FOO::}\") == \"\"\n131     assert expandvars.expandvars(\"${FOO::aaa}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 130,
+      "line_range": [
+        130
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "130     assert expandvars.expandvars(\"${FOO::}\") == \"\"\n131     assert expandvars.expandvars(\"${FOO::aaa}\") == \"\"\n132     assert expandvars.expandvars(\"${FOO: :2}\") == \"da\"\n",
+      "col_offset": 4,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 131,
+      "line_range": [
+        131
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "131     assert expandvars.expandvars(\"${FOO::aaa}\") == \"\"\n132     assert expandvars.expandvars(\"${FOO: :2}\") == \"da\"\n133     assert expandvars.expandvars(\"${FOO:aaa:2}\") == \"da\"\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 132,
+      "line_range": [
+        132
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "132     assert expandvars.expandvars(\"${FOO: :2}\") == \"da\"\n133     assert expandvars.expandvars(\"${FOO:aaa:2}\") == \"da\"\n134 \n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 133,
+      "line_range": [
+        133
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "139 \n140     assert expandvars.expandvars(\"${FOO:4:3}\") == \"big\"\n141     assert expandvars.expandvars(\"${FOO: 7:6 }\") == \"foobar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 140,
+      "line_range": [
+        140
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "140     assert expandvars.expandvars(\"${FOO:4:3}\") == \"big\"\n141     assert expandvars.expandvars(\"${FOO: 7:6 }\") == \"foobar\"\n142     assert expandvars.expandvars(\"${FOO:7: 100 }\") == \"foobar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 141,
+      "line_range": [
+        141
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "141     assert expandvars.expandvars(\"${FOO: 7:6 }\") == \"foobar\"\n142     assert expandvars.expandvars(\"${FOO:7: 100 }\") == \"foobar\"\n143     assert expandvars.expandvars(\"${FOO:0:100}\") == \"damnbigfoobar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 142,
+      "line_range": [
+        142
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "142     assert expandvars.expandvars(\"${FOO:7: 100 }\") == \"foobar\"\n143     assert expandvars.expandvars(\"${FOO:0:100}\") == \"damnbigfoobar\"\n144     assert expandvars.expandvars(\"${FOO:70:10}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 143,
+      "line_range": [
+        143
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "143     assert expandvars.expandvars(\"${FOO:0:100}\") == \"damnbigfoobar\"\n144     assert expandvars.expandvars(\"${FOO:70:10}\") == \"\"\n145     assert expandvars.expandvars(\"${FOO:1:0}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 144,
+      "line_range": [
+        144
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "144     assert expandvars.expandvars(\"${FOO:70:10}\") == \"\"\n145     assert expandvars.expandvars(\"${FOO:1:0}\") == \"\"\n146     assert expandvars.expandvars(\"${FOO:0:}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 145,
+      "line_range": [
+        145
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "145     assert expandvars.expandvars(\"${FOO:1:0}\") == \"\"\n146     assert expandvars.expandvars(\"${FOO:0:}\") == \"\"\n147     assert expandvars.expandvars(\"${FOO::}\") == \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 146,
+      "line_range": [
+        146
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "146     assert expandvars.expandvars(\"${FOO:0:}\") == \"\"\n147     assert expandvars.expandvars(\"${FOO::}\") == \"\"\n148     assert expandvars.expandvars(\"${FOO::5}\") == \"damnb\"\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 147,
+      "line_range": [
+        147
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "147     assert expandvars.expandvars(\"${FOO::}\") == \"\"\n148     assert expandvars.expandvars(\"${FOO::5}\") == \"damnb\"\n149     assert expandvars.expandvars(\"${FOO:-3:1}:bar\") == \"damnbigfoobar:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 56,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 148,
+      "line_range": [
+        148
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "148     assert expandvars.expandvars(\"${FOO::5}\") == \"damnb\"\n149     assert expandvars.expandvars(\"${FOO:-3:1}:bar\") == \"damnbigfoobar:bar\"\n150 \n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 149,
+      "line_range": [
+        149
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "155 \n156     assert expandvars.expandvars(\"${!FOO}:${FOO}\") == \"foo:X\"\n157     assert expandvars.expandvars(\"${!FOO-default}\") == \"foo\"\n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 156,
+      "line_range": [
+        156
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "156     assert expandvars.expandvars(\"${!FOO}:${FOO}\") == \"foo:X\"\n157     assert expandvars.expandvars(\"${!FOO-default}\") == \"foo\"\n158     assert expandvars.expandvars(\"${!BAR-default}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 157,
+      "line_range": [
+        157
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "157     assert expandvars.expandvars(\"${!FOO-default}\") == \"foo\"\n158     assert expandvars.expandvars(\"${!BAR-default}\") == \"default\"\n159     assert expandvars.expandvars(\"${!X-default}\") == \"default\"\n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 158,
+      "line_range": [
+        158
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "158     assert expandvars.expandvars(\"${!BAR-default}\") == \"default\"\n159     assert expandvars.expandvars(\"${!X-default}\") == \"default\"\n160 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 159,
+      "line_range": [
+        159
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "165 \n166     assert expandvars.expandvars(\"\\\\$FOO\\\\$BAR\") == \"$FOO$BAR\"\n167     assert expandvars.expandvars(\"\\\\\\\\$FOO\") == \"\\\\foo\"\n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 166,
+      "line_range": [
+        166
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "166     assert expandvars.expandvars(\"\\\\$FOO\\\\$BAR\") == \"$FOO$BAR\"\n167     assert expandvars.expandvars(\"\\\\\\\\$FOO\") == \"\\\\foo\"\n168     assert expandvars.expandvars(\"$FOO\\\\$BAR\") == \"foo$BAR\"\n",
+      "col_offset": 4,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 167,
+      "line_range": [
+        167
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "167     assert expandvars.expandvars(\"\\\\\\\\$FOO\") == \"\\\\foo\"\n168     assert expandvars.expandvars(\"$FOO\\\\$BAR\") == \"foo$BAR\"\n169     assert expandvars.expandvars(\"\\\\$FOO$BAR\") == \"$FOObar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 168,
+      "line_range": [
+        168
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "168     assert expandvars.expandvars(\"$FOO\\\\$BAR\") == \"foo$BAR\"\n169     assert expandvars.expandvars(\"\\\\$FOO$BAR\") == \"$FOObar\"\n170     assert expandvars.expandvars(\"$FOO\" \"\\\\\" \"\\\\\" \"\\\\\" \"$BAR\") == (\"foo\" \"\\\\\" \"$BAR\")\n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 169,
+      "line_range": [
+        169
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "169     assert expandvars.expandvars(\"\\\\$FOO$BAR\") == \"$FOObar\"\n170     assert expandvars.expandvars(\"$FOO\" \"\\\\\" \"\\\\\" \"\\\\\" \"$BAR\") == (\"foo\" \"\\\\\" \"$BAR\")\n171     assert expandvars.expandvars(\"$FOO\\\\$\") == \"foo$\"\n",
+      "col_offset": 4,
+      "end_col_offset": 85,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 170,
+      "line_range": [
+        170
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "170     assert expandvars.expandvars(\"$FOO\" \"\\\\\" \"\\\\\" \"\\\\\" \"$BAR\") == (\"foo\" \"\\\\\" \"$BAR\")\n171     assert expandvars.expandvars(\"$FOO\\\\$\") == \"foo$\"\n172     assert expandvars.expandvars(\"$\\\\FOO\") == \"$\\\\FOO\"\n",
+      "col_offset": 4,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 171,
+      "line_range": [
+        171
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "171     assert expandvars.expandvars(\"$FOO\\\\$\") == \"foo$\"\n172     assert expandvars.expandvars(\"$\\\\FOO\") == \"$\\\\FOO\"\n173     assert expandvars.expandvars(\"$\\\\$FOO\") == \"$$FOO\"\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 172,
+      "line_range": [
+        172
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "172     assert expandvars.expandvars(\"$\\\\FOO\") == \"$\\\\FOO\"\n173     assert expandvars.expandvars(\"$\\\\$FOO\") == \"$$FOO\"\n174     assert expandvars.expandvars(\"\\\\$FOO\") == \"$FOO\"\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 173,
+      "line_range": [
+        173
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "173     assert expandvars.expandvars(\"$\\\\$FOO\") == \"$$FOO\"\n174     assert expandvars.expandvars(\"\\\\$FOO\") == \"$FOO\"\n175     assert (\n",
+      "col_offset": 4,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 174,
+      "line_range": [
+        174
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "174     assert expandvars.expandvars(\"\\\\$FOO\") == \"$FOO\"\n175     assert (\n176         expandvars.expandvars(\"D:\\\\\\\\some\\\\windows\\\\path\")\n177         == \"D:\\\\\\\\some\\\\windows\\\\path\"\n178     )\n179 \n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 175,
+      "line_range": [
+        175,
+        176,
+        177,
+        178
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "184 \n185     assert expandvars.expandvars(\"${FOO:-{}}{}{}{}{{}}\") == \"{}{}{}{}{{}}\"\n186     assert expandvars.expandvars(\"${FOO-{}}{}{}{}{{}}\") == \"{}{}{}{}{{}}\"\n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 185,
+      "line_range": [
+        185
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "185     assert expandvars.expandvars(\"${FOO:-{}}{}{}{}{{}}\") == \"{}{}{}{}{{}}\"\n186     assert expandvars.expandvars(\"${FOO-{}}{}{}{}{{}}\") == \"{}{}{}{}{{}}\"\n187 \n",
+      "col_offset": 4,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 186,
+      "line_range": [
+        186
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "196         expandvars.expandvars(\"${FOO:?}\")\n197     assert isinstance(e.value, expandvars.ParameterNullOrNotSet)\n198 \n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 197,
+      "line_range": [
+        197
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "202         expandvars.expandvars(\"${FOO?}\")\n203     assert isinstance(e.value, expandvars.ParameterNullOrNotSet)\n204 \n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 203,
+      "line_range": [
+        203
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "206         expandvars.expandvars(\"${FOO:?custom error}\")\n207     assert isinstance(e.value, expandvars.ParameterNullOrNotSet)\n208 \n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 207,
+      "line_range": [
+        207
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "210         expandvars.expandvars(\"${FOO?custom error}\")\n211     assert isinstance(e.value, expandvars.ParameterNullOrNotSet)\n212 \n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 211,
+      "line_range": [
+        211
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "214 \n215     assert expandvars.expandvars(\"${FOO:?custom err}\") == \"foo\"\n216     assert expandvars.expandvars(\"${FOO?custom err}:bar\") == \"foo:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 215,
+      "line_range": [
+        215
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "215     assert expandvars.expandvars(\"${FOO:?custom err}\") == \"foo\"\n216     assert expandvars.expandvars(\"${FOO?custom err}:bar\") == \"foo:bar\"\n217 \n",
+      "col_offset": 4,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 216,
+      "line_range": [
+        216
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "225 \n226     assert str(e.value) == \"$FOO\\\\: missing escaped character\"\n227     assert isinstance(e.value, expandvars.MissingExcapedChar)\n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 226,
+      "line_range": [
+        226
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "226     assert str(e.value) == \"$FOO\\\\: missing escaped character\"\n227     assert isinstance(e.value, expandvars.MissingExcapedChar)\n228 \n",
+      "col_offset": 4,
+      "end_col_offset": 61,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 227,
+      "line_range": [
+        227
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "237         expandvars.expandvars(\"${FOO:1:-3}\")\n238     assert isinstance(e.value, expandvars.NegativeSubStringExpression)\n239 \n",
+      "col_offset": 4,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 238,
+      "line_range": [
+        238
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "246         expandvars.expandvars(\"${FOO:}\")\n247     assert str(e.value) == \"${FOO:}: bad substitution\"\n248     assert isinstance(e.value, expandvars.BadSubstitution)\n",
+      "col_offset": 4,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 247,
+      "line_range": [
+        247
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "247     assert str(e.value) == \"${FOO:}: bad substitution\"\n248     assert isinstance(e.value, expandvars.BadSubstitution)\n249 \n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 248,
+      "line_range": [
+        248
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "251         expandvars.expandvars(\"${}\")\n252     assert str(e.value) == \"${}: bad substitution\"\n253     assert isinstance(e.value, expandvars.BadSubstitution)\n",
+      "col_offset": 4,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 252,
+      "line_range": [
+        252
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "252     assert str(e.value) == \"${}: bad substitution\"\n253     assert isinstance(e.value, expandvars.BadSubstitution)\n254 \n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 253,
+      "line_range": [
+        253
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "261         expandvars.expandvars(\"${FOO:\")\n262     assert str(e.value) == \"${FOO:: missing '}'\"\n263     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 262,
+      "line_range": [
+        262
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "262     assert str(e.value) == \"${FOO:: missing '}'\"\n263     assert isinstance(e.value, expandvars.MissingClosingBrace)\n264 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 263,
+      "line_range": [
+        263
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "266         expandvars.expandvars(\"${FOO}${BAR\")\n267     assert str(e.value) == \"${FOO}${BAR: missing '}'\"\n268     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 267,
+      "line_range": [
+        267
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "267     assert str(e.value) == \"${FOO}${BAR: missing '}'\"\n268     assert isinstance(e.value, expandvars.MissingClosingBrace)\n269 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 268,
+      "line_range": [
+        268
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "271         expandvars.expandvars(\"${FOO?\")\n272     assert str(e.value) == \"${FOO?: missing '}'\"\n273     assert isinstance(e.value, expandvars.ExpandvarsException)\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 272,
+      "line_range": [
+        272
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "272     assert str(e.value) == \"${FOO?: missing '}'\"\n273     assert isinstance(e.value, expandvars.ExpandvarsException)\n274 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 273,
+      "line_range": [
+        273
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "276         expandvars.expandvars(\"${FOO:1\")\n277     assert str(e.value) == \"${FOO:1: missing '}'\"\n278     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 277,
+      "line_range": [
+        277
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "277     assert str(e.value) == \"${FOO:1: missing '}'\"\n278     assert isinstance(e.value, expandvars.MissingClosingBrace)\n279 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 278,
+      "line_range": [
+        278
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "281         expandvars.expandvars(\"${FOO:1:2\")\n282     assert str(e.value) == \"${FOO:1:2: missing '}'\"\n283     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 282,
+      "line_range": [
+        282
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "282     assert str(e.value) == \"${FOO:1:2: missing '}'\"\n283     assert isinstance(e.value, expandvars.MissingClosingBrace)\n284 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 283,
+      "line_range": [
+        283
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "286         expandvars.expandvars(\"${FOO+\")\n287     assert str(e.value) == \"${FOO+: missing '}'\"\n288     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 287,
+      "line_range": [
+        287
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "287     assert str(e.value) == \"${FOO+: missing '}'\"\n288     assert isinstance(e.value, expandvars.MissingClosingBrace)\n289 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 288,
+      "line_range": [
+        288
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "291         expandvars.expandvars(\"${FOO-\")\n292     assert str(e.value) == \"${FOO-: missing '}'\"\n293     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 292,
+      "line_range": [
+        292
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "292     assert str(e.value) == \"${FOO-: missing '}'\"\n293     assert isinstance(e.value, expandvars.MissingClosingBrace)\n294 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 293,
+      "line_range": [
+        293
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "296         expandvars.expandvars(\"${FOO-{{}\")\n297     assert str(e.value) == \"${FOO-{{}: missing '}'\"\n298     assert isinstance(e.value, expandvars.MissingClosingBrace)\n",
+      "col_offset": 4,
+      "end_col_offset": 51,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 297,
+      "line_range": [
+        297
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "297     assert str(e.value) == \"${FOO-{{}: missing '}'\"\n298     assert isinstance(e.value, expandvars.MissingClosingBrace)\n299 \n",
+      "col_offset": 4,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 298,
+      "line_range": [
+        298
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "310             expandvars.expandvars(\"${{FOO:0:{0}}}\".format(o))\n311         assert str(e.value) == (\"FOO: operand expected (error token is {0})\").format(\n312             repr(o)\n313         )\n314         assert isinstance(e.value, expandvars.OperandExpected)\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 311,
+      "line_range": [
+        311,
+        312,
+        313
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "313         )\n314         assert isinstance(e.value, expandvars.OperandExpected)\n315 \n",
+      "col_offset": 8,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 314,
+      "line_range": [
+        314
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "317             expandvars.expandvars(\"${{FOO:{0}:{0}}}\".format(o))\n318         assert str(e.value) == (\"FOO: operand expected (error token is {0})\").format(\n319             repr(o)\n320         )\n321         assert isinstance(e.value, expandvars.OperandExpected)\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 318,
+      "line_range": [
+        318,
+        319,
+        320
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "320         )\n321         assert isinstance(e.value, expandvars.OperandExpected)\n322 \n",
+      "col_offset": 8,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 321,
+      "line_range": [
+        321
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "327 \n328     assert (\n329         expandvars.expand(\n330             var_symbol + \"{FOO}\", environ={\"FOO\": \"test\"}, var_symbol=var_symbol\n331         )\n332         == \"test\"\n333     )\n334     assert (\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 328,
+      "line_range": [
+        328,
+        329,
+        330,
+        331,
+        332,
+        333
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "333     )\n334     assert (\n335         expandvars.expand(var_symbol + \"FOO\", environ={}, var_symbol=var_symbol) == \"\"\n336     )\n337     assert (\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 334,
+      "line_range": [
+        334,
+        335,
+        336
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "336     )\n337     assert (\n338         expandvars.expand(\n339             var_symbol + \"{FOO:-default_value}\", environ={}, var_symbol=var_symbol\n340         )\n341         == \"default_value\"\n342     )\n343     with pytest.raises(expandvars.ParameterNullOrNotSet):\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 337,
+      "line_range": [
+        337,
+        338,
+        339,
+        340,
+        341,
+        342
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "345 \n346     assert (\n347         expandvars.expand(\n348             var_symbol + \"{FOO},$HOME\", environ={\"FOO\": \"test\"}, var_symbol=var_symbol\n349         )\n350         == \"test,$HOME\"\n351     )\n",
+      "col_offset": 4,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_expandvars.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 346,
+      "line_range": [
+        346,
+        347,
+        348,
+        349,
+        350,
+        351
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "15 \n16     assert expandvars.expandvars(\"$FOO\") == \"\"\n17 \n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_option_nounset.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 16,
+      "line_range": [
+        16
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "22 \n23     assert isinstance(e.value, expandvars.UnboundVariable)\n24 \n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_option_nounset.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "29 \n30     assert isinstance(e.value, expandvars.UnboundVariable)\n31 \n",
+      "col_offset": 4,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_option_nounset.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 30,
+      "line_range": [
+        30
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "39     ) as e:\n40         assert expandvars.expandvars(\"${FOO:?}\", nounset=True)\n41 \n",
+      "col_offset": 8,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_option_nounset.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 40,
+      "line_range": [
+        40
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "41 \n42     assert isinstance(e.value, expandvars.ParameterNullOrNotSet)\n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_option_nounset.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 42,
+      "line_range": [
+        42
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "13 \n14     assert expandvars.expandvars(\"${FOO:?}:${BAR?}\") == \"foo:bar\"\n15     assert expandvars.expandvars(\"${FOO:?custom err}:${BAR?custom err}\") == \"foo:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_recover_null.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 14,
+      "line_range": [
+        14
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "14     assert expandvars.expandvars(\"${FOO:?}:${BAR?}\") == \"foo:bar\"\n15     assert expandvars.expandvars(\"${FOO:?custom err}:${BAR?custom err}\") == \"foo:bar\"\n16 \n",
+      "col_offset": 4,
+      "end_col_offset": 85,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_recover_null.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 15,
+      "line_range": [
+        15
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "16 \n17     assert expandvars.expandvars(\"$FOO$BAR\", nounset=True) == \"foobar\"\n18     assert expandvars.expandvars(\"${FOO}:${BAR}\", nounset=True) == \"foo:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_recover_null.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 17,
+      "line_range": [
+        17
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "17     assert expandvars.expandvars(\"$FOO$BAR\", nounset=True) == \"foobar\"\n18     assert expandvars.expandvars(\"${FOO}:${BAR}\", nounset=True) == \"foo:bar\"\n",
+      "col_offset": 4,
+      "end_col_offset": 76,
+      "filename": "D:\\bandit\\upstream-repos\\py3-expandvars\\tests\\test_recover_null.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 18,
+      "line_range": [
+        18
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

@@ -1,0 +1,1242 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:16:51Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\simdjson\\scripts\\detect_nonascii_sourcefiles.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 26,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py": {
+      "CONFIDENCE.HIGH": 35,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 35,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 349,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\simdjson\\style\\run-clang-format.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 246,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py": {
+      "CONFIDENCE.HIGH": 21,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 21,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 149,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 58,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 58,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 770,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "7 import os.path\n8 import subprocess\n9 import os\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "164         if self.is_conditional_include:\n165             assert include.is_conditional_include, f\"{self} cannot include {include} without #ifndef SIMDJSON_CONDITIONAL_INCLUDE.\"\n166             # TODO make sure we only include amalgamated files that are guaranteed to be included with us (or before us)\n",
+      "col_offset": 12,
+      "end_col_offset": 131,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 165,
+      "line_range": [
+        165
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "169         else:\n170             assert include.is_amalgamator or not include.is_conditional_include, f\"{self} cannot include {include} because it is an amalgamated file.\"\n171 \n",
+      "col_offset": 12,
+      "end_col_offset": 150,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 170,
+      "line_range": [
+        170
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "175     def add_editor_only_include(self, include: 'SimdjsonFile'):\n176         assert self.is_conditional_include, f\"Cannot use #ifndef SIMDJSON_CONDITIONAL_INCLUDE in {self} because it is not an amalgamated file.\"\n177         if not include.is_conditional_include:\n",
+      "col_offset": 8,
+      "end_col_offset": 143,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 176,
+      "line_range": [
+        176
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "177         if not include.is_conditional_include:\n178             assert self.dependency_file, f\"{self} cannot include {include} without #ifndef SIMDJSON_CONDITIONAL_INCLUDE.\"\n179         # TODO make sure we only include amalgamated files that are guaranteed to be included with us (or before us)\n",
+      "col_offset": 12,
+      "end_col_offset": 121,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 178,
+      "line_range": [
+        178
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "192                         if not editor_only_include.is_conditional_include:\n193                             assert editor_only_include in self.includes, f\"{file} includes {editor_only_include}, but it is not included from {self}. It must be added to {self}.\"\n194                             if editor_only_include in extra_include_set:\n",
+      "col_offset": 28,
+      "end_col_offset": 178,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 193,
+      "line_range": [
+        193
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "196 \n197             assert len(extra_include_set) == 0, f\"{self} unnecessarily includes {extra_include_set}. They are not included in the corresponding amalgamated files.\"\n198 \n",
+      "col_offset": 12,
+      "end_col_offset": 163,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 197,
+      "line_range": [
+        197
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "232             if os.path.exists(os.path.join(self.project_path, relative_root, filename)):\n233                 assert result is None, \"{file} exists in both {result} and {root}!\"\n234                 result = relative_root\n",
+      "col_offset": 16,
+      "end_col_offset": 83,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 233,
+      "line_range": [
+        233
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "237     def validate_all_files_used(self, root: RelativeRoot):\n238         assert root in self.relative_roots\n239         absolute_root = os.path.join(self.project_path, root)\n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 238,
+      "line_range": [
+        238
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "248         all_files.difference_update(DEPRECATED_FILES)\n249         assert len(all_files) == 0, f\"Files not used: {sorted(all_files)}\"\n250 \n",
+      "col_offset": 8,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 249,
+      "line_range": [
+        249
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "258         file = amalgamator.repository[filename]\n259         assert file, f\"{filename} not found in {[os.path.join(PROJECTPATH, root) for root in roots]}!\"\n260         amalgamator.maybe_write_file(file, None, \"\")\n",
+      "col_offset": 8,
+      "end_col_offset": 102,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 259,
+      "line_range": [
+        259
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "280                 # Generic files get written out once per implementation in a well-defined order\n281                 assert (file, self.implementation) not in self.found_generic_includes, f\"generic file {file} included from {including_file} a second time for {self.implementation}!\"\n282                 assert self.implementation, file\n",
+      "col_offset": 16,
+      "end_col_offset": 181,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 281,
+      "line_range": [
+        281
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "281                 assert (file, self.implementation) not in self.found_generic_includes, f\"generic file {file} included from {including_file} a second time for {self.implementation}!\"\n282                 assert self.implementation, file\n283                 self.found_generic_includes.append((file, self.implementation))\n",
+      "col_offset": 16,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 282,
+      "line_range": [
+        282
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "301         if file.is_generic and file.is_conditional_include:\n302             assert self.implementation, file\n303             return f\"{file} for {self.implementation}\"\n",
+      "col_offset": 12,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 302,
+      "line_range": [
+        302
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "307         # Detect cyclic dependencies\n308         assert file not in self.include_stack, f\"Cyclic include: {self.include_stack} -> {file}\"\n309         self.include_stack.append(file)\n",
+      "col_offset": 8,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 308,
+      "line_range": [
+        308
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "315         if file == BUILTIN_BEGIN_H:\n316             assert self.implementation is None, self.implementation\n317             assert not self.builtin_implementation, self.builtin_implementation\n",
+      "col_offset": 12,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 316,
+      "line_range": [
+        316
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "316             assert self.implementation is None, self.implementation\n317             assert not self.builtin_implementation, self.builtin_implementation\n318             self.builtin_implementation = True\n",
+      "col_offset": 12,
+      "end_col_offset": 79,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 317,
+      "line_range": [
+        317
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "320 \n321         assert not self.editor_only_region\n322         with open(file.absolute_path, 'r') as fid2:\n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 321,
+      "line_range": [
+        321
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "331                 if re.search(r'^#ifndef\\s+SIMDJSON_CONDITIONAL_INCLUDE\\s*$', line):\n332                     assert file.is_conditional_include, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE but is not an amalgamated file!\"\n333                     assert self.in_conditional_include_block, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE without a prior #define SIMDJSON_CONDITIONAL_INCLUDE: {self.include_stack}\"\n",
+      "col_offset": 20,
+      "end_col_offset": 139,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 332,
+      "line_range": [
+        332
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "332                     assert file.is_conditional_include, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE but is not an amalgamated file!\"\n333                     assert self.in_conditional_include_block, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE without a prior #define SIMDJSON_CONDITIONAL_INCLUDE: {self.include_stack}\"\n334                     assert not self.editor_only_region, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE twice in a row\"\n",
+      "col_offset": 20,
+      "end_col_offset": 188,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 333,
+      "line_range": [
+        333
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "333                     assert self.in_conditional_include_block, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE without a prior #define SIMDJSON_CONDITIONAL_INCLUDE: {self.include_stack}\"\n334                     assert not self.editor_only_region, f\"{file} uses #ifndef SIMDJSON_CONDITIONAL_INCLUDE twice in a row\"\n335                     self.editor_only_region = True\n",
+      "col_offset": 20,
+      "end_col_offset": 122,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 334,
+      "line_range": [
+        334
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "351 \n352                 assert not end_ignore, f\"{file} has #endif // SIMDJSON_CONDITIONAL_INCLUDE without #ifndef SIMDJSON_CONDITIONAL_INCLUDE\"\n353 \n",
+      "col_offset": 16,
+      "end_col_offset": 136,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 352,
+      "line_range": [
+        352
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "378                     # copy the line, with SIMDJSON_IMPLEMENTATION replace to what it is currently defined to\n379                     assert self.implementation, f\"Use of SIMDJSON_IMPLEMENTATION while not defined in {file}: {line}\"\n380                     line = re.sub(r'\\bSIMDJSON_IMPLEMENTATION\\b',self.implementation,line)\n",
+      "col_offset": 20,
+      "end_col_offset": 117,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 379,
+      "line_range": [
+        379
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "384                 if defined:\n385                     assert not file.is_conditional_include, \"SIMDJSON_CONDITIONAL_INCLUDE defined in amalgamated file {file}! Not allowed.\"\n386                     assert not self.in_conditional_include_block, f\"{file} redefines SIMDJSON_CONDITIONAL_INCLUDE\"\n",
+      "col_offset": 20,
+      "end_col_offset": 139,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 385,
+      "line_range": [
+        385
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "385                     assert not file.is_conditional_include, \"SIMDJSON_CONDITIONAL_INCLUDE defined in amalgamated file {file}! Not allowed.\"\n386                     assert not self.in_conditional_include_block, f\"{file} redefines SIMDJSON_CONDITIONAL_INCLUDE\"\n387                     self.in_conditional_include_block = True\n",
+      "col_offset": 20,
+      "end_col_offset": 114,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 386,
+      "line_range": [
+        386
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "390                 elif re.search(r'^#undef\\s+SIMDJSON_CONDITIONAL_INCLUDE\\s*$', line):\n391                     assert not file.is_conditional_include, \"SIMDJSON_CONDITIONAL_INCLUDE undefined in amalgamated file {file}! Not allowed.\"\n392                     assert self.in_conditional_include_block, f\"{file} undefines SIMDJSON_CONDITIONAL_INCLUDE without defining it\"\n",
+      "col_offset": 20,
+      "end_col_offset": 141,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 391,
+      "line_range": [
+        391
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "391                     assert not file.is_conditional_include, \"SIMDJSON_CONDITIONAL_INCLUDE undefined in amalgamated file {file}! Not allowed.\"\n392                     assert self.in_conditional_include_block, f\"{file} undefines SIMDJSON_CONDITIONAL_INCLUDE without defining it\"\n393                     self.write(f'/* undefining SIMDJSON_CONDITIONAL_INCLUDE */')\n",
+      "col_offset": 20,
+      "end_col_offset": 130,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 392,
+      "line_range": [
+        392
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "397 \n398             assert not self.editor_only_region, f\"{file} ended without #endif // SIMDJSON_CONDITIONAL_INCLUDE\"\n399 \n",
+      "col_offset": 12,
+      "end_col_offset": 110,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 398,
+      "line_range": [
+        398
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "403             # begin.h redefined SIMDJSON_IMPLEMENTATION multiple times\n404             assert self.builtin_implementation\n405             self.implementation = \"SIMDJSON_BUILTIN_IMPLEMENTATION\"\n",
+      "col_offset": 12,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 404,
+      "line_range": [
+        404
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "406         elif file.include_path == BUILTIN_END_H:\n407             assert self.implementation is None\n408             assert self.builtin_implementation\n",
+      "col_offset": 12,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 407,
+      "line_range": [
+        407
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "407             assert self.implementation is None\n408             assert self.builtin_implementation\n409             self.implementation = None\n",
+      "col_offset": 12,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 408,
+      "line_range": [
+        408
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "420 try:\n421     proc = subprocess.run(['git', 'show', '-s', '--format=%ci', 'HEAD'],\n422                            stdout=subprocess.PIPE)\n423     print(\"the commandline is {}\".format(proc.args))\n",
+      "col_offset": 11,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 421,
+      "line_range": [
+        421,
+        422
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "420 try:\n421     proc = subprocess.run(['git', 'show', '-s', '--format=%ci', 'HEAD'],\n422                            stdout=subprocess.PIPE)\n423     print(\"the commandline is {}\".format(proc.args))\n",
+      "col_offset": 11,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 421,
+      "line_range": [
+        421,
+        422
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "446 print(f\"Files have been written to directory: {AMALGAMATE_OUTPUT_PATH}/\")\n447 print(subprocess.run(['ls', '-la', AMAL_C, AMAL_H, DEMOCPP, README],\n448                      stdout=subprocess.PIPE).stdout.decode('utf-8').strip())\n449 print(\"Done with all files generation.\")\n",
+      "col_offset": 6,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 447,
+      "line_range": [
+        447,
+        448
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "446 print(f\"Files have been written to directory: {AMALGAMATE_OUTPUT_PATH}/\")\n447 print(subprocess.run(['ls', '-la', AMAL_C, AMAL_H, DEMOCPP, README],\n448                      stdout=subprocess.PIPE).stdout.decode('utf-8').strip())\n449 print(\"Done with all files generation.\")\n",
+      "col_offset": 6,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\singleheader\\amalgamate.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 447,
+      "line_range": [
+        447,
+        448
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "20 import signal\n21 import subprocess\n22 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\style\\run-clang-format.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 21,
+      "line_range": [
+        21
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "132     try:\n133         proc = subprocess.Popen(\n134             invocation,\n135             stdout=subprocess.PIPE,\n136             stderr=subprocess.PIPE,\n137             universal_newlines=True,\n138             **encoding_py3)\n139     except OSError as exc:\n",
+      "col_offset": 15,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\style\\run-clang-format.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 133,
+      "line_range": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "6 import re\n7 import subprocess\n8 import io\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "26 print(\"Calling git rev-parse --abbrev-ref HEAD\")\n27 pipe = subprocess.Popen([\"git\", \"rev-parse\", \"--abbrev-ref\", \"HEAD\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n28 print(\"the commandline is {}\".format(pipe.args))\n",
+      "col_offset": 7,
+      "end_col_offset": 119,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "26 print(\"Calling git rev-parse --abbrev-ref HEAD\")\n27 pipe = subprocess.Popen([\"git\", \"rev-parse\", \"--abbrev-ref\", \"HEAD\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n28 print(\"the commandline is {}\".format(pipe.args))\n",
+      "col_offset": 7,
+      "end_col_offset": 119,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "33 \n34 ret = subprocess.call([\"git\", \"remote\", \"update\"])\n35 \n",
+      "col_offset": 6,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 34,
+      "line_range": [
+        34
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "33 \n34 ret = subprocess.call([\"git\", \"remote\", \"update\"])\n35 \n",
+      "col_offset": 6,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 34,
+      "line_range": [
+        34
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "38 print(\"Calling git log HEAD.. --oneline\")\n39 pipe = subprocess.Popen([\"git\", \"log\", \"HEAD..\", \"--oneline\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n40 print(\"the commandline is '{}'\".format(pipe.args))\n",
+      "col_offset": 7,
+      "end_col_offset": 112,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "38 print(\"Calling git log HEAD.. --oneline\")\n39 pipe = subprocess.Popen([\"git\", \"log\", \"HEAD..\", \"--oneline\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n40 print(\"the commandline is '{}'\".format(pipe.args))\n",
+      "col_offset": 7,
+      "end_col_offset": 112,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "47 \n48 pipe = subprocess.Popen([\"git\", \"rev-parse\", \"--show-toplevel\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n49 maindir = pipe.communicate()[0].decode().strip()\n",
+      "col_offset": 7,
+      "end_col_offset": 114,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 48,
+      "line_range": [
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "47 \n48 pipe = subprocess.Popen([\"git\", \"rev-parse\", \"--show-toplevel\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n49 maindir = pipe.communicate()[0].decode().strip()\n",
+      "col_offset": 7,
+      "end_col_offset": 114,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 48,
+      "line_range": [
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "54 \n55 pipe = subprocess.Popen([\"git\", \"describe\", \"--abbrev=0\", \"--tags\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n56 print(\"the commandline is '{}'\".format(pipe.args))\n",
+      "col_offset": 7,
+      "end_col_offset": 118,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "54 \n55 pipe = subprocess.Popen([\"git\", \"describe\", \"--abbrev=0\", \"--tags\"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n56 print(\"the commandline is '{}'\".format(pipe.args))\n",
+      "col_offset": 7,
+      "end_col_offset": 118,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "76 if(newversion[0] !=  currentv[0]):\n77     assert newversion[0] ==  currentv[0] + 1\n78     assert newversion[1] == 0\n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 77,
+      "line_range": [
+        77
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "77     assert newversion[0] ==  currentv[0] + 1\n78     assert newversion[1] == 0\n79     assert newversion[2] == 0\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 78,
+      "line_range": [
+        78
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "78     assert newversion[1] == 0\n79     assert newversion[2] == 0\n80 elif (newversion[1] !=  currentv[1]):\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 79,
+      "line_range": [
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "80 elif (newversion[1] !=  currentv[1]):\n81     assert newversion[1] ==  currentv[1] + 1\n82     assert newversion[2] == 0\n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 81,
+      "line_range": [
+        81
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "81     assert newversion[1] ==  currentv[1] + 1\n82     assert newversion[2] == 0\n83 else :\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 82,
+      "line_range": [
+        82
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "83 else :\n84     assert newversion[2] ==  currentv[2] + 1\n85 \n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 84,
+      "line_range": [
+        84
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "159 print(\"running amalgamate.py\")\n160 cp = subprocess.run([\"python3\", maindir+ os.sep + \"singleheader/amalgamate.py\"], stdout=subprocess.DEVNULL)  # doesn't capture output\n161 print(\"the commandline is {}\".format(cp.args))\n",
+      "col_offset": 5,
+      "end_col_offset": 107,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 160,
+      "line_range": [
+        160
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "159 print(\"running amalgamate.py\")\n160 cp = subprocess.run([\"python3\", maindir+ os.sep + \"singleheader/amalgamate.py\"], stdout=subprocess.DEVNULL)  # doesn't capture output\n161 print(\"the commandline is {}\".format(cp.args))\n",
+      "col_offset": 5,
+      "end_col_offset": 107,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 160,
+      "line_range": [
+        160
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "166 print(\"running doxygen\")\n167 cp = subprocess.run([\"doxygen\"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=maindir)  # doesn't capture output\n168 print(\"the commandline is {}\".format(cp.args))\n",
+      "col_offset": 5,
+      "end_col_offset": 99,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 167,
+      "line_range": [
+        167
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "166 print(\"running doxygen\")\n167 cp = subprocess.run([\"doxygen\"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=maindir)  # doesn't capture output\n168 print(\"the commandline is {}\".format(cp.args))\n",
+      "col_offset": 5,
+      "end_col_offset": 99,
+      "filename": "D:\\bandit\\upstream-repos\\simdjson\\tools\\release.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 167,
+      "line_range": [
+        167
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

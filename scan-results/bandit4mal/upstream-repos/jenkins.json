@@ -1,0 +1,119 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:17:14Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\jenkins\\update-since-todo.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 133,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 133,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "7 import shutil\n8 import subprocess\n9 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\jenkins\\update-since-todo.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "41     line_sha = (\n42         subprocess.check_output(\n43             [GIT, \"blame\", \"--porcelain\", \"-L\", f\"{lineno},{lineno}\", file], text=True\n44         )\n45         .split(\"\\n\", 1)[0]\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\jenkins\\update-since-todo.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 42,
+      "line_range": [
+        42,
+        43,
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "48     print(f\"* first sha: {line_sha}\")\n49     first_tag = subprocess.check_output(\n50         [GIT, \"tag\", \"--sort=creatordate\", \"--contains\", line_sha, \"jenkins-*\"],\n51         text=True,\n52     ).split(\"\\n\", 1)[0]\n53     if first_tag:\n",
+      "col_offset": 16,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\jenkins\\update-since-todo.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 49,
+      "line_range": [
+        49,
+        50,
+        51,
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "107         print(\"<details><summary>Detailed output</summary>\\n\\n\")\n108     with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:\n109         for line in io.TextIOWrapper(proc.stdout):\n",
+      "col_offset": 9,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\jenkins\\update-since-todo.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 108,
+      "line_range": [
+        108
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:17:13Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\jbig2dec\\test_jbig2dec.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 158,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 2,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 158,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "153     # verify that the input file hash is correct\n154     sha1 = hashlib.sha1()\n155     with open(self.file, 'rb') as f:\n",
+      "col_offset": 11,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\jbig2dec\\test_jbig2dec.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+      "line_number": 154,
+      "line_range": [
+        154
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "159     # invoke jbig2dec on our file\n160     instance = os.popen('./jbig2dec -q -o /dev/null --hash ' + self.file)\n161     lines = instance.readlines()\n",
+      "col_offset": 15,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\jbig2dec\\test_jbig2dec.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Starting a process with a shell, possible injection detected, security issue.",
+      "line_number": 160,
+      "line_range": [
+        160
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell"
+    }
+  ]
+}

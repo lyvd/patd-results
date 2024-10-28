@@ -1,0 +1,115 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T16:57:18Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\bazelisk\\bazelisk.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 364,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 364,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "27 import shutil\n28 import subprocess\n29 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\bazelisk\\bazelisk.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 28,
+      "line_range": [
+        28
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "306         download(bazel_url, destination_path)\n307         os.chmod(destination_path, 0o755)\n308 \n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\bazelisk\\bazelisk.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 732,
+        "link": "https://cwe.mitre.org/data/definitions/732.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Chmod setting a permissive mask 0o755 on file (destination_path).",
+      "line_number": 307,
+      "line_range": [
+        307
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b103_set_bad_file_permissions.html",
+      "test_id": "B103",
+      "test_name": "set_bad_file_permissions"
+    },
+    {
+      "code": "349             creds = netrc.netrc().hosts.get(parts.netloc)\n350         except Exception:\n351             pass\n352         if creds is not None:\n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "D:\\bandit\\upstream-repos\\bazelisk\\bazelisk.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 350,
+      "line_range": [
+        350,
+        351
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "450     # We cannot use close_fds on Windows, so disable it there.\n451     p = subprocess.Popen([cmd[\"exec\"]] + cmd[\"args\"], close_fds=os.name != \"nt\", env=cmd[\"env\"])\n452     while True:\n",
+      "col_offset": 8,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\bazelisk\\bazelisk.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 451,
+      "line_range": [
+        451
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

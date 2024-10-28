@@ -1,0 +1,307 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:17:27Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py": {
+      "CONFIDENCE.HIGH": 13,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 13,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 27,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\wasmcloud\\examples\\python\\components\\http-hello-world\\app.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 14,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 13,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 13,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 41,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "1 import shutil\n2 import subprocess\n3 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 2,
+      "line_range": [
+        2
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "18 \n19 targets = subprocess.run(\"rustup target list --installed\", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True).stdout\n20 if \"wasm32-unknown-unknown\" not in targets:\n",
+      "col_offset": 10,
+      "end_col_offset": 131,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "18 \n19 targets = subprocess.run(\"rustup target list --installed\", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True).stdout\n20 if \"wasm32-unknown-unknown\" not in targets:\n",
+      "col_offset": 10,
+      "end_col_offset": 131,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "21     print('Rust wasm32-unknown-unknown target not found. Installing...\"')\n22     subprocess.run('rustup target add wasm32-unknown-unknown', shell=True)\n23 \n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 22,
+      "line_range": [
+        22
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "21     print('Rust wasm32-unknown-unknown target not found. Installing...\"')\n22     subprocess.run('rustup target add wasm32-unknown-unknown', shell=True)\n23 \n",
+      "col_offset": 4,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 22,
+      "line_range": [
+        22
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "23 \n24 nextest_output = subprocess.run(\"cargo nextest --version\", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True).stdout\n25 if \"error: no such command\" in nextest_output:\n",
+      "col_offset": 17,
+      "end_col_offset": 131,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 24,
+      "line_range": [
+        24
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "23 \n24 nextest_output = subprocess.run(\"cargo nextest --version\", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True).stdout\n25 if \"error: no such command\" in nextest_output:\n",
+      "col_offset": 17,
+      "end_col_offset": 131,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 24,
+      "line_range": [
+        24
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "26     print('cargo nextest not found. Installing...\"')\n27     subprocess.run('cargo install cargo-nextest --locked', shell=True)\n28 \n",
+      "col_offset": 4,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "26     print('cargo nextest not found. Installing...\"')\n27     subprocess.run('cargo install cargo-nextest --locked', shell=True)\n28 \n",
+      "col_offset": 4,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "28 \n29 watch_output = subprocess.run(\"cargo watch --version\", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True).stdout\n30 if \"error: no such command\" in watch_output:\n",
+      "col_offset": 15,
+      "end_col_offset": 127,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "28 \n29 watch_output = subprocess.run(\"cargo watch --version\", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True).stdout\n30 if \"error: no such command\" in watch_output:\n",
+      "col_offset": 15,
+      "end_col_offset": 127,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "31     print('cargo watch not found. Installing...\"')\n32     subprocess.run('cargo install cargo-watch', shell=True)\n33 \n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 32,
+      "line_range": [
+        32
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "31     print('cargo watch not found. Installing...\"')\n32     subprocess.run('cargo install cargo-watch', shell=True)\n33 \n",
+      "col_offset": 4,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\wasmcloud\\crates\\wash-cli\\tools\\deps_check.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 32,
+      "line_range": [
+        32
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    }
+  ]
+}

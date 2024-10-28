@@ -1,0 +1,527 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:16:38Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py": {
+      "CONFIDENCE.HIGH": 11,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 261,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py": {
+      "CONFIDENCE.HIGH": 11,
+      "CONFIDENCE.LOW": 1,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 504,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 22,
+      "CONFIDENCE.LOW": 2,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 22,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 765,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "6 import shutil\n7 import subprocess\n8 import textwrap\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "269 \n270             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n271             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 270,
+      "line_range": [
+        270
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "269 \n270             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n271             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 270,
+      "line_range": [
+        270
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "270             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n271             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n272             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 271,
+      "line_range": [
+        271
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "270             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n271             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n272             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 271,
+      "line_range": [
+        271
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "271             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n272             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n273             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 109,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 272,
+      "line_range": [
+        272
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "271             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n272             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n273             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 109,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 272,
+      "line_range": [
+        272
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "272             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n273             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n274             print(\"Generating rules from %s\" % chart['source'])\n",
+      "col_offset": 12,
+      "end_col_offset": 127,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 273,
+      "line_range": [
+        273
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "272             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n273             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n274             print(\"Generating rules from %s\" % chart['source'])\n",
+      "col_offset": 12,
+      "end_col_offset": 127,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 273,
+      "line_range": [
+        273
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "279                 print(\"Running jsonnet-bundler, because jsonnetfile.json exists\")\n280                 subprocess.run([\"jb\", \"install\"], cwd=mixin_dir)\n281 \n",
+      "col_offset": 16,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 280,
+      "line_range": [
+        280
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "279                 print(\"Running jsonnet-bundler, because jsonnetfile.json exists\")\n280                 subprocess.run([\"jb\", \"install\"], cwd=mixin_dir)\n281 \n",
+      "col_offset": 16,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 280,
+      "line_range": [
+        280
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "294             print(\"Generating rules from %s\" % chart['source'])\n295             response = requests.get(chart['source'])\n296             if response.status_code != 200:\n",
+      "col_offset": 23,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_grafana_dashboards.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 295,
+      "line_range": [
+        295
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "6 import shutil\n7 import subprocess\n8 import textwrap\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "558 \n559             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n560             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 559,
+      "line_range": [
+        559
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "558 \n559             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n560             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 559,
+      "line_range": [
+        559
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "559             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n560             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n561             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 560,
+      "line_range": [
+        560
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "559             subprocess.run([\"git\", \"init\", \"--initial-branch\", \"main\", checkout_dir, \"--quiet\"])\n560             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n561             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 560,
+      "line_range": [
+        560
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "560             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n561             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n562             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 109,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 561,
+      "line_range": [
+        561
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "560             subprocess.run([\"git\", \"-C\", checkout_dir, \"remote\", \"add\", \"origin\", chart['git']])\n561             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n562             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n",
+      "col_offset": 12,
+      "end_col_offset": 109,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 561,
+      "line_range": [
+        561
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "561             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n562             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n563 \n",
+      "col_offset": 12,
+      "end_col_offset": 127,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 562,
+      "line_range": [
+        562
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "561             subprocess.run([\"git\", \"-C\", checkout_dir, \"fetch\", \"--depth\", \"1\", \"origin\", branch, \"--quiet\"])\n562             subprocess.run([\"git\", \"-c\", \"advice.detachedHead=false\", \"-C\", checkout_dir, \"checkout\", \"FETCH_HEAD\", \"--quiet\"])\n563 \n",
+      "col_offset": 12,
+      "end_col_offset": 127,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 562,
+      "line_range": [
+        562
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "572                     print(\"Running jsonnet-bundler, because jsonnetfile.json exists\")\n573                     subprocess.run([\"jb\", \"install\"], cwd=mixin_dir)\n574 \n",
+      "col_offset": 20,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 573,
+      "line_range": [
+        573
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "572                     print(\"Running jsonnet-bundler, because jsonnetfile.json exists\")\n573                     subprocess.run([\"jb\", \"install\"], cwd=mixin_dir)\n574 \n",
+      "col_offset": 20,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 573,
+      "line_range": [
+        573
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "605             print(\"Generating rules from %s\" % url)\n606             response = requests.get(url)\n607             if response.status_code != 200:\n",
+      "col_offset": 23,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\rancher-charts-2.9\\packages\\rancher-monitoring\\rancher-monitoring\\generated-changes\\exclude\\hack\\sync_prometheus_rules.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 606,
+      "line_range": [
+        606
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    }
+  ]
+}

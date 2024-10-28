@@ -1,0 +1,586 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:05:13Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-scp\\scp.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 3,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 3,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 507,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-scp\\setup.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 31,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-scp\\test.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 12,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 3,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 9,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 301,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 10,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 15,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 3,
+      "SEVERITY.LOW": 10,
+      "SEVERITY.MEDIUM": 12,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 839,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "197         scp_command = self.scp_command + b' ' + (b'-t ', b'-r -t ')[recursive]\n198         self.channel.exec_command(scp_command +\n199                                   self.sanitize(asbytes(remote_path)))\n200         self._recv_confirm()\n",
+      "col_offset": 8,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 198,
+      "line_range": [
+        198,
+        199
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "235         self.channel.settimeout(self.socket_timeout)\n236         self.channel.exec_command(self.scp_command + b' -t ' +\n237                                   self.sanitize(asbytes(remote_path)))\n238         self._recv_confirm()\n",
+      "col_offset": 8,
+      "end_col_offset": 70,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 236,
+      "line_range": [
+        236,
+        237
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "280         self.channel.settimeout(self.socket_timeout)\n281         self.channel.exec_command(self.scp_command +\n282                                   rcsv +\n283                                   prsv +\n284                                   b\" -f \" +\n285                                   b' '.join(remote_path))\n286         self._recv_all()\n",
+      "col_offset": 8,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 281,
+      "line_range": [
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "435                 break\n436             assert msg[-1:] == b'\\n'\n437             msg = msg[:-1]\n",
+      "col_offset": 12,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 436,
+      "line_range": [
+        436
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "467                 name = parts[2].decode('utf-8')\n468                 assert not os.path.isabs(name)\n469                 path = os.path.join(asunicode_win(self._recv_dir), name)\n",
+      "col_offset": 16,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 468,
+      "line_range": [
+        468
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "471                 name = parts[2]\n472                 assert not os.path.isabs(name)\n473                 path = os.path.join(asbytes(self._recv_dir), name)\n",
+      "col_offset": 16,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 472,
+      "line_range": [
+        472
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "531                 name = parts[2].decode('utf-8')\n532                 assert not os.path.isabs(name)\n533                 path = os.path.join(asunicode_win(self._recv_dir), name)\n",
+      "col_offset": 16,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 532,
+      "line_range": [
+        532
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "536                 name = parts[2]\n537                 assert not os.path.isabs(name)\n538                 path = os.path.join(asbytes(self._recv_dir), name)\n",
+      "col_offset": 16,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\scp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 537,
+      "line_range": [
+        537
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "57     characters = [characters[i:i + 1] for i in range(len(characters))]\n58     rng = random.Random()\n59     while True:\n",
+      "col_offset": 10,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 58,
+      "line_range": [
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "70         cls.ssh.load_system_host_keys()\n71         cls.ssh.set_missing_host_key_policy(paramiko.WarningPolicy())\n72         cls.ssh.connect(**ssh_info)\n",
+      "col_offset": 8,
+      "end_col_offset": 69,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Paramiko call with policy set to automatically trust the unknown host key.",
+      "line_number": 71,
+      "line_range": [
+        71
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b507_ssh_no_host_key_verification.html",
+      "test_id": "B507",
+      "test_name": "ssh_no_host_key_verification"
+    },
+    {
+      "code": "75         chan = cls.ssh.get_transport().open_session()\n76         chan.exec_command(\n77             b'if ! echo -ne \"/tmp/r\\\\xC3\\\\xA9mi\" | xargs test -d; then '\n78             # Directory\n79             b'echo -ne \"/tmp/bien rang\\\\xC3\\\\xA9\" | xargs -0 mkdir; '\n80             # Files\n81             b'echo -ne \"'\n82             b'/tmp/r\\\\xC3\\\\xA9mi\\\\x00'\n83             b'/tmp/bien rang\\\\xC3\\\\xA9/file\\\\x00'\n84             b'/tmp/bien rang\\\\xC3\\\\xA9/b\\\\xC3\\\\xA8te\\\\x00'\n85             b'/tmp/p\\\\xE9t\\\\xE9'  # invalid UTF-8 here\n86             b'\" | xargs -0 touch; '\n87             b'fi')\n88         assert chan.recv_exit_status() == 0\n",
+      "col_offset": 8,
+      "end_col_offset": 18,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 76,
+      "line_range": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "87             b'fi')\n88         assert chan.recv_exit_status() == 0\n89 \n",
+      "col_offset": 8,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 88,
+      "line_range": [
+        88
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "151     def test_get_unicode(self):\n152         self.download_test(u'/tmp/r\\xE9mi', False, b'target',\n153                            [u'target'], [b'target'])\n154         self.download_test(u'/tmp/r\\xE9mi', False, u'target',\n",
+      "col_offset": 27,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 152,
+      "line_range": [
+        152,
+        153
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "153                            [u'target'], [b'target'])\n154         self.download_test(u'/tmp/r\\xE9mi', False, u'target',\n155                            [u'target'], [b'target'])\n156         self.download_test(u'/tmp/r\\xE9mi', False, None,\n",
+      "col_offset": 27,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 154,
+      "line_range": [
+        154,
+        155
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "155                            [u'target'], [b'target'])\n156         self.download_test(u'/tmp/r\\xE9mi', False, None,\n157                            [u'r\\xE9mi'], [b'r\\xC3\\xA9mi'])\n158         self.download_test([u'/tmp/bien rang\\xE9/file',\n",
+      "col_offset": 27,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 156,
+      "line_range": [
+        156,
+        157
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "157                            [u'r\\xE9mi'], [b'r\\xC3\\xA9mi'])\n158         self.download_test([u'/tmp/bien rang\\xE9/file',\n159                             u'/tmp/bien rang\\xE9/b\\xE8te'],\n160                            False, None,\n",
+      "col_offset": 28,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 158,
+      "line_range": [
+        158,
+        159
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "158         self.download_test([u'/tmp/bien rang\\xE9/file',\n159                             u'/tmp/bien rang\\xE9/b\\xE8te'],\n160                            False, None,\n161                            [u'file', u'b\\xE8te'], [b'file', b'b\\xC3\\xA8te'])\n",
+      "col_offset": 28,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 159,
+      "line_range": [
+        158,
+        159
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "196         cls.ssh.load_system_host_keys()\n197         cls.ssh.set_missing_host_key_policy(paramiko.WarningPolicy())\n198         cls.ssh.connect(**ssh_info)\n",
+      "col_offset": 8,
+      "end_col_offset": 69,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Paramiko call with policy set to automatically trust the unknown host key.",
+      "line_number": 197,
+      "line_range": [
+        197
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b507_ssh_no_host_key_verification.html",
+      "test_id": "B507",
+      "test_name": "ssh_no_host_key_verification"
+    },
+    {
+      "code": "218         chan = self.ssh.get_transport().open_session()\n219         chan.exec_command(b'mkdir ' + destination)\n220         assert chan.recv_exit_status() == 0\n",
+      "col_offset": 8,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 219,
+      "line_range": [
+        219
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "219         chan.exec_command(b'mkdir ' + destination)\n220         assert chan.recv_exit_status() == 0\n221         previous = os.getcwd()\n",
+      "col_offset": 8,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 220,
+      "line_range": [
+        220
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "238             chan = self.ssh.get_transport().open_session()\n239             chan.exec_command(\n240                 b'echo -ne \"' +\n241                 destination.decode('iso-8859-1')\n242                     .encode('ascii', 'backslashreplace') +\n243                 b'\" | xargs find')\n244             out_list = b''\n",
+      "col_offset": 12,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 239,
+      "line_range": [
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "256             chan = self.ssh.get_transport().open_session()\n257             chan.exec_command(b'rm -Rf ' + destination)\n258             assert chan.recv_exit_status() == 0\n",
+      "col_offset": 12,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible shell injection via Paramiko call, check inputs are properly sanitized.",
+      "line_number": 257,
+      "line_range": [
+        257
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b601_paramiko_calls.html",
+      "test_id": "B601",
+      "test_name": "paramiko_calls"
+    },
+    {
+      "code": "257             chan.exec_command(b'rm -Rf ' + destination)\n258             assert chan.recv_exit_status() == 0\n259 \n",
+      "col_offset": 12,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 258,
+      "line_range": [
+        258
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "289         g = (n for n in (u'cl\\xE9/dossi\\xE9/bien rang\\xE9', u'cl\\xE9/r\\xE9mi'))\n290         assert isinstance(g, types.GeneratorType)\n291         self.upload_test(g, True,\n",
+      "col_offset": 8,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 290,
+      "line_range": [
+        290
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "321         cls.ssh.load_system_host_keys()\n322         cls.ssh.set_missing_host_key_policy(paramiko.WarningPolicy())\n323         cls.ssh.connect(**ssh_info)\n",
+      "col_offset": 8,
+      "end_col_offset": 69,
+      "filename": "D:\\bandit\\upstream-repos\\py3-scp\\test.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Paramiko call with policy set to automatically trust the unknown host key.",
+      "line_number": 322,
+      "line_range": [
+        322
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b507_ssh_no_host_key_verification.html",
+      "test_id": "B507",
+      "test_name": "ssh_no_host_key_verification"
+    }
+  ]
+}

@@ -1,0 +1,1585 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:06:37Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\doc\\_extensions\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\doc\\_extensions\\gh_link.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 24,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\doc\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 24,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\scripts\\check_package.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 50,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\_typed_dict_test_helper.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 11,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py": {
+      "CONFIDENCE.HIGH": 56,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 26,
+      "SEVERITY.MEDIUM": 29,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 6444,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2999,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 69,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 38,
+      "SEVERITY.MEDIUM": 30,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 9552,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "28     requires_python = data[\"project\"][\"requires-python\"]\n29     assert sys.version_info[0] == 3, \"Rewrite this script when Python 4 comes out\"\n30     match = re.fullmatch(r\">=3\\.(\\d+)\", requires_python)\n",
+      "col_offset": 4,
+      "end_col_offset": 82,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\scripts\\check_package.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "12 import itertools\n13 import pickle\n14 import re\n",
+      "col_offset": 0,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with pickle module.",
+      "line_number": 13,
+      "line_range": [
+        13
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "14 import re\n15 import subprocess\n16 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 15,
+      "line_range": [
+        15
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "483             pickled = pickle.dumps(self.bottom_type, protocol=proto)\n484             self.assertIs(self.bottom_type, pickle.loads(pickled))\n485 \n",
+      "col_offset": 44,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 484,
+      "line_range": [
+        484
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "1513 except StopIteration as e:\n1514     assert e.args[0] == 42\n1515 \n",
+      "col_offset": 4,
+      "end_col_offset": 26,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1514,
+      "line_range": [
+        1514
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2135 \n2136         assert isinstance(foo(KeyboardInterrupt), KeyboardInterrupt)\n2137         assert foo(None) is None\n",
+      "col_offset": 8,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2136,
+      "line_range": [
+        2136
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2136         assert isinstance(foo(KeyboardInterrupt), KeyboardInterrupt)\n2137         assert foo(None) is None\n2138 \n",
+      "col_offset": 8,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2137,
+      "line_range": [
+        2137
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2197                 pickled = pickle.dumps(UserId, proto)\n2198                 loaded = pickle.loads(pickled)\n2199                 self.assertIs(loaded, UserId)\n",
+      "col_offset": 25,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 2198,
+      "line_range": [
+        2198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "2201                 pickled = pickle.dumps(self.UserName, proto)\n2202                 loaded = pickle.loads(pickled)\n2203                 self.assertIs(loaded, self.UserName)\n",
+      "col_offset": 25,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 2202,
+      "line_range": [
+        2202
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "2211                 )\n2212         exec(code, {})\n2213 \n",
+      "col_offset": 8,
+      "end_col_offset": 22,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 2212,
+      "line_range": [
+        2212
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "3168     if sys.version_info >= (3, 12):\n3169         exec(textwrap.dedent(\n3170             \"\"\"\n3171             @skip_if_py312b1\n3172             def test_pep695_generics_can_be_runtime_checkable(self):\n3173                 @runtime_checkable\n3174                 class HasX(Protocol):\n3175                     x: int\n3176 \n3177                 class Bar[T]:\n3178                     x: T\n3179                     def __init__(self, x):\n3180                         self.x = x\n3181 \n3182                 class Capybara[T]:\n3183                     y: str\n3184                     def __init__(self, y):\n3185                         self.y = y\n3186 \n3187                 self.assertIsInstance(Bar(1), HasX)\n3188                 self.assertNotIsInstance(Capybara('a'), HasX)\n3189                 \"\"\"\n3190         ))\n3191 \n",
+      "col_offset": 8,
+      "end_col_offset": 10,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 3169,
+      "line_range": [
+        3169,
+        3170,
+        3171,
+        3172,
+        3173,
+        3174,
+        3175,
+        3176,
+        3177,
+        3178,
+        3179,
+        3180,
+        3181,
+        3182,
+        3183,
+        3184,
+        3185,
+        3186,
+        3187,
+        3188,
+        3189,
+        3190
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "3429     if hasattr(typing, \"TypeAliasType\"):\n3430         exec(textwrap.dedent(\n3431             \"\"\"\n3432             def test_pep695_generic_protocol_callable_members(self):\n3433                 @runtime_checkable\n3434                 class Foo[T](Protocol):\n3435                     def meth(self, x: T) -> None: ...\n3436 \n3437                 class Bar[T]:\n3438                     def meth(self, x: T) -> None: ...\n3439 \n3440                 self.assertIsInstance(Bar(), Foo)\n3441                 self.assertIsSubclass(Bar, Foo)\n3442 \n3443                 @runtime_checkable\n3444                 class SupportsTrunc[T](Protocol):\n3445                     def __trunc__(self) -> T: ...\n3446 \n3447                 self.assertIsInstance(0.0, SupportsTrunc)\n3448                 self.assertIsSubclass(float, SupportsTrunc)\n3449 \n3450             def test_no_weird_caching_with_issubclass_after_isinstance_pep695(self):\n3451                 @runtime_checkable\n3452                 class Spam[T](Protocol):\n3453                     x: T\n3454 \n3455                 class Eggs[T]:\n3456                     def __init__(self, x: T) -> None:\n3457                         self.x = x\n3458 \n3459                 self.assertIsInstance(Eggs(42), Spam)\n3460 \n3461                 # gh-104555: If we didn't override ABCMeta.__subclasscheck__ in _ProtocolMeta,\n3462                 # TypeError wouldn't be raised here,\n3463                 # as the cached result of the isinstance() check immediately above\n3464                 # would mean the issubclass() call would short-circuit\n3465                 # before we got to the \"raise TypeError\" line\n3466                 with self.assertRaises(TypeError):\n3467                     issubclass(Eggs, Spam)\n3468             \"\"\"\n3469         ))\n3470 \n",
+      "col_offset": 8,
+      "end_col_offset": 10,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 3430,
+      "line_range": [
+        3430,
+        3431,
+        3432,
+        3433,
+        3434,
+        3435,
+        3436,
+        3437,
+        3438,
+        3439,
+        3440,
+        3441,
+        3442,
+        3443,
+        3444,
+        3445,
+        3446,
+        3447,
+        3448,
+        3449,
+        3450,
+        3451,
+        3452,
+        3453,
+        3454,
+        3455,
+        3456,
+        3457,
+        3458,
+        3459,
+        3460,
+        3461,
+        3462,
+        3463,
+        3464,
+        3465,
+        3466,
+        3467,
+        3468,
+        3469
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "3591             z = pickle.dumps(c, proto)\n3592             x = pickle.loads(z)\n3593             self.assertEqual(x.foo, 42)\n",
+      "col_offset": 16,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 3592,
+      "line_range": [
+        3592
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "3597             s = pickle.dumps(P)\n3598             D = pickle.loads(s)\n3599             class E:\n",
+      "col_offset": 16,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 3598,
+      "line_range": [
+        3598
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4106             z = pickle.dumps(jane, proto)\n4107             jane2 = pickle.loads(z)\n4108             self.assertEqual(jane2, jane)\n",
+      "col_offset": 20,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 4107,
+      "line_range": [
+        4107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4110             ZZ = pickle.dumps(EmpD, proto)\n4111             EmpDnew = pickle.loads(ZZ)\n4112             self.assertEqual(EmpDnew({'name': 'jane', 'id': 37}), jane)\n",
+      "col_offset": 22,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 4111,
+      "line_range": [
+        4111
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4117             z = pickle.dumps(point, proto)\n4118             point2 = pickle.loads(z)\n4119             self.assertEqual(point2, point)\n",
+      "col_offset": 21,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 4118,
+      "line_range": [
+        4118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4121             ZZ = pickle.dumps(Point2DGeneric, proto)\n4122             Point2DGenericNew = pickle.loads(ZZ)\n4123             self.assertEqual(Point2DGenericNew({'a': 5.0, 'b': 3.0}), point)\n",
+      "col_offset": 32,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 4122,
+      "line_range": [
+        4122
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4148 \n4149         assert Point2Dor3D.__required_keys__ == frozenset(['x', 'y'])\n4150         assert Point2Dor3D.__optional_keys__ == frozenset(['z'])\n",
+      "col_offset": 8,
+      "end_col_offset": 69,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4149,
+      "line_range": [
+        4149
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4149         assert Point2Dor3D.__required_keys__ == frozenset(['x', 'y'])\n4150         assert Point2Dor3D.__optional_keys__ == frozenset(['z'])\n4151 \n",
+      "col_offset": 8,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4150,
+      "line_range": [
+        4150
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4162 \n4163         assert BaseAnimal.__required_keys__ == frozenset(['name'])\n4164         assert BaseAnimal.__optional_keys__ == frozenset([])\n",
+      "col_offset": 8,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4163,
+      "line_range": [
+        4163
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4163         assert BaseAnimal.__required_keys__ == frozenset(['name'])\n4164         assert BaseAnimal.__optional_keys__ == frozenset([])\n4165         assert BaseAnimal.__annotations__ == {'name': str}\n",
+      "col_offset": 8,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4164,
+      "line_range": [
+        4164
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4164         assert BaseAnimal.__optional_keys__ == frozenset([])\n4165         assert BaseAnimal.__annotations__ == {'name': str}\n4166 \n",
+      "col_offset": 8,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4165,
+      "line_range": [
+        4165
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4166 \n4167         assert Animal.__required_keys__ == frozenset(['name'])\n4168         assert Animal.__optional_keys__ == frozenset(['tail', 'voice'])\n",
+      "col_offset": 8,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4167,
+      "line_range": [
+        4167
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4167         assert Animal.__required_keys__ == frozenset(['name'])\n4168         assert Animal.__optional_keys__ == frozenset(['tail', 'voice'])\n4169         assert Animal.__annotations__ == {\n",
+      "col_offset": 8,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4168,
+      "line_range": [
+        4168
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4168         assert Animal.__optional_keys__ == frozenset(['tail', 'voice'])\n4169         assert Animal.__annotations__ == {\n4170             'name': str,\n4171             'tail': bool,\n4172             'voice': str,\n4173         }\n4174 \n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4169,
+      "line_range": [
+        4169,
+        4170,
+        4171,
+        4172,
+        4173
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4174 \n4175         assert Cat.__required_keys__ == frozenset(['name', 'fur_color'])\n4176         assert Cat.__optional_keys__ == frozenset(['tail', 'voice'])\n",
+      "col_offset": 8,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4175,
+      "line_range": [
+        4175
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4175         assert Cat.__required_keys__ == frozenset(['name', 'fur_color'])\n4176         assert Cat.__optional_keys__ == frozenset(['tail', 'voice'])\n4177         assert Cat.__annotations__ == {\n",
+      "col_offset": 8,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4176,
+      "line_range": [
+        4176
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4176         assert Cat.__optional_keys__ == frozenset(['tail', 'voice'])\n4177         assert Cat.__annotations__ == {\n4178             'fur_color': str,\n4179             'name': str,\n4180             'tail': bool,\n4181             'voice': str,\n4182         }\n4183 \n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4177,
+      "line_range": [
+        4177,
+        4178,
+        4179,
+        4180,
+        4181,
+        4182
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4343             ns = {\"TypedDict\": TypedDict}\n4344             exec(\"\"\"if True:\n4345                 class NewGeneric[T](TypedDict):\n4346                     a: T\n4347             \"\"\", ns)\n4348             NewGeneric = ns[\"NewGeneric\"]\n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 4344,
+      "line_range": [
+        4344,
+        4345,
+        4346,
+        4347
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "4367 \n4368         assert is_typeddict(Point) is True\n4369         assert is_typeddict(PointDict2D) is True\n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4368,
+      "line_range": [
+        4368
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4368         assert is_typeddict(Point) is True\n4369         assert is_typeddict(PointDict2D) is True\n4370         assert is_typeddict(PointDict3D) is True\n",
+      "col_offset": 8,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4369,
+      "line_range": [
+        4369
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4369         assert is_typeddict(PointDict2D) is True\n4370         assert is_typeddict(PointDict3D) is True\n4371 \n",
+      "col_offset": 8,
+      "end_col_offset": 48,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4370,
+      "line_range": [
+        4370
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4396         ns = {\"TypedDict\": TypedDict}\n4397         exec(\"\"\"if True:\n4398             class A[T](TypedDict):\n4399                 a: T\n4400             \"\"\", ns)\n4401         A = ns[\"A\"]\n",
+      "col_offset": 8,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 4397,
+      "line_range": [
+        4397,
+        4398,
+        4399,
+        4400
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "4457         self.assertEqual(C.__required_keys__, frozenset(['a', 'c']))\n4458         assert C.__annotations__ == {\n4459             'a': T,\n4460             'b': KT,\n4461             'c': int,\n4462         }\n4463         with self.assertRaises(TypeError):\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4458,
+      "line_range": [
+        4458,
+        4459,
+        4460,
+        4461,
+        4462
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4506         self.assertEqual(WithImplicitAny.__required_keys__, frozenset(['a', 'c']))\n4507         assert WithImplicitAny.__annotations__ == {\n4508             'a': T,\n4509             'b': KT,\n4510             'c': int,\n4511         }\n4512         with self.assertRaises(TypeError):\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 4507,
+      "line_range": [
+        4507,
+        4508,
+        4509,
+        4510,
+        4511
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "4577             ns = {\"TypedDict\": TypedDict}\n4578             exec(\"class T3[tvar](TypedDict): pass\", ns)\n4579             T3 = ns[\"T3\"]\n",
+      "col_offset": 12,
+      "end_col_offset": 55,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 4578,
+      "line_range": [
+        4578
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "4937                     pickled = pickle.dumps(x, prot)\n4938                     restored = pickle.loads(pickled)\n4939                     self.assertEqual(x, restored)\n",
+      "col_offset": 31,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 4938,
+      "line_range": [
+        4938
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "4951             z = pickle.dumps(G, proto)\n4952             x = pickle.loads(z)\n4953             self.assertEqual(x.foo, 42)\n",
+      "col_offset": 16,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 4952,
+      "line_range": [
+        4952
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5058     def test_get_type_hints_typeddict(self):\n5059         assert get_type_hints(TotalMovie) == {'title': str, 'year': int}\n5060         assert get_type_hints(TotalMovie, include_extras=True) == {\n",
+      "col_offset": 8,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 5059,
+      "line_range": [
+        5059
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "5059         assert get_type_hints(TotalMovie) == {'title': str, 'year': int}\n5060         assert get_type_hints(TotalMovie, include_extras=True) == {\n5061             'title': str,\n5062             'year': NotRequired[int],\n5063         }\n5064 \n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 5060,
+      "line_range": [
+        5060,
+        5061,
+        5062,
+        5063
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "5064 \n5065         assert get_type_hints(AnnotatedMovie) == {'title': str, 'year': int}\n5066         assert get_type_hints(AnnotatedMovie, include_extras=True) == {\n",
+      "col_offset": 8,
+      "end_col_offset": 76,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 5065,
+      "line_range": [
+        5065
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "5065         assert get_type_hints(AnnotatedMovie) == {'title': str, 'year': int}\n5066         assert get_type_hints(AnnotatedMovie, include_extras=True) == {\n5067             'title': Annotated[Required[str], \"foobar\"],\n5068             'year': NotRequired[Annotated[int, 2000]],\n5069         }\n5070 \n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 5066,
+      "line_range": [
+        5066,
+        5067,
+        5068,
+        5069
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "5117         ns = {}\n5118         exec('Alias: TypeAlias = Employee', globals(), ns)\n5119 \n",
+      "col_offset": 8,
+      "end_col_offset": 58,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 5118,
+      "line_range": [
+        5118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "5298                 for paramspec in (P, P_co, P_contra, P_default):\n5299                     z = pickle.loads(pickle.dumps(paramspec, proto))\n5300                     self.assertEqual(z.__name__, paramspec.__name__)\n",
+      "col_offset": 24,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 5299,
+      "line_range": [
+        5299
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5343         try:\n5344             proc = subprocess.run(\n5345                 [sys.executable, \"-c\", code], check=True, capture_output=True, text=True,\n5346             )\n5347         except subprocess.CalledProcessError as exc:\n",
+      "col_offset": 19,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 5344,
+      "line_range": [
+        5344,
+        5345,
+        5346
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "5673             pickled = pickle.dumps(LiteralString, protocol=proto)\n5674             self.assertIs(LiteralString, pickle.loads(pickled))\n5675 \n",
+      "col_offset": 41,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 5674,
+      "line_range": [
+        5674
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5720             pickled = pickle.dumps(Self, protocol=proto)\n5721             self.assertIs(Self, pickle.loads(pickled))\n5722 \n",
+      "col_offset": 32,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 5721,
+      "line_range": [
+        5721
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5926             for typevartuple in (Ts, Ts_default):\n5927                 z = pickle.loads(pickle.dumps(typevartuple, proto))\n5928                 self.assertEqual(z.__name__, typevartuple.__name__)\n",
+      "col_offset": 20,
+      "end_col_offset": 67,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 5927,
+      "line_range": [
+        5927
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "6211                                     stderr=subprocess.STDOUT,\n6212                                     shell=True)\n6213         except subprocess.CalledProcessError:\n6214             self.fail('Module does not compile with optimize=2 (-OO flag).')\n6215 \n",
+      "col_offset": 12,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 6212,
+      "line_range": [
+        6210,
+        6211,
+        6212
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "6501                     z = pickle.dumps(jane, proto)\n6502                     jane2 = pickle.loads(z)\n6503                     self.assertEqual(jane2, jane)\n",
+      "col_offset": 28,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 6502,
+      "line_range": [
+        6502
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "6800                 )\n6801         exec(code, {})\n6802 \n",
+      "col_offset": 8,
+      "end_col_offset": 22,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 6801,
+      "line_range": [
+        6801
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "6950             for typevar in (U, U_co, U_contra, U_default):\n6951                 z = pickle.loads(pickle.dumps(typevar, proto))\n6952                 self.assertEqual(z.__name__, typevar.__name__)\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 6951,
+      "line_range": [
+        6951
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "7052             s = pickle.dumps(NoDefault, proto)\n7053             loaded = pickle.loads(s)\n7054             self.assertIs(NoDefault, loaded)\n",
+      "col_offset": 21,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 7053,
+      "line_range": [
+        7053
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "7100             for typevar in (U, U_infer):\n7101                 z = pickle.loads(pickle.dumps(typevar, proto))\n7102                 self.assertEqual(z.__name__, typevar.__name__)\n",
+      "col_offset": 20,
+      "end_col_offset": 62,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 7101,
+      "line_range": [
+        7101
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "7400                 pickled = pickle.dumps(Alias, proto)\n7401                 unpickled = pickle.loads(pickled)\n7402                 self.assertIs(unpickled, Alias)\n",
+      "col_offset": 28,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 7401,
+      "line_range": [
+        7401
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "7515             pickled = pickle.dumps(doc_info, protocol=proto)\n7516             self.assertEqual(doc_info, pickle.loads(pickled))\n7517 \n",
+      "col_offset": 39,
+      "end_col_offset": 60,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\test_typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 7516,
+      "line_range": [
+        7516
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "316                             deduped_pairs.remove(pair)\n317                     assert not deduped_pairs, deduped_pairs\n318                     parameters = tuple(new_parameters)\n",
+      "col_offset": 20,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 317,
+      "line_range": [
+        317
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1267         def copy_with(self, params):\n1268             assert len(params) == 1\n1269             new_type = params[0]\n",
+      "col_offset": 12,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1268,
+      "line_range": [
+        1268
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "1646                 if len(params) == 1 and not typing._is_param_expr(args[0]):\n1647                     assert i == 0\n1648                     args = (args,)\n",
+      "col_offset": 20,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 1647,
+      "line_range": [
+        1647
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2466         def __typing_unpacked_tuple_args__(self):\n2467             assert self.__origin__ is Unpack\n2468             assert len(self.__args__) == 1\n",
+      "col_offset": 12,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2467,
+      "line_range": [
+        2467
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2467             assert self.__origin__ is Unpack\n2468             assert len(self.__args__) == 1\n2469             arg, = self.__args__\n",
+      "col_offset": 12,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2468,
+      "line_range": [
+        2468
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2477         def __typing_is_unpacked_typevartuple__(self):\n2478             assert self.__origin__ is Unpack\n2479             assert len(self.__args__) == 1\n",
+      "col_offset": 12,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2478,
+      "line_range": [
+        2478
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2478             assert self.__origin__ is Unpack\n2479             assert len(self.__args__) == 1\n2480             return isinstance(self.__args__[0], TypeVarTuple)\n",
+      "col_offset": 12,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2479,
+      "line_range": [
+        2479
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2500         def __typing_is_unpacked_typevartuple__(self):\n2501             assert self.__origin__ is Unpack\n2502             assert len(self.__args__) == 1\n",
+      "col_offset": 12,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2501,
+      "line_range": [
+        2501
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "2501             assert self.__origin__ is Unpack\n2502             assert len(self.__args__) == 1\n2503             return isinstance(self.__args__[0], TypeVarTuple)\n",
+      "col_offset": 12,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 2502,
+      "line_range": [
+        2502
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "3262         def __new__(cls, typename, bases, ns):\n3263             assert _NamedTuple in bases\n3264             for base in bases:\n",
+      "col_offset": 12,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 3263,
+      "line_range": [
+        3263
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "3333     def _namedtuple_mro_entries(bases):\n3334         assert NamedTuple in bases\n3335         return (_NamedTuple,)\n",
+      "col_offset": 8,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 3334,
+      "line_range": [
+        3334
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "3946         return_value = {key:\n3947             value if not isinstance(value, str) else eval(value, globals, locals)\n3948             for key, value in ann.items() }\n",
+      "col_offset": 53,
+      "end_col_offset": 81,
+      "filename": "D:\\bandit\\upstream-repos\\py3-typing-extensions\\src\\typing_extensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 3947,
+      "line_range": [
+        3947
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    }
+  ]
+}

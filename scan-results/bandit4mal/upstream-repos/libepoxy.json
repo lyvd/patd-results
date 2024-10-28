@@ -1,0 +1,194 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:29:13Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 7,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 633,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 7,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 633,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "26 import argparse\n27 import xml.etree.ElementTree as ET\n28 import re\n",
+      "col_offset": 0,
+      "end_col_offset": 34,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "line_number": 27,
+      "line_range": [
+        27
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b405-import-xml-etree",
+      "test_id": "B405",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "128         if arg_type == 'GLhandleARB':\n129             assert len(self.args) < 6\n130             arg_list_name = '(uintptr_t)' + arg_name\n",
+      "col_offset": 12,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 129,
+      "line_range": [
+        129
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "146     def add_alias(self, ext):\n147         assert self.alias_func is None\n148 \n",
+      "col_offset": 8,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 147,
+      "line_range": [
+        147
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "301                 if provider.condition_name in self.provider_enum:\n302                     assert self.provider_condition[provider.condition_name] == provider.condition\n303                     assert self.provider_loader[provider.condition_name] == provider.loader\n",
+      "col_offset": 20,
+      "end_col_offset": 97,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 302,
+      "line_range": [
+        302
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "302                     assert self.provider_condition[provider.condition_name] == provider.condition\n303                     assert self.provider_loader[provider.condition_name] == provider.loader\n304                     continue\n",
+      "col_offset": 20,
+      "end_col_offset": 91,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 303,
+      "line_range": [
+        303
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "425     def parse(self, xml_file):\n426         reg = ET.parse(xml_file)\n427         comment = reg.find('comment')\n",
+      "col_offset": 14,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 20,
+        "link": "https://cwe.mitre.org/data/definitions/20.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "line_number": 426,
+      "line_range": [
+        426
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-elementtree",
+      "test_id": "B314",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "615         else:\n616             assert providers[0].name == func.name\n617             self.outln('    return {0}_single_resolver({1}, {2} /* {3} */);'.format(self.target,\n",
+      "col_offset": 12,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 616,
+      "line_range": [
+        616
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "679         # We're using uint16_t for the offsets.\n680         assert offset < 65536\n681 \n",
+      "col_offset": 8,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\libepoxy\\src\\gen_dispatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 680,
+      "line_range": [
+        680
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

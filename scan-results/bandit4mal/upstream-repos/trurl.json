@@ -1,0 +1,163 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:17:18Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\trurl\\test.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 200,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 1,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 200,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "29 import shlex\n30 from subprocess import PIPE, run, Popen\n31 from dataclasses import dataclass, asdict\n",
+      "col_offset": 0,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\trurl\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 30,
+      "line_range": [
+        30
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "65     process = Popen(VALGRINDTEST + \" --version\",\n66                     shell=True, stdout=PIPE, stderr=PIPE, encoding=\"utf-8\")\n67     output, error = process.communicate()\n68     if output.startswith(VALGRINDTEST) and not len(error):\n",
+      "col_offset": 14,
+      "end_col_offset": 75,
+      "filename": "D:\\bandit\\upstream-repos\\trurl\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 66,
+      "line_range": [
+        65,
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "73 def getcharmap():\n74     process = Popen(\"locale charmap\", shell=True, stdout=PIPE, stderr=PIPE, encoding=\"utf-8\");\n75     output, error = process.communicate()\n",
+      "col_offset": 14,
+      "end_col_offset": 93,
+      "filename": "D:\\bandit\\upstream-repos\\trurl\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 74,
+      "line_range": [
+        74
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "73 def getcharmap():\n74     process = Popen(\"locale charmap\", shell=True, stdout=PIPE, stderr=PIPE, encoding=\"utf-8\");\n75     output, error = process.communicate()\n",
+      "col_offset": 14,
+      "end_col_offset": 93,
+      "filename": "D:\\bandit\\upstream-repos\\trurl\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "line_number": 74,
+      "line_range": [
+        74
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "102 \n103         output = run(\n104             cmd + args,\n105             stdout=PIPE, stderr=PIPE,\n106             encoding=\"utf-8\"\n107         )\n108 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\trurl\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 103,
+      "line_range": [
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "235             cmd = [baseCmd]\n236         output = run(\n237             cmd + args,\n238             stdout=PIPE, stderr=PIPE,\n239             encoding=\"utf-8\"\n240         )\n241         features = output.stdout.split('\\n')[1].split()[1:]\n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\trurl\\test.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 236,
+      "line_range": [
+        236,
+        237,
+        238,
+        239,
+        240
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

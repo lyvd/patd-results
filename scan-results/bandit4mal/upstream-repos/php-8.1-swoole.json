@@ -1,0 +1,113 @@
+{
+  "errors": [
+    {
+      "filename": "D:\\bandit\\upstream-repos\\php-8.1-swoole\\examples\\process\\echo.py",
+      "reason": "syntax error while parsing AST from file"
+    },
+    {
+      "filename": "D:\\bandit\\upstream-repos\\php-8.1-swoole\\tests\\swoole_process\\echo.py",
+      "reason": "syntax error while parsing AST from file"
+    }
+  ],
+  "generated_at": "2024-10-27T17:29:59Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\php-8.1-swoole\\examples\\process\\echo.py": {
+      "loc": 5,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\php-8.1-swoole\\tests\\include\\macos\\phpstorm.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 84,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\php-8.1-swoole\\tests\\swoole_process\\echo.py": {
+      "loc": 5,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 94,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "98             args.insert(0, '--args')\n99         os.execvp('open', ['-a', RUN_PATH] + args)\n100     else:\n",
+      "col_offset": 8,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\php-8.1-swoole\\tests\\include\\macos\\phpstorm.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 99,
+      "line_range": [
+        99
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "98             args.insert(0, '--args')\n99         os.execvp('open', ['-a', RUN_PATH] + args)\n100     else:\n",
+      "col_offset": 8,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\php-8.1-swoole\\tests\\include\\macos\\phpstorm.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 99,
+      "line_range": [
+        99
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "101         bin_file = os.path.split(RUN_PATH)[1]\n102         os.execv(RUN_PATH, [bin_file] + args)\n103 \n",
+      "col_offset": 8,
+      "end_col_offset": 45,
+      "filename": "D:\\bandit\\upstream-repos\\php-8.1-swoole\\tests\\include\\macos\\phpstorm.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 102,
+      "line_range": [
+        102
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    }
+  ]
+}

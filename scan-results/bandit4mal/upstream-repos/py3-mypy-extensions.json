@@ -1,0 +1,307 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:59:08Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\mypy_extensions.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 143,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\setup.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 36,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 4,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 176,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 4,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 355,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "1 import sys\n2 import pickle\n3 import typing\n",
+      "col_offset": 0,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with pickle module.",
+      "line_number": 2,
+      "line_range": [
+        2
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "48 if PY36:\n49     exec(PY36_TESTS)\n50 \n",
+      "col_offset": 4,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 49,
+      "line_range": [
+        49
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "128     if PY36:\n129         exec(dedent(\n130             \"\"\"\n131             def test_py36_class_usage_emits_deprecations(self):\n132                 with self.assert_typeddict_deprecated():\n133                     class Foo(TypedDict):\n134                         bar: int\n135             \"\"\"\n136         ))\n137 \n",
+      "col_offset": 8,
+      "end_col_offset": 10,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 129,
+      "line_range": [
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "144             z = pickle.dumps(jane, proto)\n145             jane2 = pickle.loads(z)\n146             self.assertEqual(jane2, jane)\n",
+      "col_offset": 20,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 145,
+      "line_range": [
+        145
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "148             ZZ = pickle.dumps(EmpD, proto)\n149             EmpDnew = pickle.loads(ZZ)\n150             self.assertEqual(EmpDnew({'name': 'jane', 'id': 37}), jane)\n",
+      "col_offset": 22,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 149,
+      "line_range": [
+        149
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "197         for native_int in native_int_types:\n198             assert isinstance(0, native_int)\n199             assert isinstance(1234, native_int)\n",
+      "col_offset": 12,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 198,
+      "line_range": [
+        198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "198             assert isinstance(0, native_int)\n199             assert isinstance(1234, native_int)\n200             assert isinstance(True, native_int)\n",
+      "col_offset": 12,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 199,
+      "line_range": [
+        199
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "199             assert isinstance(1234, native_int)\n200             assert isinstance(True, native_int)\n201             assert not isinstance(1.0, native_int)\n",
+      "col_offset": 12,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 200,
+      "line_range": [
+        200
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "200             assert isinstance(True, native_int)\n201             assert not isinstance(1.0, native_int)\n202 \n",
+      "col_offset": 12,
+      "end_col_offset": 50,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 201,
+      "line_range": [
+        201
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "205             # Just check that a docstring exists\n206             assert native_int.__doc__\n207 \n",
+      "col_offset": 12,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 206,
+      "line_range": [
+        206
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "208     def assert_same(self, x, y):\n209         assert type(x) is type(y)\n210         assert x == y\n",
+      "col_offset": 8,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 209,
+      "line_range": [
+        209
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "209         assert type(x) is type(y)\n210         assert x == y\n211 \n",
+      "col_offset": 8,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\py3-mypy-extensions\\tests\\testextensions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 210,
+      "line_range": [
+        210
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

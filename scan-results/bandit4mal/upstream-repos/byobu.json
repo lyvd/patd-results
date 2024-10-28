@@ -1,0 +1,567 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T16:57:27Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\byobu\\debian\\source_byobu.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 9,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py": {
+      "CONFIDENCE.HIGH": 18,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 8,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 25,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 151,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 18,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 8,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 25,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 160,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "25 import sys\n26 import subprocess\n27 try:\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "53 \t\ttry:\n54 \t\t\toutput = subprocess.Popen([\"screen\", \"-ls\"], stdout=subprocess.PIPE).communicate()[0]\n55 \t\texcept subprocess.CalledProcessError as cpe:\n",
+      "col_offset": 12,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "53 \t\ttry:\n54 \t\t\toutput = subprocess.Popen([\"screen\", \"-ls\"], stdout=subprocess.PIPE).communicate()[0]\n55 \t\texcept subprocess.CalledProcessError as cpe:\n",
+      "col_offset": 12,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "74 \tif BYOBU_BACKEND == \"tmux\":\n75 \t\toutput = subprocess.Popen([\"tmux\", \"list-sessions\"], stdout=subprocess.PIPE).communicate()[0]\n76 \t\tif sys.stdout.encoding is None:\n",
+      "col_offset": 11,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "74 \tif BYOBU_BACKEND == \"tmux\":\n75 \t\toutput = subprocess.Popen([\"tmux\", \"list-sessions\"], stdout=subprocess.PIPE).communicate()[0]\n76 \t\tif sys.stdout.encoding is None:\n",
+      "col_offset": 11,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "94 \tif BYOBU_BACKEND == \"tmux\":\n95 \t\toutput = subprocess.Popen([\"tmux\", \"list-sessions\"], stdout=subprocess.PIPE).communicate()[0]\n96 \t\tif sys.stdout.encoding is None:\n",
+      "col_offset": 11,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "94 \tif BYOBU_BACKEND == \"tmux\":\n95 \t\toutput = subprocess.Popen([\"tmux\", \"list-sessions\"], stdout=subprocess.PIPE).communicate()[0]\n96 \t\tif sys.stdout.encoding is None:\n",
+      "col_offset": 11,
+      "end_col_offset": 78,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "113 \t\tfor s in re.findall(pattern, output, re.MULTILINE):\n114 \t\t\tsubprocess.Popen([\"tmux\", \"kill-session\", \"-t\", s.split(\":\")[0]])\n115 \n",
+      "col_offset": 3,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 114,
+      "line_range": [
+        114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "113 \t\tfor s in re.findall(pattern, output, re.MULTILINE):\n114 \t\t\tsubprocess.Popen([\"tmux\", \"kill-session\", \"-t\", s.split(\":\")[0]])\n115 \n",
+      "col_offset": 3,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 114,
+      "line_range": [
+        114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "125 \t\t\t\tcmd = [\"screen\", \"-S\", session_name, \"-X\", \"setenv\", var, value]\n126 \t\t\tsubprocess.call(cmd, stdout=open(os.devnull, \"w\"))\n127 \n",
+      "col_offset": 3,
+      "end_col_offset": 53,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 126,
+      "line_range": [
+        126
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "135 \t\tif reuse_sessions:\n136 \t\t\tos.execvp(\"tmux\", [\"tmux\", \"-u\", \"attach\", \"-t\", session_name])\n137 \t\telse:\n",
+      "col_offset": 3,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 136,
+      "line_range": [
+        136
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "135 \t\tif reuse_sessions:\n136 \t\t\tos.execvp(\"tmux\", [\"tmux\", \"-u\", \"attach\", \"-t\", session_name])\n137 \t\telse:\n",
+      "col_offset": 3,
+      "end_col_offset": 66,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 136,
+      "line_range": [
+        136
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "137 \t\telse:\n138 \t\t\tos.execvp(\"tmux\", [\"tmux\", \"-u\", \"new-session\", \"-t\", session_name, \";\", \"set-option\", \"destroy-unattached\"])\n139 \telse:\n",
+      "col_offset": 3,
+      "end_col_offset": 112,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 138,
+      "line_range": [
+        138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "137 \t\telse:\n138 \t\t\tos.execvp(\"tmux\", [\"tmux\", \"-u\", \"new-session\", \"-t\", session_name, \";\", \"set-option\", \"destroy-unattached\"])\n139 \telse:\n",
+      "col_offset": 3,
+      "end_col_offset": 112,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 138,
+      "line_range": [
+        138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "139 \telse:\n140 \t\tos.execvp(\"screen\", [\"screen\", \"-AOxRR\", session_name])\n141 \n",
+      "col_offset": 2,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 140,
+      "line_range": [
+        140
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "139 \telse:\n140 \t\tos.execvp(\"screen\", [\"screen\", \"-AOxRR\", session_name])\n141 \n",
+      "col_offset": 2,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 140,
+      "line_range": [
+        140
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "170 \t\t\texcept Exception:\n171 \t\t\t\tchoice = int(eval(user_input))\n172 \t\t\tif choice >= 1 and choice < i:\n",
+      "col_offset": 17,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 171,
+      "line_range": [
+        171
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "195 \t\tif BYOBU_BACKEND == \"tmux\":\n196 \t\t\tos.execvp(\"byobu\", [\"byobu\", \"new-session\", SHELL])\n197 \t\telse:\n",
+      "col_offset": 3,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 196,
+      "line_range": [
+        196
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "195 \t\tif BYOBU_BACKEND == \"tmux\":\n196 \t\t\tos.execvp(\"byobu\", [\"byobu\", \"new-session\", SHELL])\n197 \t\telse:\n",
+      "col_offset": 3,
+      "end_col_offset": 54,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 196,
+      "line_range": [
+        196
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "197 \t\telse:\n198 \t\t\tos.execvp(\"byobu\", [\"byobu\", SHELL])\n199 \telif sessions[choice - 1] == \"SHELL\":\n",
+      "col_offset": 3,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 198,
+      "line_range": [
+        198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "197 \t\telse:\n198 \t\t\tos.execvp(\"byobu\", [\"byobu\", SHELL])\n199 \telif sessions[choice - 1] == \"SHELL\":\n",
+      "col_offset": 3,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 198,
+      "line_range": [
+        198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "199 \telif sessions[choice - 1] == \"SHELL\":\n200 \t\tos.execvp(SHELL, [SHELL])\n201 \telse:\n",
+      "col_offset": 2,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 200,
+      "line_range": [
+        200
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "206 if BYOBU_BACKEND == \"tmux\":\n207 \tos.execvp(\"tmux\", [\"tmux\"])\n208 else:\n",
+      "col_offset": 1,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 207,
+      "line_range": [
+        207
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "206 if BYOBU_BACKEND == \"tmux\":\n207 \tos.execvp(\"tmux\", [\"tmux\"])\n208 else:\n",
+      "col_offset": 1,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 207,
+      "line_range": [
+        207
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "208 else:\n209 \tos.execvp(\"screen\", [\"screen\", \"-AOxRR\"])\n",
+      "col_offset": 1,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 209,
+      "line_range": [
+        209
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "208 else:\n209 \tos.execvp(\"screen\", [\"screen\", \"-AOxRR\"])\n",
+      "col_offset": 1,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\byobu\\usr\\lib\\byobu\\include\\select-session.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 209,
+      "line_range": [
+        209
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    }
+  ]
+}

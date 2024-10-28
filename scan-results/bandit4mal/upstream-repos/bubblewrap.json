@@ -1,0 +1,686 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T16:57:26Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 27,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 12,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 527,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py": {
+      "CONFIDENCE.HIGH": 7,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 7,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 18,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 24,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 25,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 572,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "2 \n3 import os, select, subprocess, sys, json\n4 \n",
+      "col_offset": 0,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 3,
+      "line_range": [
+        3
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "18 \n19     subprocess.call([\"newuidmap\", child_pid, \"0\", str(os.getuid()), \"1\"])\n20     subprocess.call([\"newgidmap\", child_pid, \"0\", str(os.getgid()), \"1\"])\n",
+      "col_offset": 4,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "18 \n19     subprocess.call([\"newuidmap\", child_pid, \"0\", str(os.getuid()), \"1\"])\n20     subprocess.call([\"newgidmap\", child_pid, \"0\", str(os.getgid()), \"1\"])\n",
+      "col_offset": 4,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 19,
+      "line_range": [
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "19     subprocess.call([\"newuidmap\", child_pid, \"0\", str(os.getuid()), \"1\"])\n20     subprocess.call([\"newgidmap\", child_pid, \"0\", str(os.getgid()), \"1\"])\n21 \n",
+      "col_offset": 4,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 20,
+      "line_range": [
+        20
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "19     subprocess.call([\"newuidmap\", child_pid, \"0\", str(os.getuid()), \"1\"])\n20     subprocess.call([\"newgidmap\", child_pid, \"0\", str(os.getgid()), \"1\"])\n21 \n",
+      "col_offset": 4,
+      "end_col_offset": 73,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 20,
+      "line_range": [
+        20
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "38 \n39     os.execlp(*args)\n",
+      "col_offset": 4,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\demos\\userns-block-fd.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process without a shell.",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b606_start_process_with_no_shell.html",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell"
+    },
+    {
+      "code": "7 import os\n8 import subprocess\n9 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "225 \n226         completed = subprocess.run(\n227             [\n228                 self.bwrap,\n229                 '--ro-bind', '/', '/',\n230                 'true',\n231             ],\n232             stdin=subprocess.DEVNULL,\n233             stdout=subprocess.DEVNULL,\n234             stderr=2,\n235         )\n236 \n",
+      "col_offset": 20,
+      "end_col_offset": 9,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 226,
+      "line_range": [
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "247             print('# {} without seccomp'.format(syscall))\n248             completed = subprocess.run(\n249                 [\n250                     self.bwrap,\n251                     '--ro-bind', '/', '/',\n252                     self.try_syscall, syscall,\n253                 ],\n254                 stdin=subprocess.DEVNULL,\n255                 stdout=subprocess.DEVNULL,\n256                 stderr=2,\n257             )\n258 \n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 248,
+      "line_range": [
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "298 \n299                 completed = subprocess.run(\n300                     [\n301                         self.bwrap,\n302                         '--ro-bind', '/', '/',\n303                         '--seccomp', str(allowlist_temp.fileno()),\n304                         self.try_syscall, syscall,\n305                     ],\n306                     pass_fds=(allowlist_temp.fileno(),),\n307                     stdin=subprocess.DEVNULL,\n308                     stdout=subprocess.DEVNULL,\n309                     stderr=2,\n310                 )\n311 \n",
+      "col_offset": 28,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 299,
+      "line_range": [
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "357 \n358                 completed = subprocess.run(\n359                     [\n360                         self.bwrap,\n361                         '--ro-bind', '/', '/',\n362                         '--seccomp', str(denylist_temp.fileno()),\n363                         self.try_syscall, syscall,\n364                     ],\n365                     pass_fds=(denylist_temp.fileno(),),\n366                     stdin=subprocess.DEVNULL,\n367                     stdout=subprocess.DEVNULL,\n368                     stderr=2,\n369                 )\n370 \n",
+      "col_offset": 28,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 358,
+      "line_range": [
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "439 \n440                 completed = subprocess.run(\n441                     [\n442                         self.bwrap,\n443                         '--ro-bind', '/', '/',\n444                         '--add-seccomp-fd', str(fds[0]),\n445                         '--add-seccomp-fd', str(fds[1]),\n446                         self.try_syscall, syscall,\n447                     ],\n448                     pass_fds=fds,\n449                     stdin=subprocess.DEVNULL,\n450                     stdout=subprocess.DEVNULL,\n451                     stderr=2,\n452                 )\n453 \n",
+      "col_offset": 28,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 440,
+      "line_range": [
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "504         ) as denylist_temp:\n505             completed = subprocess.run(\n506                 [\n507                     self.bwrap,\n508                     '--ro-bind', '/', '/',\n509                     '--add-seccomp-fd', '-1',\n510                     'true',\n511                 ],\n512                 stdin=subprocess.DEVNULL,\n513                 stdout=subprocess.DEVNULL,\n514                 stderr=subprocess.PIPE,\n515             )\n516             self.assertIn(b'bwrap: Invalid fd: -1\\n', completed.stderr)\n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 505,
+      "line_range": [
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        514,
+        515
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "518 \n519             completed = subprocess.run(\n520                 [\n521                     self.bwrap,\n522                     '--ro-bind', '/', '/',\n523                     '--seccomp', '0a',\n524                     'true',\n525                 ],\n526                 stdin=subprocess.DEVNULL,\n527                 stdout=subprocess.DEVNULL,\n528                 stderr=subprocess.PIPE,\n529             )\n530             self.assertIn(b'bwrap: Invalid fd: 0a\\n', completed.stderr)\n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 519,
+      "line_range": [
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525,
+        526,
+        527,
+        528,
+        529
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "532 \n533             completed = subprocess.run(\n534                 [\n535                     self.bwrap,\n536                     '--ro-bind', '/', '/',\n537                     '--add-seccomp-fd', str(denylist_temp.fileno()),\n538                     '--seccomp', str(allowlist_temp.fileno()),\n539                     'true',\n540                 ],\n541                 pass_fds=(allowlist_temp.fileno(), denylist_temp.fileno()),\n542                 stdin=subprocess.DEVNULL,\n543                 stdout=subprocess.DEVNULL,\n544                 stderr=subprocess.PIPE,\n545             )\n546             self.assertIn(\n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 533,
+      "line_range": [
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543,
+        544,
+        545
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "551 \n552             completed = subprocess.run(\n553                 [\n554                     self.bwrap,\n555                     '--ro-bind', '/', '/',\n556                     '--seccomp', str(allowlist_temp.fileno()),\n557                     '--add-seccomp-fd', str(denylist_temp.fileno()),\n558                     'true',\n559                 ],\n560                 pass_fds=(allowlist_temp.fileno(), denylist_temp.fileno()),\n561                 stdin=subprocess.DEVNULL,\n562                 stdout=subprocess.DEVNULL,\n563                 stderr=subprocess.PIPE,\n564             )\n565             self.assertIn(\n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 552,
+      "line_range": [
+        552,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        563,
+        564
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "570 \n571             completed = subprocess.run(\n572                 [\n573                     self.bwrap,\n574                     '--ro-bind', '/', '/',\n575                     '--add-seccomp-fd', str(allowlist_temp.fileno()),\n576                     '--add-seccomp-fd', str(allowlist_temp.fileno()),\n577                     'true',\n578                 ],\n579                 pass_fds=(allowlist_temp.fileno(), allowlist_temp.fileno()),\n580                 stdin=subprocess.DEVNULL,\n581                 stdout=subprocess.DEVNULL,\n582                 stderr=subprocess.PIPE,\n583             )\n584             self.assertIn(\n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 571,
+      "line_range": [
+        571,
+        572,
+        573,
+        574,
+        575,
+        576,
+        577,
+        578,
+        579,
+        580,
+        581,
+        582,
+        583
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "591             allowlist_temp.seek(0, os.SEEK_SET)\n592             completed = subprocess.run(\n593                 [\n594                     self.bwrap,\n595                     '--ro-bind', '/', '/',\n596                     '--add-seccomp-fd', str(denylist_temp.fileno()),\n597                     '--add-seccomp-fd', str(allowlist_temp.fileno()),\n598                     'true',\n599                 ],\n600                 pass_fds=(allowlist_temp.fileno(), denylist_temp.fileno()),\n601                 stdin=subprocess.DEVNULL,\n602                 stdout=subprocess.DEVNULL,\n603                 stderr=subprocess.PIPE,\n604             )\n605             self.assertIn(\n",
+      "col_offset": 24,
+      "end_col_offset": 13,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\test-seccomp.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 592,
+      "line_range": [
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602,
+        603,
+        604
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "4 \n5 import subprocess\n6 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 5,
+      "line_range": [
+        5
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 if __name__ == '__main__':\n9     completed = subprocess.run(\n10         ['objdump', '-T', '-x', sys.argv[1]],\n11         stdout=subprocess.PIPE,\n12     )\n13     stdout = completed.stdout\n",
+      "col_offset": 16,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 9,
+      "line_range": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "8 if __name__ == '__main__':\n9     completed = subprocess.run(\n10         ['objdump', '-T', '-x', sys.argv[1]],\n11         stdout=subprocess.PIPE,\n12     )\n13     stdout = completed.stdout\n",
+      "col_offset": 16,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 9,
+      "line_range": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "13     stdout = completed.stdout\n14     assert stdout is not None\n15     seen_rpath = False\n",
+      "col_offset": 4,
+      "end_col_offset": 29,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 14,
+      "line_range": [
+        14
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "21             print(line.decode(errors='backslashreplace'))\n22             assert len(words) == 2, words\n23             assert words[1] == b'${ORIGIN}/../lib', words\n",
+      "col_offset": 12,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 22,
+      "line_range": [
+        22
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "22             assert len(words) == 2, words\n23             assert words[1] == b'${ORIGIN}/../lib', words\n24             seen_rpath = True\n",
+      "col_offset": 12,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "25 \n26     assert seen_rpath\n",
+      "col_offset": 4,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\bubblewrap\\tests\\use-as-subproject\\assert-correct-rpath.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

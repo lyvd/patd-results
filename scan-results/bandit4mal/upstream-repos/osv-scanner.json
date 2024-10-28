@@ -1,0 +1,506 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:29:58Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py": {
+      "CONFIDENCE.HIGH": 10,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 10,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 105,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 175,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-debian-versions.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 1,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 147,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-pypi-versions.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 96,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\report_uncleaned_snapshots.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 36,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 19,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 16,
+      "SEVERITY.MEDIUM": 5,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 559,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "9 import re\n10 import subprocess\n11 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "33 # check if the directory is within a git repo\n34 if subprocess.call(['git', '-C', directory, 'rev-parse']):\n35   print(f'{directory} is not part of a git repository')\n",
+      "col_offset": 3,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 34,
+      "line_range": [
+        34
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "33 # check if the directory is within a git repo\n34 if subprocess.call(['git', '-C', directory, 'rev-parse']):\n35   print(f'{directory} is not part of a git repository')\n",
+      "col_offset": 3,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 34,
+      "line_range": [
+        34
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "43   # restore package.json & package-lock.json\n44   subprocess.check_call(['git', 'checkout', 'package.json', 'package-lock.json'], cwd=directory)\n45   # run osv-fix and parse changes\n",
+      "col_offset": 2,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 44,
+      "line_range": [
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "43   # restore package.json & package-lock.json\n44   subprocess.check_call(['git', 'checkout', 'package.json', 'package-lock.json'], cwd=directory)\n45   # run osv-fix and parse changes\n",
+      "col_offset": 2,
+      "end_col_offset": 96,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 44,
+      "line_range": [
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "55   try:\n56     output = subprocess.check_output(cmd, text=True)\n57   except subprocess.CalledProcessError as e:\n",
+      "col_offset": 13,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "95     # check the install & tests\n96     if subprocess.call(['npm', 'ci'], cwd=directory) or subprocess.call(['npm', 'run', 'test'], cwd=directory):  # tests failed\n97       if n_patches == 0:\n",
+      "col_offset": 7,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "95     # check the install & tests\n96     if subprocess.call(['npm', 'ci'], cwd=directory) or subprocess.call(['npm', 'run', 'test'], cwd=directory):  # tests failed\n97       if n_patches == 0:\n",
+      "col_offset": 7,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "95     # check the install & tests\n96     if subprocess.call(['npm', 'ci'], cwd=directory) or subprocess.call(['npm', 'run', 'test'], cwd=directory):  # tests failed\n97       if n_patches == 0:\n",
+      "col_offset": 56,
+      "end_col_offset": 110,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "95     # check the install & tests\n96     if subprocess.call(['npm', 'ci'], cwd=directory) or subprocess.call(['npm', 'run', 'test'], cwd=directory):  # tests failed\n97       if n_patches == 0:\n",
+      "col_offset": 56,
+      "end_col_offset": 110,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\examples\\auto_guided_remediation.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "6 import os\n7 import subprocess\n8 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "46 def download_alpine_db():\n47   urllib.request.urlretrieve(\"https://osv-vulnerabilities.storage.googleapis.com/Alpine/all.zip\", \"alpine-db.zip\")\n48 \n",
+      "col_offset": 2,
+      "end_col_offset": 114,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 47,
+      "line_range": [
+        47
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "96     cmd = [\"docker\", \"run\", \"--rm\", \"--name\", container_name, \"-d\", f\"alpine:{self._alpine_version}\", \"tail\", \"-f\", \"/dev/null\"]\n97     out = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n98 \n",
+      "col_offset": 10,
+      "end_col_offset": 77,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 97,
+      "line_range": [
+        97
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "108     cmd = [\"docker\", \"stop\", \"-t\", \"0\", self._docker_container]\n109     out = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n110 \n",
+      "col_offset": 10,
+      "end_col_offset": 77,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 109,
+      "line_range": [
+        109
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "152 \n153     out = subprocess.run(self._compare_command(a, b), stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n154 \n",
+      "col_offset": 10,
+      "end_col_offset": 101,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 153,
+      "line_range": [
+        153
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "162 \n163 alpine_comparer = AlpineVersionComparer(\"/tmp/alpine-versions-generator-cache.csv\", \"exec\")\n164 \n",
+      "col_offset": 40,
+      "end_col_offset": 82,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-alpine-versions.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 163,
+      "line_range": [
+        163
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "5 import os\n6 import subprocess\n7 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-debian-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 6,
+      "line_range": [
+        6
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "42 def download_debian_db():\n43   urllib.request.urlretrieve(\"https://osv-vulnerabilities.storage.googleapis.com/Debian/all.zip\", \"debian-db.zip\")\n44 \n",
+      "col_offset": 2,
+      "end_col_offset": 114,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-debian-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 43,
+      "line_range": [
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "107     cmd = [\"dpkg\", \"--compare-versions\", a, op, b]\n108     out = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n109 \n",
+      "col_offset": 10,
+      "end_col_offset": 77,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-debian-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 108,
+      "line_range": [
+        108
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "119 \n120 debian_comparer = DebianVersionComparer(\"/tmp/debian-versions-generator-cache.csv\")\n121 \n",
+      "col_offset": 40,
+      "end_col_offset": 82,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-debian-versions.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 120,
+      "line_range": [
+        120
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "35 def download_pypi_db():\n36   urllib.request.urlretrieve(\"https://osv-vulnerabilities.storage.googleapis.com/PyPI/all.zip\", \"pypi-db.zip\")\n37 \n",
+      "col_offset": 2,
+      "end_col_offset": 110,
+      "filename": "D:\\bandit\\upstream-repos\\osv-scanner\\scripts\\generators\\generate-pypi-versions.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 36,
+      "line_range": [
+        36
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    }
+  ]
+}

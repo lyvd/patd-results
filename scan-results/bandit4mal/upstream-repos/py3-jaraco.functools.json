@@ -1,0 +1,593 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:51:53Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\conftest.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 19,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\docs\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 45,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\jaraco\\functools\\__init__.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 522,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py": {
+      "CONFIDENCE.HIGH": 24,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 24,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 195,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 26,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 25,
+      "SEVERITY.MEDIUM": 1,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 781,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "533                 try:\n534                     return eval(use)\n535                 except TypeError:\n",
+      "col_offset": 27,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\jaraco\\functools\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "line_number": 534,
+      "line_range": [
+        534
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval",
+      "test_id": "B307",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "681     def wrapper(self, *args, **kwargs):\n682         assert method(self, *args, **kwargs) is None\n683         return self\n",
+      "col_offset": 8,
+      "end_col_offset": 52,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\jaraco\\functools\\__init__.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 682,
+      "line_range": [
+        682
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "38         # ensure the counter was advanced about 30 times\n39         assert 28 <= next(counter) <= 32\n40 \n",
+      "col_offset": 8,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "47             limited_next(counter)\n48         assert 28 <= next(counter) <= 32\n49 \n",
+      "col_offset": 8,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 48,
+      "line_range": [
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "57         wrapped_again = Throttler(wrapped, 60)\n58         assert wrapped_again.func is next\n59         assert wrapped_again.max_rate == 60\n",
+      "col_offset": 8,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 58,
+      "line_range": [
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "58         assert wrapped_again.func is next\n59         assert wrapped_again.max_rate == 60\n60 \n",
+      "col_offset": 8,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 59,
+      "line_range": [
+        59
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "67         tmc = ThrottledMethodClass()\n68         assert tmc.echo('foo') == 'foo'\n69 \n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 68,
+      "line_range": [
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "116         ob[1] + ob[1]\n117         assert ob.getitem_calls == 1\n118 \n",
+      "col_offset": 8,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 117,
+      "line_range": [
+        117
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "120         ob.one + ob.one  # type: ignore[operator] # Using ParamSpec on methods is still limited\n121         assert ob.getattr_calls == 1\n122 \n",
+      "col_offset": 8,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 121,
+      "line_range": [
+        121
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "132             def mything(self) -> float:  # pragma: nocover\n133                 return random.random()\n134 \n",
+      "col_offset": 23,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 133,
+      "line_range": [
+        133
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "136 \n137         assert ob.mything == ob.mything\n138 \n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 137,
+      "line_range": [
+        137
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "149             def mything(self) -> float:\n150                 return random.random()\n151 \n",
+      "col_offset": 23,
+      "end_col_offset": 38,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 150,
+      "line_range": [
+        150
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "153 \n154         assert ob.mything == ob.mything\n155 \n",
+      "col_offset": 8,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 154,
+      "line_range": [
+        154
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "176             self.attempt()\n177         assert self.attempt() == 'Success'\n178 \n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 177,
+      "line_range": [
+        177
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "181         res = retry_call(self.attempt, retries=2, trap=ValueError)\n182         assert res == \"Success\"\n183 \n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 182,
+      "line_range": [
+        182
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "191             retry_call(self.attempt, retries=2, trap=ValueError)\n192         assert str(res.value) == 'Failed!'\n193 \n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 192,
+      "line_range": [
+        192
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "197         res = retry_call(self.attempt, retries=2, trap=errors)\n198         assert res == \"Success\"\n199 \n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 198,
+      "line_range": [
+        198
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "202         res = retry_call(self.attempt, retries=2, trap=Exception)\n203         assert res == \"Success\"\n204 \n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 203,
+      "line_range": [
+        203
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "215     def test_cleanup_called_on_exception(self) -> None:\n216         calls = random.randint(1, 10)\n217         cleanup = mock.Mock()\n",
+      "col_offset": 16,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 216,
+      "line_range": [
+        216
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "219         retry_call(self.attempt, retries=calls, cleanup=cleanup, trap=Exception)\n220         assert cleanup.call_count == calls\n221         cleanup.assert_called_with()\n",
+      "col_offset": 8,
+      "end_col_offset": 42,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 220,
+      "line_range": [
+        220
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "226         retry_call(self.attempt, retries=float('inf'), cleanup=cleanup, trap=Exception)\n227         assert cleanup.call_count == 999\n228 \n",
+      "col_offset": 8,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 227,
+      "line_range": [
+        227
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "233         res = retry_call(bound)\n234         assert res == 'Success'\n235         assert arg.touch.called\n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 234,
+      "line_range": [
+        234
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "234         assert res == 'Success'\n235         assert arg.touch.called\n236 \n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 235,
+      "line_range": [
+        235
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "240         res = attempt()\n241         assert res == \"Success\"\n242 \n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 241,
+      "line_range": [
+        241
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "247         res = attempt(arg)\n248         assert res == 'Success'\n249         assert arg.touch.called\n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 248,
+      "line_range": [
+        248
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "248         assert res == 'Success'\n249         assert arg.touch.called\n",
+      "col_offset": 8,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-jaraco.functools\\test_functools.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 249,
+      "line_range": [
+        249
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

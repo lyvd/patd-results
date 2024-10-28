@@ -1,0 +1,371 @@
+{
+  "errors": [
+    {
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\sample\\sample-plugins\\keying-material-exporter-demo\\http-client.py",
+      "reason": "syntax error while parsing AST from file"
+    },
+    {
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\sample\\sample-plugins\\keying-material-exporter-demo\\http-server.py",
+      "reason": "syntax error while parsing AST from file"
+    }
+  ],
+  "generated_at": "2024-10-27T17:29:57Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\git-version.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 40,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\parse-version.m4.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 28,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openvpn\\contrib\\extract-crl\\extractcrl.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 115,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 2,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 108,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openvpn\\sample\\sample-plugins\\keying-material-exporter-demo\\http-client.py": {
+      "loc": 16,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openvpn\\sample\\sample-plugins\\keying-material-exporter-demo\\http-server.py": {
+      "loc": 31,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\openvpn\\sample\\sample-scripts\\totpauth.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 41,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 11,
+      "CONFIDENCE.LOW": 2,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 379,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "34 import sys\n35 import subprocess\n36 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\git-version.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "37 def run_command(args):\n38     sp = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)\n39     o, _ = sp.communicate()\n",
+      "col_offset": 9,
+      "end_col_offset": 82,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\git-version.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 38,
+      "line_range": [
+        38
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "67             prev_content = f.read()\n68     except:\n69         # file doesn't exist\n70         pass\n71 \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\git-version.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 68,
+      "line_range": [
+        68,
+        69,
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "35 def main():\n36     assert len(sys.argv) > 1\n37     version_path = sys.argv[1]\n",
+      "col_offset": 4,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\parse-version.m4.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 36,
+      "line_range": [
+        36
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49             prev_content = out_file.read()\n50     except:\n51         # file doesn't exist\n52         pass\n53 \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\cmake\\parse-version.m4.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 50,
+      "line_range": [
+        50,
+        51,
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "28 import time\n29 from subprocess import check_output\n30 \n",
+      "col_offset": 0,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\extract-crl\\extractcrl.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "61         serials = set()\n62         for line in check_output(args, universal_newlines=True).splitlines():\n63             _, _, serial = line.partition('Serial Number:')\n",
+      "col_offset": 20,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\contrib\\extract-crl\\extractcrl.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "34     params = {\"o\": [\"CURRENT_REVISION\", \"LABELS\", \"DETAILED_ACCOUNTS\"]}\n35     r = requests.get(f\"{args.url}/changes/{args.changeid}\", params=params)\n36     print(r.url)\n",
+      "col_offset": 8,
+      "end_col_offset": 74,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 35,
+      "line_range": [
+        35
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "38     json_data = json.loads(json_txt)\n39     assert len(json_data[\"revisions\"]) == 1  # CURRENT_REVISION works as expected\n40     revision = json_data[\"revisions\"].popitem()[1][\"_number\"]\n",
+      "col_offset": 4,
+      "end_col_offset": 43,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 39,
+      "line_range": [
+        39
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "40     revision = json_data[\"revisions\"].popitem()[1][\"_number\"]\n41     assert \"Code-Review\" in json_data[\"labels\"]\n42     acked_by = []\n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 41,
+      "line_range": [
+        41
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "44         if \"value\" in reviewer:\n45             assert reviewer[\"value\"] >= 0  # no NACK\n46             if reviewer[\"value\"] == 2:\n",
+      "col_offset": 12,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 45,
+      "line_range": [
+        45
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "80 def get_patch(details, args):\n81     r = requests.get(\n82         f\"{args.url}/changes/{args.changeid}/revisions/{details['revision']}/patch?download\"\n83     )\n84     print(r.url)\n",
+      "col_offset": 8,
+      "end_col_offset": 5,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py",
+      "issue_confidence": "LOW",
+      "issue_cwe": {
+        "id": 400,
+        "link": "https://cwe.mitre.org/data/definitions/400.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Call to requests without timeout",
+      "line_number": 81,
+      "line_range": [
+        81,
+        82,
+        83
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html",
+      "test_id": "B113",
+      "test_name": "request_without_timeout"
+    },
+    {
+      "code": "99         signed_off_end = patch_text.index(\"\\n---\\n\") + 1\n100     assert comment_start > signed_off_end\n101     acked_by_text = \"\"\n",
+      "col_offset": 4,
+      "end_col_offset": 41,
+      "filename": "D:\\bandit\\upstream-repos\\openvpn\\dev-tools\\gerrit-send-mail.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 100,
+      "line_range": [
+        100
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

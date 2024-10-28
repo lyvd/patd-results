@@ -1,0 +1,1076 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T17:38:00Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\py3-cycler\\.circleci\\fetch_doc_logs.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 54,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-cycler\\cycler\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 447,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-cycler\\doc\\source\\conf.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 45,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py": {
+      "CONFIDENCE.HIGH": 47,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 47,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 253,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 49,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 47,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 799,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "41 try:\n42     with urlopen(artifact_url) as response:\n43         artifacts = json.load(response)\n",
+      "col_offset": 9,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\.circleci\\fetch_doc_logs.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 42,
+      "line_range": [
+        42
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "60         print(f'Downloading {path} from {item[\"url\"]}')\n61         with urlopen(item['url']) as response:\n62             (logs / path).write_bytes(response.read())\n",
+      "col_offset": 13,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\.circleci\\fetch_doc_logs.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 61,
+      "line_range": [
+        61
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "10 def _cycler_helper(c, length, keys, values):\n11     assert len(c) == length\n12     assert len(c) == len(list(c))\n",
+      "col_offset": 4,
+      "end_col_offset": 27,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 11,
+      "line_range": [
+        11
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "11     assert len(c) == length\n12     assert len(c) == len(list(c))\n13     assert c.keys == set(keys)\n",
+      "col_offset": 4,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 12,
+      "line_range": [
+        12
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "12     assert len(c) == len(list(c))\n13     assert c.keys == set(keys)\n14     for k, vals in zip(keys, values):\n",
+      "col_offset": 4,
+      "end_col_offset": 30,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 13,
+      "line_range": [
+        13
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "15         for v, v_target in zip(c, vals):\n16             assert v[k] == v_target\n17 \n",
+      "col_offset": 12,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 16,
+      "line_range": [
+        16
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "19 def _cycles_equal(c1, c2):\n20     assert list(c1) == list(c2)\n21     assert c1 == c2\n",
+      "col_offset": 4,
+      "end_col_offset": 31,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 20,
+      "line_range": [
+        20
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "20     assert list(c1) == list(c2)\n21     assert c1 == c2\n22 \n",
+      "col_offset": 4,
+      "end_col_offset": 19,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 21,
+      "line_range": [
+        21
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "160 \n161     assert repr(c + c2) == (\n162         \"(cycler('c', ['r', 'g', 'b']) + cycler('3rd', [0, 1, 2]))\")\n163     assert repr(c * c2) == (\n",
+      "col_offset": 4,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 161,
+      "line_range": [
+        161,
+        162
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "162         \"(cycler('c', ['r', 'g', 'b']) + cycler('3rd', [0, 1, 2]))\")\n163     assert repr(c * c2) == (\n164         \"(cycler('c', ['r', 'g', 'b']) * cycler('3rd', [0, 1, 2]))\")\n165 \n",
+      "col_offset": 4,
+      "end_col_offset": 68,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 163,
+      "line_range": [
+        163,
+        164
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "165 \n166     assert (c + c2)._repr_html_() == (\n167         \"<table>\"\n168         \"<th>'3rd'</th><th>'c'</th>\"\n169         \"<tr><td>0</td><td>'r'</td></tr>\"\n170         \"<tr><td>1</td><td>'g'</td></tr>\"\n171         \"<tr><td>2</td><td>'b'</td></tr>\"\n172         \"</table>\")\n173     assert (c * c2)._repr_html_() == (\n",
+      "col_offset": 4,
+      "end_col_offset": 19,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 166,
+      "line_range": [
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "172         \"</table>\")\n173     assert (c * c2)._repr_html_() == (\n174         \"<table>\"\n175         \"<th>'3rd'</th><th>'c'</th>\"\n176         \"<tr><td>0</td><td>'r'</td></tr>\"\n177         \"<tr><td>1</td><td>'r'</td></tr>\"\n178         \"<tr><td>2</td><td>'r'</td></tr>\"\n179         \"<tr><td>0</td><td>'g'</td></tr>\"\n180         \"<tr><td>1</td><td>'g'</td></tr>\"\n181         \"<tr><td>2</td><td>'g'</td></tr>\"\n182         \"<tr><td>0</td><td>'b'</td></tr>\"\n183         \"<tr><td>1</td><td>'b'</td></tr>\"\n184         \"<tr><td>2</td><td>'b'</td></tr>\"\n185         \"</table>\")\n186 \n",
+      "col_offset": 4,
+      "end_col_offset": 19,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 173,
+      "line_range": [
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "190     c_cycle = c()\n191     assert isinstance(c_cycle, cycle)\n192     j = 0\n",
+      "col_offset": 4,
+      "end_col_offset": 37,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 191,
+      "line_range": [
+        191
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "194         j += 1\n195         assert a == b\n196 \n",
+      "col_offset": 8,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 195,
+      "line_range": [
+        195
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "196 \n197     assert j == len(c) * 2\n198 \n",
+      "col_offset": 4,
+      "end_col_offset": 26,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 197,
+      "line_range": [
+        197
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "220 \n221     assert c1 == cycler('c', [1, 2, 3])\n222     assert c2 == cycler('lw', ['r', 'g', 'b'])\n",
+      "col_offset": 4,
+      "end_col_offset": 39,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 221,
+      "line_range": [
+        221
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "221     assert c1 == cycler('c', [1, 2, 3])\n222     assert c2 == cycler('lw', ['r', 'g', 'b'])\n223     assert c3 == cycler('foo', [['y', 'g', 'blue'], ['b', 'k']])\n",
+      "col_offset": 4,
+      "end_col_offset": 46,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 222,
+      "line_range": [
+        222
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "222     assert c2 == cycler('lw', ['r', 'g', 'b'])\n223     assert c3 == cycler('foo', [['y', 'g', 'blue'], ['b', 'k']])\n224     assert c_before == (cycler(c=[1, 2, 3], lw=['r', 'g', 'b']) *\n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 223,
+      "line_range": [
+        223
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "223     assert c3 == cycler('foo', [['y', 'g', 'blue'], ['b', 'k']])\n224     assert c_before == (cycler(c=[1, 2, 3], lw=['r', 'g', 'b']) *\n225                         cycler('foo', [['y', 'g', 'blue'], ['b', 'k']]))\n226     assert c_after == (cycler(c=[1, 2, 3], lw=['r', 'g', 'b']) *\n",
+      "col_offset": 4,
+      "end_col_offset": 72,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 224,
+      "line_range": [
+        224,
+        225
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "225                         cycler('foo', [['y', 'g', 'blue'], ['b', 'k']]))\n226     assert c_after == (cycler(c=[1, 2, 3], lw=['r', 'g', 'b']) *\n227                        cycler('foo', [['y', 'g', 'blue'], ['b', 'k']]))\n228 \n",
+      "col_offset": 4,
+      "end_col_offset": 71,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 226,
+      "line_range": [
+        226,
+        227
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "232     c4 = cycler('bar', c3)\n233     assert c == (cycler(c=[1, 2, 3], lw=['r', 'g', 'b']) *\n234                  cycler('foo', [['y', 'g', 'blue'], ['b', 'k']]))\n235     assert c3 == cycler('foo', [['y', 'g', 'blue'], ['b', 'k']])\n",
+      "col_offset": 4,
+      "end_col_offset": 65,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 233,
+      "line_range": [
+        233,
+        234
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "234                  cycler('foo', [['y', 'g', 'blue'], ['b', 'k']]))\n235     assert c3 == cycler('foo', [['y', 'g', 'blue'], ['b', 'k']])\n236     assert c4 == cycler('bar', [['y', 'g', 'blue'], ['b', 'k']])\n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 235,
+      "line_range": [
+        235
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "235     assert c3 == cycler('foo', [['y', 'g', 'blue'], ['b', 'k']])\n236     assert c4 == cycler('bar', [['y', 'g', 'blue'], ['b', 'k']])\n237 \n",
+      "col_offset": 4,
+      "end_col_offset": 64,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 236,
+      "line_range": [
+        236
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "244     c3.change_key('ec', 'edgecolor')\n245     assert c3 == cycler('edgecolor', c3)\n246 \n",
+      "col_offset": 4,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 245,
+      "line_range": [
+        245
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "250     # impact in the original cycler.\n251     assert c2 == cycler('lw', [1, 2, 3])\n252     assert c == c1 + cycler('linewidth', c2)\n",
+      "col_offset": 4,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 251,
+      "line_range": [
+        251
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "251     assert c2 == cycler('lw', [1, 2, 3])\n252     assert c == c1 + cycler('linewidth', c2)\n253 \n",
+      "col_offset": 4,
+      "end_col_offset": 44,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 252,
+      "line_range": [
+        252
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "255     c.change_key('c', 'color')\n256     assert c1 == cycler('c', 'rgb')\n257     assert c == (cycler('color', c1) + c2) * c3\n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 256,
+      "line_range": [
+        256
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "256     assert c1 == cycler('c', 'rgb')\n257     assert c == (cycler('color', c1) + c2) * c3\n258 \n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 257,
+      "line_range": [
+        257
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "260     c.change_key('color', 'color')\n261     assert c == (cycler('color', c1) + c2) * c3\n262 \n",
+      "col_offset": 4,
+      "end_col_offset": 47,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 261,
+      "line_range": [
+        261
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "271     b = cycler(c='rgb')\n272     assert a == b\n273     assert a != b[::-1]\n",
+      "col_offset": 4,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 272,
+      "line_range": [
+        272
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "272     assert a == b\n273     assert a != b[::-1]\n274     c = cycler(lw=range(3))\n",
+      "col_offset": 4,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 273,
+      "line_range": [
+        273
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "274     c = cycler(lw=range(3))\n275     assert a + c == c + a\n276     assert a + c == c + b\n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 275,
+      "line_range": [
+        275
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "275     assert a + c == c + a\n276     assert a + c == c + b\n277     assert a * c != c * a\n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 276,
+      "line_range": [
+        276
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "276     assert a + c == c + b\n277     assert a * c != c * a\n278     assert a != c\n",
+      "col_offset": 4,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 277,
+      "line_range": [
+        277
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "277     assert a * c != c * a\n278     assert a != c\n279     d = cycler(c='ymk')\n",
+      "col_offset": 4,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 278,
+      "line_range": [
+        278
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "279     d = cycler(c='ymk')\n280     assert b != d\n281     e = cycler(c='orange')\n",
+      "col_offset": 4,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 280,
+      "line_range": [
+        280
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "281     e = cycler(c='orange')\n282     assert b != e\n283 \n",
+      "col_offset": 4,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 282,
+      "line_range": [
+        282
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "295     cy = Cycler(list(c), c2, zip)\n296     assert cy == c + c2\n297 \n",
+      "col_offset": 4,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 296,
+      "line_range": [
+        296
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "302     for con, chn in zip(a.concat(b), chain(a, b)):\n303         assert con == chn\n304 \n",
+      "col_offset": 8,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 303,
+      "line_range": [
+        303
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "305     for con, chn in zip(concat(a, b), chain(a, b)):\n306         assert con == chn\n307 \n",
+      "col_offset": 8,
+      "end_col_offset": 25,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 306,
+      "line_range": [
+        306
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "322 \n323     assert res == target\n324 \n",
+      "col_offset": 4,
+      "end_col_offset": 24,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 323,
+      "line_range": [
+        323
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "329     res = cy.by_key()\n330     assert res == input_dict\n331     _by_key_helper(cy)\n",
+      "col_offset": 4,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 330,
+      "line_range": [
+        330
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "337     res = cy.by_key()\n338     assert input_dict['lw'] * len(input_dict['c']) == res['lw']\n339     _by_key_helper(cy)\n",
+      "col_offset": 4,
+      "end_col_offset": 63,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 338,
+      "line_range": [
+        338
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "345 \n346     assert 'a' in a\n347     assert 'b' in b\n",
+      "col_offset": 4,
+      "end_col_offset": 19,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 346,
+      "line_range": [
+        346
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "346     assert 'a' in a\n347     assert 'b' in b\n348     assert 'a' not in b\n",
+      "col_offset": 4,
+      "end_col_offset": 19,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 347,
+      "line_range": [
+        347
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "347     assert 'b' in b\n348     assert 'a' not in b\n349     assert 'b' not in a\n",
+      "col_offset": 4,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 348,
+      "line_range": [
+        348
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "348     assert 'a' not in b\n349     assert 'b' not in a\n350 \n",
+      "col_offset": 4,
+      "end_col_offset": 23,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 349,
+      "line_range": [
+        349
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "352 \n353     assert 'a' in ab\n354     assert 'b' in ab\n",
+      "col_offset": 4,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 353,
+      "line_range": [
+        353
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "353     assert 'a' in ab\n354     assert 'b' in ab\n",
+      "col_offset": 4,
+      "end_col_offset": 20,
+      "filename": "D:\\bandit\\upstream-repos\\py3-cycler\\test_cycler.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 354,
+      "line_range": [
+        354
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}

@@ -1,0 +1,404 @@
+{
+  "errors": [],
+  "generated_at": "2024-10-27T18:17:28Z",
+  "metrics": {
+    "D:\\bandit\\upstream-repos\\wasmedge\\.github\\scripts\\wasi-testsuite-adapter.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 22,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 5,
+      "SEVERITY.LOW": 5,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1312,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\bandit\\upstream-repos\\wasmedge\\utils\\ohos\\configuration\\build_thirdparty.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 34,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 17,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 5,
+      "SEVERITY.LOW": 10,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1368,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "1 import argparse\n2 import subprocess\n3 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\.github\\scripts\\wasi-testsuite-adapter.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 2,
+      "line_range": [
+        2
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "20     # ensure no args when version is queried\n21     subprocess.run(WASMEDGE[0:1] + [\"--version\"])\n22     sys.exit(0)\n",
+      "col_offset": 4,
+      "end_col_offset": 49,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\.github\\scripts\\wasi-testsuite-adapter.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 21,
+      "line_range": [
+        21
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "28 \n29 r = subprocess.run(WASMEDGE + ENV_ARGS + DIR_ARGS + [TEST_FILE] + PROG_ARGS)\n30 sys.exit(r.returncode)\n",
+      "col_offset": 4,
+      "end_col_offset": 76,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\.github\\scripts\\wasi-testsuite-adapter.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 29,
+      "line_range": [
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "30 import platform\n31 import subprocess\n32 import re\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 31,
+      "line_range": [
+        31
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "43         try:\n44             return urllib.request.urlretrieve(url, *args)\n45         except urllib.error.HTTPError as e:\n",
+      "col_offset": 19,
+      "end_col_offset": 57,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "line_number": 44,
+      "line_range": [
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b310-urllib-urlopen",
+      "test_id": "B310",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "59 else:\n60     exec(\"def reraise(tp, value=None, tb=None):\\n    raise tp, value, tb\\n\")\n61 \n",
+      "col_offset": 4,
+      "end_col_offset": 76,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 60,
+      "line_range": [
+        60
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "143         with tarfile.open(from_path, \"r\") as tar:\n144             tar.extractall(path=to_path)\n145             files_extracted = tar.getnames()\n",
+      "col_offset": 12,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "line_number": 144,
+      "line_range": [
+        144
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b202_tarfile_unsafe_members.html",
+      "test_id": "B202",
+      "test_name": "tarfile_unsafe_members"
+    },
+    {
+      "code": "147         with tarfile.open(from_path, \"r:gz\") as tar:\n148             tar.extractall(path=to_path)\n149             files_extracted = tar.getnames()\n",
+      "col_offset": 12,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "line_number": 148,
+      "line_range": [
+        148
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b202_tarfile_unsafe_members.html",
+      "test_id": "B202",
+      "test_name": "tarfile_unsafe_members"
+    },
+    {
+      "code": "151         with tarfile.open(from_path, \"r:xz\") as tar:\n152             tar.extractall(path=to_path)\n153             files_extracted = tar.getnames()\n",
+      "col_offset": 12,
+      "end_col_offset": 40,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "line_number": 152,
+      "line_range": [
+        152
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b202_tarfile_unsafe_members.html",
+      "test_id": "B202",
+      "test_name": "tarfile_unsafe_members"
+    },
+    {
+      "code": "155         with zipfile.ZipFile(from_path, \"r\") as z:\n156             z.extractall(to_path)\n157             files_extracted = z.namelist()\n",
+      "col_offset": 12,
+      "end_col_offset": 33,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 22,
+        "link": "https://cwe.mitre.org/data/definitions/22.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "line_number": 156,
+      "line_range": [
+        156
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b202_tarfile_unsafe_members.html",
+      "test_id": "B202",
+      "test_name": "tarfile_unsafe_members"
+    },
+    {
+      "code": "407     mkdir(TEMP_PATH)\n408 except:\n409     pass\n410 \n",
+      "col_offset": 0,
+      "end_col_offset": 8,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 408,
+      "line_range": [
+        408,
+        409
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "492             mkdir(join(args.path, \"plugin\"))\n493     except:\n494         pass\n495     CONST_env_path = join(args.path, \"env\")\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 493,
+      "line_range": [
+        493,
+        494
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "592                             )\n593                         except:\n594                             pass\n595                 elif (\n",
+      "col_offset": 24,
+      "end_col_offset": 32,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 593,
+      "line_range": [
+        593,
+        594
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "888                                 )\n889                             except:\n890                                 pass\n891 \n",
+      "col_offset": 28,
+      "end_col_offset": 36,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 889,
+      "line_range": [
+        889,
+        890
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "1106     try:\n1107         output = subprocess.check_output([cmd], shell=True)\n1108         return output.decode(\"utf8\").strip()\n",
+      "col_offset": 17,
+      "end_col_offset": 59,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\install.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 1107,
+      "line_range": [
+        1107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "6 import sys\n7 from subprocess import Popen\n8 import argparse\n",
+      "col_offset": 0,
+      "end_col_offset": 28,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\ohos\\configuration\\build_thirdparty.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 7,
+      "line_range": [
+        7
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "12     cmd = shlex.split(command)\n13     proc = Popen(cmd)\n14     proc.wait()\n",
+      "col_offset": 11,
+      "end_col_offset": 21,
+      "filename": "D:\\bandit\\upstream-repos\\wasmedge\\utils\\ohos\\configuration\\build_thirdparty.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 13,
+      "line_range": [
+        13
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}
