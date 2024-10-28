@@ -1,0 +1,885 @@
+{
+    "Files": {
+        "/tmp/tctl.zip842458694/.devcontainer/Dockerfile.temporalite": {
+            "Path": "/tmp/tctl.zip842458694/.devcontainer/Dockerfile.temporalite",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.devcontainer/devcontainer.json": {
+            "Path": "/tmp/tctl.zip842458694/.devcontainer/devcontainer.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.devcontainer/docker-compose.yml": {
+            "Path": "/tmp/tctl.zip842458694/.devcontainer/docker-compose.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.devcontainer/library-scripts/common-debian.sh": {
+            "Path": "datasets/repo/tctl.zip ∴ /.devcontainer/library-scripts/common-debian.sh",
+            "SHA256": "d35dd1711454156c9a59cc41ebe04fbff681ca0bd304f10fd5b13285d0de13b2",
+            "Size": 18654,
+            "Behaviors": [
+                {
+                    "Description": "references /etc/sudoers",
+                    "MatchStrings": [
+                        "/etc/sudoers",
+                        "NOPASSWD:"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/sudoers-edit.yara#sudo_editor",
+                    "ID": "admin/sudoers/edit",
+                    "RuleName": "sudo_editor"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tctl.zip842458694/.devcontainer/library-scripts/docker-debian.sh": {
+            "Path": "datasets/repo/tctl.zip ∴ /.devcontainer/library-scripts/docker-debian.sh",
+            "SHA256": "4551f3601963219269b25167b68606593871954066129f43960237ecd1c2f865",
+            "Size": 13262,
+            "Behaviors": [
+                {
+                    "Description": "Installs software using pip from python",
+                    "MatchStrings": [
+                        "pip3 install --disable-pip-version-check"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/admin/pip_install.yara#pip_installer",
+                    "ID": "admin/pip_install",
+                    "RuleName": "pip_installer"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tctl.zip842458694/.devcontainer/library-scripts/go-debian.sh": {
+            "Path": "datasets/repo/tctl.zip ∴ /.devcontainer/library-scripts/go-debian.sh",
+            "SHA256": "cf0a51e4b200880af950208bef63ccd1928e54b66994ea70f9da4ca24daad16f",
+            "Size": 9367,
+            "Behaviors": [
+                {
+                    "Description": "high-risk fetch command",
+                    "MatchStrings": [
+                        "curl -sSL -o /tmp/go.tar.gz \"https://golang.org/dl/go${TARGET_GO_VERSION}.linux-${architecture}.tar.gz\"",
+                        "curl -sSL -o /tmp/go.tar.gz.asc \"https://golang.org/dl/go${TARGET_GO_VERSION}.linux-${architecture}.tar.gz.asc\"",
+                        "curl -sSL -o /tmp/tmp-gnupg/golang_key \"${GO_GPG_KEY_URI}\""
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/net/fetch-suspicious.yara#high_fetch_command_val",
+                    "ID": "net/fetch/suspicious",
+                    "RuleName": "high_fetch_command_val"
+                },
+                {
+                    "Description": "changes to an unusual system directory",
+                    "MatchStrings": [
+                        "cd /tmp"
+                    ],
+                    "RiskScore": 3,
+                    "RiskLevel": "HIGH",
+                    "RuleURL": "https://github.com/chainguard-dev/malcontent/blob/main/rules/process/chdir-unusual.yara#unusual_cd_val",
+                    "ID": "process/chdir/unusual",
+                    "RuleName": "unusual_cd_val"
+                }
+            ],
+            "RiskScore": 3,
+            "RiskLevel": "HIGH"
+        },
+        "/tmp/tctl.zip842458694/.editorconfig": {
+            "Path": "/tmp/tctl.zip842458694/.editorconfig",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.github/workflows/docker.yml": {
+            "Path": "/tmp/tctl.zip842458694/.github/workflows/docker.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.github/workflows/goreleaser.yml": {
+            "Path": "/tmp/tctl.zip842458694/.github/workflows/goreleaser.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.github/workflows/test.yml": {
+            "Path": "/tmp/tctl.zip842458694/.github/workflows/test.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.github/workflows/trigger-publish.yml": {
+            "Path": "/tmp/tctl.zip842458694/.github/workflows/trigger-publish.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.gitignore": {
+            "Path": "/tmp/tctl.zip842458694/.gitignore",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/.vscode/launch.json": {
+            "Path": "/tmp/tctl.zip842458694/.vscode/launch.json",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/Dockerfile": {
+            "Path": "/tmp/tctl.zip842458694/Dockerfile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/LICENSE": {
+            "Path": "/tmp/tctl.zip842458694/LICENSE",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/Makefile": {
+            "Path": "/tmp/tctl.zip842458694/Makefile",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/README.md": {
+            "Path": "/tmp/tctl.zip842458694/README.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/activity.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/activity.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/activity_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/activity_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/alias.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/alias.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/app.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/app.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/app_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/app_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/batch.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/batch.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/batch_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/batch_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/batch_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/batch_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/cluster.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/cluster.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/cluster_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/cluster_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/cluster_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/cluster_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/completion.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/completion.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/config.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/config.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/config_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/config_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/data_converter.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/data_converter.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/data_converter_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/data_converter_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/dataconverter/data_converter.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/dataconverter/data_converter.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/defs.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/defs.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/env.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/env.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/env_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/env_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/factory.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/factory.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/factory_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/factory_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/flags.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/flags.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/headers/headers.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/headers/headers.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/headers/headers_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/headers/headers_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/headersprovider/headers_provider.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/headersprovider/headers_provider.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/namespace.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/namespace.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/namespace_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/namespace_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/namespace_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/namespace_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/namespace_utils.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/namespace_utils.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/plugin/context.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/plugin/context.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/plugin/data_converter_plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/plugin/data_converter_plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/plugin/headers_provider_plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/plugin/headers_provider_plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/plugin/plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/plugin/plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/schedule.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/schedule.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/schedule_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/schedule_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/sdk_logger.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/sdk_logger.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/search_attribute.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/search_attribute.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/search_attribute_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/search_attribute_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/search_attribute_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/search_attribute_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/stringify/stringify.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/stringify/stringify.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/stringify/stringify_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/stringify/stringify_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/task_queue.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/task_queue.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/task_queue_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/task_queue_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/testdata/4096b-rsa-example-cert.pem": {
+            "Path": "/tmp/tctl.zip842458694/cli/testdata/4096b-rsa-example-cert.pem",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/testdata/cert.pem": {
+            "Path": "/tmp/tctl.zip842458694/cli/testdata/cert.pem",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/trace/execution_state.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/trace/execution_state.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/trace/execution_state_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/trace/execution_state_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/use_dynamic_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/use_dynamic_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/util.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/util.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/util_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/util_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/workflow.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/workflow.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/workflow_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/workflow_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli/workflow_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli/workflow_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/README.md": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/README.md",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/activity.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/activity.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/admin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/admin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminClusterCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminClusterCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminClusterCommands_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminClusterCommands_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminDBCleanCommand.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminDBCleanCommand.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminDBCommandsFileWriter.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminDBCommandsFileWriter.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminDBScanCommand.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminDBScanCommand.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminDLQCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminDLQCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/adminTaskQueueCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/adminTaskQueueCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/admin_cluster_search_attributes_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/admin_cluster_search_attributes_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/admin_decode_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/admin_decode_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/app.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/app.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/app_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/app_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/batch.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/batch.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/batchv2.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/batchv2.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/batchv2_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/batchv2_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/cluster.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/cluster.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/clusterCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/clusterCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/cluster_search_attributes_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/cluster_search_attributes_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/completion.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/completion.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/config.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/config.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/data_converter.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/data_converter.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/data_converter_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/data_converter_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/dataconverter/dataconverter.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/dataconverter/dataconverter.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/defs copy.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/defs copy.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/defs.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/defs.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/factory.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/factory.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/factory_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/factory_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/flags.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/flags.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/headersprovider/headers_provider.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/headersprovider/headers_provider.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/namespace.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/namespace.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/namespaceCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/namespaceCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/namespaceUtils.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/namespaceUtils.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/persistenceUtil.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/persistenceUtil.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/plugin/context.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/plugin/context.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/plugin/data_converter_plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/plugin/data_converter_plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/plugin/headers_provider_plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/plugin/headers_provider_plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/plugin/plugin.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/plugin/plugin.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/schedule.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/schedule.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/schedule_commands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/schedule_commands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/stringify/stringify.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/stringify/stringify.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/stringify/stringify_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/stringify/stringify_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/taskQueue.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/taskQueue.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/taskQueueCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/taskQueueCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/testdata/4096b-rsa-example-cert.pem": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/testdata/4096b-rsa-example-cert.pem",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/testdata/cert.pem": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/testdata/cert.pem",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/util.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/util.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/util_test.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/util_test.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/workflow.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/workflow.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/workflowBatchCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/workflowBatchCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cli_curr/workflowCommands.go": {
+            "Path": "/tmp/tctl.zip842458694/cli_curr/workflowCommands.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cmd/copyright/licensegen.go": {
+            "Path": "/tmp/tctl.zip842458694/cmd/copyright/licensegen.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cmd/plugins/tctl-authorization-plugin/main.go": {
+            "Path": "/tmp/tctl.zip842458694/cmd/plugins/tctl-authorization-plugin/main.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/cmd/tctl/main.go": {
+            "Path": "/tmp/tctl.zip842458694/cmd/tctl/main.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/completion/completion.go": {
+            "Path": "/tmp/tctl.zip842458694/completion/completion.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/config/config.go": {
+            "Path": "/tmp/tctl.zip842458694/config/config.go",
+            "SHA256": "",
+            "Size": 0,
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/go.mod": {
+            "Path": "/tmp/tctl.zip842458694/go.mod",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/go.sum": {
+            "Path": "/tmp/tctl.zip842458694/go.sum",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        },
+        "/tmp/tctl.zip842458694/goreleaser.yml": {
+            "Path": "/tmp/tctl.zip842458694/goreleaser.yml",
+            "SHA256": "",
+            "Size": 0,
+            "Skipped": "data file",
+            "RiskScore": 0
+        }
+    },
+    "Filter": "false_positive,ignore"
+}
