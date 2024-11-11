@@ -2,25 +2,11 @@ import os
 import json
 import csv
 from collections import Counter
-import re
+
 FILE_TEXT_EXTENSION = [
-    '.txt',    # Plain text file
-    '.md',     # Markdown file
-    '.rtf',    # Rich Text Format
-    '.csv',    # Comma-Separated Values
-    '.log',    # Log file
-    '.xml',    # XML file
-    '.yaml',   # YAML Ain't Markup Language
-    '.yml',    # YAML Ain't Markup Language
-    '.ini',    # Initialization file
-    '.conf',   # Configuration file
-    '.cfg',    # Configuration file
-    '.sql',    # SQL file
-    '.tex',    # LaTeX file
-    '.html',   # Hypertext Markup Language
-    '.htm',    # Hypertext Markup Language
-    '.srt',    # SubRip Subtitle
-    'README',  # README file
+    '.txt', '.md', '.rtf', '.csv', '.log', '.xml', 
+    '.yaml', '.yml', '.ini', '.conf', '.cfg', 
+    '.sql', '.tex', '.html', '.htm', '.srt', 'README'
 ]
 
 def parse_oss_detect_backdoor_file(file_path):
@@ -31,44 +17,44 @@ def parse_oss_detect_backdoor_file(file_path):
     else:
         package_information['dataset'] = file_parts[-2]
 
-    package_information['package'] = file_path.split(os.sep)[-1]
+    package_information['package'] = file_parts[-1]
 
     if not os.path.exists(file_path):
         print(f"File {file_path} does not exist.")
         return []
+
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)           
+            data = json.load(f)
             results = []
-            for run in data.get('runs', []):
+            for run in data.get('runs', []): # only have 1 row
                 number_of_alert = Counter()
                 for result in run.get('results', []):
-                    # Extract the physical location
                     for location in result.get('locations', []):
                         physical_location = location.get('physicalLocation', {})
-                        file_path = physical_location.get('address', {}).get('fullyQualifiedName', 'Unknown')
-                        
-                        # Check if file path does not end with specified extensions
-                        if not file_path.endswith(tuple(FILE_TEXT_EXTENSION)):
-                            number_of_alert[file_path] += 1
-                    
-                for file, count in number_of_alert.most_common():
-                    results.append({
-                        'dataset': package_information['dataset'],
-                        'package': package_information['package'],
-                        'file': file,
-                        'number_of_alerts': count,
-                    })
+                        file_name = physical_location.get('address', {}).get('fullyQualifiedName', 'Unknown')
+
+                        # Check if file name does not end with specified extensions
+                        if not file_name.endswith(tuple(FILE_TEXT_EXTENSION)) and file_name != 'Unknown':
+                            number_of_alert[file_name] += 1
+        
+            for file_name, number_of_alerts in number_of_alert.items():
+                results.append({
+                    'dataset': package_information['dataset'],
+                    'package': package_information['package'],
+                    'file': file_name,
+                    'number_of_alerts': number_of_alerts,
+                })
+
             
             return results
     except (json.JSONDecodeError, IOError) as e:
         print(f"Error processing file {file_path}: {e}")
         return []
-    
 
 def save_results_to_csv(results, output_file):
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['Dataset', 'Package', 'File', 'Number of alerts']
+        fieldnames = ['Dataset', 'Package', 'File', 'Number of Alerts']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -77,12 +63,11 @@ def save_results_to_csv(results, output_file):
                 'Dataset': result['dataset'],
                 'Package': result['package'],
                 'File': result['file'],
-                'Number of alerts': result['number_of_alerts'],
+                'Number of Alerts': result['number_of_alerts'],
             })
 
-
 def explore_and_parse_files(root_dir):
-    """return a list of results from parsing JSON files in the root directory."""
+    """Return a list of results from parsing JSON files in the root directory."""
     all_results = []
     for root, dirs, files in os.walk(root_dir):
         for file in files:
@@ -99,8 +84,6 @@ def main():
     
     output_file = os.path.abspath(os.path.join(script_dir, '../../results-csv/oss-detect-backdoor.csv'))
     save_results_to_csv(results, output_file)
-    
-
 
 if __name__ == "__main__":
     main()
