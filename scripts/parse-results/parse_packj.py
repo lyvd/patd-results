@@ -8,6 +8,18 @@ def filter_languages(language):
     allowed_languages = {"python": "Python", "javascript": "Javascript", "ruby": "Ruby"}
     return allowed_languages.get(language.lower(), None)
 
+
+def get_source_type_full_name(api_result, api_configs):
+    for api_config in api_configs:
+        if api_config.get('type') == api_result.get('type'):
+            if api_config.get('name') == api_result.get('name'):
+                if api_config.get('fullName') == api_result.get('fullName'):
+                    if api_config.get('baseType', '') == api_result.get('baseType', ''):
+                        return api_config.get('sourceType', api_config.get('sourceSink', '')), api_config.get('fullName')
+                   
+            
+    return None, None
+
 def process_single_file(file_path):
     """Processes a single file and extracts relevant package data."""
 
@@ -30,15 +42,19 @@ def process_single_file(file_path):
             package_data = data.get('pkgs', [{}])[0]  # Safely access the first element
             language = package_data.get('language')
             package_name = package_data.get('pkgName')
+            config_type_source = {}
+            api_configs = package_data.get('config', {}).get('apis', [])
             
-            for api in package_data.get('config', {}).get("apis", []):  # Safely iterate over 'config'
-                results.append({
-                    'Dataset': package_information['dataset'],
-                    'Package': package_name,
-                    'Language': filter_languages(language.lower()),
-                    'fullName': api.get('fullName'),
-                    'sourceType': api.get('sourceType', api.get('sinkType'))
-                })
+            for api in package_data.get("apiResults", []):  # Safely iterate over 'config'
+                source_type,  full_name = get_source_type_full_name(api, api_configs)
+                if source_type:
+                    results.append({
+                        'Dataset': package_information['dataset'],
+                        'Package': package_name,
+                        'Language': filter_languages(language.lower()),
+                        'fullName': full_name,
+                        'sourceType': source_type
+                    })
         return results
     except json.JSONDecodeError:
         print(f"Error decoding JSON in file: {os.path.basename(file_path)}")
@@ -63,6 +79,8 @@ def explore_file(directory_path):
 
     with multiprocessing.Pool() as pool:
         results = pool.map(process_single_file, all_files)
+        pool.close()
+        pool.join()
 
     # Flatten the results list
     return [item for sublist in results for item in sublist]
