@@ -6,7 +6,7 @@ This repository contains the source code and data for the paper titled "A Study 
 
 - **Jupyter Notebook**: [`PATD_data_analysis.ipynb`](./notebooks/PATD_data_analysis.ipynb) - Contains code to generate tables and ROC curves for the paper.
 - **Scan Results**: [`scan-results`](./scan-results/) - Results from malware detection scanners.
-- **Parsed Results**: [`results-csv`](./results-csv/) - Contains CSV files with parsed results from the [`scan-results`](./scan-results/). These files include only HIGH or CRITICAL alerts, except for [`results-csv/full`](./results-csv/full/), which contains all alerts.
+- **Parsed Results format CSV**: [`results-csv`](./results-csv/) - Contains CSV files with parsed results from the [`scan-results`](./scan-results/). These files include only HIGH or CRITICAL alerts, except for [`results-csv/full`](./results-csv/full/), which contains all alerts.
 - **Scripts**: 
     - [`scripts`](./scripts/) - Contains automation scripts for running malware detection scanners.
     - [`parse-results`](./scripts/parse-results/) - Scripts to parse raw scan results into CSV format.
