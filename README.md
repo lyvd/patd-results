@@ -21,7 +21,7 @@ This repository contains the source code and data for the paper titled "A Study 
 1. **VirusTotal**: [VirusTotal](https://www.virustotal.com/gui/home/upload)
 2. **Malcontent**: [Install Malcontent](https://github.com/chainguard-dev/malcontent#:~:text=pacman%20%2DS%20yara-,Install%20malcontent%3A,-go%20install%20github)
 3. **Bandit4mal**: [Install Bandit4mal](https://github.com/lyvd/bandit4mal)
-4. **Packj**: Modified Packj tool supporting three languages:
+4. **Packj**: [`scripts\cg-packj`](./scripts/cg-packj/) - Modified Packj tool supporting three languages:
      - **Python**: [`cg_scanner.py`](./scripts/cg-packj/cg_scanner.py) - Script to scan Python samples.
      - **JavaScript**: [`cg_scanner_js.py`](./scripts/cg-packj/cg_scanner_js.py) - Script to scan JavaScript samples.
      - **Ruby**: [`cg_scanner_ruby.py`](./scripts/cg-packj/cg_scanner_ruby.py) - Script to scan Ruby samples.
