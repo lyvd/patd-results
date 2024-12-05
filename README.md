@@ -27,3 +27,16 @@ This repository contains the source code and data for the paper titled "A Study 
      - **Ruby**: [`cg_scanner_ruby.py`](./scripts/cg-packj/cg_scanner_ruby.py) - Script to scan Ruby samples.
 5. **Oss-detect-backdoor**: [Install Oss-detect-backdoor](https://github.com/microsoft/OSSGadget?tab=readme-ov-file)
 
+
+## Citation
+
+If you use this repository or find it helpful, please cite our paper:
+
+```bibtex
+@article{vu2024study,
+    title={A Study of Malware Prevention in Linux Distributions},
+    author={Vu, Duc-Ly and Dunlap, Trevor and Obermeier-Velazquez, Karla and Gilbert, Paul and Meyers, John Speed and Torres-Arias, Santiago},
+    journal={arXiv preprint arXiv:2411.11017},
+    year={2024}
+}
+```
